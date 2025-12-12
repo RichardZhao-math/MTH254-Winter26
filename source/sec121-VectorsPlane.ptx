@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec121-VectorsPlane" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Vectors in the Plane</title>
+
+  <introduction>
+    <p>
+      The big question in this section is <alert>how to approximate the area under the curve of a function</alert>. 
+      We will learn some methods to approximate the area and also how to make the approximation more and more precise. 
+    </p>
+
+    <objectives>
+      <introduction>
+        <p>
+          After this section, students will be able to:
+        </p>
+      </introduction>
+      <ul>
+        <li>
+          <p>
+            define what a vector is in the plane
+          </p>
+        </li>
+        <li>
+          <p>
+            perform vector addition and scalar multiplication geometrically and component-wise
+          </p>
+        </li>
+      </ul>
+    </objectives>
+    
+  </introduction>
+
+  <subsection xml:id="subsec-VectorAlgebra">
+    <title>Vector Algebra</title>
+    
+  </subsection>
+
+</section>

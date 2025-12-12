@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch15-MultipleIntegration" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Multiple Integration</title>
+
+  <!-- include sections -->
+  <xi:include href="sec151-IntegrationTwoVariables.ptx" />
+  <xi:include href="sec152-DoubleIntegrals.ptx" />
+  <xi:include href="sec153-TripleIntegrals.ptx" />
+  <xi:include href="sec154-IntegrationPolarCylindricalSphericalCoordinates.ptx" />
+  <xi:include href="sec156-ChangeofVariables.ptx" />
+
+</chapter>

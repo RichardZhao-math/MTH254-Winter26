@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec124-CrossProduct" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Cross Product</title>
+
+  <introduction>
+    <p>
+      The big question in this section is <alert>how to approximate the area under the curve of a function</alert>. 
+      We will learn some methods to approximate the area and also how to make the approximation more and more precise. 
+    </p>
+
+    <objectives>
+      <introduction>
+        <p>
+          After this section, students will be able to:
+        </p>
+      </introduction>
+      <ul>
+        <li>
+          <p>
+            define what a vector is in the plane
+          </p>
+        </li>
+        <li>
+          <p>
+            perform vector addition and scalar multiplication geometrically and component-wise
+          </p>
+        </li>
+      </ul>
+    </objectives>
+    
+  </introduction>
+
+  <subsection xml:id="subsec-CrossProduct">
+    <title>The Cross Product</title>
+    
+    <figure xml:id="fig-cross-product-rhr">
+      <caption>The Right Hand Rule for Cross Products</caption>
+      <image source="RightHandRule_CrossProduct.png" width="50%">
+          <description>A diagram showing the right hand rule where the index finger points along vector A, middle finger along B, and thumb illustrates the resulting cross product.</description>
+      </image>
+    </figure>
+
+  </subsection>
+
+</section>

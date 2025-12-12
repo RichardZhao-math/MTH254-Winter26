@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch13-CalcVectorFunctions" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Calculus of Vector-Valued Functions</title>
+
+  <!-- include sections -->
+  <xi:include href="sec131-VectorFunctions.ptx" />
+  <xi:include href="sec132-CalcVectorFunctions.ptx" />
+  <xi:include href="sec133-ArcLength.ptx" />
+  <xi:include href="sec134-Curvature.ptx" />
+
+</chapter>
