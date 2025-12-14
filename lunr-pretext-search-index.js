@@ -16,7 +16,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "12.1",
   "title": "Vectors in the Plane",
-  "body": " Vectors in the Plane   The big question in this section is how to approximate the area under the curve of a function . We will learn some methods to approximate the area and also how to make the approximation more and more precise.    After this section, students will be able to:     define what a vector is in the plane    perform vector addition and scalar multiplication geometrically and component-wise       Vector Algebra   "
+  "body": " Vectors in the Plane   The big question in this section is how to approximate the area under the curve of a function . We will learn some methods to approximate the area and also how to make the approximation more and more precise.    After this section, students will be able to:     define what a vector is in the plane    perform vector addition and scalar multiplication geometrically and component-wise       Vectors in  In case you are not familiar with the notation , it simply means the set of all ordered pairs of real numbers. Symbolically speaking, That is, we will work with vectors in two dimensions in this section.  Let's first define what a vector is in . A vector in is an object determined by two points in the plane: an initial point (the tail) and a terminal point (the tip). We write and we draw as an arrow pointing from to .   The vector in     In , each point is represented by an ordered pair of real numbers. Then we can define the components of a vector using the ordered pairs of the two points as follows.   Components of a Vector   The components of , where and , are the quantities The pair of components is denoted .     P.S.: If you are a linear algebra-ist and want to use the notation of the column vectors instead, be my guest! Just remember that Richard prefers the column vector notation over the sharp-y angle bracket notation (but he is teaching calculus, not linear algebra, so he will have to live with it).   Find the components of the following vectors.           The Attributes of Vectors  When defining a vector, it is important to note its magnitude and the direction .  The magnitude of a vector is the distance from the tail to the tip (aka the length of the vector). This is denoted as .  Given a vector , we can determine its magnitude using the Pythagorean Theorem, as demonstrated in the figure below.   The Magnitude of the vectors and     By the Pythagorean Theorem, we have   The magnitude of a vector is really called the norm or the Euclidean norm of a vector in more advanced math courses. In general, norms must satisfy the following three properties:    , with if and only if .     for all scalars .     for any two vectors and , with equallity only if , , or if where . (This is the famous triangle inequality ).   This isn't a linear algebra or functional analysis class, so we won't go deeper into norms here. If you are interested, feel free to do more digging on your own (or ask Richard!).  Now let's discuss the direction of a vector. The direction of a vector tells us where the vector is pointing. We can indicate the direction of a vector by using the vector itself. As you imagine, the magnitude of a vector has nothing to do with its direction, so we sometimes use a unit vector , which is a vector of length , to indicate the direction, when it is not necessary to specify length.  If we have a unit vector whose tail is at the origin, then its tip lies on the unit circle. We usually denote a unit vector by , defined as where is the angle between and the positive -axis, indicated in the figure below.   The unit vector on the unit circle     But what if we are given an arbitrary non-zero vector and we want to find a unit vector in the same direction? One way to do so is to divide the vector by its magnitude (multiplying a positive scalar doesn't change the direction of a vector). That is, given , the unit vector in the direction of is    A quick proof to show that is a unit vector  Let be a non-zero vector. Then . This implies that Hence, is a unit vector.     Vector Algebra    Homework problems for this section   Below are the homework problems for this section. You will work out each problem on a separate sheet of paper and submit your solutions by the due dates indicated on the course schedule. Reach out to Richard for help if you get stuck or have any questions.  The solution will be posted after the due dates. If you have any question about your work, talk to Richard and he is happy to discuss the process with you.    Find the components of in the figure below.       Find the components of , where and .    Calculate .    Sketch , , , and in the following figure.       Sketch , , , and .    Are and parallel if , , , and ? And if so, do they point in the same direction?     In the following exercises, find the given vector.    Unit vector , where .    Vector of length in the direction of .    Unit vector making an angle of with the -axis.     Calculate the linear combination     Express as a linear combination , where Then sketch , , and the parallelogram formed by and .    Calculate the magnitude of the force on cables 1 and 2 shown in the figure below.       "
 },
 {
   "id": "sec121-VectorsPlane-2-2",
@@ -26,6 +26,231 @@ var ptx_lunr_docs = [
   "number": "",
   "title": "",
   "body": "  After this section, students will be able to:     define what a vector is in the plane    perform vector addition and scalar multiplication geometrically and component-wise    "
+},
+{
+  "id": "subsec-BasicVectorR2-3",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#subsec-BasicVectorR2-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vector "
+},
+{
+  "id": "sec121-fig-BasicVectorR2",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#sec121-fig-BasicVectorR2",
+  "type": "Figure",
+  "number": "12.1.1",
+  "title": "",
+  "body": " The vector in    "
+},
+{
+  "id": "subsec-BasicVectorR2-5",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#subsec-BasicVectorR2-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "components "
+},
+{
+  "id": "def-ComponentsVectorR2",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#def-ComponentsVectorR2",
+  "type": "Definition",
+  "number": "12.1.2",
+  "title": "Components of a Vector.",
+  "body": " Components of a Vector   The components of , where and , are the quantities The pair of components is denoted .   "
+},
+{
+  "id": "subsec-BasicVectorR2-7",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#subsec-BasicVectorR2-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "P.S.: "
+},
+{
+  "id": "subsec-BasicVectorR2-8",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#subsec-BasicVectorR2-8",
+  "type": "Example",
+  "number": "12.1.3",
+  "title": "",
+  "body": " Find the components of the following vectors.        "
+},
+{
+  "id": "subsec-AttributesVector-2",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#subsec-AttributesVector-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "magnitude direction "
+},
+{
+  "id": "subsec-AttributesVector-3",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#subsec-AttributesVector-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "magnitude "
+},
+{
+  "id": "sec121-fig-VectorMagnitudeR2",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#sec121-fig-VectorMagnitudeR2",
+  "type": "Figure",
+  "number": "12.1.4",
+  "title": "",
+  "body": " The Magnitude of the vectors and    "
+},
+{
+  "id": "subsec-AttributesVector-7",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#subsec-AttributesVector-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "norm Euclidean norm triangle inequality "
+},
+{
+  "id": "subsec-AttributesVector-8",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#subsec-AttributesVector-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "direction unit vector "
+},
+{
+  "id": "sec121-fig-UnitVector-UnitCircle",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#sec121-fig-UnitVector-UnitCircle",
+  "type": "Figure",
+  "number": "12.1.5",
+  "title": "",
+  "body": " The unit vector on the unit circle    "
+},
+{
+  "id": "subsec-AttributesVector-12",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#subsec-AttributesVector-12",
+  "type": "Proof",
+  "number": "1",
+  "title": "A quick proof to show that <span class=\"process-math\">\\(\\mathbf{e_v}\\)<\/span> is a unit vector.",
+  "body": " A quick proof to show that is a unit vector  Let be a non-zero vector. Then . This implies that Hence, is a unit vector.  "
+},
+{
+  "id": "ws-sec121-3",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-3",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": " Find the components of in the figure below.     "
+},
+{
+  "id": "ws-sec121-4",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-4",
+  "type": "Worksheet Exercise",
+  "number": "11",
+  "title": "",
+  "body": " Find the components of , where and .  "
+},
+{
+  "id": "ws-sec121-5",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-5",
+  "type": "Worksheet Exercise",
+  "number": "19",
+  "title": "",
+  "body": " Calculate .  "
+},
+{
+  "id": "ws-sec121-6",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-6",
+  "type": "Worksheet Exercise",
+  "number": "23",
+  "title": "",
+  "body": " Sketch , , , and in the following figure.     "
+},
+{
+  "id": "ws-sec121-7",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-7",
+  "type": "Worksheet Exercise",
+  "number": "25",
+  "title": "",
+  "body": " Sketch , , , and .  "
+},
+{
+  "id": "ws-sec121-8",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-8",
+  "type": "Worksheet Exercise",
+  "number": "35",
+  "title": "",
+  "body": " Are and parallel if , , , and ? And if so, do they point in the same direction?  "
+},
+{
+  "id": "ws-sec121-9-2",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-9-2",
+  "type": "Worksheet Exercise",
+  "number": "43",
+  "title": "",
+  "body": " Unit vector , where .  "
+},
+{
+  "id": "ws-sec121-9-3",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-9-3",
+  "type": "Worksheet Exercise",
+  "number": "45",
+  "title": "",
+  "body": " Vector of length in the direction of .  "
+},
+{
+  "id": "ws-sec121-9-4",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-9-4",
+  "type": "Worksheet Exercise",
+  "number": "49",
+  "title": "",
+  "body": " Unit vector making an angle of with the -axis.  "
+},
+{
+  "id": "ws-sec121-10",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-10",
+  "type": "Worksheet Exercise",
+  "number": "61",
+  "title": "",
+  "body": " Calculate the linear combination   "
+},
+{
+  "id": "ws-sec121-11",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-11",
+  "type": "Worksheet Exercise",
+  "number": "65",
+  "title": "",
+  "body": " Express as a linear combination , where Then sketch , , and the parallelogram formed by and .  "
+},
+{
+  "id": "ws-sec121-12",
+  "level": "2",
+  "url": "sec121-VectorsPlane.html#ws-sec121-12",
+  "type": "Worksheet Exercise",
+  "number": "67",
+  "title": "",
+  "body": " Calculate the magnitude of the force on cables 1 and 2 shown in the figure below.     "
 },
 {
   "id": "sec122-3DSpaces",
