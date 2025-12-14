@@ -31,9 +31,295 @@
     
   </introduction>
 
+  <subsection xml:id="subsec-BasicVectorR2">
+    <title>Vectors in <m>\boldsymbol{\mathbb{R}^2}</m></title>
+
+    <p>
+      In case you are not familiar with the notation <m>\mathbb{R}^2</m>, it simply means the set of all ordered pairs of real numbers. 
+      Symbolically speaking, 
+      <md>
+        \mathbb{R}^2 = \mathbb{R}\times \mathbb{R} = \left\{(x,y) \mid x,y\in \mathbb{R}\right\}
+      </md>
+      That is, we will work with vectors in two dimensions in this section. 
+    </p>
+
+    <p>
+      Let's first define what a vector is in <m>\mathbb{R}^2</m>. 
+      A <term>vector</term> in <m>\mathbb{R}^2</m> is an object determined by two points in the plane: an initial point <m>P</m> (the tail) and a terminal point <m>Q</m> (the tip). 
+      We write 
+      <md>
+        \mathbf{v} = \overrightarrow{PQ}
+      </md>
+      and we draw <m>\mathbf{v}</m> as an arrow pointing from <m>P</m> to <m>Q</m>. 
+    </p>
+
+    <figure xml:id="sec121-fig-BasicVectorR2">
+      <caption>The vector <m>\mathbf{v} = \overrightarrow{PQ}</m> in <m>\mathbb{R}^2</m></caption>
+      <image source="sec121-BasicVector-R2.png" width="50%">
+      </image>
+    </figure>
+
+    <p>
+      In <m>\mathbb{R}^2</m>, each point is represented by an ordered pair of real numbers. 
+      Then we can define the <term>components</term> of a vector using the ordered pairs of the two points as follows.
+    </p>
+
+    <definition xml:id="def-ComponentsVectorR2">
+      <title>Components of a Vector</title>
+      <statement>
+        <p>
+          The components of <m>\mathbf{v} = \overrightarrow{PQ}</m>, where <m>P = (a_1, b_1)</m> and <m>Q = (a_2, b_2)</m>, are the quantities
+          <md>
+            a = a_2 - a_1 \quad \text{($x$-component)}\, , \qquad \qquad b = b_2 - b_1 \quad \text{($y$-component)}
+          </md>
+          The pair of components is denoted <m>\langle a,b \rangle</m>. 
+        </p>
+      </statement>
+    </definition>
+    
+    <p>
+      <term>P.S.:</term> If you are a linear algebra-ist and want to use the notation of the column vectors instead, be my guest! 
+      Just remember that Richard prefers the column vector notation over the sharp-y angle bracket notation (but he is teaching calculus, not linear algebra, so he will have to live with it).
+    </p>
+
+    <example>
+      <p>
+        Find the components of the following vectors. 
+      </p>
+
+      <ol marker="(a)">
+        <li>
+          <p>
+            
+          </p>
+        </li>
+      </ol>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-AttributesVector">
+    <title>The Attributes of Vectors</title>
+
+    <p>
+      When defining a vector, it is important to note its <term>magnitude</term> and the <term>direction</term>. 
+    </p>
+
+    <p>
+      The <term>magnitude</term> of a vector <m>\mathbf{v}</m> is the distance from the tail to the tip (aka the length of the vector). 
+      This is denoted as <m>\|\mathbf{v}\|</m>. 
+    </p>
+
+    <p>
+      Given a vector <m>\mathbf{v} = \langle a,b \rangle</m>, we can determine its magnitude using the Pythagorean Theorem, as demonstrated in the figure below. 
+    </p>
+
+    <figure xml:id="sec121-fig-VectorMagnitudeR2">
+      <caption>The Magnitude of the vectors <m>\mathbf{v}_0</m> and <m>\mathbf{v}</m></caption>
+      <image source="sec121-VectorMagnitude-R2.png" width="50%">
+      </image>
+    </figure>
+
+    <p>
+      By the Pythagorean Theorem, we have
+      <md>
+        <mrow> \|\mathbf{v}\| \amp= \sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} </mrow>
+        <mrow> \amp= \sqrt{a^2 + b^2} </mrow>
+      </md>
+    </p>
+    
+    <p>
+      The magnitude of a vector is really called the <term><m>\boldsymbol{\ell^2}</m> norm</term> or the <term>Euclidean norm</term> of a vector in more advanced math courses.
+      In general, norms must satisfy the following three properties: 
+      <ol marker="1.">
+        <li>
+          <p>
+            <m>\|\mathbf{v}\| \geq 0</m>, with <m>\|\mathbf{v}\| = 0</m> if and only if <m>\mathbf{v} = \mathbf{0}</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\| \lambda\mathbf{v}\| = |\lambda|\|\mathbf{v}\|</m> for all scalars <m>\lambda \in \mathbb{R}</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\|\mathbf{v} + \mathbf{w}\| \leq \|\mathbf{v}\| + \|\mathbf{w}\|</m> for any two vectors <m>\mathbf{v}</m> and <m>\mathbf{w}</m>, with equallity only if <m>\mathbf{v} = 0</m>, <m>\mathbf{w} = 0</m>, or if <m>\mathbf{w} = \lambda\mathbf{v}</m> where <m>\lambda \geq 0</m>. 
+            (This is the famous <term>triangle inequality</term>). 
+          </p>
+        </li>
+      </ol>
+      This isn't a linear algebra or functional analysis class, so we won't go deeper into norms here. 
+      If you are interested, feel free to do more digging on your own (or ask Richard!). 
+    </p>
+
+    <p>
+      Now let's discuss the <term>direction</term> of a vector. 
+      The direction of a vector tells us where the vector is pointing. 
+      We can indicate the direction of a vector by using the vector itself. 
+      As you imagine, the magnitude of a vector has nothing to do with its direction, so we sometimes use a <term>unit vector</term>, which is a vector of length <m>1</m>, to indicate the direction, when it is not necessary to specify length. 
+    </p>
+
+    <p>
+      If we have a unit vector whose tail is at the origin, then its tip lies on the unit circle. 
+      We usually denote a unit vector by <m>\mathbf{e}</m>, defined as
+      <md>
+        \mathbf{e} = \langle \cos(\theta), \sin(\theta)\rangle
+      </md>
+      where <m>\theta</m> is the angle between <m>\mathbf{e}</m> and the positive <m>x</m>-axis, indicated in the figure below. 
+    </p>
+
+    <figure xml:id="sec121-fig-UnitVector-UnitCircle">
+      <caption>The unit vector <m>\mathbf{e}</m> on the unit circle</caption>
+      <image source="sec121-UnitVector-UnitCircle.png" width="50%">
+      </image>
+    </figure>
+
+    <p>
+      But what if we are given an arbitrary non-zero vector and we want to find a unit vector in the same direction?
+      One way to do so is to divide the vector by its magnitude (multiplying a positive scalar doesn't change the direction of a vector). 
+      That is, given <m>\mathbf{v}</m>, the unit vector in the direction of <m>\mathbf{v}</m> is
+      <md>
+        \mathbf{e_v} = \frac{1}{\|\mathbf{v}\|}\mathbf{v}
+      </md>
+    </p>
+
+    <proof>
+      <title>A quick proof to show that <m>\mathbf{e_v}</m> is a unit vector</title>
+      <p>
+        Let <m>\mathbf{v}</m> be a non-zero vector. 
+        Then <m>\|\mathbf{v}\| \gt 0</m>. 
+        This implies that
+        <md>
+          <mrow>\|\mathbf{e_v}\| \amp= \left\|\frac{1}{\|\mathbf{v}\|}\mathbf{v}\right\| </mrow>
+          <mrow> \amp= \left|\frac{1}{\|\mathbf{v}\|}\right| \|\mathbf{v}\| \amp\amp\text{by the second norm property} </mrow>
+          <mrow> \amp= \frac{1}{\|\mathbf{v}\|}\|\mathbf{v}\| \amp\amp\text{since } \frac{1}{\|\mathbf{v}\|} \gt 0 </mrow>
+          <mrow> \amp= 1 </mrow>
+        </md>
+        Hence, <m>\mathbf{e_v}</m> is a unit vector. 
+      </p>
+    </proof>
+    
+  </subsection>
+
   <subsection xml:id="subsec-VectorAlgebra">
     <title>Vector Algebra</title>
     
   </subsection>
+
+  <worksheet xml:id="ws-sec121">
+    <title>Homework problems for this section</title>
+    
+    <introduction>
+      <p>
+        Below are the homework problems for this section.  
+        You will work out each problem on a separate sheet of paper and submit your solutions by the due dates indicated on the course schedule.
+        Reach out to Richard for help if you get stuck or have any questions. 
+      </p>
+
+      <p>
+        The solution will be posted after the due dates. 
+        If you have any question about your work, talk to Richard and he is happy to discuss the process with you. 
+      </p>
+    </introduction>
+
+    <exercise number="5" workspace="2in">
+      <p>
+        Find the components of <m>\mathbf{u}</m> in the figure below. 
+      </p>
+
+      <figure xml:id="sec121-HW5-8-Figure">
+        <image source="sec121-HW5-8-Figure.png" width="50%"></image>
+      </figure>
+    </exercise>
+
+    <exercise number="11">
+      <p>
+        Find the components of <m>\overrightarrow{PQ}</m>, where <m>P=(1,-7)</m> and <m>Q=(0,17)</m>.
+      </p>
+    </exercise>
+
+    <exercise number="19">
+      <p>
+        Calculate <m>\langle 2e, 1 - 2\pi\rangle - \langle 2e - \pi, 8 - 2\pi\rangle</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="23">
+      <p>
+        Sketch <m>2\mathbf{v}</m>, <m>-\mathbf{w}</m>, <m>\mathbf{v} + \mathbf{w}</m>, and <m>2\mathbf{v} - \mathbf{w}</m> in the following figure. 
+      </p>
+
+      <figure xml:id="sec121-HW23-Figure">
+        <image source="sec121-HW23-Figure.png" width="50%"></image>
+      </figure>
+    </exercise>
+
+    <exercise number="25">
+      <p>
+        Sketch <m>\mathbf{v} = \langle 0,2\rangle</m>,  <m>\mathbf{w} = \langle -2, 4\rangle</m>, <m>3\mathbf{v} + \mathbf{w}</m>, and <m>2\mathbf{v} - 2\mathbf{w}</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="35">
+      <p>
+        Are <m>\overrightarrow{AB}</m> and <m>\overrightarrow{PQ}</m> parallel if <m>A=(1,1)</m>, <m>B=(3,4)</m>, <m>P=(1,1)</m>, and <m>Q=(7,10)</m>? 
+        And if so, do they point in the same direction? 
+      </p>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, find the given vector. 
+        </p>
+      </introduction>
+    
+      <exercise number="43">
+        <p>
+          Unit vector <m>\mathbf{e}_\mathbf{v}</m>, where <m>\mathbf{v} = \langle 3, 4 \rangle</m>.
+        </p>
+      </exercise>
+
+      <exercise number="45">
+        <p>
+          Vector of length <m>4</m> in the direction of <m>\mathbf{u} = \langle -1, -1 \rangle</m>.
+        </p>
+      </exercise>
+
+      <exercise number="49">
+        <p>
+          Unit vector <m>\mathbf{e}</m> making an angle of <m>\dfrac{4\pi}{7}</m> with the <m>x</m>-axis. 
+        </p>
+      </exercise>
+    </exercisegroup>
+
+    <exercise number="61">
+      <p>
+        Calculate the linear combination <m>\left(3\mathbf{i} + \mathbf{j}\right) - 6\mathbf{j} + 2\left(\mathbf{j} - 4\mathbf{i}\right)</m>
+      </p>
+    </exercise>
+
+    <exercise number="65">
+      <p>
+        Express <m>\mathbf{u}</m> as a linear combination <m>\mathbf{u} = r\mathbf{v} + s\mathbf{w}</m>, where 
+        <md>
+          \mathbf{u} = \langle 3, -1 \rangle; \qquad\qquad \mathbf{v} = \langle 2, 1 \rangle \quad \text{and} \quad \mathbf{w} = \langle 1, 3 \rangle.
+        </md>
+        Then sketch <m>\mathbf{u}, \mathbf{v},</m>, <m>\mathbf{w}</m>, and the parallelogram formed by <m>r\mathbf{v}</m> and <m>s\mathbf{w}</m>.
+      </p>
+    </exercise>
+
+    <exercise number="67">
+      <p>
+        Calculate the magnitude of the force on cables 1 and 2 shown in the figure below. 
+      </p>
+
+      <figure xml:id="sec121-HW67-Figure">
+        <image source="sec121-HW67-Figure.png" width="50%"></image>
+      </figure>
+    </exercise>
+  </worksheet>
 
 </section>
