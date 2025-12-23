@@ -25,4 +25,178 @@
     
   </introduction>
 
+  <worksheet xml:id="ws-sec122">
+    <title>Practice problems for this section</title>
+    
+    <introduction>
+      <p>
+        Below are the suggested problems for this section. 
+        Some of the problems will become part of your homework assignments. 
+        I suggest you work out all the problems to get a good grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions. 
+      </p>
+
+      <p>
+        The solution will be posted after the homework due dates. 
+        If you have any question about your work, talk to Richard and he is happy to discuss the process with you. 
+      </p>
+    </introduction>
+
+    <exercise number="12.2.5">
+      <p>
+        Find the components of the vector <m>\overrightarrow{PQ}</m>, where <m>P = (1,0,1)</m> and <m>Q = (2,1,0)</m>
+      </p>
+    </exercise>
+
+    <exercise number="12.2.13">
+      <p>
+        Let <m>\v{v} = \la 4,8,12 \ra</m>. 
+        Which of the following vectors is parallel to <m>\v{v}</m>? 
+        Which point in the same direction? 
+        <ol>
+          <li>
+            <p>
+              <m>\la 2,4,6 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\la -1,-2,3 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\la -7,-14,-21 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\la 6,10,14 \ra</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercise number="12.2.25">
+      <p>
+        Determine whether or not the two vectors <m>\v{u} = \la 4,2,-6 \ra</m> and  <m>\v{v} = \la 2,-1,3 \ra</m> are parallel. 
+      </p>
+    </exercise>
+
+    <exercise number="12.2.32">
+      <p>
+        Sketch the following vectors, and find their components and lengths: 
+        <ol>
+          <li>
+            <p>
+              <m>4\v{i} + 3\v{j} - 2\v{k}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{i} + \v{j} + \v{k}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>4\v{j} + 3\v{k}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>12\v{i} + 8\v{j} - \v{k}</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, describe the surface. 
+        </p>
+      </introduction>
+    
+      <exercise number="12.2.33">
+        <p>
+          <m>x^2 + y^2 + (z - 2)^2 = 4</m>, with <m>z\geq 2</m>
+        </p>
+      </exercise>
+
+      <exercise number="12.2.35">
+        <p>
+          <m>x^2 + y^2 = 7</m>, with <m>|z| \leq 7</m>
+        </p>
+      </exercise>
+    </exercisegroup>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, give an equation for the indicated surface. 
+        </p>
+      </introduction>
+
+      <exercise number="12.2.39">
+        <p>he sphere centered at <m>(6,-3,11)</m> passing through <m>(0,1,-4)</m>
+        </p>
+      </exercise>
+
+      <exercise number="12.2.41">
+        <p>
+          The cylinder passing through the origin with the vertical line through <m>(1,-1,0)</m> as its central axis. 
+        </p>
+      </exercise>
+    </exercisegroup>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, find a vector parametrization for the line with the given description. 
+        </p>
+      </introduction>
+
+      <exercise number="12.2.43">
+       <p>
+        Passes through <m>P = (1,2,-8)</m>, direction vector <m>\v{v} = \la 2,1,3 \ra</m>
+       </p>
+      </exercise>
+
+      <exercise number="12.2.45">
+        <p>
+          Passes through <m>P = (4,0,8)</m>, direction vector <m>\v{v} = 7\v{i} + 4\v{k}</m> 
+        </p>
+      </exercise>
+    </exercisegroup>
+
+    <exercise number="12.2.57">
+      <p>
+        Show that <m>\v{r}_1(t)</m> and <m>\v{r}_2(s)</m> define the same line, where
+        <md>
+          \v{r}_1(t) = \la 3,-1,4 \ra + t \la 8,12,-6 \ra
+        </md>
+        <md>
+          \v{r}_2(t) = \la 11,11,-2 \ra + t \la 4,6,-3 \ra
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="12.2.59">
+      <p>
+        Find two different vector parametrizations of the line through <m>P = (5,5,2)</m> with direction vector <m>\v{v} = \la 0,-2,1 \ra</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.2.63">
+      <p>
+        Determine whether the lines <m>\v{r}_1(t) = \la 0,1,1 \ra + t \la 1,1,2 \ra</m> and <m>\v{r}_2(s) = \la 2,0,3 \ra + s \la 1,4,4 \ra</m> intersect, and if so, find the point of intersection.
+      </p>
+    </exercise>
+  </worksheet>
+
 </section>

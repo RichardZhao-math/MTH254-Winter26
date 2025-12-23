@@ -5,8 +5,8 @@
 
   <introduction>
     <p>
-      The big question in this section is <alert>how to approximate the area under the curve of a function</alert>. 
-      We will learn some methods to approximate the area and also how to make the approximation more and more precise. 
+      In this section, we transition from single-variable calculus to the geometry of the plane by introducing <term>vectors</term>. 
+      We will learn how to describe quantities that have both magnitude and direction, perform algebraic operations on them, and use them to model physical forces.
     </p>
 
     <objectives>
@@ -18,12 +18,27 @@
       <ul>
         <li>
           <p>
-            define what a vector is in the plane
+            distinguish between points, scalars, and vectors using correct notation
+          </p>
+        </li>
+        <li>
+          <p>
+            calculate the components, magnitude, and direction of a vector in <m>\R^2</m>
           </p>
         </li>
         <li>
           <p>
             perform vector addition and scalar multiplication geometrically and component-wise
+          </p>
+        </li>
+        <li>
+          <p>
+            express vectors as linear combinations of standard basis vectors
+          </p>
+        </li>
+        <li>
+          <p>
+            solve static equilibrium problems using vector forces
           </p>
         </li>
       </ul>
@@ -32,35 +47,64 @@
   </introduction>
 
   <subsection xml:id="subsec-BasicVectorR2">
-    <title>Vectors in <m>\boldsymbol{\mathbb{R}^2}</m></title>
+    <title>Vectors in <m>\boldsymbol{\R^2}</m></title>
 
     <p>
-      In case you are not familiar with the notation <m>\mathbb{R}^2</m>, it simply means the set of all ordered pairs of real numbers. 
+      In case you are not familiar with the notation <m>\R^2</m>, it simply means the set of all ordered pairs of real numbers. 
       Symbolically speaking, 
       <md>
-        \mathbb{R}^2 = \mathbb{R}\times \mathbb{R} = \left\{(x,y) \mid x,y\in \mathbb{R}\right\}
+        \R^2 = \R \times \R = \left\{(x,y) \mid x,y\in \R\right\}
       </md>
       That is, we will work with vectors in two dimensions in this section. 
     </p>
 
     <p>
-      Let's first define what a vector is in <m>\mathbb{R}^2</m>. 
-      A <term>vector</term> in <m>\mathbb{R}^2</m> is an object determined by two points in the plane: an initial point <m>P</m> (the tail) and a terminal point <m>Q</m> (the tip). 
+      Let's first define what a vector is in <m>\R^2</m>. 
+      A <term>vector</term> in <m>\R^2</m> is an object determined by two points in the plane: an initial point <m>P</m> (the tail) and a terminal point <m>Q</m> (the tip). 
       We write 
       <md>
-        \mathbf{v} = \overrightarrow{PQ}
+        \v{v} = \overrightarrow{PQ}
       </md>
-      and we draw <m>\mathbf{v}</m> as an arrow pointing from <m>P</m> to <m>Q</m>. 
+      and we draw <m>\v{v}</m> as an arrow pointing from <m>P</m> to <m>Q</m>. 
     </p>
 
     <figure xml:id="sec121-fig-BasicVectorR2">
-      <caption>The vector <m>\mathbf{v} = \overrightarrow{PQ}</m> in <m>\mathbb{R}^2</m></caption>
+      <caption>The vector <m>\v{v} = \overrightarrow{PQ}</m> in <m>\R^2</m></caption>
       <image source="sec121-BasicVector-R2.png" width="50%">
       </image>
     </figure>
 
+    <note>
+      <title>Why is <m>\v{v}</m> bolded but not <m>P</m> or <m>Q</m>? </title>
+      <p>
+        This is a notation convention. 
+        There is a difference between a vector and a point (or scalar). 
+        To specify the difference, we usually <alert>bold</alert> the vector notation. 
+      </p>
+
+      <p>
+        For example, if you see something like <m>\v{u}</m>, then this indicates that <m>\v{u}</m> is a vector. 
+        As a comparison, if you see something like <m>u</m>, then this indicates that <m>u</m> is a scalar (a number). 
+      </p>
+
+      <p>
+        But why don't we bold the vector <m>\overrightarrow{PQ}</m> as <m>\v{PQ}</m>, but instead put an arrow on top of it? 
+      </p>
+
+      <p>
+        That is because the arrow notation specifies the tail and the tip of the vector! 
+        There is a difference between <m>\overrightarrow{PQ}</m> and <m>\overrightarrow{QP}</m>! 
+        They have the opposite tail and tip, so they point in opposite directions! 
+      </p>
+
+      <p>
+        Another reason why sometimes we use the arrow notation is because <em>it is super difficult to write in bold font!</em>
+        This is why Richard often writes <m>\overrightarrow{\, v\, }</m> on the board to indicate the vector <m>\v{v}</m>, since he can't write in bold font easily... 
+      </p>
+    </note>
+
     <p>
-      In <m>\mathbb{R}^2</m>, each point is represented by an ordered pair of real numbers. 
+      In <m>\R^2</m>, each point is represented by an ordered pair of real numbers. 
       Then we can define the <term>components</term> of a vector using the ordered pairs of the two points as follows.
     </p>
 
@@ -68,7 +112,7 @@
       <title>Components of a Vector</title>
       <statement>
         <p>
-          The components of <m>\mathbf{v} = \overrightarrow{PQ}</m>, where <m>P = (a_1, b_1)</m> and <m>Q = (a_2, b_2)</m>, are the quantities
+          The components of <m>\v{v} = \overrightarrow{PQ}</m>, where <m>P = (a_1, b_1)</m> and <m>Q = (a_2, b_2)</m>, are the quantities
           <md>
             a = a_2 - a_1 \quad \text{($x$-component)}\, , \qquad \qquad b = b_2 - b_1 \quad \text{($y$-component)}
           </md>
@@ -84,16 +128,109 @@
 
     <example>
       <p>
-        Find the components of the following vectors. 
+        Find the components of the following vectors with tail <m>P</m> and tip <m>Q</m>. 
+        Then sketch the vectors.  
       </p>
 
       <ol marker="(a)">
         <li>
           <p>
-            
+            <m>P_1 = (1,2)</m> and <m>Q_1 = (4,6)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>P_2 = (-4,-2)</m> and <m>Q_2 = (-1,2)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>P_3 = (2,-1)</m> and <m>Q_3 = (-3,-1)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>P_4 = (-2,4)</m> and <m>Q_4 = (-5,1)</m>
           </p>
         </li>
       </ol>
+
+      <solution>
+        <p>
+          We can find the components of each vector using the definition: 
+          <md>
+            \v{v} = \la a_2 - a_1, b_2 - b_1 \ra
+          </md>
+        </p>
+        <ol marker="a">
+          <li>
+            <p>
+              <m>\v{v}_1 = \overrightarrow{P_1Q_1} = \la 4-1, 6-2 \ra = \la 3, 4 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{v}_2 = \overrightarrow{P_2Q_2} = \la -1 - (-4), 2 - (-2) \ra = \la 3, 4 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{v}_3 = \overrightarrow{P_3Q_3} = \la -3 - 2, -1 - (-1) \ra = \la -5, 0 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{v}_4 = \overrightarrow{P_4Q_4} = \la -5 - (-2), 1 - 4 \ra = \la -3, -3 \ra</m>
+            </p>
+          </li>
+        </ol>
+
+        <p>
+          The sketches of the vectors are shown below: 
+        </p>
+
+        <figure>
+          <image source="sec121-VectorComponents-Example.png" width="60%"></image>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      Observe that <m>\v{v}_1</m> and <m>\v{v}_2</m> are <em>parallel</em>. 
+      Moreover, <m>\v{v}_2</m> is a translation of <m>\v{v}_1</m> (i.e., we can obtain <m>\v{v}_2</m> by sliding <m>\v{v}_1</m> to the left and down). 
+      We call these two vectors <term>equivalent vectors</term> if one is a translation of the other.  
+    </p>
+
+    <p>
+      In fact, two vectors are <term>equivalent</term> if and only if they have the same components. 
+      So instead of studying millions of the same vectors in different locations, we can just study one representative vector for each group of equivalent vectors. 
+    </p>
+
+    <p>
+      But which location should we choose for the representative vector? 
+      To keep things easier, we usually choose the representative vector whose tail is at the origin <m>(0,0)</m>. 
+      Then the tip of the vector is at the coordinate point <m>(a,b)</m>, where <m>\langle a,b \rangle</m> are the components of the vector.
+      This is called the <term>position vector</term>. 
+    </p>
+
+    <example>
+      <p>
+        Sketch the position vectors of the vectors in the previous example. 
+      </p>
+
+      <solution>
+        <p>
+          The vectors in the previous example are 
+          <md>
+            \v{v}_1 = \v{v}_2 = \la 3, 4 \ra, \quad \v{v}_3 = \la -5, 0 \ra, \quad \v{v}_4 = \la -3, -3 \ra
+          </md>
+          The position vectors are sketched below. 
+        </p>
+
+         <figure>
+          <image source="sec121-PositionVectors-Example.png" width="60%"></image>
+        </figure>
+      </solution>
     </example>
     
   </subsection>
@@ -106,16 +243,16 @@
     </p>
 
     <p>
-      The <term>magnitude</term> of a vector <m>\mathbf{v}</m> is the distance from the tail to the tip (aka the length of the vector). 
-      This is denoted as <m>\|\mathbf{v}\|</m>. 
+      The <term>magnitude</term> of a vector <m>\v{v}</m> is the distance from the tail to the tip (aka the length of the vector). 
+      This is denoted as <m>\|\v{v}\|</m>. 
     </p>
 
     <p>
-      Given a vector <m>\mathbf{v} = \langle a,b \rangle</m>, we can determine its magnitude using the Pythagorean Theorem, as demonstrated in the figure below. 
+      Given a vector <m>\v{v} = \langle a,b \rangle</m>, we can determine its magnitude using the Pythagorean Theorem, as demonstrated in the figure below. 
     </p>
 
     <figure xml:id="sec121-fig-VectorMagnitudeR2">
-      <caption>The Magnitude of the vectors <m>\mathbf{v}_0</m> and <m>\mathbf{v}</m></caption>
+      <caption>The Magnitude of the vectors <m>\v{v}_0</m> and <m>\v{v}</m></caption>
       <image source="sec121-VectorMagnitude-R2.png" width="50%">
       </image>
     </figure>
@@ -123,7 +260,7 @@
     <p>
       By the Pythagorean Theorem, we have
       <md>
-        <mrow> \|\mathbf{v}\| \amp= \sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} </mrow>
+        <mrow> \|\v{v}\| \amp= \sqrt{(a_1 - a_2)^2 + (b_1 - b_2)^2} </mrow>
         <mrow> \amp= \sqrt{a^2 + b^2} </mrow>
       </md>
     </p>
@@ -134,17 +271,17 @@
       <ol marker="1.">
         <li>
           <p>
-            <m>\|\mathbf{v}\| \geq 0</m>, with <m>\|\mathbf{v}\| = 0</m> if and only if <m>\mathbf{v} = \mathbf{0}</m>. 
+            <m>\|\v{v}\| \geq 0</m>, with <m>\|\v{v}\| = 0</m> if and only if <m>\v{v} = \v{0}</m>. 
           </p>
         </li>
         <li>
           <p>
-            <m>\| \lambda\mathbf{v}\| = |\lambda|\|\mathbf{v}\|</m> for all scalars <m>\lambda \in \mathbb{R}</m>. 
+            <m>\| \lambda\v{v}\| = |\lambda|\|\v{v}\|</m> for all scalars <m>\lambda \in \R</m>. 
           </p>
         </li>
         <li>
           <p>
-            <m>\|\mathbf{v} + \mathbf{w}\| \leq \|\mathbf{v}\| + \|\mathbf{w}\|</m> for any two vectors <m>\mathbf{v}</m> and <m>\mathbf{w}</m>, with equallity only if <m>\mathbf{v} = 0</m>, <m>\mathbf{w} = 0</m>, or if <m>\mathbf{w} = \lambda\mathbf{v}</m> where <m>\lambda \geq 0</m>. 
+            <m>\|\v{v} + \v{w}\| \leq \|\v{v}\| + \|\v{w}\|</m> for any two vectors <m>\v{v}</m> and <m>\v{w}</m>, with equallity only if <m>\v{v} = 0</m>, <m>\v{w} = 0</m>, or if <m>\v{w} = \lambda\v{v}</m> where <m>\lambda \geq 0</m>. 
             (This is the famous <term>triangle inequality</term>). 
           </p>
         </li>
@@ -152,6 +289,27 @@
       This isn't a linear algebra or functional analysis class, so we won't go deeper into norms here. 
       If you are interested, feel free to do more digging on your own (or ask Richard!). 
     </p>
+
+    <example>
+      <p>
+        Find the magnitude of the vectors in the previous examples. 
+      </p>
+
+      <solution>
+        <p>
+          The vectors in the previous examples are
+          <md>
+            \v{v}_1 = \v{v}_2 = \la 3, 4 \ra, \quad \v{v}_3 = \la -5, 0 \ra, \quad \v{v}_4 = \la -3, -3 \ra
+          </md>
+          Then 
+          <md>
+            <mrow>\|\v{v}_1\| \amp= \sqrt{3^2 + 4^2} = \sqrt{25} = 5 </mrow>
+            <mrow>\|\v{v}_3\| \amp= \sqrt{(-5)^2 + 0^2} = \sqrt{25} = 5 </mrow>
+            <mrow>\|\v{v}_4\| \amp= \sqrt{(-3)^2 + (-3)^2} = \sqrt{18} = 3\sqrt{2} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
 
     <p>
       Now let's discuss the <term>direction</term> of a vector. 
@@ -162,15 +320,15 @@
 
     <p>
       If we have a unit vector whose tail is at the origin, then its tip lies on the unit circle. 
-      We usually denote a unit vector by <m>\mathbf{e}</m>, defined as
+      We usually denote a unit vector by <m>\v{e}</m>, defined as
       <md>
-        \mathbf{e} = \langle \cos(\theta), \sin(\theta)\rangle
+        \v{e} = \langle \cos(\theta), \sin(\theta)\rangle
       </md>
-      where <m>\theta</m> is the angle between <m>\mathbf{e}</m> and the positive <m>x</m>-axis, indicated in the figure below. 
+      where <m>\theta</m> is the angle between <m>\v{e}</m> and the positive <m>x</m>-axis, indicated in the figure below. 
     </p>
 
     <figure xml:id="sec121-fig-UnitVector-UnitCircle">
-      <caption>The unit vector <m>\mathbf{e}</m> on the unit circle</caption>
+      <caption>The unit vector <m>\v{e}</m> on the unit circle</caption>
       <image source="sec121-UnitVector-UnitCircle.png" width="50%">
       </image>
     </figure>
@@ -178,33 +336,426 @@
     <p>
       But what if we are given an arbitrary non-zero vector and we want to find a unit vector in the same direction?
       One way to do so is to divide the vector by its magnitude (multiplying a positive scalar doesn't change the direction of a vector). 
-      That is, given <m>\mathbf{v}</m>, the unit vector in the direction of <m>\mathbf{v}</m> is
+      That is, given <m>\v{v}</m>, the unit vector in the direction of <m>\v{v}</m> is
       <md>
-        \mathbf{e_v} = \frac{1}{\|\mathbf{v}\|}\mathbf{v}
+        \v{e_v} = \frac{1}{\|\v{v}\|}\v{v}
       </md>
     </p>
 
     <proof>
-      <title>A quick proof to show that <m>\mathbf{e_v}</m> is a unit vector</title>
+      <title>A quick proof to show that <m>\v{e_v}</m> is a unit vector</title>
       <p>
-        Let <m>\mathbf{v}</m> be a non-zero vector. 
-        Then <m>\|\mathbf{v}\| \gt 0</m>. 
+        Let <m>\v{v}</m> be a non-zero vector. 
+        Then <m>\|\v{v}\| \gt 0</m>. 
         This implies that
         <md>
-          <mrow>\|\mathbf{e_v}\| \amp= \left\|\frac{1}{\|\mathbf{v}\|}\mathbf{v}\right\| </mrow>
-          <mrow> \amp= \left|\frac{1}{\|\mathbf{v}\|}\right| \|\mathbf{v}\| \amp\amp\text{by the second norm property} </mrow>
-          <mrow> \amp= \frac{1}{\|\mathbf{v}\|}\|\mathbf{v}\| \amp\amp\text{since } \frac{1}{\|\mathbf{v}\|} \gt 0 </mrow>
+          <mrow>\|\v{e_v}\| \amp= \left\|\frac{1}{\|\v{v}\|}\v{v}\right\| </mrow>
+          <mrow> \amp= \left|\frac{1}{\|\v{v}\|}\right| \|\v{v}\| \amp\amp\text{by the second norm property} </mrow>
+          <mrow> \amp= \frac{1}{\|\v{v}\|}\|\v{v}\| \amp\amp\text{since } \frac{1}{\|\v{v}\|} \gt 0 </mrow>
           <mrow> \amp= 1 </mrow>
         </md>
-        Hence, <m>\mathbf{e_v}</m> is a unit vector. 
+        Hence, <m>\v{e_v}</m> is a unit vector. 
       </p>
     </proof>
-    
+
+    <p>
+      When we are given the magnitude of a vector and its direction as the angle <m>\theta</m>, we can find the components of the vector as follows:
+      <md>
+        \v{v} = \la v_1, v_2 \ra = \|\v{v}\|\v{e_v} = \|\v{v}\|\la \cos(\theta), \sin(\theta) \ra = \la \|\v{v}\|\cos(\theta), \|\v{v}\|\sin(\theta) \ra
+      </md>
+    </p>
+
+    <example>
+      <p>
+        Find the vector with magnitude <m>6</m> and make an angle of <m>\dfrac{4\pi}{3}</m> with the positive <m>x</m>-axis.
+      </p>
+
+      <hint>
+        <title>If you want to see what the vector looks like...</title>
+        <p>
+          The goal of the question is to find the length of the red vector in the figure below. 
+        </p>
+
+        <figure>
+            <image source="sec121-VectorDirectionMagnitude-Example.png" width="50%"></image>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          We can first find the unit vector in the direction of the vector:
+          <md>
+            \v{e_v} = \la \cos\lp \frac{4\pi}{3} \rp, \sin\lp \frac{4\pi}{3} \rp \ra = \la -\frac{1}{2}, -\frac{\sqrt{3}}{2} \ra
+          </md>
+          Then the vector with magnitude <m>6</m> in the same direction is
+          <md>
+            \v{v} = \la 6 \cdot \left(-\frac{1}{2}\right), 6 \cdot \left(-\frac{\sqrt{3}}{2}\right) \ra = \la -3, -3\sqrt{3} \ra
+          </md>
+          
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Observe that we essentially multiplied the unit vector (a vector) by the magnitude (a scalar) to obtain the desired vector. 
+      This is one of the two operations in vector algebra, which we will discuss in the next section.
+    </p>
   </subsection>
 
   <subsection xml:id="subsec-VectorAlgebra">
     <title>Vector Algebra</title>
+
+    <p>
+      Vectors live in a place called the <term>vector space</term>. 
+      Usually, two operations are defined in a vector space, and they are <term>vector addition</term> and <term>scalar multiplication</term>. 
+      We will discuss these two operations in this section. 
+    </p>
+
+    <p>
+      <term>Vector addition</term> tells us how to <em>add two vectors</em> together. 
+      Geometrically speaking, we can imagine a vector as the movement from the tail to the tip. 
+      Then adding two vectors means performing the movements one after another. 
+      That is, we will need to find the equivalent vector of the second vector <em>whose tail is at the tip of the first vector</em>, and the resulting vector is the vector from the tail of the first vector to the tip of the second vector. 
+      This is sometimes referred to as the <term>Triangle Law</term>. 
+    </p>
+
+    <figure>
+      <image source="sec121-VectorAddition-Triangle.png" width="60%"></image>
+      <caption>Vector Addition using the Triangle Law</caption>
+    </figure>
+
+    <p>
+      But sometimes we are given the position vectors and their tails are both at the origin (or at the same point). 
+      Alternatively, rather than finding the equivalent vector of the second vector, we can construct a parallelogram using the two vectors as adjacent sides, and the resulting vector is the diagonal of the parallelogram starting from the common tail of the two vectors. 
+      This is called the <term>Parallelogram Law</term>. 
+    </p>
+
+    <figure>
+      <image source="sec121-VectorAddition-Parallelogram.png" width="60%"></image>
+      <caption>Vector Addition using the Parallelogram Law</caption>
+    </figure>
+
     
+    <note>
+      <title>But Richard... Aren't these two laws essentially the same thing? Why splitting hairs and call them two things? </title>
+      <p>
+        While these two laws are essentially the same, they represent two different actions in context. 
+        <ul>
+          <li>
+            <p>
+              The triangle law represents <em>sequentially</em> performing two movements one after another. 
+            </p>
+          </li>
+          <li>
+            <p>
+              The parallelogram law represents combining two movements happening <em>at the same time</em>. 
+            </p>
+          </li>
+        </ul>
+      </p>
+    </note>
+
+    <p>
+      Now let's look at <term>scalar multiplication</term>. 
+      The term <alert>scalar</alert> refers to a real number. 
+      That is, scalar multiplication tells us how to multiply a vector by a real number. 
+      The scalar will "scale" or "resize" the vector. 
+    </p>
+
+    <p>
+      When the scalar is positive, the resulting vector points in the same direction, and the size of the vector is scaled by the scalar. 
+    </p>
+
+    <figure>
+      <image source="sec121-ScalarMult-Positive.png" width="40%"></image>
+      <caption>Vector Addition using the Parallelogram Law</caption>
+    </figure>
+
+    <p>
+      When the scalar is negative, the resulting vector points in the opposite direction, and the size of the vector is scaled by the absolute value of the scalar. 
+    </p>
+
+    <figure>
+      <image source="sec121-ScalarMult-Negative.png" width="50%"></image>
+      <caption>Vector Multiplication by a Negative Scalar</caption>
+    </figure>
+
+    <p>
+      But what if the scalar is zero? 
+      We can quickly see that the magnitude of the resulting vector is zero, so the resulting vector is the <term>zero vector</term>, denoted by <m>\v{0}</m>. 
+      We can imagine the zero vector  has the tail and tip at the same point, which means it doesn't have a specific direction. 
+      Alternatively, we can say that the zero vector points in <em>all</em> directions. 
+    </p>
+    
+    <p>
+      Once we have vector addition and scalar multiplication defined, we can subtract two vectors. 
+      Recall subtraction is really the same thing as adding the opposite. 
+      That is, 
+      <md>
+        \v{v} - \v{w} = \v{v} + (-\v{w})
+      </md>
+      Graphically, we can find <m>\v{v} - \v{w}</m> as follows:
+    </p>
+
+    <figure>
+      <image source="sec121-VectorSubtraction.png" width="80%"></image>
+      <caption>Vector Subtraction</caption>
+    </figure>
+    
+    <p>
+      But we work with components of vectors as well... 
+      How do we perform these operations using components? 
+      It turns out that vector addition and scalar multiplication can be performed <em>component-wise</em>.
+    </p>
+
+    <theorem xml:id="thm-thm-VectorOperationsComponents">
+      <title>Vector Operations using Components</title>
+      <statement>
+        <p>
+          If <m>\v{v} = \la a,b \ra</m> and <m>\v{w} = \la c,d \ra</m>, then:
+          <ol marker="i">
+            <li>
+              <p>
+                <m>\v{v} + \v{w} = \la a+c,b+d \ra</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\v{v} - \v{w} = \la a-c,b-d \ra</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\lambda \v{v} = \la \lambda a,\lambda b \ra</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\v{v} + \v{0} = \v{0} + \v{v} = \v{v}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <p>
+        Calculate <m>\la -\dfrac{1}{2},\dfrac{5}{3} \ra + \la 3,\dfrac{10}{3} \ra</m>. 
+      </p>
+
+      <solution>
+        <p>
+          The vector sum is 
+          <md>
+            \la -\dfrac{1}{2},\dfrac{5}{3} \ra + \la 3,\dfrac{10}{3} \ra = \la -\dfrac{1}{2} + 3, \dfrac{5}{3} + \dfrac{10}{3} \ra = \la \dfrac{5}{2}, 5 \ra
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Observe that vector operations are (kind of) similar to operations with numbers component-wise. 
+      Then some properties of number operations also hold for vector operations.
+    </p>
+
+    <theorem xml:id="thm-PropertiesVectorAlgebra">
+      <title>Basic Properties of Vector Algebra</title>
+      <statement>
+        <p>
+          For all vectors <m>\v{u}</m>, <m>\v{v}</m>, <m>\v{w}</m>, and for all scalars <m>\lambda</m>, 
+          <md>
+            <mrow> \amp\textbf{Commutative Law:} \amp\amp\v{v} + \v{w} = \v{w} + \v{v}</mrow>
+            <mrow> \amp\textbf{Associative Law:} \amp\amp\v{u} + \lp \v{v} + \v{w} \rp = \lp \v{u} + \v{v} \rp + \v{w}</mrow>
+            <mrow> \amp\textbf{Distributive Law for Scalars:} \amp\amp\lambda \lp \v{v} + \v{w} \rp = \lambda \v{v} + \lambda \v{w}</mrow>  
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <subsubsection xml:id="subsubsec-LinearCombinations">
+      <title>Linear Combinations of Vectors</title>
+      <p>
+        Given two vectors <m>\v{v}</m> and <m>\v{w}</m>, we define a <term>linear combination</term> of them as a vector of the form
+        <md>
+          r\v{v} + s\v{w}
+        </md>
+        where <m>r</m> and <m>s</m> are scalars. 
+        Linear combinations are the fundamental mechanism for "building" new vectors from existing ones.
+      </p>
+
+      <example>
+        <p>
+          Express <m>\v{u}</m> as a linear combination <m>\v{u} = r\v{v} + s\v{w}</m>, where
+          <md>
+            \v{u} = \la 6,-2 \ra , \qquad \v{v} = \la 1,1 \ra \quad \text{and} \quad \v{w} = \la 1,-1 \ra
+          </md>
+          Then sketch <m>\v{u}</m>, <m>\v{v}</m>, <m>\v{w}</m>, and the parallelogram formed by <m>r\v{v}</m> and <m>s\v{w}</m>.
+        </p>
+
+        <hint>
+          <p>
+            Consider the vectors <m>\v{v}</m> and <m>\v{w}</m> are the two building blocks that we can use to construct the vector <m>\v{u}</m>. 
+            The moves we can do are the scalar multiplications (to resize the building blocks) and the vector addition (to combine the building blocks). 
+          </p>
+
+          <p>
+            So, the question here is: how should we <em>resize</em> the building blocks <m>\v{v}</m> and <m>\v{w}</m> such that when we combine them together, we get the desired vector <m>\v{u}</m>? 
+          </p>
+        </hint>
+
+        <solution>
+          <p>
+            Using the definition of linear combinations, there are two scalars <m>r</m> and <m>s</m> such that
+            <md>
+              <mrow>\v{u} = \la 6,-2 \ra = r\v{v} + s\v{w} \amp= r\la 1,1 \ra + s\la 1,-1 \ra </mrow>
+              <mrow> \amp= \la r,r \ra + \la s,-s \ra </mrow>
+              <mrow> \amp= \la r + s, r - s \ra </mrow>
+            </md>
+            This implies that
+            <md>
+              \begin{cases}
+                r + s = 6 \\ 
+                r - s = -2
+              \end{cases}
+            </md>
+            Solving this system of equations, we obtain <m>r = 2</m> and <m>s = 4</m>. 
+            Hence, the linear combination is
+            <md>
+              \v{u} = 2\v{v} + 4\v{w}
+            </md>
+            The sketches of the vectors and the parallelogram are shown below. 
+          </p>
+
+          <figure>
+            <image source="sec121-LinearCombination-Example.png" width="50%"></image>
+          </figure>
+        </solution>
+      </example>
+
+      <p>
+        One of the reasons why linear combinations are important is that we can decompose vectors into linear combinations of other vectors. 
+        Usually, we want to decompose vectors into linear combinations of the simplest vectors possible. 
+        In <m>\R^2</m>, the simplest vectors are the <term>standard basis vectors</term>, defined as
+        <md>
+          \v{i} = \la 1,0 \ra \quad \text{and} \quad \v{j} = \la 0,1 \ra
+        </md>
+        Any vector in <m>\R^2</m> can be expressed as a linear combination of these two vectors. 
+        Or using fancy linear algebra terminology, the set <m>\{\v{i},\v{j}\}</m> <em>spans</em> the vector space <m>\R^2</m>.
+      </p>
+
+      <figure>
+        <image source="sec121-LinearCombination-BasisVectorsR2.png" width="40%"></image>
+        <caption>Linear Combination using the standard basis vectors in <m>\R^2</m></caption>
+      </figure>
+
+      <example>
+        <p>
+          Calculate the linear combination <m>-\dfrac{3}{2}\v{i} + 5\lp \dfrac{1}{2}\v{j} - \dfrac{1}{2}\v{i} \rp</m>
+        </p>
+
+        <hint>
+          <p>
+            The building blocks here are the standard basis vectors <m>\v{i} = \la 1,0 \ra</m> and <m>\v{j} = \la 0,1 \ra</m>. 
+            So we will need to perform scalar multiplications and vector additions to obtain the resulting vector. 
+          </p>
+        </hint>
+
+        <solution>
+          <p>
+            <md>
+              <mrow> -\dfrac{3}{2}\v{i} + 5\lp \dfrac{1}{2}\v{j} - \dfrac{1}{2}\v{i} \rp \amp= -\dfrac{3}{2}\v{i} + \dfrac{5}{2}\v{j} - \dfrac{5}{2}\v{i} </mrow>
+              <mrow> \amp= -\dfrac{8}{2}\v{i} + \dfrac{5}{2}\v{j} </mrow>
+              <mrow> \amp= -4\la 1,0 \ra + \dfrac{5}{2}\la 0,1 \ra </mrow>
+              <mrow> \amp= \la -4,0 \ra + \la 0, \dfrac{5}{2} \ra </mrow>
+              <mrow> \amp= \la -4, \dfrac{5}{2} \ra </mrow>
+            </md>
+          </p>
+        </solution>
+      </example>
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsec-VectorApplication">
+    <title>Applications of Vectors</title>
+    
+    <p>
+      Vectors are widely used in various fields, including physics, engineering, computer science, and more. 
+      They are particularly useful in representing quantities that have both magnitude and direction, such as velocity, force, and acceleration. 
+      In this section, we will explore a basic application of vectors: force vectors.
+    </p>
+
+    <example>
+    <title>Force Vectors</title>
+      <p>
+        A 400-lb engine is suspended from two chains that form 60° angles with a horizontal ceiling. 
+        How much weight does each chain support? 
+      </p>
+
+      <figure>
+        <image source="sec121-ForceVectors-Diagram.png" width="50%"></image>
+      </figure>
+
+      <hint>
+        <p>
+          Let <m>\v{F}_1</m> and <m>\v{F}_2</m> denote the forces exerted by the chains on the engine and let <m>\v{F}_3</m> be the downward force due to the weight of the engine. 
+          Then we can place the origin at the point where the engine is located and construct a Cartesian coordinate plane. 
+        </p>
+
+        <p>
+          Then we can draw the vectors <m>\v{F}_1</m>, <m>\v{F}_2</m>, and <m>\v{F}_3</m>. 
+          Can we find the components of these vectors? 
+        </p>
+
+        <p>
+          Since the engine is stationary, the forces must be balanced. 
+          That is, adding these three vectors together must give us the zero vector. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          Following the setup in the hint, we can construct a Cartesian coordinate plane with the origin at the engine. 
+          Then the vectors are 
+          <md>
+            \v{F}_1 =  \la \|\v{F}_1\| \cos\lp 60^\circ \rp, \|\v{F}_1\| \sin\lp 60^\circ \rp \ra = \la \frac{1}{2}\|\v{F}_1\|, \frac{\sqrt{3}}{2}\|\v{F}_1\| \ra
+          </md>
+          <md>
+            \v{F}_2 =  \la \|\v{F}_2\| \cos\lp 120^\circ \rp, \|\v{F}_2\| \sin\lp 120^\circ \rp \ra = \la -\frac{1}{2}\|\v{F}_2\|, \frac{\sqrt{3}}{2}\|\v{F}_2\| \ra
+          </md>
+          <md>
+            \v{F}_3 = \la 0, -400 \ra
+          </md>
+        </p>
+
+        <figure>
+          <image source="sec121-ForceVectors-Solution-Diagram.png" width="50%"></image>
+        </figure>
+
+        <p>
+          Since the engine is stationary, we have
+          <md>
+            \v{F}_1 + \v{F}_2 + \v{F}_3 = \v{0}
+          </md>
+          This implies that
+          <md>
+            \la \frac{1}{2}\|\v{F}_1\| - \frac{1}{2}\|\v{F}_2\|, \frac{\sqrt{3}}{2}\|\v{F}_1\| + \frac{\sqrt{3}}{2}\|\v{F}_2\| - 400 \ra = \la 0,0 \ra
+          </md>
+          Equating the components, we obtain the system of equations:
+          <md>
+            \begin{cases}
+              \dfrac{1}{2}\|\v{F}_1\| - \dfrac{1}{2}\|\v{F}_2\| = 0 \\ 
+              \dfrac{\sqrt{3}}{2}\|\v{F}_1\| + \dfrac{\sqrt{3}}{2}\|\v{F}_2\| - 400 = 0
+            \end{cases}
+          </md>
+          Solving this system, we find that <m>\|\v{F}_1\| = \|\v{F}_2\| = \dfrac{400}{\sqrt{3}} \approx 230.94</m> lbs.
+        </p>
+
+        <p>
+          Hence, each chain must be able to support a weight of approximately 230.94 lbs. 
+        </p>
+      </solution>
+    </example>
   </subsection>
 
   <worksheet xml:id="ws-sec121">
@@ -223,9 +774,9 @@
       </p>
     </introduction>
 
-    <exercise number="5" workspace="2in">
+    <exercise number="12.1.5">
       <p>
-        Find the components of <m>\mathbf{u}</m> in the figure below. 
+        Find the components of the <em>unit vector</em> <m>\v{u}</m> in the figure below.
       </p>
 
       <figure xml:id="sec121-HW5-8-Figure">
@@ -233,19 +784,19 @@
       </figure>
     </exercise>
 
-    <exercise number="11">
+    <exercise number="12.1.11">
       <p>
         Find the components of <m>\overrightarrow{PQ}</m>, where <m>P=(1,-7)</m> and <m>Q=(0,17)</m>.
       </p>
     </exercise>
 
-    <exercise number="19">
+    <exercise number="12.1.19">
       <p>
         Calculate <m>\langle 2e, 1 - 2\pi\rangle - \langle 2e - \pi, 8 - 2\pi\rangle</m>. 
       </p>
     </exercise>
 
-    <exercise number="23">
+    <exercise number="12.1.23">
       <p>
         Sketch <m>2\mathbf{v}</m>, <m>-\mathbf{w}</m>, <m>\mathbf{v} + \mathbf{w}</m>, and <m>2\mathbf{v} - \mathbf{w}</m> in the following figure. 
       </p>
@@ -255,13 +806,13 @@
       </figure>
     </exercise>
 
-    <exercise number="25">
+    <exercise number="12.1.25">
       <p>
         Sketch <m>\mathbf{v} = \langle 0,2\rangle</m>,  <m>\mathbf{w} = \langle -2, 4\rangle</m>, <m>3\mathbf{v} + \mathbf{w}</m>, and <m>2\mathbf{v} - 2\mathbf{w}</m>. 
       </p>
     </exercise>
 
-    <exercise number="35">
+    <exercise number="12.1.35">
       <p>
         Are <m>\overrightarrow{AB}</m> and <m>\overrightarrow{PQ}</m> parallel if <m>A=(1,1)</m>, <m>B=(3,4)</m>, <m>P=(1,1)</m>, and <m>Q=(7,10)</m>? 
         And if so, do they point in the same direction? 
@@ -276,42 +827,42 @@
         </p>
       </introduction>
     
-      <exercise number="43">
+      <exercise number="12.1.43">
         <p>
           Unit vector <m>\mathbf{e}_\mathbf{v}</m>, where <m>\mathbf{v} = \langle 3, 4 \rangle</m>.
         </p>
       </exercise>
 
-      <exercise number="45">
+      <exercise number="12.1.45">
         <p>
           Vector of length <m>4</m> in the direction of <m>\mathbf{u} = \langle -1, -1 \rangle</m>.
         </p>
       </exercise>
 
-      <exercise number="49">
+      <exercise number="12.1.49">
         <p>
           Unit vector <m>\mathbf{e}</m> making an angle of <m>\dfrac{4\pi}{7}</m> with the <m>x</m>-axis. 
         </p>
       </exercise>
     </exercisegroup>
 
-    <exercise number="61">
+    <exercise number="12.1.61">
       <p>
         Calculate the linear combination <m>\left(3\mathbf{i} + \mathbf{j}\right) - 6\mathbf{j} + 2\left(\mathbf{j} - 4\mathbf{i}\right)</m>
       </p>
     </exercise>
 
-    <exercise number="65">
+    <exercise number="12.1.65">
       <p>
         Express <m>\mathbf{u}</m> as a linear combination <m>\mathbf{u} = r\mathbf{v} + s\mathbf{w}</m>, where 
         <md>
           \mathbf{u} = \langle 3, -1 \rangle; \qquad\qquad \mathbf{v} = \langle 2, 1 \rangle \quad \text{and} \quad \mathbf{w} = \langle 1, 3 \rangle.
         </md>
-        Then sketch <m>\mathbf{u}, \mathbf{v},</m>, <m>\mathbf{w}</m>, and the parallelogram formed by <m>r\mathbf{v}</m> and <m>s\mathbf{w}</m>.
+        Then sketch <m>\mathbf{u}, \mathbf{v},\mathbf{w}</m>, and the parallelogram formed by <m>r\mathbf{v}</m> and <m>s\mathbf{w}</m>.
       </p>
     </exercise>
 
-    <exercise number="67">
+    <exercise number="12.1.67">
       <p>
         Calculate the magnitude of the force on cables 1 and 2 shown in the figure below. 
       </p>
