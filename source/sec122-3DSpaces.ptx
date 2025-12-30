@@ -5,7 +5,9 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      We live in a three-dimensional world, yet our study of calculus has so far been largely restricted to the flat, two-dimensional plane. 
+      In this section, we will upgrade our coordinate system from <m>\R^2</m> to <m>\R^3</m>. 
+      We will see that many familiar concepts, such as the distance formula, vectors, and lines, extend naturally into this new dimension. 
     </p>
 
     <objectives>
@@ -17,13 +19,1238 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            Locate points in a three-dimensional Cartesian coordinate system and identify the octants.
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculate the distance between two points in <m>\R^3</m> using the distance formula.
+          </p>
+        </li>
+        <li>
+          <p>
+            Identify and write equations for basic surfaces in <m>\R^3</m>, including planes, spheres, and cylinders.
+          </p>
+        </li>
+        <li>
+          <p>
+            Perform vector operations (addition, scalar multiplication, and magnitude) in <m>\R^3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine vector and parametric equations for lines in <m>\R^3</m> given a point and a direction, or two points.
+          </p>
+        </li>
+        <li>
+          <p>
+            Analyze the relationship between two lines in space to determine if they are parallel, intersecting, or skew.
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <p>
+    To discuss stuff in three-dimensional space, we need to first determine how to represent points in <m>\R^3</m>. 
+    Just like points in <m>\R^2</m>, we can use an ordered triple of real numbers <m>(a,b,c)</m> to represent a point in <m>\R^3</m>. 
+  </p>
+
+  <p>
+    You may guess that we can graph stuff in <m>\R^3</m> using three orthogonal axes, one for each coordinate. 
+    This is indeed the case, and the three axes are usually labeled <m>x</m>, <m>y</m>, and <m>z</m>, following the <term>right-hand rule</term>: 
+    if the curled fingers of the right hand are rotated from the positive <m>x</m>-axis to the positive <m>y</m>-axis, the thumb points in the direction of the positive <m>z</m>-axis. 
+  </p>
+
+  <figure>
+    <image source="sec122-RightHandRule-3DAxes.png" width="70%"></image>
+    <caption>Right-hand rule for labeling axes in <m>\R^3</m></caption>
+  </figure>
+  
+  <p>
+    The point where the three axes intersect is called the <term>origin</term> and is denoted by <m>(0,0,0)</m>. 
+    An ordered triple <m>(a,b,c)</m> represents the point that is <m>a</m> units along the <m>x</m>-axis, <m>b</m> units along the <m>y</m>-axis, and <m>c</m> units along the <m>z</m>-axis. 
+  </p>
+
+  <figure>
+    <image source="sec122-OrderedTriple-Diagram.png" width="55%"></image>
+    <caption>Plotting the following points in <m>\R^3</m></caption>
+  </figure>
+
+  <p>
+    To visualize this point, it is helpful to construct a rectangular box with one vertex at the origin and the opposite vertex at the point <m>(a,b,c)</m>. 
+  </p>
+
+  <p>
+    Recall that the two axes in <m>\R^2</m> divide the plane into four quadrants. 
+    Similarly, the three axes in <m>\R^3</m> divide the space into eight regions called <term>octants</term>. 
+    We call the region where <m>x\gt 0</m>, <m>y\gt 0</m>, and <m>z\gt 0</m> the <term>first octant</term>. 
+    Unlike how quadrants are usually numbered in <m>\R^2</m>, there is no consistent way to number the octants in <m>\R^3</m>.
+  </p>
+
+  <p>
+    Next, we can talk about the <term>distance</term> between two points in <m>\R^3</m>. 
+    The distance formula in <m>\R^3</m> is an extension of the distance formula in <m>\R^2</m> using the Pythagorean Theorem twice. 
+  </p>
+
+  <theorem xml:id="thm-DistancePoints-R3">
+    <title>Distance Formula in <m>\R^3</m></title>
+    <statement>
+      <p>
+        The distance <m>|P - Q|</m> between the points <m>P = (a_1, b_1, c_1)</m> and <m>Q = (a_2, b_2, c_2)</m> is 
+      </p>
+      <md>
+        |P - Q| = \sqrt{(a_2 - a_1)^2 + (b_2 - b_1)^2 + (c_2 - c_1)^2}
+      </md>
+    </statement>
+  </theorem>
+
+  <proof>
+    <title>A quick proof to show the distance formula in <m>\R^3</m></title>
+    <p>
+      Let <m>P = (a_1, b_1, c_1)</m> and <m>Q = (a_2, b_2, c_2)</m> be two points in <m>\R^3</m>. 
+      We first construct the point <m>R = (a_2, b_2, c_1)</m>. 
+      Then, by applying the Pythagorean Theorem in the right triangle <m>\triangle PRQ</m>, we have
+      <md>
+        |P - Q|^2 = |P - R|^2 + |R - Q|^2
+      </md>
+    </p>
+
+    <figure>
+      <image source="sec122-DistanceFormula-Figure2.png" width="60%"></image>
+      <caption><m>\triangle PQR</m> in <m>\R^3</m></caption>
+    </figure>
+
+    <p>
+      We can see that <m>|R - Q| = |c_2 - c_1|</m>. 
+      To find the hypotenuse <m>|P - Q|</m>, we need to find <m>|P - R|</m> first. 
+    </p>
+
+    <p>
+      To find <m>|P - R|</m>, we will need to construct another point <m>O = (a_1, b_2, c_1)</m>. 
+    </p>
+
+    <figure>
+      <image source="sec122-DistanceFormula-Figure1.png" width="60%"></image>
+      <caption><m>\triangle POR</m> in <m>\R^3</m></caption>
+    </figure>
+
+    <p>
+      We apply the Pythagorean Theorem again in the triangle <m>\triangle POR</m> to find <m>|P - R|^2</m>:
+      <md>
+        |P - R|^2 = |P - O|^2 + |O - R|^2 = (a_2 - a_1)^2 + (b_2 - b_1)^2
+      </md>
+    </p>
+
+    <p>
+      Hence, we obtain
+      <md>
+        <mrow>|P - Q|^2 \amp= |P - R|^2 + |R - Q|^2 </mrow>
+        <mrow>\amp= (a_2 - a_1)^2 + (b_2 - b_1)^2 + (c_2 - c_1)^2 </mrow>
+      </md>
+      Taking the square root of both sides gives the desired result.
+    </p>
+  </proof>
+
+  <p>
+    Now that we know how <m>\R^3</m> works, let's move on to discussing some other important objects in <m>\R^3</m>, including surfaces, vectors, and lines. 
+  </p>
+
+  <subsection xml:id="subsec-3Space-Surfaces">
+    <title>Surfaces</title>
+
+    <p>
+      It is difficult to put a precise mathematical definition of what a surface is. 
+      One way to think about it is that a surface is a generalization of a plane in the sense that surfaces can be curved 
+      (this is similar to how curves are generalizations of lines). 
+    </p>
+
+    <p>
+      The most easiest planes in <m>\R^3</m> are the <m>xy</m>-plane, <m>xz</m>-plane, and <m>yz</m>-plane. 
+      <ul marker="">
+        <li>
+          <p>
+            Setting <m>z = 0</m> defines the <term><m>\boldsymbol{xy}</m>-plane</term>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Setting <m>y = 0</m> defines the <term><m>\boldsymbol{xz}</m>-plane</term>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Setting <m>x = 0</m> defines the <term><m>\boldsymbol{yz}</m>-plane</term>. 
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <figure>
+      <image source="sec122-xy-xz-yz-Planes.png" width="100%"></image>
+      <caption><m>xy</m>-, <m>xz</m>-, and <m>yz</m>-planes in <m>\R^3</m></caption>
+    </figure>
+
+    <p>
+      Similarly, we can get a plane by setting one of the coordinates to be a constant. 
+      These types of planes are called the <term>coordinate planes</term>. 
+      <ul marker="">
+        <li>
+          <p>
+            The equation <m>x = a</m> defines a plane parallel to the <m>yz</m>-plane that intersects the <m>x</m>-axis at <m>(a,0,0)</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            The equation <m>y = b</m> defines a plane parallel to the <m>xz</m>-plane that intersects the <m>y</m>-axis at <m>(0,b,0)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The equation <m>z = c</m> defines a plane parallel to the <m>xy</m>-plane that intersects the <m>z</m>-axis at <m>(0,0,c)</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <example>
+      <p>
+        Describe the following surfaces in <m>\R^3</m> and sketch them: 
+        <ol marker="a.">
+          <li>
+            <p>
+              <m>x = 2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>y = 4</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>z = 3</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <solution>
+        <p>
+          The equations describe planes in <m>\R^3</m> as follows: 
+          <ol marker="a.">
+            <li>
+              <p>
+                The equation <m>x = 2</m> describes a plane parallel to the <m>yz</m>-plane that intersects the <m>x</m>-axis at <m>(2,0,0)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The equation <m>y = 4</m> describes a plane parallel to the <m>xz</m>-plane that intersects the <m>y</m>-axis at <m>(0,4,0)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The equation <m>z = 3</m> describes a plane parallel to the <m>xy</m>-plane that intersects the <m>z</m>-axis at <m>(0,0,3)</m>.
+              </p>
+            </li>
+          </ol>
+          The sketch of these planes is shown below. 
+        </p>
+
+        <figure>
+          <image source="sec122-CoordinatePlanes-Example.png" width="90%"></image>
+          <caption>Planes <m>x = 2</m>, <m>y = 4</m>, and <m>z = 3</m> in <m>\R^3</m></caption>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      There are other types of planes in <m>\R^3</m> as well. 
+      In general, a plane in <m>\R^3</m> can be determined by a point on the plane and a normal vector to the plane. 
+      We will discuss planes in 3D more in detail in Section 12.5. 
+    </p>
+
+    <p>
+      Let's shift our focus to other types of surfaces in <m>\R^3</m>. 
+      To describe surfaces in <m>\R^3</m>, we need some equations to put some constraints on the coordinate(s). 
+    </p>
+
+    <p>
+      For example, we can describe the surface of a <alert>sphere</alert> by thinking about the constraint of the points on it. 
+      Imagine there is a sphere in <m>\R^3</m> centered at the point <m>Q = (a,b,c)</m> with radius <m>R</m>. 
+      Then any point <m>P = (x,y,z)</m> on the sphere must be exactly <m>R</m> units away from the center <m>Q</m>. 
+      Using our distance formula in <m>\R^3</m>, we have
+      <md>
+        R = \sqrt{(x - a)^2 + (y - b)^2 + (z - c)^2}
+      </md>
+      We can "simplify" this equation by squaring both sides to get rid of the square root. 
+      This gives us the standard equation of a sphere in <m>\R^3</m>
+    </p>
+
+    <definition xml:id="def-StandardEquation-Sphere">
+      <title>Standard Equation of a Sphere in <m>\R^3</m></title>
+      <statement>
+        <p>
+          An equation of the sphere in <m>\R^3</m> of radius <m>R</m> centered at <m>Q = (a,b,c)</m> is
+          <md>
+            (x - a)^2 + (y - b)^2 + (z - c)^2 = R^2
+          </md>
+        </p>
+      </statement>
+    </definition>
+
+    <figure>
+      <image source="sec122-Sphere-Standard-Diagram.png" width="40%"></image>
+      <caption>Sphere of radius <m>R</m> centered at <m>Q = (a,b,c)</m> in <m>\R^3</m></caption>
+    </figure>
+
+    <note>
+      <title>Hey Richard, can we call this a ball instead of a sphere? </title>
+      <p>
+        The short answer is no... 
+        There is a big difference between a sphere and a ball in mathematics. 
+      </p>
+
+      <p>
+        Observing the standard equation of a sphere, we can see that it only describes the surface of the sphere, not the interior. 
+      </p>
+
+      <p>
+        Yet, a ball includes both the surface and the interior. 
+        An equation of a ball of radius <m>R</m> centered at <m>Q = (a,b,c)</m> is given by the inequality
+        <md>
+          (x - a)^2 + (y - b)^2 + (z - c)^2 \le R^2
+        </md>
+      </p>
+
+      <p>
+        If you took MTH 252 (or 252Z) with Richard, you may remember he pointed out the difference between a circle and a disk when he taught the Disk Method. 
+        This is the same idea here. 
+      </p>
+    </note>
+
+    <example>
+      <p>
+        Give an equation of the sphere of radius <m>3</m> centered at <m>(0,0,-3)</m>.
+      </p>
+
+      <solution>
+        <p>
+          Using the standard equation of a sphere, we have
+          <md>
+            (x - 0)^2 + (y - 0)^2 + (z - (-3))^2 = 3^2
+          </md>
+          which simplifies to
+          <md>
+            x^2 + y^2 + (z + 3)^2 = 9
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      We can put more constraints on the equation of a sphere to get other surfaces. 
+      One thing to do so is to restrict the domain of the coordinate(s). 
+    </p>
+
+    <example>
+      <p>
+        Describe the surface <m>x^2 + y^2 + z^2 = 9</m> with <m>x,y,z \ge 0</m>.
+      </p>
+
+      <hint>
+        <p>
+          If we drop the constraints <m>x,y,z \ge 0</m>, then the equation describes a sphere of radius <m>3</m> centered at the origin.
+          But we don't get the whole sphere because of the constraints...
+        </p>
+
+        <p>
+          Then which part of the sphere do we get if we only allow <m>x,y,z \ge 0</m>? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          The equation <m>x^2 + y^2 + z^2 = 9</m> describes a sphere of radius <m>3</m> centered at the origin. 
+          However, since we have the constraints <m>x,y,z \ge 0</m>, we only get the portion of the sphere that is in the first octant. 
+          That is, the surface is one eighth of the sphere. 
+        </p>
+
+        <p>
+          The surface is shown in the figure below. 
+        </p>
+
+        <figure>
+          <caption>Portion of the sphere <m>x^2 + y^2 + z^2 = 9</m> in the first octant</caption>
+          <sidebyside width="80%">
+          <interactive xml:id="sage-sphere-octant" platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+                var('u, v')
+                
+                # 1. Surface: x^2 + y^2 + z^2 = 9 (Radius 3)
+                # u (phi) from 0 to pi/2 (z >= 0)
+                # v (theta) from 0 to pi/2 (x, y >= 0)
+                sphere_surface = parametric_plot3d(
+                    [3*sin(u)*cos(v), 3*sin(u)*sin(v), 3*cos(u)], 
+                    (u, 0, pi/2), (v, 0, pi/2), 
+                    color='cyan', opacity=0.6, mesh=True
+                )
+
+                # 2. Axes Lengths (slightly larger than radius 3)
+                x_len, y_len, z_len = 4, 4, 4
+                
+                # Draw Arrows
+                axes_arrows = (
+                    arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
+                )
+                
+                # Draw Axis Labels (x, y, z)
+                axes_labels = (
+                    text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                    text3d("y", (0, y_len + 0.2, 0), color='black') +
+                    text3d("z", (0, 0, z_len + 0.2), color='black')
+                )
+
+                # 3. Generate Multiple Ticks and Label "1"
+                ticks = Graphics()
+                tick_labels = Graphics()
+                tick_size = 0.15
+                
+                # X-axis: Ticks at 1, 2, 3
+                for i in range(1, x_len):
+                    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black', thickness=2)
+                    if i == 1:
+                        tick_labels += text3d("1", (i, -0.5, 0), color='black')
+                    
+                # Y-axis: Ticks at 1, 2, 3
+                for i in range(1, y_len):
+                    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black', thickness=2)
+                    if i == 1:
+                        tick_labels += text3d("1", (0.5, i, 0), color='black')
+
+                # Z-axis: Ticks at 1, 2, 3
+                for i in range(1, z_len):
+                    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black', thickness=2)
+                    if i == 1:
+                        tick_labels += text3d("1", (0, -0.5, i), color='black')
+
+                # 4. Show Everything
+                show(sphere_surface + axes_arrows + axes_labels + ticks + tick_labels, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      Another way to get a different surface is to relax the constraints on the coordinate(s). 
+      For example, consider the equation
+      <md>
+        (x - a)^2 + (y - b)^2 = R^2
+      </md>
+      We know that this is an equation of a circle in <m>\R^2</m> (or more specifically, in the <m>xy</m>-plane) with radius <m>R</m> centered at <m>(a,b)</m>. 
+      If we consider this equation in <m>\R^3</m>, then there is no constraint on the <m>z</m>-coordinate. 
+      That is, <m>z</m> can take any real value. 
+      When we allow <m>z</m> to vary freely, the circle will "extend" infinitely in both positive and negative <m>z</m>-directions, forming a surface called a <alert>right circular cylinder</alert>, a cylinder whose cross-sections are circles and whose axis is perpendicular to the base. 
+    </p>
+
+    <figure>
+      <image source="sec122-Cylinder-Standard-Diagram.png" width="50%"></image>
+      <caption>Right circular cylinder of radius <m>R</m> whose central axis is the vertical line through <m>(a,b,0)</m></caption>
+    </figure>
+
+    <definition xml:id="def-StandardEquation-Cylinder">
+      <title>Standard Equation of a Cylinder in <m>\R^3</m></title>
+      <statement>
+        <p>
+          An equation of the right circular cylinder in <m>\R^3</m> of radius <m>R</m> whose central axis is the vertical line through <m>(a,b,0)</m> is
+          <md>
+            (x - a)^2 + (y - b)^2 = R^2
+          </md>
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <p>
+        Describe the surface <m>x^2 + y^2 = 4</m> with <m>y,z \ge 0</m>. 
+      </p>
+
+      <hint>
+        <p>
+          If we drop the constraints <m>y,z \ge 0</m>, then the equation describes a cylinder of radius <m>2</m> whose central axis is the vertical line through the origin. 
+          But we don't get the whole cylinder because of the constraints...
+        </p>
+
+        <p>
+          Then which part of the cylinder do we get if we only allow <m>y,z \ge 0</m>?
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          The equation <m>x^2 + y^2 = 4</m> describes a cylinder of radius <m>2</m> whose central axis is the vertical line through the origin.
+          However, since we have the constraints <m>y,z \ge 0</m>, we only get the portion of the cylinder where <m>y\ge 0</m> and <m>z\ge 0</m>. 
+          That is, we get one fourth of the cylinder.
+        </p>
+
+        <p>
+          The surface is shown in the figure below. 
+        </p>
+
+        <figure>
+          <caption>Fourth-cylinder <m>x^2 + y^2 = 4</m> with <m>y, z \ge 0</m></caption>
+          <sidebyside width="80%">
+          <interactive xml:id="sage-cylinder-restricted" platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+                var('u, v')
+                
+                # 1. Surface: x^2 + y^2 = 4 (Radius 2)
+                # u (theta) goes from 0 to pi (so y >= 0)
+                # v (z) goes from 0 to 4 (so z >= 0, arbitrary height 4)
+                cylinder_surface = parametric_plot3d(
+                    [2*cos(u), 2*sin(u), v], 
+                    (u, 0, pi), (v, 0, 4), 
+                    color='cyan', opacity=0.6, mesh=True
+                )
+
+                # 2. Axes Lengths
+                # Radius is 2, Height is 4. Set axes slightly larger.
+                x_len, y_len, z_len = 3, 3, 5
+                
+                # Draw Arrows
+                axes_arrows = (
+                    arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,0,z_len), color='black', width=1) +
+                    # Add negative x-axis arrow since the cylinder spans negative x
+                    arrow3d((0,0,0), (-x_len,0,0), color='black', width=1)
+                )
+                
+                # Draw Axis Labels
+                axes_labels = (
+                    text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                    text3d("y", (0, y_len + 0.2, 0), color='black') +
+                    text3d("z", (0, 0, z_len + 0.2), color='black')
+                )
+
+                # 3. Ticks
+                ticks = Graphics()
+                tick_labels = Graphics()
+                tick_size = 0.15
+                
+                # X-axis: Ticks at 1, 2... and -1, -2...
+                # We iterate to x_len
+                for i in range(1, x_len):
+                    # Positive X
+                    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black', thickness=2)
+                    # Negative X
+                    ticks += line3d([(-i, -tick_size, 0), (-i, tick_size, 0)], color='black', thickness=2)
+                    if i == 1:
+                        tick_labels += text3d("1", (i, -0.5, 0), color='black')
+
+                # Y-axis: Ticks at 1, 2...
+                for i in range(1, y_len):
+                    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black', thickness=2)
+                    if i == 1:
+                        tick_labels += text3d("1", (0.5, i, 0), color='black')
+
+                # Z-axis: Ticks at 1, 2, 3, 4...
+                for i in range(1, z_len):
+                    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black', thickness=2)
+                    if i == 1:
+                        tick_labels += text3d("1", (0, -0.5, i), color='black')
+
+                # 4. Show Everything
+                show(cylinder_surface + axes_arrows + axes_labels + ticks + tick_labels, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      We can create many other surfaces in <m>\R^3</m> by putting different types of constraints on the coordinates. 
+      We will explore more surfaces in section 12.6 and even more in chapter 14. 
+      Spheres and cylinders are the two most basic surfaces in <m>\R^3</m> with a lot more applications (for example, we can construct coordinate systems based on them) so make sure you understand them well!
+    </p>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-3Space-Vectors">
+    <title>Vectors in 3-Space</title>
+
+    <p>
+      Vectors in <m>\R^3</m> are super similar to vectors in <m>\R^2</m> we discussed in <xref ref="sec121-VectorsPlane"/>. 
+      Two points in <m>\R^3</m> can determine a vector. 
+      Let <m>P = (a_1, b_1, c_1)</m> and <m>Q = (a_2, b_2, c_2)</m> be two points in <m>\R^3</m>. 
+      Then we can define a vector as follows 
+      <md>
+        \overrightarrow{PQ} = \la a_2-a_1, b_2-b_1, c_2-c_1 \ra
+      </md>
+      where the <m>x</m>-component is <m>a_2 - a_1</m>, the <m>y</m>-component is <m>b_2 - b_1</m>, and the <m>z</m>-component is <m>c_2 - c_1</m>. 
+    </p>
+
+    <example>
+      <p>
+        Find the components of the vector <m>\overrightarrow{PQ}</m>, where <m>P = (-3,-4,2)</m> and <m>Q = (1,-4,3)</m>. 
+        Then sketch the vector. 
+      </p>
+
+      <solution>
+        <p>
+          By the definition of the vector components we have
+          <md>
+            \overrightarrow{PQ} = \la 1 - (-3), -4 - (-4), 3 - 2 \ra = \la 4, 0, 1 \ra
+          </md>
+        </p>
+
+        <p>
+          The sketch of the vector <m>\v{v}</m> is shown below. 
+        </p>
+
+        <figure>
+          <caption>Vector <m>\v{v} = \langle 4,0,1 \rangle</m> in <m>\R^3</m></caption>
+          <sidebyside width="80%">
+          <interactive xml:id="sage-vector-401-guides" platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+                # Vector components
+                vx, vy, vz = 4, 0, 1
+                
+                # 1. The Vector and Coordinate Guides
+                # Main red arrow
+                vec_arrow = arrow3d((0,0,0), (vx, vy, vz), color='red', width=4)
+                
+                # Guide 1: Drop line to X-axis (Vertical)
+                # Connects (4,0,1) down to (4,0,0)
+                guide_x = line3d([(vx, vy, vz), (vx, vy, 0)], color='gray', linestyle='--')
+
+                # Guide 2: Line to Z-axis (Horizontal)
+                # Connects (4,0,1) across to (0,0,1)
+                guide_z = line3d([(vx, vy, vz), (0, 0, vz)], color='gray', linestyle='--')
+
+                # 2. Axes Lengths
+                x_len, y_len, z_len = 5, 3, 3
+                
+                # Draw Axes Arrows
+                axes_arrows = (
+                    arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
+                )
+                
+                # Draw Axis Labels
+                axes_labels = (
+                    text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                    text3d("y", (0, y_len + 0.2, 0), color='black') +
+                    text3d("z", (0, 0, z_len + 0.2), color='black')
+                )
+
+                # 3. Ticks and Labels
+                ticks = Graphics()
+                tick_labels = Graphics()
+                tick_size = 0.15
+                
+                # X-axis
+                for i in range(1, x_len):
+                    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black', thickness=2)
+                    if i == 1:
+                        tick_labels += text3d("1", (i, -0.5, 0), color='black')
+                    if i == vx:
+                        # Label the specific coordinate 4
+                        tick_labels += text3d(str(vx), (i, -0.5, 0), color='red')
+                            
+                # Y-axis
+                for i in range(1, y_len):
+                    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black', thickness=2)
+                    if i == 1:
+                        tick_labels += text3d("1", (0.5, i, 0), color='black')
+
+                # Z-axis
+                for i in range(1, z_len):
+                    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black', thickness=2)
+                    if i == 1:
+                        tick_labels += text3d("1", (0, -0.5, i), color='black')
+                    if i == vz and i != 1: 
+                        # Label the specific coordinate 1 (if it wasn't already labeled by the loop)
+                        tick_labels += text3d(str(vz), (0, -0.5, i), color='red')
+
+                # 4. Show Everything
+                show(vec_arrow + guide_x + guide_z + axes_arrows + axes_labels + ticks + tick_labels, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      The vector terminologies remain the same as in <m>\R^2</m>: 
+      <ul marker="">
+        <li>
+          <p>
+            Two non-zero vectors are <term>parallel</term> if one is a scalar multiple of the other. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Two vectors are <term>equivalent</term> if they have the same components. 
+          </p>
+        </li>
+        <li>
+          <p>
+            The <term>position vectors</term> are the ones whose tails are at the origin <m>(0,0,0)</m>. 
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <example>
+      <p>
+        Determine whether or not the two vectors <m>\v{u} = \la 1,-2,5 \ra</m> and  <m>\v{v} = \la -2,4,-10 \ra</m> are parallel.
+      </p>
+
+      <solution>
+        <p>
+          Since
+          <md>
+            \v{v} = \la -2,4,-10 \ra = -2 \la 1,-2,5 \ra = -2\v{u}
+          </md>
+          the two vectors are parallel. 
+        </p>
+
+        <p>
+          In addition, since the scalar here is negative, we know that the two vectors point in opposite directions.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Just like how we can find the magnitude and the direction of a vector in <m>\R^2</m>, we can do the same(ish) thing in <m>\R^3</m>. 
+      Given a vector <m>\v{v} = \la v_1, v_2, v_3 \ra</m>, its <term>magnitude</term> is 
+      <md>
+        \|\v{v}\| = \sqrt{v_1^2 + v_2^2 + v_3^2}
+      </md>
+      Also, the vector itself can tell us about its <term>direction</term>. 
+      If you really want to work with a unit vector in the same direction as <m>\v{v}</m>, you can find it by dividing the vector by its magnitude:
+      <md>
+        \v{e_v} = \frac{1}{\|\v{v}\|} \v{v}
+      </md>
+    </p>
+      
+    <p>
+      In addition, vector algebra works similarly in <m>\R^3</m> as it does in <m>\R^2</m>. 
+      Vector addition and scalar multiplication are defined <em>component-wise</em>. 
+      That is, if <m>\v{v} = \la v_1,v_2,v_3 \ra</m> and <m>\v{w} = \la w_1,w_2,w_3 \ra</m>, then
+      <md>
+        \v{v} + \v{w} = \la v_1 + w_1, v_2 + w_2, v_3 + w_3 \ra
+      </md>
+      and for a scalar <m>c</m>,
+      <md>
+        c\v{v} = \la cv_1, cv_2, cv_3 \ra
+      </md>
+      Then we can construct new vectors through <term>linear combinations</term>. 
+    </p>
+
+    <p>
+      The <term>standard basis vectors</term> in <m>\R^3</m> are
+      <md>
+        \v{i} = \la 1,0,0 \ra, \qquad \v{j} = \la 0,1,0 \ra, \qquad \v{k} = \la 0,0,1 \ra
+      </md>
+      and every vector in <m>\R^3</m> can be expressed as a linear combination of these basis vectors. 
+      Using fancy linear algebra terminology, the set <m>\{\v{i}, \v{j}, \v{k}\}</m> spans <m>\R^3</m>. 
+    </p>
+
+    <example>
+      <p>
+        Which vector has the smaller magnitude: <m>\v{u} = 3\v{i} - \v{j} - \v{k}</m> or <m>\v{v} = 2\lp \v{i} + \v{j} + \v{k} \rp</m>?
+      </p>
+
+      <solution>
+        <p>
+          We first find the components of each vector:
+          <md>
+            \v{u} = 3\v{i} - \v{j} - \v{k} = 3\la 1,0,0 \ra - \la 0,1,0 \ra - \la 0,0,1 \ra = \la 3,-1,-1 \ra
+          </md>
+          and
+          <md>
+            \v{v} = 2\lp \v{i} + \v{j} + \v{k} \rp = 2\la 1,0,0 \ra + 2\la 0,1,0 \ra + 2\la 0,0,1 \ra = \la 2,2,2 \ra
+          </md>
+          Then we compute their magnitudes:
+          <md>
+            \|\v{u}\| = \sqrt{3^2 + (-1)^2 + (-1)^2} = \sqrt{9 + 1 + 1} = \sqrt{11}
+          </md>
+          and
+          <md>
+            \|\v{v}\| = \sqrt{2^2 + 2^2 + 2^2} = \sqrt{4 + 4 + 4} = \sqrt{12} 
+          </md>
+          Since <m>\sqrt{11} \lt \sqrt{12}</m>, we conclude that <m>\v{u}</m> has the smaller magnitude.
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-ParametricLines">
+    <title>Curves and Lines</title>
+
+    <p>
+      Most curves in <m>\R^3</m> can be represented using <em>parametrically</em> than using a single equation. 
+      That is, we use three functions to represent the <m>x</m>-, <m>y</m>-, and <m>z</m>-coordinates of the points on the curve with a parameter <m>t</m>. 
+      This can be visualized as representing the coordinates of a particle moving through space as a function of time <m>t</m>, and the curve is the path traced out by the particle. 
+    </p>
+
+    <figure xml:id="figure-geogebra-full">
+      <caption>Full Interface GeoGebra</caption>
+      <interactive 
+          xml:id="interactive-geogebra-full" 
+          geogebra="ztn6efy2" 
+          width="100%" 
+          aspect="16:9" 
+          shift-drag-zoom="yes"
+          menubar="yes"
+          toolbar="yes"
+          algebra="yes"
+          input="yes" />
+    </figure>
+
+    <p>
+      Alternatively, we can construct a function of the position vectors with tips on the curve 
+      <md>
+        \v{r}(t) = \la x(t), y(t), z(t) \ra
+      </md>
+      Essentially, the tips of this "vector function" trace out the curve as <m>t</m> varies. 
+      This is called the <term>vector-valued function</term>. 
+      You will learn all the fun stuff about vector-valued functions in Chapter 13. 
+      In this section, we will focus on the simplest type of curves in <m>\R^3</m>, lines.
+    </p>
+
+    <p>
+      Remember back when you first learned about lines in <m>\R^2</m>, you probably remember that we need both <em>the slope</em> and <em>a point on the line</em> to define a line. 
+      <ul marker="">
+        <li>
+          <p>
+            The slope tells us the direction of the line. 
+            Yet knowing just the slope doesn't tell us a unique line... 
+            There can be thousands of parallel lines with the same slope! 
+          </p>
+        </li>
+        <li>
+          <p>
+            A point on the line can pin down the location of the line. 
+            Yet knowing just a point on the line doesn't tell us the direction of the line... 
+            We can draw infinitely many lines through a single point!  
+          </p>
+        </li>
+      </ul>
+      This is also the case in <m>\R^3</m>! 
+      In order to determine a line in <m>\R^3</m>, we need to know both the direction of the line and a point on the line. 
+    </p>
+
+    <p>
+      Unlike stuff in <m>\R^2</m>, there is no "slope" in <m>\R^3</m> to represent the direction of a line, since "slope" is a concept that only works in two dimensions. 
+      Instead, we use a vector to represent the direction of the line. 
+    </p>
+
+    <p>
+      We can find a point in <m>\R^3</m> just fine, since points in <m>\R^3</m> are represented by ordered triples. 
+    </p>
+
+    <p>
+      Hence, a line in <m>\R^3</m> is determined by a point <m>P_0 = (x_0, y_0, z_0)</m> on the line and a direction vector <m>\v{v} = \la a, b, c \ra</m>. 
+    </p>
+
+    <definition xml:id="def-lines-3d">
+      <title>Equation of a Line in <m>\R^3</m></title>
+      <statement>
+        <p>
+          The line <m>\c{L}</m> through <m>P_0 = (x_0, y_0, z_0)</m> in the direction of <m>\v{v} = \la a,b,c \ra</m> is described by 
+        </p>
+
+        <p>
+          <term>Vector Parametrization:</term>
+          <md>
+            \v{r}(t) = \v{r}_0 + t \v{v} = \la x_0,y_0,z_0 \ra + t \la a,b,c \ra
+          </md>
+          where <m>\v{r}_0 = \overrightarrow{OP_0}</m>.
+        </p>
+
+        <p>
+          <term>Parametric Equations:</term>
+          <md>
+            x = x_0 + at, \qquad y = y_0 + bt, \qquad z = z_0 + ct
+          </md>
+          The parameter <m>t</m> takes on values <m>-\infty \lt t \lt \infty</m>. 
+        </p>
+      </statement>
+    </definition>
+
+    <figure>
+      <image source="sec122-Line3D-Diagram.png" width="75%"></image>
+      <caption>The line <m>\v{r} = \v{r}_0 + t \v{v}</m> in <m>\R^3</m></caption>
+    </figure>
+
+    <p>
+      Observe that the parametric equations specify the <m>x</m>-, <m>y</m>-, and <m>z</m>-coordinates of the points on the line as functions of the parameter <m>t</m>. 
+      These three parametric equations is itself a linear function in the parameter <m>t</m>. 
+      What we did here is essentially to extend this idea in the notion of vector parametrization. 
+    </p>
+
+    <example>
+      <p>
+        Find an equation of the line that passes through the point <m>P_0 = (1,2,4)</m> in the direction of <m>\v{v} = \la 5,-3,1 \ra</m>. 
+      </p>
+
+      <solution>
+        <p>
+          We are given <m>\v{r}_0 = \la 1,2,4 \ra</m>. 
+          Therefore, an equation of the line is 
+          <md>
+            \v{r}(t) = \v{r}_0 + t \v{v} = \la 1,2,4 \ra + t \la 5,-3,1 \ra
+          </md>
+          for <m>-\infty \lt t \lt \infty</m>. 
+          The corresponding parametric equations are 
+          <md>
+            x = 1 + 5t, \qquad y = 2 - 3t, \qquad z = 4 + t
+          </md>
+          for <m>-\infty \lt t \lt \infty</m>. 
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Back in algebra 2, you may also have learned that <em>two points</em> can also determine a line in <m>\R^2</m>. 
+      This is also true in <m>\R^3</m>. 
+      The trick here is to determine the direction vector using the two points. 
+    </p>
+
+    <example>
+      <p>
+        Find an equation of the line that passes through the points <m>P = (-2,0,-2)</m> and <m>Q = (4,3,7)</m>. 
+      </p>
+
+      <hint>
+        <p>
+          To find an equation of a line, we need a point on the line and a direction vector. 
+          So there are really things we need to find out. 
+        </p>
+
+        <p>
+          The easier part is to find a point on the line (we are given two points on the line!)
+        </p>
+
+        <p>
+          The slightly trickier part is to find a direction vector. 
+          Can we find a vector parallel to the line using the two points? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          A directional vector is <m>\overrightarrow{PQ}</m>. 
+          Then we obtain
+          <md>
+            \v{v} = \overrightarrow{PQ} = \la 4-(-2), 3-0, 7-(-2) \ra = \la 6,3,9 \ra
+          </md>
+          We can use either point <m>P</m> or <m>Q</m> as the point on the line. 
+          Using point <m>P</m>, we have <m>\v{r}_0 = \la -2,0,-2 \ra</m>. 
+          Therefore, an equation of the line is 
+          <md>
+            \v{r}(t) = \v{r}_0 + t \v{v} = \la -2,0,-2 \ra + t \la 6,3,9 \ra
+          </md>
+          for <m>-\infty \lt t \lt \infty</m>. 
+          The corresponding parametric equations are 
+          <md>
+            x = -2 + 6t, \qquad y = 3t, \qquad z = -2 + 9t
+          </md>
+          for <m>-\infty \lt t \lt \infty</m>. 
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      You may feel like the equation of a line is not unique since we can choose different points on the line to represent the same line 
+      (for example, in the previous example, Richard chose the point <m>P</m> to write the equation of the line instead of point <m>Q</m>. 
+      He would have obtained a different equation if he had chosen point <m>Q</m> instead). 
+      It is true that the equation of a line is <alert>not unique</alert>, not only because we can choose different points on the line to construct the equation, we can also pick different vectors that are parallel to each other to represent the direction of the line. 
+    </p>
+
+    <p>
+      When things are not unique, it is often helpful to verify that two different equations can represent the same line. 
+      Remember that we can determine a line by knowing a point on the line and a direction vector. 
+      Then two equations represent the same line if the direction vectors are parallel and they share a point in common. 
+    </p>
+
+    <example>
+      <p>
+        Show that <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> define the same line, where
+        <md>
+          \v{r}_1(t) = t \la 2,1,3 \ra \qquad \text{and} \qquad \v{r}_2(t) = \la -6,-3,-9 \ra + t \la 8,4,12 \ra
+        </md>
+      </p>
+
+      <hint>
+        <p>
+          The line <m>\v{r}_1(t)</m> has the direction vector of <m>\v{v}_1 = \la 2,1,3 \ra</m> and passes through the point <m>P_1 = (0,0,0)</m>. 
+        </p>
+
+        <p>
+          The line <m>\v{r}_2(t)</m> has the direction vector of <m>\v{v}_2 = \la 8,4,12 \ra</m> and passes through the point <m>P_2 = (-6,-3,-9)</m>.
+        </p>
+
+        <p>
+          If they represent the same line, then <m>\v{v}_1</m> and <m>\v{v}_2</m> must be parallel, and there must be a point that lies on both lines. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          Observe that <m>\v{v}_2 = 2\v{v}_1</m>, so the two direction vectors are parallel. 
+        </p>
+
+        <p>
+          To show that the two lines share a point in common, we can check if point <m>P_2 = (-6,-3,-9)</m> lies on line <m>\v{r}_1(t)</m>. 
+          Observe that 
+          <md>
+            \v{r}_1(-3) = -3 \la 2,1,3 \ra = \la 6,-3,-9 \ra
+          </md>
+          This implies that <m>P_2 = (-6,-3,-9)</m> lies on line <m>\v{r}_1(t)</m>. 
+        </p>
+
+        <p>
+          Therefore, the two lines represent the same line in <m>\R^3</m>. 
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      In <m>\R^2</m>, we learned that two lines are either parallel or they intersect at a single point, assuming the lines are not coincident. 
+      In <m>\R^3</m>, however, two lines can also be <term>skew</term>, meaning that they do not intersect and are not parallel (hence they are not coplanar).
+    </p>
+
+    <example>
+      <p>
+        Determine whether the lines <m>\v{r}_1(t) = \la 1, -3, 5 \ra + t \la 1, 2, -1 \ra</m> and <m>\v{r}_2(s) = \la 0, 0, 7 \ra + s \la -2, 1, 3 \ra</m> intersect, and if so, find the point of intersection.
+      </p>
+
+      <hint>
+        <p>
+          Let's just assume that the two lines intersect. 
+          If two lines intersect, then they must intersect at a single point.
+        </p>
+
+        <p>
+          Now put on your algebra 2 hat and think about how to find the point of intersection of two lines in <m>\R^2</m>. 
+          (You would set the two equations equal to each other and solve for <m>x</m>!)
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          The lines intersect if there exist parameter values <m>t</m> and <m>s</m> such that
+          <md>
+            <mrow>\la 1, -3, 5 \ra + t \la 1, 2, -1 \ra \amp= \la 0, 0, 7 \ra + s \la -2, 1, 3 \ra </mrow>
+            <mrow>\la 1+t, -3+2t, 5-t \ra \amp= \la -2s, s, 7+3s \ra </mrow>
+          </md>
+          Equating corresponding components, we get
+          <md>
+            \begin{cases}
+              1 + t = -2s \\
+              -3 + 2t = s \\
+              5 - t = 7 + 3s
+            \end{cases}
+          </md>
+          This is a system of three equations with two unknowns. 
+          If you know linear algebra, feel free to solve it using matrices. 
+          Otherwise, we can solve it using basic algebra methods, like substitution or elimination.
+        </p>
+
+        <p>
+          Richard assumes no linear algebra knowledge here, so he will use substitution. 
+          Substituting <m>s</m> from the second equation into the first equation we get
+          <md>
+            1 + t = -2(-3 + 2t)
+            \qquad \implies \qquad
+            t = 1
+          </md>
+          Using <m>t = 1</m> in the second equation gives <m>s = -3 + 2(1) = -1</m>.
+          Don't forget that there are. three equations in the system but we only used two of them so far! 
+          We need to check whether <m>t = 1</m> and <m>s = -1</m> satisfy the third equation:
+          <md>
+            <mrow>5 - (1) \amp= 7 + 3(-1) </mrow>
+            <mrow>4 \amp= 4 </mrow>
+          </md>
+          We conclude that <m>t = 1</m>, <m>s = -1</m> is the solution to the system, hence the two lines intersect.
+        </p>
+
+        <note>
+          <title>If you really like linear algebra and want to solve it using matrices...</title>
+          <p>
+            There are multiple ways to solve the system of equations using linear algebra (like row reduce the augmented matrix, or use Cramer's rule, etc.).
+            Richard will pick the method of row reducing the augmented matrix here (the cramer's rule or the inverse matrix method don't work here since there are more equations than the variables). 
+          </p>
+
+          <p>
+            The agumented matrix of the system is
+            <md>
+              \begin{pmatrix} 1 \amp 2 \amp \big| \amp -1 \\ 2 \amp -1 \amp \big| \amp 3 \\ -1 \amp -3 \amp \big| \amp 3 \end{pmatrix}
+            </md>
+            Row reducing this matrix we get
+            <md>
+              \begin{pmatrix} 1 \amp 0 \amp \big| \amp 0 \\ 0 \amp 1 \amp \big| \amp -1 \\ 0 \amp 0 \amp \big| \amp 0 \end{pmatrix} 
+            </md>
+            From here we can read off the solution <m>t = 1</m>, <m>s = -1</m>.
+          </p>
+        </note>
+
+        <p>
+          To find the point of intersection we substitute <m>t = 1</m> into the equation for <m>\v{r}_1</m> (or <m>s = -1</m> into <m>\v{r}_2</m>) to obtain
+          <md>
+            \la 1+1, -3+2(1), 5-1 \ra = \la 2, -1, 4 \ra
+          </md>
+          The point of intersection is the terminal point of this vector, that is, <m>\lp 2, -1, 4 \rp</m>.
+        </p>
+      </solution>
+    </example>
+
+    <example>
+      <p>
+        Determine whether the lines <m>\v{r}_1(t) = \la 1,-2,4 \ra + t \la 1,3,-1 \ra</m> and <m>\v{r}_2(s) = \la 0,3,-3 \ra + s \la 2,1,4 \ra</m> are parallel, intersect, or are skew. 
+      </p>
+
+      <hint>
+        <p>
+          Observe that the direction vectors are <m>\v{v}_1 = \la 1,3,-1 \ra</m> and <m>\v{v}_2 = \la 2,1,4 \ra</m> are not multiples of each other, so the lines are not parallel.
+        </p>
+
+        <p>
+          Then the two other possibilities are that the lines intersect or they are skew. 
+          We haven't discussed how to check if two lines are skew, but we can check if they intersect. 
+          So the question becomes: do the two lines intersect? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          If the two lines intersect, then there exist parameter values <m>t</m> and <m>s</m> such that
+          <md>
+            <mrow>\la 1, -2, 4 \ra + t \la 1, 3, -1 \ra \amp= \la 0, 3, -3 \ra + s \la 2, 1, 4 \ra </mrow>
+            <mrow>\la 1+t, -2+3t, 4 - t \ra \amp= \la 2s, 3 + s, -3 + 4s \ra </mrow>
+          </md>
+          Equating corresponding components, we get
+          <md>
+            \begin{cases}
+              1 + t = 2s \\
+              -2 + 3t = 3 + s \\
+              4 - t = -3 + 4s
+            \end{cases}
+          </md>
+          Substituting <m>s</m> from the second equation into the first equation we get
+          <md>
+            -2 + 3t = 3 + \frac{1 + t}{2}
+            \qquad \implies \qquad
+            t = \frac{11}{5}
+          </md>
+          Using <m>t = \dfrac{11}{5}</m> in the first equation gives <m>s = \dfrac{1 + 3}{2} = \dfrac{8}{5}</m>.
+          Don't forget that there are three equations in the system but we only used two of them so far! 
+          We need to check whether <m>t = \dfrac{11}{5}</m> and <m>s = \dfrac{8}{5}</m> satisfy the third equation:
+          <md>
+            <mrow>4 - \dfrac{11}{5} \amp= -3 + 4 \cdot \dfrac{8}{5} </mrow>
+            <mrow>\dfrac{9}{5} \amp= \dfrac{17}{5} </mrow>
+          </md>
+          This is a contradiction, so the two lines do not intersect. 
+        </p>
+
+        <note>
+          <title>If you again want to solve it using matrices...</title>
+          <p>
+            The augmented matrix of the system is 
+            <md>
+              \begin{pmatrix} 1 \amp -2 \amp \big| \amp -1 \\ 3 \amp -1 \amp \big| \amp 5 \\ -1 \amp -4 \amp \big| \amp -7 \end{pmatrix}
+            </md>
+            Row reducing this matrix we get
+            <md>
+              \begin{pmatrix} 1 \amp 0 \amp \big| \amp 0 \\ 0 \amp 1 \amp \big| \amp 0 \\ 0 \amp 0 \amp \big| \amp 1 \end{pmatrix}
+            </md>
+            Observe that a pivot appears in the rightmost column, which implies that the system is inconsistent. 
+          </p>
+        </note>
+
+        <p>
+          Since we have already established that the lines are not parallel, we conclude that the two lines are skew. 
+        </p>
+
+        <p>
+          The sketch of the two lines is shown below. 
+          Observe that these two lines do not intersect and are not parallel. 
+          They are not coplanar. 
+        </p>
+
+        <figure>
+          <caption>Line <m>\mathbf{r}_1(t)</m> (blue) and Line <m>\mathbf{r}_2(s)</m> (red)</caption>
+          <sidebyside width="80%">
+          <interactive xml:id="sage-skew-lines-simple" platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+                var('t, s')
+                
+                # 1. Define the Lines
+                # Note: We use parens in comments to avoid XML parsing errors
+                # r1(t) = (1, -2, 4) + t(1, 3, -1)
+                line1 = parametric_plot3d(
+                    [1 + t, -2 + 3*t, 4 - t], 
+                    (t, -2, 4), 
+                    color='blue', thickness=3
+                )
+                
+                # r2(s) = (0, 3, -3) + s(2, 1, 4)
+                line2 = parametric_plot3d(
+                    [0 + 2*s, 3 + s, -3 + 4*s], 
+                    (s, -1, 3), 
+                    color='red', thickness=3
+                )
+
+                # 2. Axes Setup
+                x_len, y_len, z_len = 6, 8, 8
+                
+                axes_arrows = (
+                    arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
+                )
+                
+                axes_labels = (
+                    text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                    text3d("y", (0, y_len + 0.2, 0), color='black') +
+                    text3d("z", (0, 0, z_len + 0.2), color='black')
+                )
+
+                # 3. Ticks
+                ticks = Graphics()
+                tick_size = 0.2
+                
+                for i in range(1, x_len):
+                    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black')
+                for i in range(1, y_len):
+                    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black')
+                for i in range(1, z_len):
+                    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black')
+
+                # 4. Show Everything
+                show(line1 + line2 + axes_arrows + axes_labels + ticks, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+      </figure>
+      </solution>
+    </example>
+    
+  </subsection>
 
   <worksheet xml:id="ws-sec122">
     <title>Practice problems for this section</title>
@@ -142,7 +1369,7 @@
       </introduction>
 
       <exercise number="12.2.39">
-        <p>he sphere centered at <m>(6,-3,11)</m> passing through <m>(0,1,-4)</m>
+        <p>The sphere centered at <m>(6,-3,11)</m> passing through <m>(0,1,-4)</m>
         </p>
       </exercise>
 
@@ -176,7 +1403,7 @@
 
     <exercise number="12.2.57">
       <p>
-        Show that <m>\v{r}_1(t)</m> and <m>\v{r}_2(s)</m> define the same line, where
+        Show that <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> define the same line, where
         <md>
           \v{r}_1(t) = \la 3,-1,4 \ra + t \la 8,12,-6 \ra
         </md>
@@ -184,6 +1411,12 @@
           \v{r}_2(t) = \la 11,11,-2 \ra + t \la 4,6,-3 \ra
         </md>
       </p>
+
+      <hint>
+        <p>
+          Show that <m>\v{r}_2(t)</m> passes through <m>(3,-1,4)</m> and that the direction vectors for <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> are parallel. 
+        </p>
+      </hint>
     </exercise>
 
     <exercise number="12.2.59">
