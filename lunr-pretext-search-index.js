@@ -511,7 +511,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "12.2",
   "title": "Three-Dimensional Spaces: Surfaces, Vectors, and Curves",
-  "body": " Three-Dimensional Spaces: Surfaces, Vectors, and Curves   Just the introduction texts...    After this section, students will be able to:     blahblahblah       Practice problems for this section   Below are the suggested problems for this section. Some of the problems will become part of your homework assignments. I suggest you work out all the problems to get a good grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solution will be posted after the homework due dates. If you have any question about your work, talk to Richard and he is happy to discuss the process with you.    Find the components of the vector , where and     Let . Which of the following vectors is parallel to ? Which point in the same direction?                          Determine whether or not the two vectors and are parallel.    Sketch the following vectors, and find their components and lengths:                           In the following exercises, describe the surface.     , with      , with       In the following exercises, give an equation for the indicated surface.    he sphere centered at passing through     The cylinder passing through the origin with the vertical line through as its central axis.      In the following exercises, find a vector parametrization for the line with the given description.    Passes through , direction vector     Passes through , direction vector      Show that and define the same line, where      Find two different vector parametrizations of the line through with direction vector .    Determine whether the lines and intersect, and if so, find the point of intersection.    "
+  "body": " Three-Dimensional Spaces: Surfaces, Vectors, and Curves   We live in a three-dimensional world, yet our study of calculus has so far been largely restricted to the flat, two-dimensional plane. In this section, we will upgrade our coordinate system from to . We will see that many familiar concepts, such as the distance formula, vectors, and lines, extend naturally into this new dimension.    After this section, students will be able to:     Locate points in a three-dimensional Cartesian coordinate system and identify the octants.    Calculate the distance between two points in using the distance formula.    Identify and write equations for basic surfaces in , including planes, spheres, and cylinders.    Perform vector operations (addition, scalar multiplication, and magnitude) in .    Determine vector and parametric equations for lines in given a point and a direction, or two points.    Analyze the relationship between two lines in space to determine if they are parallel, intersecting, or skew.      To discuss stuff in three-dimensional space, we need to first determine how to represent points in . Just like points in , we can use an ordered triple of real numbers to represent a point in .  You may guess that we can graph stuff in using three orthogonal axes, one for each coordinate. This is indeed the case, and the three axes are usually labeled , , and , following the right-hand rule : if the curled fingers of the right hand are rotated from the positive -axis to the positive -axis, the thumb points in the direction of the positive -axis.    Right-hand rule for labeling axes in   The point where the three axes intersect is called the origin and is denoted by . An ordered triple represents the point that is units along the -axis, units along the -axis, and units along the -axis.    Plotting the following points in   To visualize this point, it is helpful to construct a rectangular box with one vertex at the origin and the opposite vertex at the point .  Recall that the two axes in divide the plane into four quadrants. Similarly, the three axes in divide the space into eight regions called octants . We call the region where , , and the first octant . Unlike how quadrants are usually numbered in , there is no consistent way to number the octants in .  Next, we can talk about the distance between two points in . The distance formula in is an extension of the distance formula in using the Pythagorean Theorem twice.   Distance Formula in   The distance between the points and is      A quick proof to show the distance formula in  Let and be two points in . We first construct the point . Then, by applying the Pythagorean Theorem in the right triangle , we have     in   We can see that . To find the hypotenuse , we need to find first.  To find , we will need to construct another point .    in   We apply the Pythagorean Theorem again in the triangle to find :   Hence, we obtain Taking the square root of both sides gives the desired result.   Now that we know how works, let's move on to discussing some other important objects in , including surfaces, vectors, and lines.   Surfaces  It is difficult to put a precise mathematical definition of what a surface is. One way to think about it is that a surface is a generalization of a plane in the sense that surfaces can be curved (this is similar to how curves are generalizations of lines).  The most easiest planes in are the -plane, -plane, and -plane.   Setting defines the -plane .    Setting defines the -plane .    Setting defines the -plane .       -, -, and -planes in   Similarly, we can get a plane by setting one of the coordinates to be a constant. These types of planes are called the coordinate planes .   The equation defines a plane parallel to the -plane that intersects the -axis at .    The equation defines a plane parallel to the -plane that intersects the -axis at .    The equation defines a plane parallel to the -plane that intersects the -axis at .      Describe the following surfaces in and sketch them:                    The equations describe planes in as follows:   The equation describes a plane parallel to the -plane that intersects the -axis at .    The equation describes a plane parallel to the -plane that intersects the -axis at .    The equation describes a plane parallel to the -plane that intersects the -axis at .   The sketch of these planes is shown below.    Planes , , and in     There are other types of planes in as well. In general, a plane in can be determined by a point on the plane and a normal vector to the plane. We will discuss planes in 3D more in detail in Section 12.5.  Let's shift our focus to other types of surfaces in . To describe surfaces in , we need some equations to put some constraints on the coordinate(s).  For example, we can describe the surface of a sphere by thinking about the constraint of the points on it. Imagine there is a sphere in centered at the point with radius . Then any point on the sphere must be exactly units away from the center . Using our distance formula in , we have We can \"simplify\" this equation by squaring both sides to get rid of the square root. This gives us the standard equation of a sphere in    Standard Equation of a Sphere in   An equation of the sphere in of radius centered at is       Sphere of radius centered at in    Hey Richard, can we call this a ball instead of a sphere?  The short answer is no... There is a big difference between a sphere and a ball in mathematics.  Observing the standard equation of a sphere, we can see that it only describes the surface of the sphere, not the interior.  Yet, a ball includes both the surface and the interior. An equation of a ball of radius centered at is given by the inequality   If you took MTH 252 (or 252Z) with Richard, you may remember he pointed out the difference between a circle and a disk when he taught the Disk Method. This is the same idea here.    Give an equation of the sphere of radius centered at .   Using the standard equation of a sphere, we have which simplifies to     We can put more constraints on the equation of a sphere to get other surfaces. One thing to do so is to restrict the domain of the coordinate(s).   Describe the surface with .   If we drop the constraints , then the equation describes a sphere of radius centered at the origin. But we don't get the whole sphere because of the constraints...  Then which part of the sphere do we get if we only allow ?    The equation describes a sphere of radius centered at the origin. However, since we have the constraints , we only get the portion of the sphere that is in the first octant. That is, the surface is one eighth of the sphere.  The surface is shown in the figure below.   Portion of the sphere in the first octant        Another way to get a different surface is to relax the constraints on the coordinate(s). For example, consider the equation We know that this is an equation of a circle in (or more specifically, in the -plane) with radius centered at . If we consider this equation in , then there is no constraint on the -coordinate. That is, can take any real value. When we allow to vary freely, the circle will \"extend\" infinitely in both positive and negative -directions, forming a surface called a right circular cylinder , a cylinder whose cross-sections are circles and whose axis is perpendicular to the base.    Right circular cylinder of radius whose central axis is the vertical line through    Standard Equation of a Cylinder in   An equation of the right circular cylinder in of radius whose central axis is the vertical line through is      Describe the surface with .   If we drop the constraints , then the equation describes a cylinder of radius whose central axis is the vertical line through the origin. But we don't get the whole cylinder because of the constraints...  Then which part of the cylinder do we get if we only allow ?    The equation describes a cylinder of radius whose central axis is the vertical line through the origin. However, since we have the constraints , we only get the portion of the cylinder where and . That is, we get one fourth of the cylinder.  The surface is shown in the figure below.   Fourth-cylinder with        We can create many other surfaces in by putting different types of constraints on the coordinates. We will explore more surfaces in section 12.6 and even more in chapter 14. Spheres and cylinders are the two most basic surfaces in with a lot more applications (for example, we can construct coordinate systems based on them) so make sure you understand them well!    Vectors in 3-Space  Vectors in are super similar to vectors in we discussed in . Two points in can determine a vector. Let and be two points in . Then we can define a vector as follows where the -component is , the -component is , and the -component is .   Find the components of the vector , where and . Then sketch the vector.   By the definition of the vector components we have   The sketch of the vector is shown below.   Vector in        The vector terminologies remain the same as in :   Two non-zero vectors are parallel if one is a scalar multiple of the other.    Two vectors are equivalent if they have the same components.    The position vectors are the ones whose tails are at the origin .      Determine whether or not the two vectors and are parallel.   Since the two vectors are parallel.  In addition, since the scalar here is negative, we know that the two vectors point in opposite directions.    Just like how we can find the magnitude and the direction of a vector in , we can do the same(ish) thing in . Given a vector , its magnitude is Also, the vector itself can tell us about its direction . If you really want to work with a unit vector in the same direction as , you can find it by dividing the vector by its magnitude:   In addition, vector algebra works similarly in as it does in . Vector addition and scalar multiplication are defined component-wise . That is, if and , then and for a scalar , Then we can construct new vectors through linear combinations .  The standard basis vectors in are and every vector in can be expressed as a linear combination of these basis vectors. Using fancy linear algebra terminology, the set spans .   Which vector has the smaller magnitude: or ?   We first find the components of each vector: and Then we compute their magnitudes: and Since , we conclude that has the smaller magnitude.      Curves and Lines  Most curves in can be represented using parametrically than using a single equation. That is, we use three functions to represent the -, -, and -coordinates of the points on the curve with a parameter . This can be visualized as representing the coordinates of a particle moving through space as a function of time , and the curve is the path traced out by the particle.   Full Interface GeoGebra    Alternatively, we can construct a function of the position vectors with tips on the curve Essentially, the tips of this \"vector function\" trace out the curve as varies. This is called the vector-valued function . You will learn all the fun stuff about vector-valued functions in Chapter 13. In this section, we will focus on the simplest type of curves in , lines.  Remember back when you first learned about lines in , you probably remember that we need both the slope and a point on the line to define a line.   The slope tells us the direction of the line. Yet knowing just the slope doesn't tell us a unique line... There can be thousands of parallel lines with the same slope!    A point on the line can pin down the location of the line. Yet knowing just a point on the line doesn't tell us the direction of the line... We can draw infinitely many lines through a single point!   This is also the case in ! In order to determine a line in , we need to know both the direction of the line and a point on the line.  Unlike stuff in , there is no \"slope\" in to represent the direction of a line, since \"slope\" is a concept that only works in two dimensions. Instead, we use a vector to represent the direction of the line.  We can find a point in just fine, since points in are represented by ordered triples.  Hence, a line in is determined by a point on the line and a direction vector .   Equation of a Line in   The line through in the direction of is described by   Vector Parametrization:  where .   Parametric Equations:  The parameter takes on values .      The line in   Observe that the parametric equations specify the -, -, and -coordinates of the points on the line as functions of the parameter . These three parametric equations is itself a linear function in the parameter . What we did here is essentially to extend this idea in the notion of vector parametrization.   Find an equation of the line that passes through the point in the direction of .   We are given . Therefore, an equation of the line is for . The corresponding parametric equations are for .    Back in algebra 2, you may also have learned that two points can also determine a line in . This is also true in . The trick here is to determine the direction vector using the two points.   Find an equation of the line that passes through the points and .   To find an equation of a line, we need a point on the line and a direction vector. So there are really things we need to find out.  The easier part is to find a point on the line (we are given two points on the line!)  The slightly trickier part is to find a direction vector. Can we find a vector parallel to the line using the two points?    A directional vector is . Then we obtain We can use either point or as the point on the line. Using point , we have . Therefore, an equation of the line is for . The corresponding parametric equations are for .    You may feel like the equation of a line is not unique since we can choose different points on the line to represent the same line (for example, in the previous example, Richard chose the point to write the equation of the line instead of point . He would have obtained a different equation if he had chosen point instead). It is true that the equation of a line is not unique , not only because we can choose different points on the line to construct the equation, we can also pick different vectors that are parallel to each other to represent the direction of the line.  When things are not unique, it is often helpful to verify that two different equations can represent the same line. Remember that we can determine a line by knowing a point on the line and a direction vector. Then two equations represent the same line if the direction vectors are parallel and they share a point in common.   Show that and define the same line, where    The line has the direction vector of and passes through the point .  The line has the direction vector of and passes through the point .  If they represent the same line, then and must be parallel, and there must be a point that lies on both lines.    Observe that , so the two direction vectors are parallel.  To show that the two lines share a point in common, we can check if point lies on line . Observe that This implies that lies on line .  Therefore, the two lines represent the same line in .    In , we learned that two lines are either parallel or they intersect at a single point, assuming the lines are not coincident. In , however, two lines can also be skew , meaning that they do not intersect and are not parallel (hence they are not coplanar).   Determine whether the lines and intersect, and if so, find the point of intersection.   Let's just assume that the two lines intersect. If two lines intersect, then they must intersect at a single point.  Now put on your algebra 2 hat and think about how to find the point of intersection of two lines in . (You would set the two equations equal to each other and solve for !)    The lines intersect if there exist parameter values and such that Equating corresponding components, we get This is a system of three equations with two unknowns. If you know linear algebra, feel free to solve it using matrices. Otherwise, we can solve it using basic algebra methods, like substitution or elimination.  Richard assumes no linear algebra knowledge here, so he will use substitution. Substituting from the second equation into the first equation we get Using in the second equation gives . Don't forget that there are. three equations in the system but we only used two of them so far! We need to check whether and satisfy the third equation: We conclude that , is the solution to the system, hence the two lines intersect.   If you really like linear algebra and want to solve it using matrices...  There are multiple ways to solve the system of equations using linear algebra (like row reduce the augmented matrix, or use Cramer's rule, etc.). Richard will pick the method of row reducing the augmented matrix here (the cramer's rule or the inverse matrix method don't work here since there are more equations than the variables).  The agumented matrix of the system is Row reducing this matrix we get From here we can read off the solution , .   To find the point of intersection we substitute into the equation for (or into ) to obtain The point of intersection is the terminal point of this vector, that is, .     Determine whether the lines and are parallel, intersect, or are skew.   Observe that the direction vectors are and are not multiples of each other, so the lines are not parallel.  Then the two other possibilities are that the lines intersect or they are skew. We haven't discussed how to check if two lines are skew, but we can check if they intersect. So the question becomes: do the two lines intersect?    If the two lines intersect, then there exist parameter values and such that Equating corresponding components, we get Substituting from the second equation into the first equation we get Using in the first equation gives . Don't forget that there are three equations in the system but we only used two of them so far! We need to check whether and satisfy the third equation: This is a contradiction, so the two lines do not intersect.   If you again want to solve it using matrices...  The augmented matrix of the system is Row reducing this matrix we get Observe that a pivot appears in the rightmost column, which implies that the system is inconsistent.   Since we have already established that the lines are not parallel, we conclude that the two lines are skew.  The sketch of the two lines is shown below. Observe that these two lines do not intersect and are not parallel. They are not coplanar.   Line (blue) and Line (red)          Practice problems for this section   Below are the suggested problems for this section. Some of the problems will become part of your homework assignments. I suggest you work out all the problems to get a good grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solution will be posted after the homework due dates. If you have any question about your work, talk to Richard and he is happy to discuss the process with you.    Find the components of the vector , where and     Let . Which of the following vectors is parallel to ? Which point in the same direction?                          Determine whether or not the two vectors and are parallel.    Sketch the following vectors, and find their components and lengths:                           In the following exercises, describe the surface.     , with      , with       In the following exercises, give an equation for the indicated surface.    The sphere centered at passing through     The cylinder passing through the origin with the vertical line through as its central axis.      In the following exercises, find a vector parametrization for the line with the given description.    Passes through , direction vector     Passes through , direction vector      Show that and define the same line, where     Show that passes through and that the direction vectors for and are parallel.     Find two different vector parametrizations of the line through with direction vector .    Determine whether the lines and intersect, and if so, find the point of intersection.    "
 },
 {
   "id": "sec122-3DSpaces-2-2",
@@ -520,7 +520,340 @@ var ptx_lunr_docs = [
   "type": "Objectives",
   "number": "",
   "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
+  "body": "  After this section, students will be able to:     Locate points in a three-dimensional Cartesian coordinate system and identify the octants.    Calculate the distance between two points in using the distance formula.    Identify and write equations for basic surfaces in , including planes, spheres, and cylinders.    Perform vector operations (addition, scalar multiplication, and magnitude) in .    Determine vector and parametric equations for lines in given a point and a direction, or two points.    Analyze the relationship between two lines in space to determine if they are parallel, intersecting, or skew.    "
+},
+{
+  "id": "sec122-3DSpaces-4",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#sec122-3DSpaces-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "right-hand rule "
+},
+{
+  "id": "sec122-3DSpaces-5",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#sec122-3DSpaces-5",
+  "type": "Figure",
+  "number": "12.2.1",
+  "title": "",
+  "body": "  Right-hand rule for labeling axes in  "
+},
+{
+  "id": "sec122-3DSpaces-6",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#sec122-3DSpaces-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "origin "
+},
+{
+  "id": "sec122-3DSpaces-7",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#sec122-3DSpaces-7",
+  "type": "Figure",
+  "number": "12.2.2",
+  "title": "",
+  "body": "  Plotting the following points in  "
+},
+{
+  "id": "sec122-3DSpaces-9",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#sec122-3DSpaces-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "octants first octant "
+},
+{
+  "id": "sec122-3DSpaces-10",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#sec122-3DSpaces-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "distance "
+},
+{
+  "id": "thm-DistancePoints-R3",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#thm-DistancePoints-R3",
+  "type": "Theorem",
+  "number": "12.2.3",
+  "title": "Distance Formula in <span class=\"process-math\">\\(\\R^3\\)<\/span>.",
+  "body": " Distance Formula in   The distance between the points and is    "
+},
+{
+  "id": "sec122-3DSpaces-12",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#sec122-3DSpaces-12",
+  "type": "Proof",
+  "number": "12.2.1",
+  "title": "A quick proof to show the distance formula in <span class=\"process-math\">\\(\\R^3\\)<\/span>.",
+  "body": " A quick proof to show the distance formula in  Let and be two points in . We first construct the point . Then, by applying the Pythagorean Theorem in the right triangle , we have     in   We can see that . To find the hypotenuse , we need to find first.  To find , we will need to construct another point .    in   We apply the Pythagorean Theorem again in the triangle to find :   Hence, we obtain Taking the square root of both sides gives the desired result.  "
+},
+{
+  "id": "subsec-3Space-Surfaces-3",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Surfaces-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "-plane -plane -plane "
+},
+{
+  "id": "subsec-3Space-Surfaces-4",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Surfaces-4",
+  "type": "Figure",
+  "number": "12.2.6",
+  "title": "",
+  "body": "  -, -, and -planes in  "
+},
+{
+  "id": "subsec-3Space-Surfaces-5",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Surfaces-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "coordinate planes "
+},
+{
+  "id": "subsec-3Space-Surfaces-6",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Surfaces-6",
+  "type": "Example",
+  "number": "12.2.7",
+  "title": "",
+  "body": " Describe the following surfaces in and sketch them:                    The equations describe planes in as follows:   The equation describes a plane parallel to the -plane that intersects the -axis at .    The equation describes a plane parallel to the -plane that intersects the -axis at .    The equation describes a plane parallel to the -plane that intersects the -axis at .   The sketch of these planes is shown below.    Planes , , and in    "
+},
+{
+  "id": "def-StandardEquation-Sphere",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#def-StandardEquation-Sphere",
+  "type": "Definition",
+  "number": "12.2.9",
+  "title": "Standard Equation of a Sphere in <span class=\"process-math\">\\(\\R^3\\)<\/span>.",
+  "body": " Standard Equation of a Sphere in   An equation of the sphere in of radius centered at is    "
+},
+{
+  "id": "subsec-3Space-Surfaces-11",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Surfaces-11",
+  "type": "Figure",
+  "number": "12.2.10",
+  "title": "",
+  "body": "  Sphere of radius centered at in  "
+},
+{
+  "id": "subsec-3Space-Surfaces-12",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Surfaces-12",
+  "type": "Note",
+  "number": "12.2.11",
+  "title": "Hey Richard, can we call this a ball instead of a sphere?",
+  "body": " Hey Richard, can we call this a ball instead of a sphere?  The short answer is no... There is a big difference between a sphere and a ball in mathematics.  Observing the standard equation of a sphere, we can see that it only describes the surface of the sphere, not the interior.  Yet, a ball includes both the surface and the interior. An equation of a ball of radius centered at is given by the inequality   If you took MTH 252 (or 252Z) with Richard, you may remember he pointed out the difference between a circle and a disk when he taught the Disk Method. This is the same idea here.  "
+},
+{
+  "id": "subsec-3Space-Surfaces-13",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Surfaces-13",
+  "type": "Example",
+  "number": "12.2.12",
+  "title": "",
+  "body": " Give an equation of the sphere of radius centered at .   Using the standard equation of a sphere, we have which simplifies to    "
+},
+{
+  "id": "subsec-3Space-Surfaces-15",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Surfaces-15",
+  "type": "Example",
+  "number": "12.2.13",
+  "title": "",
+  "body": " Describe the surface with .   If we drop the constraints , then the equation describes a sphere of radius centered at the origin. But we don't get the whole sphere because of the constraints...  Then which part of the sphere do we get if we only allow ?    The equation describes a sphere of radius centered at the origin. However, since we have the constraints , we only get the portion of the sphere that is in the first octant. That is, the surface is one eighth of the sphere.  The surface is shown in the figure below.   Portion of the sphere in the first octant       "
+},
+{
+  "id": "subsec-3Space-Surfaces-17",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Surfaces-17",
+  "type": "Figure",
+  "number": "12.2.15",
+  "title": "",
+  "body": "  Right circular cylinder of radius whose central axis is the vertical line through  "
+},
+{
+  "id": "def-StandardEquation-Cylinder",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#def-StandardEquation-Cylinder",
+  "type": "Definition",
+  "number": "12.2.16",
+  "title": "Standard Equation of a Cylinder in <span class=\"process-math\">\\(\\R^3\\)<\/span>.",
+  "body": " Standard Equation of a Cylinder in   An equation of the right circular cylinder in of radius whose central axis is the vertical line through is    "
+},
+{
+  "id": "subsec-3Space-Surfaces-19",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Surfaces-19",
+  "type": "Example",
+  "number": "12.2.17",
+  "title": "",
+  "body": " Describe the surface with .   If we drop the constraints , then the equation describes a cylinder of radius whose central axis is the vertical line through the origin. But we don't get the whole cylinder because of the constraints...  Then which part of the cylinder do we get if we only allow ?    The equation describes a cylinder of radius whose central axis is the vertical line through the origin. However, since we have the constraints , we only get the portion of the cylinder where and . That is, we get one fourth of the cylinder.  The surface is shown in the figure below.   Fourth-cylinder with       "
+},
+{
+  "id": "subsec-3Space-Vectors-3",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Vectors-3",
+  "type": "Example",
+  "number": "12.2.19",
+  "title": "",
+  "body": " Find the components of the vector , where and . Then sketch the vector.   By the definition of the vector components we have   The sketch of the vector is shown below.   Vector in       "
+},
+{
+  "id": "subsec-3Space-Vectors-4",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Vectors-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "parallel equivalent position vectors "
+},
+{
+  "id": "subsec-3Space-Vectors-5",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Vectors-5",
+  "type": "Example",
+  "number": "12.2.21",
+  "title": "",
+  "body": " Determine whether or not the two vectors and are parallel.   Since the two vectors are parallel.  In addition, since the scalar here is negative, we know that the two vectors point in opposite directions.   "
+},
+{
+  "id": "subsec-3Space-Vectors-6",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Vectors-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "magnitude direction "
+},
+{
+  "id": "subsec-3Space-Vectors-7",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Vectors-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "linear combinations "
+},
+{
+  "id": "subsec-3Space-Vectors-8",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Vectors-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "standard basis vectors "
+},
+{
+  "id": "subsec-3Space-Vectors-9",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-3Space-Vectors-9",
+  "type": "Example",
+  "number": "12.2.22",
+  "title": "",
+  "body": " Which vector has the smaller magnitude: or ?   We first find the components of each vector: and Then we compute their magnitudes: and Since , we conclude that has the smaller magnitude.   "
+},
+{
+  "id": "figure-geogebra-full",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#figure-geogebra-full",
+  "type": "Figure",
+  "number": "12.2.23",
+  "title": "",
+  "body": " Full Interface GeoGebra   "
+},
+{
+  "id": "subsec-ParametricLines-4",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-ParametricLines-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vector-valued function "
+},
+{
+  "id": "def-lines-3d",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#def-lines-3d",
+  "type": "Definition",
+  "number": "12.2.24",
+  "title": "Equation of a Line in <span class=\"process-math\">\\(\\R^3\\)<\/span>.",
+  "body": " Equation of a Line in   The line through in the direction of is described by   Vector Parametrization:  where .   Parametric Equations:  The parameter takes on values .   "
+},
+{
+  "id": "subsec-ParametricLines-10",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-ParametricLines-10",
+  "type": "Figure",
+  "number": "12.2.25",
+  "title": "",
+  "body": "  The line in  "
+},
+{
+  "id": "subsec-ParametricLines-12",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-ParametricLines-12",
+  "type": "Example",
+  "number": "12.2.26",
+  "title": "",
+  "body": " Find an equation of the line that passes through the point in the direction of .   We are given . Therefore, an equation of the line is for . The corresponding parametric equations are for .   "
+},
+{
+  "id": "subsec-ParametricLines-14",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-ParametricLines-14",
+  "type": "Example",
+  "number": "12.2.27",
+  "title": "",
+  "body": " Find an equation of the line that passes through the points and .   To find an equation of a line, we need a point on the line and a direction vector. So there are really things we need to find out.  The easier part is to find a point on the line (we are given two points on the line!)  The slightly trickier part is to find a direction vector. Can we find a vector parallel to the line using the two points?    A directional vector is . Then we obtain We can use either point or as the point on the line. Using point , we have . Therefore, an equation of the line is for . The corresponding parametric equations are for .   "
+},
+{
+  "id": "subsec-ParametricLines-17",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-ParametricLines-17",
+  "type": "Example",
+  "number": "12.2.28",
+  "title": "",
+  "body": " Show that and define the same line, where    The line has the direction vector of and passes through the point .  The line has the direction vector of and passes through the point .  If they represent the same line, then and must be parallel, and there must be a point that lies on both lines.    Observe that , so the two direction vectors are parallel.  To show that the two lines share a point in common, we can check if point lies on line . Observe that This implies that lies on line .  Therefore, the two lines represent the same line in .   "
+},
+{
+  "id": "subsec-ParametricLines-18",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-ParametricLines-18",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "skew "
+},
+{
+  "id": "subsec-ParametricLines-19",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-ParametricLines-19",
+  "type": "Example",
+  "number": "12.2.29",
+  "title": "",
+  "body": " Determine whether the lines and intersect, and if so, find the point of intersection.   Let's just assume that the two lines intersect. If two lines intersect, then they must intersect at a single point.  Now put on your algebra 2 hat and think about how to find the point of intersection of two lines in . (You would set the two equations equal to each other and solve for !)    The lines intersect if there exist parameter values and such that Equating corresponding components, we get This is a system of three equations with two unknowns. If you know linear algebra, feel free to solve it using matrices. Otherwise, we can solve it using basic algebra methods, like substitution or elimination.  Richard assumes no linear algebra knowledge here, so he will use substitution. Substituting from the second equation into the first equation we get Using in the second equation gives . Don't forget that there are. three equations in the system but we only used two of them so far! We need to check whether and satisfy the third equation: We conclude that , is the solution to the system, hence the two lines intersect.   If you really like linear algebra and want to solve it using matrices...  There are multiple ways to solve the system of equations using linear algebra (like row reduce the augmented matrix, or use Cramer's rule, etc.). Richard will pick the method of row reducing the augmented matrix here (the cramer's rule or the inverse matrix method don't work here since there are more equations than the variables).  The agumented matrix of the system is Row reducing this matrix we get From here we can read off the solution , .   To find the point of intersection we substitute into the equation for (or into ) to obtain The point of intersection is the terminal point of this vector, that is, .   "
+},
+{
+  "id": "subsec-ParametricLines-20",
+  "level": "2",
+  "url": "sec122-3DSpaces.html#subsec-ParametricLines-20",
+  "type": "Example",
+  "number": "12.2.31",
+  "title": "",
+  "body": " Determine whether the lines and are parallel, intersect, or are skew.   Observe that the direction vectors are and are not multiples of each other, so the lines are not parallel.  Then the two other possibilities are that the lines intersect or they are skew. We haven't discussed how to check if two lines are skew, but we can check if they intersect. So the question becomes: do the two lines intersect?    If the two lines intersect, then there exist parameter values and such that Equating corresponding components, we get Substituting from the second equation into the first equation we get Using in the first equation gives . Don't forget that there are three equations in the system but we only used two of them so far! We need to check whether and satisfy the third equation: This is a contradiction, so the two lines do not intersect.   If you again want to solve it using matrices...  The augmented matrix of the system is Row reducing this matrix we get Observe that a pivot appears in the rightmost column, which implies that the system is inconsistent.   Since we have already established that the lines are not parallel, we conclude that the two lines are skew.  The sketch of the two lines is shown below. Observe that these two lines do not intersect and are not parallel. They are not coplanar.   Line (blue) and Line (red)       "
 },
 {
   "id": "ws-sec122-3",
@@ -583,7 +916,7 @@ var ptx_lunr_docs = [
   "type": "Worksheet Exercise",
   "number": "12.2.39",
   "title": "",
-  "body": " he sphere centered at passing through   "
+  "body": " The sphere centered at passing through   "
 },
 {
   "id": "ws-sec122-8-3",
@@ -619,7 +952,7 @@ var ptx_lunr_docs = [
   "type": "Worksheet Exercise",
   "number": "12.2.57",
   "title": "",
-  "body": " Show that and define the same line, where    "
+  "body": " Show that and define the same line, where     Show that passes through and that the direction vectors for and are parallel.   "
 },
 {
   "id": "ws-sec122-11",
@@ -652,393 +985,6 @@ var ptx_lunr_docs = [
   "id": "sec123-DotProduct-2-2",
   "level": "2",
   "url": "sec123-DotProduct.html#sec123-DotProduct-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec124-CrossProduct",
-  "level": "1",
-  "url": "sec124-CrossProduct.html",
-  "type": "Section",
-  "number": "12.4",
-  "title": "The Cross Product",
-  "body": " The Cross Product   The big question in this section is how to approximate the area under the curve of a function . We will learn some methods to approximate the area and also how to make the approximation more and more precise.    After this section, students will be able to:     define what a vector is in the plane    perform vector addition and scalar multiplication geometrically and component-wise       The Cross Product   The Right Hand Rule for Cross Products   A diagram showing the right hand rule where the index finger points along vector A, middle finger along B, and thumb illustrates the resulting cross product.     "
-},
-{
-  "id": "sec124-CrossProduct-2-2",
-  "level": "2",
-  "url": "sec124-CrossProduct.html#sec124-CrossProduct-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     define what a vector is in the plane    perform vector addition and scalar multiplication geometrically and component-wise    "
-},
-{
-  "id": "fig-cross-product-rhr",
-  "level": "2",
-  "url": "sec124-CrossProduct.html#fig-cross-product-rhr",
-  "type": "Figure",
-  "number": "12.4.1",
-  "title": "",
-  "body": " The Right Hand Rule for Cross Products   A diagram showing the right hand rule where the index finger points along vector A, middle finger along B, and thumb illustrates the resulting cross product.   "
-},
-{
-  "id": "sec125-Planesin3D",
-  "level": "1",
-  "url": "sec125-Planesin3D.html",
-  "type": "Section",
-  "number": "12.5",
-  "title": "Planes in 3-Spaces",
-  "body": " Planes in 3-Spaces   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec125-Planesin3D-2-2",
-  "level": "2",
-  "url": "sec125-Planesin3D.html#sec125-Planesin3D-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec126-QuadricSurfaces",
-  "level": "1",
-  "url": "sec126-QuadricSurfaces.html",
-  "type": "Section",
-  "number": "12.6",
-  "title": "A Survey to Quadric Surfaces",
-  "body": " A Survey to Quadric Surfaces   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec126-QuadricSurfaces-2-2",
-  "level": "2",
-  "url": "sec126-QuadricSurfaces.html#sec126-QuadricSurfaces-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec127-CylindricalSphericalCoordinates",
-  "level": "1",
-  "url": "sec127-CylindricalSphericalCoordinates.html",
-  "type": "Section",
-  "number": "12.7",
-  "title": "Cylindrical and Spherical Coordinates",
-  "body": " Cylindrical and Spherical Coordinates   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec127-CylindricalSphericalCoordinates-2-2",
-  "level": "2",
-  "url": "sec127-CylindricalSphericalCoordinates.html#sec127-CylindricalSphericalCoordinates-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec131-VectorFunctions",
-  "level": "1",
-  "url": "sec131-VectorFunctions.html",
-  "type": "Section",
-  "number": "13.1",
-  "title": "Vector-Valued Functions",
-  "body": " Vector-Valued Functions   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec131-VectorFunctions-2-2",
-  "level": "2",
-  "url": "sec131-VectorFunctions.html#sec131-VectorFunctions-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec132-CalcVectorFunctions",
-  "level": "1",
-  "url": "sec132-CalcVectorFunctions.html",
-  "type": "Section",
-  "number": "13.2",
-  "title": "Calculus of Vector-Valued Functions",
-  "body": " Calculus of Vector-Valued Functions   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec132-CalcVectorFunctions-2-2",
-  "level": "2",
-  "url": "sec132-CalcVectorFunctions.html#sec132-CalcVectorFunctions-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec133-ArcLength",
-  "level": "1",
-  "url": "sec133-ArcLength.html",
-  "type": "Section",
-  "number": "13.3",
-  "title": "Arc Length and Speed",
-  "body": " Arc Length and Speed   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec133-ArcLength-2-2",
-  "level": "2",
-  "url": "sec133-ArcLength.html#sec133-ArcLength-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec134-Curvature",
-  "level": "1",
-  "url": "sec134-Curvature.html",
-  "type": "Section",
-  "number": "13.4",
-  "title": "Curvature",
-  "body": " Curvature   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec134-Curvature-2-2",
-  "level": "2",
-  "url": "sec134-Curvature.html#sec134-Curvature-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec141-FunctionsTwoVariables",
-  "level": "1",
-  "url": "sec141-FunctionsTwoVariables.html",
-  "type": "Section",
-  "number": "14.1",
-  "title": "Functions of Two or More Variables",
-  "body": " Functions of Two or More Variables   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec141-FunctionsTwoVariables-2-2",
-  "level": "2",
-  "url": "sec141-FunctionsTwoVariables.html#sec141-FunctionsTwoVariables-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec142-LimitsContinuity",
-  "level": "1",
-  "url": "sec142-LimitsContinuity.html",
-  "type": "Section",
-  "number": "14.2",
-  "title": "Limits and Continuity in Several Variables",
-  "body": " Limits and Continuity in Several Variables   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec142-LimitsContinuity-2-2",
-  "level": "2",
-  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec143-PartialDerivatives",
-  "level": "1",
-  "url": "sec143-PartialDerivatives.html",
-  "type": "Section",
-  "number": "14.3",
-  "title": "Partial Derivatives",
-  "body": " Partial Derivatives   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec143-PartialDerivatives-2-2",
-  "level": "2",
-  "url": "sec143-PartialDerivatives.html#sec143-PartialDerivatives-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec144-DifferentiabilityTangentPlane",
-  "level": "1",
-  "url": "sec144-DifferentiabilityTangentPlane.html",
-  "type": "Section",
-  "number": "14.4",
-  "title": "Differentiability, Tangent Planes, and Linear Approximation",
-  "body": " Differentiability, Tangent Planes, and Linear Approximation   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec144-DifferentiabilityTangentPlane-2-2",
-  "level": "2",
-  "url": "sec144-DifferentiabilityTangentPlane.html#sec144-DifferentiabilityTangentPlane-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec145-GradientDirectionalDerivatives",
-  "level": "1",
-  "url": "sec145-GradientDirectionalDerivatives.html",
-  "type": "Section",
-  "number": "14.5",
-  "title": "The Gradient and Directional Derivatives",
-  "body": " The Gradient and Directional Derivatives   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec145-GradientDirectionalDerivatives-2-2",
-  "level": "2",
-  "url": "sec145-GradientDirectionalDerivatives.html#sec145-GradientDirectionalDerivatives-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec146-ChainRule",
-  "level": "1",
-  "url": "sec146-ChainRule.html",
-  "type": "Section",
-  "number": "14.6",
-  "title": "Multivariable Calculus Chain Rules",
-  "body": " Multivariable Calculus Chain Rules   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec146-ChainRule-2-2",
-  "level": "2",
-  "url": "sec146-ChainRule.html#sec146-ChainRule-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec147-Optimization",
-  "level": "1",
-  "url": "sec147-Optimization.html",
-  "type": "Section",
-  "number": "14.7",
-  "title": "Optimization in Several Variables",
-  "body": " Optimization in Several Variables   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec147-Optimization-2-2",
-  "level": "2",
-  "url": "sec147-Optimization.html#sec147-Optimization-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec148-LagrangeMultipliers",
-  "level": "1",
-  "url": "sec148-LagrangeMultipliers.html",
-  "type": "Section",
-  "number": "14.8",
-  "title": "Lagrange Multipliers: Optimizing with a Constraint",
-  "body": " Lagrange Multipliers: Optimizing with a Constraint   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec148-LagrangeMultipliers-2-2",
-  "level": "2",
-  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec151-IntegrationTwoVariables",
-  "level": "1",
-  "url": "sec151-IntegrationTwoVariables.html",
-  "type": "Section",
-  "number": "15.1",
-  "title": "Integration in Two Variables",
-  "body": " Integration in Two Variables   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec151-IntegrationTwoVariables-2-2",
-  "level": "2",
-  "url": "sec151-IntegrationTwoVariables.html#sec151-IntegrationTwoVariables-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec152-DoubleIntegrals",
-  "level": "1",
-  "url": "sec152-DoubleIntegrals.html",
-  "type": "Section",
-  "number": "15.2",
-  "title": "Double Integrals over More General Regions",
-  "body": " Double Integrals over More General Regions   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec152-DoubleIntegrals-2-2",
-  "level": "2",
-  "url": "sec152-DoubleIntegrals.html#sec152-DoubleIntegrals-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec153-tripleIntegrals",
-  "level": "1",
-  "url": "sec153-tripleIntegrals.html",
-  "type": "Section",
-  "number": "15.3",
-  "title": "Triple Integrals",
-  "body": " Triple Integrals   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec153-tripleIntegrals-2-2",
-  "level": "2",
-  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec154-IntegrationPolarCylindricalSphericalCoordinates",
-  "level": "1",
-  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html",
-  "type": "Section",
-  "number": "15.4",
-  "title": "Integration in Polar, Cylindrical, and Spherical Coordinates",
-  "body": " Integration in Polar, Cylindrical, and Spherical Coordinates   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2",
-  "level": "2",
-  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2",
-  "type": "Objectives",
-  "number": "",
-  "title": "",
-  "body": "  After this section, students will be able to:     blahblahblah    "
-},
-{
-  "id": "sec156-ChangeofVariables",
-  "level": "1",
-  "url": "sec156-ChangeofVariables.html",
-  "type": "Section",
-  "number": "15.5",
-  "title": "Change of Variables",
-  "body": " Change of Variables   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
-},
-{
-  "id": "sec156-ChangeofVariables-2-2",
-  "level": "2",
-  "url": "sec156-ChangeofVariables.html#sec156-ChangeofVariables-2-2",
   "type": "Objectives",
   "number": "",
   "title": "",
