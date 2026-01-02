@@ -1573,6 +1573,12 @@
       </figure>
     </exercise>
 
+    <exercise number="12.3.91">
+      <p>
+        Prove that <m>\|\v{v} + \v{w}\|^2 - \|\v{v} - \v{w}\|^2 = 4\v{v} \cdot \v{w}</m>. 
+      </p>
+    </exercise>
+
   </worksheet>
 
 </section>
