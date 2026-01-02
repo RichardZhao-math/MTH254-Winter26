@@ -1555,18 +1555,12 @@
       </figure>
     </exercise>
 
-    <exercise number="12.3.81">
+    <exercise number="12.3.85">
       <p>
-        The methane molecule <m>\text{CH}_\text{4}</m> consists of a carbon molecule bounded to four hydrogen molecules bonded to four hydrogen molecules that are spaced as far apart from each other as possible. 
-        The hydrogen atoms then sit at the vertices of a tetrahedron, with the carbon atom at its center, as shown in the figure below. 
-        We can model this with the carbon atom at the point <m>\lp \frac{1}{2}, \frac{1}{2}, \frac{1}{2} \rp</m> and the hydrogen atoms at <m>(0,0,0)</m>, <m>(1,1,0)</m>, <m>(1,0,1)</m>, and <m>(0,1,1)</m>. 
-        Use the dot product to find the bond angle <m>\alpha</m> formed between any two of the line segments from the carbon atom to the hydrogen atoms. 
+        Suppose a 45 km/h wind <m>\v{w}</m> is blowing out of the north toward a bridge oriented <m>32^\circ</m> east of north. 
+        Express the corresponding wind vector as a sum of vectors, one parallel to the bridge and one perpendicular to it. 
+        Also, compute the magnitude of the perpendicular term to determine the speed of the part of the wind blowing directly at the bridge. 
       </p>
-
-      <figure>
-        <image source="sec123-MethaneMolecule-Diagram.png" width="50%"></image>
-        <caption>A Methane molecule <m>\text{CH}_\text{4}</m></caption>
-      </figure>
     </exercise>
 
     <exercise number="12.3.87">
