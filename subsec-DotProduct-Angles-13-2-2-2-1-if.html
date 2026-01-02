@@ -100,59 +100,82 @@ window.MathJax = {
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v')
+<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage"># 1. Define Vectors v and w
+v = vector([0, 1, 1])
+w = vector([1, -1, 0])
 
-# 1. Surface: x^2 + y^2 + z^2 = 9 (Radius 3)
-# u (phi) from 0 to pi/2 (z >= 0)
-# v (theta) from 0 to pi/2 (x, y >= 0)
-sphere_surface = parametric_plot3d(
-    [3*sin(u)*cos(v), 3*sin(u)*sin(v), 3*cos(u)], 
-    (u, 0, pi/2), (v, 0, pi/2), 
-    color='cyan', opacity=0.6, mesh=True
-)
+# Draw the vectors
+arrow_v = arrow3d((0,0,0), v, color='blue', width=3)
+arrow_w = arrow3d((0,0,0), w, color='red', width=3)
 
-# 2. Axes Lengths (slightly larger than radius 3)
-x_len, y_len, z_len = 4, 4, 4
+# Labels for vectors
+label_v = text3d("v", v * 1.1, color='blue', fontsize=15)
+label_w = text3d("w", w * 1.1, color='red', fontsize=15)
 
-# Draw Arrows
+# 2. Draw the Angle Arc (Theta)
+# These vectors have length sqrt(2) approx 1.41
+# So we set the arc radius smaller (e.g., 0.7) to fit nicely inside
+arc_radius = 0.7
+u_v = v / v.norm() 
+u_w = w / w.norm() 
+
+arc_lines = Graphics()
+steps = 20
+for k in range(steps):
+    t1 = k / steps
+    t2 = (k + 1) / steps
+    
+    # Interpolate between unit vectors
+    p_start = (1 - t1)*u_v + t1*u_w
+    p_end   = (1 - t2)*u_v + t2*u_w
+    
+    # Normalize and scale
+    p_start = p_start / p_start.norm() * arc_radius
+    p_end   = p_end   / p_end.norm()   * arc_radius
+    
+    arc_lines += line3d([p_start, p_end], color='green', thickness=2)
+
+# Label Theta
+mid_vec = (u_v + u_w)
+mid_vec = mid_vec / mid_vec.norm() * (arc_radius + 0.3)
+label_theta = text3d(u"\u03b8", mid_vec, color='black', fontsize=20)
+
+# 3. Axes Setup
+# Vectors are small (coord 1), so axes length 2 or 3 is enough
+x_len, y_len, z_len = 3, 3, 3
+
 axes_arrows = (
     arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
     arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
     arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
 )
 
-# Draw Axis Labels (x, y, z)
 axes_labels = (
     text3d("x", (x_len + 0.2, 0, 0), color='black') +
     text3d("y", (0, y_len + 0.2, 0), color='black') +
     text3d("z", (0, 0, z_len + 0.2), color='black')
 )
 
-# 3. Generate Multiple Ticks and Label "1"
+# 4. Ticks (Positive Only)
 ticks = Graphics()
-tick_labels = Graphics()
 tick_size = 0.15
 
-# X-axis: Ticks at 1, 2, 3
+# X ticks
 for i in range(1, x_len):
-    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black', thickness=2)
-    if i == 1:
-        tick_labels += text3d("1", (i, -0.5, 0), color='black')
+    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black')
     
-# Y-axis: Ticks at 1, 2, 3
+# Y ticks (Positive only)
 for i in range(1, y_len):
-    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black', thickness=2)
-    if i == 1:
-        tick_labels += text3d("1", (0.5, i, 0), color='black')
+    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black')
 
-# Z-axis: Ticks at 1, 2, 3
+# Z ticks
 for i in range(1, z_len):
-    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black', thickness=2)
-    if i == 1:
-        tick_labels += text3d("1", (0, -0.5, i), color='black')
+    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black')
 
-# 4. Show Everything
-show(sphere_surface + axes_arrows + axes_labels + ticks + tick_labels, frame=False)
+# 5. Show Everything
+show(arrow_v + arrow_w + label_v + label_w + 
+    arc_lines + label_theta + 
+    axes_arrows + axes_labels + ticks, frame=False)
 </script></pre></div>
 </body>
 </html>

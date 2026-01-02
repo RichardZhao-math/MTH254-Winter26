@@ -100,59 +100,83 @@ window.MathJax = {
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v')
+<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage"># 1. Define Vectors
+u = vector([4, -1, 5])
+v = vector([2, 1, 1])
 
-# 1. Surface: x^2 + y^2 + z^2 = 9 (Radius 3)
-# u (phi) from 0 to pi/2 (z >= 0)
-# v (theta) from 0 to pi/2 (x, y >= 0)
-sphere_surface = parametric_plot3d(
-    [3*sin(u)*cos(v), 3*sin(u)*sin(v), 3*cos(u)], 
-    (u, 0, pi/2), (v, 0, pi/2), 
-    color='cyan', opacity=0.6, mesh=True
-)
+# 2. Calculate Components
+# u . v = 12, v . v = 6, so scale factor is 2
+scale_factor = u.dot_product(v) / v.dot_product(v)
+u_parallel = scale_factor * v
+u_perp = u - u_parallel
 
-# 2. Axes Lengths (slightly larger than radius 3)
-x_len, y_len, z_len = 4, 4, 4
+# 3. Draw Vectors (Layered Strategy)
 
-# Draw Arrows
+# A. u_parallel (Green) - The Projection
+# We draw this first. We make it THICK and TRANSPARENT.
+# This acts as a "highlight" showing the full projection length.
+arrow_par = arrow3d((0,0,0), u_parallel, color='green', width=5, opacity=0.3)
+
+# B. v (Blue) - The Basis
+# We draw this narrower and solid on top (or inside) the green arrow.
+arrow_v = arrow3d((0,0,0), v, color='blue', width=3)
+
+# C. u (Red) - Original Vector
+arrow_u = arrow3d((0,0,0), u, color='red', width=3)
+
+# D. u_perp (Orange) - Orthogonal Component
+# Connects tip of u_parallel to tip of u
+arrow_perp = arrow3d(u_parallel, u_parallel + u_perp, color='orange', width=3)
+
+# 4. Labels
+label_u = text3d("u", u * 1.05, color='red', fontsize=15)
+
+# Label v near the origin (since it's shorter)
+label_v = text3d("v", v * 0.5 + vector([0,0,0.3]), color='blue', fontsize=15, fontweight='bold')
+
+# Label u_parallel at the end of the projection
+label_par = text3d("u_parallel", u_parallel * 1.05, color='green', fontsize=15, fontweight='bold')
+
+# Label u_perp
+mid_perp = u_parallel + (u_perp * 0.5)
+label_perp = text3d("u_perp", mid_perp, color='orange', fontsize=12)
+
+# 5. Axes Setup
+x_len, y_len, z_len = 5, 5, 6
+
 axes_arrows = (
     arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
     arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
     arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
 )
 
-# Draw Axis Labels (x, y, z)
 axes_labels = (
     text3d("x", (x_len + 0.2, 0, 0), color='black') +
     text3d("y", (0, y_len + 0.2, 0), color='black') +
     text3d("z", (0, 0, z_len + 0.2), color='black')
 )
 
-# 3. Generate Multiple Ticks and Label "1"
+# 6. Ticks
 ticks = Graphics()
-tick_labels = Graphics()
-tick_size = 0.15
+tick_size = 0.2
 
-# X-axis: Ticks at 1, 2, 3
+# X ticks 
 for i in range(1, x_len):
-    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black', thickness=2)
-    if i == 1:
-        tick_labels += text3d("1", (i, -0.5, 0), color='black')
+    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black')
     
-# Y-axis: Ticks at 1, 2, 3
+# Y ticks 
 for i in range(1, y_len):
-    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black', thickness=2)
-    if i == 1:
-        tick_labels += text3d("1", (0.5, i, 0), color='black')
+    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black')
+    ticks += line3d([(-tick_size, -i, 0), (tick_size, -i, 0)], color='black')
 
-# Z-axis: Ticks at 1, 2, 3
+# Z ticks
 for i in range(1, z_len):
-    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black', thickness=2)
-    if i == 1:
-        tick_labels += text3d("1", (0, -0.5, i), color='black')
+    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black')
 
-# 4. Show Everything
-show(sphere_surface + axes_arrows + axes_labels + ticks + tick_labels, frame=False)
+# 7. Show Everything
+show(arrow_par + arrow_v + arrow_u + arrow_perp + 
+    label_u + label_v + label_par + label_perp +
+    axes_arrows + axes_labels + ticks, frame=False)
 </script></pre></div>
 </body>
 </html>
