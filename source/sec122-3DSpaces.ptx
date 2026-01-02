@@ -19,32 +19,32 @@
       <ul>
         <li>
           <p>
-            Locate points in a three-dimensional Cartesian coordinate system and identify the octants.
+            locate points in a three-dimensional Cartesian coordinate system and identify the octants.
           </p>
         </li>
         <li>
           <p>
-            Calculate the distance between two points in <m>\R^3</m> using the distance formula.
+            calculate the distance between two points in <m>\R^3</m> using the distance formula.
           </p>
         </li>
         <li>
           <p>
-            Identify and write equations for basic surfaces in <m>\R^3</m>, including planes, spheres, and cylinders.
+            identify and write equations for basic surfaces in <m>\R^3</m>, including planes, spheres, and cylinders.
           </p>
         </li>
         <li>
           <p>
-            Perform vector operations (addition, scalar multiplication, and magnitude) in <m>\R^3</m>.
+            perform vector operations (addition, scalar multiplication, and magnitude) in <m>\R^3</m>.
           </p>
         </li>
         <li>
           <p>
-            Determine vector and parametric equations for lines in <m>\R^3</m> given a point and a direction, or two points.
+            determine vector and parametric equations for lines in <m>\R^3</m> given a point and a direction, or two points.
           </p>
         </li>
         <li>
           <p>
-            Analyze the relationship between two lines in space to determine if they are parallel, intersecting, or skew.
+            analyze the relationship between two lines in space to determine if they are parallel, intersecting, or skew.
           </p>
         </li>
       </ul>
@@ -806,18 +806,9 @@
       This can be visualized as representing the coordinates of a particle moving through space as a function of time <m>t</m>, and the curve is the path traced out by the particle. 
     </p>
 
-    <figure xml:id="figure-geogebra-full">
-      <caption>Full Interface GeoGebra</caption>
-      <interactive 
-          xml:id="interactive-geogebra-full" 
-          geogebra="ztn6efy2" 
-          width="100%" 
-          aspect="16:9" 
-          shift-drag-zoom="yes"
-          menubar="yes"
-          toolbar="yes"
-          algebra="yes"
-          input="yes" />
+    <figure>
+      <image source="sec122-VectorValuedFunction-Diagram.png" width="55%"></image>
+      <caption>The curve is traced out by the tip of a moving position vector <m>\v{r}(t)</m></caption>
     </figure>
 
     <p>
@@ -1253,19 +1244,19 @@
   </subsection>
 
   <worksheet xml:id="ws-sec122">
-    <title>Practice problems for this section</title>
+    <title>Assigned Problems for Section 12.2</title>
     
     <introduction>
       <p>
-        Below are the suggested problems for this section. 
-        Some of the problems will become part of your homework assignments. 
-        I suggest you work out all the problems to get a good grasp of the material. 
-        Reach out to Richard for help if you get stuck or have any questions. 
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
       </p>
 
       <p>
-        The solution will be posted after the homework due dates. 
-        If you have any question about your work, talk to Richard and he is happy to discuss the process with you. 
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
       </p>
     </introduction>
 

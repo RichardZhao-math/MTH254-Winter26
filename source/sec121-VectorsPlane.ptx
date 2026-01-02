@@ -70,8 +70,7 @@
 
     <figure xml:id="sec121-fig-BasicVectorR2">
       <caption>The vector <m>\v{v} = \overrightarrow{PQ}</m> in <m>\R^2</m></caption>
-      <image source="sec121-BasicVector-R2.png" width="50%">
-      </image>
+      <image source="sec121-BasicVector-R2.png" width="50%"></image>
     </figure>
 
     <note>
@@ -435,26 +434,6 @@
       <caption>Vector Addition using the Parallelogram Law</caption>
     </figure>
 
-    
-    <note>
-      <title>But Richard... Aren't these two laws essentially the same thing? Why splitting hairs and call them two things? </title>
-      <p>
-        While these two laws are essentially the same, they represent two different actions in context. 
-        <ul>
-          <li>
-            <p>
-              The triangle law represents <em>sequentially</em> performing two movements one after another. 
-            </p>
-          </li>
-          <li>
-            <p>
-              The parallelogram law represents combining two movements happening <em>at the same time</em>. 
-            </p>
-          </li>
-        </ul>
-      </p>
-    </note>
-
     <p>
       Now let's look at <term>scalar multiplication</term>. 
       The term <alert>scalar</alert> refers to a real number. 
@@ -759,18 +738,19 @@
   </subsection>
 
   <worksheet xml:id="ws-sec121">
-    <title>Homework problems for this section</title>
+    <title>Assigned Problems for Section 12.1</title>
     
     <introduction>
       <p>
-        Below are the homework problems for this section.  
-        You will work out each problem on a separate sheet of paper and submit your solutions by the due dates indicated on the course schedule.
-        Reach out to Richard for help if you get stuck or have any questions. 
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
       </p>
 
       <p>
-        The solution will be posted after the due dates. 
-        If you have any question about your work, talk to Richard and he is happy to discuss the process with you. 
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
       </p>
     </introduction>
 

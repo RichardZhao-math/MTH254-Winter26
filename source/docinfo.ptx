@@ -31,6 +31,9 @@
     \newcommand{\rp}{\right)}
     \newcommand{\la}{\left\langle}
     \newcommand{\ra}{\right\rangle}
+
+    \newcommand{\proj}{\text{proj}}
+    \newcommand{\comp}{\text{comp}}
   </macros>
 
   <!-- If you put any latex-image elements you can include preambles -->

@@ -5,11 +5,17 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      So far, our operations on vectors (addition and scalar multiplication) have resulted in new vectors. 
+      But what if we want to <q>multiply</q> two vectors together? It turns out there isn't just one way to do this.
     </p>
+    <p>
+      In this section, we introduce the <term>dot product</term> (also known as the scalar product). 
+      The dot product of two vectors will tell us how much is one vector pointing in the same direction as another. 
+    </p>
+  </introduction>
 
-    <objectives>
-      <introduction>
+  <objectives>
+    <introduction>
         <p>
           After this section, students will be able to:
         </p>
@@ -17,12 +23,1562 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            compute the dot product of two vectors in using the algebraic definition.
+          </p>
+        </li>
+        <li>
+          <p>
+            use the properties of the dot product to simplify vector expressions.
+          </p>
+        </li>
+        <li>
+          <p>
+            determine the angle between two vectors and classify the angle as acute, obtuse, or right.
+          </p>
+        </li>
+        <li>
+          <p>
+            calculate the orthogonal projection of one vector onto another.
+          </p>
+        </li>
+        <li>
+          <p>
+            decompose a vector into two components with respect to another vector, one parallel to the other vector and one perpendicular to it.
           </p>
         </li>
       </ul>
-    </objectives>
+  </objectives>
+
+  <subsection xml:id="subsec-DotProduct">
+    <title>Dot Product</title>
     
-  </introduction>
+    <p>
+      Without further ado, we define the dot product of two vectors as follows: 
+    </p>
+
+    <definition xml:id="def-DotProduct">
+      <title>Dot Product</title>
+      <statement>
+        <p>
+          The <term>dot product</term> <m>\boldsymbol{\v{v} \cdot \v{w}}</m> of two vectors
+          <md>
+            \v{v} = \la v_1, v_2, v_3 \ra \, , \qquad \v{w} = \la w_1, w_2, w_3 \ra
+          </md>
+          is the scalar defined by
+          <md>
+            \v{v} \cdot \v{w} = v_1 w_1 + v_2 w_2 + v_3 w_3
+          </md>
+        </p>
+      </statement>
+    </definition>
+
+    <note>
+      <title>You may heard of the dot product in linear algebra before...</title>
+      <p>
+        You may hear of the term <term>inner product</term> if you took a linear algebra class before.
+        The dot product is a specific example of an inner product defined on <m>\R^n</m> (called the <em>standard</em> inner product).
+      </p>
+
+      <p>
+        Let <m>\v{v}, \v{w} \in \R^3</m> be two vectors defined as 
+        <md>
+          \v{v} = \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix} 
+          \, , \qquad 
+          \v{w} = \begin{pmatrix} w_1 \\ w_2 \\ w_3 \end{pmatrix}
+        </md>
+        Then the standard inner product of <m>\v{v}</m> and <m>\v{w}</m> , denoted by <m>\v{v} \cdot \v{w}</m>, is defined as
+        <md>
+          \v{v} \cdot \v{w} = \v{v}^T \v{w} = \begin{pmatrix} v_1 \amp v_2 \amp v_3 \end{pmatrix} \begin{pmatrix} w_1 \\ w_2 \\ w_3 \end{pmatrix} = v_1 w_1 + v_2 w_2 + v_3 w_3
+        </md>
+      </p>
+
+      <p>
+        This section is highly similar to what you may have learned about the inner product in linear algebra. 
+        In addition to the theoretical aspects, we will also focus on applications of the dot product in physics.
+      </p>
+    </note>
+
+    <p>
+      Observe that we can find the dot product of two vectors by <em>multiplying their corresponding components and adding the results</em>.
+      This is true in <m>\R^2</m> (or <m>\R^n</m> in general) as well.  
+    </p>
+
+    <example>
+      <p>
+        Compute the following dot products: 
+        <ol marker="a.">
+          <li>
+            <p>
+              <m>\la 1,2,1 \ra \cdot \la 4,3,5 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\la -3,1 \ra \cdot \la 4,6 \ra</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <solution>
+        <p>
+          <ol marker="a.">
+            <li>
+              <p>
+                <m>\la 1,2,1 \ra \cdot \la 4,3,5 \ra = 1\cdot 4 + 2\cdot 3 + 1\cdot 5 = 4 + 6 + 5 = 15</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\la -3,1 \ra \cdot \la 4,6 \ra = -3\cdot 4 + 1\cdot 6 = -12 + 6 = -6</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Remember that the dot product of two vectors results in a <em>scalar</em> (a real number) and not another vector. 
+      The dot product has several useful properties that we summarize in the following theorem.
+    </p>
+
+    <theorem xml:id="thm-DotProductProperties">
+      <title>Properties of the Dot Product</title>
+      <statement>
+        <p>
+          <ol marker="i.">
+            <li>
+              <p>
+                <m>\v{0} \cdot \v{v} = 0</m>, where <m>\v{0}</m> is the zero vector. 
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Commutativity: </term> <m>\v{v} \cdot \v{w} = \v{w} \cdot \v{v}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Pulling out scalars: </term> <m>\lp \lambda \v{v} \rp \cdot \v{w} = \v{v} \cdot \lp \lambda \v{w} \rp = \lambda \lp \v{v} \cdot \v{w} \rp</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Distributive Law: </term> <m>\v{u} \cdot (\v{v} + \v{w}) = \v{u} \cdot \v{v} + \v{u} \cdot \v{w}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Relation with length: </term> <m>\v{v} \cdot \v{v} = \|\v{v}\|^2</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    
+    <proof>
+      <title>Proof(ish) of the above theorem</title>
+      <p>
+        The proofs of the properties are pretty straightforward using the definition of the dot product. 
+        Richard will prove some of them in <m>\R^3</m> and leave the rest as exercises for you to verify (especially if you are thinking about majoring in math). 
+        You may also want to see if you are convinced that Richard's proofs can be generalized to <m>\R^n</m>. 
+      </p>
+
+      <p>
+        <ol marker="i.">
+          <li>
+            <p>
+              Let <m>\v{v} = \la v_1, v_2, v_3 \ra</m>. 
+              Then
+              <md>
+                \v{0} \cdot \v{v} = 0 \cdot v_1 + 0 \cdot v_2 + 0 \cdot v_3 = 0
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\v{v} = \la v_1, v_2, v_3 \ra</m> and <m>\v{w} = \la w_1, w_2, w_3 \ra</m>. 
+              Then
+              <md>
+                <mrow> \v{v} \cdot \v{w} \amp= v_1 w_1 + v_2 w_2 + v_3 w_3 </mrow>
+                <mrow> \amp= w_1 v_1 + w_2 v_2 + w_3 v_3 </mrow>
+                <mrow> \amp= \v{w} \cdot \v{v} </mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              The proof is left as an exercise for the reader. 
+            </p>
+          </li>
+          <li>
+            <p>
+              The proof is left as an exercise for the reader.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\v{v} = \la v_1, v_2, v_3 \ra</m>. 
+              Then
+              <md>
+                \v{v} \cdot \v{v} = v_1^2 + v_2^2 + v_3^2 = \|\v{v}\|^2
+              </md>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </proof>
+
+    <p>
+      Using these properties, we can prove some cool results! 
+      For example, do you know that the sum of the squares of the lengths of the four sides of a parallelogram is equal to the sum of the squares of the lengths of its two diagonals? 
+      This is also known as the <term>parallelogram law</term>. 
+    </p>
+
+    <theorem xml:id="thm-ParallelogramLaw">
+      <title>Parallelogram Law</title>
+      <statement>
+        <p>
+          <md>
+            \|\v{u} + \v{v}\|^2 + \|\v{u} - \v{v}\|^2 = 2\|\v{u}\|^2 + 2\|\v{v}\|^2
+          </md>
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <p>
+        Prove the parallelogram law using the properties of the dot product. 
+        The diagram below shows a parallelogram formed by the vectors <m>\v{u}</m> and <m>\v{v}</m>. 
+      </p>
+
+      <figure>
+        <image source="sec123-ParallelogramLaw-Diagram.png" width="65%"></image>
+        <caption>Parallelogram formed by vectors <m>\v{u}</m> and <m>\v{v}</m></caption>
+      </figure>
+
+      <hint>
+        <p>
+          The parallelogram has two diagonals with the lengths of <m>\|\v{u} + \v{v}\|</m> and <m>\|\v{u} - \v{v}\|</m>. 
+          Also, the sides have lengths of <m>\|\v{u}\|</m> and <m>\|\v{v}\|</m>, respectively. 
+        </p>
+
+        <p>
+          We are learning about the dot product so let's get some dot products involved!
+          One of the dot product properties states that <m>\|\v{v}\|^2 = \v{v} \cdot \v{v}</m> so converting all the lengths into dot products is a good start! 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          <md>
+            <mrow> \|\v{u} + \v{v}\|^2 + \|\v{u} - \v{v}\|^2 \amp= (\v{u} + \v{v}) \cdot (\v{u} + \v{v}) + (\v{u} - \v{v}) \cdot (\v{u} - \v{v}) </mrow>
+            <mrow> \amp= \v{u} \cdot \v{u} + 2\v{u} \cdot \v{v} + \v{v} \cdot \v{v} + \v{u} \cdot \v{u} - 2\v{u} \cdot \v{v} + \v{v} \cdot \v{v} </mrow>
+            <mrow> \amp= 2\v{u} \cdot \v{u} + 2\v{v} \cdot \v{v} </mrow>
+            <mrow> \amp= 2\|\v{u}\|^2 + 2\|\v{v}\|^2 </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Now that we know what the dot product is and some of its properties, we will next explore why we care about it. 
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-DotProduct-Angles">
+    <title>Angle between Two Vectors</title>
+    
+    <p>
+      Given two vectors, they form an angle between them. 
+      But how do we know how big this angle is? 
+      The dot product can help us figure this out!  
+    </p>
+
+    <p>
+      Let's say we have two vectors, <m>\v{v}</m> and <m>\v{w}</m>. 
+      We call the angle between them <m>\theta</m> and we can construct the vector <m>\v{v} - \v{w}</m> as shown below: 
+    </p>
+
+    <figure>
+      <image source="sec123-Proof-AngleDotProduct-Diagram.png" width="25%"></image>
+      <caption>Vectors <m>\v{v}</m> and <m>\v{w}</m> with angle <m>\theta</m> between them</caption>
+    </figure>
+
+    <p>
+      This is essentially a triangle if we drop all the direction arrows. 
+      That is, this triangle has sides of lengths <m>\|\v{v}\|</m>, <m>\|\v{w}\|</m>, and <m>\|\v{v} - \v{w}\|</m>. 
+    </p>
+
+    <p>
+      A relation between the sides of the triangle and the angle <m>\theta</m> is given by the <em>Law of Cosines</em> as follows: 
+      <md>
+        \|\v{v} - \v{w}\|^2 = \|\v{v}\|^2 + \|\v{w}\|^2 - 2\|\v{v}\|\|\v{w}\| \cos(\theta) 
+      </md>
+      Using the relation with length property of the dot product and FOIL-ing, we obtain
+      <md>
+        <mrow>\|\v{v} - \v{w}\|^2 \amp= (\v{v} - \v{w}) \cdot (\v{v} - \v{w}) </mrow>
+        <mrow> \amp= \v{v} \cdot \v{v} - 2\v{v} \cdot \v{w} + \v{w} \cdot \v{w} </mrow>
+        <mrow> \amp= \|\v{v}\|^2 + \|\v{w}\|^2 - 2\v{v} \cdot \v{w} </mrow>
+      </md>
+    </p>
+
+    <p>
+      We essentially found two ways to represent the quantity <m>\|\v{v} - \v{w}\|^2</m>. 
+      Equating these two expressions together and canceling stuff, we obtain
+      <md>
+        <mrow> \|\v{v}\|^2 + \|\v{w}\|^2 - 2\v{v} \cdot \v{w} \amp= \|\v{v}\|^2 + \|\v{w}\|^2 - 2\|\v{v}\|\|\v{w}\| \cos(\theta)  </mrow>
+        <mrow>\implies \qquad\qquad\qquad\qquad \v{v} \cdot \v{w} \amp= \|\v{v}\|\|\v{w}\| \cos(\theta) </mrow>
+      </md>
+    </p>
+
+    <p>
+      Observe that we can now solve for the angle <m>\theta</m> between the two vectors by isolating <m>\theta</m>: 
+      <md>
+        \theta = \cos^{-1} \lp \frac{\v{v} \cdot \v{w}}{\|\v{v}\| \|\v{w}\|} \rp
+      </md>
+      That is, the dot product gives us a way to compute the angle between two vectors! 
+    </p>
+
+    <theorem xml:id="thm-DotProductAngle">
+      <title>Dot Product and the Angle</title>
+      <statement>
+        <p>
+          Let <m>\theta</m> be the angle between two non-zero vectors <m>\v{v}</m> and <m>\v{w}</m>. 
+          Then 
+          <md>
+            \v{v} \cdot \v{w} = \|\v{v}\| \|\v{w}\| \cos(\theta)
+            \qquad \text{ or } \qquad
+            \theta = \cos^{-1} \lp \frac{\v{v} \cdot \v{w}}{\|\v{v}\| \|\v{w}\|} \rp
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      Observe that the angle is being computed using the inverse cosine function. 
+      The range of the inverse cosine function is <m>[0,\pi]</m>. 
+      That is, we consider the angle between two vectors to be the smaller angle formed between them. 
+    </p>
+
+    <figure>
+      <image source="sec123-AngleBetweenVectors-Diagram.png" width="40%"></image>
+      <caption>By convention, the angle <m>\theta</m> between two vectors is chosen so that <m>0 \le \theta \le \pi</m>.</caption>
+    </figure>
+
+    <example>
+      <p>
+        Find the angle between the vectors <m>\la 3,1,1 \ra</m> and <m>\la 2,-4,2 \ra</m>
+      </p>
+
+      <hint>
+        <p>
+          Richard coded a fancy diagram below to help you visualize how big the angle is. 
+          The goal here is to figure out the size of <m>\theta</m>
+        </p>
+
+        <figure>
+          <caption>Vectors <m>\mathbf{v}=\langle 3,1,1 \rangle</m> and <m>\mathbf{w}=\langle 2,-4,2 \rangle</m> with angle <m>\theta</m></caption>
+          <sidebyside width="80%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+                # 1. Define Vectors v and w
+                v = vector([3, 1, 1])
+                w = vector([2, -4, 2])
+                
+                # Draw the vectors
+                arrow_v = arrow3d((0,0,0), v, color='blue', width=3)
+                arrow_w = arrow3d((0,0,0), w, color='red', width=3)
+                
+                # Labels for vectors
+                label_v = text3d("v", v * 1.1, color='blue', fontsize=15)
+                label_w = text3d("w", w * 1.1, color='red', fontsize=15)
+
+                # 2. Draw the Angle Arc (Theta)
+                arc_radius = 1.5
+                u_v = v / v.norm() 
+                u_w = w / w.norm() 
+                
+                arc_lines = Graphics()
+                steps = 20
+                for k in range(steps):
+                    t1 = k / steps
+                    t2 = (k + 1) / steps
+                    
+                    # Interpolate between unit vectors
+                    p_start = (1 - t1)*u_v + t1*u_w
+                    p_end   = (1 - t2)*u_v + t2*u_w
+                    
+                    # Normalize and scale
+                    p_start = p_start / p_start.norm() * arc_radius
+                    p_end   = p_end   / p_end.norm()   * arc_radius
+                    
+                    arc_lines += line3d([p_start, p_end], color='green', thickness=2)
+
+                # Label Theta
+                mid_vec = (u_v + u_w)
+                mid_vec = mid_vec / mid_vec.norm() * (arc_radius + 0.3)
+                label_theta = text3d(u"\u03b8", mid_vec, color='black', fontsize=20)
+
+                # 3. Axes Setup
+                x_len, y_len, z_len = 5, 5, 4
+                
+                axes_arrows = (
+                    arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
+                )
+                
+                axes_labels = (
+                    text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                    text3d("y", (0, y_len + 0.2, 0), color='black') +
+                    text3d("z", (0, 0, z_len + 0.2), color='black')
+                )
+
+                # 4. Ticks (Positive Only)
+                ticks = Graphics()
+                tick_size = 0.2
+                
+                # X ticks
+                for i in range(1, x_len):
+                    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black')
+                    
+                # Y ticks (Only positive side now)
+                for i in range(1, y_len):
+                    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black')
+
+                # Z ticks
+                for i in range(1, z_len):
+                    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black')
+
+                # 5. Show Everything
+                show(arrow_v + arrow_w + label_v + label_w + 
+                    arc_lines + label_theta + 
+                    axes_arrows + axes_labels + ticks, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+
+        <p>
+          It looks like the angle between the vectors is acute... 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We denote <m>\v{v} = \la 3,1,1 \ra</m> and <m>\v{w} = \la 2,-4,2 \ra</m>. 
+          To use the formula for the cosine of the angle <m>\theta</m> between two vectors we need to compute the following values: 
+          <md>
+            <mrow>\|\v{v}\| \amp= \sqrt{3^2 + 1^2 + 1^2} = \sqrt{11}</mrow>
+            <mrow>\|\v{w}\| \amp= \sqrt{2^2 + (-4)^2 + 2^2} = \sqrt{24}</mrow>
+            <mrow>\v{v} \cdot \v{w} \amp= 3 \cdot 2 + 1 \cdot (-4) + 1 \cdot 2 = 4</mrow>
+          </md>
+          Hence, 
+          <md>
+            \cos(\theta) = \frac{\v{v} \cdot \v{w}}{\|\v{v}\| \|\v{w}\|} = \frac{4}{\sqrt{11} \cdot \sqrt{24}} = \frac{2}{\sqrt{66}}
+          </md>
+          and so, 
+          <md>
+            \theta = \cos^{-1} \lp \frac{2}{\sqrt{66}} \rp \approx 1.322
+          </md>
+        </p>
+
+        <p>
+          The angle <m>\theta</m> is approximately <m>76^\circ</m>, which is indeed acute. 
+        </p>
+      </solution>
+    </example>
+
+    <example>
+      <p>
+        Find the angle between the vectors <m>\la 0,1,1 \ra</m> and <m>\la 1,-1,0 \ra</m>
+      </p>
+
+      <hint>
+        <p>
+          Richard coded a fancy diagram below to help you visualize how big the angle is. 
+          The goal here is to figure out the size of <m>\theta</m>
+        </p>
+
+        <figure>
+          <caption>Vectors <m>\mathbf{v}=\langle 0,1,1 \rangle</m> and <m>\mathbf{w}=\langle 1,-1,0 \rangle</m> with angle <m>\theta</m></caption>
+          <sidebyside width="80%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+                # 1. Define Vectors v and w
+                v = vector([0, 1, 1])
+                w = vector([1, -1, 0])
+                
+                # Draw the vectors
+                arrow_v = arrow3d((0,0,0), v, color='blue', width=3)
+                arrow_w = arrow3d((0,0,0), w, color='red', width=3)
+                
+                # Labels for vectors
+                label_v = text3d("v", v * 1.1, color='blue', fontsize=15)
+                label_w = text3d("w", w * 1.1, color='red', fontsize=15)
+
+                # 2. Draw the Angle Arc (Theta)
+                # These vectors have length sqrt(2) approx 1.41
+                # So we set the arc radius smaller (e.g., 0.7) to fit nicely inside
+                arc_radius = 0.7
+                u_v = v / v.norm() 
+                u_w = w / w.norm() 
+                
+                arc_lines = Graphics()
+                steps = 20
+                for k in range(steps):
+                    t1 = k / steps
+                    t2 = (k + 1) / steps
+                    
+                    # Interpolate between unit vectors
+                    p_start = (1 - t1)*u_v + t1*u_w
+                    p_end   = (1 - t2)*u_v + t2*u_w
+                    
+                    # Normalize and scale
+                    p_start = p_start / p_start.norm() * arc_radius
+                    p_end   = p_end   / p_end.norm()   * arc_radius
+                    
+                    arc_lines += line3d([p_start, p_end], color='green', thickness=2)
+
+                # Label Theta
+                mid_vec = (u_v + u_w)
+                mid_vec = mid_vec / mid_vec.norm() * (arc_radius + 0.3)
+                label_theta = text3d(u"\u03b8", mid_vec, color='black', fontsize=20)
+
+                # 3. Axes Setup
+                # Vectors are small (coord 1), so axes length 2 or 3 is enough
+                x_len, y_len, z_len = 3, 3, 3
+                
+                axes_arrows = (
+                    arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
+                )
+                
+                axes_labels = (
+                    text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                    text3d("y", (0, y_len + 0.2, 0), color='black') +
+                    text3d("z", (0, 0, z_len + 0.2), color='black')
+                )
+
+                # 4. Ticks (Positive Only)
+                ticks = Graphics()
+                tick_size = 0.15
+                
+                # X ticks
+                for i in range(1, x_len):
+                    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black')
+                    
+                # Y ticks (Positive only)
+                for i in range(1, y_len):
+                    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black')
+
+                # Z ticks
+                for i in range(1, z_len):
+                    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black')
+
+                # 5. Show Everything
+                show(arrow_v + arrow_w + label_v + label_w + 
+                    arc_lines + label_theta + 
+                    axes_arrows + axes_labels + ticks, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+
+        <p>
+          It looks like the angle between the vectors is obtuse... 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We denote <m>\v{v} = \la 0,1,1 \ra</m> and <m>\v{w} = \la 1,-1,0 \ra</m>. 
+          To use the formula for the cosine of the angle <m>\theta</m> between two vectors we need to compute the following values: 
+          <md>
+            <mrow>\|\v{v}\| \amp= \sqrt{0^2 + 1^2 + 1^2} = \sqrt{2}</mrow>
+            <mrow>\|\v{w}\| \amp= \sqrt{1^2 + (-1)^2 + 0^2} = \sqrt{2}</mrow>
+            <mrow>\v{v} \cdot \v{w} \amp= 0 \cdot 1 + 1 \cdot (-1) + 1 \cdot 0 = -1</mrow>
+          </md>
+          Hence, 
+          <md>
+            \cos(\theta) = \frac{\v{v} \cdot \v{w}}{\|\v{v}\| \|\v{w}\|} = \frac{-1}{\sqrt{2} \cdot \sqrt{2}} = -\frac{1}{2}
+          </md>
+          and so, 
+          <md>
+            \theta = \cos^{-1} \lp -\frac{1}{2} \rp = \frac{2\pi}{3} = \frac{2\pi}{3}
+          </md>
+        </p>
+
+        <p>
+          The angle <m>\theta</m> is <m>120^\circ</m>, which is indeed obtuse. 
+        </p>
+      </solution>
+    </example>
+
+    <example>
+      <p>
+        Find the angle between the vectors <m>\la 1,1,-1 \ra</m> and <m>\la 1,-2,-1 \ra</m>
+      </p>
+
+      <hint>
+        <p>
+          Richard coded a fancy diagram below to help you visualize how big the angle is. 
+          The goal here is to figure out the size of <m>\theta</m>
+        </p>
+
+        <figure>
+          <caption>Vectors <m>\mathbf{v}=\langle 1,1,-1 \rangle</m> and <m>\mathbf{w}=\langle 1,-2,-1 \rangle</m> with angle <m>\theta</m></caption>
+          <sidebyside width="80%">
+          <interactive  platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+                # 1. Define Vectors v and w
+                v = vector([1, 1, -1])
+                w = vector([1, -2, -1])
+                
+                # Draw the vectors
+                arrow_v = arrow3d((0,0,0), v, color='blue', width=3)
+                arrow_w = arrow3d((0,0,0), w, color='red', width=3)
+                
+                # Labels for vectors
+                label_v = text3d("v", v * 1.1, color='blue', fontsize=15)
+                label_w = text3d("w", w * 1.1, color='red', fontsize=15)
+
+                # 2. Draw the Angle Arc (Theta)
+                # These vectors have lengths approx 1.7 and 2.4
+                # We use a radius of 1.0 for the arc
+                arc_radius = 1.0
+                u_v = v / v.norm() 
+                u_w = w / w.norm() 
+                
+                arc_lines = Graphics()
+                steps = 20
+                for k in range(steps):
+                    t1 = k / steps
+                    t2 = (k + 1) / steps
+                    
+                    # Interpolate between unit vectors
+                    p_start = (1 - t1)*u_v + t1*u_w
+                    p_end   = (1 - t2)*u_v + t2*u_w
+                    
+                    # Normalize and scale
+                    p_start = p_start / p_start.norm() * arc_radius
+                    p_end   = p_end   / p_end.norm()   * arc_radius
+                    
+                    arc_lines += line3d([p_start, p_end], color='green', thickness=2)
+
+                # Label Theta
+                mid_vec = (u_v + u_w)
+                mid_vec = mid_vec / mid_vec.norm() * (arc_radius + 0.3)
+                label_theta = text3d(u"\u03b8", mid_vec, color='black', fontsize=20)
+
+                # 3. Axes Setup
+                # Vectors are within 2 units, so axes length 3 is sufficient
+                x_len, y_len, z_len = 3, 3, 3
+                
+                axes_arrows = (
+                    arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
+                )
+                
+                axes_labels = (
+                    text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                    text3d("y", (0, y_len + 0.2, 0), color='black') +
+                    text3d("z", (0, 0, z_len + 0.2), color='black')
+                )
+
+                # 4. Ticks (Positive Only as requested)
+                ticks = Graphics()
+                tick_size = 0.15
+                
+                # X ticks
+                for i in range(1, x_len):
+                    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black')
+                    
+                # Y ticks 
+                for i in range(1, y_len):
+                    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black')
+
+                # Z ticks
+                for i in range(1, z_len):
+                    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black')
+
+                # 5. Show Everything
+                show(arrow_v + arrow_w + label_v + label_w + 
+                    arc_lines + label_theta + 
+                    axes_arrows + axes_labels + ticks, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+
+        <p>
+          It looks like the angle between the vectors is a right angle... 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We denote <m>\v{v} = \la 1,1,-1 \ra</m> and <m>\v{w} = \la 1,-2,-1 \ra</m>. 
+          To use the formula for the cosine of the angle <m>\theta</m> between two vectors we need to compute the following values: 
+          <md>
+            <mrow>\|\v{v}\| \amp= \sqrt{1^2 + 1^2 + (-1)^2} = \sqrt{3}</mrow>
+            <mrow>\|\v{w}\| \amp= \sqrt{1^2 + (-2)^2 + (-1)^2} = \sqrt{6}</mrow>
+            <mrow>\v{v} \cdot \v{w} \amp= 1 \cdot 1 + 1 \cdot (-2) + (-1) \cdot (-1) = 0</mrow>
+          </md>
+          Hence, 
+          <md>
+            \cos(\theta) = \frac{\v{v} \cdot \v{w}}{\|\v{v}\| \|\v{w}\|} = \frac{0}{\sqrt{3} \cdot \sqrt{6}} = 0
+          </md>
+          and so, 
+          <md>
+            \theta = \cos^{-1}(0) = \frac{\pi}{2}
+          </md>
+        </p>
+
+        <p>
+          The angle <m>\theta</m> is <m>90^\circ</m>, which is indeed a right angle. 
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      We can find a pattern from the above examples. 
+      <ul>
+        <li>
+          <p>
+            If the dot product is positive, then the angle between the vectors is acute. 
+          </p>
+        </li>
+        <li>
+          <p>
+            If the dot product is negative, then the angle between the vectors is obtuse. 
+          </p>
+        </li>
+        <li>
+          <p>
+            If the dot product is zero, then the angle between the vectors is a right angle.
+          </p>
+        </li>
+      </ul>
+      This is true since we know that <m>\cos(\theta)</m> is positive for acute angles, negative for obtuse angles, and zero for right angles. 
+      In addition, <m>\cos(\theta) = 1</m> when <m>\theta = 0^\circ</m> and <m>\cos(\theta) = -1</m> when <m>\theta = 180^\circ</m>. 
+      Let's summarize this in a nice little diagram. 
+    </p>
+
+    <figure>
+      <image source="sec123-DotProductAngles-Diagram.png" width="80%"></image>
+      <caption>Relation between the dot product and the angle between two vectors</caption>
+    </figure>
+
+    <p>
+      This diagram is really demonstrating the famous <term>Cauchy-Schwarz Inequality</term>, which states that <em>the absolute value of the dot product of two vectors is always less than or equal to the product of their individual lengths</em>. 
+      Symbolically, this is stated as 
+      <md>
+        |\v{v} \cdot \v{w}| \le \|\v{v}\| \|\v{w}\| 
+      </md>
+      Observe from the figure that <m>-1 \lt \cos(\theta) \lt 1</m>, so <m>\v{u} \cdot \v{v}</m>, which equals to <m>\|\v{u}\| \|\v{v}\| \cos(\theta)</m>, cannot be greater than <m>\|\v{u}\| \|\v{v}\|</m>. 
+    </p>
+
+    <example>
+      <p>
+        Prove the triangle inequality: For any vectors <m>\v{u}</m> and <m>\v{v}</m>,
+        <md>
+          \|\v{u} + \v{v}\| \le \|\v{u}\| + \|\v{v}\|
+        </md>
+      </p>
+
+      <hint>
+        <p>
+          Of course you can draw a picture to see why this is true but this way isn't rigorous enough. 
+          True story, one of Richard's students tried to prove the inequality by drawing a loosey-goosey triangle and "eyeballing" the lengths of the sides of the triangle...
+          Not rigorous at all...  
+        </p>
+
+        <p>
+          Also, just because the inequality holds for one triangle doesn't mean it holds for all triangles! 
+        </p>
+
+        <p>
+          We want to show that this inequality is true for ALL triangles without relying on the accuracy of a drawing. 
+          Relying on definitions, properties, theorems, and algebraic manipulations is a better way to go!
+        </p>
+
+        <p>
+          Richard will help you get started. 
+          We are learning about the dot product so let's get some dot products involved! 
+          One of the dot product properties states that <m>\|\v{v}\|^2 = \v{v} \cdot \v{v}</m> so converting all the lengths into dot products is a good start! 
+        </p>
+
+        <p>
+          Also, ... where does the inequality come from?
+          Well the Cauchy Schwarz Inequality involves an inequality! 
+          Maybe we can use that somewhere...
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          <md>
+            <mrow> \|\v{u} + \v{v}\|^2 \amp= (\v{u} + \v{v}) \cdot (\v{u} + \v{v}) </mrow>
+            <mrow> \amp= \v{u} \cdot \v{u} + 2 \v{u} \cdot \v{v} + \v{v} \cdot \v{v} \amp\amp \text{FOIL-ing} </mrow>
+            <mrow> \amp\le \|\v{u}\|^2 + 2 | \v{u} \cdot \v{v} | + \|\v{v}\|^2 </mrow>
+            <mrow> \amp\le \|\v{u}\|^2 + 2 \|\v{u}\| \|\v{v}\| + \|\v{v}\|^2 \amp\amp \text{Cauchy-Schwarz} </mrow>
+            <mrow> \amp= (\|\v{u}\| + \|\v{v}\|)^2 </mrow>
+          </md>
+          The triangle inequality follows immediately by taking the square root of both sides. 
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Observe that the dot product is zero when two vectors are <term>orthogonal</term> (or perpendicular) to each other. 
+      This is how we define orthogonality in general. 
+    </p>
+
+    <definition xml:id="def-OrthogonalVectors">
+      <title>Orthogonal Vectors</title>
+      <statement>
+        <p>
+          Two vectors <m>\v{v}</m> and <m>\v{w}</m> are <term>orthogonal</term> if and only if <m>\v{v} \cdot \v{w} = 0</m>. 
+          We denote this by <m>\v{v} \perp \v{w}</m>. 
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      Based on this definition, we see that the zero vector is orthogonal to every vector since the dot product with the zero vector is always zero. 
+    </p>
+
+    <note>
+      <title>But Richard... Isn't "orthogonal" just another fancy way of saying perpendicular? </title>
+      
+      <p>
+        Yes and no... They are for sure describing the same idea but with some subtle differences.
+      </p>
+
+      <p>
+        <term>Perpendicularity/Perpendicular</term> is a geometric term that describes two things (like lines, planes, etc.) intersect at a right angle (90°).
+        This idea only makes sense in a geometric context where we can visualize angles.
+      </p>
+
+      <p>
+        <term>Orthogonality/Orthogonal</term> is an algebraic term that describes two vectors whose dot product is zero. 
+        This idea makes sense in any dimension and doesn't rely on visualizing angles. 
+        For example, the zero vector is orthogonal to every vector but it doesn't make sense to say that the zero vector is perpendicular to every vector since the zero vector doesn't have a length (we don't say a point is perpendicular to a line). 
+      </p>
+
+      <p>
+        Surprise surprise, there is another term that describes the same idea in math: <term>normality/normal</term>. 
+        Normality is often used to describe things that are orthogonal/perpendicular to a surface/plane/line. 
+        For example, a normal vector to a plane is a vector that is orthogonal to every vector lying in that plane.
+      </p>
+    </note>
+
+    <example>
+      <p>
+        Determine whether the following vectors are orthogonal and, if not, whether the angle between them is acute or obtuse. 
+        <ol marker="a.">
+          <li>
+            <p>
+              <m>\la 1,2,1 \ra</m> and <m>\la 7,-3,-1 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\la 0,2,4 \ra</m> and <m>\la 3,1,0 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\la \dfrac{12}{5}, -\dfrac{4}{5} \ra</m> and <m>\la \dfrac{1}{2}, \dfrac{7}{4} \ra</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <solution>
+        <p>
+          We can determine whether the vectors are orthogonal by computing their dot products. 
+          <ol marker="a.">
+            <li>
+              <p>
+                Observe that <md>\la 1,2,1 \ra \cdot \la 7,-3,-1 \ra = 1\cdot 7 + 2\cdot (-3) + 1\cdot (-1) = 7 - 6 - 1 = 0</md>. 
+                Therefore, the vectors are orthogonal.
+              </p>
+            </li>
+            <li>
+              <p>
+                Observe that <md>\la 0,2,4 \ra \cdot \la 3,1,0 \ra = 0\cdot 3 + 2\cdot 1 + 4\cdot 0 = 0 + 2 + 0 = 2</md>. 
+                Since the dot product is positive, the angle between the vectors is acute. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Observe that <md>\la \dfrac{12}{5}, -\dfrac{4}{5} \ra \cdot \la \dfrac{1}{2}, \dfrac{7}{4} \ra = -\dfrac{1}{5}</md>. 
+                Since the dot product is negative, the angle between the vectors is obtuse. 
+              </p>
+            </li> 
+          </ol>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Remember our standard basis vectors in <m>\R^3</m>? 
+      These vectors are 
+      <md>
+        \v{i} = \la 1,0,0 \ra\, , \qquad \v{j} = \la 0,1,0 \ra\, , \qquad \text{ and } \qquad \v{k} = \la 0,0,1 \ra
+      </md>. 
+      They are mutually orthogonal and have length <m>1</m>. 
+      So we have
+      <md>
+        \v{i} \cdot \v{j} = \v{i} \cdot \v{k} = \v{j} \cdot \v{k} = 0
+        \qquad \text{ and } \qquad
+        \v{i} \cdot \v{i} = \v{j} \cdot \v{j} = \v{k} \cdot \v{k} = 1
+      </md>
+      Now we can compute the product using these basis vectors! 
+    </p>
+
+    <example>
+      <p>
+        Compute the dot product <m>\lp 3\v{j} + 2\v{k} \rp \cdot \lp \v{i} - 4\v{k} \rp</m>
+      </p>
+
+      <hint>
+        <p>
+          Remember that the dot product is distributive! 
+          That is, we can FOIL this expression out like we would with regular multiplication. 
+          Then we can use the properties of the dot product with the basis vectors to simplify! 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          <md>
+            <mrow>\lp 3\v{j} + 2\v{k} \rp \cdot \lp \v{i} - 4\v{k} \rp \amp= 3\v{j} \cdot \v{i} - 12\v{j} \cdot \v{k} + 2\v{k} \cdot \v{i} - 8\v{k} \cdot \v{k} </mrow>
+            <mrow> \amp= 3 \cdot 0 - 12 \cdot 0 + 2 \cdot 0 - 8 \cdot \|\v{k}\|^2  </mrow>
+            <mrow> \amp= -8 \cdot 1^2 </mrow>
+            <mrow> \amp= -8 </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-OrthogonalProjection">
+    <title>Orthogonal Projection</title>
+
+    <p>
+      Remember that the dot product should tell us something about how much one vector goes in the direction of another vector. 
+      You may get the idea that the sign of the dot product tells us whether the vectors point in similar directions (acute angle) or opposite directions (obtuse angle). 
+      But we can actually know more! 
+      The orthogonal projection of one vector onto another vector, which is obtained using the dot product, gives us a precise way to measure how much one vector goes in the direction of another vector. 
+    </p>
+
+    <p>
+      Let's say we have two vectors <m>\v{u}</m> and <m>\v{v}</m> and we cast a shadow of <m>\v{u}</m> on the light through <m>\v{v}</m>. 
+      This shadow is called the <term>orthogonal projection</term> of <m>\v{u}</m> onto <m>\v{v}</m> and is denoted by <m>\proj_{\v{v}} \v{u}</m>. 
+    </p>
+
+    <figure>
+      <image source="sec123-Projection-Lighting.png" width="35%"></image>
+      <caption>The Projection of <m>\v{u}</m> onto <m>\v{v}</m></caption>
+    </figure>
+
+    <p>
+      But how do we find this projection vector? 
+      We can use the dot product to help us out! 
+    </p>
+
+    <p>
+      Let's assume two vectors are pointing in the same(ish) direction, which means the angle between them is acute. 
+      The diagram is shown below and our goal is to find the <em>length</em> and the <em>direction</em> of the projection vector. 
+    </p>
+
+    <figure>
+      <image source="sec123-Projection-AcuteAngle.png" width="35%"></image>
+      <caption>The Projection of <m>\v{u}</m> onto <m>\v{v}</m> with an acute angle between them</caption>
+    </figure>
+
+    <p>
+      Let's tackle the length first. 
+      Using trigonometry (and yes there is a right triangle in there somewhere that allows us to use trig), we see that the length of the projection vector is
+      <md>
+        \|\proj_{\v{v}} \v{u}\| = \|\v{u}\| \cos(\theta)
+      </md>
+    </p>
+
+    <p>
+      Next, we need to find the direction of the projection vector. 
+      Clearly, the projection vector points in the same direction as <m>\v{v}</m>. 
+      Yet, we can't just simply multiply the length by <m>\v{v}</m>. 
+      If we did that, the length of the projection vector would be off by a factor of <m>\|\v{v}\|</m>. 
+      To fix this, we use the unit vector in the direction of <m>\v{v}</m>, which is <m>\v{e_v} = \dfrac{\v{v}}{\|\v{v}\|}</m>. 
+    </p>
+
+    <p>
+      Therefore, the projection vector is
+      <md>
+        <mrow>\proj_{\v{v}} \v{u} \amp= \|\v{u}\| \cos(\theta) \frac{\v{v}}{\|\v{v}\|} </mrow>
+        <mrow> \amp= \frac{\v{u} \cdot \v{v}}{\|\v{v}\|} \frac{\v{v}}{\|\v{v}\|} </mrow>
+        <mrow> \amp= \frac{\v{u} \cdot \v{v}}{\|\v{v}\|^2} \v{v} </mrow>
+        <mrow> \amp= \frac{\v{u} \cdot \v{v}}{\v{v} \cdot \v{v}} \v{v} </mrow>
+      </md>
+      This projection vector is also denoted by <m>\v{u}_{\parallel \v{v}}</m> since we can think of it as the component of <m>\v{u}</m> that is <em>parallel</em> to <m>\v{v}</m>.
+    </p>
+
+    <definition xml:id="def-OrthogonalProjection">
+    <title>Projection of <m>\v{u}</m> onto <m>\v{v}</m></title>
+      <statement>
+        <p>
+          Assume <m>\v{v} \neq 0</m>. 
+          The <term>projection</term> of <m>\v{u}</m> onto <m>\v{v}</m> is the vector
+          <md>
+            \v{u}_{\parallel \v{v}} = \lp \frac{\v{u} \cdot \v{v}}{\| \v{v}\|} \rp \v{e_v}
+            = \lp \frac{\v{u} \cdot \v{v}}{\|\v{v}\|^2} \rp \v{v}
+            = \lp \frac{\v{u} \cdot \v{v}}{\v{v} \cdot \v{v}} \rp \v{v}
+          </md>
+          This is sometimes denoted by <m>\proj_{\v{v}} \v{u}</m>. 
+          The scalar <m>\dfrac{\v{u} \cdot \v{v}}{\|\v{v}\|}</m> is called the <term>scalar component</term> of <m>\v{u}</m> onto <m>\v{v}</m> and is sometimes denoted by <m>\comp_{\v{v}} \v{u}</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <note>
+      <title>But Richard... What if the angle between the vectors is obtuse?</title>
+
+      <p>
+        The previous result was derived assuming the angle between the vectors is acute. 
+        But what if the angle is obtuse, like in the diagram below? 
+        Does the formula for the projection vector still hold?
+      </p>
+
+      <figure>
+        <image source="sec123-Projection-ObtuseAngle.png" width="50%"></image>
+        <caption>The Projection of <m>\v{u}</m> onto <m>\v{v}</m> with an obtuse angle between them</caption>
+      </figure>
+
+      <p>
+        The answer is yes but the work is a bit different. 
+        Richard will encourage you to try proving the formula for the projection vector in this case as an exercise. 
+      </p>
+
+      <proof>
+        <title>Richard's proof if you want to check your proof</title>
+        <p>
+          The work is almost identical to the acute angle case with one bit of difference. 
+        </p>
+
+        <p>
+          Let <m>\theta</m> be an obtuse angle, which means <m>\frac{\pi}{2} \lt \theta \lt \pi</m>. 
+          Using trigonometry, we can find the length of the projection vector as follows: 
+          <md>
+            <mrow> \|\proj_{\v{v}} \v{u} \| \amp= \|\v{u}\|\cos \lp \pi - \theta \rp </mrow>
+            <mrow> \amp= \|\v{u}\|\cdot -\cos(\theta) </mrow>
+            <mrow> \amp= -\|\v{u}\| \cos(\theta) </mrow>
+          </md>
+          While there is a negative sign in front of the length, this is a positive quantity since <m>\cos(\theta)</m> is negative for <m>\frac{\pi}{2} \lt \theta \lt \pi</m>. 
+        </p>
+
+        <p>
+          Next, we find the direction of the projection vector. 
+          Clearly, the projection vector points in the <em>opposite</em> direction as <m>\v{v}</m> (look at the diagram!).
+          Then the unit vector in the direction opposite to <m>\v{v}</m> is <m>-\dfrac{\v{v}}{\|\v{v}\|}</m>.
+        </p>
+
+        <p>
+          Therefore, the projection vector is
+          <md>
+            <mrow>\proj_{\v{v}} \v{u} \amp= -\|\v{u}\| \cos(\theta) \lp -\frac{\v{v}}{\|\v{v}\|} \rp </mrow>
+            <mrow> \amp= \frac{\v{u} \cdot \v{v}}{\|\v{v}\|} \frac{\v{v}}{\|\v{v}\|} </mrow>
+            <mrow> \amp= \frac{\v{u} \cdot \v{v}}{\|\v{v}\|^2} \v{v} </mrow>
+            <mrow> \amp= \frac{\v{u} \cdot \v{v}}{\v{v} \cdot \v{v}} \v{v} </mrow>
+          </md>
+          which is the same formula as before.
+        </p>
+      </proof>
+    </note>
+
+    <p>
+      Observe that Richard didn't bother with the case when the angle between the vectors is a right angle. 
+      This is because the projection vector is simply the zero vector in this case since <m>\v{u} \cdot \v{v} = 0</m>.
+    </p>
+
+    <example>
+      <p>
+        Find the projection of <m>\v{u}</m> onto <m>\v{v}</m> where <m>\v{u} = \la 1,1,2 \ra</m> and <m>\v{v} = \la -2,3,1 \ra</m>. 
+      </p>
+
+      <hint>
+        <p>
+          To help you visualize the projection, Richard coded up the following fancy diagram: 
+        </p>
+
+        <figure>
+          <caption>Projection of <m>\mathbf{u}=\langle 1,1,2 \rangle</m> onto <m>\mathbf{v}=\langle -2,3,1 \rangle</m></caption>
+          <sidebyside width="80%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+                # 1. Define Vectors
+                u = vector([1, 1, 2])
+                v = vector([-2, 3, 1])
+                
+                # 2. Calculate Projection
+                # proj_v(u) = (u . v) / (v . v) * v
+                dot_uv = u.dot_product(v)
+                mag_v_sq = v.dot_product(v)
+                proj = (dot_uv / mag_v_sq) * v
+                
+                # 3. Draw Vectors
+                # u (Blue)
+                arrow_u = arrow3d((0,0,0), u, color='blue', width=3)
+                # v (Red) - drawn slightly thinner/transparent so Green projection pops
+                arrow_v = arrow3d((0,0,0), v, color='red', width=2, opacity=0.4)
+                # Projection (Green) - Thicker
+                arrow_proj = arrow3d((0,0,0), proj, color='green', width=2)
+                
+                # 4. Manual Dashed Line (Drop Perpendicular)
+                # Connecting tip of u to tip of proj
+                drop_line = Graphics()
+                start_point = u
+                end_point = proj
+                diff_vec = end_point - start_point
+                
+                # Create 10 small segments to simulate a dashed line
+                num_dashes = 10
+                for k in range(num_dashes):
+                    # Interpolate along the line
+                    p1 = start_point + (k / num_dashes) * diff_vec
+                    p2 = start_point + ((k + 0.6) / num_dashes) * diff_vec # 0.6 fills 60% of the gap
+                    drop_line += line3d([p1, p2], color='gray', thickness=1)
+                
+                # Labels
+                label_u = text3d("u", u * 1.1, color='blue', fontsize=15)
+                label_v = text3d("v", v * 1.1, color='red', fontsize=15)
+                label_proj = text3d("proj", proj * 1.5, color='green', fontsize=12) # Offset label so it doesn't overlap origin
+
+                # 5. Axes Setup
+                # X goes negative for v (-2), so we need range -3 to 3
+                x_len, y_len, z_len = 3, 4, 3
+                
+                axes_arrows = (
+                    arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
+                )
+                
+                axes_labels = (
+                    text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                    text3d("y", (0, y_len + 0.2, 0), color='black') +
+                    text3d("z", (0, 0, z_len + 0.2), color='black')
+                )
+
+                # 6. Ticks
+                ticks = Graphics()
+                tick_size = 0.15
+                
+                # X ticks (Positive and Negative needed for this example)
+                for i in range(1, x_len):
+                    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black')
+                    # Negative ticks for x (since v has x = -2)
+                    ticks += line3d([(-i, -tick_size, 0), (-i, tick_size, 0)], color='black')
+                    
+                # Y ticks
+                for i in range(1, y_len):
+                    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black')
+
+                # Z ticks
+                for i in range(1, z_len):
+                    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black')
+
+                # 7. Show Everything
+                show(arrow_u + arrow_v + arrow_proj + drop_line + 
+                    label_u + label_v + label_proj +
+                    axes_arrows + axes_labels + ticks, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+
+        <p>
+          The goal is to find the green projection vector in the diagram above. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          The projection of <m>\v{u}</m> onto <m>\v{v}</m> is the following vector
+          <md>
+            \proj_{\v{v}} \v{u} = \lp \frac{\v{u} \cdot \v{v}}{\v{v} \cdot \v{v}} \rp \v{v}
+          </md>
+          We compute the values in this expression: 
+          <md>
+            <mrow>\v{u} \cdot \v{v} \amp= \la 1,1,2 \ra \cdot \la -2,3,1 \ra = 1\cdot(-2) + 1\cdot 3 + 2\cdot 1 = -2 + 3 + 2 = 3 </mrow>
+            <mrow>\v{v} \cdot \v{v} \amp= \la -2,3,1 \ra \cdot \la -2,3,1 \ra = (-2)^2 + 3^2 + 1^2 = 4 + 9 + 1 = 14 </mrow>
+          </md>
+          Hence, 
+          <md>
+            \proj_{\v{v}} \v{u} = \lp \frac{3}{14} \rp \la -2,3,1 \ra = \la -\frac{3}{7}, \frac{9}{14}, \frac{3}{14} \ra
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Now that we know what the projection looks like, the next question to consider is: <em>how different is the vector from its projection?</em>
+      A quick subtraction <m>\v{u} - \proj_{\v{v}} \v{u}</m> will give us the answer. 
+    </p>
+
+    <figure>
+      <image source="sec123-uMinusProju-Diagram.png" width="30%"></image>
+      <caption>Vector <m>\v{u}</m> (red), <m>\v{v}</m> (blue), <m>\proj_{\v{v}} \v{u}</m> (green), and <m>\v{u} - \proj_{\v{v}} \v{u}</m> (orange)</caption>
+    </figure>
+
+    <p>
+      Observe that this difference vector is <em>orthogonal</em> to <m>\v{v}</m>. 
+      This is one way that we can <alert>decompose</alert> the vector <m>\v{u}</m> into two components with respect to <m>\v{v}</m>: 
+      one component that is parallel to <m>\v{v}</m> (aka the projection vector) and another component that is orthogonal to <m>\v{v}</m>. 
+      Remember we also denote the projection vector by <m>\v{u}_{\parallel \v{v}}</m> (this is sometimes referred as the <em>parallel</em> component). 
+      Then we can denote the difference vector by <m>\v{u}_{\perp \v{v}}</m> (this is sometimes referred to as the <em>normal</em> component). 
+    </p>
+
+    <p>
+      This gives us the following decomposition of <m>\v{u}</m> with respect to <m>\v{v}</m>: 
+      <md>
+        \v{u} = \v{u}_{\parallel \v{v}} + \v{u}_{\perp \v{v}}
+      </md>
+    </p>
+
+    <figure>
+      <image source="sec123-DecomposingVector-Diagram.png" width="50%"></image>
+      <caption>Vector <m>\v{u}</m> (red), <m>\v{v}</m> (blue), <m>\proj_{\v{v}} \v{u}</m> (green), and <m>\v{u} - \proj_{\v{v}} \v{u}</m> (orange)</caption>
+    </figure>
+
+    <p>
+      This is actually the <term>Orthogonal Decomposition Theorem</term> in linear algebra. 
+    </p>
+
+    <example>
+      <p>
+        Find the decomposition <m>\v{u} = \v{u}_{\parallel \v{v}} + \v{u}_{\perp \v{v}}</m> for the vectors <m>\v{u} = \la 4,-1,5 \ra</m> and <m>\v{v} = \la 2,1,1 \ra</m>.
+      </p>
+
+      <hint>
+        <p>
+          To help you visualize the decomposition, Richard coded up the following fancy diagram:
+        </p>
+
+        <figure>
+          <caption>Decomposition of <m>\v{u}</m> with respect to <m>\v{v}</m></caption>
+          <sidebyside width="80%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+                # 1. Define Vectors
+                u = vector([4, -1, 5])
+                v = vector([2, 1, 1])
+                
+                # 2. Calculate Components
+                # u . v = 12, v . v = 6, so scale factor is 2
+                scale_factor = u.dot_product(v) / v.dot_product(v)
+                u_parallel = scale_factor * v
+                u_perp = u - u_parallel
+                
+                # 3. Draw Vectors (Layered Strategy)
+                
+                # A. u_parallel (Green) - The Projection
+                # We draw this first. We make it THICK and TRANSPARENT.
+                # This acts as a "highlight" showing the full projection length.
+                arrow_par = arrow3d((0,0,0), u_parallel, color='green', width=5, opacity=0.3)
+                
+                # B. v (Blue) - The Basis
+                # We draw this narrower and solid on top (or inside) the green arrow.
+                arrow_v = arrow3d((0,0,0), v, color='blue', width=3)
+                
+                # C. u (Red) - Original Vector
+                arrow_u = arrow3d((0,0,0), u, color='red', width=3)
+                
+                # D. u_perp (Orange) - Orthogonal Component
+                # Connects tip of u_parallel to tip of u
+                arrow_perp = arrow3d(u_parallel, u_parallel + u_perp, color='orange', width=3)
+                
+                # 4. Labels
+                label_u = text3d("u", u * 1.05, color='red', fontsize=15)
+                
+                # Label v near the origin (since it's shorter)
+                label_v = text3d("v", v * 0.5 + vector([0,0,0.3]), color='blue', fontsize=15, fontweight='bold')
+                
+                # Label u_parallel at the end of the projection
+                label_par = text3d("u_parallel", u_parallel * 1.05, color='green', fontsize=15, fontweight='bold')
+                
+                # Label u_perp
+                mid_perp = u_parallel + (u_perp * 0.5)
+                label_perp = text3d("u_perp", mid_perp, color='orange', fontsize=12)
+
+                # 5. Axes Setup
+                x_len, y_len, z_len = 5, 5, 6
+                
+                axes_arrows = (
+                    arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                    arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
+                )
+                
+                axes_labels = (
+                    text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                    text3d("y", (0, y_len + 0.2, 0), color='black') +
+                    text3d("z", (0, 0, z_len + 0.2), color='black')
+                )
+
+                # 6. Ticks
+                ticks = Graphics()
+                tick_size = 0.2
+                
+                # X ticks 
+                for i in range(1, x_len):
+                    ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black')
+                    
+                # Y ticks 
+                for i in range(1, y_len):
+                    ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black')
+                    ticks += line3d([(-tick_size, -i, 0), (tick_size, -i, 0)], color='black')
+
+                # Z ticks
+                for i in range(1, z_len):
+                    ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black')
+
+                # 7. Show Everything
+                show(arrow_par + arrow_v + arrow_u + arrow_perp + 
+                    label_u + label_v + label_par + label_perp +
+                    axes_arrows + axes_labels + ticks, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+
+        <p>
+          The goal is to find the two components <m>\v{u}_{\parallel \v{v}}</m> and <m>\v{u}_{\perp \v{v}}</m> in the diagram above.
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We first compute <m>\v{u} \cdot \v{v}</m> and <m>\v{v} \cdot \v{v}</m> to find the projection of <m>\v{u}</m> onto <m>\v{v}</m>:
+          <md>
+            <mrow>\v{u} \cdot \v{v} \amp= \la 4,-1,5 \ra \cdot \la 2,1,1 \ra = 4\cdot 2 + (-1)\cdot 1 + 5\cdot 1 = 8 - 1 + 5 = 12 </mrow>
+            <mrow>\v{v} \cdot \v{v} \amp= \la 2,1,1 \ra \cdot \la 2,1,1 \ra = 2^2 + 1^2 + 1^2 = 4 + 1 + 1 = 6 </mrow>
+          </md>
+          Hence, 
+          <md>
+            \v{u}_{\parallel \v{v}} = \proj_{\v{v}} \v{u} = \lp \frac{12}{6} \rp \la 2,1,1 \ra = 2 \la 2,1,1 \ra = \la 4,2,2 \ra
+          </md>
+          We now find the vector <m>\v{u}_{\perp \v{v}}</m> by computing the difference: 
+          <md>
+            \v{u}_{\perp \v{v}} = \v{u} - \v{u}_{\parallel \v{v}} = \la 4,-1,5 \ra - \la 4,2,2 \ra = \la 0,-3,3 \ra
+          </md>
+          Thus, we have
+          <md>
+            \v{u} = \v{u}_{\parallel \v{v}} + \v{u}_{\perp \v{v}} = \la 4,2,2 \ra + \la 0,-3,3 \ra
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      The ability to decompose vectors into orthogonal components is useful in many applications. 
+      For example, when an object rests on an inclined plane, the gravitational force acting on the object equals its weight, which is directly vertically downward. 
+      However, to analyze the motion of the object on the inclined plane, it is often helpful to decompose the gravitational force vector into two components: 
+      one <em>parallel</em> to the plane (which determines the tendency of the object to slide down the plane) and another <em>perpendicular</em> to the plane (which determines its tendency to "stick" to the plane).
+    </p>
+
+    <figure>
+      <image source="sec123-ForceDecomposition-Diagram.png" width="50%"></image>
+      <caption>Gravitational force decomposition on an inclined plane</caption>
+    </figure>
+
+    <example>
+      <p>
+        A 10-lb block rests on a plane that is inclined at 30° below the horizontal. 
+        Find the components of the gravitational force parallel and normal perpendicular to the plane. 
+      </p>
+
+      <hint>
+        <p>
+          See below for the diagram of the situation: 
+        </p>
+
+        <figure>
+          <image source="sec123-ForceDecomposition-Example.png" width="50%"></image>
+          <caption>Gravitational force Vector (red), Parallel Component (green), and Perpendicular Component (orange)</caption>
+        </figure>
+
+        <p>
+          The goal here is to find the green and the orange vectors in the diagram above. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          The gravitational force <m>\v{F}</m> acting on the block equals the weight o the block. 
+          Using the coordinate system, the force acts in the negative <m>y</m>-direction, so 
+          <md>
+            \v{F} = \la 0, -10 \ra
+          </md>
+        </p>
+
+        <p>
+          The direction <em>down</em> the plane is given by the vector is 
+          <md>
+            \v{v} = \la \cos(-30^\circ), \sin(-30^\circ) \ra = \la \frac{\sqrt{3}}{2}, -\frac{1}{2} \ra
+          </md>
+        </p>
+
+        <p>
+          Hence, the component of the force <em>parallel</em> to the plane is
+          <md>
+            <mrow> \v{F}_{\parallel \v{v}} \amp= \lp \frac{\v{F} \cdot \v{v}}{\v{v} \cdot \v{v}} \rp \v{v} </mrow>
+            <mrow> \amp= \lp \frac{\la 0, -10 \ra \cdot \la \frac{\sqrt{3}}{2}, -\frac{1}{2} \ra}{\la \frac{\sqrt{3}}{2}, -\frac{1}{2} \ra \cdot \la \frac{\sqrt{3}}{2}, -\frac{1}{2} \ra} \rp \la \frac{\sqrt{3}}{2}, -\frac{1}{2} \ra </mrow>
+            <mrow> \amp= 5 \la \frac{\sqrt{3}}{2}, -\frac{1}{2} \ra </mrow>
+            <mrow> \amp= \la \frac{5\sqrt{3}}{2}, -\frac{5}{2} \ra </mrow>
+          </md>
+        </p>
+
+        <p>
+          Next, the component of the force <em>perpendicular</em> to the plane is
+          <md>
+            <mrow> \v{F}_{\perp \v{v}} \amp= \v{F} - \v{F}_{\parallel \v{v}} </mrow>
+            <mrow> \amp= \la 0, -10 \ra - \la \frac{5\sqrt{3}}{2}, -\frac{5}{2} \ra </mrow>
+            <mrow> \amp= \la -\frac{5\sqrt{3}}{2}, -\frac{15}{2} \ra </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <worksheet xml:id="ws-sec123">
+    <title>Assigned Problems for Section 12.3</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="12.3.11">
+      <p>
+        Compute the dot product <m>\lp \v{i} + \v{j} + \v{k} \rp \cdot \lp 3\v{i} + 2\v{j} - 5\v{k} \rp</m>
+      </p>
+    </exercise>
+
+    <exercise number="12.3.13">
+      <p>
+        Determine whether the two vectors <m>\la 1,1,1 \ra</m> and <m>\la 1,-2,-2 \ra</m> are orthogonal and, if not, whether the angle between them is acute or obtuse. 
+      </p>
+    </exercise>
+
+    <exercise number="12.3.25">
+      <p>
+        Find the angle bewteen the vectors <m>\la 1,1,1 \ra</m> and <m>\la 1,0,1 \ra</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.3.37">
+      <p>
+        Simplify the expression <m>\lp \v{v} - \v{w} \rp \cdot \v{v} + \v{v} \cdot \v{w}</m>
+      </p>
+    </exercise>
+
+    <exercise number="12.3.43">
+      <p>
+        Use the properties of the dot product to evaluate the expression <m>2\v{u} \cdot \lp 3\v{u} - \v{v} \rp</m>, assuming that <m>\v{u} \cdot \v{v} = 2</m>, <m>\|\v{u}\| = 1</m>, and <m>\|\v{v}\| = 3</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.3.48">
+      <p>
+        Assume that <m>\|\v{v}\| = 2</m>, <m>\|\v{w}\| = 3</m>, and the angle between <m>\v{v}</m> and <m>\v{w}</m> is <m>120^\circ</m>. 
+        Determine
+        <ol>
+          <li>
+            <p>
+              <m>\v{v} \cdot \v{w}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\|2\v{v} + \v{w}\|</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\|2\v{v} - 3\v{w}\|</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercise number="12.3.57">
+      <p>
+        Find the projection of <m>\v{u}</m> along <m>\v{v}</m>, where <m>\v{u} = \la -1,2,0 \ra</m> and <m>\v{v} = \la 2,0,1 \ra</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.3.69">
+      <p>
+        Find the decomposition <m>\v{a} = \v{a}_{\parallel \v{b}} + \v{a}_{\perp \v{b}}</m> with respect to <m>\v{b}</m>, where <m>\v{a} = \la 4,-1,0 \ra</m> and <m>\v{b} = \la 0,1,1 \ra</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.3.75">
+      <p>
+        Find the angle between <m>\overline{AB}</m> and <m>\overline{AC}</m> in the following figure. 
+      </p>
+
+      <figure>
+        <image source="R3UnitCube.png" width="50%"></image>
+        <caption>Unit cube in <m>\R^3</m></caption>
+      </figure>
+    </exercise>
+
+    <exercise number="12.3.81">
+      <p>
+        The methane molecule <m>\text{CH}_\text{4}</m> consists of a carbon molecule bounded to four hydrogen molecules bonded to four hydrogen molecules that are spaced as far apart from each other as possible. 
+        The hydrogen atoms then sit at the vertices of a tetrahedron, with the carbon atom at its center, as shown in the figure below. 
+        We can model this with the carbon atom at the point <m>\lp \frac{1}{2}, \frac{1}{2}, \frac{1}{2} \rp</m> and the hydrogen atoms at <m>(0,0,0)</m>, <m>(1,1,0)</m>, <m>(1,0,1)</m>, and <m>(0,1,1)</m>. 
+        Use the dot product to find the bond angle <m>\alpha</m> formed between any two of the line segments from the carbon atom to the hydrogen atoms. 
+      </p>
+
+      <figure>
+        <image source="sec123-MethaneMolecule-Diagram.png" width="50%"></image>
+        <caption>A Methane molecule <m>\text{CH}_\text{4}</m></caption>
+      </figure>
+    </exercise>
+
+    <exercise number="12.3.87">
+      <p>
+        Calculate the force (in newtons) required to push a 40-kg wagon up a <m>10^\circ</m> incline. 
+      </p>
+
+      <figure>
+        <image source="sec123-HW87-Figure.png" width="50%"></image>
+      </figure>
+    </exercise>
+
+  </worksheet>
 
 </section>
