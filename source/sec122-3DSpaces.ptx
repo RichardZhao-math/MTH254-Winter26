@@ -801,7 +801,7 @@
     <title>Curves and Lines</title>
 
     <p>
-      Most curves in <m>\R^3</m> can be represented using <em>parametrically</em> than using a single equation. 
+      Most curves in <m>\R^3</m> can be represented <em>parametrically</em> than using a single equation. 
       That is, we use three functions to represent the <m>x</m>-, <m>y</m>-, and <m>z</m>-coordinates of the points on the curve with a parameter <m>t</m>. 
       This can be visualized as representing the coordinates of a particle moving through space as a function of time <m>t</m>, and the curve is the path traced out by the particle. 
     </p>
@@ -1090,11 +1090,11 @@
           <p>
             The agumented matrix of the system is
             <md>
-              \begin{pmatrix} 1 \amp 2 \amp \big| \amp -1 \\ 2 \amp -1 \amp \big| \amp 3 \\ -1 \amp -3 \amp \big| \amp 3 \end{pmatrix}
+              \begin{pmatrix} 1 \amp 2 \amp \big| \amp -1 \\ 2 \amp -1 \amp \big| \amp 3 \\ -1 \amp -3 \amp \big| \amp 2 \end{pmatrix}
             </md>
             Row reducing this matrix we get
             <md>
-              \begin{pmatrix} 1 \amp 0 \amp \big| \amp 0 \\ 0 \amp 1 \amp \big| \amp -1 \\ 0 \amp 0 \amp \big| \amp 0 \end{pmatrix} 
+              \begin{pmatrix} 1 \amp 0 \amp \big| \amp 1 \\ 0 \amp 1 \amp \big| \amp -1 \\ 0 \amp 0 \amp \big| \amp 0 \end{pmatrix} 
             </md>
             From here we can read off the solution <m>t = 1</m>, <m>s = -1</m>.
           </p>

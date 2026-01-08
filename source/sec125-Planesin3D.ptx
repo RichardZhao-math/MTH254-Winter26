@@ -25,4 +25,106 @@
     
   </introduction>
 
+  <worksheet xml:id="ws-sec125">
+    <title>Assigned Problems for Section 12.5</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="12.5.3">
+      <p>
+        Write the equation of the plane with normal vector <m>\v{n} = \la -1,2,1 \ra</m> passing through the point <m>\lp 4,1,5 \rp</m> in the scalar form <m>ax + by + cz = d</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.5.15">
+      <p>
+        Find a vector normal to the plane <m>3(x - 4) - 8(y - 1) + 11z = 0</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.5.23">
+      <p>
+        Find an equation of the plane passing through the three points <m>P = (1,0,0)</m>, <m>Q = (0,1,1)</m>, and <m>R = (2,0,1)</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.5.27">
+      <p>
+        In each case, determine whether or not the lines have a single point of intersection. 
+        If they do, give an equation of a plane containing them. 
+        <ol>
+          <li>
+            <p>
+              <m>\v{r}_1(t) = \la t, 2t-1, t-3 \ra</m> and <m>\v{r}_2(t) = \la 4, 2t-1, -1 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}_1(t) = \la 3t, 2t+1, t-5 \ra</m> and <m>\v{r}_2(t) = \la 4t, 4t-3, -1 \ra</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercise number="12.5.33">
+      <p>
+        Draw the plane given by the equation <m>x + y + z = 4</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.5.41">
+      <p>
+        Find the intersection of the line <m>\v{r}(t) = \la 1,1,0 \ra + t \la 0,2,4 \ra</m> and the plane <m>x + y + z = 14</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.5.59">
+      <p>
+        By definition, the angle between two planes is the angle between their <alert>normal vectors</alert>. 
+      </p>
+
+      <figure>
+        <image source="sec125-HW59-AnglePlanes-Diagram.png" width="50%"></image>
+        <caption>Angle between Two Planes</caption>
+      </figure>
+
+      <p>
+        Compute the angle between the two planes <m>2x + 3y + 7z = 2</m> and <m>4x - 2y + 2z = 4</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.5.65">
+      <p>
+        Find a plane that is perpendicular to the two planes <m>x + y = 3</m> and <m>x + 2y - z = 4</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="12.5.67">
+      <p>
+        Let <m>\c{L}</m> denote the line of intersection of the planes <m>x - y - z = 1</m> and <m>2x + 3y + z = 2</m>. 
+        Find parametric equations for the line <m>\c{L}</m>. 
+      </p>
+
+      <hint>
+        <p>
+          To find a point on <m>\c{L}</m>, substitute an arbitrary value for <m>z</m> (say, <m>z = 2</m>) and then solve the resulting pair of equations for <m>x</m> and <m>y</m>. 
+        </p>
+      </hint>
+    </exercise>
+
+  </worksheet>
+
 </section>

@@ -26,6 +26,7 @@
     \newcommand{\R}{\mathbb R} 
 
     \newcommand{\v}[1]{\mathbf{#1}}
+    \newcommand{\c}[1]{\mathcal{#1}}
 
     \newcommand{\lp}{\left(}
     \newcommand{\rp}{\right)}
