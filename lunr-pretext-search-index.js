@@ -1405,6 +1405,474 @@ var ptx_lunr_docs = [
   "body": " Prove that .  "
 },
 {
+  "id": "sec124-CrossProduct",
+  "level": "1",
+  "url": "sec124-CrossProduct.html",
+  "type": "Section",
+  "number": "12.4",
+  "title": "The Cross Product",
+  "body": " The Cross Product   In the previous section, we learned about the Dot Product , a way to multiply two vectors to get a scalar (a single number). You might be wondering whether there is another way to multiply two vectors?  The answer is yes! We can multiply two vectors in a special way to get a third vector. This is called the Cross Product . However, unlike the dot product which works in any dimension, the cross product is special. It only works meaningfully in . This operation is incredibly useful for finding orthogonal directions, calculating areas, and understanding rotation in physics.    After this section, students will be able to:    compute the cross product of two vectors using determinants.  use standard basis properties to simplify cross product calculations.  calculate the area of a parallelogram and the volume of a parallelepiped.  apply the cross product to physics problems involving torque.     Let's dive right into the definition. The formula can look a bit intimidating at first, but we will use a tool called a determinant to help us remember it.   The Cross Product   Given two vectors and in , the cross product  is the vector defined by:     Wow this definition looks crazy! No one should memorize this long of a formula! If you know a bit linear algebra, the cross product can be computed using the determinant .  Given the two vectors and , we can construct a matrix as follows: where the , , and are the standard basis vectors in .  It turns out that the cross product is the determinant of this matrix. That is,   P.S.: Yes Richard did a cofactor expansion on the first row in his work above. Remember that this isn't really a linear algebra class so he will not go in depth on the cofactor expansion. If linear algebra isn't your thing and you don't want to memorize the formula (no one should), you can find the determine of a 3x3 matrix using the lattice method. Below is a quick video tutorial on how to do that:   Quick Tutorial on Computing the Determinant of a 3x3 Matrix     Compute for and .      Below is a quick sketch to visualize the two vectors and their cross product.   Visualizing for and        Now that we know how the cross product works, let's explore some of its important properties!   Properties of the Cross Product  Let's start off by observing the behavior of the cross product in the . The most obvious observation here is that is also a vector!  We can also see that is orthogonal to both and . It turns out that the cross product always produces a vector that is perpendicular to both input vectors, following the right-hand rule , which states that when the fingers of your right hand curl from to , your thumb points to the same side of the plane spanned by and as their cross product .    Right-Hand Rule for Cross Product   Other than these geometric properties, the cross product also has several algebraic properties that are useful in computations.   Basic Properties of the Cross Product       (Anticommutative Property)     (Cross Product with Itself is Zero)     if and only if either for some scalar or      (Scalar Multiplication)        (Distributive Property)       Some of the results can be justified directly from the right-hand rule and geometric intuition. For example, the anticommutative property makes sense because switching the order of the vectors reverses the direction of the resulting vector. As a mathematician, we should also verify these properties using the definition of the cross product (the one with the determinant).   Some Proofs of Cross Product Properties  Richard will prove some of these properties using the determinant definition of the cross product. Some will be left as exercises for the reader.   Let and . Then we obtain Thus, the cross product is anticommutative.    Let . Then we have     Left as an exercise to the reader.    Left as an exercise to the reader.    Left as an exercise to the reader.      The most fun thing about the cross product is how it interacts with the standard basis vectors in . Recall the standard basis vectors are , , and . Because these are orthogonal unit vectors, following the right-hand rule, we have a cyclic pattern:       If you reverse the order, you get the negative (anticommutative):       The following circle summarizes these properties:    Circle for Computing the Cross Product of Standard Basis Vectors   If you don't mind some FOIL-ing and combining like terms, you can actually use this circle to compute the cross product instead of the determinant!   Calculate the cross product .        This is actually how the determinant formula is derived! If we write and and expand like a polynomial, we can use the rules above to simplify the terms.   If you want to see a bunch of letters here to derive the formula...  To be a due diligent mathematician, Richard will show you how to derive the determinant formula from the standard basis properties (and there are a lot of the typing here...).  Let and . Then we have      Geometry: Area of a Parallelogram  We know the direction of is orthogonal to the inputs (given by the Right Hand Rule). But what about its magnitude ?   Magnitude of the Cross Product    where is the angle between the vectors.    The proof of this theorem is at the end of the section in your textbook, so Richard will not repeat it here. It requires an identity that links the dot product and cross product together. Feel free to read through it later if you are interested!  Geometrically, this value represents the Area of the Parallelogram spanned by the two vectors.   The magnitude of the cross product equals the area of the shaded parallelogram.       Find the area of the triangle with vertices , , and .   A triangle is exactly half of a parallelogram. So if we find the area of the parallelogram spanned by vectors and , we just need to divide by 2!      Geometry: Volume of a Parallelepiped  If we add a third vector , we lift the 2D parallelogram into a 3D slanted box called a Parallelepiped .  To find this volume, we use the Scalar Triple Product . Think about it: the area of the base is . The height of the box is the component of in the direction of that normal vector.   Volume of a Parallelepiped   The volume of the parallelepiped determined by vectors is the absolute value of the scalar triple product:      A parallelepiped spanned by vectors u, v, w.        Assigned Problems for Section 12.4   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Calculate , where and .    Calculate the cross product     Calculate the cross product , assuming that     A force (in newtons) on an electron moving at velocity meters per second in a uniform magnetic field (in teslas) is given by , where coulombs is the charge on the electron. Assume an electron moves with velocity in the plane and is a uniform magnetic field pointing directyly out of the page. Which of the two vectors, or , in the following figure represents the force on the electron? Remember that is negative.    The magnetic field vector points directly out of the page.     Find the area of the parallelogram spanned by and in the following figure.       Sketch the triangle with vertices at the origin , , and , and compute its area using cross product.    Check that the four points , , , and all lie in a plane. Then use vectors to find the area of the quadrilateral they define.    Prove the identity using the formula for the cross product.     The torque about the origin due to a force acting on an object with position vector is the vector quantity . If several forces act at psitions , then the net torque (units: N - m or lb - ft ) is the sum Calculate the net torque about acting at the point on the mechanical arm in the following figure, assuming that a 25-newton force acts as indicated.       "
+},
+{
+  "id": "sec124-CrossProduct-2-2",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#sec124-CrossProduct-2-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Cross Product "
+},
+{
+  "id": "sec124-CrossProduct-2-3",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#sec124-CrossProduct-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:    compute the cross product of two vectors using determinants.  use standard basis properties to simplify cross product calculations.  calculate the area of a parallelogram and the volume of a parallelepiped.  apply the cross product to physics problems involving torque.   "
+},
+{
+  "id": "def-CrossProduct",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#def-CrossProduct",
+  "type": "Definition",
+  "number": "12.4.1",
+  "title": "The Cross Product.",
+  "body": " The Cross Product   Given two vectors and in , the cross product  is the vector defined by:    "
+},
+{
+  "id": "sec124-CrossProduct-9",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#sec124-CrossProduct-9",
+  "type": "Figure",
+  "number": "12.4.2",
+  "title": "",
+  "body": " Quick Tutorial on Computing the Determinant of a 3x3 Matrix   "
+},
+{
+  "id": "sec124-CrossProduct-10",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#sec124-CrossProduct-10",
+  "type": "Example",
+  "number": "12.4.3",
+  "title": "",
+  "body": " Compute for and .      Below is a quick sketch to visualize the two vectors and their cross product.   Visualizing for and       "
+},
+{
+  "id": "subsec-CrossPropertiesBasis-3",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-CrossPropertiesBasis-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "right-hand rule "
+},
+{
+  "id": "subsec-CrossPropertiesBasis-4",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-CrossPropertiesBasis-4",
+  "type": "Figure",
+  "number": "12.4.5",
+  "title": "",
+  "body": "  Right-Hand Rule for Cross Product  "
+},
+{
+  "id": "thm-BasicPropertiesCrossProduct",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#thm-BasicPropertiesCrossProduct",
+  "type": "Theorem",
+  "number": "12.4.6",
+  "title": "Basic Properties of the Cross Product.",
+  "body": " Basic Properties of the Cross Product       (Anticommutative Property)     (Cross Product with Itself is Zero)     if and only if either for some scalar or      (Scalar Multiplication)        (Distributive Property)      "
+},
+{
+  "id": "subsec-CrossPropertiesBasis-8",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-CrossPropertiesBasis-8",
+  "type": "Proof",
+  "number": "1",
+  "title": "Some Proofs of Cross Product Properties.",
+  "body": " Some Proofs of Cross Product Properties  Richard will prove some of these properties using the determinant definition of the cross product. Some will be left as exercises for the reader.   Let and . Then we obtain Thus, the cross product is anticommutative.    Let . Then we have     Left as an exercise to the reader.    Left as an exercise to the reader.    Left as an exercise to the reader.     "
+},
+{
+  "id": "subsec-CrossPropertiesBasis-14",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-CrossPropertiesBasis-14",
+  "type": "Figure",
+  "number": "12.4.7",
+  "title": "",
+  "body": "  Circle for Computing the Cross Product of Standard Basis Vectors  "
+},
+{
+  "id": "subsec-CrossPropertiesBasis-16",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-CrossPropertiesBasis-16",
+  "type": "Example",
+  "number": "12.4.8",
+  "title": "",
+  "body": " Calculate the cross product .       "
+},
+{
+  "id": "subsec-CrossPropertiesBasis-18",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-CrossPropertiesBasis-18",
+  "type": "Note",
+  "number": "12.4.9",
+  "title": "If you want to see a bunch of letters here to derive the formula....",
+  "body": " If you want to see a bunch of letters here to derive the formula...  To be a due diligent mathematician, Richard will show you how to derive the determinant formula from the standard basis properties (and there are a lot of the typing here...).  Let and . Then we have   "
+},
+{
+  "id": "thm-CrossMagnitude",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#thm-CrossMagnitude",
+  "type": "Theorem",
+  "number": "12.4.10",
+  "title": "Magnitude of the Cross Product.",
+  "body": " Magnitude of the Cross Product    where is the angle between the vectors.   "
+},
+{
+  "id": "subsec-AreaGeometry-6",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-AreaGeometry-6",
+  "type": "Figure",
+  "number": "12.4.11",
+  "title": "",
+  "body": " The magnitude of the cross product equals the area of the shaded parallelogram.     "
+},
+{
+  "id": "subsec-AreaGeometry-7",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-AreaGeometry-7",
+  "type": "Example",
+  "number": "12.4.12",
+  "title": "",
+  "body": " Find the area of the triangle with vertices , , and .   A triangle is exactly half of a parallelogram. So if we find the area of the parallelogram spanned by vectors and , we just need to divide by 2!   "
+},
+{
+  "id": "def-TripleProduct",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#def-TripleProduct",
+  "type": "Definition",
+  "number": "12.4.13",
+  "title": "Volume of a Parallelepiped.",
+  "body": " Volume of a Parallelepiped   The volume of the parallelepiped determined by vectors is the absolute value of the scalar triple product:    "
+},
+{
+  "id": "subsec-Volume-5",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-Volume-5",
+  "type": "Figure",
+  "number": "12.4.14",
+  "title": "",
+  "body": " A parallelepiped spanned by vectors u, v, w.     "
+},
+{
+  "id": "ws-sec124-3",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#ws-sec124-3",
+  "type": "Worksheet Exercise",
+  "number": "12.4.11",
+  "title": "",
+  "body": " Calculate , where and .  "
+},
+{
+  "id": "ws-sec124-4",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#ws-sec124-4",
+  "type": "Worksheet Exercise",
+  "number": "12.4.17",
+  "title": "",
+  "body": " Calculate the cross product   "
+},
+{
+  "id": "ws-sec124-5",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#ws-sec124-5",
+  "type": "Worksheet Exercise",
+  "number": "12.4.21",
+  "title": "",
+  "body": " Calculate the cross product , assuming that   "
+},
+{
+  "id": "ws-sec124-6",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#ws-sec124-6",
+  "type": "Worksheet Exercise",
+  "number": "12.4.37",
+  "title": "",
+  "body": " A force (in newtons) on an electron moving at velocity meters per second in a uniform magnetic field (in teslas) is given by , where coulombs is the charge on the electron. Assume an electron moves with velocity in the plane and is a uniform magnetic field pointing directyly out of the page. Which of the two vectors, or , in the following figure represents the force on the electron? Remember that is negative.    The magnetic field vector points directly out of the page.   "
+},
+{
+  "id": "ws-sec124-7",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#ws-sec124-7",
+  "type": "Worksheet Exercise",
+  "number": "12.4.41",
+  "title": "",
+  "body": " Find the area of the parallelogram spanned by and in the following figure.     "
+},
+{
+  "id": "ws-sec124-8",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#ws-sec124-8",
+  "type": "Worksheet Exercise",
+  "number": "12.4.47",
+  "title": "",
+  "body": " Sketch the triangle with vertices at the origin , , and , and compute its area using cross product.  "
+},
+{
+  "id": "ws-sec124-9",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#ws-sec124-9",
+  "type": "Worksheet Exercise",
+  "number": "12.4.51",
+  "title": "",
+  "body": " Check that the four points , , , and all lie in a plane. Then use vectors to find the area of the quadrilateral they define.  "
+},
+{
+  "id": "ws-sec124-10",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#ws-sec124-10",
+  "type": "Worksheet Exercise",
+  "number": "12.4.55",
+  "title": "",
+  "body": " Prove the identity using the formula for the cross product.   "
+},
+{
+  "id": "ws-sec124-11",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#ws-sec124-11",
+  "type": "Worksheet Exercise",
+  "number": "12.4.67",
+  "title": "",
+  "body": " The torque about the origin due to a force acting on an object with position vector is the vector quantity . If several forces act at psitions , then the net torque (units: N - m or lb - ft ) is the sum Calculate the net torque about acting at the point on the mechanical arm in the following figure, assuming that a 25-newton force acts as indicated.     "
+},
+{
+  "id": "sec125-Planesin3D",
+  "level": "1",
+  "url": "sec125-Planesin3D.html",
+  "type": "Section",
+  "number": "12.5",
+  "title": "Planes in 3-Spaces",
+  "body": " Planes in 3-Spaces   In this section, we will continue our investigation of planes in . We will learn how to describe any planes in using vectors and how to analyze their interactions with one another.    After this section, students will be able to:     Determine the equation of a plane given a point and a normal vector.    Identify the normal vector and intercepts from the scalar equation of a plane.    Find the intersection point of a line and a plane.    Sketch a plane using its traces.      Recall we briefly introduced planes in back in . In that section, we defined a plane by setting one of the coordinates to a constant value and obtain what we called the coordinate planes . But as you can imagine, these are just a small subset of all possible planes in .   How do we define an arbitrary plane in ?    Defining a Plane  When we defined a line, we used a point and a direction vector  . You might wondering whether we can do the same for a plane?  The short answer is no and we have a quick counterexample. The vector is parallel to the -plane and the -plane. And both the planes go through the point . So a point and a direction vector parallel to the plane cannot uniquely determine a plane.   Infinite planes through a fixed point and parallel to a fixed vector    So, to define a plane, we really need a point and a vector that is NOT parallel to the plane. For simplicity, we will choose a vector orthogonal to the plane. That is, this orthogonal vector is orthogonal to every vector that lies in the plane. Visually, this vector \"sticks out\" of the plane at a right angle.   A point lies on and    Summing up, to determine a plane in , we need a point and a normal vector , which is a vector orthogonal to the plane.   Equation of a Plane   Plane through with normal vector : where .     But Richard... Why is the equation appears this way?  This equation may seem a bit mysterious at first glance, but it actually follows directly from the definition of the dot product (and orthogonality).  Let's say we have a point . Furthermore, let be an arbitrary point on the plane. Then we can define a vector .  Also, we have a normal vector . This vector is orthogonal to ANY vector that lies in the plane, including . Two vectors are orthogonal if and only if their dot product is zero. Therefore, we obtain Hey! This is the scalar form of the equation of a plane!  You can simplify this equation further! That is, the scalar form can be simplied to Observe that the right-hand side is just a number, so let's call it for simplicity. Hence, we obtain where   What about the vector form? We can observe quickly that is just the dot product . Hence, we can rewrite the equation as Hey! The vector form!    Find an equation of the plane with normal vector passing through the point .   We are given and .  We can write an equation using the vector form:   Alternatively, we can write an equation using the scalar form:     Sometimes we are given the equation and we need to work backwards to find the geometric properties. Specifically, we may want to find a normal vector and a point on the plane.  Finding a point is a bit boring... We just need to find a point that satisfies the equation. The easiest way to do so is to set the two other variables to zero (or other numbers) and solve for the third.  What about finding a normal vector? If you stare at the equation long enough, you may notice that the coefficients of , , and correspond to the components of the normal vector. That is, the normal vector is simply .  Surprisingly, this pattern also works for lines in . An equation of the line in is . You for sure know that the slope of this line is . But what you may not know there is that the vector a normal vector to this line!   A line with normal vector     Consider the plane defined by . Identify the normal vector and find a point on the plane.   To find a normal vector, we read the coefficients directly. .  To find a point on the plane, we can set two of the variables to be constants and solve for the third. For example, we set and , and we can solve for . So, the point is on the plane.    Note that the equation of a plane in is a generalization of the equation of a line in . Back in , we can determine and equation of a line using two points . If we generalize this idea to , we can determine an equation of a plane using three points . It turns out that this plane is unique as long as the three points are not collinear (i.e., they do not all lie on the same line).   Find an equation of the plane passing through the three points , , and .   Recall that we need a point and a normal vector to determine an equation of a plane. Well we are given three points, so we can use one of them as our point.  What about a normal vector... Can we find a normal vector using the three points?  Yes we can! Recall we can find a normal vector orthogonal to two vectors using the cross product!    First, we can find two vectors lying on the plane. Since both and lie on the plane, their cross product will be orthogonal to the plane. This can be our normal vector!   Below is a visualization of what we just did. We plotted to create the plane (shown in blue). We constructed the vectors and (green) that lie on the plane. Finally, we crossed them to get the normal vector (red), which you can see stands orthogonal to the surface.   Visualizing the plane through P, Q, R      We can use any scalar multiple of this vector, so let's use for simplicity. Using point : This makes sense, as all three given points had a y-coordinate of 1!      Intersection of a Line and a Plane  We often want to know where a specific line punctures a plane. Unless the line is parallel to the plane (or lying inside it), they will intersect at exactly one point.  To find the intersection point of a line and a plane, we need to find the point that lies on both the line and the plane. But how do we solve THREE variables simulateneously?  A good news here is that the line in is defined parametrically using a single parameter ! Since the coordinate of the point needs to satisfy both the equation of the plane and the parametric equation of the line, we can use substitution to find the point of intersection.  That is, to find this point, we  write the parametric equations for , , and from the line.  plug these expressions into the equation of the plane.  solve for .  plug back into the line equation to get the point .     Find the point where the line intersects the plane .   First, let's break the line into its components: , , .  Now, plug these into the plane equation : Simplify the algebra: We aren't done yet! We need the point. Plug back into our line components: The intersection point is .  Here is a visual confirmation of our algebra. The yellow dot is exactly where the red line punctures the blue plane.   Visualizing the intersection point          Traces  Drawing planes in 3D on a 2D sheet of paper is tricky. A great tool to help us visualize the position of a plane is finding its traces .  A trace is a slice of a surface by a coordinate plane. We are working with planes now, so the trace here is the line of intersection between the plane and one of the coordinate planes ( -plane, -plane, or -plane).  -trace: Set . This shows where the plane cuts through the floor.  -trace: Set . This shows where the plane cuts through the side wall.  -trace: Set . This shows where the plane cuts through the back wall.  By finding the intercepts on the axes and connecting them, we can draw a triangle that represents a portion of the plane.   Sketch the plane by finding its traces.   Let's find the intercepts to help us draw the lines.   x-intercept: Set . . Point: .   y-intercept: Set . . Point: .   z-intercept: Set . . Point: .  Now, look at the diagram below. The red lines are the traces. The xy-trace connects the x and y intercepts. The yz-trace connects the y and z intercepts. The xz-trace connects the x and z intercepts. Connecting these three points forms a triangle in the first octant that helps us visualize the slant of the plane.   Traces of the plane          Parallel and Intersecting Planes  Two planes in can either be parallel or intersecting, providing they are not the same plane.  To determine whether two planes are parallel, we can compare their normal vectors. Recall two lines are parallel if their direction vectors are parallel (i.e., scalar multiples of each other). In the similar sense, two planes are parallel if their normal vectors are parallel (i.e., scalar multiples of each other).   Show that the two planes and are parallel.   The normal vector of the first plane is and the normal vector of the second plane is . Note that , so the normal vectors are parallel. Therefore, the two planes are parallel.  In the diagram below, you can see these \"floating\" surfaces. They have the same tilt, they are just shifted relative to each other.   Parallel Planes (Blue) and (Red)        What about the intersection of two planes? Imagine two non-parallel planes in is intersecting, then they will intersect along a line.   Find an equation of the line of intersection of the planes and .   To define the line of intersection, we need two things:  A direction vector for the line.  A point on the line.    Since the line lies on both planes, it must be perpendicular to both normal vectors. Does that ring a bell? (Think cross product!)   Intersection of (Blue) and (Red)         Step 1: Find the direction vector. The normal vectors are and . The direction of the intersection line, , is orthogonal to both normals: For simplicity, we can divide by -3 to get a parallel vector: .   Step 2: Find a point on the line. We need a point that satisfies both plane equations. We have 2 equations and 3 unknowns, so we can pick a value for one variable. Let's try (so we are really finding the intersection between this line and the -plane, and this point of intersection will be on this line for sure! ). The system becomes: From the second eq, . Substitute into the first: Then . So a point on the line is .   Step 3: Write the equation. The vector equation of the line is:       Assigned Problems for Section 12.5   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Write the equation of the plane with normal vector passing through the point in the scalar form .    Find a vector normal to the plane .    Find an equation of the plane passing through the three points , , and .    In each case, determine whether or not the lines have a single point of intersection. If they do, give an equation of a plane containing them.    and      and        Draw the plane given by the equation .    Find the intersection of the line and the plane .    By definition, the angle between two planes is the angle between their normal vectors .    Angle between Two Planes   Compute the angle between the two planes and .    Find a plane that is perpendicular to the two planes and .    Let denote the line of intersection of the planes and . Find parametric equations for the line .   To find a point on , substitute an arbitrary value for (say, ) and then solve the resulting pair of equations for and .     "
+},
+{
+  "id": "sec125-Planesin3D-2-2",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#sec125-Planesin3D-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     Determine the equation of a plane given a point and a normal vector.    Identify the normal vector and intercepts from the scalar equation of a plane.    Find the intersection point of a line and a plane.    Sketch a plane using its traces.    "
+},
+{
+  "id": "sec125-Planesin3D-3",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#sec125-Planesin3D-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "coordinate planes "
+},
+{
+  "id": "subsec-DefiningPlanes-4",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-DefiningPlanes-4",
+  "type": "Figure",
+  "number": "12.5.1",
+  "title": "",
+  "body": " Infinite planes through a fixed point and parallel to a fixed vector   "
+},
+{
+  "id": "subsec-DefiningPlanes-6",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-DefiningPlanes-6",
+  "type": "Figure",
+  "number": "12.5.2",
+  "title": "",
+  "body": " A point lies on and   "
+},
+{
+  "id": "def-Plane3D",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#def-Plane3D",
+  "type": "Definition",
+  "number": "12.5.3",
+  "title": "Equation of a Plane.",
+  "body": " Equation of a Plane   Plane through with normal vector : where .   "
+},
+{
+  "id": "subsec-DefiningPlanes-9",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-DefiningPlanes-9",
+  "type": "Note",
+  "number": "12.5.4",
+  "title": "But Richard... Why is the equation appears this way?",
+  "body": " But Richard... Why is the equation appears this way?  This equation may seem a bit mysterious at first glance, but it actually follows directly from the definition of the dot product (and orthogonality).  Let's say we have a point . Furthermore, let be an arbitrary point on the plane. Then we can define a vector .  Also, we have a normal vector . This vector is orthogonal to ANY vector that lies in the plane, including . Two vectors are orthogonal if and only if their dot product is zero. Therefore, we obtain Hey! This is the scalar form of the equation of a plane!  You can simplify this equation further! That is, the scalar form can be simplied to Observe that the right-hand side is just a number, so let's call it for simplicity. Hence, we obtain where   What about the vector form? We can observe quickly that is just the dot product . Hence, we can rewrite the equation as Hey! The vector form!  "
+},
+{
+  "id": "subsec-DefiningPlanes-10",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-DefiningPlanes-10",
+  "type": "Example",
+  "number": "12.5.5",
+  "title": "",
+  "body": " Find an equation of the plane with normal vector passing through the point .   We are given and .  We can write an equation using the vector form:   Alternatively, we can write an equation using the scalar form:    "
+},
+{
+  "id": "subsec-DefiningPlanes-15",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-DefiningPlanes-15",
+  "type": "Figure",
+  "number": "12.5.6",
+  "title": "",
+  "body": " A line with normal vector   "
+},
+{
+  "id": "subsec-DefiningPlanes-16",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-DefiningPlanes-16",
+  "type": "Example",
+  "number": "12.5.7",
+  "title": "",
+  "body": " Consider the plane defined by . Identify the normal vector and find a point on the plane.   To find a normal vector, we read the coefficients directly. .  To find a point on the plane, we can set two of the variables to be constants and solve for the third. For example, we set and , and we can solve for . So, the point is on the plane.   "
+},
+{
+  "id": "subsec-DefiningPlanes-18",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-DefiningPlanes-18",
+  "type": "Example",
+  "number": "12.5.8",
+  "title": "",
+  "body": " Find an equation of the plane passing through the three points , , and .   Recall that we need a point and a normal vector to determine an equation of a plane. Well we are given three points, so we can use one of them as our point.  What about a normal vector... Can we find a normal vector using the three points?  Yes we can! Recall we can find a normal vector orthogonal to two vectors using the cross product!    First, we can find two vectors lying on the plane. Since both and lie on the plane, their cross product will be orthogonal to the plane. This can be our normal vector!   Below is a visualization of what we just did. We plotted to create the plane (shown in blue). We constructed the vectors and (green) that lie on the plane. Finally, we crossed them to get the normal vector (red), which you can see stands orthogonal to the surface.   Visualizing the plane through P, Q, R      We can use any scalar multiple of this vector, so let's use for simplicity. Using point : This makes sense, as all three given points had a y-coordinate of 1!   "
+},
+{
+  "id": "subsec-IntersectionLinePlane-6",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-IntersectionLinePlane-6",
+  "type": "Example",
+  "number": "12.5.10",
+  "title": "",
+  "body": " Find the point where the line intersects the plane .   First, let's break the line into its components: , , .  Now, plug these into the plane equation : Simplify the algebra: We aren't done yet! We need the point. Plug back into our line components: The intersection point is .  Here is a visual confirmation of our algebra. The yellow dot is exactly where the red line punctures the blue plane.   Visualizing the intersection point       "
+},
+{
+  "id": "subsec-Traces-3",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-Traces-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "trace "
+},
+{
+  "id": "subsec-Traces-4",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-Traces-4",
+  "type": "Example",
+  "number": "12.5.12",
+  "title": "",
+  "body": " Sketch the plane by finding its traces.   Let's find the intercepts to help us draw the lines.   x-intercept: Set . . Point: .   y-intercept: Set . . Point: .   z-intercept: Set . . Point: .  Now, look at the diagram below. The red lines are the traces. The xy-trace connects the x and y intercepts. The yz-trace connects the y and z intercepts. The xz-trace connects the x and z intercepts. Connecting these three points forms a triangle in the first octant that helps us visualize the slant of the plane.   Traces of the plane       "
+},
+{
+  "id": "subsec-ParallelIntersecting-4",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-ParallelIntersecting-4",
+  "type": "Example",
+  "number": "12.5.14",
+  "title": "",
+  "body": " Show that the two planes and are parallel.   The normal vector of the first plane is and the normal vector of the second plane is . Note that , so the normal vectors are parallel. Therefore, the two planes are parallel.  In the diagram below, you can see these \"floating\" surfaces. They have the same tilt, they are just shifted relative to each other.   Parallel Planes (Blue) and (Red)       "
+},
+{
+  "id": "subsec-ParallelIntersecting-6",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#subsec-ParallelIntersecting-6",
+  "type": "Example",
+  "number": "12.5.16",
+  "title": "",
+  "body": " Find an equation of the line of intersection of the planes and .   To define the line of intersection, we need two things:  A direction vector for the line.  A point on the line.    Since the line lies on both planes, it must be perpendicular to both normal vectors. Does that ring a bell? (Think cross product!)   Intersection of (Blue) and (Red)         Step 1: Find the direction vector. The normal vectors are and . The direction of the intersection line, , is orthogonal to both normals: For simplicity, we can divide by -3 to get a parallel vector: .   Step 2: Find a point on the line. We need a point that satisfies both plane equations. We have 2 equations and 3 unknowns, so we can pick a value for one variable. Let's try (so we are really finding the intersection between this line and the -plane, and this point of intersection will be on this line for sure! ). The system becomes: From the second eq, . Substitute into the first: Then . So a point on the line is .   Step 3: Write the equation. The vector equation of the line is:    "
+},
+{
+  "id": "ws-sec125-3",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#ws-sec125-3",
+  "type": "Worksheet Exercise",
+  "number": "12.5.3",
+  "title": "",
+  "body": " Write the equation of the plane with normal vector passing through the point in the scalar form .  "
+},
+{
+  "id": "ws-sec125-4",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#ws-sec125-4",
+  "type": "Worksheet Exercise",
+  "number": "12.5.15",
+  "title": "",
+  "body": " Find a vector normal to the plane .  "
+},
+{
+  "id": "ws-sec125-5",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#ws-sec125-5",
+  "type": "Worksheet Exercise",
+  "number": "12.5.23",
+  "title": "",
+  "body": " Find an equation of the plane passing through the three points , , and .  "
+},
+{
+  "id": "ws-sec125-6",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#ws-sec125-6",
+  "type": "Worksheet Exercise",
+  "number": "12.5.27",
+  "title": "",
+  "body": " In each case, determine whether or not the lines have a single point of intersection. If they do, give an equation of a plane containing them.    and      and      "
+},
+{
+  "id": "ws-sec125-7",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#ws-sec125-7",
+  "type": "Worksheet Exercise",
+  "number": "12.5.33",
+  "title": "",
+  "body": " Draw the plane given by the equation .  "
+},
+{
+  "id": "ws-sec125-8",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#ws-sec125-8",
+  "type": "Worksheet Exercise",
+  "number": "12.5.41",
+  "title": "",
+  "body": " Find the intersection of the line and the plane .  "
+},
+{
+  "id": "ws-sec125-9",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#ws-sec125-9",
+  "type": "Worksheet Exercise",
+  "number": "12.5.59",
+  "title": "",
+  "body": " By definition, the angle between two planes is the angle between their normal vectors .    Angle between Two Planes   Compute the angle between the two planes and .  "
+},
+{
+  "id": "ws-sec125-10",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#ws-sec125-10",
+  "type": "Worksheet Exercise",
+  "number": "12.5.65",
+  "title": "",
+  "body": " Find a plane that is perpendicular to the two planes and .  "
+},
+{
+  "id": "ws-sec125-11",
+  "level": "2",
+  "url": "sec125-Planesin3D.html#ws-sec125-11",
+  "type": "Worksheet Exercise",
+  "number": "12.5.67",
+  "title": "",
+  "body": " Let denote the line of intersection of the planes and . Find parametric equations for the line .   To find a point on , substitute an arbitrary value for (say, ) and then solve the resulting pair of equations for and .   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

@@ -102,15 +102,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.5';
+eBookConfig.runestone_version = '7.11.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
+<script src="_static/prefix-runtime.991c135ccf182bf5.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1c010553c35c544c.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.677a75a9120449ff.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -130,18 +130,22 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec124-CrossProduct.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch12-VectorGeometry.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec126-QuadricSurfaces.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec124-CrossProduct.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch12-VectorGeometry.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
 \newcommand{\Z}{\mathbb Z} 
 \newcommand{\Q}{\mathbb Q} 
 \newcommand{\R}{\mathbb R} 
 
 \newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
 
 \newcommand{\lp}{\left(}
 \newcommand{\rp}{\right)}
 \newcommand{\la}{\left\langle}
 \newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -164,53 +168,46 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsubsec-LinearCombinations" class="internal"><span class="title">Linear Combinations of Vectors</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsec-VectorApplication" class="internal"><span class="title">Applications of Vectors</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Homework problems for this section</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Assigned Problems for Section 12.1</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec122-3DSpaces.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Three-Dimensional Spaces: Surfaces, Vectors, and Curves</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Practice problems for this section</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Surfaces" class="internal"><span class="title">Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Vectors" class="internal"><span class="title">Vectors in 3-Space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-ParametricLines" class="internal"><span class="title">Curves and Lines</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Assigned Problems for Section 12.2</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec123-DotProduct.html#ws-sec123" class="internal"><span class="title">Assigned Problems for Section 12.3</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec124-CrossProduct.html" class="internal"><span class="codenumber">12.4</span> <span class="title">The Cross Product</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossProduct" class="internal"><span class="title">The Cross Product</span></a></div></li></ul>
-</li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div></li>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossPropertiesBasis" class="internal"><span class="title">Properties of the Cross Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-AreaGeometry" class="internal"><span class="title">Geometry: Area of a Parallelogram</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-Volume" class="internal"><span class="title">Geometry: Volume of a Parallelepiped</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec124-CrossProduct.html#ws-sec124" class="internal"><span class="title">Assigned Problems for Section 12.4</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch13-CalcVectorFunctions.html" class="internal"><span class="codenumber">13</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-DefiningPlanes" class="internal"><span class="title">Defining a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec125-Planesin3D.html#ws-sec125" class="internal"><span class="title">Assigned Problems for Section 12.5</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch14-DifferentiationMultiVariables.html" class="internal"><span class="codenumber">14</span> <span class="title">Differentiation in Several Variables</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div></li>
-</ul>
-</li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch15-MultipleIntegration.html" class="internal"><span class="codenumber">15</span> <span class="title">Multiple Integration</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Integration in Two Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Double Integrals over More General Regions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec153-tripleIntegrals.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Triple Integrals</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec156-ChangeofVariables.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Change of Variables</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -218,19 +215,515 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec125-Planesin3D"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Planes in 3-Spaces</span>
 </h2>
-<section class="introduction" id="sec125-Planesin3D-2"><div class="para" id="sec125-Planesin3D-2-1">Just the introduction texts...<div class="autopermalink" data-description="Paragraph"><a href="#sec125-Planesin3D-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="sec125-Planesin3D-2"><div class="para" id="sec125-Planesin3D-2-1">In this section, we will continue our investigation of planes in <span class="process-math">\(\R^3\text{.}\)</span> We will learn how to describe any planes in <span class="process-math">\(\R^3\)</span> using vectors and how to analyze their interactions with one another.<div class="autopermalink" data-description="Paragraph"><a href="#sec125-Planesin3D-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="objectives goal-like" id="sec125-Planesin3D-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
 <div class="introduction" id="sec125-Planesin3D-2-2-1"><div class="para" id="sec125-Planesin3D-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec125-Planesin3D-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<ul class="disc" id="sec125-Planesin3D-2-2-2"><li id="sec125-Planesin3D-2-2-2-1">
-<div class="para" id="sec125-Planesin3D-2-2-2-1-1">blahblahblah<div class="autopermalink" data-description="Paragraph"><a href="#sec125-Planesin3D-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec125-Planesin3D-2-2-2">
+<li id="sec125-Planesin3D-2-2-2-1">
+<div class="para" id="sec125-Planesin3D-2-2-2-1-1">Determine the equation of a plane given a point and a normal vector.<div class="autopermalink" data-description="Paragraph"><a href="#sec125-Planesin3D-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Objective"><a href="#sec125-Planesin3D-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li></ul>
-<div class="autopermalink" data-description="Objectives"><a href="#sec125-Planesin3D-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="autopermalink" data-description="Section 12.5: Planes in 3-Spaces"><a href="#sec125-Planesin3D" title="Copy heading and permalink for Section 12.5: Planes in 3-Spaces" aria-label="Copy heading and permalink for Section 12.5: Planes in 3-Spaces">🔗</a></div></section></div>
+</li>
+<li id="sec125-Planesin3D-2-2-2-2">
+<div class="para" id="sec125-Planesin3D-2-2-2-2-1">Identify the normal vector and intercepts from the scalar equation of a plane.<div class="autopermalink" data-description="Paragraph"><a href="#sec125-Planesin3D-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec125-Planesin3D-2-2-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec125-Planesin3D-2-2-2-3">
+<div class="para" id="sec125-Planesin3D-2-2-2-3-1">Find the intersection point of a line and a plane.<div class="autopermalink" data-description="Paragraph"><a href="#sec125-Planesin3D-2-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec125-Planesin3D-2-2-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec125-Planesin3D-2-2-2-4">
+<div class="para" id="sec125-Planesin3D-2-2-2-4-1">Sketch a plane using its traces.<div class="autopermalink" data-description="Paragraph"><a href="#sec125-Planesin3D-2-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec125-Planesin3D-2-2-2-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec125-Planesin3D-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="para" id="sec125-Planesin3D-3">Recall we briefly introduced planes in <span class="process-math">\(\R^3\)</span> back in <a href="sec122-3DSpaces.html" class="internal" title="Section 12.2: Three-Dimensional Spaces: Surfaces, Vectors, and Curves">Section 12.2</a>. In that section, we defined a plane by setting one of the coordinates to a constant value and obtain what we called the <dfn class="terminology">coordinate planes</dfn>. But as you can imagine, these are just a small subset of all possible planes in <span class="process-math">\(\R^3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec125-Planesin3D-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec125-Planesin3D-4">
+<em class="alert">How do we define an arbitrary plane in <span class="process-math">\(\R^3\text{?}\)</span></em><div class="autopermalink" data-description="Paragraph"><a href="#sec125-Planesin3D-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="subsec-DefiningPlanes"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Defining a Plane</span>
+</h3>
+<div class="para" id="subsec-DefiningPlanes-2">When we defined a line, we used a point and a <em class="emphasis">direction vector</em> <span class="process-math">\(\v{v}\text{.}\)</span> You might wondering whether we can do the same for a plane?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DefiningPlanes-3">The short answer is no and we have a quick counterexample. The vector <span class="process-math">\(\v{i} = (1,0,0)\)</span> is parallel to the <span class="process-math">\(xy\)</span>-plane and the <span class="process-math">\(xz\)</span>-plane. And both the planes go through the point <span class="process-math">\((0,0,0)\text{.}\)</span> So a point and a direction vector parallel to the plane cannot uniquely determine a plane.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-DefiningPlanes-4"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/sec125_PlaneRotatingAroundVector.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Infinite planes through a fixed point and parallel to a fixed vector<div class="autopermalink" data-description="Figure 12.5.1"><a href="#subsec-DefiningPlanes-4" title="Copy heading and permalink for Figure 12.5.1" aria-label="Copy heading and permalink for Figure 12.5.1">🔗</a></div></figcaption></figure><div class="para" id="subsec-DefiningPlanes-5">So, to define a plane, we really need a point and a vector that is NOT parallel to the plane. For simplicity, we will choose a vector <em class="alert">orthogonal</em> to the plane. That is, this orthogonal vector is orthogonal to every vector that lies in the plane. Visually, this vector "sticks out" of the plane at a right angle.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-DefiningPlanes-6"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/sec125_DefiningPlane_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A point <span class="process-math">\(P\)</span> lies on <span class="process-math">\(\c{P}\)</span> and <span class="process-math">\(\overrightarrow{P_0P} \perp \v{n}\)</span><div class="autopermalink" data-description="Figure 12.5.2"><a href="#subsec-DefiningPlanes-6" title="Copy heading and permalink for Figure 12.5.2" aria-label="Copy heading and permalink for Figure 12.5.2">🔗</a></div></figcaption></figure><div class="para" id="subsec-DefiningPlanes-7">Summing up, to determine a plane in <span class="process-math">\(\R^3\text{,}\)</span> we need <em class="emphasis">a point</em> and <em class="emphasis">a normal vector</em>, which is a vector orthogonal to the plane.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-Plane3D"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equation of a Plane.</span>
+</h4>
+<div class="para logical" id="def-Plane3D-2-1">
+<div class="para">Plane through <span class="process-math">\(P_0 = (x_0, y_0, z_0)\)</span> with normal vector <span class="process-math">\(\v{n} = \la a,b,c \ra\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="def-Plane3D-2-1-3">
+\begin{align*}
+\textbf{vector form:} \qquad \qquad \qquad \qquad \qquad \qquad \v{n} \cdot \la x,y,z \ra \amp= d \\
+\textbf{scalar form:} \qquad \, \, \, \,  a(x - x_0) + b(y - y_0) + c(z - z_0) \amp= 0 \\
+ax + by + cz \amp= d 
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(d = ax_0 + by_0 + cz_0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-Plane3D-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 12.5.3: Equation of a Plane"><a href="#def-Plane3D" title="Copy heading and permalink for Definition 12.5.3: Equation of a Plane" aria-label="Copy heading and permalink for Definition 12.5.3: Equation of a Plane">🔗</a></div></article><details id="subsec-DefiningPlanes-9" class="note remark-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">But Richard... Why is the equation appears this way?</span>
+</h4></summary><article class="note remark-like knowl__content"><div class="para" id="subsec-DefiningPlanes-9-2">This equation may seem a bit mysterious at first glance, but it actually follows directly from the definition of the dot product (and orthogonality).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DefiningPlanes-9-3">
+<div class="para">Let’s say we have a point <span class="process-math">\(P_0 = (x_0, y_0, z_0)\text{.}\)</span> Furthermore, let <span class="process-math">\(P = (x,y,z)\)</span> be an arbitrary point on the plane. Then we can define a vector</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-9-3-3">
+\begin{equation*}
+\overrightarrow{P_0P} = \la x - x_0, y - y_0, z - z_0 \ra\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-9-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DefiningPlanes-9-4">
+<div class="para">Also, we have a normal vector <span class="process-math">\(\v{n} = \la a,b,c \ra\text{.}\)</span> This vector is orthogonal to ANY vector that lies in the plane, including <span class="process-math">\(\overrightarrow{P_0P}\text{.}\)</span> Two vectors are orthogonal if and only if their dot product is zero. Therefore, we obtain</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-9-4-3">
+\begin{align*}
+\la a,b,c \ra \cdot \la x - x_0, y - y_0, z - z_0 \ra \amp= 0 \\
+a(x - x_0) + b(y - y_0) + c(z - z_0) \amp= 0 
+\end{align*}
+</div>
+<div class="para">Hey! This is the scalar form of the equation of a plane!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-9-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DefiningPlanes-9-5">
+<div class="para">You can simplify this equation further! That is, the scalar form can be simplied to</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-9-5-1">
+\begin{align*}
+ax + by + cz \amp= ax_0 + by_0 + cz_0
+\end{align*}
+</div>
+<div class="para">Observe that the right-hand side is just a number, so let’s call it <span class="process-math">\(d\)</span> for simplicity. Hence, we obtain</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-9-5-3">
+\begin{equation*}
+ax + by + cz = d
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(d = ax_0 + by_0 + cz_0\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-9-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DefiningPlanes-9-6">
+<div class="para">What about the vector form? We can observe quickly that <span class="process-math">\(ax + by + cz\)</span> is just the dot product <span class="process-math">\(\v{n} \cdot \la x,y,z \ra\text{.}\)</span> Hence, we can rewrite the equation as</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-9-6-3">
+\begin{equation*}
+\v{n} \cdot \la x,y,z \ra = d
+\end{equation*}
+</div>
+<div class="para">Hey! The vector form!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-9-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 12.5.4: But Richard... Why is the equation appears this way?"><a href="#subsec-DefiningPlanes-9" title="Copy heading and permalink for Note 12.5.4: But Richard... Why is the equation appears this way?" aria-label="Copy heading and permalink for Note 12.5.4: But Richard... Why is the equation appears this way?">🔗</a></div></article></details><article class="example example-like" id="subsec-DefiningPlanes-10"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-DefiningPlanes-10-1">Find an equation of the plane with normal vector <span class="process-math">\(\v{n} = \la -1,2,1 \ra\)</span> passing through the point <span class="process-math">\((3,1,9)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-DefiningPlanes-10-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-DefiningPlanes-10-2-1">We are given <span class="process-math">\(\v{n} = \la -1,2,1 \ra\)</span> and <span class="process-math">\(P_0 = (3,1,9)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DefiningPlanes-10-2-2">
+<div class="para">We can write an equation using the vector form:</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-10-2-2-1">
+\begin{align*}
+\la -1,2,1 \ra \cdot \la x,y,z \ra \amp= -1 \cdot 3 + 2 \cdot 1 + 1\cdot 9\\
+-x + 2y + z \amp= 8
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-10-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DefiningPlanes-10-2-3">
+<div class="para">Alternatively, we can write an equation using the scalar form:</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-10-2-3-1">
+\begin{align*}
+-1(x-3) + 2(y-1) + 1(z-9) \amp= 0 \\
+-x + 3 + 2y - 2 + z - 9 \amp= 0 \\
+-x + 2y + z \amp= 8 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-10-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 12.5.5.1"><a href="#subsec-DefiningPlanes-10-2" title="Copy heading and permalink for Solution 12.5.5.1" aria-label="Copy heading and permalink for Solution 12.5.5.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.5.5"><a href="#subsec-DefiningPlanes-10" title="Copy heading and permalink for Example 12.5.5" aria-label="Copy heading and permalink for Example 12.5.5">🔗</a></div></article><div class="para" id="subsec-DefiningPlanes-11">Sometimes we are given the equation <span class="process-math">\(ax + by + cz = d\)</span> and we need to work backwards to find the geometric properties. Specifically, we may want to find a normal vector and a point on the plane.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DefiningPlanes-12">Finding a point is a bit boring... We just need to find a point <span class="process-math">\((x,y,z)\)</span> that satisfies the equation. The easiest way to do so is to set the two other variables to zero (or other numbers) and solve for the third.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DefiningPlanes-13">What about finding a normal vector? If you stare at the equation long enough, you may notice that the coefficients of <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> correspond to the components of the normal vector. That is, the normal vector is simply <span class="process-math">\(\v{n} = \la a, b, c \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DefiningPlanes-14">Surprisingly, this pattern also works for lines in <span class="process-math">\(\R^2\text{.}\)</span> An equation of the line in <span class="process-math">\(\R^2\)</span> is <span class="process-math">\(ax + by = c\text{.}\)</span> You for sure know that the slope of this line is <span class="process-math">\(-\frac{a}{b}\text{.}\)</span> But what you may not know there is that the vector <span class="process-math">\(\v{n} = \la 1,b \ra\)</span> a normal vector to this line!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-DefiningPlanes-15"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec125_NormalVector_Line.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A line with normal vector <span class="process-math">\(\v{n}\)</span><div class="autopermalink" data-description="Figure 12.5.6"><a href="#subsec-DefiningPlanes-15" title="Copy heading and permalink for Figure 12.5.6" aria-label="Copy heading and permalink for Figure 12.5.6">🔗</a></div></figcaption></figure><article class="example example-like" id="subsec-DefiningPlanes-16"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-DefiningPlanes-16-1">Consider the plane defined by <span class="process-math">\(3x - 2y + z = 12\text{.}\)</span> Identify the normal vector and find a point on the plane.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-DefiningPlanes-16-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-DefiningPlanes-16-2-1">
+<div class="para">To find a normal vector, we read the coefficients directly.</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-16-2-1-1">
+\begin{equation*}
+\v{n} = \la 3, -2, 1 \ra\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DefiningPlanes-16-2-2">
+<div class="para">To find a point on the plane, we can set two of the variables to be constants and solve for the third. For example, we set <span class="process-math">\(x=0\)</span> and <span class="process-math">\(y=0\text{,}\)</span> and we can solve for <span class="process-math">\(z\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-16-2-2-4">
+\begin{align*}
+3(0) - 2(0) + z \amp= 12\\
+z \amp= 12
+\end{align*}
+</div>
+<div class="para">So, the point <span class="process-math">\((0,0,12)\)</span> is on the plane.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-16-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 12.5.7.1"><a href="#subsec-DefiningPlanes-16-2" title="Copy heading and permalink for Solution 12.5.7.1" aria-label="Copy heading and permalink for Solution 12.5.7.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.5.7"><a href="#subsec-DefiningPlanes-16" title="Copy heading and permalink for Example 12.5.7" aria-label="Copy heading and permalink for Example 12.5.7">🔗</a></div></article><div class="para" id="subsec-DefiningPlanes-17">Note that the equation <span class="process-math">\(ax + by + cz = d\)</span> of a plane in <span class="process-math">\(\R^3\)</span> is a generalization of the equation <span class="process-math">\(ax + by = c\)</span> of a line in <span class="process-math">\(\R^2\text{.}\)</span> Back in <span class="process-math">\(\R^2\text{,}\)</span> we can determine and equation of a line using <em class="emphasis">two points</em>. If we generalize this idea to <span class="process-math">\(\R^3\text{,}\)</span> we can determine an equation of a plane using <em class="emphasis">three points</em>. It turns out that this plane is unique as long as the three points are not collinear (i.e., they do not all lie on the same line).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-DefiningPlanes-18"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-DefiningPlanes-18-1">Find an equation of the plane passing through the three points <span class="process-math">\(P = (5,1,1)\text{,}\)</span> <span class="process-math">\(Q = (1,1,2)\text{,}\)</span> and <span class="process-math">\(R = (2,1,1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-DefiningPlanes-18-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-DefiningPlanes-18-2-1">Recall that we need a point and a normal vector to determine an equation of a plane. Well we are given three points, so we can use one of them as our point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-18-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DefiningPlanes-18-2-2">What about a normal vector... Can we find a normal vector using the three points?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-18-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DefiningPlanes-18-2-3">Yes we can! Recall we can find a normal vector orthogonal to two vectors using the cross product!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-18-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 12.5.8.1"><a href="#subsec-DefiningPlanes-18-2" title="Copy heading and permalink for Hint 12.5.8.1" aria-label="Copy heading and permalink for Hint 12.5.8.1">🔗</a></div>
+</div></details><details id="subsec-DefiningPlanes-18-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-DefiningPlanes-18-3-1">
+<div class="para">First, we can find two vectors lying on the plane.</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-18-3-1-1">
+\begin{align*}
+\overrightarrow{PQ} \amp = \la 1-5, 1-1, 2-1 \ra = \la -4, 0, 1 \ra\\
+\overrightarrow{PR} \amp = \la 2-5, 1-1, 1-1 \ra = \la -3, 0, 0 \ra
+\end{align*}
+</div>
+<div class="para">Since both <span class="process-math">\(\overrightarrow{PQ}\)</span> and <span class="process-math">\(\overrightarrow{PR}\)</span> lie on the plane, their cross product will be orthogonal to the plane. This can be our normal vector!</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-18-3-1-4">
+\begin{align*}
+\v{n} = \overrightarrow{PQ} \times \overrightarrow{PR} \amp = \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ -4 \amp 0 \amp 1 \\ -3 \amp 0 \amp 0 \end{vmatrix}\\
+\amp = \v{i}(0-0) - \v{j}(0 - (-3)) + \v{k}(0-0) \\
+\amp = -3\v{j} \\
+\amp = \la 0, -3, 0 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-18-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DefiningPlanes-18-3-2">Below is a visualization of what we just did. We plotted <span class="process-math">\(P, Q, R\)</span> to create the plane (shown in blue). We constructed the vectors <span class="process-math">\(\overrightarrow{PQ}\)</span> and <span class="process-math">\(\overrightarrow{PR}\)</span> (green) that lie on the plane. Finally, we crossed them to get the normal vector <span class="process-math">\(\v{n}\)</span> (red), which you can see stands orthogonal to the surface.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-18-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-DefiningPlanes-18-3-3"><div class="sidebyside"><div class="sbsrow" style="margin-left:20%;margin-right:20%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-DefiningPlanes-18-3-3-2-1" width="360" height="360" src="subsec-DefiningPlanes-18-3-3-2-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Visualizing the plane through P, Q, R<div class="autopermalink" data-description="Figure 12.5.9"><a href="#subsec-DefiningPlanes-18-3-3" title="Copy heading and permalink for Figure 12.5.9" aria-label="Copy heading and permalink for Figure 12.5.9">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-DefiningPlanes-18-3-4">
+<div class="para">We can use any scalar multiple of this vector, so let’s use <span class="process-math">\(\v{n} = \la 0, 1, 0 \ra\)</span> for simplicity. Using point <span class="process-math">\(P(5,1,1)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-DefiningPlanes-18-3-4-3">
+\begin{equation*}
+0(x-5) + 1(y-1) + 0(z-1) = 0 \implies y - 1 = 0 \implies y = 1
+\end{equation*}
+</div>
+<div class="para">This makes sense, as all three given points had a y-coordinate of 1!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DefiningPlanes-18-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 12.5.8.1"><a href="#subsec-DefiningPlanes-18-3" title="Copy heading and permalink for Solution 12.5.8.1" aria-label="Copy heading and permalink for Solution 12.5.8.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.5.8"><a href="#subsec-DefiningPlanes-18" title="Copy heading and permalink for Example 12.5.8" aria-label="Copy heading and permalink for Example 12.5.8">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Defining a Plane"><a href="#subsec-DefiningPlanes" title="Copy heading and permalink for Subsection: Defining a Plane" aria-label="Copy heading and permalink for Subsection: Defining a Plane">🔗</a></div></section><section class="subsection" id="subsec-IntersectionLinePlane"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Intersection of a Line and a Plane</span>
+</h3>
+<div class="para" id="subsec-IntersectionLinePlane-2">We often want to know where a specific line punctures a plane. Unless the line is parallel to the plane (or lying inside it), they will intersect at exactly one point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-IntersectionLinePlane-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-IntersectionLinePlane-3">To find the intersection point of a line and a plane, we need to find the point <span class="process-math">\((x,y,z)\)</span> that lies on both the line and the plane. But how do we solve THREE variables simulateneously?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-IntersectionLinePlane-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-IntersectionLinePlane-4">A good news here is that the line in <span class="process-math">\(\R^3\)</span> is defined parametrically using a single parameter <span class="process-math">\(t\text{!}\)</span> Since the coordinate of the point needs to satisfy both the equation of the plane and the parametric equation of the line, we can use substitution to find the point of intersection.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-IntersectionLinePlane-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-IntersectionLinePlane-5">
+<div class="para">That is, to find this point, we</div>
+<ol class="decimal" id="subsec-IntersectionLinePlane-5-1">
+<li id="subsec-IntersectionLinePlane-5-1-1">
+<div class="para" id="p-derived-subsec-IntersectionLinePlane-5-1-1">write the parametric equations for <span class="process-math">\(x(t)\text{,}\)</span> <span class="process-math">\(y(t)\text{,}\)</span> and <span class="process-math">\(z(t)\)</span> from the line.</div>
+<div class="autopermalink" data-description="Item 1"><a href="#subsec-IntersectionLinePlane-5-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="subsec-IntersectionLinePlane-5-1-2">
+<div class="para" id="p-derived-subsec-IntersectionLinePlane-5-1-2">plug these expressions into the equation of the plane.</div>
+<div class="autopermalink" data-description="Item 2"><a href="#subsec-IntersectionLinePlane-5-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="subsec-IntersectionLinePlane-5-1-3">
+<div class="para" id="p-derived-subsec-IntersectionLinePlane-5-1-3">solve for <span class="process-math">\(t\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#subsec-IntersectionLinePlane-5-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="subsec-IntersectionLinePlane-5-1-4">
+<div class="para" id="p-derived-subsec-IntersectionLinePlane-5-1-4">plug <span class="process-math">\(t\)</span> back into the line equation to get the point <span class="process-math">\((x,y,z)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#subsec-IntersectionLinePlane-5-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-IntersectionLinePlane-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-IntersectionLinePlane-6"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-IntersectionLinePlane-6-1">Find the point where the line <span class="process-math">\(\v{r}(t) = \la 1, 0, 0 \ra + t\la 2, 1, -1 \ra\)</span> intersects the plane <span class="process-math">\(x + y + z = 10\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-IntersectionLinePlane-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-IntersectionLinePlane-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-IntersectionLinePlane-6-2-1">First, let’s break the line into its components: <span class="process-math">\(x = 1+2t\text{,}\)</span> <span class="process-math">\(y = t\text{,}\)</span> <span class="process-math">\(z = -t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-IntersectionLinePlane-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-IntersectionLinePlane-6-2-2">
+<div class="para">Now, plug these into the plane equation <span class="process-math">\(x + y + z = 10\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-IntersectionLinePlane-6-2-2-2">
+\begin{equation*}
+(1+2t) + (t) + (-t) = 10
+\end{equation*}
+</div>
+<div class="para">Simplify the algebra:</div>
+<div class="displaymath process-math" id="subsec-IntersectionLinePlane-6-2-2-3">
+\begin{equation*}
+1 + 2t = 10 \implies 2t = 9 \implies t = 4.5
+\end{equation*}
+</div>
+<div class="para">We aren’t done yet! We need the point. Plug <span class="process-math">\(t=4.5\)</span> back into our line components:</div>
+<div class="displaymath process-math" id="subsec-IntersectionLinePlane-6-2-2-5">
+\begin{align*}
+x \amp= 1 + 2(4.5) = 10\\
+y \amp= 4.5\\
+z \amp= -4.5
+\end{align*}
+</div>
+<div class="para">The intersection point is <span class="process-math">\((10, 4.5, -4.5)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-IntersectionLinePlane-6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-IntersectionLinePlane-6-2-3">Here is a visual confirmation of our algebra. The yellow dot is exactly where the red line punctures the blue plane.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-IntersectionLinePlane-6-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-IntersectionLinePlane-6-2-4"><div class="sidebyside"><div class="sbsrow" style="margin-left:20%;margin-right:20%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-IntersectionLinePlane-6-2-4-2-1" width="360" height="360" src="subsec-IntersectionLinePlane-6-2-4-2-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Visualizing the intersection point<div class="autopermalink" data-description="Figure 12.5.11"><a href="#subsec-IntersectionLinePlane-6-2-4" title="Copy heading and permalink for Figure 12.5.11" aria-label="Copy heading and permalink for Figure 12.5.11">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 12.5.10.1"><a href="#subsec-IntersectionLinePlane-6-2" title="Copy heading and permalink for Solution 12.5.10.1" aria-label="Copy heading and permalink for Solution 12.5.10.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.5.10"><a href="#subsec-IntersectionLinePlane-6" title="Copy heading and permalink for Example 12.5.10" aria-label="Copy heading and permalink for Example 12.5.10">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Intersection of a Line and a Plane"><a href="#subsec-IntersectionLinePlane" title="Copy heading and permalink for Subsection: Intersection of a Line and a Plane" aria-label="Copy heading and permalink for Subsection: Intersection of a Line and a Plane">🔗</a></div></section><section class="subsection" id="subsec-Traces"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Traces</span>
+</h3>
+<div class="para" id="subsec-Traces-2">Drawing planes in 3D on a 2D sheet of paper is tricky. A great tool to help us visualize the position of a plane is finding its <em class="emphasis">traces</em>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Traces-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Traces-3">
+<div class="para">A <dfn class="terminology">trace</dfn> is a slice of a surface by a coordinate plane. We are working with planes now, so the trace here is the line of intersection between the plane and one of the coordinate planes (<span class="process-math">\(xy\)</span>-plane, <span class="process-math">\(xz\)</span>-plane, or <span class="process-math">\(yz\)</span>-plane).</div>
+<ul class="disc" id="subsec-Traces-3-5">
+<li id="subsec-Traces-3-5-1">
+<div class="para" id="p-derived-subsec-Traces-3-5-1">
+<em class="alert"><span class="process-math">\(xy\)</span>-trace:</em> Set <span class="process-math">\(z=0\text{.}\)</span> This shows where the plane cuts through the floor.</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Traces-3-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Traces-3-5-2">
+<div class="para" id="p-derived-subsec-Traces-3-5-2">
+<em class="alert"><span class="process-math">\(xz\)</span>-trace:</em> Set <span class="process-math">\(y=0\text{.}\)</span> This shows where the plane cuts through the side wall.</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Traces-3-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Traces-3-5-3">
+<div class="para" id="p-derived-subsec-Traces-3-5-3">
+<em class="alert"><span class="process-math">\(yz\)</span>-trace:</em> Set <span class="process-math">\(x=0\text{.}\)</span> This shows where the plane cuts through the back wall.</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Traces-3-5-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">By finding the intercepts on the axes and connecting them, we can draw a triangle that represents a portion of the plane.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Traces-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Traces-4"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Traces-4-1">Sketch the plane <span class="process-math">\(2x + 3y + 4z = 12\)</span> by finding its traces.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Traces-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Traces-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Traces-4-2-1">
+<div class="para">Let’s find the intercepts to help us draw the lines.</div>
+<ul class="disc" id="subsec-Traces-4-2-1-1">
+<li id="subsec-Traces-4-2-1-1-1">
+<div class="para" id="p-derived-subsec-Traces-4-2-1-1-1">x-intercept: Set <span class="process-math">\(y=0, z=0\text{.}\)</span> <span class="process-math">\(2x = 12 \implies x=6\text{.}\)</span> Point: <span class="process-math">\((6,0,0)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Traces-4-2-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Traces-4-2-1-1-2">
+<div class="para" id="p-derived-subsec-Traces-4-2-1-1-2">y-intercept: Set <span class="process-math">\(x=0, z=0\text{.}\)</span> <span class="process-math">\(3y = 12 \implies y=4\text{.}\)</span> Point: <span class="process-math">\((0,4,0)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Traces-4-2-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Traces-4-2-1-1-3">
+<div class="para" id="p-derived-subsec-Traces-4-2-1-1-3">z-intercept: Set <span class="process-math">\(x=0, y=0\text{.}\)</span> <span class="process-math">\(4z = 12 \implies z=3\text{.}\)</span> Point: <span class="process-math">\((0,0,3)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Traces-4-2-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Now, look at the diagram below. The red lines are the traces. The <em class="alert">xy-trace</em> connects the x and y intercepts. The <em class="alert">yz-trace</em> connects the y and z intercepts. The <em class="alert">xz-trace</em> connects the x and z intercepts. Connecting these three points forms a triangle in the first octant that helps us visualize the slant of the plane.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Traces-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Traces-4-2-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:20%;margin-right:20%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-Traces-4-2-2-2-1" width="360" height="360" src="subsec-Traces-4-2-2-2-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Traces of the plane <span class="process-math">\(2x + 3y + 4z = 12\)</span><div class="autopermalink" data-description="Figure 12.5.13"><a href="#subsec-Traces-4-2-2" title="Copy heading and permalink for Figure 12.5.13" aria-label="Copy heading and permalink for Figure 12.5.13">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 12.5.12.1"><a href="#subsec-Traces-4-2" title="Copy heading and permalink for Solution 12.5.12.1" aria-label="Copy heading and permalink for Solution 12.5.12.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.5.12"><a href="#subsec-Traces-4" title="Copy heading and permalink for Example 12.5.12" aria-label="Copy heading and permalink for Example 12.5.12">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Traces"><a href="#subsec-Traces" title="Copy heading and permalink for Subsection: Traces" aria-label="Copy heading and permalink for Subsection: Traces">🔗</a></div></section><section class="subsection" id="subsec-ParallelIntersecting"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Parallel and Intersecting Planes</span>
+</h3>
+<div class="para" id="subsec-ParallelIntersecting-2">Two planes in <span class="process-math">\(\R^3\)</span> can either be parallel or intersecting, providing they are not the same plane.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-ParallelIntersecting-3">To determine whether two planes are parallel, we can compare their normal vectors. Recall two lines are parallel if their direction vectors are parallel (i.e., scalar multiples of each other). In the similar sense, two planes are parallel if their <em class="alert">normal vectors</em> are parallel (i.e., scalar multiples of each other).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-ParallelIntersecting-4"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-ParallelIntersecting-4-1">Show that the two planes <span class="process-math">\(x + 2y - 3z = 4\)</span> and <span class="process-math">\(2x + 4y - 6z = 3\)</span> are parallel.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-ParallelIntersecting-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-ParallelIntersecting-4-2-1">The normal vector of the first plane is <span class="process-math">\(\v{n}_1 = \la 1,2,-3 \ra\)</span> and the normal vector of the second plane is <span class="process-math">\(\v{n}_2 = \la 2,4,-6 \ra\text{.}\)</span> Note that <span class="process-math">\(\v{n}_2 = 2 \v{n}_1\text{,}\)</span> so the normal vectors are parallel. Therefore, the two planes are parallel.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-ParallelIntersecting-4-2-2">In the diagram below, you can see these "floating" surfaces. They have the same tilt, they are just shifted relative to each other.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-ParallelIntersecting-4-2-3"><div class="sidebyside"><div class="sbsrow" style="margin-left:20%;margin-right:20%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-ParallelIntersecting-4-2-3-2-1" width="360" height="360" src="subsec-ParallelIntersecting-4-2-3-2-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Parallel Planes <span class="process-math">\(x + 2y - 3z = 4\)</span> (Blue) and <span class="process-math">\(2x + 4y - 6z = 3\)</span> (Red)<div class="autopermalink" data-description="Figure 12.5.15"><a href="#subsec-ParallelIntersecting-4-2-3" title="Copy heading and permalink for Figure 12.5.15" aria-label="Copy heading and permalink for Figure 12.5.15">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 12.5.14.1"><a href="#subsec-ParallelIntersecting-4-2" title="Copy heading and permalink for Solution 12.5.14.1" aria-label="Copy heading and permalink for Solution 12.5.14.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.5.14"><a href="#subsec-ParallelIntersecting-4" title="Copy heading and permalink for Example 12.5.14" aria-label="Copy heading and permalink for Example 12.5.14">🔗</a></div></article><div class="para" id="subsec-ParallelIntersecting-5">What about the intersection of two planes? Imagine two non-parallel planes in <span class="process-math">\(\R^3\)</span> is intersecting, then they will intersect along a line.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-ParallelIntersecting-6"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-ParallelIntersecting-6-1">Find an equation of the line of intersection of the planes <span class="process-math">\(x + 2y + z = 5\)</span> and <span class="process-math">\(2x + y - z = 7\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-ParallelIntersecting-6-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="subsec-ParallelIntersecting-6-2-1">
+<div class="para">To define the line of intersection, we need two things:</div>
+<ol class="decimal" id="subsec-ParallelIntersecting-6-2-1-1">
+<li id="subsec-ParallelIntersecting-6-2-1-1-1">
+<div class="para" id="subsec-ParallelIntersecting-6-2-1-1-1-1">A direction vector <span class="process-math">\(\v{v}\)</span> for the line.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-6-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#subsec-ParallelIntersecting-6-2-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="subsec-ParallelIntersecting-6-2-1-1-2">
+<div class="para" id="subsec-ParallelIntersecting-6-2-1-1-2-1">A point <span class="process-math">\(P\)</span> on the line.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-6-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#subsec-ParallelIntersecting-6-2-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-ParallelIntersecting-6-2-2">Since the line lies on <em class="emphasis">both</em> planes, it must be perpendicular to <em class="emphasis">both</em> normal vectors. Does that ring a bell? (Think cross product!)<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-ParallelIntersecting-6-2-3"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-ParallelIntersecting-6-2-3-2-1" width="480" height="480" src="subsec-ParallelIntersecting-6-2-3-2-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Intersection of <span class="process-math">\(x + 2y + z = 5\)</span> (Blue) and <span class="process-math">\(2x + y - z = 7\)</span> (Red)<div class="autopermalink" data-description="Figure 12.5.17"><a href="#subsec-ParallelIntersecting-6-2-3" title="Copy heading and permalink for Figure 12.5.17" aria-label="Copy heading and permalink for Figure 12.5.17">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Hint 12.5.16.1"><a href="#subsec-ParallelIntersecting-6-2" title="Copy heading and permalink for Hint 12.5.16.1" aria-label="Copy heading and permalink for Hint 12.5.16.1">🔗</a></div>
+</div></details><details id="subsec-ParallelIntersecting-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-ParallelIntersecting-6-3-1">
+<div class="para">
+<em class="alert">Step 1: Find the direction vector.</em> The normal vectors are <span class="process-math">\(\v{n}_1 = \la 1, 2, 1 \ra\)</span> and <span class="process-math">\(\v{n}_2 = \la 2, 1, -1 \ra\text{.}\)</span> The direction of the intersection line, <span class="process-math">\(\v{v}\text{,}\)</span> is orthogonal to both normals:</div>
+<div class="displaymath process-math" id="subsec-ParallelIntersecting-6-3-1-5">
+\begin{align*}
+\v{v} = \v{n}_1 \times \v{n}_2 \amp = \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1 \amp 2 \amp 1 \\ 2 \amp 1 \amp -1 \end{vmatrix}\\
+\amp = \la -2-1, -( -1-2), 1-4 \ra \\
+\amp = \la -3, 3, -3 \ra 
+\end{align*}
+</div>
+<div class="para">For simplicity, we can divide by -3 to get a parallel vector: <span class="process-math">\(\v{v} = \la 1, -1, 1 \ra\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ParallelIntersecting-6-3-2">
+<div class="para">
+<em class="alert">Step 2: Find a point on the line.</em> We need a point <span class="process-math">\((x,y,z)\)</span> that satisfies both plane equations. We have 2 equations and 3 unknowns, so we can pick a value for one variable. Let’s try <span class="process-math">\(z = 0\)</span> (so we are really finding the intersection between this line and the <span class="process-math">\(xy\)</span>-plane, and this point of intersection will be on this line for sure! ). The system becomes:</div>
+<div class="displaymath process-math" id="subsec-ParallelIntersecting-6-3-2-5">
+\begin{align*}
+x + 2y \amp= 5\\
+2x + y \amp= 7
+\end{align*}
+</div>
+<div class="para">From the second eq, <span class="process-math">\(y = 7 - 2x\text{.}\)</span> Substitute into the first:</div>
+<div class="displaymath process-math" id="subsec-ParallelIntersecting-6-3-2-7">
+\begin{equation*}
+x + 2(7 - 2x) = 5 \implies x + 14 - 4x = 5 \implies -3x = -9 \implies x = 3
+\end{equation*}
+</div>
+<div class="para">Then <span class="process-math">\(y = 7 - 2(3) = 1\text{.}\)</span> So a point on the line is <span class="process-math">\((3, 1, 0)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-6-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ParallelIntersecting-6-3-3">
+<div class="para">
+<em class="alert">Step 3: Write the equation.</em> The vector equation of the line is:</div>
+<div class="displaymath process-math" id="subsec-ParallelIntersecting-6-3-3-2">
+\begin{equation*}
+\v{r}(t) = \la 3, 1, 0 \ra + t \la 1, -1, 1 \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ParallelIntersecting-6-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 12.5.16.1"><a href="#subsec-ParallelIntersecting-6-3" title="Copy heading and permalink for Solution 12.5.16.1" aria-label="Copy heading and permalink for Solution 12.5.16.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.5.16"><a href="#subsec-ParallelIntersecting-6" title="Copy heading and permalink for Example 12.5.16" aria-label="Copy heading and permalink for Example 12.5.16">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Parallel and Intersecting Planes"><a href="#subsec-ParallelIntersecting" title="Copy heading and permalink for Subsection: Parallel and Intersecting Planes" aria-label="Copy heading and permalink for Subsection: Parallel and Intersecting Planes">🔗</a></div></section><section class="worksheet" id="ws-sec125" data-margins="0.75in 0.75in 0.75in 0.75in"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Assigned Problems for Section 12.5</span><div class="print-links"><a href="ws-sec125-printable.html" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<section class="introduction" id="ws-sec125-2"><div class="para" id="ws-sec125-2-1">The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec125-2-2">The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><article class="exercise exercise-like" id="ws-sec125-3"><h4 class="heading"><span class="codenumber">12.5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec125-3-1">Write the equation of the plane with normal vector <span class="process-math">\(\v{n} = \la -1,2,1 \ra\)</span> passing through the point <span class="process-math">\(\lp 4,1,5 \rp\)</span> in the scalar form <span class="process-math">\(ax + by + cz = d\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.5.3"><a href="#ws-sec125-3" title="Copy heading and permalink for Worksheet Exercise 12.5.3" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-4"><h4 class="heading"><span class="codenumber">12.5.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec125-4-1">Find a vector normal to the plane <span class="process-math">\(3(x - 4) - 8(y - 1) + 11z = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.5.15"><a href="#ws-sec125-4" title="Copy heading and permalink for Worksheet Exercise 12.5.15" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.15">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-5"><h4 class="heading"><span class="codenumber">12.5.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec125-5-1">Find an equation of the plane passing through the three points <span class="process-math">\(P = (1,0,0)\text{,}\)</span> <span class="process-math">\(Q = (0,1,1)\text{,}\)</span> and <span class="process-math">\(R = (2,0,1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.5.23"><a href="#ws-sec125-5" title="Copy heading and permalink for Worksheet Exercise 12.5.23" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.23">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-6"><h4 class="heading"><span class="codenumber">12.5.27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec125-6-1">
+<div class="para">In each case, determine whether or not the lines have a single point of intersection. If they do, give an equation of a plane containing them.</div>
+<ol class="lower-alpha lower-alpha-level-1" id="ws-sec125-6-1-1">
+<li id="ws-sec125-6-1-1-1">
+<div class="para" id="ws-sec125-6-1-1-1-1">
+<span class="process-math">\(\v{r}_1(t) = \la t, 2t-1, t-3 \ra\)</span> and <span class="process-math">\(\v{r}_2(t) = \la 4, 2t-1, -1 \ra\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-6-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 12.5.27.a"><a href="#ws-sec125-6-1-1-1" title="Copy heading and permalink for Item 12.5.27.a" aria-label="Copy heading and permalink for Item 12.5.27.a">🔗</a></div>
+</li>
+<li id="ws-sec125-6-1-1-2">
+<div class="para" id="ws-sec125-6-1-1-2-1">
+<span class="process-math">\(\v{r}_1(t) = \la 3t, 2t+1, t-5 \ra\)</span> and <span class="process-math">\(\v{r}_2(t) = \la 4t, 4t-3, -1 \ra\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-6-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 12.5.27.b"><a href="#ws-sec125-6-1-1-2" title="Copy heading and permalink for Item 12.5.27.b" aria-label="Copy heading and permalink for Item 12.5.27.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.5.27"><a href="#ws-sec125-6" title="Copy heading and permalink for Worksheet Exercise 12.5.27" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.27">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-7"><h4 class="heading"><span class="codenumber">12.5.33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec125-7-1">Draw the plane given by the equation <span class="process-math">\(x + y + z = 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.5.33"><a href="#ws-sec125-7" title="Copy heading and permalink for Worksheet Exercise 12.5.33" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.33">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-8"><h4 class="heading"><span class="codenumber">12.5.41<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec125-8-1">Find the intersection of the line <span class="process-math">\(\v{r}(t) = \la 1,1,0 \ra + t \la 0,2,4 \ra\)</span> and the plane <span class="process-math">\(x + y + z = 14\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.5.41"><a href="#ws-sec125-8" title="Copy heading and permalink for Worksheet Exercise 12.5.41" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.41">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-9"><h4 class="heading"><span class="codenumber">12.5.59<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec125-9-1">By definition, the angle between two planes is the angle between their <em class="alert">normal vectors</em>.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="ws-sec125-9-2"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec125-HW59-AnglePlanes-Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.5.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Angle between Two Planes<div class="autopermalink" data-description="Figure 12.5.18"><a href="#ws-sec125-9-2" title="Copy heading and permalink for Figure 12.5.18" aria-label="Copy heading and permalink for Figure 12.5.18">🔗</a></div></figcaption></figure><div class="para" id="ws-sec125-9-3">Compute the angle between the two planes <span class="process-math">\(2x + 3y + 7z = 2\)</span> and <span class="process-math">\(4x - 2y + 2z = 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-9-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.5.59"><a href="#ws-sec125-9" title="Copy heading and permalink for Worksheet Exercise 12.5.59" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.59">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-10"><h4 class="heading"><span class="codenumber">12.5.65<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec125-10-1">Find a plane that is perpendicular to the two planes <span class="process-math">\(x + y = 3\)</span> and <span class="process-math">\(x + 2y - z = 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.5.65"><a href="#ws-sec125-10" title="Copy heading and permalink for Worksheet Exercise 12.5.65" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.65">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-11"><h4 class="heading"><span class="codenumber">12.5.67<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec125-11-1">Let <span class="process-math">\(\c{L}\)</span> denote the line of intersection of the planes <span class="process-math">\(x - y - z = 1\)</span> and <span class="process-math">\(2x + 3y + z = 2\text{.}\)</span> Find parametric equations for the line <span class="process-math">\(\c{L}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-sec125-11-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="ws-sec125-11-2-1">To find a point on <span class="process-math">\(\c{L}\text{,}\)</span> substitute an arbitrary value for <span class="process-math">\(z\)</span> (say, <span class="process-math">\(z = 2\)</span>) and then solve the resulting pair of equations for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 12.5.67.1"><a href="#ws-sec125-11-2" title="Copy heading and permalink for Hint 12.5.67.1" aria-label="Copy heading and permalink for Hint 12.5.67.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 12.5.67"><a href="#ws-sec125-11" title="Copy heading and permalink for Worksheet Exercise 12.5.67" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.67">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 12.5"><a href="#ws-sec125" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 12.5" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 12.5">🔗</a></div></section><div class="autopermalink" data-description="Section 12.5: Planes in 3-Spaces"><a href="#sec125-Planesin3D" title="Copy heading and permalink for Section 12.5: Planes in 3-Spaces" aria-label="Copy heading and permalink for Section 12.5: Planes in 3-Spaces">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="sec124-CrossProduct.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec126-QuadricSurfaces.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec124-CrossProduct.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
