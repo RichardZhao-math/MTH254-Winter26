@@ -5,7 +5,8 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In this section, we will continue our investigation of planes in <m>\R^3</m>. 
+      We will learn how to describe any planes in <m>\R^3</m> using vectors and how to analyze their interactions with one another.
     </p>
 
     <objectives>
@@ -17,13 +18,647 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            Determine the equation of a plane given a point and a normal vector.
+          </p>
+        </li>
+        <li>
+          <p>
+            Identify the normal vector and intercepts from the scalar equation of a plane.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the intersection point of a line and a plane.
+          </p>
+        </li>
+        <li>
+          <p>
+            Sketch a plane using its traces.
           </p>
         </li>
       </ul>
     </objectives>
-    
   </introduction>
+
+  <p>
+    Recall we briefly introduced planes in <m>\R^3</m> back in <xref ref="sec122-3DSpaces"/>. 
+    In that section, we defined a plane by setting one of the coordinates to a constant value and obtain what we called the <term>coordinate planes</term>. 
+    But as you can imagine, these are just a small subset of all possible planes in <m>\R^3</m>. 
+  </p>
+
+  <p>
+    <alert>How do we define an arbitrary plane in <m>\R^3</m>? </alert>
+  </p>
+
+  <subsection xml:id="subsec-DefiningPlanes">
+    <title>Defining a Plane</title>
+
+    <p>
+      When we defined a line, we used a point and a <em>direction vector</em> <m>\v{v}</m>. 
+      You might wondering whether we can do the same for a plane?
+    </p>
+
+    <p>
+      The short answer is no and we have a quick counterexample. 
+      The vector <m>\v{i} = (1,0,0)</m> is parallel to the <m>xy</m>-plane and the <m>xz</m>-plane. 
+      And both the planes go through the point <m>(0,0,0)</m>.
+      So a point and a direction vector parallel to the plane cannot uniquely determine a plane. 
+    </p>
+
+    <figure>
+      <caption>Infinite planes through a fixed point and parallel to a fixed vector</caption>
+      <image source="sec125_PlaneRotatingAroundVector.png" width="30%"></image>
+    </figure>
+
+    <p>
+      So, to define a plane, we really need a point and a vector that is NOT parallel to the plane. 
+      For simplicity, we will choose a vector <alert>orthogonal</alert> to the plane. 
+      That is, this orthogonal vector is orthogonal to every vector that lies in the plane. 
+      Visually, this vector "sticks out" of the plane at a right angle. 
+    </p>
+
+    <figure>
+      <caption>A point <m>P</m> lies on <m>\c{P}</m> and <m>\overrightarrow{P_0P} \perp \v{n}</m></caption>
+      <image source="sec125_DefiningPlane_Diagram.png" width="40%"></image>
+    </figure>
+
+    <p>
+      Summing up, to determine a plane in <m>\R^3</m>, we need <em>a point</em> and <em>a normal vector</em>, which is a vector orthogonal to the plane. 
+    </p>
+
+    <definition xml:id="def-Plane3D">
+    <title>Equation of a Plane</title>
+      <statement>
+        <p>
+          Plane through <m>P_0 = (x_0, y_0, z_0)</m> with normal vector <m>\v{n} = \la a,b,c \ra</m>: 
+          <md>
+            <mrow> \textbf{vector form:} \qquad \qquad \qquad \qquad \qquad \qquad \v{n} \cdot \la x,y,z \ra \amp= d </mrow>
+            <mrow> \textbf{scalar form:} \qquad \, \, \, \,  a(x - x_0) + b(y - y_0) + c(z - z_0) \amp= 0 </mrow>
+            <mrow> ax + by + cz \amp= d </mrow>
+          </md>
+          where <m>d = ax_0 + by_0 + cz_0</m>. 
+        </p>
+      </statement>
+    </definition>
+
+    <note>
+      <title>But Richard... Why is the equation appears this way?</title>
+      <p>
+        This equation may seem a bit mysterious at first glance, but it actually follows directly from the definition of the dot product (and orthogonality).
+      </p>
+
+      <p>
+        Let's say we have a point <m>P_0 = (x_0, y_0, z_0)</m>.
+        Furthermore, let <m>P = (x,y,z)</m> be an arbitrary point on the plane. 
+        Then we can define a vector <md>\overrightarrow{P_0P} = \la x - x_0, y - y_0, z - z_0 \ra</md>. 
+      </p>
+
+      <p>
+        Also, we have a normal vector <m>\v{n} = \la a,b,c \ra</m>. 
+        This vector is orthogonal to ANY vector that lies in the plane, including <m>\overrightarrow{P_0P}</m>.
+        Two vectors are orthogonal if and only if their dot product is zero. 
+        Therefore, we obtain
+        <md>
+          <mrow>\la a,b,c \ra \cdot \la x - x_0, y - y_0, z - z_0 \ra \amp= 0 </mrow>
+          <mrow>a(x - x_0) + b(y - y_0) + c(z - z_0) \amp= 0 </mrow>
+        </md>
+        Hey! This is the scalar form of the equation of a plane! 
+      </p>
+
+      <p>
+        You can simplify this equation further! That is, the scalar form can be simplied to
+        <md>
+          <mrow>ax + by + cz \amp= ax_0 + by_0 + cz_0</mrow>
+        </md>
+        Observe that the right-hand side is just a number, so let's call it <m>d</m> for simplicity.
+        Hence, we obtain
+        <md>
+          ax + by + cz = d
+        </md>
+        where <m>d = ax_0 + by_0 + cz_0</m>
+      </p>
+
+      <p>
+        What about the vector form? 
+        We can observe quickly that <m>ax + by + cz</m> is just the dot product <m>\v{n} \cdot \la x,y,z \ra</m>. 
+        Hence, we can rewrite the equation as
+        <md>
+          \v{n} \cdot \la x,y,z \ra = d
+        </md>
+        Hey! The vector form! 
+      </p>
+    </note>
+
+    <example>
+      <p>
+        Find an equation of the plane with normal vector <m>\v{n} = \la -1,2,1 \ra</m> passing through the point <m>(3,1,9)</m>. 
+      </p>
+      
+      <solution>
+        <p>
+          We are given <m>\v{n} = \la -1,2,1 \ra</m> and <m>P_0 = (3,1,9)</m>. 
+        </p>
+
+        <p>
+          We can write an equation using the vector form: 
+          <md>
+            <mrow>\la -1,2,1 \ra \cdot \la x,y,z \ra \amp= -1 \cdot 3 + 2 \cdot 1 + 1\cdot 9</mrow>
+            <mrow> -x + 2y + z \amp= 8</mrow>
+          </md>
+        </p>
+
+        <p>
+          Alternatively, we can write an equation using the scalar form:
+          <md>
+            <mrow>-1(x-3) + 2(y-1) + 1(z-9) \amp= 0 </mrow>
+            <mrow>-x + 3 + 2y - 2 + z - 9 \amp= 0 </mrow>
+            <mrow> -x + 2y + z \amp= 8 </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Sometimes we are given the equation <m>ax + by + cz = d</m> and we need to work backwards to find the geometric properties. 
+      Specifically, we may want to find a normal vector and a point on the plane. 
+    </p>
+
+    <p>
+      Finding a point is a bit boring... We just need to find a point <m>(x,y,z)</m> that satisfies the equation. 
+      The easiest way to do so is to set the two other variables to zero (or other numbers) and solve for the third.
+    </p>
+
+    <p>
+      What about finding a normal vector? 
+      If you stare at the equation long enough, you may notice that the coefficients of <m>x</m>, <m>y</m>, and <m>z</m> correspond to the components of the normal vector. 
+      That is, the normal vector is simply <m>\v{n} = \la a, b, c \ra</m>. 
+    </p>
+
+    <p>
+      Surprisingly, this pattern also works for lines in <m>\R^2</m>. 
+      An equation of the line in <m>\R^2</m> is <m>ax + by = c</m>. 
+      You for sure know that the slope of this line is <m>-\frac{a}{b}</m>. 
+      But what you may not know there is that the vector <m>\v{n} = \la 1,b \ra</m> a normal vector to this line! 
+    </p>
+
+    <figure>
+      <caption>A line with normal vector <m>\v{n}</m></caption>
+      <image source="sec125_NormalVector_Line.png" width="50%"></image>
+    </figure>
+
+    <example>
+      <p>
+        Consider the plane defined by <m>3x - 2y + z = 12</m>. Identify the normal vector and find a point on the plane.
+      </p>
+
+      <solution>
+        <p>
+          To find a normal vector, we read the coefficients directly. 
+          <me>\v{n} = \la 3, -2, 1 \ra</me>.
+        </p>
+        <p>
+          To find a point on the plane, we can set two of the variables to be constants and solve for the third. 
+          For example, we set <m>x=0</m> and <m>y=0</m>, and we can solve for <m>z</m>. 
+          <md>
+            <mrow>3(0) - 2(0) + z \amp= 12</mrow>
+            <mrow>z \amp= 12</mrow>
+          </md>
+          So, the point <m>(0,0,12)</m> is on the plane. 
+        </p>
+      </solution>
+    </example>
+  
+    <p>
+      Note that the equation <m>ax + by + cz = d</m> of a plane in <m>\R^3</m> is a generalization of the equation <m>ax + by = c</m> of a line in <m>\R^2</m>. 
+      Back in <m>\R^2</m>, we can determine and equation of a line using <em>two points</em>. 
+      If we generalize this idea to <m>\R^3</m>, we can determine an equation of a plane using <em>three points</em>. 
+      It turns out that this plane is unique as long as the three points are not collinear (i.e., they do not all lie on the same line). 
+    </p>
+
+    <example>
+      <p>
+        Find an equation of the plane passing through the three points <m>P = (5,1,1)</m>, <m>Q = (1,1,2)</m>, and <m>R = (2,1,1)</m>.
+      </p>
+
+      <hint>
+        <p>
+          Recall that we need a point and a normal vector to determine an equation of a plane. 
+          Well we are given three points, so we can use one of them as our point. 
+        </p>
+
+        <p>
+          What about a normal vector... 
+          Can we find a normal vector using the three points? 
+        </p>
+
+        <p>
+          Yes we can! 
+          Recall we can find a normal vector orthogonal to two vectors using the cross product! 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          First, we can find two vectors lying on the plane.
+          <md>
+            <mrow>\overrightarrow{PQ} \amp = \la 1-5, 1-1, 2-1 \ra = \la -4, 0, 1 \ra</mrow>
+            <mrow>\overrightarrow{PR} \amp = \la 2-5, 1-1, 1-1 \ra = \la -3, 0, 0 \ra</mrow>
+          </md>
+          Since both <m>\overrightarrow{PQ}</m> and <m>\overrightarrow{PR}</m> lie on the plane, their cross product will be orthogonal to the plane. 
+          This can be our normal vector! 
+          <md>
+             <mrow>
+               \v{n} = \overrightarrow{PQ} \times \overrightarrow{PR} \amp = \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ -4 \amp 0 \amp 1 \\ -3 \amp 0 \amp 0 \end{vmatrix}
+             </mrow>
+             <mrow> \amp = \v{i}(0-0) - \v{j}(0 - (-3)) + \v{k}(0-0) </mrow>
+             <mrow> \amp = -3\v{j} </mrow>
+             <mrow> \amp = \la 0, -3, 0 \ra </mrow>
+          </md>
+        </p>
+        <p>
+          Below is a visualization of what we just did. 
+          We plotted <m>P, Q, R</m> to create the plane (shown in blue). 
+          We constructed the vectors <m>\overrightarrow{PQ}</m> and <m>\overrightarrow{PR}</m> (green) that lie on the plane. 
+          Finally, we crossed them to get the normal vector <m>\v{n}</m> (red), which you can see stands orthogonal to the surface.
+        </p>
+        <figure>
+          <caption>Visualizing the plane through P, Q, R</caption>
+          <sidebyside width="60%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('x, y, z')  # --- Make sure z is included here!
+
+              # Points
+              P = vector([5,1,1])
+              Q = vector([1,1,2])
+              R = vector([2,1,1])
+
+              # Vectors on plane
+              vPQ = Q - P 
+              vPR = R - P 
+
+              # Normal Vector (Cross product)
+              vN = vPQ.cross_product(vPR) 
+
+              # The Plane containing P, Q, R is y = 1
+              # We use parametric_plot3d because plot3d(f) requires z = f(x,y)
+              # Here, y is constant, so x and z are the free parameters.
+              plane_plot = parametric_plot3d([x, 1, z], (x, 0, 6), (z, 0, 4), color='blue', opacity=0.3)
+
+              # Points
+              points_plot = point3d([P, Q, R], color='black', size=10)
+
+              # Vectors on the plane (Green) starting from P
+              vec_on_plane = arrow3d(P, P + vPQ, color='green', width=2) + \
+                            arrow3d(P, P + vPR, color='green', width=2)
+
+              # Normal Vector (Red) starting from P
+              normal_vec = arrow3d(P, P + vN, color='red', width=2)
+
+              # Axes (XYZ Coordinates)
+              axes = arrow3d((0,0,0), (6,0,0), color='black') + \
+                    arrow3d((0,0,0), (0,6,0), color='black') + \
+                    arrow3d((0,0,0), (0,0,4), color='black')
+              labels = text3d("x", (6.2,0,0)) + text3d("y", (0,6.2,0)) + text3d("z", (0,0,4.2))
+
+              pt_labels = text3d("P", P + vector([0,0,0.2])) + text3d("Q", Q + vector([0,0,0.2])) + text3d("R", R + vector([0,0,0.2]))
+
+              show(plane_plot + points_plot + vec_on_plane + normal_vec + axes + labels + pt_labels, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+        <p>
+          We can use any scalar multiple of this vector, so let's use <m>\v{n} = \la 0, 1, 0 \ra</m> for simplicity. 
+          Using point <m>P(5,1,1)</m>:
+          <me>
+            0(x-5) + 1(y-1) + 0(z-1) = 0 \implies y - 1 = 0 \implies y = 1
+          </me>
+          This makes sense, as all three given points had a y-coordinate of 1!
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-IntersectionLinePlane">
+    <title>Intersection of a Line and a Plane</title>
+
+    <p>
+      We often want to know where a specific line punctures a plane. Unless the line is parallel to the plane (or lying inside it), they will intersect at exactly one point.
+    </p>
+
+    <p>
+      To find the intersection point of a line and a plane, we need to find the point <m>(x,y,z)</m> that lies on both the line and the plane. 
+      But how do we solve THREE variables simulateneously?
+    </p>
+
+    <p>
+      A good news here is that the line in <m>\R^3</m> is defined parametrically using a single parameter <m>t</m>! 
+      Since the coordinate of the point needs to satisfy both the equation of the plane and the parametric equation of the line, we can use substitution to find the point of intersection. 
+    </p>
+
+    <p>
+      That is, to find this point, we 
+      <ol>
+        <li>write the parametric equations for <m>x(t)</m>, <m>y(t)</m>, and <m>z(t)</m> from the line.</li>
+        <li>plug these expressions into the equation of the plane.</li>
+        <li>solve for <m>t</m>.</li>
+        <li>plug <m>t</m> back into the line equation to get the point <m>(x,y,z)</m>.</li>
+      </ol>
+    </p>
+
+    <example>
+      <p>
+        Find the point where the line <m>\v{r}(t) = \la 1, 0, 0 \ra + t\la 2, 1, -1 \ra</m> intersects the plane <m>x + y + z = 10</m>.
+      </p>
+
+      <solution>
+        <p>
+          First, let's break the line into its components:
+          <m>x = 1+2t</m>, <m>y = t</m>, <m>z = -t</m>.
+        </p>
+        <p>
+          Now, plug these into the plane equation <m>x + y + z = 10</m>:
+          <me>
+             (1+2t) + (t) + (-t) = 10
+          </me>
+          Simplify the algebra:
+          <me>
+            1 + 2t = 10 \implies 2t = 9 \implies t = 4.5
+          </me>
+          We aren't done yet! We need the point. Plug <m>t=4.5</m> back into our line components:
+          <md>
+            <mrow>x \amp= 1 + 2(4.5) = 10</mrow>
+            <mrow>y \amp= 4.5</mrow>
+            <mrow>z \amp= -4.5</mrow>
+          </md>
+          The intersection point is <m>(10, 4.5, -4.5)</m>.
+        </p>
+        <p>
+          Here is a visual confirmation of our algebra. The yellow dot is exactly where the red line punctures the blue plane.
+        </p>
+        <figure>
+          <caption>Visualizing the intersection point</caption>
+          <sidebyside width="60%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('x,y,t')
+              # Plane: x+y+z=10 -> z = 10-x-y
+              plane_plot = plot3d(10-x-y, (x, 5, 15), (y, 0, 10), color='blue', opacity=0.4)
+              
+              # Line: r(t) = (1+2t, t, -t)
+              # Range t from 2 to 7 to show it passing through t=4.5
+              line_plot = parametric_plot3d([1+2*t, t, -t], (t, 2, 7), color='red', thickness=3)
+              
+              # Intersection Point (10, 4.5, -4.5)
+              intersect_pt = point3d((10, 4.5, -4.5), color='yellow', size=15)
+              
+              # Axes (XYZ Coordinates)
+              axes = arrow3d((0,0,0), (16,0,0), color='black') + \
+                     arrow3d((0,0,0), (0,10,0), color='black') + \
+                     arrow3d((0,0,0), (0,0,5), color='black')
+              labels = text3d("x", (16.2,0,0)) + text3d("y", (0,10.2,0)) + text3d("z", (0,0,5.2))
+              
+              show(plane_plot + line_plot + intersect_pt + axes + labels, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-Traces">
+    <title>Traces</title>
+
+    <p>
+      Drawing planes in 3D on a 2D sheet of paper is tricky. A great tool to help us visualize the position of a plane is finding its <em>traces</em>. 
+    </p>
+
+    <p>
+      A <term>trace</term> is a slice of a surface by a coordinate plane. 
+      We are working with planes now, so the trace here is the line of intersection between the plane and one of the coordinate planes (<m>xy</m>-plane, <m>xz</m>-plane, or <m>yz</m>-plane).
+      <ul>
+        <li><alert><m>xy</m>-trace:</alert> Set <m>z=0</m>. This shows where the plane cuts through the floor.</li>
+        <li><alert><m>xz</m>-trace:</alert> Set <m>y=0</m>. This shows where the plane cuts through the side wall.</li>
+        <li><alert><m>yz</m>-trace:</alert> Set <m>x=0</m>. This shows where the plane cuts through the back wall.</li>
+      </ul>
+      By finding the intercepts on the axes and connecting them, we can draw a triangle that represents a portion of the plane.
+    </p>
+
+    <example>
+      <p>
+        Sketch the plane <m>2x + 3y + 4z = 12</m> by finding its traces.
+      </p>
+
+      <solution>
+        <p>
+          Let's find the intercepts to help us draw the lines.
+          <ul>
+            <li>
+              <strong>x-intercept:</strong> Set <m>y=0, z=0</m>. <m>2x = 12 \implies x=6</m>. Point: <m>(6,0,0)</m>.
+            </li>
+            <li>
+              <strong>y-intercept:</strong> Set <m>x=0, z=0</m>. <m>3y = 12 \implies y=4</m>. Point: <m>(0,4,0)</m>.
+            </li>
+            <li>
+              <strong>z-intercept:</strong> Set <m>x=0, y=0</m>. <m>4z = 12 \implies z=3</m>. Point: <m>(0,0,3)</m>.
+            </li>
+          </ul>
+          Now, look at the diagram below. The red lines are the traces. 
+          The <alert>xy-trace</alert> connects the x and y intercepts.
+          The <alert>yz-trace</alert> connects the y and z intercepts.
+          The <alert>xz-trace</alert> connects the x and z intercepts.
+          Connecting these three points forms a triangle in the first octant that helps us visualize the slant of the plane.
+        </p>
+         <figure>
+          <caption>Traces of the plane <m>2x + 3y + 4z = 12</m></caption>
+          <sidebyside width="60%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('x,y')
+              # Intercepts
+              Ix = (6,0,0); Iy = (0,4,0); Iz = (0,0,3)
+              
+              # The Plane (clipped to the first octant for clarity)
+              plane_plot = plot3d((12-2*x-3*y)/4, (x, 0, 6), (y, 0, 4), color='blue', opacity=0.3)
+              
+              # The Traces (Lines connecting intercepts)
+              xy_trace = line3d([Ix, Iy], color='red', thickness=3)
+              yz_trace = line3d([Iy, Iz], color='red', thickness=3)
+              xz_trace = line3d([Ix, Iz], color='red', thickness=3)
+              
+              # Axes (XYZ Coordinates)
+              axes = arrow3d((0,0,0), (7,0,0), color='black') + \
+                     arrow3d((0,0,0), (0,5,0), color='black') + \
+                     arrow3d((0,0,0), (0,0,4), color='black')
+              labels = text3d("x", (7.2,0,0)) + text3d("y", (0,5.2,0)) + text3d("z", (0,0,4.2))
+              
+              show(plane_plot + xy_trace + yz_trace + xz_trace + axes + labels, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-ParallelIntersecting">
+    <title>Parallel and Intersecting Planes</title>
+
+    <p>
+      Two planes in <m>\R^3</m> can either be parallel or intersecting, providing they are not the same plane. 
+    </p>
+
+    <p>
+      To determine whether two planes are parallel, we can compare their normal vectors.
+      Recall two lines are parallel if their direction vectors are parallel (i.e., scalar multiples of each other). 
+      In the similar sense, two planes are parallel if their <alert>normal vectors</alert> are parallel (i.e., scalar multiples of each other).
+    </p>
+
+    <example>
+      <p>
+        Show that the two planes <m>x + 2y - 3z = 4</m> and <m>2x + 4y - 6z = 3</m> are parallel. 
+      </p>
+
+      <solution>
+        <p>
+          The normal vector of the first plane is <m>\v{n}_1 = \la 1,2,-3 \ra</m> and the normal vector of the second plane is <m>\v{n}_2 = \la 2,4,-6 \ra</m>. 
+          Note that <m>\v{n}_2 = 2 \v{n}_1</m>, so the normal vectors are parallel. 
+          Therefore, the two planes are parallel. 
+        </p>
+        <p>
+          In the diagram below, you can see these "floating" surfaces. They have the same tilt, they are just shifted relative to each other.
+        </p>
+        <figure>
+          <caption>Parallel Planes <m>x + 2y - 3z = 4</m> (Blue) and <m>2x + 4y - 6z = 3</m> (Red)</caption>
+          <sidebyside width="60%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('x,y')
+              # Plane 1: 3z = x + 2y - 4
+              p1 = plot3d((x + 2*y - 4)/3, (x,-5,5), (y,-5,5), color='blue', opacity=0.5)
+              
+              # Plane 2: 6z = 2x + 4y - 3
+              p2 = plot3d((2*x + 4*y - 3)/6, (x,-5,5), (y,-5,5), color='red', opacity=0.5)
+              
+              # Axes (XYZ Coordinates)
+              axes = arrow3d((0,0,0), (6,0,0), color='black') + \
+                     arrow3d((0,0,0), (0,6,0), color='black') + \
+                     arrow3d((0,0,0), (0,0,6), color='black')
+              labels = text3d("x", (6.2,0,0)) + text3d("y", (0,6.2,0)) + text3d("z", (0,0,6.2))
+              
+              show(p1 + p2 + axes + labels, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      What about the intersection of two planes? 
+      Imagine two non-parallel planes in <m>\R^3</m> is intersecting, then they will intersect along a line. 
+    </p>
+
+    <example>
+      <p>
+        Find an equation of the line of intersection of the planes <m>x + 2y + z = 5</m> and <m>2x + y - z = 7</m>.
+      </p>
+
+      <hint>
+        <p>
+          To define the line of intersection, we need two things:
+          <ol>
+            <li><p>A direction vector <m>\v{v}</m> for the line.</p></li>
+            <li><p>A point <m>P</m> on the line.</p></li>
+          </ol>
+        </p>
+        <p>
+          Since the line lies on <em>both</em> planes, it must be perpendicular to <em>both</em> normal vectors. 
+          Does that ring a bell? (Think cross product!)
+        </p>
+
+        <figure>
+          <caption>Intersection of <m>x + 2y + z = 5</m> (Blue) and <m>2x + y - z = 7</m> (Red)</caption>
+          <sidebyside width="80%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('x, y, z, t')
+              
+              # 1. Coordinate Planes (Reference)
+              r = 6
+              xy_plane = plot3d(0, (x, -r, r), (y, -r, r), color='gray', opacity=0.1)
+              xz_plane = parametric_plot3d([x, 0, z], (x, -r, r), (z, -r, r), color='gray', opacity=0.1)
+              yz_plane = parametric_plot3d([0, y, z], (y, -r, r), (z, -r, r), color='gray', opacity=0.1)
+              
+              # 2. The Problem Planes
+              # Plane 1: z = 5 - x - 2y
+              f1(x,y) = 5 - x - 2*y
+              # Plane 2: z = 2x + y - 7
+              f2(x,y) = 2*x + y - 7
+              
+              p1 = plot3d(f1, (x, -r, r), (y, -r, r), color='blue', opacity=0.4)
+              p2 = plot3d(f2, (x, -r, r), (y, -r, r), color='red', opacity=0.4)
+              
+              # 3. The Line of Intersection
+              line_intersect = parametric_plot3d([3+t, 1-t, t], (t, -r, r), color='yellow', thickness=5)
+              
+              # 4. Axes (XYZ Coordinates)
+              axes = arrow3d((0,0,0), (r+1,0,0), color='black') + \
+                     arrow3d((0,0,0), (0,r+1,0), color='black') + \
+                     arrow3d((0,0,0), (0,0,r+1), color='black')
+              labels = text3d("x", (r+1.2,0,0)) + text3d("y", (0,r+1.2,0)) + text3d("z", (0,0,r+1.2))
+
+              # Combine
+              show(xy_plane + xz_plane + yz_plane + p1 + p2 + line_intersect + axes + labels, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          <alert>Step 1: Find the direction vector.</alert>
+          The normal vectors are <m>\v{n}_1 = \la 1, 2, 1 \ra</m> and <m>\v{n}_2 = \la 2, 1, -1 \ra</m>. 
+          The direction of the intersection line, <m>\v{v}</m>, is orthogonal to both normals:
+          <md>
+            <mrow>\v{v} = \v{n}_1 \times \v{n}_2 \amp = \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1 \amp 2 \amp 1 \\ 2 \amp 1 \amp -1 \end{vmatrix}</mrow>
+            <mrow> \amp = \la -2-1, -( -1-2), 1-4 \ra </mrow>
+            <mrow> \amp = \la -3, 3, -3 \ra </mrow>
+          </md>
+          For simplicity, we can divide by -3 to get a parallel vector: <m>\v{v} = \la 1, -1, 1 \ra</m>.
+        </p>
+
+        <p>
+          <alert>Step 2: Find a point on the line.</alert>
+          We need a point <m>(x,y,z)</m> that satisfies both plane equations. 
+          We have 2 equations and 3 unknowns, so we can pick a value for one variable. 
+          Let's try <m>z = 0</m> (so we are really finding the intersection between this line and the <m>xy</m>-plane, and this point of intersection will be on this line for sure! ). 
+          The system becomes:
+          <md>
+            <mrow>x + 2y \amp= 5</mrow>
+            <mrow>2x + y \amp= 7</mrow>
+          </md>
+          From the second eq, <m>y = 7 - 2x</m>. Substitute into the first:
+          <me>
+            x + 2(7 - 2x) = 5 \implies x + 14 - 4x = 5 \implies -3x = -9 \implies x = 3
+          </me>
+          Then <m>y = 7 - 2(3) = 1</m>. 
+          So a point on the line is <m>(3, 1, 0)</m>.
+        </p>
+
+        <p>
+          <alert>Step 3: Write the equation.</alert>
+          The vector equation of the line is:
+          <me>
+            \v{r}(t) = \la 3, 1, 0 \ra + t \la 1, -1, 1 \ra
+          </me>
+        </p>
+      </solution>
+    </example>
+  </subsection>
 
   <worksheet xml:id="ws-sec125">
     <title>Assigned Problems for Section 12.5</title>

@@ -5,8 +5,16 @@
 
   <introduction>
     <p>
-      The big question in this section is <alert>how to approximate the area under the curve of a function</alert>. 
-      We will learn some methods to approximate the area and also how to make the approximation more and more precise. 
+      In the previous section, we learned about the <em>Dot Product</em>, a way to multiply two vectors to get a scalar (a single number). 
+      You might be wondering whether there is another way to multiply two vectors? 
+    </p>
+    <p>
+      The answer is yes! 
+      We can multiply two vectors in a special way to get a third vector. 
+      This is called the <term>Cross Product</term>. 
+      However, unlike the dot product which works in any dimension, the cross product is special. 
+      It only works meaningfully in <m>\R^3</m>. 
+      This operation is incredibly useful for finding orthogonal directions, calculating areas, and understanding rotation in physics.
     </p>
 
     <objectives>
@@ -16,31 +24,604 @@
         </p>
       </introduction>
       <ul>
-        <li>
-          <p>
-            define what a vector is in the plane
-          </p>
-        </li>
-        <li>
-          <p>
-            perform vector addition and scalar multiplication geometrically and component-wise
-          </p>
-        </li>
+        <li><p>compute the cross product of two vectors using determinants.</p></li>
+        <li><p>use standard basis properties to simplify cross product calculations.</p></li>
+        <li><p>calculate the area of a parallelogram and the volume of a parallelepiped.</p></li>
+        <li><p>apply the cross product to physics problems involving torque.</p></li>
       </ul>
     </objectives>
-    
   </introduction>
 
-  <subsection xml:id="subsec-CrossProduct">
+  <p>
+    Let's dive right into the definition. 
+    The formula can look a bit intimidating at first, but we will use a tool called a <em>determinant</em> to help us remember it.
+  </p>
+
+  <definition xml:id="def-CrossProduct">
     <title>The Cross Product</title>
+    <statement>
+      <p>
+        Given two vectors <m>\v{v} = \la v_1, v_2, v_3 \ra</m> and <m>\v{w} = \la w_1, w_2, w_3 \ra</m> in <m>\R^3</m>, the <term>cross product</term> <m>\v{v} \times \v{w}</m> is the vector defined by:
+        <me>
+          \v{v} \times \v{w} = \la v_2 w_3 - v_3 w_2, -(v_1 w_3 - v_3 w_1), v_1 w_2 - v_2 w_1 \ra
+        </me>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    Wow this definition looks crazy!  
+    No one should memorize this long of a formula! 
+    If you know a bit linear algebra, the cross product can be computed using the <alert>determinant</alert>. 
+  </p>
+
+  <p>
+    Given the two vectors <m>\v{v} = \la v_1, v_2, v_3 \ra</m> and <m>\v{w} = \la w_1, w_2, w_3 \ra</m>, we can construct a matrix as follows: 
+    <md>
+      \begin{pmatrix} 
+        \v{i} \amp \v{j} \amp \v{k} \\ 
+        v_1 \amp v_2 \amp v_3 \\
+        w_1 \amp w_2 \amp w_3
+      \end{pmatrix}
+    </md>
+    where the <m>\v{i}</m>, <m>\v{j}</m>, and <m>\v{k}</m> are the standard basis vectors in <m>\R^3</m>.
+  </p>
     
-    <figure xml:id="fig-cross-product-rhr">
-      <caption>The Right Hand Rule for Cross Products</caption>
-      <image source="RightHandRule_CrossProduct.png" width="50%">
-          <description>A diagram showing the right hand rule where the index finger points along vector A, middle finger along B, and thumb illustrates the resulting cross product.</description>
-      </image>
+  <p>
+    It turns out that the cross product <m>\v{v} \times \v{w}</m> is the <em>determinant</em> of this matrix. 
+    That is, 
+    <md>
+      <mrow>\v{v} \times \v{w} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ v_1 \amp v_2 \amp v_3 \\ w_1 \amp w_2 \amp w_3 \end{vmatrix}</mrow>
+      <mrow> \amp= \begin{vmatrix} v_2 \amp v_3 \\ w_2 \amp w_3 \end{vmatrix} \v{i} - \begin{vmatrix} v_1 \amp v_3 \\ w_1 \amp w_3 \end{vmatrix} \v{j} + \begin{vmatrix} v_1 \amp v_2 \\ w_1 \amp w_2 \end{vmatrix} \v{k}</mrow>
+      <mrow> \amp= (v_2 w_3 - v_3 w_2)\v{i} - (v_1 w_3 - v_3 w_1)\v{j} + (v_1 w_2 - v_2 w_1)\v{k}</mrow>
+      <mrow> \amp= \la v_2 w_3 - v_3 w_2, -(v_1 w_3 - v_3 w_1), v_1 w_2 - v_2 w_1 \ra</mrow>
+    </md>
+  </p>
+
+  <p>
+    P.S.: Yes Richard did a cofactor expansion on the first row in his work above. 
+    Remember that this isn't really a linear algebra class so he will not go in depth on the cofactor expansion. 
+    If linear algebra isn't your thing and you don't want to memorize the formula (no one should), you can find the determine of a 3x3 matrix using the lattice method. 
+    Below is a quick video tutorial on how to do that: 
+  </p>
+
+  <figure>
+    <caption>Quick Tutorial on Computing the Determinant of a 3x3 Matrix</caption>
+    <video youtube="WLY8hg63TU0" width="50%"/>
+  </figure>
+
+  <example>
+    <p>
+      Compute <m>\v{v} \times \v{w}</m> for <m>\v{v} = \la 1, 2, -1 \ra</m> and <m>\v{w} = \la 3, 0, 1 \ra</m>.
+    </p>
+
+    <solution>
+      <p>
+        <md>
+          <mrow>\v{v} \times \v{w} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1 \amp 2 \amp -1 \\ 3 \amp 0 \amp 1 \end{vmatrix} </mrow>
+          <mrow> \amp= \begin{vmatrix} 2 \amp -1 \\ 0 \amp 1 \end{vmatrix} \v{i} - \begin{vmatrix} 1 \amp -1 \\ 3 \amp 1 \end{vmatrix} \v{j} + \begin{vmatrix} 1 \amp 2 \\ 3 \amp 0 \end{vmatrix} \v{k} </mrow>
+          <mrow> \amp= (2 \cdot 1 - (-1) \cdot 0)\v{i} - (1 \cdot 1 - (-1) \cdot 3)\v{j} + (1 \cdot 0 - 2 \cdot 3)\v{k} </mrow>
+          <mrow> \amp= (2 - 0)\v{i} - (1 + 3)\v{j} + (0 - 6)\v{k} </mrow>
+          <mrow> \amp= 2\v{i} - 4\v{j} - 6\v{k} </mrow>
+          <mrow> \amp= \la 2, -4, -6 \ra </mrow>
+        </md>
+      </p>
+
+      <p>
+        Below is a quick sketch to visualize the two vectors and their cross product. 
+      </p>
+
+      <figure xml:id="fig-cross-product-example">
+        <caption>Visualizing <m>\v{v} \times \v{w}</m> for <m>\v{v}=\la 1,2,-1 \ra</m> and <m>\v{w}=\la 3,0,1 \ra</m></caption>
+        <sidebyside width="80%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('x,y,z')
+
+              # 1. Define the vectors
+              v = vector([1, 2, -1])
+              w = vector([3, 0, 1])
+
+              # 2. Calculate the Cross Product
+              cp = v.cross_product(w)
+
+              # 3. Create the Arrows (Vectors)
+              # Blue for v, Green for w, Red for Result
+              vec_v = arrow3d((0,0,0), v, color='blue', width=2)
+              vec_w = arrow3d((0,0,0), w, color='green', width=2)
+              vec_cp = arrow3d((0,0,0), cp, color='red', width=3) 
+
+              # 4. Add Labels
+              label_v = text3d("v", v + vector([0, 0.2, 0]), color='blue')
+              label_w = text3d("w", w + vector([0, 0, 0.2]), color='green')
+              label_cp = text3d("v x w", cp + vector([0.2, 0, 0]), color='red')
+
+              # 5. Setup Coordinate Axes
+              # We need to extend the z-axis down since the result is (2, -4, -6)
+              axes = arrow3d((0,0,0), (4,0,0), color='black') + \
+                    arrow3d((0,0,0), (0,3,0), color='black') + \
+                    arrow3d((0,0,0), (0,0,2), color='black') + \
+                    arrow3d((0,0,0), (0,0,-7), color='gray') # Negative z-axis
+
+              axis_labels = text3d("x", (4.2, 0, 0), color='black') + \
+                            text3d("y", (0, 3.2, 0), color='black') + \
+                            text3d("z", (0, 0, 2.2), color='black')
+
+              # 6. Show everything
+              show(vec_v + vec_w + vec_cp + label_v + label_w + label_cp + axes + axis_labels, frame=False)
+            </slate>
+          </interactive>
+        </sidebyside>
+      </figure>
+    </solution>
+  </example>
+
+  <p>
+    Now that we know how the cross product works, let's explore some of its important properties! 
+  </p>
+
+  <subsection xml:id="subsec-CrossPropertiesBasis">
+    <title>Properties of the Cross Product</title>
+
+    <p>
+      Let's start off by observing the behavior of the cross product in the <xref ref="fig-cross-product-example"/>. 
+      The most obvious observation here is that <m>\v{v} \times \v{w}</m> is also a vector! 
+    </p>
+
+    <p>
+      We can also see that <m>\v{v} \times \v{w}</m> is orthogonal to both <m>\v{v}</m> and <m>\v{w}</m>. 
+      It turns out that the cross product always produces a vector that is perpendicular to both input vectors, following the <term>right-hand rule</term>, 
+      which states that <em>when the fingers of your right hand curl from <m>\v{v}</m> to <m>\v{w}</m>, your thumb points to the same side of the plane spanned by <m>\v{v}</m> and <m>\v{w}</m> as their cross product</em>. 
+    </p>
+
+    <figure>
+      <image source="sec124_RightHandRule_CrossProduct.png" width="50%"></image>
+      <caption>Right-Hand Rule for Cross Product</caption>
     </figure>
 
+    <p>
+      Other than these geometric properties, the cross product also has several algebraic properties that are useful in computations. 
+    </p>
+
+    <theorem xml:id="thm-BasicPropertiesCrossProduct">
+      <title>Basic Properties of the Cross Product</title>
+      <statement>
+        <p>
+          <ol marker="i.">
+            <li>
+              <p>
+                <m>\v{w} \times \v{v} = -\v{v} \times \v{w}</m> (Anticommutative Property)
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\v{v} \times \v{v} = \v{0}</m> (Cross Product with Itself is Zero)
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\v{v} \times \v{w} = \v{0}</m> if and only if either <m>\v{w} = \lambda\v{v}</m> for some scalar <m>\lambda</m> or <m>\v{v} = \v{0}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(\lambda\v{v}) \times \v{w}  = \v{v} \times (\lambda\v{w}) = \lambda(\v{v} \times \v{w})</m> (Scalar Multiplication)
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\lp \v{u} + \v{v} \rp \times \v{w} = \v{u} \times \v{w} + \v{v} \times \v{w}</m>
+              </p>
+              <p>
+                <m>\v{u} \times \lp \v{v} + \v{w} \rp = \v{u} \times \v{v} + \v{u} \times \v{w}</m> (Distributive Property)
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      Some of the results can be justified directly from the right-hand rule and geometric intuition. 
+      For example, the anticommutative property makes sense because switching the order of the vectors reverses the direction of the resulting vector.
+      As a mathematician, we should also verify these properties using the definition of the cross product (the one with the determinant). 
+    </p>
+
+    <proof>
+      <title>Some Proofs of Cross Product Properties</title>
+      <p>
+        Richard will prove some of these properties using the determinant definition of the cross product.
+        Some will be left as exercises for the reader. 
+        <ol marker="i.">
+          <li>
+            <p>
+              Let <m>\v{v} = \la v_1, v_2, v_3 \ra</m> and <m>\v{w} = \la w_1, w_2, w_3 \ra</m>. 
+              Then we obtain
+              <md>
+                <mrow>
+                  \v{w} \times \v{v} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ w_1 \amp w_2 \amp w_3 \\ v_1 \amp v_2 \amp v_3 \end{vmatrix}
+                </mrow>
+                <mrow>
+                  \amp= (w_2 v_3 - w_3 v_2)\v{i} - (w_1 v_3 - w_3 v_1)\v{j} + (w_1 v_2 - w_2 v_1)\v{k}
+                </mrow>
+                <mrow>
+                  \amp= -(v_2 w_3 - v_3 w_2)\v{i} + (v_1 w_3 - v_3 w_1)\v{j} - (v_1 w_2 - v_2 w_1)\v{k}
+                </mrow>
+                <mrow>
+                  \amp= - \left[ (v_2 w_3 - v_3 w_2)\v{i} - (v_1 w_3 - v_3 w_1)\v{j} + (v_1 w_2 - v_2 w_1)\v{k} \right]
+                </mrow>
+                <mrow>
+                  \amp= - (\v{v} \times \v{w})
+                </mrow>
+              </md>
+              Thus, the cross product is anticommutative.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>\v{v} = \la v_1, v_2, v_3 \ra</m>. 
+              Then we have
+              <md>
+                <mrow>
+                  \v{v} \times \v{v} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ v_1 \amp v_2 \amp v_3 \\ v_1 \amp v_2 \amp v_3 \end{vmatrix}
+                </mrow>
+                <mrow>
+                  \amp= \la v_2 v_3 - v_3 v_2, -(v_1 v_3 - v_3 v_1), v_1 v_2 - v_2 v_1 \ra
+                </mrow>
+                <mrow>
+                  \amp= \la 0, -0, 0 \ra
+                </mrow>
+                <mrow>
+                  \amp= \v{0}
+                </mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              Left as an exercise to the reader.
+            </p>
+          </li>
+          <li>
+            <p>
+              Left as an exercise to the reader.
+            </p>
+          </li>
+          <li>
+            <p>
+              Left as an exercise to the reader.
+            </p>
+          </li>
+        </ol>
+      </p>
+      
+    </proof>
+    
+    <p>
+      The most fun thing about the cross product is how it interacts with the standard basis vectors in <m>\R^3</m>. 
+      Recall the standard basis vectors are <m>\v{i} = \la 1,0,0 \ra</m>, <m>\v{j} = \la 0,1,0 \ra</m>, and <m>\v{k} = \la 0,0,1 \ra</m>. 
+      Because these are orthogonal unit vectors, following the right-hand rule, we have a cyclic pattern:
+    </p>
+    
+    <sidebyside widths="45% 45%">
+      <p>
+        <md>
+          <mrow>\v{i} \times \v{j} \amp = \v{k}</mrow>
+          <mrow>\v{j} \times \v{k} \amp = \v{i}</mrow>
+          <mrow>\v{k} \times \v{i} \amp = \v{j}</mrow>
+        </md>
+      </p>
+    </sidebyside>
+
+    <p>
+      If you reverse the order, you get the negative (anticommutative):
+    </p>
+
+    <sidebyside widths="45% 45%">
+      <p>
+        <md>
+          <mrow>\v{j} \times \v{i} \amp = -\v{k}</mrow>
+          <mrow>\v{k} \times \v{j} \amp = -\v{i}</mrow>
+          <mrow>\v{i} \times \v{k} \amp = -\v{j}</mrow>
+        </md>
+      </p>
+    </sidebyside>
+
+    <p>
+      The following circle summarizes these properties:
+    </p>
+    
+    <figure>
+      <image source="sec124-CircleCrossProduct-Diagram.png" width="35%"></image>
+      <caption>Circle for Computing the Cross Product of Standard Basis Vectors</caption>
+    </figure>
+
+    <p>
+      If you don't mind some FOIL-ing and combining like terms, you can actually use this circle to compute the cross product instead of the determinant! 
+    </p>
+
+    <example>
+      <p>
+        Calculate the cross product <m>\lp 3\v{i} - \v{j} - 2\v{k}\rp \times \lp 3\v{j} - 2\v{k} \rp</m>. 
+      </p>
+
+      <solution>
+        <p>
+          <md>
+            <mrow> \lp 3\v{i} - \v{j} - 2\v{k}\rp \times \lp 3\v{j} - 2\v{k} \rp\amp= 9\v{i} \times \v{j} - 6\v{i} \times \v{k} - 3\v{j} \times \v{j} + 2\v{j} \times \v{k} - 6\v{k} \times \v{k} + 4\v{k} \times \v{k}</mrow>
+            <mrow> \amp= 9\v{k} - 6(-\v{j}) - 3(0) + 2(-\v{i}) - 6(0) + 4(0)</mrow>
+            <mrow> \amp= 9\v{k} + 6\v{j} - 2\v{i}</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      This is actually how the determinant formula is derived! 
+      If we write <m>\v{v} = v_1\v{i} + v_2\v{j} + v_3\v{k}</m> and <m>\v{w} = w_1\v{i} + w_2\v{j} + w_3\v{k}</m> and expand <m>\v{v} \times \v{w}</m> like a polynomial, we can use the rules above to simplify the terms.
+    </p>
+
+    <note>
+      <title>If you want to see a bunch of letters here to derive the formula...</title>
+      <p>
+        To be a due diligent mathematician, Richard will show you how to derive the determinant formula from the standard basis properties (and there are a lot of the typing here...). 
+      </p>
+
+      <p>
+        Let <m>\v{v} = v_1\v{i} + v_2\v{j} + v_3\v{k}</m> and <m>\v{w} = w_1\v{i} + w_2\v{j} + w_3\v{k}</m>. 
+        Then we have
+        <md>
+          <mrow>\v{v} \times \v{w} \amp= \lp v_1\v{i} + v_2\v{j} + v_3\v{k} \rp \times \lp w_1\v{i} + w_2\v{j} + w_3\v{k} \rp</mrow>
+          <mrow> \amp= v_1w_1 \underbrace{\lp \v{i} \times \v{i} \rp}_{\v{0}} + v_1w_2 \underbrace{\lp \v{i} \times \v{j} \rp}_{\v{k}} + v_1w_3 \underbrace{\lp \v{i} \times \v{k} \rp}_{-\v{j}}</mrow>
+          <mrow> \amp \qquad + v_2w_1 \underbrace{\lp \v{j} \times \v{i} \rp}_{-\v{k}} + v_2w_2 \underbrace{\lp \v{j} \times \v{j} \rp}_{\v{0}} + v_2w_3 \underbrace{\lp \v{j} \times \v{k} \rp}_{\v{i}}</mrow>
+          <mrow> \amp \qquad + v_3w_1 \underbrace{\lp \v{k} \times \v{i} \rp}_{\v{j}} + v_3w_2 \underbrace{\lp \v{k} \times \v{j} \rp}_{-\v{i}} + v_3w_3 \underbrace{\lp \v{k} \times \v{k} \rp}_{\v{0}}</mrow>
+          <mrow> \amp= (v_2w_3 - v_3w_2)\v{i} - (v_1w_3 - v_3w_1)\v{j} + (v_1w_2 - v_2w_1)\v{k}</mrow>
+        </md>
+        
+      </p>
+    </note>
   </subsection>
+
+  <subsection xml:id="subsec-AreaGeometry">
+    <title>Geometry: Area of a Parallelogram</title>
+
+    <p>
+      We know the direction of <m>\v{u} \times \v{v}</m> is orthogonal to the inputs (given by the Right Hand Rule). But what about its <em>magnitude</em>?
+    </p>
+
+    <theorem xml:id="thm-CrossMagnitude">
+      <title>Magnitude of the Cross Product</title>
+      <statement>
+        <p>
+          <me>\|\v{u} \times \v{v}\| = \|\v{u}\| \|\v{v}\| \sin(\theta)</me>
+          where <m>\theta</m> is the angle between the vectors.
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      The proof of this theorem is at the end of the section in your textbook, so Richard will not repeat it here. 
+      It requires an identity that links the dot product and cross product together. 
+      Feel free to read through it later if you are interested! 
+    </p>
+
+    <p>
+      Geometrically, this value represents the <strong>Area of the Parallelogram</strong> spanned by the two vectors. 
+    </p>
+
+    <figure>
+      <caption>The magnitude of the cross product equals the area of the shaded parallelogram.</caption>
+      <sidebyside width="80%">
+      <interactive platform="sage" width="100%" aspect="1:1">
+        <slate surface="sage">
+          var('x,y,z')
+          # Define vectors
+          u = vector([3, 0, 0])
+          v = vector([1, 2, 0])
+          
+          # Compute cross product for visual context (not plotted directly here to keep it clean)
+          cp = u.cross_product(v)
+          
+          # Plot vectors
+          vec_u = arrow3d((0,0,0), u, color='blue', width=3)
+          vec_v = arrow3d((0,0,0), v, color='red', width=3)
+          
+          # Parallelogram edges
+          edge_u = arrow3d(v, v+u, color='blue', width=1, arrowsize=1) # Parallel to u
+          edge_v = arrow3d(u, u+v, color='red', width=1, arrowsize=1) # Parallel to v
+          
+          # Fill the parallelogram (Polygon)
+          poly = polygon3d([(0,0,0), u, u+v, v], color='yellow', opacity=0.4)
+          
+          # Labels
+          labels = text3d("u", u/2 + vector([0,-0.2,0]), color='blue') + \
+                   text3d("v", v/2 + vector([-0.2,0.2,0]), color='red') + \
+                   text3d("Area = ||u x v||", (u+v)/2, color='black')
+                   
+          axes = arrow3d((0,0,0), (4,0,0), color='black') + \
+                 arrow3d((0,0,0), (0,4,0), color='black') + \
+                 arrow3d((0,0,0), (0,0,2), color='black')
+          
+          show(vec_u + vec_v + edge_u + edge_v + poly + labels + axes, frame=False)
+        </slate>
+      </interactive>
+      </sidebyside>
+    </figure>
+
+    <example>
+      <p>
+        Find the area of the triangle with vertices <m>P(1,0,0)</m>, <m>Q(3,0,1)</m>, and <m>R(2,2,0)</m>.
+      </p>
+      <hint>
+        <p>
+          A triangle is exactly <em>half</em> of a parallelogram. So if we find the area of the parallelogram spanned by vectors <m>\v{PQ}</m> and <m>\v{PR}</m>, we just need to divide by 2!
+        </p>
+      </hint>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-Volume">
+    <title>Geometry: Volume of a Parallelepiped</title>
+
+    <p>
+      If we add a third vector <m>\v{w}</m>, we lift the 2D parallelogram into a 3D slanted box called a <strong>Parallelepiped</strong>.
+    </p>
+
+    <p>
+      To find this volume, we use the <strong>Scalar Triple Product</strong>. Think about it: the area of the base is <m>\|\v{u} \times \v{v}\|</m>. The height of the box is the component of <m>\v{w}</m> in the direction of that normal vector.
+    </p>
+
+    <definition xml:id="def-TripleProduct">
+      <title>Volume of a Parallelepiped</title>
+      <statement>
+        <p>
+          The volume <m>V</m> of the parallelepiped determined by vectors <m>\v{u}, \v{v}, \v{w}</m> is the absolute value of the scalar triple product:
+          <me>
+            V = |\v{w} \cdot (\v{u} \times \v{v})| = \left| \begin{vmatrix} w_1 \amp w_2 \amp w_3 \\ u_1 \amp u_2 \amp u_3 \\ v_1 \amp v_2 \amp v_3 \end{vmatrix} \right|
+          </me>
+        </p>
+      </statement>
+    </definition>
+
+    <figure>
+      <caption>A parallelepiped spanned by vectors u, v, w.</caption>
+      <sidebyside width="80%">
+      <interactive platform="sage" width="100%" aspect="1:1">
+        <slate surface="sage">
+          var('x,y,z')
+          # Vectors
+          u = vector([2, 0, 0])
+          v = vector([1, 2, 0])
+          w = vector([0, 1, 3])
+          
+          # Vertices of the parallelepiped
+          O = vector([0,0,0])
+          verts = [O, u, u+v, v, w, w+u, w+u+v, w+v]
+          
+          # Draw vectors
+          vecs = arrow3d(O, u, color='blue', width=3) + \
+                 arrow3d(O, v, color='red', width=3) + \
+                 arrow3d(O, w, color='green', width=3)
+                 
+          # Draw the box edges
+          box = line3d([O, u, u+v, v, O], color='black') + \
+                line3d([w, w+u, w+u+v, w+v, w], color='black') + \
+                line3d([O, w], color='black') + \
+                line3d([u, w+u], color='black') + \
+                line3d([v, w+v], color='black') + \
+                line3d([u+v, w+u+v], color='black')
+
+          # Fill slightly
+          # (Visualizing the solid is tricky in simple plots, so wireframe is often clearer)
+          
+          labels = text3d("u", u/2, color='blue') + text3d("v", v/2, color='red') + text3d("w", w/2, color='green')
+          
+          show(vecs + box + labels, frame=False)
+        </slate>
+      </interactive>
+      </sidebyside>
+    </figure>
+  </subsection>
+
+  <worksheet xml:id="ws-sec124">
+    <title>Assigned Problems for Section 12.4</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="12.4.11">
+      <p>
+        Calculate <m>\v{v} \times \v{w}</m>, where <m>\v{v} = \la \frac{2}{3}, 1, \frac{1}{2} \ra</m> and <m>\v{w} = \la 4, -6, 3 \ra</m>.
+      </p>
+    </exercise>
+
+    <exercise number="12.4.17">
+      <p>
+        Calculate the cross product <m>\lp \v{i} - 3\v{j} + 2\v{k} \rp \times \lp \v{j} - \v{k} \rp</m>
+      </p>
+    </exercise>
+
+    <exercise number="12.4.21">
+      <p>
+        Calculate the cross product <m>\v{w} \times \lp \v{u} + \v{v} \rp</m>, assuming that
+        <md>
+          \v{u} \times \v{v} = \lp 1,1,0 \rp, \qquad \v{u} \times \v{w} = \lp 0,3,1 \rp, \qquad \v{v} \times \v{w} = \la 2,-1,1 \ra
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="12.4.37">
+      <p>
+        A force <m>\v{F}</m> (in newtons) on an electron moving at velocity <m>v{v}</m> meters per second in a uniform magnetic field <m>\v{B}</m> (in teslas) is given by <m>\v{F} = q\lp \v{v} \times \v{B} \rp</m>, where <m>q = -1.6 \times 10^{-19}</m> coulombs is the charge on the electron. 
+        Assume an electron moves with velocity <m>\v{v}</m> in the plane and <m>v{B}</m> is a uniform magnetic field pointing directyly out of the page. 
+        Which of the two vectors, <m>v{F}_1</m> or <m>\v{F}_2</m>, in the following figure represents the force on the electron? 
+        Remember that <m>q</m> is negative. 
+      </p>
+
+      <figure>
+        <image source="sec124-HW37-Figure.png" width="35%"></image>
+        <caption>The magnetic field vector <m>\v{B}</m> points directly out of the page. </caption>
+      </figure>
+    </exercise>
+
+    <exercise number="12.4.41">
+      <p>
+        Find the area of the parallelogram spanned by <m>\v{v}</m> and <m>\v{w}</m> in the following figure. 
+      </p>
+
+      <figure>
+        <image source="sec124-HW41-Figure.png" width="50%"></image>
+      </figure>
+    </exercise>
+
+    <exercise number="12.4.47">
+      <p>
+        Sketch the triangle with vertices at the origin <m>O</m>, <m>P = (3,3,0)</m>, and <m>Q = (0,3,3)</m>, and compute its area using cross product. 
+      </p>  
+    </exercise>
+
+    <exercise number="12.4.51">
+      <p>
+        Check that the four points <m>P = (2,4,4)</m>, <m>Q = (3,1,6)</m>, <m>R = (2,8,0)</m>, and <m>S = (7,2,1)</m> all lie in a plane. 
+        Then use vectors to find the area of the quadrilateral they define. 
+      </p>
+    </exercise>
+
+    <exercise number="12.4.55">
+      <p>
+        Prove the identity using the formula for the cross product. 
+        <md>
+          (\v{u} + \v{v}) \times \v{w} = \v{u} \times \v{w} + \v{v} \times \v{w}
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="12.4.67">
+      <p>
+        The torque about the origin <m>O</m> due to a force <m>\v{F}</m> acting on an object with position vector <m>\v{r}</m> is the vector quantity <m>\v{\tau} = \v{r} \times \v{F}</m>. 
+        If several forces <m>\v{F}_j</m> act at psitions <m>\v{r}_j</m>, then the net torque (units: <em>N</em>-<em>m</em> or <em>lb</em>-<em>ft</em>) is the sum 
+        <md>
+          \v{\tau} = \sum \v{r}_j \times \v{F}_j
+        </md>
+        Calculate the net torque <m>\v{\tau}</m> about <m>O</m> acting at the point <m>P</m> on the mechanical arm in the following figure, assuming that a 25-newton force acts as indicated. 
+      </p>
+
+      <figure>
+        <image source="sec124-HW67-Figure.png" width="40%"></image>
+      </figure>
+    </exercise>
+
+  </worksheet>
 
 </section>
