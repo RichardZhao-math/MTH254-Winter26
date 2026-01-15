@@ -263,7 +263,7 @@
               Then we have
               <md>
                 <mrow>
-                  \v{v} \times \v{v} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ v_1 \amp v_2 \amp v_3 \\ v_1 \amp v_2 \amp v_3 \end{vmatrix}
+                  \v{v} \times \v{v} \amp= \det \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ v_1 \amp v_2 \amp v_3 \\ v_1 \amp v_2 \amp v_3 \end{vmatrix}
                 </mrow>
                 <mrow>
                   \amp= \la v_2 v_3 - v_3 v_2, -(v_1 v_3 - v_3 v_1), v_1 v_2 - v_2 v_1 \ra
@@ -386,7 +386,13 @@
     <title>Geometry: Area of a Parallelogram</title>
 
     <p>
-      We know the direction of <m>\v{u} \times \v{v}</m> is orthogonal to the inputs (given by the Right Hand Rule). But what about its <em>magnitude</em>?
+      We know the direction of <m>\v{u} \times \v{v}</m> is orthogonal to the inputs (given by the Right Hand Rule). 
+      But what about its <em>magnitude</em>? 
+    </p>
+
+    <p>
+      It turns out that the magnitude of the cross product is very similar to the dot product, but with a small twist. 
+      Rather than using the cosine of the angle between the vectors, we use the sine of the angle. 
     </p>
 
     <theorem xml:id="thm-CrossMagnitude">
@@ -406,85 +412,249 @@
     </p>
 
     <p>
-      Geometrically, this value represents the <strong>Area of the Parallelogram</strong> spanned by the two vectors. 
+      Geometrically, this value represents the <alert>Area of the Parallelogram</alert> spanned by the two vectors 
+      (that is, the parallelogram formed by <m>\v{u}</m> and <m>\v{v}</m> where the two adjacent sides are <m>\v{u}</m> and <m>\v{v}</m>). 
+      The following diagram illustrates this idea:
     </p>
 
     <figure>
-      <caption>The magnitude of the cross product equals the area of the shaded parallelogram.</caption>
-      <sidebyside width="80%">
-      <interactive platform="sage" width="100%" aspect="1:1">
-        <slate surface="sage">
-          var('x,y,z')
-          # Define vectors
-          u = vector([3, 0, 0])
-          v = vector([1, 2, 0])
-          
-          # Compute cross product for visual context (not plotted directly here to keep it clean)
-          cp = u.cross_product(v)
-          
-          # Plot vectors
-          vec_u = arrow3d((0,0,0), u, color='blue', width=3)
-          vec_v = arrow3d((0,0,0), v, color='red', width=3)
-          
-          # Parallelogram edges
-          edge_u = arrow3d(v, v+u, color='blue', width=1, arrowsize=1) # Parallel to u
-          edge_v = arrow3d(u, u+v, color='red', width=1, arrowsize=1) # Parallel to v
-          
-          # Fill the parallelogram (Polygon)
-          poly = polygon3d([(0,0,0), u, u+v, v], color='yellow', opacity=0.4)
-          
-          # Labels
-          labels = text3d("u", u/2 + vector([0,-0.2,0]), color='blue') + \
-                   text3d("v", v/2 + vector([-0.2,0.2,0]), color='red') + \
-                   text3d("Area = ||u x v||", (u+v)/2, color='black')
-                   
-          axes = arrow3d((0,0,0), (4,0,0), color='black') + \
-                 arrow3d((0,0,0), (0,4,0), color='black') + \
-                 arrow3d((0,0,0), (0,0,2), color='black')
-          
-          show(vec_u + vec_v + edge_u + edge_v + poly + labels + axes, frame=False)
-        </slate>
-      </interactive>
-      </sidebyside>
+      <image source="sec124_CrossProduct_AreaParallelogram.png" width="35%"></image>
+       <caption>Area of the parallelogram spanned by vectors <m>\v{u}</m> and <m>\v{v}</m>.</caption>
     </figure>
+
+    <p>
+      Observe that the area of the parallelogram is the base times the height, where the base is <m>\|\v{u}\|</m> and the height is <m>\|\v{v}\|\sin(\theta)</m> (by basic trig). 
+      Hence, the area of this parallelogram is <me>\|\v{u}\| \cdot \|\v{v}\| \sin(\theta)</me>, which is exactly the magnitude of the cross product, <m>\|\v{u} \times \v{v}\|</m>! 
+    </p>
 
     <example>
       <p>
-        Find the area of the triangle with vertices <m>P(1,0,0)</m>, <m>Q(3,0,1)</m>, and <m>R(2,2,0)</m>.
+        Find the area of the parallelogram with vertices <m>P(1,0,0)</m>, <m>Q(3,0,1)</m>, <m>R(2,2,0)</m>, and <m>S(4,2,1)</m>.
       </p>
+  
       <hint>
         <p>
-          A triangle is exactly <em>half</em> of a parallelogram. So if we find the area of the parallelogram spanned by vectors <m>\v{PQ}</m> and <m>\v{PR}</m>, we just need to divide by 2!
+          To help you visualize things, Richard coded the parallelogram below. 
         </p>
+
+        <figure xml:id="fig-parallelogram-interactive">
+  <caption>The parallelogram spanned by vectors <m>\overrightarrow{PQ}</m> and <m>\overrightarrow{PR}</m> with axes.</caption>
+  <sidebyside width="80%">
+    <interactive platform="sage" width="100%" aspect="1:1">
+      <slate surface="sage">
+        var('x,y,z')
+        # Vertices
+        P = vector([1, 0, 0])
+        Q = vector([3, 0, 1])
+        R = vector([2, 2, 0])
+
+        # Vectors u (PQ) and v (PR)
+        u = Q - P
+        v = R - P
+        
+        # Calculate the fourth vertex S
+        S = P + u + v
+        
+        # Draw Axes
+        # We manually draw arrows from the origin so they look like standard math axes
+        axes = arrow3d((0,0,0), (5,0,0), color='black', width=1) + text3d("x", (5.2,0,0), color='black') + \
+               arrow3d((0,0,0), (0,3,0), color='black', width=1) + text3d("y", (0,3.2,0), color='black') + \
+               arrow3d((0,0,0), (0,0,2), color='black', width=1) + text3d("z", (0,0,2.2), color='black')
+
+        # Draw the main vectors originating from P
+        vecs = arrow3d(P, Q, color='blue', width=3) + \
+               arrow3d(P, R, color='red', width=3)
+               
+        # Draw the parallelogram edges (P -> Q -> S -> R -> P)
+        perimeter = line3d([P, Q, S, R, P], color='black', thickness=2)
+
+        # Fill the parallelogram
+        fill = polygon3d([P, Q, S, R], color='lightgray', opacity=0.5)
+        
+        # Labels
+        labels = text3d("P", P + vector([0, -0.3, 0]), color='black') + \
+                 text3d("Q", Q + vector([0, -0.3, 0]), color='black') + \
+                 text3d("R", R + vector([0, 0.3, 0]), color='black') + \
+                 text3d("S", S + vector([0, 0.3, 0]), color='black') + \
+                 text3d("u", P + u/2, color='blue') + \
+                 text3d("v", P + v/2, color='red')
+        
+        # Combine everything
+        show(axes + vecs + perimeter + fill + labels, frame=False)
+      </slate>
+    </interactive>
+  </sidebyside>
+</figure>
+
       </hint>
+
+      <solution>
+        <p>
+          We choose <m>P</m> as our "anchor" point. The two vectors originating from <m>P</m> to its neighbors <m>Q</m> and <m>R</m> are:
+        </p>
+        <md>
+          <mrow>\overrightarrow{PQ} \amp = \langle 3-1, 0-0, 1-0 \rangle = \langle 2, 0, 1 \rangle</mrow>
+          <mrow>\overrightarrow{PR} \amp = \langle 2-1, 2-0, 0-0 \rangle = \langle 1, 2, 0 \rangle</mrow>
+        </md>
+        <p>
+          (Note: We do not need to use vertex <m>S</m> for the calculation, as <m>P</m>, <m>Q</m>, and <m>R</m> are sufficient to define the dimensions of the parallelogram.)
+        </p>
+        <p>
+          Now, we compute the cross product <m>\overrightarrow{PQ} \times \overrightarrow{PR}</m>:
+        </p>
+        <md>
+          <mrow>\overrightarrow{PQ} \times \overrightarrow{PR} \amp = \begin{vmatrix} \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\ 2 \amp 0 \amp 1 \\ 1 \amp 2 \amp 0 \end{vmatrix}</mrow>
+          <mrow> \amp = (0 - 2)\mathbf{i} - (0 - 1)\mathbf{j} + (4 - 0)\mathbf{k}</mrow>
+          <mrow> \amp = \langle -2, 1, 4 \rangle</mrow>
+        </md>
+        <p>
+          Finally, the area is the magnitude of this normal vector:
+        </p>
+        <md>
+          <mrow>\text{Area} \amp = \|\langle -2, 1, 4 \rangle\|</mrow>
+          <mrow> \amp = \sqrt{(-2)^2 + (1)^2 + (4)^2}</mrow>
+          <mrow> \amp = \sqrt{21}</mrow>
+        </md>
+      </solution>
     </example>
+
+    <p>
+      Observe that we really need three points to find the area of the parallelogram. 
+      Recall three points can also form a triangle, so we can also find the area of a triangle using the cross product. 
+      The area of a triangle is just half of the parallelogram formed by the same two vectors. 
+    </p>
+
+    <example>
+    <p>
+      Find the area of the triangle with vertices <m>A(1, 1, 1)</m>, <m>B(3, 2, 1)</m>, and <m>C(2, 3, 2)</m>.
+    </p>
+
+  <hint>
+    <p>
+      Richard coded the triangle and its vectors below to help you visualize the problem. 
+    </p>
+
+    <figure xml:id="fig-triangle-cross-product">
+      <caption>Visualization of the triangle vertices and vectors.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('x,y,z')
+            # 1. Define Points
+            A = vector([1, 1, 1])
+            B = vector([3, 2, 1])
+            C = vector([2, 3, 2])
+            
+            # 2. Define Vectors
+            AB = B - A
+            AC = C - A
+            
+            # 3. Create Graphics
+            # Vertices
+            pts = point3d([A, B, C], size=10, color='black')
+            
+            # Vectors AB and AC (Arrows)
+            # We explicitly pass start and end points to arrow3d
+            vec_ab = arrow3d(A, B, color='blue', width=3)
+            vec_ac = arrow3d(A, C, color='red', width=3)
+            
+            # The third side BC (Just a line)
+            side_bc = line3d([B, C], color='black', thickness=2)
+            
+            # Filled Triangle
+            # opacity=0.5 allows grid to show through
+            tri_fill = polygon3d([A, B, C], color='orange', opacity=0.5)
+            
+            # 4. Labels
+            # We add small offsets to text3d so they don't overlap the points
+            L_A = text3d("A", A + vector([-0.1, -0.1, 0]), color='black')
+            L_B = text3d("B", B + vector([0.1, 0, 0]), color='black')
+            L_C = text3d("C", C + vector([0, 0.1, 0]), color='black')
+            L_u = text3d("u", A + AB/2, color='blue')
+            L_v = text3d("v", A + AC/2, color='red')
+
+            # 5. Axes (Manual construction for better visibility)
+            axes = arrow3d((0,0,0), (4,0,0), color='black', width=1) + text3d("x", (4.2,0,0), color='black') + \
+                   arrow3d((0,0,0), (0,4,0), color='black', width=1) + text3d("y", (0,4.2,0), color='black') + \
+                   arrow3d((0,0,0), (0,0,3), color='black', width=1) + text3d("z", (0,0,3.2), color='black')
+
+            # Combine and Show
+            show(pts + vec_ab + vec_ac + side_bc + tri_fill + L_A + L_B + L_C + L_u + L_v + axes, frame=False)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      The area of a triangle is half the area of the parallelogram spanned by two vectors originating from the same vertex.
+    </p>
+  </hint>
+
+  <solution>
+    <p>
+      First, we find the vectors representing two sides of the triangle originating from <m>A</m>:
+    </p>
+    <md>
+      <mrow>\overrightarrow{AB} \amp = \langle 3-1, 2-1, 1-1 \rangle = \langle 2, 1, 0 \rangle</mrow>
+      <mrow>\overrightarrow{AC} \amp = \langle 2-1, 3-1, 2-1 \rangle = \langle 1, 2, 1 \rangle</mrow>
+    </md>
+    <p>
+      Next, we calculate the cross product <m>\overrightarrow{AB} \times \overrightarrow{AC}</m> using the determinant:
+    </p>
+    <md>
+      <mrow>\overrightarrow{AB} \times \overrightarrow{AC} \amp = \begin{vmatrix} \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\ 2 \amp 1 \amp 0 \\ 1 \amp 2 \amp 1 \end{vmatrix}</mrow>
+      <mrow> \amp = \mathbf{i}(1(1) - 0(2)) - \mathbf{j}(2(1) - 0(1)) + \mathbf{k}(2(2) - 1(1))</mrow>
+      <mrow> \amp = 1\mathbf{i} - 2\mathbf{j} + 3\mathbf{k}</mrow>
+      <mrow> \amp = \langle 1, -2, 3 \rangle</mrow>
+    </md>
+    <p>
+      Now, we find the magnitude of this normal vector:
+    </p>
+    <md>
+      <mrow>\|\overrightarrow{AB} \times \overrightarrow{AC}\| \amp = \sqrt{(1)^2 + (-2)^2 + (3)^2}</mrow>
+      <mrow> \amp = \sqrt{1 + 4 + 9}</mrow>
+      <mrow> \amp = \sqrt{14}</mrow>
+    </md>
+    <p>
+      Finally, the area of the triangle is half the magnitude of the cross product:
+    </p>
+    <me>
+      \text{Area} = \frac{1}{2}\sqrt{14} \approx 1.87
+    </me>
+  </solution>
+</example>
+
+<p>
+  We can summarize this result in the following theorem:
+</p>
+
+<theorem xml:id="thm-AreaParallelogramTriangle">
+  <title>Area of Parallelogram and Triangle</title>
+  <statement>
+    <p>
+      If <m>\c{P}</m> is the parallelogram spanned by <m>\v{v}</m> and <m>\v{w}</m>, and <m>\c{T}</m> is the triangle spanned by <m>\v{v}</m> and <m>\v{w}</m>, then
+      <md>
+        \text{Area}(\c{P}) = \|\v{v} \times \v{w}\|
+      </md>
+      and
+      <md>
+        \text{Area}(\c{T}) = \frac{1}{2}\|\v{v} \times \v{w}\|
+      </md>
+    </p>
+  </statement>
+</theorem>
+
   </subsection>
 
   <subsection xml:id="subsec-Volume">
     <title>Geometry: Volume of a Parallelepiped</title>
 
     <p>
-      If we add a third vector <m>\v{w}</m>, we lift the 2D parallelogram into a 3D slanted box called a <strong>Parallelepiped</strong>.
+      If we add a third vector <m>\v{w}</m>, we lift the 2D parallelogram into a 3D slanted box called a <term>Parallelepiped</term>.
     </p>
-
-    <p>
-      To find this volume, we use the <strong>Scalar Triple Product</strong>. Think about it: the area of the base is <m>\|\v{u} \times \v{v}\|</m>. The height of the box is the component of <m>\v{w}</m> in the direction of that normal vector.
-    </p>
-
-    <definition xml:id="def-TripleProduct">
-      <title>Volume of a Parallelepiped</title>
-      <statement>
-        <p>
-          The volume <m>V</m> of the parallelepiped determined by vectors <m>\v{u}, \v{v}, \v{w}</m> is the absolute value of the scalar triple product:
-          <me>
-            V = |\v{w} \cdot (\v{u} \times \v{v})| = \left| \begin{vmatrix} w_1 \amp w_2 \amp w_3 \\ u_1 \amp u_2 \amp u_3 \\ v_1 \amp v_2 \amp v_3 \end{vmatrix} \right|
-          </me>
-        </p>
-      </statement>
-    </definition>
 
     <figure>
-      <caption>A parallelepiped spanned by vectors u, v, w.</caption>
+      <caption>A parallelepiped spanned by three vectors</caption>
       <sidebyside width="80%">
       <interactive platform="sage" width="100%" aspect="1:1">
         <slate surface="sage">
@@ -521,6 +691,176 @@
       </interactive>
       </sidebyside>
     </figure>
+
+    <p>
+      We can actually find the <term>volume</term> of the parallelepiped using the cross product (and dot product) together! 
+      Generally speaking, the volume of a pallelepiped is the area of the base times the height.
+    </p>
+
+    <figure>
+        <image source="sec124_Parallelopiped_Volume.png" width="35%"></image>
+        <caption>Volume of a parallelepiped</caption>
+      </figure>
+
+    <p>
+      Observe that the base is the parallelogram spanned by <m>\v{v}</m> and <m>\v{w}</m>, so its area is <m>\|\v{v} \times \v{w}\|</m>. 
+      Also, a little trigonometry can tell us that the height of the parallelepiped is <m>\|\v{u}\| \cos(\theta)</m>, where <m>\theta</m> is the angle between <m>\v{u}</m> and <m>\v{v} \times \v{w}</m>. 
+      Hence, the volume of the parallelepiped is
+      <md>
+        <mrow>V \amp= \|\v{v} \times \v{w}\| \cdot \|\v{u}\| \cos(\theta) </mrow>
+      </md>
+      Observe that this is exactly the dot product of <m>\v{v}\times \v{w}</m> and <m>\v{u}</m>! 
+      Hence, the volume of the parallelepiped is the maginitude the dot product of some cross product and a vector. 
+      The dot product of a cross product and a vector is called the <term>Vector Triple Product</term>. 
+    </p>
+    <definition xml:id="def-TripleProduct">
+      <title>Volume of a Parallelepiped</title>
+      <statement>
+        <p>
+          Let <m>\v{u}, \v{v}, \v{w}</m> be nonzero vectors in <m>\R^3</m>.
+          Then the parallelepiped spanned by <m>\v{u}</m>, <m>\v{v}</m>, and <m>\v{w}</m> has volume
+          <md>
+            V = |\v{u} \cdot (\v{v} \times \v{w})|
+          </md>
+          where <m>\v{u} \cdot (\v{v} \times \v{w})</m> is the <term>vector triple product</term>. 
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      We can actually come up witl a cool formula to find the vector triple product using determinants!
+      Let's say <m>\v{u} = \la u_1, u_2, u_3 \ra</m>, <m>\v{v} = \la v_1, v_2, v_3 \ra</m>, and <m>\v{w} = \la w_1, w_2, w_3 \ra</m>.
+      Then we have
+      <md>
+        <mrow>\v{u}\cdot (\v{v}\times \v{w}) \amp= u\cdot \lp \begin{vmatrix} v_2 \amp v_3 \\ w_2 \amp w_3 \end{vmatrix} \v{i} - \begin{vmatrix} v_1 \amp v_3 \\ w_1 \amp w_3 \end{vmatrix} \v{j} + \begin{vmatrix} v_1 \amp v_2 \\ w_1 \amp w_2 \end{vmatrix} \v{k}\rp </mrow>
+        <mrow> \amp= u_1 \begin{vmatrix} v_2 \amp v_3 \\ w_2 \amp w_3 \end{vmatrix} - u_2 \begin{vmatrix} v_1 \amp v_3 \\ w_1 \amp w_3 \end{vmatrix} + u_3 \begin{vmatrix} v_1 \amp v_2 \\ w_1 \amp w_2 \end{vmatrix} </mrow>
+        <mrow> \amp= \det \begin{vmatrix} u_1 \amp u_2 \amp u_3 \\ v_1 \amp v_2 \amp v_3 \\ w_1 \amp w_2 \amp w_3 \end{vmatrix} </mrow>
+      </md>
+      Hence, we can find the vector triple product, which will determine the volume of the parallelepiped, using a 3x3 determinant! 
+    </p>
+
+    <p>
+      Sometimes, rather than listing out all the components of the vectors, we can represent the 3x3 determinant using the vectors themselves like this: 
+      <md>
+        \v{u} \cdot (\v{v} \times \v{w}) = \det \begin{pmatrix} \v{u} \\ \v{v} \\ \v{w} \end{pmatrix}
+      </md>
+    </p>
+
+    <example>
+    <p>
+      Consider the parallelepiped determined by the vectors <m>\v{u} = \langle 0, 1, 4 \rangle</m>, <m>\v{v} = \langle 3, 0, 1 \rangle</m>, and <m>\v{w} = \langle 1, 2, 0 \rangle</m> originating from the point <m>P(2, 0, 1)</m>.
+    </p>
+    <p>
+      <ol marker="a)">
+        <li>
+          <p>
+            Find the area of the base parallelogram spanned by vectors <m>\v{v}</m> and <m>\v{w}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the volume of the parallelepiped.
+          </p>
+        </li>
+      </ol>
+    </p>
+
+  <hint>
+    <p>
+      As always, Richard coded a pretty diagram below to help you visualize what the parallelogram and the parallelepiped look like! 
+    </p>
+
+    <figure xml:id="fig-parallelepiped-volume">
+      <caption>Visualization of the parallelepiped with base defined by <m>\v{v}</m> and <m>\v{w}</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('x,y,z')
+            # 1. Define Anchor Point and Vectors
+            P = vector([2, 0, 1])
+            u = vector([0, 1, 4])  # Height vector
+            v = vector([3, 0, 1])  # Base vector 1
+            w = vector([1, 2, 0])  # Base vector 2
+            
+            # 2. Define Custom Axes
+            axes = arrow3d((0,0,0), (6,0,0), color='black', width=1) + text3d("x", (6.2,0,0), color='black') + \
+                   arrow3d((0,0,0), (0,6,0), color='black', width=1) + text3d("y", (0,6.2,0), color='black') + \
+                   arrow3d((0,0,0), (0,0,6), color='black', width=1) + text3d("z", (0,0,6.2), color='black')
+            
+            # 3. Draw the three defining vectors from P
+            vec_u = arrow3d(P, P+u, color='green', width=3)
+            vec_v = arrow3d(P, P+v, color='blue', width=3)
+            vec_w = arrow3d(P, P+w, color='blue', width=3)
+            
+            # 4. Construct the Parallelepiped Edges (Wireframe)
+            # Base face (v and w)
+            base_outline = line3d([P+v, P+v+w, P+w], color='blue', thickness=2)
+            # Top face (shifted by u)
+            top_outline = line3d([P+u, P+u+v, P+u+v+w, P+u+w, P+u], color='green', thickness=2)
+            # Connecting pillars
+            pillars = line3d([P+v, P+v+u], color='green') + \
+                      line3d([P+w, P+w+u], color='green') + \
+                      line3d([P+v+w, P+v+w+u], color='green')
+            
+            # 5. Fill the Shapes
+            # Base Parallelogram (Darker opacity to emphasize "Base")
+            base_fill = polygon3d([P, P+v, P+v+w, P+w], color='cyan', opacity=0.6)
+            
+            # Full Parallelepiped (Lighter opacity to see inside)
+            # Note: polygon3d only draws faces. To look solid, we usually just draw the faces we care about
+            # or rely on the wireframe for clarity. Here we add the top face for effect.
+            top_fill = polygon3d([P+u, P+u+v, P+u+v+w, P+u+w], color='lightgreen', opacity=0.2)
+            
+            # 6. Labels
+            L_P = text3d("P", P + vector([-0.2, -0.2, 0]), color='black')
+            L_u = text3d("u", P + u/2 + vector([-0.2, 0, 0]), color='green')
+            L_v = text3d("v", P + v/2 + vector([0, -0.2, 0]), color='blue')
+            L_w = text3d("w", P + w/2 + vector([0.2, 0, 0]), color='blue')
+            
+            # Combine and Show
+            show(axes + vec_u + vec_v + vec_w + base_outline + top_outline + pillars + base_fill + top_fill + L_P + L_u + L_v + L_w, frame=False)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+  </hint>
+
+  <solution>
+    <p>
+      <ol marker="a">
+        <li>
+          <p>
+            The area of the base is the magnitude of the cross product <m>\v{v} \times \v{w}</m>.
+          </p>
+          <md>
+            <mrow>\v{v} \times \v{w} \amp = \begin{vmatrix} \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\ 3 \amp 0 \amp 1 \\ 1 \amp 2 \amp 0 \end{vmatrix}</mrow>
+            <mrow> \amp = (0 - 2)\mathbf{i} - (0 - 1)\mathbf{j} + (6 - 0)\mathbf{k}</mrow>
+            <mrow> \amp = \langle -2, 1, 6 \rangle</mrow>
+          </md>
+          <p>
+            Now, we compute the magnitude:
+          </p>
+          <md>
+            <mrow>\text{Area} \amp = \|\langle -2, 1, 6 \rangle\| = \sqrt{(-2)^2 + 1^2 + 6^2}</mrow>
+            <mrow> \amp = \sqrt{4 + 1 + 36} = \sqrt{41}</mrow>
+          </md>
+        </li>
+        <li>
+          <p>
+            The volume is the absolute value of the dot product of <m>\v{u}</m> with the normal vector found in part (a).
+          </p>
+          <md>
+            <mrow>\text{Volume} \amp = |\v{u} \cdot (\v{v} \times \v{w})|</mrow>
+            <mrow> \amp = |\langle 0, 1, 4 \rangle \cdot \langle -2, 1, 6 \rangle|</mrow>
+            <mrow> \amp = |(0)(-2) + (1)(1) + (4)(6)|</mrow>
+            <mrow> \amp = |0 + 1 + 24|</mrow>
+            <mrow> \amp = 25</mrow>
+          </md>
+        </li>
+      </ol>
+    </p>
+  </solution>
+</example>
   </subsection>
 
   <worksheet xml:id="ws-sec124">
