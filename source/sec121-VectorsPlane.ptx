@@ -737,6 +737,7 @@
     </example>
   </subsection>
 
+  
   <worksheet xml:id="ws-sec121">
     <title>Assigned Problems for Section 12.1</title>
     
@@ -754,42 +755,136 @@
       </p>
     </introduction>
 
-    <exercise number="12.1.5">
+    <exercise number="12.1.5" workspace="2in">
       <p>
-        Find the components of the <em>unit vector</em> <m>\v{u}</m> in the figure below.
+        Find the components of the <em>unit vector</em> <m>\v{u}</m> in the figure below. 
       </p>
 
       <figure xml:id="sec121-HW5-8-Figure">
         <image source="sec121-HW5-8-Figure.png" width="50%"></image>
       </figure>
+
+      <solution>
+        <p>
+          Since <m>\v{u}</m> makes an angle of <m>45^\circ</m> with the positive <m>x</m>-axis, its components are
+          <md>
+            \|\v{u}\| \la \cos\lp 45^\circ\rp, \sin\lp 45^\circ\rp \ra = \|\v{u}\| \la \frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\ra
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.1.11">
       <p>
         Find the components of <m>\overrightarrow{PQ}</m>, where <m>P=(1,-7)</m> and <m>Q=(0,17)</m>.
       </p>
+
+      <solution>
+        <p>
+          Using the definition of components of a vector, we have
+          <md>
+            \overrightarrow{PQ} = \la 0 - 1, 17 - (-7) \ra = \la -1, 24 \ra
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.1.19">
       <p>
-        Calculate <m>\langle 2e, 1 - 2\pi\rangle - \langle 2e - \pi, 8 - 2\pi\rangle</m>. 
+        Calculate <m>\la 2e, 1 - 2\pi\ra - \la 2e - \pi, 8 - 2\pi\ra</m>. 
       </p>
+
+      <solution>
+        <p>
+          Using vector algebra, we obtain
+          <md>
+            <mrow> \la 2e, 1 - 2\pi\ra - \la 2e - \pi, 8 - 2\pi\ra \amp= \la 2e - (2e - \pi), (1 - 2\pi) - (8 - 2\pi) \ra </mrow>
+            <mrow> \amp= \la \pi, -7 \ra </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.1.23">
       <p>
-        Sketch <m>2\mathbf{v}</m>, <m>-\mathbf{w}</m>, <m>\mathbf{v} + \mathbf{w}</m>, and <m>2\mathbf{v} - \mathbf{w}</m> in the following figure. 
+        Sketch <m>2\v{v}</m>, <m>-\v{w}</m>, <m>\v{v} + \v{w}</m>, and <m>2\v{v} - \v{w}</m> in the following figure. 
       </p>
 
       <figure xml:id="sec121-HW23-Figure">
         <image source="sec121-HW23-Figure.png" width="50%"></image>
       </figure>
+
+      <solution>
+        <p>
+          The scalar multiple <m>2\v{v}</m> points in the same direction as <m>\v{v}</m> and its length is twice the length of <m>\v{v}</m>. 
+          It is the vector <m>2\v{v} = \la 4, 6 \ra</m>. 
+        </p>
+
+        <figure>
+          <image source="sec121-HW23-Solution-Diagram1.png" width="50%"></image>
+          <caption>The sketch of <m>\v{v}</m> and <m>2\v{v}</m>.</caption>
+        </figure>
+
+        <p>
+          <m>-\v{w}</m> has the same length as <m>\v{w}</m> but points to the opposite direction. 
+          It is the vector <m>-\v{w} = \la -4, -1 \ra</m>.
+        </p>
+
+        <figure>
+          <image source="sec121-HW23-Solution-Diagram2.png" width="50%"></image>
+          <caption>The sketch of <m>\v{w}</m> and <m>-\v{w}</m>.</caption>
+        </figure>
+
+        <p>
+          The vector sum <m>\v{v} + \v{w}</m> is the vector: 
+          <md>
+            \v{v} + \v{w} = \la 2, 3 \ra + \la 4, 1 \ra = \la 6, 4 \ra
+          </md>
+          The vector is shown in the following figure: 
+        </p>
+
+        <figure>
+          <image source="sec121-HW23-Solution-Diagram3.png" width="50%"></image>
+          <caption>The sketch of <m>\v{v}</m>, <m>\v{w}</m>, and <m>\v{v} + \v{w}</m>.</caption>
+        </figure>
+
+        <p>
+          The vector <m>2\v{v} - \v{w}</m> is the vector: 
+          <md>
+            2\v{v} - \v{w} = 2\la 2, 3 \ra - \la 4, 1 \ra = \la 4, 6 \ra - \la 4, 1 \ra = \la 0, 5 \ra
+          </md>
+          It is shown next: 
+        </p>
+
+        <figure>
+          <image source="sec121-HW23-Solution-Diagram4.png" width="50%"></image>
+          <caption>The sketch of <m>\v{v}</m>, <m>\v{w}</m>, and <m>2\v{v} - \v{w}</m>.</caption>
+        </figure>
+
+      </solution>
     </exercise>
 
     <exercise number="12.1.25">
       <p>
-        Sketch <m>\mathbf{v} = \langle 0,2\rangle</m>,  <m>\mathbf{w} = \langle -2, 4\rangle</m>, <m>3\mathbf{v} + \mathbf{w}</m>, and <m>2\mathbf{v} - 2\mathbf{w}</m>. 
+        Sketch <m>\v{v} = \langle 0,2\rangle</m>,  <m>\v{w} = \langle -2, 4\rangle</m>, <m>3\v{v} + \v{w}</m>, and <m>2\v{v} - 2\v{w}</m>. 
       </p>
+
+      <solution>
+        <p>
+          We compute the vectors and then sketch them: 
+          <md>
+            3\v{v} + \v{w} = 3\la 0, 2 \ra + \la -2, 4 \ra = \la 0, 6 \ra + \la -2, 4 \ra = \la -2, 10 \ra
+          </md>
+          <md>
+            2\v{v} - 2\v{w} = 2\la 0, 2 \ra - 2\la -2, 4 \ra = \la 0, 4 \ra - \la -4, 8 \ra = \la 4, -4 \ra
+          </md>
+        </p>
+
+        <figure>
+          <image source="sec121-HW25-Solution-Diagram.png" width="50%"></image>
+          <caption>The sketch of <m>\v{v}, \v{w}, 3\v{v} + \v{w},</m> and <m>2\v{v} - 2\v{w}</m>.</caption>
+        </figure>
+      </solution>
     </exercise>
 
     <exercise number="12.1.35">
@@ -797,6 +892,19 @@
         Are <m>\overrightarrow{AB}</m> and <m>\overrightarrow{PQ}</m> parallel if <m>A=(1,1)</m>, <m>B=(3,4)</m>, <m>P=(1,1)</m>, and <m>Q=(7,10)</m>? 
         And if so, do they point in the same direction? 
       </p>
+
+      <solution>
+        <p>
+          We compute the vectors <m>\overrightarrow{AB}</m> and <m>\overrightarrow{PQ}</m>: 
+          <md>
+            \overrightarrow{AB} = \la 3 - 1, 4 - 1 \ra = \la 2, 3 \ra
+          </md>
+          <md>
+            \overrightarrow{PQ} = \la 7 - 1, 10 - 1 \ra = \la 6, 9 \ra
+          </md>
+          Since <m>\overrightarrow{AB} = \dfrac{1}{3} \la 6, 9 \ra</m>, the vectors are parallel and point in the same direction.
+        </p>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -809,37 +917,117 @@
     
       <exercise number="12.1.43">
         <p>
-          Unit vector <m>\mathbf{e}_\mathbf{v}</m>, where <m>\mathbf{v} = \langle 3, 4 \rangle</m>.
+          Unit vector <m>\v{e_v}</m>, where <m>\v{v} = \langle 3, 4 \rangle</m>.
         </p>
+
+        <solution>
+          <p>
+            We find the length of <m>\v{v} = \la 3, 4 \ra</m>: 
+            <md>
+              \|\v{v}\| = \sqrt{3^2 + 4^2} = 5
+            </md>
+            Then the unit vector in the direction of <m>\v{v}</m> is
+            <md>
+              \v{e_v} = \frac{1}{5} \la 3, 4 \ra = \la \frac{3}{5}, \frac{4}{5} \ra
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="12.1.45">
         <p>
-          Vector of length <m>4</m> in the direction of <m>\mathbf{u} = \langle -1, -1 \rangle</m>.
+          Vector of length <m>4</m> in the direction of <m>\v{u} = \langle -1, -1 \rangle</m>.
         </p>
+
+        <solution>
+          <p>
+            We first find the unit vector in the direction of <m>\v{u}</m>: 
+            <md>
+              \v{e_u} = \frac{1}{\|\v{u}\|} \v{u} = \frac{1}{\sqrt{(-1)^2 + (-1)^2}} \la -1, -1 \ra = \la -\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}} \ra
+            </md>
+          </p>
+
+          <p>
+            We now multiply <m>\v{e_u}</m> by <m>4</m> to obtain the desired vector: 
+            <md>
+              4\v{e_u} = 4 \la -\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}} \ra = \la -\frac{4}{\sqrt{2}}, -\frac{4}{\sqrt{2}} \ra = \la -2\sqrt{2}, -2\sqrt{2} \ra
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="12.1.49">
         <p>
-          Unit vector <m>\mathbf{e}</m> making an angle of <m>\dfrac{4\pi}{7}</m> with the <m>x</m>-axis. 
+          Unit vector <m>\v{e}</m> making an angle of <m>\dfrac{4\pi}{7}</m> with the <m>x</m>-axis. 
         </p>
+
+        <solution>
+          <p>
+            The unit vector <m>\v{e}</m> is the following vector: 
+            <md>
+              \v{e} = \la \cos\lp \frac{4\pi}{7}\rp, \sin\lp \frac{4\pi}{7}\rp \ra = \la -0.22, 0.97\ra
+            </md>
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
 
     <exercise number="12.1.61">
       <p>
-        Calculate the linear combination <m>\left(3\mathbf{i} + \mathbf{j}\right) - 6\mathbf{j} + 2\left(\mathbf{j} - 4\mathbf{i}\right)</m>
+        Calculate the linear combination <m>\lp 3\v{i} + \v{j} \rp - 6\v{j} + 2\lp \v{j} - 4\v{i} \rp</m>
       </p>
+
+      <solution>
+        <p>
+          <md>
+            <mrow> \lp 3\v{i} + \v{j} \rp - 6\v{j} + 2\lp \v{j} - 4\v{i} \rp \amp= \lp 3\la 1, 0\ra + \la 0, 1\ra \rp - 6\la 0, 1\ra + 2\lp \la 0, 1\ra - 4\la 1, 0\ra \rp </mrow>
+            <mrow> \amp= \lp \la 3, 0\ra + \la 0, 1\ra \rp - \la 0, 6\ra + 2\lp \la 0, 1\ra - \la 4, 0\ra \rp </mrow>
+            <mrow> \amp= \la 3, 0\ra + \la 0, 1\ra - \la 0, 6\ra + \la 0, 2\ra - \la 8, 0\ra </mrow>
+            <mrow> \amp= \la 3 + 0 - 0 + 0 - 8, 0 + 1 - 6 + 2 - 0 \ra </mrow>
+            <mrow> \amp= \la -5, -3 \ra </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.1.65">
       <p>
-        Express <m>\mathbf{u}</m> as a linear combination <m>\mathbf{u} = r\mathbf{v} + s\mathbf{w}</m>, where 
+        Express <m>\v{u}</m> as a linear combination <m>\v{u} = r\v{v} + s\v{w}</m>, where 
         <md>
-          \mathbf{u} = \langle 3, -1 \rangle; \qquad\qquad \mathbf{v} = \langle 2, 1 \rangle \quad \text{and} \quad \mathbf{w} = \langle 1, 3 \rangle.
+          \v{u} = \langle 3, -1 \rangle; \qquad\qquad \v{v} = \langle 2, 1 \rangle \quad \text{and} \quad \v{w} = \langle 1, 3 \rangle.
         </md>
-        Then sketch <m>\mathbf{u}, \mathbf{v},\mathbf{w}</m>, and the parallelogram formed by <m>r\mathbf{v}</m> and <m>s\mathbf{w}</m>.
+        Then sketch <m>\mathbf{u}, \mathbf{v},\mathbf{w}</m>, and the parallelogram formed by <m>r\v{v}</m> and <m>s\v{w}</m>.
       </p>
+
+      <solution>
+        <p>
+          We have
+          <md>
+            \v{u} = \la 3, -1 \ra = r\v{v} + s\v{w} = r\la 2, 1 \ra + s\la 1, 3 \ra
+          </md>
+          which becomes the system of equations
+          <md>
+            \begin{cases}
+              3 = 2r + s \\
+              -1 = r + 3s
+            \end{cases}
+          </md>
+          Solving the above system of equations, we obtain <m>r = 2</m> and <m>s = -1</m>. 
+        </p>
+
+        <p>
+          Hence, the linear combination is 
+          <md>
+            \v{u} = \la 3, -1 \ra = 2\la 2, 1\ra - 1\la 1, 3 \ra
+          </md>
+          The sketch is shown below. 
+        </p>
+
+        <figure>
+          <image source="sec121-HW65-Solution-Diagram.png" width="50%"></image>
+          <caption>The sketch of <m>\v{u}, \v{v}, \v{w}</m> and the parallelogram formed by <m>r\v{v}</m> and <m>s\v{w}</m>.</caption>
+        </figure>
+      </solution>
     </exercise>
 
     <exercise number="12.1.67">
@@ -850,6 +1038,61 @@
       <figure xml:id="sec121-HW67-Figure">
         <image source="sec121-HW67-Figure.png" width="50%"></image>
       </figure>
+
+      <solution>
+        <p>
+          The three forces acting on the point <m>P</m> are: 
+          <ul>
+            <li>
+              <p>
+                The force <m>\v{F}</m> of magnitude <m>50</m> lb that acts vertically downward. 
+              </p>
+            </li>
+            <li>
+              <p>
+                The forces <m>\v{F}_1</m> and <m>\v{F}_2</m> that act through cables 1 and 2 respectively. 
+              </p>
+            </li>
+          </ul>
+          The diagram below shows the vectors representing these forces. 
+        </p>
+
+        <figure>
+          <image source="sec121-HW67-Solution-Diagram.jpg" width="50%"></image>
+        </figure>
+
+        <p>
+          Since the point <m>P</m> is not in motion, we have
+          <md>
+            \v{F}_1 + \v{F}_2 + \v{F} = \v{0}
+          </md>
+          We compute the forces. 
+          Let <m>\|\v{F}_1\| = f_1</m> and <m>\|\v{F}_2\| = f_2</m>. 
+          We have
+          <md>
+            <mrow>\v{F}_1 \amp= f_1 \la \cos(115^\circ), \sin(115^\circ) \ra = f_1 \la -0.423, 0.906 \ra </mrow>
+            <mrow>\v{F}_2 \amp= f_2 \la \cos(25^\circ), \sin(25^\circ) \ra = f_2 \la 0.906, 0.423 \ra </mrow>
+            <mrow>\v{F} \amp= \la 0, -50 \ra </mrow>
+          </md>
+          Substituting the forces into the equation gives
+          <md>
+            <mrow>f_1 \la -0.423, 0.906 \ra + f_2 \la 0.906, 0.423 \ra + \la 0, -50 \ra \amp= \v{0}</mrow>
+            <mrow> \la -0.423 f_1 + 0.906 f_2, 0.906 f_1 + 0.423 f_2 - 50 \ra \amp= \la 0, 0 \ra </mrow>
+          </md>
+          We equate corresponding components and get 
+          <md>
+            \begin{cases}
+              -0.423 f_1 + 0.906 f_2 = 0 \\
+              0.906 f_1 + 0.423 f_2 - 50 = 0
+            \end{cases}
+          </md>
+          Solving the above system of equations, we obtain <m>f_1 = 45.29</m> and <m>f_2 = 21.16</m>. 
+        </p>
+
+        <p>
+          We conclude that the magnitude of the force on cable 1 is <m>f_1 = 45.29</m> lb and the magnitude of the force on cable 2 is <m>f_2 = 21.16</m> lb. 
+        </p>
+      </solution>
     </exercise>
   </worksheet>
 

@@ -1264,6 +1264,15 @@
       <p>
         Find the components of the vector <m>\overrightarrow{PQ}</m>, where <m>P = (1,0,1)</m> and <m>Q = (2,1,0)</m>
       </p>
+
+      <solution>
+        <p>
+          By the definition of the vector components we have
+          <md>
+            \overrightarrow{PQ} = \la 2 - 1, 1 - 0, 0 - 1 \ra = \la 1, 1, -1 \ra
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.2.13">
@@ -1294,12 +1303,52 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <p>
+          A vector is parallel to <m>\v{v}</m> if it is a scalar multiple of <m>\v{v}</m>. 
+          It points in the same direction if the multiplying scalar is positive. 
+          Using these properties we obtain the following answers: 
+          <ol>
+            <li>
+              <p>
+                <m>\la 2,4,6 \ra = \dfrac{1}{2}\v{v}</m>. 
+                The vectors are parallel and point in the same direction. 
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\la -1,-2,3 \ra</m> is not a scalar multiple of <m>\v{v}</m>, hence these vectors are not parallel.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\la -7,-14,-21 \ra = -\dfrac{7}{4}\v{v}</m>. 
+                The vectors are parallel but point in opposite directions.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\la 6,10,14 \ra</m> is not a scalar multiple of <m>\v{v}</m>. hence these vectors are not parallel.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.2.25">
       <p>
         Determine whether or not the two vectors <m>\v{u} = \la 4,2,-6 \ra</m> and  <m>\v{v} = \la 2,-1,3 \ra</m> are parallel. 
       </p>
+
+      <solution>
+        <p>
+          Since the first component of <m>\v{u}</m> is twice the first component of <m>\v{v}</m>, if the two vectors are to be parallel, the second component of <m>\v{u}</m> must be twice the second component of <m>\v{v}</m>. 
+          But it is not; it is <m>-2</m> times the second component of <m>\v{v}</m>. 
+          Thus the two vectors are not parallel. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.2.32">
@@ -1328,6 +1377,62 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <p>
+          By the definition of the standard basis vectors in <m>\R^3</m> and the definition of vector length, we obtain the following answers: 
+          <ol>
+            <li>
+              <p>
+                <m>4\v{i} + 3\v{j} - 2\v{k} = \la 4,3,-2 \ra</m>
+              </p>
+              <p>
+                <m>\|4\v{i} + 3\v{j} - 2\v{k}\| = \sqrt{4^2 + 3^2 + (-2)^2} = \sqrt{16 + 9 + 4} = \sqrt{29}</m>
+              </p>
+              <figure>
+                <image source="sec122-HW32-Solution-Diagram-a.png" width="40%"></image>
+                <caption>Sketch of <m>4\v{i} + 3\v{j} - 2\v{k}</m></caption>
+              </figure>
+            </li>
+            <li>
+              <p>
+                <m>\v{i} + \v{j} + \v{k} = \la 1,1,1 \ra</m>
+              </p>
+              <p>
+                <m>\|\v{i} + \v{j} + \v{k}\| = \sqrt{1^2 + 1^2 + 1^2} = \sqrt{3}</m>
+              </p>
+              <figure>
+                <image source="sec122-HW32-Solution-Diagram-b.png" width="40%"></image>
+                <caption>Sketch of <m>\v{i} + \v{j} + \v{k}</m></caption>
+              </figure>
+            </li>
+            <li>
+              <p>
+                <m>4\v{j} + 3\v{k} = \la 0,4,3 \ra</m>
+              </p>
+              <p>
+                <m>\|4\v{j} + 3\v{k}\| = \sqrt{0^2 + 4^2 + 3^2} = \sqrt{16 + 9} = 5</m>
+              </p>
+              <figure>
+                <image source="sec122-HW32-Solution-Diagram-c.png" width="40%"></image>
+                <caption>Sketch of <m>4\v{j} + 3\v{k}</m></caption>
+              </figure>
+            </li>
+            <li>
+              <p>
+                <m>12\v{i} + 8\v{j} - \v{k} = \la 12,8,-1 \ra</m>
+              </p>
+              <p>
+                <m>\|12\v{i} + 8\v{j} - \v{k}\| = \sqrt{12^2 + 8^2 + (-1)^2} = \sqrt{144 + 64 + 1} = \sqrt{209}</m>
+              </p>
+              <figure>
+                <image source="sec122-HW32-Solution-Diagram-d.png" width="40%"></image>
+                <caption>Sketch of <m>12\v{i} + 8\v{j} - \v{k}</m></caption>
+              </figure>
+            </li>
+          </ol>
+        </p>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -1342,13 +1447,164 @@
         <p>
           <m>x^2 + y^2 + (z - 2)^2 = 4</m>, with <m>z\geq 2</m>
         </p>
+
+        <solution>
+          <p>
+            The equation <m>x^2 + y^2 + (z - 2)^2 = 4</m> describes a sphere of radius <m>2</m> centered at <m>(0,0,2)</m>. 
+            The inequality <m>z \geq 2</m> restricts the surface to the upper hemisphere (the top half of the sphere).
+          </p>
+
+          <p>
+            The surface is shown in the figure below. 
+          </p>
+
+          <figure>
+            <caption>Upper semi-sphere with radius <m>2</m> and centered at <m>(0,0,2)</m></caption>
+            <sidebyside width="80%">
+            <interactive xml:id="sage-sphere-multi-ticks" platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                  var('u, v')
+                  
+                  # 1. Surface (z goes from 2 to 4)
+                  sphere_surface = parametric_plot3d(
+                      [2*sin(u)*cos(v), 2*sin(u)*sin(v), 2*cos(u) + 2], 
+                      (u, 0, pi/2), (v, 0, 2*pi), 
+                      color='cyan', opacity=0.6, mesh=True
+                  )
+
+                  # 2. Axes Lengths
+                  x_len, y_len, z_len = 3, 3, 5
+                  
+                  # Draw Arrows
+                  axes_arrows = (
+                      arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                      arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                      arrow3d((0,0,0), (0,0,z_len), color='black', width=1)
+                  )
+                  
+                  # Draw Axis Labels (x, y, z)
+                  axes_labels = (
+                      text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                      text3d("y", (0, y_len + 0.2, 0), color='black') +
+                      text3d("z", (0, 0, z_len + 0.2), color='black')
+                  )
+
+                  # 3. Generate Multiple Ticks and Label "1"
+                  ticks = Graphics()
+                  tick_labels = Graphics()
+                  tick_size = 0.15
+                  
+                  # X-axis: Ticks at 1, 2, ...
+                  for i in range(1, x_len):
+                      ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black', thickness=2)
+                      if i == 1:
+                          tick_labels += text3d("1", (i, -0.5, 0), color='black')
+                      
+                  # Y-axis: Ticks at 1, 2, ...
+                  for i in range(1, y_len):
+                      ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black', thickness=2)
+                      if i == 1:
+                          tick_labels += text3d("1", (0.5, i, 0), color='black')
+
+                  # Z-axis: Ticks at 1, 2, 3, 4...
+                  for i in range(1, z_len):
+                      ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black', thickness=2)
+                      if i == 1:
+                          tick_labels += text3d("1", (0, -0.5, i), color='black')
+
+                  # 4. Show Everything
+                  show(sphere_surface + axes_arrows + axes_labels + ticks + tick_labels, frame=False)
+              </slate>
+            </interactive>
+            </sidebyside>
+          </figure>
+        </solution>
       </exercise>
 
       <exercise number="12.2.35">
         <p>
           <m>x^2 + y^2 = 7</m>, with <m>|z| \leq 7</m>
         </p>
+
+        <solution>
+          <p>
+            The equation <m>x^2 + y^2 = 7</m> describes a cylinder of radius <m>\sqrt{7}</m> centered on the <m>z</m>-axis. 
+            The inequality <m>|z| \leq 7</m> restricts the cylinder to the finite portion between the planes <m>z = -7</m> and <m>z = 7</m>.
+          </p>
+
+          <p>
+            The surface is shown in the figure below. 
+          </p>
+
+          <figure>
+            <caption>Cylinder with <m>r=\sqrt{7}</m> between <m>z=-7</m> and <m>z=7</m></caption>
+            <sidebyside width="80%">
+            <interactive xml:id="sage-cylinder-plot" platform="sage" width="100%" aspect="1:1">
+                <slate surface="sage">
+                    var('u, v')
+                    
+                    # 1. Define Cylinder Surface
+                    # x = sqrt(7)*cos(u)
+                    # y = sqrt(7)*sin(u)
+                    # z = v  (from -7 to 7)
+                    r = sqrt(7)
+                    cylinder_surf = parametric_plot3d(
+                        [r*cos(u), r*sin(u), v],
+                        (u, 0, 2*pi), (v, -7, 7),
+                        color='cyan', opacity=0.6, mesh=True
+                    )
+
+                    # 2. Axes Setup
+                    # Cylinder extends to z=7/-7, so axes go to 8/-8
+                    x_len, y_len, z_len = 4, 4, 8
+                    
+                    axes_arrows = (
+                        arrow3d((0,0,0), (x_len,0,0), color='black', width=1) +
+                        arrow3d((0,0,0), (0,y_len,0), color='black', width=1) +
+                        arrow3d((0,0,0), (0,0,z_len), color='black', width=1) +  # Positive Z
+                        arrow3d((0,0,0), (0,0,-z_len), color='black', width=1)   # Negative Z
+                    )
+                    
+                    axes_labels = (
+                        text3d("x", (x_len + 0.2, 0, 0), color='black') +
+                        text3d("y", (0, y_len + 0.2, 0), color='black') +
+                        text3d("z", (0, 0, z_len + 0.2), color='black')
+                    )
+
+                    # 3. Ticks and Labels
+                    ticks = Graphics()
+                    tick_labels = Graphics()
+                    tick_size = 0.2
+                    
+                    # X-axis ticks
+                    for i in range(1, x_len):
+                        ticks += line3d([(i, -tick_size, 0), (i, tick_size, 0)], color='black', thickness=2)
+                        if i == 1:
+                            tick_labels += text3d("1", (i, -0.6, 0), color='black')
+
+                    # Y-axis ticks
+                    for i in range(1, y_len):
+                        ticks += line3d([(-tick_size, i, 0), (tick_size, i, 0)], color='black', thickness=2)
+                        if i == 1:
+                            tick_labels += text3d("1", (0.6, i, 0), color='black')
+
+                    # Z-axis ticks (Negative and Positive)
+                    # Range from -7 to 7 (skipping 0)
+                    for i in range(-z_len + 1, z_len):
+                        if i == 0: continue
+                        ticks += line3d([(0, -tick_size, i), (0, tick_size, i)], color='black', thickness=2)
+                        if i == 1:
+                            tick_labels += text3d("1", (0, -0.6, i), color='black')
+
+                    # 4. Show All
+                    show(cylinder_surf + axes_arrows + axes_labels + ticks + tick_labels, frame=False)
+                </slate>
+            </interactive>
+            </sidebyside>
+          </figure>
+        </solution>
       </exercise>
+
     </exercisegroup>
 
     <exercisegroup>
@@ -1360,14 +1616,42 @@
       </introduction>
 
       <exercise number="12.2.39">
-        <p>The sphere centered at <m>(6,-3,11)</m> passing through <m>(0,1,-4)</m>
+        <p>
+          The sphere centered at <m>(6,-3,11)</m> passing through <m>(0,1,-4)</m>
         </p>
+
+        <solution>
+          <p>
+            The radius of the sphere is the distance between the center <m>C=(6,-3,11)</m> and the point on the surface <m>P=(0,1,-4)</m>:
+            <md>
+              r^2 = (6-0)^2 + (-3-1)^2 + (11-(-4))^2 = 36 + 16 + 225 = 277
+            </md>
+            Thus, the equation of the sphere is
+            <md>
+              (x-6)^2 + (y+3)^2 + (z-11)^2 = 277
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="12.2.41">
         <p>
           The cylinder passing through the origin with the vertical line through <m>(1,-1,0)</m> as its central axis. 
         </p>
+
+        <solution>
+          <p>
+            The vertical line through <m>(1,-1,0)</m> corresponds to the axis <m>x=1</m>, <m>y=-1</m>. 
+            Since the cylinder passes through the origin <m>(0,0,0)</m>, the radius is the distance from the axis to the origin:
+            <md>
+              r = \sqrt{(1-0)^2 + (-1-0)^2} = \sqrt{2}
+            </md>
+            Therefore, the equation of the cylinder is
+            <md>
+              (x-1)^2 + (y+1)^2 = 2
+            </md>
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
 
@@ -1383,12 +1667,30 @@
        <p>
         Passes through <m>P = (1,2,-8)</m>, direction vector <m>\v{v} = \la 2,1,3 \ra</m>
        </p>
+
+       <solution>
+        <p>
+          A vector parametrization of the line is 
+          <md>
+            \v{r}(t) = \la 1,2,-8 \ra + t \la 2,1,3 \ra = \la 1 + 2t, 2 + t, -8 + 3t \ra
+          </md>
+        </p>
+       </solution>
       </exercise>
 
       <exercise number="12.2.45">
         <p>
           Passes through <m>P = (4,0,8)</m>, direction vector <m>\v{v} = 7\v{i} + 4\v{k}</m> 
         </p>
+
+        <solution>
+          <p>
+            Since <m>\v{v} = 7\v{i} + 4\v{k} = \la 7,0,4 \ra</m>, we obtain the following parametrization: 
+            <md>
+              \v{r}(t) = \overrightarrow{PQ} + t\v{v} = \la 4,0,8 \ra + t \la 7,0,4 \ra = \la 4 + 7t, 0, 8 + 4t \ra
+            </md>
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
 
@@ -1408,18 +1710,86 @@
           Show that <m>\v{r}_2(t)</m> passes through <m>(3,-1,4)</m> and that the direction vectors for <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> are parallel. 
         </p>
       </hint>
+
+      <solution>
+        <p>
+          We observe first that the direction vectors of <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> are multiples of each other: 
+          <md>
+            \la 8,12,-6 \ra = 2\la 4,6,-3 \ra
+          </md>
+          Therefore, <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> are parallel. 
+          To show they coincide, it suffices to prove that they share a point in common, so we verify that <m>\v{r}_1(0) = \la 3,-1,4 \ra</m> lies on <m>\v{r}_2(t)</m> by solving for <m>t</m>: 
+          <md>
+            <mrow>\la 3,-1,4 \ra \amp= \la 11,11,-2 \ra + t \la 4,6,-3 \ra </mrow>
+            <mrow>\la 3,-1,4 \ra - \la 11,11,-2 \ra \amp= t \la 4,6,-3 \ra </mrow>
+            <mrow>\la -8,-12,6 \ra \amp= t \la 4,6,-3 \ra </mrow>
+          </md>
+          This equation is satisfied for <m>t = -2</m>, so <m>\v{r}_1</m> and <m>\v{r}_2</m> coincide. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.2.59">
       <p>
         Find two different vector parametrizations of the line through <m>P = (5,5,2)</m> with direction vector <m>\v{v} = \la 0,-2,1 \ra</m>. 
       </p>
+
+      <solution>
+        <p>
+          Two different parametrizations are 
+          <md>
+            <mrow>\v{r}_1(t) \amp= \la 5,5,2 \ra + t \la 0,-2,1 \ra </mrow>
+            <mrow>\v{r}_2(t) \amp= \la 5,5,2 \ra + t \la 0,-20,10 \ra </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.2.63">
       <p>
         Determine whether the lines <m>\v{r}_1(t) = \la 0,1,1 \ra + t \la 1,1,2 \ra</m> and <m>\v{r}_2(s) = \la 2,0,3 \ra + s \la 1,4,4 \ra</m> intersect, and if so, find the point of intersection.
       </p>
+
+      <solution>
+        <p>
+          The lines intersect if there exist parameter values <m>t</m> and <m>s</m> such that
+          <md>
+            <mrow>\la 0,1,1 \ra + t \la 1,1,2 \ra \amp= \la 2,0,3 \ra + s \la 1,4,4 \ra </mrow>
+            <mrow>\la t,1+t,1+2t \ra \amp= \la 2+s,4s,3+4s \ra </mrow>
+          </md>
+          Equating corresponding components, we get
+          <md>
+            \begin{cases}
+              t = 2 + s \\
+              1 + t = 4s \\
+              1 + 2t = 3 + 4s
+            \end{cases}
+          </md>
+          Substituting <m>t</m> from the first equation into the second equation we get
+          <md>
+            \begin{cases}
+              1 + 2 + s = 4s \\
+              3s = 3
+            \end{cases}
+            \qquad \implies \qquad
+            s = 1, t = 2 + s = 3
+          </md>
+          We now check whether <m>s = 1</m> and <m>t = 3</m> satisfy the third equation: 
+          <md>
+            <mrow>1 + 2\cdot 3 \amp= 3 + 4\cdot 1 </mrow>
+            <mrow>7 \amp= 7 </mrow>
+          </md>
+          We conclude that <m>s = 1</m>, <m>t = 3</m> is the solution to the equation, hence the two lines intersect. 
+        </p>
+
+        <p>
+          To find the point of intersection we substitute <m>s = 1</m> in the right-hand side of the equation to obtain
+          <md>
+            \la 2+1,4\cdot 1,3+4\cdot 1 \ra = \la 3,4,7 \ra
+          </md>
+          The point of intersection is the terminal point of this vector, that is, <m>\lp 3,4,7 \rp</m>
+        </p>
+      </solution>
     </exercise>
   </worksheet>
 
