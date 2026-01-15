@@ -393,7 +393,7 @@ w_1 \amp w_2 \amp w_3
 <div class="para">Let <span class="process-math">\(\v{v} = \la v_1, v_2, v_3 \ra\text{.}\)</span> Then we have</div>
 <div class="displaymath process-math" id="subsec-CrossPropertiesBasis-8-2-1-2-1-2">
 \begin{align*}
-\v{v} \times \v{v} \amp= \det \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ v_1 \amp v_2 \amp v_3 \\ v_1 \amp v_2 \amp v_3 \end{vmatrix}\\
+\v{v} \times \v{v} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ v_1 \amp v_2 \amp v_3 \\ v_1 \amp v_2 \amp v_3 \end{vmatrix}\\
 \amp= \la v_2 v_3 - v_3 v_2, -(v_1 v_3 - v_3 v_1), v_1 v_2 - v_2 v_1 \ra\\
 \amp= \la 0, -0, 0 \ra\\
 \amp= \v{0}
@@ -641,7 +641,7 @@ w_1 \amp w_2 \amp w_3
 </div>
 <figure class="figure figure-like" id="subsec-Volume-5"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/sec124_Parallelopiped_Volume.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.4.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Volume of a parallelepiped<div class="autopermalink" data-description="Figure 12.4.18"><a href="#subsec-Volume-5" title="Copy heading and permalink for Figure 12.4.18" aria-label="Copy heading and permalink for Figure 12.4.18">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-Volume-6">
-<div class="para">Observe that the base is the parallelogram spanned by <span class="process-math">\(\v{v}\)</span> and <span class="process-math">\(\v{w}\text{,}\)</span> so its area is <span class="process-math">\(\|\v{v} \times \v{w}\|\text{.}\)</span> Also, a little trigonometry can tell us that the height of the parallelepiped is <span class="process-math">\(\|\v{u}\| \cos(\theta)\text{,}\)</span> where <span class="process-math">\(\theta\)</span> is the angle between <span class="process-math">\(\v{u}\)</span> and <span class="process-math">\(\v{v} \times \v{w}\text{.}\)</span> Hence, the volume of the parallelepiped is</div>
+<div class="para">Observe that the base is the parallelogram spanned by <span class="process-math">\(\v{v}\)</span> and <span class="process-math">\(\v{w}\text{,}\)</span> so its area is <span class="process-math">\(\|\v{v} \times \v{w}\|\text{.}\)</span> Also, a little trigonometry can tell us that the height of the parallelepiped is <span class="process-math">\(\|\v{u}\| \cos(\theta)\text{,}\)</span> where <span class="process-math">\(\theta\)</span> is the angle between <span class="process-math">\(\v{v} \times \v{w}\)</span> and <span class="process-math">\(\v{u}\text{.}\)</span> Hence, the volume of the parallelepiped is</div>
 <div class="displaymath process-math" id="subsec-Volume-6-8">
 \begin{align*}
 V \amp= \|\v{v} \times \v{w}\| \cdot \|\v{u}\| \cos(\theta) 
@@ -669,7 +669,7 @@ V = |\v{u} \cdot (\v{v} \times \v{w})|
 \begin{align*}
 \v{u}\cdot (\v{v}\times \v{w}) \amp= u\cdot \lp \begin{vmatrix} v_2 \amp v_3 \\ w_2 \amp w_3 \end{vmatrix} \v{i} - \begin{vmatrix} v_1 \amp v_3 \\ w_1 \amp w_3 \end{vmatrix} \v{j} + \begin{vmatrix} v_1 \amp v_2 \\ w_1 \amp w_2 \end{vmatrix} \v{k}\rp \\
 \amp= u_1 \begin{vmatrix} v_2 \amp v_3 \\ w_2 \amp w_3 \end{vmatrix} - u_2 \begin{vmatrix} v_1 \amp v_3 \\ w_1 \amp w_3 \end{vmatrix} + u_3 \begin{vmatrix} v_1 \amp v_2 \\ w_1 \amp w_2 \end{vmatrix} \\
-\amp= \det \begin{vmatrix} u_1 \amp u_2 \amp u_3 \\ v_1 \amp v_2 \amp v_3 \\ w_1 \amp w_2 \amp w_3 \end{vmatrix} 
+\amp= \begin{vmatrix} u_1 \amp u_2 \amp u_3 \\ v_1 \amp v_2 \amp v_3 \\ w_1 \amp w_2 \amp w_3 \end{vmatrix} 
 \end{align*}
 </div>
 <div class="para">Hence, we can find the vector triple product, which will determine the volume of the parallelepiped, using a 3x3 determinant!</div>
