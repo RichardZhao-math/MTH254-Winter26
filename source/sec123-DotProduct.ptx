@@ -1561,6 +1561,18 @@
         Express the corresponding wind vector as a sum of vectors, one parallel to the bridge and one perpendicular to it. 
         Also, compute the magnitude of the perpendicular term to determine the speed of the part of the wind blowing directly at the bridge. 
       </p>
+
+      <hint>
+        <p>
+          Richard drew a pretty diagram based on his interpretation of this problem (by saying drawing, what he really meant is coding using TikZ...). 
+          Your goal is to find the two components of the vector <m>\v{w}</m>, one parallel to <m>\v{u}</m> and one orthogonal to <m>\v{u}</m>. 
+        </p>
+
+        <figure>
+          <image source="sec123-HW85-Solution-Diagram.png" width="60%"></image>
+          <caption>Wind vector decomposition</caption>
+        </figure>
+      </hint>
     </exercise>
 
     <exercise number="12.3.87">
