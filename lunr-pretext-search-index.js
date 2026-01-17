@@ -1411,7 +1411,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "12.4",
   "title": "The Cross Product",
-  "body": " The Cross Product   In the previous section, we learned about the Dot Product , a way to multiply two vectors to get a scalar (a single number). You might be wondering whether there is another way to multiply two vectors?  The answer is yes! We can multiply two vectors in a special way to get a third vector. This is called the Cross Product . However, unlike the dot product which works in any dimension, the cross product is special. It only works meaningfully in . This operation is incredibly useful for finding orthogonal directions, calculating areas, and understanding rotation in physics.    After this section, students will be able to:    compute the cross product of two vectors using determinants.  use standard basis properties to simplify cross product calculations.  calculate the area of a parallelogram and the volume of a parallelepiped.  apply the cross product to physics problems involving torque.     Let's dive right into the definition. The formula can look a bit intimidating at first, but we will use a tool called a determinant to help us remember it.   The Cross Product   Given two vectors and in , the cross product  is the vector defined by:     Wow this definition looks crazy! No one should memorize this long of a formula! If you know a bit linear algebra, the cross product can be computed using the determinant .  Given the two vectors and , we can construct a matrix as follows: where the , , and are the standard basis vectors in .  It turns out that the cross product is the determinant of this matrix. That is,   P.S.: Yes Richard did a cofactor expansion on the first row in his work above. Remember that this isn't really a linear algebra class so he will not go in depth on the cofactor expansion. If linear algebra isn't your thing and you don't want to memorize the formula (no one should), you can find the determine of a 3x3 matrix using the lattice method. Below is a quick video tutorial on how to do that:   Quick Tutorial on Computing the Determinant of a 3x3 Matrix     Compute for and .      Below is a quick sketch to visualize the two vectors and their cross product.   Visualizing for and        Now that we know how the cross product works, let's explore some of its important properties!   Properties of the Cross Product  Let's start off by observing the behavior of the cross product in the . The most obvious observation here is that is also a vector!  We can also see that is orthogonal to both and . It turns out that the cross product always produces a vector that is perpendicular to both input vectors, following the right-hand rule , which states that when the fingers of your right hand curl from to , your thumb points to the same side of the plane spanned by and as their cross product .    Right-Hand Rule for Cross Product   Other than these geometric properties, the cross product also has several algebraic properties that are useful in computations.   Basic Properties of the Cross Product       (Anticommutative Property)     (Cross Product with Itself is Zero)     if and only if either for some scalar or      (Scalar Multiplication)        (Distributive Property)       Some of the results can be justified directly from the right-hand rule and geometric intuition. For example, the anticommutative property makes sense because switching the order of the vectors reverses the direction of the resulting vector. As a mathematician, we should also verify these properties using the definition of the cross product (the one with the determinant).   Some Proofs of Cross Product Properties  Richard will prove some of these properties using the determinant definition of the cross product. Some will be left as exercises for the reader.   Let and . Then we obtain Thus, the cross product is anticommutative.    Let . Then we have     Left as an exercise to the reader.    Left as an exercise to the reader.    Left as an exercise to the reader.      The most fun thing about the cross product is how it interacts with the standard basis vectors in . Recall the standard basis vectors are , , and . Because these are orthogonal unit vectors, following the right-hand rule, we have a cyclic pattern:       If you reverse the order, you get the negative (anticommutative):       The following circle summarizes these properties:    Circle for Computing the Cross Product of Standard Basis Vectors   If you don't mind some FOIL-ing and combining like terms, you can actually use this circle to compute the cross product instead of the determinant!   Calculate the cross product .        This is actually how the determinant formula is derived! If we write and and expand like a polynomial, we can use the rules above to simplify the terms.   If you want to see a bunch of letters here to derive the formula...  To be a due diligent mathematician, Richard will show you how to derive the determinant formula from the standard basis properties (and there are a lot of the typing here...).  Let and . Then we have      Geometry: Area of a Parallelogram  We know the direction of is orthogonal to the inputs (given by the Right Hand Rule). But what about its magnitude ?  It turns out that the magnitude of the cross product is very similar to the dot product, but with a small twist. Rather than using the cosine of the angle between the vectors, we use the sine of the angle.   Magnitude of the Cross Product    where is the angle between the vectors.    The proof of this theorem is at the end of the section in your textbook, so Richard will not repeat it here. It requires an identity that links the dot product and cross product together. Feel free to read through it later if you are interested!  Geometrically, this value represents the Area of the Parallelogram spanned by the two vectors (that is, the parallelogram formed by and where the two adjacent sides are and ). The following diagram illustrates this idea:    Area of the parallelogram spanned by vectors and .   Observe that the area of the parallelogram is the base times the height, where the base is and the height is (by basic trig). Hence, the area of this parallelogram is , which is exactly the magnitude of the cross product, !   Find the area of the parallelogram with vertices , , , and .   To help you visualize things, Richard coded the parallelogram below.   The parallelogram spanned by vectors and with axes.        We choose as our \"anchor\" point. The two vectors originating from to its neighbors and are:   (Note: We do not need to use vertex for the calculation, as , , and are sufficient to define the dimensions of the parallelogram.)  Now, we compute the cross product :   Finally, the area is the magnitude of this normal vector:     Observe that we really need three points to find the area of the parallelogram. Recall three points can also form a triangle, so we can also find the area of a triangle using the cross product. The area of a triangle is just half of the parallelogram formed by the same two vectors.   Find the area of the triangle with vertices , , and .   Richard coded the triangle and its vectors below to help you visualize the problem.   Visualization of the triangle vertices and vectors.      The area of a triangle is half the area of the parallelogram spanned by two vectors originating from the same vertex.    First, we find the vectors representing two sides of the triangle originating from :   Next, we calculate the cross product using the determinant:   Now, we find the magnitude of this normal vector:   Finally, the area of the triangle is half the magnitude of the cross product:     We can summarize this result in the following theorem:   Area of Parallelogram and Triangle   If is the parallelogram spanned by and , and is the triangle spanned by and , then and       Geometry: Volume of a Parallelepiped  If we add a third vector , we lift the 2D parallelogram into a 3D slanted box called a Parallelepiped .   A parallelepiped spanned by three vectors      We can actually find the volume of the parallelepiped using the cross product (and dot product) together! Generally speaking, the volume of a pallelepiped is the area of the base times the height.    Volume of a parallelepiped   Observe that the base is the parallelogram spanned by and , so its area is . Also, a little trigonometry can tell us that the height of the parallelepiped is , where is the angle between and . Hence, the volume of the parallelepiped is Observe that this is exactly the dot product of and ! Hence, the volume of the parallelepiped is the maginitude the dot product of some cross product and a vector. The dot product of a cross product and a vector is called the Vector Triple Product .   Volume of a Parallelepiped   Let be nonzero vectors in . Then the parallelepiped spanned by , , and has volume where is the vector triple product .    We can actually come up witl a cool formula to find the vector triple product using determinants! Let's say , , and . Then we have Hence, we can find the vector triple product, which will determine the volume of the parallelepiped, using a 3x3 determinant!  Sometimes, rather than listing out all the components of the vectors, we can represent the 3x3 determinant using the vectors themselves like this:    Consider the parallelepiped determined by the vectors , , and originating from the point .     Find the area of the base parallelogram spanned by vectors and .    Find the volume of the parallelepiped.      As always, Richard coded a pretty diagram below to help you visualize what the parallelogram and the parallelepiped look like!   Visualization of the parallelepiped with base defined by and .           The area of the base is the magnitude of the cross product .   Now, we compute the magnitude:     The volume is the absolute value of the dot product of with the normal vector found in part (a).          Assigned Problems for Section 12.4   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Calculate , where and .    Calculate the cross product     Calculate the cross product , assuming that     A force (in newtons) on an electron moving at velocity meters per second in a uniform magnetic field (in teslas) is given by , where coulombs is the charge on the electron. Assume an electron moves with velocity in the plane and is a uniform magnetic field pointing directyly out of the page. Which of the two vectors, or , in the following figure represents the force on the electron? Remember that is negative.    The magnetic field vector points directly out of the page.     Find the area of the parallelogram spanned by and in the following figure.       Sketch the triangle with vertices at the origin , , and , and compute its area using cross product.    Check that the four points , , , and all lie in a plane. Then use vectors to find the area of the quadrilateral they define.    Prove the identity using the formula for the cross product.     The torque about the origin due to a force acting on an object with position vector is the vector quantity . If several forces act at psitions , then the net torque (units: N - m or lb - ft ) is the sum Calculate the net torque about acting at the point on the mechanical arm in the following figure, assuming that a 25-newton force acts as indicated.       "
+  "body": " The Cross Product   In the previous section, we learned about the Dot Product , a way to multiply two vectors to get a scalar (a single number). You might be wondering whether there is another way to multiply two vectors?  The answer is yes! We can multiply two vectors in a special way to get a third vector. This is called the Cross Product . However, unlike the dot product which works in any dimension, the cross product is special. It only works meaningfully in . This operation is incredibly useful for finding orthogonal directions, calculating areas, and understanding rotation in physics.    After this section, students will be able to:    compute the cross product of two vectors using determinants.  use standard basis properties to simplify cross product calculations.  calculate the area of a parallelogram and the volume of a parallelepiped.  apply the cross product to physics problems involving torque.     Let's dive right into the definition. The formula can look a bit intimidating at first, but we will use a tool called a determinant to help us remember it.   The Cross Product   Given two vectors and in , the cross product  is the vector defined by:     Wow this definition looks crazy! No one should memorize this long of a formula! If you know a bit linear algebra, the cross product can be computed using the determinant .  Given the two vectors and , we can construct a matrix as follows: where the , , and are the standard basis vectors in .  It turns out that the cross product is the determinant of this matrix. That is,   P.S.: Yes Richard did a cofactor expansion on the first row in his work above. Remember that this isn't really a linear algebra class so he will not go in depth on the cofactor expansion. If linear algebra isn't your thing and you don't want to memorize the formula (no one should), you can find the determine of a 3x3 matrix using the lattice method. Below is a quick video tutorial on how to do that:   Quick Tutorial on Computing the Determinant of a 3x3 Matrix     If you prefer to have a list of steps for the lattice method...  Richard understands that not everyone learn how to compute the determinant of a square matrix. And we are only working with the determinant of a 3x3 matrix here, so lattice method is a quick and easy way to compute it.   P.S.: The lattice method here will ONLY work to find the determinant of a 3x3 matrix! This is NOT generalizable to larger matrices!  Here are the steps to compute the determinant of a 3x3 matrix using the lattice method:   Write down the 3x3 matrix and then duplicate the first two columns to the right of the matrix.    Draw diagonals from the top left to bottom right and multiply the three numbers on each diagonal. Then add these products together.    Next, draw diagonals from the top right to bottom left and multiply the three numbers on each diagonal. Then add these products together.    Finally, subtract the sum from step 3 from the sum from step 2 to get the determinant.     Below is a more visual representation of the steps above:    Lattice Method to calculate the determinant of a 3x3 matrix   Then the determinant is calculated as   In practice with the cross product, the first row will be the standard basis vectors in , the second row will be the components of the first vector, and the third row will be the components of the second vector.    Compute for and .      Below is a quick sketch to visualize the two vectors and their cross product.   Visualizing for and        Now that we know how the cross product works, let's explore some of its important properties!   Properties of the Cross Product  Let's start off by observing the behavior of the cross product in the . The most obvious observation here is that is also a vector!  We can also see that is orthogonal to both and . It turns out that the cross product always produces a vector that is perpendicular to both input vectors, following the right-hand rule , which states that when the fingers of your right hand curl from to , your thumb points to the same side of the plane spanned by and as their cross product .    Right-Hand Rule for Cross Product   Other than these geometric properties, the cross product also has several algebraic properties that are useful in computations.   Basic Properties of the Cross Product       (Anticommutative Property)     (Cross Product with Itself is Zero)     if and only if either for some scalar or      (Scalar Multiplication)        (Distributive Property)       Some of the results can be justified directly from the right-hand rule and geometric intuition. For example, the anticommutative property makes sense because switching the order of the vectors reverses the direction of the resulting vector. As a mathematician, we should also verify these properties using the definition of the cross product (the one with the determinant).   Some Proofs of Cross Product Properties  Richard will prove some of these properties using the determinant definition of the cross product. Some will be left as exercises for the reader.   Let and . Then we obtain Thus, the cross product is anticommutative.    Let . Then we have     Left as an exercise to the reader.    Let and . Then for the first part of the equality, we obtain The proof that follows a similar calculation by placing the scalars in the second row of the determinant. Thus, .    Left as an exercise to the reader.      The most fun thing about the cross product is how it interacts with the standard basis vectors in . Recall the standard basis vectors are , , and . Because these are orthogonal unit vectors, following the right-hand rule, we have a cyclic pattern:       If you reverse the order, you get the negative (anticommutative):       The following circle summarizes these properties:    Circle for Computing the Cross Product of Standard Basis Vectors   If you don't mind some FOIL-ing and combining like terms, you can actually use this circle to compute the cross product instead of the determinant!   Calculate the cross product .        This is actually how the determinant formula is derived! If we write and and expand like a polynomial, we can use the rules above to simplify the terms.   If you want to see a bunch of letters here to derive the formula...  To be a due diligent mathematician, Richard will show you how to derive the determinant formula from the standard basis properties (and there are a lot of the typing here...).  Let and . Then we have      Geometry: Area of a Parallelogram  We know the direction of is orthogonal to the inputs (given by the Right Hand Rule). But what about its magnitude ?  It turns out that the magnitude of the cross product is very similar to the dot product, but with a small twist. Rather than using the cosine of the angle between the vectors, we use the sine of the angle.   Magnitude of the Cross Product    where is the angle between the vectors.    The proof of this theorem is at the end of the section in your textbook, so Richard will not repeat it here. It requires an identity that links the dot product and cross product together. Feel free to read through it later if you are interested!   And Richard will include the proof here for the completeness of his notes  The proof of the magnitude of the cross product really relies on a key identity called the Lagrange Identity in vector notation Let's prove this identity first.  We can prove this identity using the \"meet in the middle\" approach. That is, we want to manipulate both sides of the equation separately to arrive at the same expression.  Let and . Then we have Then we obtain On the other hand, we have Observe that the last steps in each expression are identical (you may want to do some reordering of terms to make it clear), so the Lagrange Identity holds.  Now that we know the Lagrange Identity holds, we can use it to prove the magnitude of the cross product theorem. We can start with the Lagrange Identity and substitute in the formula for the dot product in terms of the angle between the vectors. Taking the square root of both sides gives us the desired result.   Geometrically, this value represents the Area of the Parallelogram spanned by the two vectors (that is, the parallelogram formed by and where the two adjacent sides are and ). The following diagram illustrates this idea:    Area of the parallelogram spanned by vectors and .   Observe that the area of the parallelogram is the base times the height, where the base is and the height is (by basic trig). Hence, the area of this parallelogram is , which is exactly the magnitude of the cross product, !   Find the area of the parallelogram with vertices , , , and .   To help you visualize things, Richard coded the parallelogram below.   The parallelogram spanned by vectors and with axes.        We choose as our \"anchor\" point. The two vectors originating from to its neighbors and are:   (Note: We do not need to use vertex for the calculation, as , , and are sufficient to define the dimensions of the parallelogram.)  Now, we compute the cross product :   Finally, the area is the magnitude of this normal vector:     Observe that we really need three points to find the area of the parallelogram. Recall three points can also form a triangle, so we can also find the area of a triangle using the cross product. The area of a triangle is just half of the parallelogram formed by the same two vectors.   Find the area of the triangle with vertices , , and .   Richard coded the triangle and its vectors below to help you visualize the problem.   Visualization of the triangle vertices and vectors.      The area of a triangle is half the area of the parallelogram spanned by two vectors originating from the same vertex.    First, we find the vectors representing two sides of the triangle originating from :   Next, we calculate the cross product using the determinant:   Now, we find the magnitude of this normal vector:   Finally, the area of the triangle is half the magnitude of the cross product:     We can summarize this result in the following theorem:   Area of Parallelogram and Triangle   If is the parallelogram spanned by and , and is the triangle spanned by and , then and       Geometry: Volume of a Parallelepiped  If we add a third vector , we lift the 2D parallelogram into a 3D slanted box called a Parallelepiped .   A parallelepiped spanned by three vectors      We can actually find the volume of the parallelepiped using the cross product (and dot product) together! Generally speaking, the volume of a pallelepiped is the area of the base times the height.    Volume of a parallelepiped   Observe that the base is the parallelogram spanned by and , so its area is . Also, a little trigonometry can tell us that the height of the parallelepiped is , where is the angle between and . Hence, the volume of the parallelepiped is Observe that this is exactly the dot product of and ! Hence, the volume of the parallelepiped is the absolute value of the dot product of some cross product and a vector, to ensure the volume is always nonnegative. The dot product of a cross product and a vector is called the Vector Triple Product .   Volume of a Parallelepiped   Let be nonzero vectors in . Then the parallelepiped spanned by , , and has volume where is the vector triple product .    We can actually come up witl a cool formula to find the vector triple product using determinants! Let's say , , and . Then we have Hence, we can find the vector triple product, which will determine the volume of the parallelepiped, using a 3x3 determinant!  P.S.: the last step in the above derivation can be justified by the cofactor expansion along the first row of the 3x3 matrix. If this step doesn't seem convinving to you, feel free to actually find the determinant of the last two steps and verify they are the same!  Sometimes, rather than listing out all the components of the vectors, we can represent the 3x3 determinant using the vectors themselves like this:    Consider the parallelepiped determined by the vectors , , and originating from the point .     Find the area of the base parallelogram spanned by vectors and .    Find the volume of the parallelepiped.      As always, Richard coded a pretty diagram below to help you visualize what the parallelogram and the parallelepiped look like!   Visualization of the parallelepiped with base defined by and .           The area of the base is the magnitude of the cross product .   Now, we compute the magnitude:     The volume is the absolute value of the dot product of with the normal vector found in part (a).          Application: Torque  Cross products appear in a variety of applications in physics and engineering. The most common application is in calculating torque .  Suppose you want to loosen a bolt using a wrench. You will apply a force at a distance from the bolt, perpendicular to the bolt. The \"twiting power\" you apply to the bolt is called the torque , denoted .    Tightening a bolt using a wrench   The torque here is a vector, as this twisting force has both a magnitude and a direction. This torque vector is given by the cross product of the position vector and the force vector . The magnitude of the torque is given by where is the angle between and , and the direction of is given by the right-hand rule. The following diagram demonstrates the abstract notion of torque as a cross product without the wrench and the bolt.    Torque is the cross product of and    A force of is applied to a wrench attached to a bolt in a direction perpendicular to the bolt. The length of the wrench is and the force is applied at the end of the wrench at an agle of to the wrench. What is the torque applied to the bolt?      The magnitude of the torque can be calculated by We can also derive the unit by multiplying the units of and together. Hence, the unit of the torque is , and therefore, the torque applied to the bolt is approximately .  Also, the right-hand rule tells us that the direction of is orthogonal to and , parallel to the shaft of the bolt.      Assigned Problems for Section 12.4   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Calculate , where and .    Calculate the cross product     Calculate the cross product , assuming that     A force (in newtons) on an electron moving at velocity meters per second in a uniform magnetic field (in teslas) is given by , where coulombs is the charge on the electron. Assume an electron moves with velocity in the plane and is a uniform magnetic field pointing directly out of the page. Which of the two vectors, or , in the following figure represents the force on the electron? Remember that is negative.    The magnetic field vector points directly out of the page.     Find the area of the parallelogram spanned by and in the following figure.       Sketch the triangle with vertices at the origin , , and , and compute its area using cross product.    Check that the four points , , , and all lie in a plane. Then use vectors to find the area of the quadrilateral they define.    Prove the identity using the formula for the cross product.     The torque about the origin due to a force acting on an object with position vector is the vector quantity . If several forces act at psitions , then the net torque (units: N - m or lb - ft ) is the sum Calculate the net torque about acting at the point on the mechanical arm in the following figure, assuming that a 25-newton force acts as indicated.       "
 },
 {
   "id": "sec124-CrossProduct-2-2",
@@ -1453,8 +1453,17 @@ var ptx_lunr_docs = [
   "id": "sec124-CrossProduct-10",
   "level": "2",
   "url": "sec124-CrossProduct.html#sec124-CrossProduct-10",
-  "type": "Example",
+  "type": "Note",
   "number": "12.4.3",
+  "title": "If you prefer to have a list of steps for the lattice method....",
+  "body": " If you prefer to have a list of steps for the lattice method...  Richard understands that not everyone learn how to compute the determinant of a square matrix. And we are only working with the determinant of a 3x3 matrix here, so lattice method is a quick and easy way to compute it.   P.S.: The lattice method here will ONLY work to find the determinant of a 3x3 matrix! This is NOT generalizable to larger matrices!  Here are the steps to compute the determinant of a 3x3 matrix using the lattice method:   Write down the 3x3 matrix and then duplicate the first two columns to the right of the matrix.    Draw diagonals from the top left to bottom right and multiply the three numbers on each diagonal. Then add these products together.    Next, draw diagonals from the top right to bottom left and multiply the three numbers on each diagonal. Then add these products together.    Finally, subtract the sum from step 3 from the sum from step 2 to get the determinant.     Below is a more visual representation of the steps above:    Lattice Method to calculate the determinant of a 3x3 matrix   Then the determinant is calculated as   In practice with the cross product, the first row will be the standard basis vectors in , the second row will be the components of the first vector, and the third row will be the components of the second vector.  "
+},
+{
+  "id": "sec124-CrossProduct-11",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#sec124-CrossProduct-11",
+  "type": "Example",
+  "number": "12.4.5",
   "title": "",
   "body": " Compute for and .      Below is a quick sketch to visualize the two vectors and their cross product.   Visualizing for and       "
 },
@@ -1472,7 +1481,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec124-CrossProduct.html#subsec-CrossPropertiesBasis-4",
   "type": "Figure",
-  "number": "12.4.5",
+  "number": "12.4.7",
   "title": "",
   "body": "  Right-Hand Rule for Cross Product  "
 },
@@ -1481,7 +1490,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec124-CrossProduct.html#thm-BasicPropertiesCrossProduct",
   "type": "Theorem",
-  "number": "12.4.6",
+  "number": "12.4.8",
   "title": "Basic Properties of the Cross Product.",
   "body": " Basic Properties of the Cross Product       (Anticommutative Property)     (Cross Product with Itself is Zero)     if and only if either for some scalar or      (Scalar Multiplication)        (Distributive Property)      "
 },
@@ -1492,14 +1501,14 @@ var ptx_lunr_docs = [
   "type": "Proof",
   "number": "1",
   "title": "Some Proofs of Cross Product Properties.",
-  "body": " Some Proofs of Cross Product Properties  Richard will prove some of these properties using the determinant definition of the cross product. Some will be left as exercises for the reader.   Let and . Then we obtain Thus, the cross product is anticommutative.    Let . Then we have     Left as an exercise to the reader.    Left as an exercise to the reader.    Left as an exercise to the reader.     "
+  "body": " Some Proofs of Cross Product Properties  Richard will prove some of these properties using the determinant definition of the cross product. Some will be left as exercises for the reader.   Let and . Then we obtain Thus, the cross product is anticommutative.    Let . Then we have     Left as an exercise to the reader.    Let and . Then for the first part of the equality, we obtain The proof that follows a similar calculation by placing the scalars in the second row of the determinant. Thus, .    Left as an exercise to the reader.     "
 },
 {
   "id": "subsec-CrossPropertiesBasis-14",
   "level": "2",
   "url": "sec124-CrossProduct.html#subsec-CrossPropertiesBasis-14",
   "type": "Figure",
-  "number": "12.4.7",
+  "number": "12.4.9",
   "title": "",
   "body": "  Circle for Computing the Cross Product of Standard Basis Vectors  "
 },
@@ -1508,7 +1517,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec124-CrossProduct.html#subsec-CrossPropertiesBasis-16",
   "type": "Example",
-  "number": "12.4.8",
+  "number": "12.4.10",
   "title": "",
   "body": " Calculate the cross product .       "
 },
@@ -1517,7 +1526,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec124-CrossProduct.html#subsec-CrossPropertiesBasis-18",
   "type": "Note",
-  "number": "12.4.9",
+  "number": "12.4.11",
   "title": "If you want to see a bunch of letters here to derive the formula....",
   "body": " If you want to see a bunch of letters here to derive the formula...  To be a due diligent mathematician, Richard will show you how to derive the determinant formula from the standard basis properties (and there are a lot of the typing here...).  Let and . Then we have   "
 },
@@ -1526,34 +1535,43 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec124-CrossProduct.html#thm-CrossMagnitude",
   "type": "Theorem",
-  "number": "12.4.10",
+  "number": "12.4.12",
   "title": "Magnitude of the Cross Product.",
   "body": " Magnitude of the Cross Product    where is the angle between the vectors.   "
 },
 {
-  "id": "subsec-AreaGeometry-7",
+  "id": "subsec-AreaGeometry-6",
   "level": "2",
-  "url": "sec124-CrossProduct.html#subsec-AreaGeometry-7",
+  "url": "sec124-CrossProduct.html#subsec-AreaGeometry-6",
+  "type": "Note",
+  "number": "12.4.13",
+  "title": "And Richard will include the proof here for the completeness of his notes.",
+  "body": " And Richard will include the proof here for the completeness of his notes  The proof of the magnitude of the cross product really relies on a key identity called the Lagrange Identity in vector notation Let's prove this identity first.  We can prove this identity using the \"meet in the middle\" approach. That is, we want to manipulate both sides of the equation separately to arrive at the same expression.  Let and . Then we have Then we obtain On the other hand, we have Observe that the last steps in each expression are identical (you may want to do some reordering of terms to make it clear), so the Lagrange Identity holds.  Now that we know the Lagrange Identity holds, we can use it to prove the magnitude of the cross product theorem. We can start with the Lagrange Identity and substitute in the formula for the dot product in terms of the angle between the vectors. Taking the square root of both sides gives us the desired result.  "
+},
+{
+  "id": "subsec-AreaGeometry-8",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-AreaGeometry-8",
   "type": "Figure",
-  "number": "12.4.11",
+  "number": "12.4.14",
   "title": "",
   "body": "  Area of the parallelogram spanned by vectors and .  "
 },
 {
-  "id": "subsec-AreaGeometry-9",
+  "id": "subsec-AreaGeometry-10",
   "level": "2",
-  "url": "sec124-CrossProduct.html#subsec-AreaGeometry-9",
+  "url": "sec124-CrossProduct.html#subsec-AreaGeometry-10",
   "type": "Example",
-  "number": "12.4.12",
+  "number": "12.4.15",
   "title": "",
   "body": " Find the area of the parallelogram with vertices , , , and .   To help you visualize things, Richard coded the parallelogram below.   The parallelogram spanned by vectors and with axes.        We choose as our \"anchor\" point. The two vectors originating from to its neighbors and are:   (Note: We do not need to use vertex for the calculation, as , , and are sufficient to define the dimensions of the parallelogram.)  Now, we compute the cross product :   Finally, the area is the magnitude of this normal vector:    "
 },
 {
-  "id": "subsec-AreaGeometry-11",
+  "id": "subsec-AreaGeometry-12",
   "level": "2",
-  "url": "sec124-CrossProduct.html#subsec-AreaGeometry-11",
+  "url": "sec124-CrossProduct.html#subsec-AreaGeometry-12",
   "type": "Example",
-  "number": "12.4.14",
+  "number": "12.4.17",
   "title": "",
   "body": " Find the area of the triangle with vertices , , and .   Richard coded the triangle and its vectors below to help you visualize the problem.   Visualization of the triangle vertices and vectors.      The area of a triangle is half the area of the parallelogram spanned by two vectors originating from the same vertex.    First, we find the vectors representing two sides of the triangle originating from :   Next, we calculate the cross product using the determinant:   Now, we find the magnitude of this normal vector:   Finally, the area of the triangle is half the magnitude of the cross product:    "
 },
@@ -1562,7 +1580,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec124-CrossProduct.html#thm-AreaParallelogramTriangle",
   "type": "Theorem",
-  "number": "12.4.16",
+  "number": "12.4.19",
   "title": "Area of Parallelogram and Triangle.",
   "body": " Area of Parallelogram and Triangle   If is the parallelogram spanned by and , and is the triangle spanned by and , then and    "
 },
@@ -1580,7 +1598,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec124-CrossProduct.html#subsec-Volume-3",
   "type": "Figure",
-  "number": "12.4.17",
+  "number": "12.4.20",
   "title": "",
   "body": " A parallelepiped spanned by three vectors     "
 },
@@ -1598,7 +1616,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec124-CrossProduct.html#subsec-Volume-5",
   "type": "Figure",
-  "number": "12.4.18",
+  "number": "12.4.21",
   "title": "",
   "body": "  Volume of a parallelepiped  "
 },
@@ -1616,18 +1634,63 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec124-CrossProduct.html#def-TripleProduct",
   "type": "Definition",
-  "number": "12.4.19",
+  "number": "12.4.22",
   "title": "Volume of a Parallelepiped.",
   "body": " Volume of a Parallelepiped   Let be nonzero vectors in . Then the parallelepiped spanned by , , and has volume where is the vector triple product .   "
 },
 {
-  "id": "subsec-Volume-10",
+  "id": "subsec-Volume-11",
   "level": "2",
-  "url": "sec124-CrossProduct.html#subsec-Volume-10",
+  "url": "sec124-CrossProduct.html#subsec-Volume-11",
   "type": "Example",
-  "number": "12.4.20",
+  "number": "12.4.23",
   "title": "",
   "body": " Consider the parallelepiped determined by the vectors , , and originating from the point .     Find the area of the base parallelogram spanned by vectors and .    Find the volume of the parallelepiped.      As always, Richard coded a pretty diagram below to help you visualize what the parallelogram and the parallelepiped look like!   Visualization of the parallelepiped with base defined by and .           The area of the base is the magnitude of the cross product .   Now, we compute the magnitude:     The volume is the absolute value of the dot product of with the normal vector found in part (a).       "
+},
+{
+  "id": "subsec-ApplicationTorque-2",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-ApplicationTorque-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "torque "
+},
+{
+  "id": "subsec-ApplicationTorque-3",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-ApplicationTorque-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "torque "
+},
+{
+  "id": "subsec-ApplicationTorque-4",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-ApplicationTorque-4",
+  "type": "Figure",
+  "number": "12.4.25",
+  "title": "",
+  "body": "  Tightening a bolt using a wrench  "
+},
+{
+  "id": "subsec-ApplicationTorque-6",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-ApplicationTorque-6",
+  "type": "Figure",
+  "number": "12.4.26",
+  "title": "",
+  "body": "  Torque is the cross product of and  "
+},
+{
+  "id": "subsec-ApplicationTorque-7",
+  "level": "2",
+  "url": "sec124-CrossProduct.html#subsec-ApplicationTorque-7",
+  "type": "Example",
+  "number": "12.4.27",
+  "title": "",
+  "body": " A force of is applied to a wrench attached to a bolt in a direction perpendicular to the bolt. The length of the wrench is and the force is applied at the end of the wrench at an agle of to the wrench. What is the torque applied to the bolt?      The magnitude of the torque can be calculated by We can also derive the unit by multiplying the units of and together. Hence, the unit of the torque is , and therefore, the torque applied to the bolt is approximately .  Also, the right-hand rule tells us that the direction of is orthogonal to and , parallel to the shaft of the bolt.   "
 },
 {
   "id": "ws-sec124-3",
@@ -1663,7 +1726,7 @@ var ptx_lunr_docs = [
   "type": "Worksheet Exercise",
   "number": "12.4.37",
   "title": "",
-  "body": " A force (in newtons) on an electron moving at velocity meters per second in a uniform magnetic field (in teslas) is given by , where coulombs is the charge on the electron. Assume an electron moves with velocity in the plane and is a uniform magnetic field pointing directyly out of the page. Which of the two vectors, or , in the following figure represents the force on the electron? Remember that is negative.    The magnetic field vector points directly out of the page.   "
+  "body": " A force (in newtons) on an electron moving at velocity meters per second in a uniform magnetic field (in teslas) is given by , where coulombs is the charge on the electron. Assume an electron moves with velocity in the plane and is a uniform magnetic field pointing directly out of the page. Which of the two vectors, or , in the following figure represents the force on the electron? Remember that is negative.    The magnetic field vector points directly out of the page.   "
 },
 {
   "id": "ws-sec124-7",

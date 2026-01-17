@@ -110,8 +110,8 @@ w = vector([1, 2, 0])  # Base vector 2
 
 # 2. Define Custom Axes
 axes = arrow3d((0,0,0), (6,0,0), color='black', width=1) + text3d("x", (6.2,0,0), color='black') + \
-       arrow3d((0,0,0), (0,6,0), color='black', width=1) + text3d("y", (0,6.2,0), color='black') + \
-       arrow3d((0,0,0), (0,0,6), color='black', width=1) + text3d("z", (0,0,6.2), color='black')
+      arrow3d((0,0,0), (0,6,0), color='black', width=1) + text3d("y", (0,6.2,0), color='black') + \
+      arrow3d((0,0,0), (0,0,6), color='black', width=1) + text3d("z", (0,0,6.2), color='black')
 
 # 3. Draw the three defining vectors from P
 vec_u = arrow3d(P, P+u, color='green', width=3)
