@@ -90,6 +90,66 @@
     <video youtube="WLY8hg63TU0" width="50%"/>
   </figure>
 
+  <note>
+    <title>If you prefer to have a list of steps for the lattice method... </title>
+
+    <p>
+      Richard understands that not everyone learn how to compute the determinant of a square matrix. 
+      And we are only working with the determinant of a 3x3 matrix here, so lattice method is a quick and easy way to compute it. 
+    </p>
+
+    <p>
+      <term>P.S.: The lattice method here will ONLY work to find the determinant of a 3x3 matrix! </term>
+      This is NOT generalizable to larger matrices! 
+    </p>
+
+    <p>
+      Here are the steps to compute the determinant of a 3x3 matrix using the lattice method:
+      <ol>
+        <li>
+          <p>
+            Write down the 3x3 matrix and then duplicate the first two columns to the right of the matrix. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Draw diagonals from the top left to bottom right and multiply the three numbers on each diagonal. 
+            Then add these products together. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Next, draw diagonals from the top right to bottom left and multiply the three numbers on each diagonal. 
+            Then add these products together. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Finally, subtract the sum from step 3 from the sum from step 2 to get the determinant. 
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      Below is a more visual representation of the steps above:
+    </p>
+    <figure>
+      <image source="LatticeMethod_Determinant.png" width="50%"></image>
+      <caption>Lattice Method to calculate the determinant of a 3x3 matrix</caption>
+    </figure>
+    <p>
+      Then the determinant is calculated as
+      <md>
+        \lp a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32}\rp - \lp a_{13} a_{22} a_{31} + a_{11} a_{23} a_{32} + a_{12} a_{21} a_{33}\rp
+      </md>
+    </p>
+
+    <p>
+      In practice with the cross product, the first row will be the standard basis vectors in <m>\R^3</m>, the second row will be the components of the first vector, and the third row will be the components of the second vector. 
+    </p>
+  </note>
+
   <example>
     <p>
       Compute <m>\v{v} \times \v{w}</m> for <m>\v{v} = \la 1, 2, -1 \ra</m> and <m>\v{w} = \la 3, 0, 1 \ra</m>.
@@ -284,7 +344,27 @@
           </li>
           <li>
             <p>
-              Left as an exercise to the reader.
+              Let <m>\v{v} = \la v_1, v_2, v_3 \ra</m> and <m>\v{w} = \la w_1, w_2, w_3 \ra</m>. 
+              Then for the first part of the equality, we obtain
+              <md>
+                <mrow>
+                  (\lambda\v{v}) \times \v{w} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ \lambda v_1 \amp \lambda v_2 \amp \lambda v_3 \\ w_1 \amp w_2 \amp w_3 \end{vmatrix}
+                </mrow>
+                <mrow>
+                  \amp= (\lambda v_2 w_3 - \lambda v_3 w_2)\v{i} - (\lambda v_1 w_3 - \lambda v_3 w_1)\v{j} + (\lambda v_1 w_2 - \lambda v_2 w_1)\v{k}
+                </mrow>
+                <mrow>
+                  \amp= \lambda(v_2 w_3 - v_3 w_2)\v{i} - \lambda(v_1 w_3 - v_3 w_1)\v{j} + \lambda(v_1 w_2 - v_2 w_1)\v{k}
+                </mrow>
+                <mrow>
+                  \amp= \lambda \left[ (v_2 w_3 - v_3 w_2)\v{i} - (v_1 w_3 - v_3 w_1)\v{j} + (v_1 w_2 - v_2 w_1)\v{k} \right]
+                </mrow>
+                <mrow>
+                  \amp= \lambda (\v{v} \times \v{w})
+                </mrow>
+              </md>
+              The proof that <m>\v{v} \times (\lambda\v{w}) = \lambda(\v{v} \times \v{w})</m> follows a similar calculation by placing the scalars <m>\lambda w_i</m> in the second row of the determinant. 
+              Thus, <m>(\lambda\v{v}) \times \v{w} = \v{v} \times (\lambda\v{w}) = \lambda(\v{v} \times \v{w})</m>.
             </p>
           </li>
           <li>
@@ -411,6 +491,60 @@
       Feel free to read through it later if you are interested! 
     </p>
 
+    <note>
+      <title>And Richard will include the proof here for the completeness of his notes</title>
+
+      <p>
+        The proof of the magnitude of the cross product really relies on a key identity called the <term>Lagrange Identity</term> in vector notation
+        <md>
+          \|\v{w} \times \v{w}\|^2 = \|\v{v}\|^2 \|\v{w}\|^2 - \lp \v{v}\cdot \v{w} \rp^2
+        </md>
+        Let's prove this identity first.
+      </p>
+
+      <p>
+        We can prove this identity using the "meet in the middle" approach. 
+        That is, we want to manipulate both sides of the equation <em>separately</em> to arrive at the same expression. 
+      </p>
+
+      <p>
+        Let <m>\v{v} = \la v_1, v_2, v_3 \ra</m> and <m>\v{w} = \la w_1, w_2, w_3 \ra</m>. 
+        Then we have
+        <md>
+          \v{v} \times \v{w} = \la v_2w_3 - v_3w_2, v_3w_1 - v_1w_3, v_1w_2 - v_2w_1 \ra
+        </md>
+        Then we obtain
+        <md>
+          <mrow> \text{LHS} \amp= \|\v{v} \times \v{w}\|^2 </mrow>
+          <mrow> \amp= (v_2w_3 - v_3w_2)^2 + (v_3w_1 - v_1w_3)^2 + (v_1w_2 - v_2w_1)^2 </mrow>
+          <mrow> \amp = v_2^2w_3^2 - 2v_2w_3v_3w_2 + v_3^2w_2^2 + v_3^2w_1^2 - 2v_3w_1v_1w_3 + v_1^2w_3^2 </mrow>
+          <mrow> \amp \qquad + v_1^2w_2^2 - 2v_1w_2v_2w_1 + v_2^2w_1^2 </mrow>
+        </md>
+        On the other hand, we have
+        <md>
+          <mrow> \text{RHS} \amp= \|\v{v}\|^2 \|\v{w}\|^2 - \lp \v{v}\cdot \v{w} \rp^2 </mrow>
+          <mrow> \amp= (v_1^2 + v_2^2 + v_3^2)(w_1^2 + w_2^2 + w_3^2) - (v_1w_1 + v_2w_2 + v_3w_3)^2 </mrow>
+          <mrow> \amp = (v_1^2w_1^2 + v_1^2w_2^2 + v_1^2w_3^2 + v_2^2w_1^2 + v_2^2w_2^2 + v_2^2w_3^2 + v_3^2w_1^2 + v_3^2w_2^2 + v_3^2w_3^2) </mrow>
+          <mrow> \amp \qquad - (v_1^2w_1^2 + v_2^2w_2^2 + v_3^2w_3^2 + 2v_1w_1v_2w_2 + 2v_1w_1v_3w_3 + 2v_2w_2v_3w_3) </mrow>
+          <mrow> \amp = v_1^2w_2^2 + v_1^2w_3^2 + v_2^2w_1^2 + v_2^2w_3^2 + v_3^2w_1^2 + v_3^2w_2^2 </mrow>
+          <mrow> \amp \qquad - 2v_1w_1v_2w_2 - 2v_1w_1v_3w_3 - 2v_2w_2v_3w_3 </mrow>
+        </md>
+        Observe that the last steps in each expression are identical (you may want to do some reordering of terms to make it clear), so the Lagrange Identity holds.
+      </p>
+
+      <p>
+        Now that we know the Lagrange Identity holds, we can use it to prove the magnitude of the cross product theorem. 
+        We can start with the Lagrange Identity and substitute in the formula for the dot product in terms of the angle between the vectors. 
+        <md>
+          <mrow>\|\v{v} \times \v{w}\|^2 \amp= \|\v{v}\|^2 \|\v{w}\|^2 - \lp \v{v}\cdot \v{w} \rp^2 </mrow>
+          <mrow> \amp= \|\v{v}\|^2 \|\v{w}\|^2 - \|\v{v}\|^2\|\v{w}\|^2\cos^2(\theta) </mrow>
+          <mrow> \amp= \|\v{v}\|^2\|\v{w}\|^2 \lp 1 - \cos^2(\theta) \rp </mrow>
+          <mrow> \amp= \|\v{v}\|^2\|\v{w}\|^2\sin^2(\theta) </mrow>
+        </md>
+        Taking the square root of both sides gives us the desired result.
+      </p>
+    </note>
+
     <p>
       Geometrically, this value represents the <alert>Area of the Parallelogram</alert> spanned by the two vectors 
       (that is, the parallelogram formed by <m>\v{u}</m> and <m>\v{v}</m> where the two adjacent sides are <m>\v{u}</m> and <m>\v{v}</m>). 
@@ -418,7 +552,7 @@
     </p>
 
     <figure>
-      <image source="sec124_CrossProduct_AreaParallelogram.png" width="35%"></image>
+      <image source="sec124_CrossProduct_AreaParallelogram.png" width="50%"></image>
        <caption>Area of the parallelogram spanned by vectors <m>\v{u}</m> and <m>\v{v}</m>.</caption>
     </figure>
 
@@ -710,7 +844,7 @@
         <mrow>V \amp= \|\v{v} \times \v{w}\| \cdot \|\v{u}\| \cos(\theta) </mrow>
       </md>
       Observe that this is exactly the dot product of <m>\v{v}\times \v{w}</m> and <m>\v{u}</m>! 
-      Hence, the volume of the parallelepiped is the maginitude the dot product of some cross product and a vector. 
+      Hence, the volume of the parallelepiped is the <em>absolute value</em> of the dot product of some cross product and a vector, to ensure the volume is always nonnegative. 
       The dot product of a cross product and a vector is called the <term>Vector Triple Product</term>. 
     </p>
     <definition xml:id="def-TripleProduct">
@@ -740,6 +874,11 @@
     </p>
 
     <p>
+      P.S.: the last step in the above derivation can be justified by the cofactor expansion along the first row of the 3x3 matrix. 
+      If this step doesn't seem convinving to you, feel free to actually find the determinant of the last two steps and verify they are the same!
+    </p>
+
+    <p>
       Sometimes, rather than listing out all the components of the vectors, we can represent the 3x3 determinant using the vectors themselves like this: 
       <md>
         \v{u} \cdot (\v{v} \times \v{w}) = \det \begin{pmatrix} \v{u} \\ \v{v} \\ \v{w} \end{pmatrix}
@@ -747,120 +886,188 @@
     </p>
 
     <example>
+      <p>
+        Consider the parallelepiped determined by the vectors <m>\v{u} = \langle 0, 1, 4 \rangle</m>, <m>\v{v} = \langle 3, 0, 1 \rangle</m>, and <m>\v{w} = \langle 1, 2, 0 \rangle</m> originating from the point <m>P(2, 0, 1)</m>.
+      </p>
+      <p>
+        <ol marker="a)">
+          <li>
+            <p>
+              Find the area of the base parallelogram spanned by vectors <m>\v{v}</m> and <m>\v{w}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the volume of the parallelepiped.
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <hint>
+        <p>
+          As always, Richard coded a pretty diagram below to help you visualize what the parallelogram and the parallelepiped look like! 
+        </p>
+
+        <figure xml:id="fig-parallelepiped-volume">
+          <caption>Visualization of the parallelepiped with base defined by <m>\v{v}</m> and <m>\v{w}</m>.</caption>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('x,y,z')
+                # 1. Define Anchor Point and Vectors
+                P = vector([2, 0, 1])
+                u = vector([0, 1, 4])  # Height vector
+                v = vector([3, 0, 1])  # Base vector 1
+                w = vector([1, 2, 0])  # Base vector 2
+                
+                # 2. Define Custom Axes
+                axes = arrow3d((0,0,0), (6,0,0), color='black', width=1) + text3d("x", (6.2,0,0), color='black') + \
+                      arrow3d((0,0,0), (0,6,0), color='black', width=1) + text3d("y", (0,6.2,0), color='black') + \
+                      arrow3d((0,0,0), (0,0,6), color='black', width=1) + text3d("z", (0,0,6.2), color='black')
+                
+                # 3. Draw the three defining vectors from P
+                vec_u = arrow3d(P, P+u, color='green', width=3)
+                vec_v = arrow3d(P, P+v, color='blue', width=3)
+                vec_w = arrow3d(P, P+w, color='blue', width=3)
+                
+                # 4. Construct the Parallelepiped Edges (Wireframe)
+                # Base face (v and w)
+                base_outline = line3d([P+v, P+v+w, P+w], color='blue', thickness=2)
+                # Top face (shifted by u)
+                top_outline = line3d([P+u, P+u+v, P+u+v+w, P+u+w, P+u], color='green', thickness=2)
+                # Connecting pillars
+                pillars = line3d([P+v, P+v+u], color='green') + \
+                          line3d([P+w, P+w+u], color='green') + \
+                          line3d([P+v+w, P+v+w+u], color='green')
+                
+                # 5. Fill the Shapes
+                # Base Parallelogram (Darker opacity to emphasize "Base")
+                base_fill = polygon3d([P, P+v, P+v+w, P+w], color='cyan', opacity=0.6)
+                
+                # Full Parallelepiped (Lighter opacity to see inside)
+                # Note: polygon3d only draws faces. To look solid, we usually just draw the faces we care about
+                # or rely on the wireframe for clarity. Here we add the top face for effect.
+                top_fill = polygon3d([P+u, P+u+v, P+u+v+w, P+u+w], color='lightgreen', opacity=0.2)
+                
+                # 6. Labels
+                L_P = text3d("P", P + vector([-0.2, -0.2, 0]), color='black')
+                L_u = text3d("u", P + u/2 + vector([-0.2, 0, 0]), color='green')
+                L_v = text3d("v", P + v/2 + vector([0, -0.2, 0]), color='blue')
+                L_w = text3d("w", P + w/2 + vector([0.2, 0, 0]), color='blue')
+                
+                # Combine and Show
+                show(axes + vec_u + vec_v + vec_w + base_outline + top_outline + pillars + base_fill + top_fill + L_P + L_u + L_v + L_w, frame=False)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          <ol marker="a">
+            <li>
+              <p>
+                The area of the base is the magnitude of the cross product <m>\v{v} \times \v{w}</m>.
+              </p>
+              <md>
+                <mrow>\v{v} \times \v{w} \amp = \begin{vmatrix} \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\ 3 \amp 0 \amp 1 \\ 1 \amp 2 \amp 0 \end{vmatrix}</mrow>
+                <mrow> \amp = (0 - 2)\mathbf{i} - (0 - 1)\mathbf{j} + (6 - 0)\mathbf{k}</mrow>
+                <mrow> \amp = \langle -2, 1, 6 \rangle</mrow>
+              </md>
+              <p>
+                Now, we compute the magnitude:
+              </p>
+              <md>
+                <mrow>\text{Area} \amp = \|\langle -2, 1, 6 \rangle\| = \sqrt{(-2)^2 + 1^2 + 6^2}</mrow>
+                <mrow> \amp = \sqrt{4 + 1 + 36} = \sqrt{41}</mrow>
+              </md>
+            </li>
+            <li>
+              <p>
+                The volume is the absolute value of the dot product of <m>\v{u}</m> with the normal vector found in part (a).
+              </p>
+              <md>
+                <mrow>\text{Volume} \amp = |\v{u} \cdot (\v{v} \times \v{w})|</mrow>
+                <mrow> \amp = |\langle 0, 1, 4 \rangle \cdot \langle -2, 1, 6 \rangle|</mrow>
+                <mrow> \amp = |(0)(-2) + (1)(1) + (4)(6)|</mrow>
+                <mrow> \amp = |0 + 1 + 24|</mrow>
+                <mrow> \amp = 25</mrow>
+              </md>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-ApplicationTorque">
+    <title>Application: Torque </title>
+    
     <p>
-      Consider the parallelepiped determined by the vectors <m>\v{u} = \langle 0, 1, 4 \rangle</m>, <m>\v{v} = \langle 3, 0, 1 \rangle</m>, and <m>\v{w} = \langle 1, 2, 0 \rangle</m> originating from the point <m>P(2, 0, 1)</m>.
-    </p>
-    <p>
-      <ol marker="a)">
-        <li>
-          <p>
-            Find the area of the base parallelogram spanned by vectors <m>\v{v}</m> and <m>\v{w}</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            Find the volume of the parallelepiped.
-          </p>
-        </li>
-      </ol>
+      Cross products appear in a variety of applications in physics and engineering. 
+      The most common application is in calculating <term>torque</term>.
     </p>
 
-  <hint>
     <p>
-      As always, Richard coded a pretty diagram below to help you visualize what the parallelogram and the parallelepiped look like! 
+      Suppose you want to loosen a bolt using a wrench.
+      You will apply a force <m>\v{F}</m> at a distance <m>\v{r}</m> from the bolt, perpendicular to the bolt. 
+      The "twiting power" you apply to the bolt is called the <term>torque</term>, denoted <m>\boldsymbol{\tau}</m>. 
     </p>
 
-    <figure xml:id="fig-parallelepiped-volume">
-      <caption>Visualization of the parallelepiped with base defined by <m>\v{v}</m> and <m>\v{w}</m>.</caption>
-      <sidebyside width="80%">
-        <interactive platform="sage" width="100%" aspect="1:1">
-          <slate surface="sage">
-            var('x,y,z')
-            # 1. Define Anchor Point and Vectors
-            P = vector([2, 0, 1])
-            u = vector([0, 1, 4])  # Height vector
-            v = vector([3, 0, 1])  # Base vector 1
-            w = vector([1, 2, 0])  # Base vector 2
-            
-            # 2. Define Custom Axes
-            axes = arrow3d((0,0,0), (6,0,0), color='black', width=1) + text3d("x", (6.2,0,0), color='black') + \
-                   arrow3d((0,0,0), (0,6,0), color='black', width=1) + text3d("y", (0,6.2,0), color='black') + \
-                   arrow3d((0,0,0), (0,0,6), color='black', width=1) + text3d("z", (0,0,6.2), color='black')
-            
-            # 3. Draw the three defining vectors from P
-            vec_u = arrow3d(P, P+u, color='green', width=3)
-            vec_v = arrow3d(P, P+v, color='blue', width=3)
-            vec_w = arrow3d(P, P+w, color='blue', width=3)
-            
-            # 4. Construct the Parallelepiped Edges (Wireframe)
-            # Base face (v and w)
-            base_outline = line3d([P+v, P+v+w, P+w], color='blue', thickness=2)
-            # Top face (shifted by u)
-            top_outline = line3d([P+u, P+u+v, P+u+v+w, P+u+w, P+u], color='green', thickness=2)
-            # Connecting pillars
-            pillars = line3d([P+v, P+v+u], color='green') + \
-                      line3d([P+w, P+w+u], color='green') + \
-                      line3d([P+v+w, P+v+w+u], color='green')
-            
-            # 5. Fill the Shapes
-            # Base Parallelogram (Darker opacity to emphasize "Base")
-            base_fill = polygon3d([P, P+v, P+v+w, P+w], color='cyan', opacity=0.6)
-            
-            # Full Parallelepiped (Lighter opacity to see inside)
-            # Note: polygon3d only draws faces. To look solid, we usually just draw the faces we care about
-            # or rely on the wireframe for clarity. Here we add the top face for effect.
-            top_fill = polygon3d([P+u, P+u+v, P+u+v+w, P+u+w], color='lightgreen', opacity=0.2)
-            
-            # 6. Labels
-            L_P = text3d("P", P + vector([-0.2, -0.2, 0]), color='black')
-            L_u = text3d("u", P + u/2 + vector([-0.2, 0, 0]), color='green')
-            L_v = text3d("v", P + v/2 + vector([0, -0.2, 0]), color='blue')
-            L_w = text3d("w", P + w/2 + vector([0.2, 0, 0]), color='blue')
-            
-            # Combine and Show
-            show(axes + vec_u + vec_v + vec_w + base_outline + top_outline + pillars + base_fill + top_fill + L_P + L_u + L_v + L_w, frame=False)
-          </slate>
-        </interactive>
-      </sidebyside>
+    <figure>
+      <image source="sec124_WrenchBolt_Diagram.jpg" width="50%"></image>
+      <caption>Tightening a bolt using a wrench</caption>
     </figure>
-  </hint>
 
-  <solution>
     <p>
-      <ol marker="a">
-        <li>
-          <p>
-            The area of the base is the magnitude of the cross product <m>\v{v} \times \v{w}</m>.
-          </p>
-          <md>
-            <mrow>\v{v} \times \v{w} \amp = \begin{vmatrix} \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\ 3 \amp 0 \amp 1 \\ 1 \amp 2 \amp 0 \end{vmatrix}</mrow>
-            <mrow> \amp = (0 - 2)\mathbf{i} - (0 - 1)\mathbf{j} + (6 - 0)\mathbf{k}</mrow>
-            <mrow> \amp = \langle -2, 1, 6 \rangle</mrow>
-          </md>
-          <p>
-            Now, we compute the magnitude:
-          </p>
-          <md>
-            <mrow>\text{Area} \amp = \|\langle -2, 1, 6 \rangle\| = \sqrt{(-2)^2 + 1^2 + 6^2}</mrow>
-            <mrow> \amp = \sqrt{4 + 1 + 36} = \sqrt{41}</mrow>
-          </md>
-        </li>
-        <li>
-          <p>
-            The volume is the absolute value of the dot product of <m>\v{u}</m> with the normal vector found in part (a).
-          </p>
-          <md>
-            <mrow>\text{Volume} \amp = |\v{u} \cdot (\v{v} \times \v{w})|</mrow>
-            <mrow> \amp = |\langle 0, 1, 4 \rangle \cdot \langle -2, 1, 6 \rangle|</mrow>
-            <mrow> \amp = |(0)(-2) + (1)(1) + (4)(6)|</mrow>
-            <mrow> \amp = |0 + 1 + 24|</mrow>
-            <mrow> \amp = 25</mrow>
-          </md>
-        </li>
-      </ol>
+      The torque here is a vector, as this twisting force has both a magnitude and a direction. 
+      This torque vector is given by the <alert>cross product</alert> of the position vector <m>\v{r}</m> and the force vector <m>\v{F}</m>. 
+      The magnitude of the torque is given by
+      <md>
+        \|\boldsymbol{\tau}\| = \|\v{r} \times \v{F}\| = \|\v{r}\|\|\v{F}\|\sin(\theta)
+      </md>
+      where <m>\theta</m> is the angle between <m>\v{r}</m> and <m>\v{F}</m>, and the direction of <m>\boldsymbol{\tau}</m> is given by the right-hand rule. 
+      The following diagram demonstrates the abstract notion of torque as a cross product without the wrench and the bolt. 
     </p>
-  </solution>
-</example>
+
+    <figure>
+      <image source="sec124_Torque_Diagram.png" width="50%"></image>
+      <caption>Torque is the cross product of <m>\v{r}</m> and <m>\v{F}</m></caption>
+    </figure>
+
+    <example>
+      <p>
+        A force of <m>20 \text{ N}</m> is applied to a wrench attached to a bolt in a direction perpendicular to the bolt. 
+        The length of the wrench is <m>0.25 \text{ m}</m> and the force is applied at the end of the wrench at an agle of <m>135^\circ</m> to the wrench.
+        What is the torque applied to the bolt? 
+      </p>
+
+      <figure>
+        <image source="sec124-TorqueExample-Diagram.png" width="40%"></image>
+      </figure>
+
+      <solution>
+        <p>
+          The magnitude of the torque can be calculated by
+          <md>
+            <mrow>\|\boldsymbol{\tau}\| \amp = \|\v{r}\|\|\v{F}\|\sin \lp 135^\circ \rp</mrow>
+            <mrow> \amp= (0.25)(20)\sin \lp 135^\circ \rp</mrow>
+            <mrow> \amp= 5 \cdot \frac{\sqrt{2}}{2}</mrow>
+            <mrow> \amp= \frac{5\sqrt{2}}{2}</mrow>
+            <mrow> \amp\approx 3.54 </mrow>
+          </md>
+          We can also derive the unit by multiplying the units of <m>\|\v{r}\|</m> and <m>\|\v{F}\|</m> together. 
+          Hence, the unit of the torque is <m>\text{N} \cdot \text{m}</m>, and therefore, the torque applied to the bolt is approximately <m>3.54 \text{ N} \cdot \text{m}</m>. 
+        </p>
+
+        <p>
+          Also, the right-hand rule tells us that the direction of <m>\boldsymbol{\tau}</m> is orthogonal to <m>\v{r}</m> and <m>\v{F}</m>, parallel to the shaft of the bolt. 
+        </p>
+      </solution>
+    </example>
+
   </subsection>
 
   <worksheet xml:id="ws-sec124">
@@ -903,9 +1110,9 @@
 
     <exercise number="12.4.37">
       <p>
-        A force <m>\v{F}</m> (in newtons) on an electron moving at velocity <m>v{v}</m> meters per second in a uniform magnetic field <m>\v{B}</m> (in teslas) is given by <m>\v{F} = q\lp \v{v} \times \v{B} \rp</m>, where <m>q = -1.6 \times 10^{-19}</m> coulombs is the charge on the electron. 
-        Assume an electron moves with velocity <m>\v{v}</m> in the plane and <m>v{B}</m> is a uniform magnetic field pointing directyly out of the page. 
-        Which of the two vectors, <m>v{F}_1</m> or <m>\v{F}_2</m>, in the following figure represents the force on the electron? 
+        A force <m>\v{F}</m> (in newtons) on an electron moving at velocity <m>\v{v}</m> meters per second in a uniform magnetic field <m>\v{B}</m> (in teslas) is given by <m>\v{F} = q\lp \v{v} \times \v{B} \rp</m>, where <m>q = -1.6 \times 10^{-19}</m> coulombs is the charge on the electron. 
+        Assume an electron moves with velocity <m>\v{v}</m> in the plane and <m>\v{B}</m> is a uniform magnetic field pointing directly out of the page. 
+        Which of the two vectors, <m>\v{F}_1</m> or <m>\v{F}_2</m>, in the following figure represents the force on the electron? 
         Remember that <m>q</m> is negative. 
       </p>
 
@@ -949,12 +1156,12 @@
 
     <exercise number="12.4.67">
       <p>
-        The torque about the origin <m>O</m> due to a force <m>\v{F}</m> acting on an object with position vector <m>\v{r}</m> is the vector quantity <m>\v{\tau} = \v{r} \times \v{F}</m>. 
+        The torque about the origin <m>O</m> due to a force <m>\v{F}</m> acting on an object with position vector <m>\v{r}</m> is the vector quantity <m>\boldsymbol{\tau} = \v{r} \times \v{F}</m>. 
         If several forces <m>\v{F}_j</m> act at psitions <m>\v{r}_j</m>, then the net torque (units: <em>N</em>-<em>m</em> or <em>lb</em>-<em>ft</em>) is the sum 
         <md>
-          \v{\tau} = \sum \v{r}_j \times \v{F}_j
+          \boldsymbol{\tau} = \sum \v{r}_j \times \v{F}_j
         </md>
-        Calculate the net torque <m>\v{\tau}</m> about <m>O</m> acting at the point <m>P</m> on the mechanical arm in the following figure, assuming that a 25-newton force acts as indicated. 
+        Calculate the net torque <m>\boldsymbol{\tau}</m> about <m>O</m> acting at the point <m>P</m> on the mechanical arm in the following figure, assuming that a 25-newton force acts as indicated. 
       </p>
 
       <figure>
