@@ -1103,7 +1103,7 @@
       <p>
         Calculate the cross product <m>\v{w} \times \lp \v{u} + \v{v} \rp</m>, assuming that
         <md>
-          \v{u} \times \v{v} = \lp 1,1,0 \rp, \qquad \v{u} \times \v{w} = \lp 0,3,1 \rp, \qquad \v{v} \times \v{w} = \la 2,-1,1 \ra
+          \v{u} \times \v{v} = \la 1,1,0 \ra, \qquad \v{u} \times \v{w} = \la 0,3,1 \ra, \qquad \v{v} \times \v{w} = \la 2,-1,1 \ra
         </md>
       </p>
     </exercise>
