@@ -5,7 +5,13 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In the previous section, we focused primarily on planes in <m>\R^3</m>, which has the form <m>ax + by + cz = d</m>. 
+      We will take a step further by exploring some curved surfaces in <m>\R^3</m> defined by second-degree polynomial equations.
+    </p>
+
+    <p>
+      In this section, we will introduce <term>quadric surfaces</term>, which are the three-dimensional analogs of conic sections studied in MTH 253 or MTH 253Z. 
+      This will give us a taste of the rich variety of surfaces and methods to analyze them in the second half of the class. 
     </p>
 
     <objectives>
@@ -17,12 +23,1976 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            recognize and classify the six standard types of quadric surfaces from their algebraic equations.
+          </p>
+        </li>
+        <li>
+          <p>
+            apply the method of <term>traces</term> to visualize, analyze, and sketch the quadric surface in <m>\R^3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            identify and describe quadratic cylinders as surfaces that extend conic sections along a specific axis.
+          </p>
+        </li>
+        <li>
+          <p>
+            manipulate general second-degree equations algebraically to match standard forms for identification and graphing.
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <p>
+    <term>Quadric</term> really just means "second degree". 
+    A <term>quadric surface</term> is a surface in <m>\R^3</m> that can be defined by a <em>second-degree polynomial equation in three variables</em>, typically denoted as <m>x</m>, <m>y</m>, and <m>z</m>.
+    That is, the equation contains all the possible combinations of these variables up to the second degree. 
+  </p>
+
+  <p>
+    Hence, the general equation of a quadric surface is
+    <md>
+      Ax^2 + by^2 + cz^2 + Dxy + Exz + Fyz + Gx + Hy + Iz + J = 0
+    </md>
+    where <m>A, B, C, D, E, F, G, H, I, J</m> are constants.
+  </p>
+
+  <p>
+    There are 17 different types of quadric surfaces based on the <url href="https://www.math.stonybrook.edu/~bishop/classes/math126.F20/CRC-math-tables.pdf#page=372">CRC Standard Mathematical Tables</url>. 
+    In this section, we will focus on the most common types in <m>\R^3</m>. 
+  </p>
+
+  <subsection xml:id="subsec-ConicSections-Review">
+    <title>Review: Conic Sections</title>
+    
+    <p>
+      You may recall from MTH 253 or MTH 253Z a concept called the <term>conic sections</term>. 
+      These are the curves obtained by intersecting a plane with a double-napped cone. 
+      Depending on the angle and position of the intersecting plane, different types of conic sections can be formed, as shown in the following diagram.
+    </p>
+
+    <figure>
+      <image source="sec126-ConicSections-Diagram.png" width="90%"></image>
+      <caption>Types of conic sections where (a) are the standard conic sections and (b) are the degenerate conic sections</caption>
+    </figure>
+
+    <p>
+      The standard conic sections include circles, ellipses, parabolas, and hyperbolas. 
+      The degenerate conic sections include a point, a line, or two intersecting lines.
+    </p>
+
+    <p>
+      But why splitting the conic sections into these categories?
+      This really comes down to the equations that define them.
+      Recall that the equation of a conic section is really the general equation of a second-degree polynomial in <m>\R^2</m>, typically denoted as <m>x</m> and <m>y</m>. 
+      <md>
+        ax^2 + bxy + cy^2 + dx + ey + f = 0
+      </md>
+      where <m>a, b, c, d, e, f</m> are constants. 
+      The standard conic sections means the equation remains to be second-degree, while the degenerate conic sections means the equation reduces to first-degree or even a constant. 
+    </p>
+
+    <p>
+      You may notice the similarity between the general equations of conic sections and quadric surfaces. 
+      In fact, quadric surfaces can be thought of as the three-dimensional analogs of conic sections. 
+      We add an additional variable <m>z</m> and consider second-degree polynomial equations in three variables instead of two.
+    </p>
+
+    <p>
+      Just like conic sections, quadric surfaces can also be classified into different types based on their equations and geometric properties. 
+      The goal of this section is to explore these different types of quadric surfaces, understand their equations, and visualize their shapes in <m>\R^3</m>.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-StandardQuadricSurfaces">
+    <title>Standard Quadric Surfaces</title>
+    
+    <p>
+      The first type of quadric surfaces we will explore is the <term>ellipsoid</term>. 
+      An ellipsoid has the general equation 
+      <md>
+        \lp \frac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 + \lp \dfrac{z}{c} \rp^2 = 1
+      </md>
+      where <m>a, b, c</m> are positive constants. 
+    </p>
+
+    <figure>
+      <caption>The ellipsoid with equation <m>\lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 + \lp \dfrac{z}{c} \rp^2 = 1</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v')
+            
+            # 1. Set specific dimensions
+            a, b, c = 2, 5, 2
+            
+            # 2. Draw the Ellipsoid
+            ellipsoid = parametric_plot3d(
+                (a*cos(u)*sin(v), b*sin(u)*sin(v), c*cos(v)),
+                (u, 0, 2*pi), (v, 0, pi),
+                opacity=0.6,
+                color='#5dade2',
+                mesh=True
+            )
+            
+            # 3. Draw Axes (Black Arrows)
+            # We set limits slightly larger than the largest dimension (b=5)
+            limit = 6.5
+            axes = arrow3d((-limit,0,0), (limit,0,0), color='black', width=1) + \
+                  arrow3d((0,-limit,0), (0,limit,0), color='black', width=1) + \
+                  arrow3d((0,0,-limit), (0,0,limit), color='black', width=1)
+            
+            # 4. Axes Names (x, y, z)
+            lbl_axes = text3d("x", (limit + 0.3, 0, 0), color='black', fontweight='bold') + \
+                      text3d("y", (0, limit + 0.3, 0), color='black', fontweight='bold') + \
+                      text3d("z", (0, 0, limit + 0.3), color='black', fontweight='bold')
+            
+            # 5. Intercept Points (Black dots)
+            pts = point3d([(a,0,0), (-a,0,0), (0,b,0), (0,-b,0), (0,0,c), (0,0,-c)], 
+                          size=15, color='black')
+            
+            # 6. Intercept Labels
+            # Manual offsets to keep text clear of the shape
+            lbls = text3d("a",  (a+0.3, 0.5, 0),   color='black', fontsize=20) + \
+                  text3d("-a", (-a-0.3, 0.5, 0),  color='black', fontsize=20) + \
+                  text3d("b",  (0, b+0.5, 0),     color='black', fontsize=20) + \
+                  text3d("-b", (0, -b-0.8, 0),    color='black', fontsize=20) + \
+                  text3d("c",  (0, 0.5, c+0.3),   color='black', fontsize=20) + \
+                  text3d("-c", (0, 0.5, -c-0.3),  color='black', fontsize=20)
+            
+            # 7. Combine and Show
+            show(ellipsoid + axes + lbl_axes + pts + lbls, frame=False)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      Observe that <m>a</m>, <m>b</m>, and <m>c</m> control the lengths of the semi-axes along the <m>x</m>, <m>y</m>, and <m>z</m> axes, respectively. 
+      When <m>a = b = c</m>, the ellipsoid becomes a sphere with radius <m>a</m>.  
+    </p>
+
+    <p>
+      But how should we describe the ellipsoid in words? 
+      One way to do this is to use <term>traces</term>. 
+      Recall a trace is the curve obtained by intersecting a surface with a coordinate plane. 
+      Since a coordinate plane can be obtained by setting a variable to be a constant, the traces will be some curves in <m>\R^2</m>. 
+      So what the traces tell us is how the surface behaves when we "slice" it along the coordinate planes. 
+    </p>
+
+    <p>
+      There are "standard" traces for quadric surfaces, which are obtained by setting one variable to be zero. 
+      <ul>
+        <li>
+          <p>
+            The <m>xy</m>-trace is obtained by setting <m>z = 0</m>. 
+            That is, we look at the curve obtained by intersecting the quadric surface with the <m>xy</m>-plane. 
+          </p>
+        </li>
+        <li>
+          <p>
+            The <m>xz</m>-trace is obtained by setting <m>y = 0</m>. 
+            That is, we look at the curve obtained by intersecting the quadric surface with the <m>xz</m>-plane.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <m>yz</m>-trace is obtained by setting <m>x = 0</m>. 
+            That is, we look at the curve obtained by intersecting the quadric surface with the <m>yz</m>-plane.
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <example>
+      <p>
+        Describe the traces of the ellipsoid <m>\lp \dfrac{x}{2} \rp^2 + \lp \dfrac{y}{3} \rp^2 + \lp \dfrac{z}{5} \rp^2 = 1</m>.
+      </p>
+
+      <hint>
+        <p>
+          So what are the "standard" traces of the ellipsoid and how do we find them? 
+        </p>
+
+        <p>
+          P.S.: Richard will use the "standard" traces here since they are the most easiest to work with 
+          (but not necessarily the most informative... but this is a good start! :D).
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          To find the traces, we will set one variable to zero at a time and analyze the resulting equations. 
+          <ul>
+            <li>
+              <p>
+                <alert><m>\boldsymbol{xy}</m>-trace</alert>: Setting <m>z = 0</m>, we get <m>\lp \dfrac{x}{2} \rp^2 + \lp \dfrac{y}{3} \rp^2 = 1</m>. 
+              </p>
+              <p>
+                This is an ellipse on the <m>xy</m>-plane centered at the origin with semi-major axis length 3 along the <m>y</m>-axis and semi-minor axis length 2 along the <m>x</m>-axis.
+              </p>
+            </li>
+            <li>
+              <p>
+                <alert><m>\boldsymbol{xz}</m>-trace</alert>: Setting <m>y = 0</m>, we get <m>\lp \dfrac{x}{2} \rp^2 + \lp \dfrac{z}{5} \rp^2 = 1</m>.
+              </p>
+              <p>
+                This is an ellipse on the <m>xz</m>-plane centered at the origin with semi-major axis length 5 along the <m>z</m>-axis and semi-minor axis length 2 along the <m>x</m>-axis.
+              </p>
+            </li>
+            <li>
+              <p>
+                <alert><m>\boldsymbol{yz}</m>-trace</alert>: Setting <m>x = 0</m>, we get <m>\lp \dfrac{y}{3} \rp^2 + \lp \dfrac{z}{5} \rp^2 = 1</m>.
+              </p>
+              <p>
+                This is an ellipse on the <m>yz</m>-plane centered at the origin with semi-major axis length 5 along the <m>z</m>-axis and semi-minor axis length 3 along the <m>y</m>-axis.
+              </p>
+            </li>
+          </ul>
+        </p>
+
+        <figure>
+          <caption>The traces of the ellipsoid <m>\dfrac{x^2}{4} + \dfrac{y^2}{9} + \dfrac{z^2}{25} = 1</m>.</caption>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('t')
+
+                # --- 1. Define Parameters of the Ellipsoid ---
+                a = 2  # x-radius
+                b = 3  # y-radius
+                c = 5  # z-radius
+
+                # --- 2. The Traces ---
+                
+                # XY Trace (z=0): Ellipse x^2/4 + y^2/9 = 1
+                # Parametrization: x = a*cos(t), y = b*sin(t), z = 0
+                trace_xy = parametric_plot3d(
+                    (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
+                    color='red', thickness=3, legend_label='xy-trace (z=0)'
+                )
+
+                # XZ Trace (y=0): Ellipse x^2/4 + z^2/25 = 1
+                # Parametrization: x = a*cos(t), y = 0, z = c*sin(t)
+                trace_xz = parametric_plot3d(
+                    (a*cos(t), 0, c*sin(t)), (t, 0, 2*pi),
+                    color='green', thickness=3, legend_label='xz-trace (y=0)'
+                )
+
+                # YZ Trace (x=0): Ellipse y^2/9 + z^2/25 = 1
+                # Parametrization: x = 0, y = b*cos(t), z = c*sin(t)
+                trace_yz = parametric_plot3d(
+                    (0, b*cos(t), c*sin(t)), (t, 0, 2*pi),
+                    color='blue', thickness=3, legend_label='yz-trace (x=0)'
+                )
+
+                # --- 3. Ghost Ellipsoid (Optional Context) ---
+                # A very faint version of the full surface to show how traces fit
+                var('u, v')
+                surface = parametric_plot3d(
+                    (a*cos(u)*sin(v), b*sin(u)*sin(v), c*cos(v)),
+                    (u, 0, 2*pi), (v, 0, pi),
+                    color='gray', opacity=0.1, mesh=false
+                )
+
+                # --- 4. Labels and Axes ---
+                # Label the traces in 3D space
+                lbl_xy = text3d("xy-trace", (a+0.5, b+0.5, 0), color='red')
+                lbl_xz = text3d("xz-trace", (a+0.5, 0, c+0.5), color='green')
+                lbl_yz = text3d("yz-trace", (0, b+0.5, c+0.5), color='blue')
+
+                # Axes
+                L_max = 6
+                axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L_max), color='black', width=1)
+                
+                lbl_axes = text3d("x", (L_max+0.2, 0, 0), color='black') + \
+                          text3d("y", (0, L_max+0.2, 0), color='black') + \
+                          text3d("z", (0, 0, L_max+0.2), color='black')
+
+                # --- 5. Combine and Show ---
+                plot_objects = trace_xy + trace_xz + trace_yz + surface + \
+                              lbl_xy + lbl_xz + lbl_yz + \
+                              axes + lbl_axes
+
+                show(plot_objects, frame=False, aspect_ratio=1)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+
+        <p>
+          See that we can determine what the ellipsoid looks like when we know its traces! 
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      We can imagine that the traces of the ellipsoid are all ellipses (or a point in the degenerate case) since slicing an ellipsoid with a plane will always yield an ellipse (or a point). 
+    </p>
+
+    <p>
+      The second type of quadric surfaces here is the <term>hyperboloid</term>, and it comes in two different flavors. 
+    </p>
+
+    <p>
+      The diagram below shows the first flavor of hyperboloid, which has the general equation
+      <md>
+        \lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 = \lp \dfrac{z}{c} \rp^2 + 1
+      </md>
+      where <m>a, b, c</m> are positive constants. 
+      We call this a <term>hyperboloid of one sheet</term>. 
+    </p>
+
+    <figure>
+      <caption>The hyperboloid with equation <m>\lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 = \lp \dfrac{z}{c} \rp^2 + 1</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v')
+            
+            # 1. Set fixed dimensions
+            a, b, c = 2, 2, 2
+            
+            # 2. Define Parametric Equations
+            # x = a*cosh(u)cos(v), y = b*cosh(u)sin(v), z = c*sinh(u)
+            # We restrict u to -1.3 to 1.3 to keep the view focused on the center "waist"
+            u_max = 1.3
+            
+            hyperboloid = parametric_plot3d(
+                (a*cosh(u)*cos(v), b*cosh(u)*sin(v), c*sinh(u)),
+                (u, -u_max, u_max), (v, 0, 2*pi),
+                opacity=0.6,
+                color='cyan',
+                mesh=True
+            )
+            
+            # 3. Define Axes and Limits
+            # Calculate how wide the shape gets at the top/bottom to set axis length
+            max_radius = max(a,b) * cosh(u_max)
+            limit = max(max_radius, c*sinh(u_max)) * 1.2
+            
+            axes = arrow3d((-limit,0,0), (limit,0,0), color='black', width=1) + \
+                  arrow3d((0,-limit,0), (0,limit,0), color='black', width=1) + \
+                  arrow3d((0,0,-limit), (0,0,limit), color='black', width=1)
+                  
+            lbl_axes = text3d("x", (limit+0.2, 0, 0), color='black', fontweight='bold') + \
+                      text3d("y", (0, limit+0.2, 0), color='black', fontweight='bold') + \
+                      text3d("z", (0, 0, limit+0.2), color='black', fontweight='bold')
+
+            # 4. Mark Intercepts at the "Waist" (z=0)
+            # Since this is a one-sheet hyperboloid, it intersects x and y axes, but not z.
+            pt_size = 15
+            offset = 0.4
+            
+            pts = point3d([(a,0,0), (-a,0,0), (0,b,0), (0,-b,0)], size=pt_size, color='black')
+            
+            lbls = text3d("a",  (a+offset, 0, 0),   color='black', fontsize=20) + \
+                  text3d("-a", (-a-offset, 0, 0),  color='black', fontsize=20) + \
+                  text3d("b",  (0, b+offset, 0),   color='black', fontsize=20) + \
+                  text3d("-b", (0, -b-offset, 0),  color='black', fontsize=20)
+            
+            # 5. Combine and Show
+            show(hyperboloid + axes + lbl_axes + pts + lbls, frame=False)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      Observe that <m>a</m> and <m>b</m> control the lengths of the semi-axes along the <m>x</m> and <m>y</m> axes, respectively (so they control the size of the "waist"). 
+      But what about <m>c</m>? 
+      <m>c</m> is not shown directly on this hyperboloid... 
+    </p>
+
+    <p>
+      One way to understand how <m>c</m> affects the shape of the hyperboloid is to look at its traces. 
+      Just like before, we will look at the "standard" traces obtained by setting one variable to be zero and see how the value of <m>c</m> affects them in the following example. 
+    </p>
+
+    <example>
+      <p>
+        Describe the traces of the hyperboloid <m>\lp \dfrac{x}{5} \rp^2 + \lp \dfrac{y}{3} \rp^2 = \lp \dfrac{z}{7} \rp^2 + 1</m>.
+      </p>
+
+      <p>
+        How does the value of <m>c</m> (in this problem, the <m>7</m>), affect the shape of the hyperboloid?
+      </p>
+
+      <solution>
+        <p>
+          To find the traces, we will set one variable to zero at a time and analyze the resulting equations. 
+          <ul>
+            <li>
+              <p>
+                <alert><m>\boldsymbol{xy}</m>-trace</alert>: Setting <m>z = 0</m>, we get <m>\lp \dfrac{x}{5} \rp^2 + \lp \dfrac{y}{3} \rp^2 = 1</m>. 
+              </p>
+              <p>
+                This is an ellipse on the <m>xy</m>-plane centered at the origin with semi-major axis length 5 along the <m>x</m>-axis and semi-minor axis length 3 along the <m>y</m>-axis.
+              </p>
+              <p>
+                So it makes sense for the values of <m>a</m> and <m>b</m> to control the size of the "waist" of the hyperboloid.
+              </p>
+            </li>
+            <li>
+              <p>
+                <alert><m>\boldsymbol{xz}</m>-trace</alert>: Setting <m>y = 0</m>, we get <m>\lp \dfrac{x}{5} \rp^2 - \lp \dfrac{z}{7} \rp^2 = 1</m>.
+              </p>
+              <p>
+                This is a hyperbola on the <m>xz</m>-plane centered at the origin that opens along the <m>x</m>-axis. 
+                The vertices are located at <m>(\pm 5, 0)</m>, and the asymptotes are given by the lines <m>z = \pm \frac{7}{5} x</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <alert><m>\boldsymbol{yz}</m>-trace</alert>: Setting <m>x = 0</m>, we get <m>\lp \dfrac{y}{3} \rp^2 - \lp \dfrac{z}{7} \rp^2 = 1</m>.
+              </p>
+              <p>
+                This is a hyperbola on the <m>yz</m>-plane centered at the origin that opens along the <m>y</m>-axis. 
+                The vertices are located at <m>(0, \pm 3)</m>, and the asymptotes are given by the lines <m>z = \pm \frac{7}{3} y</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+
+        <p>
+          Observe that the value of <m>c</m> (in this problem, the <m>7</m>) affects the steepness of the hyperbolas in the <m>xz</m> and <m>yz</m> traces. 
+          A larger <m>c</m> value results in a steeper asymptotes in the traces, which means the hyperbolas are less "wide" compared to the waist; 
+          a smaller <m>c</m> value results in less steep asymptotes, which means the hyperbolas are more "wide" compared to the waist.
+        </p>
+
+        <figure>
+          <caption>The traces of the hyperboloid <m>\lp \dfrac{x}{5} \rp^2 + \lp \dfrac{y}{3} \rp^2 = \lp \dfrac{z}{7} \rp^2 + 1</m></caption>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v, t')
+
+                # --- 1. Define Parameters ---
+                a = 5  # x-radius
+                b = 3  # y-radius
+                c = 7  # z-radius
+
+                # --- 2. The Traces ---
+
+                # XY Trace (z=0)
+                trace_xy = parametric_plot3d(
+                    (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
+                    color='red', thickness=4
+                )
+
+                # XZ Trace (y=0)
+                trace_xz = parametric_plot3d(
+                    (a*cosh(t), 0, c*sinh(t)), (t, -2, 2), color='green', thickness=4
+                ) + parametric_plot3d(
+                    (-a*cosh(t), 0, c*sinh(t)), (t, -2, 2), color='green', thickness=4
+                )
+
+                # YZ Trace (x=0)
+                trace_yz = parametric_plot3d(
+                    (0, b*cosh(t), c*sinh(t)), (t, -2, 2), color='blue', thickness=4
+                ) + parametric_plot3d(
+                    (0, -b*cosh(t), c*sinh(t)), (t, -2, 2), color='blue', thickness=4
+                )
+
+                # --- 3. The Mesh Surface ---
+                surface = parametric_plot3d(
+                    (a*cosh(u)*cos(v), b*cosh(u)*sin(v), c*sinh(u)),
+                    (u, -1.5, 1.5), (v, 0, 2*pi),
+                    color='gray', opacity=0.2, mesh=True, plot_points=[15, 20] 
+                )
+
+                # --- 4. BOLD and LONG AXES ---
+                L_max = 20
+
+                axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=3) + \
+                      arrow3d((0,0,0), (-L_max,0,0), color='black', width=3) + \
+                      arrow3d((0,0,0), (0,L_max,0), color='black', width=3) + \
+                      arrow3d((0,0,0), (0,-L_max,0), color='black', width=3) + \
+                      arrow3d((0,0,0), (0,0,L_max), color='black', width=3) + \
+                      arrow3d((0,0,0), (0,0,-L_max), color='black', width=3)
+
+                lbl_axes = text3d("x", (L_max+1, 0, 0), color='black', fontsize=14, fontweight='bold') + \
+                          text3d("y", (0, L_max+1, 0), color='black', fontsize=14, fontweight='bold') + \
+                          text3d("z", (0, 0, L_max+1), color='black', fontsize=14, fontweight='bold')
+
+                # --- 5. Labels ---
+                lbl_xy = text3d("xy (Ellipse)", (a + 4, b + 4, 0), color='red', fontweight='bold')
+                lbl_xz = text3d("xz (Hyperbola)", (a + 6, 0, c), color='green', fontweight='bold')
+                lbl_yz = text3d("yz (Hyperbola)", (0, b + 6, c), color='blue', fontweight='bold')
+
+                # --- 6. Combine and Show ---
+                plot_objects = trace_xy + trace_xz + trace_yz + surface + \
+                              lbl_xy + lbl_xz + lbl_yz + \
+                              axes + lbl_axes
+
+                show(plot_objects, frame=False, aspect_ratio=1)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      The second flavor of hyperboloid is shown in the diagram below, which has the general equation
+      <md>
+        \lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 = \lp \dfrac{z}{c} \rp^2 - 1
+      </md>
+      where <m>a, b, c</m> are positive constants. 
+      We call this a <term>hyperboloid of two sheets</term>.
+    </p>
+
+    <figure>
+      <caption>The hyperboloid with equation <m>\lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 = \lp \dfrac{z}{c} \rp^2 - 1</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v')
+            
+            # 1. Dimensions
+            a, b, c = 2, 2, 2
+            u_max = 1.8
+            
+            # 2. Geometry
+            sheet_top = parametric_plot3d(
+                (a*sinh(u)*cos(v), b*sinh(u)*sin(v), c*cosh(u)),
+                (u, 0, u_max), (v, 0, 2*pi),
+                opacity=0.7, color='cyan', mesh=True
+            )
+            
+            sheet_bottom = parametric_plot3d(
+                (a*sinh(u)*cos(v), b*sinh(u)*sin(v), -c*cosh(u)),
+                (u, 0, u_max), (v, 0, 2*pi),
+                opacity=0.7, color='cyan', mesh=True
+            )
+            
+            # 3. Axes
+            limit_z = c * cosh(u_max) * 1.1
+            limit_xy = max(a,b) * sinh(u_max) * 1.3
+            
+            axes = arrow3d((-limit_xy,0,0), (limit_xy,0,0), color='black', width=1) + \
+                  arrow3d((0,-limit_xy,0), (0,limit_xy,0), color='black', width=1) + \
+                  arrow3d((0,0,-limit_z), (0,0,limit_z), color='black', width=1)
+            
+            lbl_axes = text3d("x", (limit_xy + 0.2, 0, 0), color='black', fontweight='bold') + \
+                      text3d("y", (0, limit_xy + 0.2, 0), color='black', fontweight='bold') + \
+                      text3d("z", (0, 0, limit_z + 0.2), color='black', fontweight='bold')
+
+            # 4. Points at Vertices
+            pt_size = 15
+            pts = point3d([(0,0,c), (0,0,-c)], size=pt_size, color='black')
+            
+            # 5. Labels (Adjusted Position)
+            # We move 'c' down by 0.6 and '-c' up by 0.6 so they sit in the empty "middle" gap.
+            offset_gap = 0.6
+            lbls = text3d("c",  (0, 0.4, c - offset_gap),   color='black', fontsize=20) + \
+                  text3d("-c", (0, 0.4, -c + offset_gap),  color='black', fontsize=20)
+            
+            # 6. Combine
+            show(sheet_top + sheet_bottom + axes + lbl_axes + pts + lbls, frame=False)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      Observe that there is a gap between the two sheets of the hyperboloid. 
+      That is because the right-hand side of the equation <m>\lp \frac{z}{c} \rp^2 - 1</m> is negative when <m>|z| \lt c</m>. 
+      Yet the left side of the hyperboloid equation <m>\lp \frac{x}{a} \rp^2 + \lp \frac{y}{b} \rp^2</m> is always non-negative, so there are no points on the region when <m>|z| \lt c</m>. 
+    </p>
+
+    <p>
+      Just like before, we can analyze the traces of the hyperboloid of two sheets to understand the surface. 
+      Feel free to try this as an exercise! 
+      Just one small hint here: there is no <m>xy</m>-trace since setting <m>z = 0</m> results in no points on the surface. 
+      If we set <m>z = k</m> for some <m>|k| \gt c</m>, we will get an ellipse as the trace instead. 
+    </p>
+
+    <p>
+      The figure below shows the (interesting) traces of the hyperboloid of two sheets. 
+    </p>
+
+    <figure>
+      <caption>The traces of the hyperboloid <m>\lp\dfrac{x}{a}\rp^2 +1 \lp\dfrac{y}{b}\rp^2 = \lp\dfrac{z}{c}\rp^2 - 1</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v, t')
+
+            # --- 1. Parameters ---
+            # Equation: (z/c)^2 - (x/a)^2 - (y/b)^2 = 1
+            # Changed b to 3 so a != b (Ellipses, not circles)
+            a = 2
+            b = 3
+            c = 2 
+
+            # Trace height z = k. 
+            # Must be > c. Since we make sheets deeper, we can place k higher up.
+            k_val = 5
+
+            # --- 2. Vertical Traces (Hyperbolas) ---
+
+            # XZ Trace (y=0): z^2/c^2 - x^2/a^2 = 1
+            # Param: z = +/- c*cosh(t), x = a*sinh(t)
+            trace_xz = parametric_plot3d((a*sinh(t), 0, c*cosh(t)), (t, -2.2, 2.2), color='green', thickness=4) + \
+                      parametric_plot3d((a*sinh(t), 0, -c*cosh(t)), (t, -2.2, 2.2), color='green', thickness=4)
+
+            # YZ Trace (x=0): z^2/c^2 - y^2/b^2 = 1
+            # Param: z = +/- c*cosh(t), y = b*sinh(t)
+            trace_yz = parametric_plot3d((0, b*sinh(t), c*cosh(t)), (t, -2.2, 2.2), color='blue', thickness=4) + \
+                      parametric_plot3d((0, b*sinh(t), -c*cosh(t)), (t, -2.2, 2.2), color='blue', thickness=4)
+
+
+            # --- 3. Horizontal Traces (Ellipses) at z = +/- k ---
+            # At z = k: x^2/a^2 + y^2/b^2 = (k/c)^2 - 1
+            # Radius factor R
+            R = sqrt((k_val/c)^2 - 1)
+
+            # Top Ellipse (z = k)
+            trace_z_top = parametric_plot3d(
+                (a*R*cos(t), b*R*sin(t), k_val), (t, 0, 2*pi),
+                color='red', thickness=4
+            )
+
+            # Bottom Ellipse (z = -k)
+            trace_z_bot = parametric_plot3d(
+                (a*R*cos(t), b*R*sin(t), -k_val), (t, 0, 2*pi),
+                color='red', thickness=4
+            )
+
+
+            # --- 4. The Mesh Surface (Two Sheets) ---
+            # Increased u max from 1.3 to 1.8 for "deeper" sheets
+            sheet_top = parametric_plot3d(
+                (a*sinh(u)*cos(v), b*sinh(u)*sin(v), c*cosh(u)),
+                (u, 0, 1.8), (v, 0, 2*pi),
+                color='gray', opacity=0.2, mesh=True, plot_points=[15, 20]
+            )
+
+            # Lower Sheet
+            sheet_bot = parametric_plot3d(
+                (a*sinh(u)*cos(v), b*sinh(u)*sin(v), -c*cosh(u)),
+                (u, 0, 1.8), (v, 0, 2*pi),
+                color='gray', opacity=0.2, mesh=True, plot_points=[15, 20]
+            )
+
+
+            # --- 5. Labels and Axes ---
+            lbl_xz = text3d("xz (Hyperbola)", (a+4, 0, c+1), color='green', fontweight='bold')
+            lbl_yz = text3d("yz (Hyperbola)", (0, b+4, c+1), color='blue', fontweight='bold')
+
+            lbl_z  = text3d("z = k (Ellipse)", (a+3, b+2, k_val), color='red', fontweight='bold')
+            lbl_z2 = text3d("z = -k (Ellipse)", (a+3, b+2, -k_val), color='red', fontweight='bold')
+
+            # Standard Axes (width=1)
+            # Increased Length to 10 to accomodate deeper sheets
+            L_max = 10
+            axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
+
+            lbl_axes = text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
+                      text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
+                      text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
+
+            # --- 6. Combine ---
+            plot_objects = trace_xz + trace_yz + trace_z_top + trace_z_bot + \
+                          sheet_top + sheet_bot + \
+                          lbl_xz + lbl_yz + lbl_z + lbl_z2 + \
+                          axes + lbl_axes
+
+            show(plot_objects, frame=False, aspect_ratio=1)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      The third type of quadric surfaces is the <term>elliptic cone</term>. 
+      An elliptic cone has the general equation
+      <md>
+        \lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 = \lp \dfrac{z}{c} \rp^2
+      </md>
+      where <m>a, b, c</m> are positive constants.
+    </p>
+
+    <figure>
+      <caption>The elliptic cone <m>\lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 = \lp \dfrac{z}{c} \rp^2</m></caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v')
+            
+            # 1. Set Dimensions
+            # a != b makes it an "elliptic" cone rather than circular
+            a, b, c = 3, 4, 3
+            
+            # 2. Parametric Equations
+            # x = a*u*cos(v), y = b*u*sin(v), z = c*u
+            # u acts as the "height" parameter here, v is the angle
+            u_max = 1.2
+            
+            # Top Nappe (z > 0)
+            cone_top = parametric_plot3d(
+                (a*u*cos(v), b*u*sin(v), c*u),
+                (u, 0, u_max), (v, 0, 2*pi),
+                opacity=0.7, color='cyan', mesh=True
+            )
+            
+            # Bottom Nappe (z \lt 0)
+            cone_bottom = parametric_plot3d(
+                (a*u*cos(v), b*u*sin(v), -c*u),
+                (u, 0, u_max), (v, 0, 2*pi),
+                opacity=0.7, color='cyan', mesh=True
+            )
+            
+            # 3. Axes
+            limit_z = c * u_max * 1.2
+            limit_xy = max(a,b) * u_max * 1.3
+            
+            axes = arrow3d((-limit_xy,0,0), (limit_xy,0,0), color='black', width=1) + \
+                  arrow3d((0,-limit_xy,0), (0,limit_xy,0), color='black', width=1) + \
+                  arrow3d((0,0,-limit_z), (0,0,limit_z), color='black', width=1)
+            
+            lbl_axes = text3d("x", (limit_xy + 0.2, 0, 0), color='black', fontweight='bold') + \
+                      text3d("y", (0, limit_xy + 0.2, 0), color='black', fontweight='bold') + \
+                      text3d("z", (0, 0, limit_z + 0.2), color='black', fontweight='bold')
+
+            # 4. Mark the Vertex
+            # The only intercept for a standard cone is the origin (0,0,0)
+            pt_vertex = point3d((0,0,0), size=15, color='black')
+            lbl_vertex = text3d("V", (0.2, 0.2, -0.4), color='black', fontweight='bold')
+            
+            # 5. Combine
+            show(cone_top + cone_bottom + axes + lbl_axes + pt_vertex + lbl_vertex, frame=False)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      The elliptic cone can be thought of as the transition surface between the hyperboloid of one sheet and the hyperboloid of two sheets. 
+      <ul>
+        <li>
+          <p>
+            If we increase the constant term on the right side of the elliptic cone by adding a <m>1</m>, the two(ish) sheets will move toward each other, creating a hyperboloid of one sheet. 
+          </p>
+        </li>
+        <li>
+          <p>
+            If we decrease the constant term on the right side of the elliptic cone by subtracting a <m>1</m>, the two(ish) sheets will move away from each other, creating a hyperboloid of two sheets. 
+          </p>
+        </li>
+      </ul>
+      When the constant term on the right side of the hyperboloid equations is zero, we get the elliptic cone. 
+      Positive constant on the right-hand side means two sheets merge into one, while negative constant means one sheet splits into two.
+    </p>
+
+    <p>
+      Of course, we can analyze the traces of the elliptic cone as well. 
+      Try this as an exercise!
+      If you play your cards right, you will find that the <m>xy</m>-trace is a point at the origin, while the <m>xz</m>- and <m>yz</m>-traces are pairs of lines through the origin. 
+      They are the three degenerate conic sections... Boring... 
+      But when you move up (or down) from the vertex along the <m>z</m>-axis, you will see that the traces are ellipses that grow larger as you move away from the vertex! 
+    </p>
+
+    <p>
+      As always, Richard coded the diagram below to illustrate the traces of the elliptic cone.
+    </p>
+
+    <figure>
+      <caption>The traces of the elliptic cone <m>\lp\dfrac{x}{a}\rp^2 + \lp\dfrac{y}{b}\rp^2 = \lp\dfrac{z}{c}\rp^2</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v, t')
+
+            # --- 1. Parameters ---
+            # Equation: (z/c)^2 = (x/a)^2 + (y/b)^2
+            a = 2
+            b = 3
+            c = 2 
+
+            # Trace height for ellipses
+            k_val = 5
+
+            # --- 2. Vertical Traces (Intersecting Lines) ---
+
+            # XZ Trace (y=0): z^2/c^2 = x^2/a^2  => z = +/- (c/a)x
+            # These are just lines passing through origin in the xz plane.
+            # We draw them as segments from x = -L to L
+            L_line = 6
+            trace_xz = line3d([(-L_line, 0, -L_line*(c/a)), (L_line, 0, L_line*(c/a))], color='green', thickness=4) + \
+                      line3d([(-L_line, 0, L_line*(c/a)), (L_line, 0, -L_line*(c/a))], color='green', thickness=4)
+
+            # YZ Trace (x=0): z^2/c^2 = y^2/b^2 => z = +/- (c/b)y
+            trace_yz = line3d([(0, -L_line, -L_line*(c/b)), (0, L_line, L_line*(c/b))], color='blue', thickness=4) + \
+                      line3d([(0, -L_line, L_line*(c/b)), (0, L_line, -L_line*(c/b))], color='blue', thickness=4)
+
+
+            # --- 3. Horizontal Traces (Ellipses) at z = +/- k ---
+            # At z = k: x^2/a^2 + y^2/b^2 = (k/c)^2
+            # This is an ellipse with radius scaling factor R = k/c
+            R = k_val / c
+
+            # Top Ellipse (z = k)
+            trace_z_top = parametric_plot3d(
+                (a*R*cos(t), b*R*sin(t), k_val), (t, 0, 2*pi),
+                color='red', thickness=4
+            )
+
+            # Bottom Ellipse (z = -k)
+            trace_z_bot = parametric_plot3d(
+                (a*R*cos(t), b*R*sin(t), -k_val), (t, 0, 2*pi),
+                color='red', thickness=4
+            )
+
+
+            # --- 4. The Mesh Surface (Cone) ---
+            # Parametrization: x = a*u*cos(v), y = b*u*sin(v), z = c*u  (for top half)
+            # We plot top and bottom halves separately or use |u| logic.
+            # Let's use u for height factor directly.
+
+            # Upper Cone (z \gt 0)
+            cone_top = parametric_plot3d(
+                (a*u*cos(v), b*u*sin(v), c*u),
+                (u, 0, 3.5), (v, 0, 2*pi), # u goes up to 3.5 to make it "deep"
+                color='gray', opacity=0.2, mesh=True, plot_points=[10, 20]
+            )
+
+            # Lower Cone (z \lt 0)
+            cone_bot = parametric_plot3d(
+                (a*u*cos(v), b*u*sin(v), -c*u),
+                (u, 0, 3.5), (v, 0, 2*pi),
+                color='gray', opacity=0.2, mesh=True, plot_points=[10, 20]
+            )
+
+
+            # --- 5. Labels and Axes ---
+            lbl_xz = text3d("xz (Lines)", (a+4, 0, c+2), color='green', fontweight='bold')
+            lbl_yz = text3d("yz (Lines)", (0, b+4, c+2), color='blue', fontweight='bold')
+
+            lbl_z  = text3d("z = k (ellipse)", (a+3, b+2, k_val), color='red', fontweight='bold')
+            lbl_z2 = text3d("z = -k (ellipse)", (a+3, b+2, -k_val), color='red', fontweight='bold')
+
+            # Standard Axes (width=1)
+            L_max = 8
+            axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
+
+            lbl_axes = text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
+                      text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
+                      text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
+
+            # --- 6. Combine ---
+            plot_objects = trace_xz + trace_yz + trace_z_top + trace_z_bot + \
+                          cone_top + cone_bot + \
+                          lbl_xz + lbl_yz + lbl_z + lbl_z2 + \
+                          axes + lbl_axes
+
+            show(plot_objects, frame=False, aspect_ratio=1)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      The next type of quadric surfaces is the <term>paraboloids</term>, which also comes in two different flavors. 
+    </p>
+
+    <p>
+      An <term>elliptic paraboloid</term> has the general equation
+      <md>
+        z = \lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2
+      </md>
+      where <m>a, b</m> are positive constants.
+    </p>
+
+    <figure>
+      <caption>The elliptic paraboloid <m>z = \lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v')
+            
+            # 1. Set Dimensions
+            # a != b makes it elliptic.
+            a, b = 2, 3
+            # c is just a scaling factor for z height here
+            c = 1 
+            
+            # 2. Parametric Equations
+            # x = a*u*cos(v), y = b*u*sin(v), z = c*u^2
+            # u is the radius parameter, v is the angle
+            u_max = 2.0
+            
+            paraboloid = parametric_plot3d(
+                (a*u*cos(v), b*u*sin(v), c*u^2),
+                (u, 0, u_max), (v, 0, 2*pi),
+                opacity=0.6, color='cyan', mesh=True
+            )
+            
+            # 3. Axes
+            limit_z = c * u_max^2 * 1.2
+            limit_xy = max(a,b) * u_max * 1.3
+            
+            axes = arrow3d((-limit_xy,0,0), (limit_xy,0,0), color='black', width=1) + \
+                  arrow3d((0,-limit_xy,0), (0,limit_xy,0), color='black', width=1) + \
+                  arrow3d((0,0,-1), (0,0,limit_z), color='black', width=1)
+            
+            lbl_axes = text3d("x", (limit_xy + 0.2, 0, 0), color='black', fontweight='bold') + \
+                      text3d("y", (0, limit_xy + 0.2, 0), color='black', fontweight='bold') + \
+                      text3d("z", (0, 0, limit_z + 0.2), color='black', fontweight='bold')
+
+            # 4. Mark the Vertex
+            # The vertex is at the origin (0,0,0)
+            pt_vertex = point3d((0,0,0), size=15, color='black')
+            
+            # 5. Combine
+            show(paraboloid + axes + lbl_axes + pt_vertex, frame=False)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      Similarly, the traces of the elliptic paraboloid can tell us a lot! 
+      Again, feel free to try this as an exercise. 
+      You will find that the <m>xy</m>-trace is a point at the origin, while the <m>xz</m>- and <m>yz</m>-traces are parabolas that open upward. 
+      Moving up along the <m>z</m>-axis from the vertex, you will see that the traces are ellipses that grow larger as you move away from the vertex! 
+    </p>
+
+    <p>
+      The figure below shows the traces of the elliptic paraboloid. 
+    </p>
+
+    <figure>
+      <caption>The traces of the elliptic paraboloid <m>z = \lp\dfrac{x}{a}\rp^2 + \lp\dfrac{y}{b}\rp^2</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v, t')
+
+            # --- 1. Parameters ---
+            # Equation: z = (x/a)^2 + (y/b)^2
+            a = 2
+            b = 3
+
+            # Trace height z = k
+            k_val = 5
+
+            # --- 2. Vertical Traces (Parabolas) ---
+
+            # XZ Trace (y=0): z = (x/a)^2
+            # We plot this from negative to positive x to show the full curve
+            # Range: let x go from -a*sqrt(k) to a*sqrt(k) (approx -4.5 to 4.5)
+            limit_x = a * sqrt(k_val) + 0.5
+            trace_xz = parametric_plot3d(
+                (t, 0, (t/a)^2), (t, -limit_x, limit_x), 
+                color='green', thickness=4
+            )
+
+            # YZ Trace (x=0): z = (y/b)^2
+            limit_y = b * sqrt(k_val) + 0.5
+            trace_yz = parametric_plot3d(
+                (0, t, (t/b)^2), (t, -limit_y, limit_y), 
+                color='blue', thickness=4
+            )
+
+
+            # --- 3. Horizontal Trace (Ellipse) at z = k ---
+            # At z = k: (x/a)^2 + (y/b)^2 = k
+            # This is an ellipse with radii: A = a*sqrt(k), B = b*sqrt(k)
+            A = a * sqrt(k_val)
+            B = b * sqrt(k_val)
+
+            trace_z = parametric_plot3d(
+                (A*cos(t), B*sin(t), k_val), (t, 0, 2*pi),
+                color='red', thickness=4
+            )
+
+
+            # --- 4. The Mesh Surface (Paraboloid) ---
+            # Parametrization: x = a*u*cos(v), y = b*u*sin(v), z = u^2
+            # u goes from 0 to sqrt(k_val) (roughly 2.24)
+            max_u = sqrt(k_val)
+
+            surface = parametric_plot3d(
+                (a*u*cos(v), b*u*sin(v), u^2),
+                (u, 0, max_u), (v, 0, 2*pi),
+                color='gray', opacity=0.2, mesh=True, plot_points=[15, 20]
+            )
+
+
+            # --- 5. Labels and Axes ---
+            # Position labels well outside the surface
+            lbl_xz = text3d("xz (Parabola)", (limit_x + 2, 0, k_val), color='green', fontweight='bold')
+            lbl_yz = text3d("yz (Parabola)", (0, limit_y + 2, k_val), color='blue', fontweight='bold')
+            lbl_z  = text3d("z = k (Ellipse)", (A + 1, B + 1, k_val), color='red', fontweight='bold')
+
+            # Standard Axes (width=1)
+            L_max = 10
+            axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,-1), color='black', width=1) # Short negative z axis
+
+            lbl_axes = text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
+                      text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
+                      text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
+
+            # --- 6. Combine ---
+            plot_objects = trace_xz + trace_yz + trace_z + \
+                          surface + \
+                          lbl_xz + lbl_yz + lbl_z + \
+                          axes + lbl_axes
+
+            show(plot_objects, frame=False, aspect_ratio=1)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      The second flavor is the <term>hyperbolic paraboloid</term>, which has the general equation
+      <md>
+        z = \lp \dfrac{y}{b} \rp^2 - \lp \dfrac{x}{a} \rp^2
+      </md>
+      where <m>a, b</m> are positive constants.
+    </p>
+
+    <figure>
+      <caption>The hyperbolic paraboloid <m>z = \lp \dfrac{y}{b} \rp^2 - \lp \dfrac{x}{a} \rp^2</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v')
+            
+            # 1. Set Dimensions
+            a, b = 2, 2
+            # c is a vertical scaling factor to accentuate the curve
+            c = 1
+            
+            # 2. Parametric Equations
+            # x = u, y = v, z = c*(v^2/b^2 - u^2/a^2)
+            # We use a square domain [-limit, limit] to clearly show the parabolic grid lines.
+            limit_domain = 3
+            
+            saddle = parametric_plot3d(
+                (u, v, c*(v^2/b^2 - u^2/a^2)),
+                (u, -limit_domain, limit_domain), (v, -limit_domain, limit_domain),
+                opacity=0.7, color='cyan', mesh=True
+            )
+            
+            # 3. Axes
+            # Determine max z for axes limits
+            max_z = c * (limit_domain^2 / min(a^2, b^2))
+            
+            axes = arrow3d((-limit_domain*1.2,0,0), (limit_domain*1.2,0,0), color='black', width=1) + \
+                  arrow3d((0,-limit_domain*1.2,0), (0,limit_domain*1.2,0), color='black', width=1) + \
+                  arrow3d((0,0,-max_z), (0,0,max_z), color='black', width=1)
+            
+            lbl_axes = text3d("x", (limit_domain*1.3, 0, 0), color='black', fontweight='bold') + \
+                      text3d("y", (0, limit_domain*1.3, 0), color='black', fontweight='bold') + \
+                      text3d("z", (0, 0, max_z + 0.5), color='black', fontweight='bold')
+
+            # 4. Mark the Saddle Point (Origin)
+            pt_origin = point3d((0,0,0), size=15, color='black')
+            
+            # 5. Combine
+            show(saddle + axes + lbl_axes + pt_origin, frame=False)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      The traces of the hyperbolic paraboloid are also very interesting! 
+      Try this as an exercise. 
+      You will find that the <m>xy</m>-trace is a point at the origin (aka the saddle point!), while the <m>xz</m>- and <m>yz</m>-traces are parabolas that open in opposite directions. 
+      Moving up along the <m>z</m>-axis from the saddle point, you will see that the <m>xy</m>-traces are hyperbolas that open along the <m>y</m>-axis, while moving down along the <m>z</m>-axis, the <m>xy</m>-traces are hyperbolas that open along the <m>x</m>-axis!
+    </p>
+
+    <p>
+      The figure below shows the traces of the hyperbolic paraboloid. 
+      Feel free to rotate around the diagram to get a better view of the traces! 
+    </p>
+
+      <figure xml:id="fig-hyperbolic-paraboloid-interactive-layout">
+        <caption>Interactive traces of the hyperbolic paraboloid with custom button layout.</caption>
+        <sidebyside width="100%">
+          <interactive platform="sage" width="10%" aspect="4:3">
+            <slate surface="sage">
+            var('u, v, t, x, y')
+
+            # --- Parameters ---
+            a = 2
+            b = 3
+            k_val = 2 
+
+            # Bounds
+            surf_x = 4
+            surf_y = 6
+            trace_x_limit = 5.5
+            trace_y_limit = 7.5
+
+            # We use the 'layout' parameter to define the grid of controls.
+            # Row 1: The 4 trace toggles
+            # Row 2: The surface toggle
+            @interact(layout=[
+                ['show_xz', 'show_yz', 'show_z_pos', 'show_z_neg'], 
+                ['show_surface']
+            ])
+            def _(
+                show_xz      = checkbox(True, label="xz-trace (Green)"),
+                show_yz      = checkbox(True, label="yz-trace (Blue)"),
+                show_z_pos   = checkbox(True, label="z=k (Red X)"),
+                show_z_neg   = checkbox(True, label="z=-k (Red Y)"),
+                show_surface = checkbox(True, label="Show Surface Mesh")
+            ):
+                # Initialize the plot with axes (always visible)
+                L_max = 9
+                P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
+                
+                P += text3d("x", (L_max+1, 0, 0), color='black') + \
+                    text3d("y", (0, L_max+1, 0), color='black') + \
+                    text3d("z", (0, 0, L_max+1), color='black')
+
+                # --- 1. Surface ---
+                if show_surface:
+                    P += plot3d(
+                        (x/a)^2 - (y/b)^2, (x, -surf_x, surf_x), (y, -surf_y, surf_y),
+                        color='gray', opacity=0.2, mesh=True, plot_points=[15, 15]
+                    )
+
+                # --- 2. XZ Trace (Parabola Up) ---
+                if show_xz:
+                    P += parametric_plot3d(
+                        (t, 0, (t/a)^2), (t, -trace_x_limit, trace_x_limit), 
+                        color='green', thickness=4
+                    )
+                    z_tip_x = (trace_x_limit/a)^2
+                    P += text3d("xz", (trace_x_limit, 0, z_tip_x + 1), color='green', fontweight='bold')
+
+                # --- 3. YZ Trace (Parabola Down) ---
+                if show_yz:
+                    P += parametric_plot3d(
+                        (0, t, -(t/b)^2), (t, -trace_y_limit, trace_y_limit), 
+                        color='blue', thickness=4
+                    )
+                    z_tip_y = -(trace_y_limit/b)^2
+                    P += text3d("yz", (0, trace_y_limit, z_tip_y - 1), color='blue', fontweight='bold')
+
+                # --- 4. Z=k Trace (Hyperbola along X) ---
+                if show_z_pos:
+                    Ak = a * sqrt(k_val)
+                    Bk = b * sqrt(k_val)
+                    P += parametric_plot3d(
+                        (Ak*cosh(t), Bk*sinh(t), k_val), (t, -1.5, 1.5), color='red', thickness=4
+                    ) + parametric_plot3d(
+                        (-Ak*cosh(t), Bk*sinh(t), k_val), (t, -1.5, 1.5), color='red', thickness=4
+                    )
+                    P += text3d("z=k", (Ak+1, Bk, k_val), color='red', fontweight='bold')
+
+                # --- 5. Z=-k Trace (Hyperbola along Y) ---
+                if show_z_neg:
+                    Ak = a * sqrt(k_val)
+                    Bk = b * sqrt(k_val)
+                    P += parametric_plot3d(
+                        (Ak*sinh(t), Bk*cosh(t), -k_val), (t, -1.5, 1.5), color='red', thickness=4
+                    ) + parametric_plot3d(
+                        (Ak*sinh(t), -Bk*cosh(t), -k_val), (t, -1.5, 1.5), color='red', thickness=4
+                    )
+                    P += text3d("z=-k", (Ak, Bk+3, -k_val), color='red', fontweight='bold')
+
+                show(P, frame=False, aspect_ratio=1)
+            </slate>
+          </interactive>
+        </sidebyside>
+      </figure>
+
+    <p>
+      Now let's take a pause and look back at what we have covered so far.
+      We have learned six types of quadric surfaces. 
+      Make sure you know how to identify each type from its equation, and be able to analyze them using their traces (and sometimes the "standard" traces are not enough if we get the degenerate conic sections!).
+    </p>
+
+    <example>
+      <p>
+        State the type of quadric surface 
+        <md>
+          4x^2 + \lp \dfrac{y}{3} \rp^2 - 2z^2 = -1
+        </md>
+        and describe the trace obtained by intersecting with the plane <m>z = 1</m>.
+      </p>
+
+      <hint>
+        <p>
+          To determine the type of quadric surface, we match the equation to the standard forms we have learned. 
+          Yet, there is no fractions on the <m>x^2</m> term and the <m>z^2</m> term... What to do? 
+        </p>
+
+        <p>
+          Recall that we can always manipulate the equation algebraically to get it into a more recognizable form. 
+          For example, we know that <m>2x</m> can be rewritten as <m>\lp \dfrac{x}{\frac{1}{2}} \rp</m> if we want to get some fractions out of it. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We first rewrite the equation as
+          <md>
+            <mrow>\lp \dfrac{x}{\frac{1}{2}} \rp^2 + \lp \dfrac{y}{3} \rp^2 - \lp \dfrac{z}{\frac{1}{\sqrt{2}}} \rp^2 \amp= -1 </mrow>
+            <mrow> \lp \dfrac{x}{\frac{1}{2}} \rp^2 + \lp \dfrac{y}{3} \rp^2 \amp= \lp \dfrac{z}{\frac{1}{\sqrt{2}}} \rp^2 - 1 </mrow>
+          </md>
+          which matches the standard form of a hyperboloid of two sheets.
+        </p>
+
+        <p>
+          To find the trace on the plane <m>z = 1</m>, we substitute <m>z = 1</m> into the equation. 
+          We obtain
+          <md>
+            <mrow> 4x^2 + \lp \frac{y}{3} \rp^2 \amp= 2\cdot 1^2 - 1 </mrow>
+            <mrow> 4x^2 +  \frac{y^2}{9} \amp= 1 </mrow>
+            <mrow>\lp \frac{x}{\frac{1}{2}} \rp^2 + \lp \frac{y}{3} \rp^2 \amp= 1 </mrow>
+          </md>
+          The trace is an ellipse on the plane <m>z = 1</m>.
+        </p>
+      </solution>
+    </example>
+
+    <example>
+      <p>
+        Sketch the surface <m>x^2 - y^2 + 9z^2 = 9</m>
+      </p>
+
+      <hint>
+        <p>
+          There are two approaches to sketching a surface. 
+        </p>
+
+        <p>
+          One is to rewrite the equation into a more recognizable form, then use the standard sketch as a starting point. 
+          But the downside is that we may not be able to match it to a standard form easily, especially when there are some slight alternations involved 
+          (then not only you will need to recognize the type of surface, but also the alternation). 
+        </p>
+
+        <p>
+          The other approach is to analyze the traces of the surface, then sketch it based on the traces. 
+          This approach is more general and works for any surface, but it may take more time and effort.
+        </p>
+
+        <p>
+          Alternatively, you can just put the equation into a 3D graphing tool (like GeoGebra or WolframAlpha) and get an instant sketch. 
+          But remember that Richard will not accept any calculator-generated answers without any justification on the exams. 
+        </p>
+      </hint>
+
+      <solution>
+        <title>Approach 1: Recognizing the Standard Form</title>
+        <p>
+          By doing some algebraic manipulation, we can rewrite the equation as
+          <md>
+            <mrow> \lp \dfrac{x}{3} \rp^2 + \lp \dfrac{z}{1} \rp^2 \amp= \lp \dfrac{y}{3} \rp^2 + 1 </mrow>
+          </md>
+          The format matches the standard form of a hyperboloid of one sheet. 
+          Yet there is a slight alternation that <m>y</m> and <m>z</m> are swapped in their usual positions. 
+        </p>
+
+        <p>
+          Hence, instead of having a standard hyperboloid of one sheet that opens along the <m>z</m>-axis, this surface opens along the <m>y</m>-axis. 
+        </p>
+
+        <figure>
+          <caption>The surface <m>x^2 - y^2 + 9z^2 = 9</m>.</caption>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v')
+
+                # --- 1. The Surface (Hyperboloid of One Sheet along Y-axis) ---
+                # Equation: (x/3)^2 - (y/3)^2 + (z/1)^2 = 1
+                # Parametrization: y = 3*sinh(u), x = 3*cosh(u)*cos(v), z = 1*cosh(u)*sin(v)
+
+                surface = parametric_plot3d(
+                    (3*cosh(u)*cos(v), 3*sinh(u), 1*cosh(u)*sin(v)),
+                    (u, -2, 2), (v, 0, 2*pi),
+                    color='teal', opacity=0.3, mesh=True, plot_points=[20, 20]
+                )
+
+                # --- 2. The Axes ---
+                L_x = 12
+                L_y = 12
+                L_z = 5
+
+                axes = arrow3d((0,0,0), (L_x,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (-L_x,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L_y,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,-L_y,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L_z), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,-L_z), color='black', width=1)
+
+                lbl_axes = text3d("x", (L_x+1, 0, 0), color='black', fontsize=12) + \
+                          text3d("y", (0, L_y+1, 0), color='black', fontsize=12) + \
+                          text3d("z", (0, 0, L_z+0.5), color='black', fontsize=12)
+
+                # --- 3. Custom Ticks ---
+                def draw_tick(axis, val, size=0.4):
+                    if axis == 'x':
+                        # Tick on X axis, drawn in Y direction
+                        obj = line3d([(val, -size, 0), (val, size, 0)], color='black', thickness=2)
+                        lbl = text3d(str(val), (val, -size*4, 0), color='black', fontsize=10)
+                    elif axis == 'y':
+                        # Tick on Y axis, drawn in X direction
+                        obj = line3d([(-size, val, 0), (size, val, 0)], color='black', thickness=2)
+                        lbl = text3d(str(val), (size*4, val, 0), color='black', fontsize=10)
+                    elif axis == 'z':
+                        # Tick on Z axis, drawn in X direction
+                        obj = line3d([(-size, 0, val), (size, 0, val)], color='black', thickness=2)
+                        lbl = text3d(str(val), (size*4, 0, val), color='black', fontsize=10)
+                    else:
+                        return point3d((0,0,0), size=0) # Safety return
+                        
+                    return obj + lbl
+
+                # Generate Ticks
+                ticks_x = sum([draw_tick('x', i) for i in [-10, -5, 5, 10]])
+                ticks_y = sum([draw_tick('y', i) for i in [-10, -5, 5, 10]])
+                ticks_z = sum([draw_tick('z', i) for i in [-4, -2, 2, 4]])
+
+                # --- 4. Combine and Show ---
+                plot_objects = surface + axes + lbl_axes + ticks_x + ticks_y + ticks_z
+
+                show(plot_objects, frame=False, aspect_ratio=1)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+
+      <solution>
+        <title>Approach 2: Analyzing the Traces</title>
+        <p>
+          Let's analyze the "standard" traces first. 
+          <ul>
+            <li>
+              <p>
+                <m>xy</m>-trace: Setting <m>z = 0</m> gives <m>4x^2 - y^2 = 9</m>. 
+                This is a hyperbola opening along the <m>x</m>-axis, where the vertices are at <m>(\pm \dfrac{3}{2}, 0, 0)</m> and the asymptotes are <m>y = \pm \dfrac{2x}{3}</m>. 
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>xz</m>-trace: Setting <m>y = 0</m> gives <m>4x^2 + 9z^2 = 9</m>. 
+                This is an ellipse centered at the origin with <m>x</m>-intercepts at <m>(\pm \dfrac{3}{2}, 0, 0)</m> and <m>z</m>-intercepts at <m>(0, 0, \pm 1)</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>yz</m>-trace: Setting <m>x = 0</m> gives <m>-y^2 + 9z^2 = 9</m>. 
+                This is a hyperbola opening along the <m>z</m>-axis, where the vertices are at <m>(0, 0, \pm 1)</m> and the asymptotes are <m>z = \pm \dfrac{y}{3}</m>.
+              </p>
+            </li>
+          </ul>
+          Now we can sketch the traces and combine them to form the surface! 
+        </p>
+
+        <figure xml:id="fig-surface-static-ticks-traces">
+          <caption>The surface <m>x^2 - y^2 + 9z^2 = 9</m> with traces.</caption>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v, t')
+
+                # --- 1. The Surface (Hyperboloid of One Sheet along Y-axis) ---
+                # Equation: (x/3)^2 - (y/3)^2 + (z/1)^2 = 1
+                surface = parametric_plot3d(
+                    (3*cosh(u)*cos(v), 3*sinh(u), 1*cosh(u)*sin(v)),
+                    (u, -2, 2), (v, 0, 2*pi),
+                    color='teal', opacity=0.2, mesh=True, plot_points=[20, 20]
+                )
+
+                # --- 2. The Traces ---
+
+                # xy-trace (z=0): x^2/9 - y^2/9 = 1 (Hyperbola opening along x)
+                # x = +/- 3*cosh(t), y = 3*sinh(t)
+                limit_t = 1.8
+                trace_xy = parametric_plot3d(
+                    (3*cosh(t), 3*sinh(t), 0), (t, -limit_t, limit_t), color='red', thickness=4
+                ) + parametric_plot3d(
+                    (-3*cosh(t), 3*sinh(t), 0), (t, -limit_t, limit_t), color='red', thickness=4
+                )
+
+                # yz-trace (x=0): z^2/1 - y^2/9 = 1 (Hyperbola opening along z)
+                # z = +/- 1*cosh(t), y = 3*sinh(t)
+                trace_yz = parametric_plot3d(
+                    (0, 3*sinh(t), cosh(t)), (t, -limit_t, limit_t), color='blue', thickness=4
+                ) + parametric_plot3d(
+                    (0, 3*sinh(t), -cosh(t)), (t, -limit_t, limit_t), color='blue', thickness=4
+                )
+
+                # xz-trace (y=0): x^2/9 + z^2 = 1 (Ellipse)
+                trace_xz = parametric_plot3d(
+                    (3*cos(t), 0, sin(t)), (t, 0, 2*pi), color='green', thickness=4
+                )
+
+                # --- 3. The Axes ---
+                L_x = 12
+                L_y = 12
+                L_z = 5
+
+                axes = arrow3d((0,0,0), (L_x,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (-L_x,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L_y,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,-L_y,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L_z), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,-L_z), color='black', width=1)
+
+                lbl_axes = text3d("x", (L_x+1, 0, 0), color='black', fontsize=12) + \
+                          text3d("y", (0, L_y+1, 0), color='black', fontsize=12) + \
+                          text3d("z", (0, 0, L_z+0.5), color='black', fontsize=12)
+
+                # Labels for Traces
+                lbl_xy = text3d("xy (hyperbola)", (9, 9, 0), color='red', fontweight='bold')
+                lbl_yz = text3d("yz (hyperbola)", (0, 9, 4), color='blue', fontweight='bold')
+                lbl_xz = text3d("xz (ellipse)", (3.5, 0, 1.5), color='green', fontweight='bold')
+
+                # --- 4. Custom Ticks ---
+                def draw_tick(axis, val, size=0.4):
+                    if axis == 'x':
+                        obj = line3d([(val, -size, 0), (val, size, 0)], color='black', thickness=2)
+                        lbl = text3d(str(val), (val, -size*4, 0), color='black', fontsize=10)
+                    elif axis == 'y':
+                        obj = line3d([(-size, val, 0), (size, val, 0)], color='black', thickness=2)
+                        lbl = text3d(str(val), (size*4, val, 0), color='black', fontsize=10)
+                    elif axis == 'z':
+                        obj = line3d([(-size, 0, val), (size, 0, val)], color='black', thickness=2)
+                        lbl = text3d(str(val), (size*4, 0, val), color='black', fontsize=10)
+                    else:
+                        return point3d((0,0,0), size=0)
+                        
+                    return obj + lbl
+
+                ticks_x = sum([draw_tick('x', i) for i in [-10, -5, 5, 10]])
+                ticks_y = sum([draw_tick('y', i) for i in [-10, -5, 5, 10]])
+                ticks_z = sum([draw_tick('z', i) for i in [-4, -2, 2, 4]])
+
+                # --- 5. Combine and Show ---
+                plot_objects = surface + trace_xy + trace_yz + trace_xz + \
+                              axes + lbl_axes + lbl_xy + lbl_yz + lbl_xz + \
+                              ticks_x + ticks_y + ticks_z
+
+                show(plot_objects, frame=False, aspect_ratio=1)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      In practice, it is often insanely difficult to sketch a surface from scratch, especially on paper. 
+      Richard is happy if you can <em>describe</em> the surface well either by matching things to the standard forms and point out any features (and also any alternation if any) or by analyzing the traces. 
+      This is a math class, not an art class! 
+    </p>
+
+  </subsection>
+
+  <subsection xml:id="subsec-QuadraticCylinders">
+    <title>Quadratic Cylinders</title>
+
+    <p>
+      We are still in the investigation of the standard quadric surfaces, but the following three types can be considered as special cases called <term>quadratic cylinders</term>. 
+      The term cylinder is used here in a more general sense, meaning that the surface extends infinitely in one direction (think about this as a vertical wall that goes up and down forever if the cylinder extends along the <m>z</m>-axis).  
+      They are a bit less interesting in the sense that their non-degenerate traces are just conic section. 
+    </p>
+    
+    <p>
+      The first type of the quadratic cylinder is <term>right circular cylinder</term> that we have seen in earlier section. 
+      Its general equation is 
+      <md>
+        x^2 + y^2 = r^2
+      </md>
+      where <m>r</m> is a positive constant representing the radius of the circular cross-sections. 
+      The only interesting traces of this surface are the traces <m>z = k</m>, which are circles of radius <m>r</m>. 
+    </p>
+
+    <figure>
+      <caption>The traces of the cylinder <m>x^2 + y^2 = r^2</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v, t')
+
+            # --- 1. Parameters ---
+            r = 2   # Radius
+            h = 4   # Half-height (plots from -h to h)
+
+            # --- 2. The Surface (Cylinder) ---
+            # Parametrization: x = r*cos(v), y = r*sin(v), z = u
+            surface = parametric_plot3d(
+                (r*cos(v), r*sin(v), u),
+                (u, -h, h), (v, 0, 2*pi),
+                color='teal', opacity=0.2, mesh=True, plot_points=[10, 20]
+            )
+
+            # --- 3. The Traces ---
+
+            # xy-trace (z=0): Circle x^2 + y^2 = r^2
+            trace_xy = parametric_plot3d(
+                (r*cos(t), r*sin(t), 0), (t, 0, 2*pi),
+                color='red', thickness=4
+            )
+
+            # xz-trace (y=0): Lines x = +/- r
+            # Two vertical lines at x=2 and x=-2
+            trace_xz = line3d([(r, 0, -h-1), (r, 0, h+1)], color='green', thickness=4) + \
+                      line3d([(-r, 0, -h-1), (-r, 0, h+1)], color='green', thickness=4)
+
+            # yz-trace (x=0): Lines y = +/- r
+            # Two vertical lines at y=2 and y=-2
+            trace_yz = line3d([(0, r, -h-1), (0, r, h+1)], color='blue', thickness=4) + \
+                      line3d([(0, -r, -h-1), (0, -r, h+1)], color='blue', thickness=4)
+
+            # --- 4. Axes and Labels ---
+            L = h + 2 # Axis length
+
+            axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,-L), color='black', width=1)
+
+            lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
+                      text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
+                      text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+
+            # Trace Labels
+            lbl_xy = text3d("xy (Circle)", (r+1, r+1, 0), color='red', fontweight='bold')
+            lbl_xz = text3d("xz (Lines)", (r, 0, h+1.5), color='green', fontweight='bold')
+            lbl_yz = text3d("yz (Lines)", (0, r, h+1.5), color='blue', fontweight='bold')
+
+            # --- 5. Combine and Show ---
+            plot_objects = surface + trace_xy + trace_xz + trace_yz + \
+                          axes + lbl_axes + lbl_xy + lbl_xz + lbl_yz
+
+            show(plot_objects, frame=False, aspect_ratio=1)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      We can turn the circular cylinder into an <term>elliptic cylinder</term> by changing the cross-sectional shape from a circle to an ellipse. 
+      Its general equation is
+      <md>
+        \lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 = 1
+      </md>
+      where <m>a</m> and <m>b</m> are positive constants representing the semi-major and semi-minor axes of the elliptical trace. 
+      The interesting traces are again the traces <m>z = k</m>, which are ellipses with semi-major axis <m>a</m> and semi-minor axis <m>b</m>. 
+    </p>
+
+    <figure>
+      <caption>The traces of the elliptic cylinder <m>\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v, t')
+
+            # --- 1. Parameters ---
+            a = 2   # x-radius
+            b = 3   # y-radius
+            h = 4   # Half-height (plots from -h to h)
+
+            # --- 2. The Surface (Elliptic Cylinder) ---
+            # Parametrization: x = a*cos(v), y = b*sin(v), z = u
+            surface = parametric_plot3d(
+                (a*cos(v), b*sin(v), u),
+                (u, -h, h), (v, 0, 2*pi),
+                color='teal', opacity=0.2, mesh=True, plot_points=[10, 20]
+            )
+
+            # --- 3. The Traces ---
+
+            # xy-trace (z=0): Ellipse x^2/a^2 + y^2/b^2 = 1
+            trace_xy = parametric_plot3d(
+                (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
+                color='red', thickness=4
+            )
+
+            # xz-trace (y=0): Lines x = +/- a
+            trace_xz = line3d([(a, 0, -h-1), (a, 0, h+1)], color='green', thickness=4) + \
+                      line3d([(-a, 0, -h-1), (-a, 0, h+1)], color='green', thickness=4)
+
+            # yz-trace (x=0): Lines y = +/- b
+            trace_yz = line3d([(0, b, -h-1), (0, b, h+1)], color='blue', thickness=4) + \
+                      line3d([(0, -b, -h-1), (0, -b, h+1)], color='blue', thickness=4)
+
+            # --- 4. Axes and Labels ---
+            L = h + 2 # Axis length
+
+            axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,-L), color='black', width=1)
+
+            lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
+                      text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
+                      text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+
+            # Trace Labels
+            lbl_xy = text3d("xy (Ellipse)", (a+1, b+1, 0), color='red', fontweight='bold')
+            lbl_xz = text3d("xz (Lines)", (a, 0, h+1.5), color='green', fontweight='bold')
+            lbl_yz = text3d("yz (Lines)", (0, b, h+1.5), color='blue', fontweight='bold')
+
+            # --- 5. Combine and Show ---
+            plot_objects = surface + trace_xy + trace_xz + trace_yz + \
+                          axes + lbl_axes + lbl_xy + lbl_xz + lbl_yz
+
+            show(plot_objects, frame=False, aspect_ratio=1)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      The next type of quadratic cylinder is the <term>hyperbolic cylinder</term>, whose general equation is 
+      <md>
+        \lp \dfrac{x}{a} \rp^2 - \lp \dfrac{y}{b} \rp^2 = 1
+      </md>
+      Again, the only interesting traces are the traces <m>z = k</m>, which are hyperbolas opening along the <m>x</m>-axis with vertices at <m>(\pm a, 0, k)</m> and asymptotes <m>y = \pm \dfrac{b}{a} x</m>.
+    </p>
+
+    <figure>
+      <caption>The traces of the hyperbolic cylinder <m>\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v, t')
+
+            # --- 1. Parameters ---
+            a = 2   # x-radius
+            b = 3   # y-radius
+            h = 4   # Half-height
+
+            # --- 2. The Surface (Hyperbolic Cylinder) ---
+            # Equation: x^2/a^2 - y^2/b^2 = 1
+            # Parametrization: x = +/- a*cosh(v), y = b*sinh(v), z = u
+
+            # Branch 1 (x \gt 0)
+            surface_pos = parametric_plot3d(
+                (a*cosh(v), b*sinh(v), u),
+                (u, -h, h), (v, -1.5, 1.5),
+                color='teal', opacity=0.2, mesh=True, plot_points=[10, 15]
+            )
+
+            # Branch 2 (x \lt 0)
+            surface_neg = parametric_plot3d(
+                (-a*cosh(v), b*sinh(v), u),
+                (u, -h, h), (v, -1.5, 1.5),
+                color='teal', opacity=0.2, mesh=True, plot_points=[10, 15]
+            )
+
+            surface = surface_pos + surface_neg
+
+            # --- 3. The Traces ---
+
+            # xy-trace (z=0): Hyperbola x^2/a^2 - y^2/b^2 = 1
+            # Branch 1
+            trace_xy_pos = parametric_plot3d(
+                (a*cosh(t), b*sinh(t), 0), (t, -1.5, 1.5),
+                color='red', thickness=4
+            )
+            # Branch 2
+            trace_xy_neg = parametric_plot3d(
+                (-a*cosh(t), b*sinh(t), 0), (t, -1.5, 1.5),
+                color='red', thickness=4
+            )
+            trace_xy = trace_xy_pos + trace_xy_neg
+
+            # xz-trace (y=0): Lines x = +/- a
+            trace_xz = line3d([(a, 0, -h-1), (a, 0, h+1)], color='green', thickness=4) + \
+                      line3d([(-a, 0, -h-1), (-a, 0, h+1)], color='green', thickness=4)
+
+            # yz-trace (x=0): None! The surface does not intersect x=0.
+            # We skip plotting it.
+
+            # --- 4. Axes and Labels ---
+            L = h + 2
+
+            axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,-L), color='black', width=1)
+
+            lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
+                      text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
+                      text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+
+            # Trace Labels
+            lbl_xy = text3d("xy (Hyperbola)", (a+1, b+1, 0), color='red', fontweight='bold')
+            lbl_xz = text3d("xz (Lines)", (a, 0, h+1.5), color='green', fontweight='bold')
+
+            # --- 5. Combine and Show ---
+            plot_objects = surface + trace_xy + trace_xz + \
+                          axes + lbl_axes + lbl_xy + lbl_xz
+
+            show(plot_objects, frame=False, aspect_ratio=1)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      Last but not least, we have the <term>parabolic cylinder</term>, whose general equation is
+      <md>
+        y = ax^2
+      </md>
+      where <m>a</m> is a nonzero constant that controls the "width" of the parabolic traces. 
+      The interesting traces are the traces <m>z = k</m>, which are parabolas opening along the <m>y</m>-axis with vertex at <m>(0, 0, k)</m>.
+    </p>
+
+    <figure>
+      <caption>The traces of the parabolic cylinder <m>y = ax^2</m>.</caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('u, v, t')
+
+            # --- 1. Parameters ---
+            # Equation: y = x^2
+            # We adjust limits to get a good aspect ratio
+            x_limit = 2.5  # x goes from -2.5 to 2.5
+            y_max = x_limit^2 # y goes up to 6.25
+            h = 4 # Half-height for z
+
+            # --- 2. The Surface (Parabolic Cylinder) ---
+            # Parametrization: x = u, y = u^2, z = v
+            surface = parametric_plot3d(
+                (u, u^2, v),
+                (u, -x_limit, x_limit), (v, -h, h),
+                color='teal', opacity=0.2, mesh=True, plot_points=[15, 10]
+            )
+
+            # --- 3. The Traces ---
+
+            # xy-trace (z=0): Parabola y = x^2
+            trace_xy = parametric_plot3d(
+                (t, t^2, 0), (t, -x_limit, x_limit),
+                color='red', thickness=4
+            )
+
+            # xz-trace (y=0) and yz-trace (x=0)
+            # Both vertical planes intersect the surface only at the z-axis (the vertex line)
+            trace_vertical = line3d([(0, 0, -h-1), (0, 0, h+1)], color='black', thickness=4)
+
+            # --- 4. Axes and Labels ---
+            L_x = 4
+            L_y = 8
+            L_z = 5
+
+            axes = arrow3d((0,0,0), (L_x,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (-L_x,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,L_y,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,-L_y,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,L_z), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,-L_z), color='black', width=1)
+
+            lbl_axes = text3d("x", (L_x+0.2, 0, 0), color='black', fontsize=12) + \
+                      text3d("y", (0, L_y+0.5, 0), color='black', fontsize=12) + \
+                      text3d("z", (0, 0, L_z+0.5), color='black', fontsize=12)
+
+            # Trace Labels
+            lbl_xy = text3d("xy (Parabola)", (2.5, 6.5, 0), color='red', fontweight='bold')
+            lbl_vert = text3d("xz and yz (Line)", (0, -1, h), color='black', fontweight='bold')
+
+            # --- 5. Combine and Show ---
+            plot_objects = surface + trace_xy + trace_vertical + \
+                          axes + lbl_axes + lbl_xy + lbl_vert
+
+            show(plot_objects, frame=False, aspect_ratio=1)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      Observe that all these quadratic cylinders can be obtained by extending a conic section (circle, ellipse, hyperbola, or parabola) along an axis perpendicular to the plane containing the conic section. 
+      That is, there is nothing new or interesting going on in the third dimension for these surfaces. 
+      Some people believe that the quadratic cylinders are essentially some degenerate cases of the quadric surfaces. 
+    </p>
+  </subsection>
+
+  <p>
+    Your textbook include a summary page for this section (page 724).
+    I recommend you organize your notes to include a similar summary page for your reference (with more details if you like). 
+    Again, Richard cares more about your understanding and the ability to analyze surfaces than sketching a perfect surface by hand! 
+  </p>
+
+  <worksheet xml:id="ws-sec126">
+    <title>Assigned Problems for Section 12.6</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercisegroup>
+      <introduction>
+        <p>
+          In the following exercises, state whether the given equation defines an ellipsoid or hyperboloid, and if a hyperboloid, whether it is of one or two sheets. 
+        </p>
+      </introduction>
+
+      <exercise number="12.6.3">
+        <p>
+          <m>x^2 + 3y^2 + 9z^2 = 1</m>
+        </p>
+      </exercise>
+
+      <exercise number="12.6.7">
+        <p>
+          <m>x^2 + y^2 = 4 - 4z^2</m>
+        </p>
+      </exercise>
+    </exercisegroup>
+
+    <exercisegroup>
+      <introduction>
+        <p>
+          In the following exercises, state whether the given equation defines an elliptic paraboloid, a hyperbolic paraboloid, or an elliptic cone.
+        </p>
+      </introduction>
+
+      <exercise number="12.6.9">
+        <p>
+          <m>z = \lp \dfrac{x}{4} \rp^2 + \lp \dfrac{y}{3} \rp^2</m>
+        </p>
+      </exercise>
+
+      <exercise number="12.6.13">
+        <p>
+          <m>3x^2 - 7y^2 = z</m>
+        </p>
+      </exercise>
+    </exercisegroup>
+
+    <exercisegroup>
+      <introduction>
+        <p>
+          In the following exercises, state the type of the quadric surface and describe the trace obtained by intersecting with the given plane. 
+        </p>
+      </introduction>
+
+      <exercise number="12.6.17">
+        <p>
+          <m>x^2 + \lp \dfrac{y}{4} \rp^2 + z^2 = 1</m>, <m>\qquad y = 0</m>
+        </p>
+      </exercise>
+
+      <exercise number="12.6.19">
+        <p>
+          <m>x^2 + \lp \dfrac{y}{4} \rp^2 + z^2 = 1</m>, <m>\qquad z = \dfrac{1}{4}</m>
+        </p>
+      </exercise>
+    </exercisegroup>
+
+    <exercise number="12.6.25">
+      <p>
+        Match each of the ellipsoids in the figure below with the correct equation. 
+        <ol marker="a)">
+          <li>
+            <p>
+              <m>x^2 + 4y^2 + 4z^2 = 16</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>4x^2 + y^2 + 4z^2 = 16</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>4x^2 + 4y^2 + z^2 = 16</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <figure>
+        <image source="sec126-HW25-Figure.png" width="90%"></image>
+      </figure>
+    </exercise>
+
+    <exercisegroup>
+      <introduction>
+        <p>
+          In the following exercises, sketch the given surface. 
+        </p>
+      </introduction>
+
+      <exercise number="12.6.29">
+        <p>
+          <m>x^2 + y^2 - z^2 = 1</m>
+        </p>
+      </exercise>
+
+      <exercise number="12.6.33">
+        <p>
+          <m>z^2 = \lp \dfrac{x}{4} \rp^2 + \lp \dfrac{y}{8} \rp^2</m>
+        </p>
+      </exercise>
+
+      <exercise number="12.6.39">
+        <p>
+          <m>x = 1 + y^2 + z^2</m>
+        </p>
+      </exercise>
+    </exercisegroup> 
+
+    <exercise number="12.6.45">
+      <p>
+        Find the equation of the hyperboloid shown in the following figure. 
+      </p>
+
+      <figure>
+        <image source="sec126-HW45-Figure.png" width="50%"></image>
+      </figure>
+    </exercise>
+
+  </worksheet>
 
 </section>

@@ -9,9 +9,7 @@
   <xi:include href="sec123-DotProduct.ptx" />
   <xi:include href="sec124-CrossProduct.ptx" />
   <xi:include href="sec125-Planesin3D.ptx" />
-<!--
   <xi:include href="sec126-QuadricSurfaces.ptx" />
   <xi:include href="sec127-CylindricalSphericalCoordinates.ptx" />
--->
 
 </chapter>

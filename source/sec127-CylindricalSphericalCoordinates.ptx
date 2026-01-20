@@ -5,7 +5,13 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      We have been working almost exclusively with the rectangular coordinate system <m>(x,y,z)</m> so far in <m>\R^3</m>. 
+      There are in fact other ways to describe points in <m>\R^3</m>, and sometimes these alternative coordinate systems can make our lives a lot easier!
+    </p>
+
+    <p> 
+      In this section, we are going to expand our toolkit by introducing two new coordinate systems: <term>cylindrical coordinates</term> and <term>spherical coordinates</term>. 
+      These systems are designed specifically to make working with cylinders and spheres much more natural. 
     </p>
 
     <objectives>
@@ -17,12 +23,1259 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            locate points in <m>\R^3</m> using cylindrical and spherical coordinates and understand the geometric meaning of each component (like <m>r</m>, <m>\rho</m>, <m>\theta</m>, and <m>\phi</m>).
+          </p>
+        </li>
+        <li>
+          <p>
+            convert coordinates and equations between rectangular, cylindrical, and spherical systems.
+          </p>
+        </li>
+        <li>
+          <p>
+            identify and sketch level surfaces to build intuition for how these coordinate systems grid up the space.
+          </p>
+        </li>
+        <li>
+          <p>
+            describe and sketch solid regions defined by inequalities in cylindrical and spherical coordinates.
           </p>
         </li>
       </ul>
     </objectives>
-    
   </introduction>
+
+  <p>
+    Recall back in <xref ref="sec122-3DSpaces"/>, we defined rectangular coordinates in <m>\R^3</m> using an ordered triple <m>(x,y,z)</m>, where <m>x</m>, <m>y</m>, and <m>z</m> measure the directed distances along the <m>x</m>-, <m>y</m>-, and <m>z</m>-axes, respectively. 
+    This is a direct extension of the rectangular coordinate system in <m>\R^2</m>.
+  </p>
+
+  <p>
+    Back in MTH 253 or MTH 253Z, you may learn about another coordinate system in <m>\R^2</m> called <term>polar coordinates</term>. 
+    In polar coordinates, a point in the plane is represented by an ordered pair <m>(r,\theta)</m>, where <m>r</m> is the directed distance from the pole to the point, and <m>\theta</m> is the angle formed by the positive <m>x</m>-axis and the line segment connecting the pole to the point.
+  </p>
+
+  <p>
+    The polar coordinate system can also be extended to <m>\R^3</m>, and there are two common ways to do so. 
+    In this section, we will investigate both of these extensions, and they are the <term>cylindrical coordinates</term> and <term>spherical coordinates</term>.
+  </p>
+
+  <subsection xml:id="subsec-PolarCoordinates-Review">
+    <title>Review: Polar Coordinates</title>
+
+    <p>
+      In polar coordinates plane, there is a <term>pole</term> and a <term>polar axis</term>. 
+      To translate these terms to rectangular coordinates plane, the pole corresponds to the origin and the polar axis corresponds to the positive <m>x</m>-axis. 
+    </p>
+
+    <p>
+      To plot a point in polar coordinates, we start at the pole, rotate <m>\theta</m> radians about the pole in the counterclockwise direction (if <m>\theta</m> is positive) or clockwise direction (if <m>\theta</m> is negative), and then move <m>r</m> units along the ray formed by the rotation. 
+      If <m>r</m> is positive, we move in the same direction as the ray; if <m>r</m> is negative, we move in the opposite direction of the ray. 
+    </p>
+
+    <p>
+      If you learn about polar coordinates from Richard (well none of you did), Richard likes to use the grid shown below to help students visualize polar coordinates plane. 
+    </p>
+
+    <figure>
+      <image source="sec127-PolarCoordinate-Blank.png" width="70%"></image>
+      <caption>Polar Coordinates Plane with Grid, where the concentric circles represent different values of <m>r</m>, and the lines radiating from the pole represent different values of <m>\theta</m></caption>
+    </figure>
+
+    <p>
+      Now that we have another coordinate system in <m>\R^2</m>, it is important to know how to convert between rectangular coordinates and polar coordinates. 
+      We can figure out the conversion formulas by constructing a right triangle with legs parallel to the <m>x</m>- and <m>y</m>-axes, and the hypotenuse connecting the origin to the point <m>(x,y)</m>.
+    </p>
+
+    <figure>
+      <image source="sec127-Conversion-PolarRectangular.png" width="50%"></image>
+      <caption>Right triangle to convert between polar and rectangular coordinates</caption>
+    </figure>
+
+    <p>
+      The right triangle above gives us the following conversion formulas. 
+    </p>
+
+    <theorem xml:id="thm-Conversion-PolarRectangular">
+      <title>Conversion between Polar and Rectangular Coordinates</title>
+      <statement>
+        <p>
+          A point with polar coordinates <m>(r,\theta)</m> has rectangular coordinates <m>(x,y)</m>, where
+          <md>
+            x = r \cos(\theta) \qquad \text{ and } \qquad y = r\sin(\theta)
+          </md>
+        </p>
+
+        <p>
+          A point with rectangular coordinates <m>(x,y)</m> has polar coordinates <m>(r,\theta)</m>, where
+          <md>
+            r^2 = x^2 + y^2 \qquad \text{ and } \qquad \tan(\theta) = \dfrac{y}{x} 
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      Just be careful that the radius <m>r</m> can be negative here, and the angle <m>\theta</m> may not be in the range of the inverse tangent function <m>\lp -\frac{\pi}{2}, \frac{\pi}{2} \rp</m>. 
+      Remember to adjust <m>r</m> and <m>\theta</m> accordingly! 
+    </p>
+
+    <p>
+      We will not go in further detail about polar coordinates here since this is just a review.
+      Feel free to refer back to your MTH 253 or MTH 253Z notes if you need a refresher on this topic.
+      <url href="https://drive.google.com/file/d/1G_ptIyjfD-JyVwoxdDnea0edF2EM_iFq/view?usp=sharing">Here</url> is the lecture notes when Richard taught polar coordinates in MTH 112Z before (just in case you want to know more about polar coordinates). 
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-CylindricalCoordinates">
+    <title>Cylindrical Coordinates</title>
+    
+    <p>
+      Cylindrical coordinates in <m>\R^3</m> is one way to extend polar coordinates in <m>\R^2</m>. 
+      Imagine we plot a point in polar coordinates plane, then we can create a circle using the radius <m>r</m>. 
+      The <m>\theta</m> value will determine where the point is located on the circle. 
+      There is no "height" of this point yet since we are still in <m>\R^2</m>.
+    </p>
+
+    <p>
+      Now we extend this idea to <m>\R^3</m>! 
+    </p>
+
+    <p>
+      One way to do so is to assign a "height" value <m>z</m> to the point. 
+      If we move the circle up or down along the <m>z</m>-axis, we really create a cylinder to locate the point in <m>\R^3</m>. 
+    </p>
+
+    <p>
+      That is, we can represent a point in <m>R^3</m> using the ordered triple <m>(r,\theta,z)</m>, where <m>(r,\theta)</m> are the polar coordinates of the projection of the point onto the <m>xy</m>-plane, and <m>z</m> is the directed distance from the <m>xy</m>-plane to the point. 
+      This ordered triple <m>(r,\theta,z)</m> is called the <term>cylindrical coordinates</term> of the point.
+    </p>
+
+    <figure>
+      <image source="sec127-Cylindrical-Diagram.png" width="50%"></image>
+      <caption>Cylindrical coordinates where <m>P</m> has the cylindrical coordinates <m>(r,\theta,z)</m></caption>
+    </figure>
+
+    <p>
+      Similar to polar coordinates, it is important to know how to convert between rectangular coordinates and cylindrical coordinates. 
+      The conversion formulas on the <m>xy</m>-plane are the same as the polar coordinates formulas (since we literally construct the cylindrical coordinates using polar coordinates on the <m>xy</m>-plane), and we just add the <m>z</m> coordinate as is. 
+    </p>
+
+    <theorem xml:id="thm-Conversion-CylindricalRectangular">
+      <title>Conversion between Cylindrical and Rectangular Coordinates</title>
+      <statement>
+        <p>
+          A point with cylindrical coordinates <m>(r,\theta,z)</m> has rectangular coordinates <m>(x,y,z)</m>, where
+          <md>
+            x = r \cos(\theta) \qquad\quad y = r\sin(\theta) \qquad\quad z = z
+          </md>
+        </p>
+
+        <p>
+          A point with rectangular coordinates <m>(x,y,z)</m> has cylindrical coordinates <m>(r,\theta,z)</m>, where
+          <md>
+            r^2 = x^2 + y^2 \qquad\quad \tan(\theta) = \dfrac{y}{x} \qquad\quad z = z
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <p>
+        Convert the cylindrical coordinates <m>\lp 3, \dfrac{\pi}{4}, 2 \rp</m> to rectangular coordinates.
+      </p>
+
+      <hint>
+        <p>
+          Conventionally, we use <m>(r,\theta,z)</m> to denote cylindrical coordinates. 
+          That is, we read the cylindrical coordinates as
+          <md>
+            r = 3, \qquad\quad \theta = \dfrac{\pi}{4}, \qquad\quad z = 2
+          </md>
+          Now we have everything we need to convert this point to rectangular coordinates! 
+        </p>
+
+        <p>
+          As always, Richard included a visual below to help you better understand the geometry of cylindrical coordinates.
+        </p>
+        
+        <figure>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v, t')
+
+                # 1. Constants
+                r0 = 3
+                th0 = pi/4
+                z0 = 2
+
+                # 2. Coordinates
+                P = (r0*cos(th0), r0*sin(th0), z0)
+                Q = (r0*cos(th0), r0*sin(th0), 0)
+                Origin = (0,0,0)
+                Z_tick = (0,0,z0)
+
+                # 3. The Cylinder (Capped at height z0)
+                cylinder = parametric_plot3d(
+                    (r0*cos(u), r0*sin(u), v),
+                    (u, 0, 2*pi), (v, 0, z0),
+                    opacity=0.15, color='cyan', mesh=True
+                )
+
+                # 4. The Geometry Lines (All Dashed)
+                line_r = line3d([Origin, Q], color='deeppink', linestyle='--', thickness=2)
+                line_drop = line3d([P, Q], color='black', linestyle='--', thickness=1.5)
+                line_proj_z = line3d([P, Z_tick], color='black', linestyle='--', thickness=1.5)
+
+                # 5. Theta Arrow (Curved Arrow - Consistent Style)
+                # Draw the arc
+                r_arc = 1.0
+                arc_path = parametric_plot3d(
+                    (r_arc*cos(t), r_arc*sin(t), 0), 
+                    (t, 0, th0), 
+                    color='green', thickness=2
+                )
+                
+                # Arrow Head Logic
+                # tip_shift defines the length of the arrowhead base along the arc
+                tip_shift = 0.2 
+                
+                # Calculate start point (slightly back from th0) and end point (at th0)
+                tip_start = (r_arc*cos(th0 - tip_shift), r_arc*sin(th0 - tip_shift), 0)
+                tip_end   = (r_arc*cos(th0), r_arc*sin(th0), 0)
+                
+                # head_width=0.3 matches the previous diagram
+                arrow_head = arrow3d(tip_start, tip_end, color='green', width=1, head_width=0.3)
+
+                # 6. Points
+                pt_P = point3d(P, size=20, color='black')
+                pt_Q = point3d(Q, size=10, color='black')
+
+                # 7. Labels
+                lbl_r = text3d("r", (P[0]/2, P[1]/2 - 0.2, 0), color='black', fontweight='bold', fontsize=14)
+                lbl_th = text3d("θ", (r_arc*cos(th0/2)+0.3, r_arc*sin(th0/2)+0.1, 0), color='black', fontweight='bold', fontsize=14)
+                lbl_z = text3d("z", (-0.3, 0, z0), color='black', fontweight='bold', fontsize=14)
+                lbl_P = text3d("P", (P[0], P[1], P[2]+0.3), color='black', fontweight='bold', fontsize=14)
+                lbl_Q = text3d("Q", (Q[0], Q[1]-0.4, Q[2]), color='black', fontsize=12)
+
+                # 8. Axes
+                L = 4
+                axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L), color='black', width=1)
+                
+                lbl_axes = text3d("x", (L+0.2, 0, 0), color='black') + \
+                          text3d("y", (0, L+0.2, 0), color='black') + \
+                          text3d("z", (0, 0, L+0.2), color='black')
+
+                # 9. Combine
+                plot_objects = cylinder + line_r + line_drop + line_proj_z + \
+                              arc_path + arrow_head + \
+                              pt_P + pt_Q + \
+                              lbl_r + lbl_th + lbl_z + lbl_P + lbl_Q + \
+                              axes + lbl_axes
+                              
+                show(plot_objects, frame=False)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          Using the conversion formulas, we obtain
+          <md>
+            <mrow>x \amp= r \cos(\theta) = 3 \cos\lp \dfrac{\pi}{4} \rp = \dfrac{3\sqrt{2}}{2}, </mrow>
+            <mrow>y \amp= r \sin(\theta) = 3 \sin\lp \dfrac{\pi}{4} \rp = \dfrac{3\sqrt{2}}{2}, </mrow>
+            <mrow>z \amp= z = 2. </mrow>
+          </md>
+          Therefore, the rectangular coordinates are <m> \lp \dfrac{3\sqrt{2}}{2}, \dfrac{3\sqrt{2}}{2}, 2 \rp</m>. 
+        </p>
+      </solution>
+    </example>
+
+    <example>
+      <p>
+        Convert the rectangular coordinates <m>\lp 1, -1, 1 \rp</m> to cylindrical coordinates.
+      </p>
+
+      <hint>
+        <p>
+          We are given the rectangular coordinates
+          <md>
+            x = 1, \qquad\quad y = -1, \qquad\quad z = 1
+          </md>
+          Now we have everything we need to convert this point to cylindrical coordinates, which is conventionally denoted <m>(r, \theta, z)</m>!
+        </p>
+
+        <p>
+          As always, Richard included a visual below to help you better understand the geometry of cylindrical coordinates. 
+          Our goal here is to find the values of <m>r</m>, <m>\theta</m>, and <m>z</m> for the point <m>P</m>.
+        </p>
+
+        <figure>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v, t')
+
+                # 1. Input Rectangular Coordinates
+                x0 = 1
+                y0 = -1
+                z0 = 1
+
+                # 2. Convert to Cylindrical
+                r0 = sqrt(x0^2 + y0^2)   
+                th0 = arctan2(y0, x0)    # approx -0.78 radians
+                
+                # Points
+                P = (x0, y0, z0)
+                Q = (x0, y0, 0)
+                Origin = (0,0,0)
+                Z_tick = (0,0,z0)
+
+                # 3. The Cylinder 
+                cylinder = parametric_plot3d(
+                    (r0*cos(u), r0*sin(u), v),
+                    (u, 0, 2*pi), (v, 0, z0),
+                    opacity=0.15, color='cyan', mesh=True
+                )
+
+                # 4. The Geometry Lines (Dashed)
+                # Note the brackets [] around the points
+                line_r = line3d([Origin, Q], color='deeppink', linestyle='--', thickness=2)
+                line_drop = line3d([P, Q], color='black', linestyle='--', thickness=1.5)
+                line_proj_z = line3d([P, Z_tick], color='black', linestyle='--', thickness=1.5)
+
+                # 5. Theta Arrow (Negative Angle Logic)
+                r_arc = 0.6 * r0
+                
+                # Draw arc from th0 (negative) up to 0
+                arc_path = parametric_plot3d(
+                    (r_arc*cos(t), r_arc*sin(t), 0), 
+                    (t, th0, 0),  
+                    color='green', thickness=2
+                )
+                
+                # Arrow tip 
+                tip_shift = 0.2
+                tip_start = (r_arc*cos(th0 + tip_shift), r_arc*sin(th0 + tip_shift), 0)
+                tip_end   = (r_arc*cos(th0), r_arc*sin(th0), 0)
+                
+                arrow_head = arrow3d(tip_start, tip_end, color='green', width=1, head_width=0.3)
+
+                # 6. Points
+                pt_P = point3d(P, size=20, color='black')
+                pt_Q = point3d(Q, size=10, color='black')
+
+                # 7. Labels
+                lbl_r = text3d("r", (x0/2, y0/2 - 0.2, 0), color='black', fontweight='bold', fontsize=12)
+                lbl_th = text3d("θ", (r_arc*cos(th0/2)+0.2, r_arc*sin(th0/2)-0.2, 0), color='black', fontweight='bold', fontsize=12)
+                lbl_z = text3d("z", (-0.2, 0, z0/2), color='black', fontweight='bold', fontsize=12)
+                lbl_P = text3d("P(1,-1,1)", (P[0], P[1], P[2]+0.2), color='black', fontweight='bold', fontsize=12)
+                lbl_Q = text3d("Q", (Q[0], Q[1]-0.2, Q[2]), color='black', fontsize=10)
+
+                # 8. Axes (Modified for Positive/Negative Y)
+                L = 2.5 
+                
+                # Positive Axes (Solid Arrows)
+                x_axis = arrow3d((0,0,0), (L,0,0), color='black', width=1)
+                y_axis_pos = arrow3d((0,0,0), (0,L,0), color='black', width=1) 
+                z_axis = arrow3d((0,0,0), (0,0,L), color='black', width=1)
+                
+                # Negative Y Axis (Dashed Line)
+                # FIX: The points must be inside a list [...]
+                y_axis_neg = line3d([(0,0,0), (0,-L,0)], color='black', linestyle='--', thickness=1)
+
+                # Axis Labels
+                lbl_axes = text3d("x", (L+0.2, 0, 0), color='black') + \
+                          text3d("y", (0, L+0.2, 0), color='black') + \
+                          text3d("z", (0, 0, L+0.2), color='black')
+
+                # 9. Combine
+                plot_objects = cylinder + line_r + line_drop + line_proj_z + \
+                              arc_path + arrow_head + \
+                              pt_P + pt_Q + \
+                              lbl_r + lbl_th + lbl_z + lbl_P + lbl_Q + \
+                              x_axis + y_axis_pos + y_axis_neg + z_axis + lbl_axes
+                              
+                show(plot_objects, frame=False)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          Using the conversion formulas, we obtain
+          <md>
+            <mrow>r^2 = x^2 + y^2 \amp= 1^2 + (-1)^2 = 2 \amp\amp\implies \qquad r = \sqrt{2}, </mrow>
+            <mrow>\tan(\theta) \amp= \dfrac{y}{x} = \dfrac{-1}{1} = -1 \amp\amp\implies \qquad \theta = -\dfrac{\pi}{4}, </mrow>
+            <mrow>z \amp= 1 </mrow>
+          </md>
+          Therefore, the cylindrical coordinates are <m>\lp \sqrt{2}, -\dfrac{\pi}{4}, 1 \rp</m>.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Recall the way we build the cylindrical coordinates is to extend polar coordinates by introducing the "height" of the point along the <m>z</m>-axis. 
+      The <m>xy</m>-plane on which we do all the fun polar coordinates stuff on is called the <alert>level surface</alert> <m>z = 0</m>
+    </p>
+
+    <p>
+      The <alert>level surface</alert> is a surface obtained by setting one of the coordinates to be constant. 
+      In rectangular coordinates, the level surfaces are the coordinate planes discussed in <xref ref="sec122-3DSpaces"/>. 
+    </p>
+
+    <p>
+      Yet, not all level surfaces are planes in cylindrical coordinates. 
+      Let's think it through together. 
+      If we set <m>z = c</m>, where <m>c</m> is a constant, then we are just looking at a horizontal plane intersecting the <m>z</m>-axis at <m>z = c</m>. 
+    </p>
+
+    <p>
+      If we set <m>r = R</m>, where <m>R</m> is a constant, then we are looking at all the points that are <m>R</m> units away from the <m>z</m>-axis, regardless of the <m>z</m>-coordinate. 
+      This creates a right circular cylinder of radius <m>R</m> centered along the <m>z</m>-axis. 
+    </p>
+
+    <p>
+      If we set <m>\theta = \theta_0</m>, where <m>\theta_0</m> is a constant, then we are looking at all the points that form an angle of <m>\theta_0</m> with the positive <m>x</m>-axis when projected onto the <m>xy</m>-plane. 
+      Taking all possible <em>z</em>-values, this creates a <em>half</em>-plane originating from the <m>z</m>-axis and making an angle of <m>\theta_0</m> with the <m>xz</m>-plane.
+    </p>
+
+    <figure>
+      <image source="sec127-SurfaceLevel-Cylindrical.png" width="40%"></image>
+      <caption>Level Surfaces in Cylindrical Coordinates</caption>
+    </figure>
+
+    <p>
+      But why do we care about level surfaces? 
+      One of the reasons is that level surfaces can help us visualize <em>surfaces</em> defined in cylindrical coordinates rather than imagining the whole 3-dimensional graph at once.
+      The level surfaces can act as "slices" of the surface to help us understand the overall shape of the surface. 
+    </p>
+
+    <example>
+      <p>
+        Sketch the set <m>\left\{(r,\theta,z) \mid 1 \leq r \leq 3, \quad 0 \leq \theta \leq \dfrac{\pi}{2}, \quad 0 \leq z \leq 4 \right\}</m> described in cylindrical coordinates. 
+      </p>
+
+      <hint>
+        <p>
+          Observe that the three coordinates are all bounded in some way. 
+          Instead of trying to imagine the whole 3-dimensional shape at once, we can analyze the level surfaces to help us sketch the shape step by step.
+        </p>
+
+        <p>
+          So what are the level surfaces here? 
+          Putting the level surfaces together (with the right bounds!), we can determine the shape! 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          Let's start by analyzing the level surfaces one by one! 
+          The level surface <m>r = 1</m> is a right circular cylinder of radius 1 centered along the <m>z</m>-axis, and the level surface <m>r = 3</m> is another right circular cylinder of radius 3 centered along the <m>z</m>-axis. 
+          The region between these two cylinders is a hollow cylindrical shell.
+        </p>
+
+        <p>
+          The level surface <m>\theta = 0</m> is the half <m>xz</m>-plane, and the level surface <m>\theta = \frac{\pi}{2}</m> is the half <m>yz</m>-plane. 
+          The region between these two half-planes is a quarter of the hollow cylindrical shell we obtained above.
+        </p>
+
+        <p>
+          The level surface <m>z = 0</m> is the <m>xy</m>-plane, and the level surface <m>z = 4</m> is a horizontal plane intersecting the <m>z</m>-axis at <m>z = 4</m>. 
+          The region between these two planes is a vertical slice of the quarter hollow cylindrical shell we obtained above.
+        </p>
+
+        <p>
+          Putting these three regions together, we obtain a quarter of a hollow cylindrical shell with inner radius 1, outer radius 3, and height 4, as shown in the diagram below. 
+        </p>
+
+        <figure>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v')
+
+                # --- 1. Surfaces (Faces of the Solid) ---
+                # Outer Cylinder (r=3)
+                # u = theta, v = z
+                face_outer = parametric_plot3d(
+                    (3*cos(u), 3*sin(u), v), 
+                    (u, 0, pi/2), (v, 0, 4), 
+                    color='cyan', opacity=0.3, mesh=False
+                )
+
+                # Inner Cylinder (r=1)
+                face_inner = parametric_plot3d(
+                    (1*cos(u), 1*sin(u), v), 
+                    (u, 0, pi/2), (v, 0, 4), 
+                    color='cyan', opacity=0.4, mesh=False
+                )
+
+                # Top Cap (z=4)
+                # u = r, v = theta
+                face_top = parametric_plot3d(
+                    (u*cos(v), u*sin(v), 4), 
+                    (u, 1, 3), (v, 0, pi/2), 
+                    color='blue', opacity=0.2, mesh=False
+                )
+
+                # Bottom Cap (z=0)
+                face_bottom = parametric_plot3d(
+                    (u*cos(v), u*sin(v), 0), 
+                    (u, 1, 3), (v, 0, pi/2), 
+                    color='blue', opacity=0.2, mesh=False
+                )
+
+                # Side Face 1 (theta=0, on xz-plane)
+                # u = r, v = z
+                face_side1 = parametric_plot3d(
+                    (u, 0, v), 
+                    (u, 1, 3), (v, 0, 4), 
+                    color='deeppink', opacity=0.2, mesh=False
+                )
+
+                # Side Face 2 (theta=pi/2, on yz-plane)
+                # u = r, v = z
+                face_side2 = parametric_plot3d(
+                    (0, u, v), 
+                    (u, 1, 3), (v, 0, 4), 
+                    color='deeppink', opacity=0.2, mesh=False
+                )
+
+                # --- 2. Wireframes (Edges for Definition) ---
+                # Straight Edges
+                lines_vert = line3d([(3,0,0),(3,0,4)], color='black', thickness=2) + \
+                            line3d([(0,3,0),(0,3,4)], color='black', thickness=2) + \
+                            line3d([(1,0,0),(1,0,4)], color='black', thickness=2) + \
+                            line3d([(0,1,0),(0,1,4)], color='black', thickness=2)
+                            
+                lines_horiz = line3d([(1,0,0),(3,0,0)], color='black', thickness=2) + \
+                              line3d([(1,0,4),(3,0,4)], color='black', thickness=2) + \
+                              line3d([(0,1,0),(0,3,0)], color='black', thickness=2) + \
+                              line3d([(0,1,4),(0,3,4)], color='black', thickness=2)
+
+                # Curved Edges (Arcs)
+                # We draw arcs at r=1 and r=3 for top and bottom
+                curve_out_bot = parametric_plot3d((3*cos(u), 3*sin(u), 0), (u, 0, pi/2), color='black', thickness=2)
+                curve_out_top = parametric_plot3d((3*cos(u), 3*sin(u), 4), (u, 0, pi/2), color='black', thickness=2)
+                curve_in_bot  = parametric_plot3d((1*cos(u), 1*sin(u), 0), (u, 0, pi/2), color='black', thickness=2)
+                curve_in_top  = parametric_plot3d((1*cos(u), 1*sin(u), 4), (u, 0, pi/2), color='black', thickness=2)
+                
+                edges = lines_vert + lines_horiz + curve_out_bot + curve_out_top + curve_in_bot + curve_in_top
+
+                # --- 3. Axes and Labels ---
+                L = 4
+                axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L+1), color='black', width=1)
+                
+                lbl_axes = text3d("x", (L+0.2, 0, 0), color='black') + \
+                          text3d("y", (0, L+0.2, 0), color='black') + \
+                          text3d("z", (0, 0, L+1.2), color='black')
+
+                # Region Labels
+                lbl_r1 = text3d("r=1", (1*cos(pi/4)-0.2, 1*sin(pi/4)-0.2, 4.2), color='black', fontsize=10)
+                lbl_r3 = text3d("r=3", (3*cos(pi/4)+0.2, 3*sin(pi/4)+0.2, 4.2), color='black', fontsize=10)
+                lbl_z4 = text3d("z=4", (3.2, 0, 4), color='black', fontsize=10)
+
+                # --- 4. Combine and Show ---
+                # Group surfaces for cleaner code
+                surfaces = face_outer + face_inner + face_top + face_bottom + face_side1 + face_side2
+                
+                plot_objects = surfaces + edges + axes + lbl_axes + lbl_r1 + lbl_r3 + lbl_z4
+                
+                show(plot_objects, frame=False, aspect_ratio=1)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-SphericalCoordinates">
+    <title>Spherical Coordinates</title>
+    
+    <p>
+      Spherical coordinates in <m>\R^3</m> is another way to extend polar coordinates in <m>\R^2</m>. 
+      Instead of directly lifting the point in polar coordinates up or down to create a cylinder, we can create a sphere by rotating the radius up and down.
+    </p>
+
+    <figure>
+      <image source="sec127-Spherical-Diagram.png" width="50%"></image>
+      <caption>Spherical coordinates where <m>P</m> has the spherical coordinates <m>(\rho,\theta,\phi)</m></caption>
+    </figure>
+
+    <p>
+      As indicated in the diagram above, we can create a sphere by knowing the radius and two different types of angles: 
+      <ul>
+        <li>
+          <p>
+            <m>\rho</m> is the directed distance from the origin to the point (aka the radius of the sphere). 
+            Since the radius of the sphere should be the same as the radius of the <m>xy</m>-trace, this value should match up with <m>r</m> in polar/cylindrical coordinates. 
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\theta</m> is the <term>polar angle of projection</term> onto the <m>xy</m>-plane, which is the same as the angle in polar/cylindrical coordinates 
+            (the standard angle rotation from the positive <m>x</m>-axis to the projection of the point onto the <m>xy</m>-plane). 
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\phi</m> is the <term>angle of declination</term>, which measures how much we rotate the radius down from the top of the sphere along the <m>z</m>-axis 
+            (declines from the vertical). 
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Feel free to play with the applet below to get a better understanding of spherical coordinates and how the three coordinates work together to locate a point in <m>\R^3</m>! 
+    </p>
+    
+    <figure xml:id="fig-geogebra-full-menu-scaled">
+      <caption>
+        Spherical Coordinates Applet.
+        <url href="https://www.geogebra.org/classic/h9xS5ZZs" visual="Open in GeoGebra">
+          Open in GeoGebra
+        </url>
+      </caption>
+    
+      <interactive 
+        iframe="https://www.geogebra.org/classic/h9xS5ZZs?embed&amp;showMenuBar=false&amp;showToolBar=false&amp;showAlgebraInput=false&amp;scale=0.6"
+        width="100%" 
+        aspect="16:9"
+      />
+    </figure>
+
+    <p>
+      P.S.: you may want to open the applet in GeoGebra directly using the link above to get the full menu and controls. 
+      Richard is a bit sick of trying to figure out how to make the embedded applet work properly with scaling and full controls... 
+    </p>
+
+    <p>
+      Now that we know how spherical coordinates work, it is important to know how to convert between rectangular coordinates and spherical coordinates.
+      The only thing we can carry over from polar/cylindrical coordinates is the angle <m>\theta</m>. 
+      So we have the conversion formula
+      <md>
+        \tan(\theta) = \frac{y}{x}
+      </md>
+      We will next need to figure out how to relate <m>\rho</m> and <m>\phi</m> to <m>x</m>, <m>y</m>, and <m>z</m>. 
+    </p>
+
+    <p>
+      <m>\rho</m> is easy to relate since it is just the radius of the sphere centered at the origin. 
+      Therefore, we have the conversion formula 
+      <md>
+        \rho^2 = x^2 + y^2 + z^2
+      </md>
+    </p>
+
+    <p>
+      <m>\phi</m> is a bit tricky to relate. 
+      One of the reasons why we define <m>\phi</m> as the angle of <em>declination</em> is that it allows us to construct a right triangle with legs parallel to the <m>xy</m>-plane and the <m>z</m>-axis, and the hypotenuse being the radius <m>\rho</m> (see the diagram below). 
+      Using this right triangle, we have the conversion formula
+      <md>
+        \cos(\phi) = \frac{z}{\rho}
+      </md>
+    </p>
+
+    <figure>
+      <image source="sec127-Spherical-Coordinates.png" width="50%"></image>
+      <caption>Conversion between rectangular and spherical coordinates.</caption>
+    </figure>
+
+    <p>
+      The diagram above can also help us convert from spherical coordinates to rectangular coordinates. 
+      <m>z</m> is the most straightforward to relate since it is just the vertical leg of the right triangle. 
+      Therefore, we have the conversion formula
+      <md>
+        z = \rho \cos(\phi)
+      </md>
+    </p>
+
+    <p>
+      To relate <m>x</m> and <m>y</m> to spherical coordinates, we can first find the radius of the <m>xy</m>-trace using the right triangle. 
+      This radius is just <m>r = \rho \sin(\phi)</m>. 
+      Then we can use the polar coordinates conversion formulas to find <m>x</m> and <m>y</m> as follows:
+      <md>
+        x = r \cos(\theta) = \rho \sin(\phi) \cos(\theta) \qquad \text{ and } \qquad y = r \sin(\theta) = \rho \sin(\phi) \sin(\theta)
+      </md>
+    </p>
+
+    <p>
+      Let's summarize it to a fancy theorem! 
+    </p>
+
+    <theorem xml:id="thm-Conversion-SphericalRectangular">
+      <title>Conversion between Spherical and Rectangular Coordinates</title>
+      <statement>
+        <p>
+          A point with spherical coordinates <m>(\rho,\theta,\phi)</m> has rectangular coordinates <m>(x,y,z)</m>, where
+          <md>
+            x = \rho \sin(\phi) \cos(\theta), \qquad y = \rho \sin(\phi) \sin(\theta), \qquad z = \rho \cos(\phi)
+          </md> 
+        </p>
+
+        <p>
+          A point with rectangular coordinates <m>(x,y,z)</m> has spherical coordinates <m>(\rho,\theta,\phi)</m>, where
+          <md>
+            \rho^2 = x^2 + y^2 + z^2, \qquad \tan(\theta) = \dfrac{y}{x}, \qquad \cos(\phi) = \dfrac{z}{\rho}
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <p>
+        Convert the spherical coordinates <m>\lp 4, \dfrac{\pi}{3}, \dfrac{\pi}{6} \rp</m> to rectangular coordinates.
+      </p>
+
+      <hint>
+        <p>
+          Conventionally, we use <m>(\rho,\theta,\phi)</m> to denote spherical coordinates. 
+          That is, we read the spherical coordinates as
+          <md>
+            \rho = 4, \qquad\quad \theta = \dfrac{\pi}{3}, \qquad\quad \phi = \dfrac{\pi}{6}
+          </md>
+          Now we have everything we need to convert this point to rectangular coordinates!
+        </p>
+
+        <p>
+          As always, Richard included a visual below to help you better understand the geometry of spherical coordinates.
+        </p>
+
+        <figure>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v, t')
+
+                # 1. Constants (rho, theta, phi)
+                rho0 = 4
+                th0 = pi/3
+                ph0 = pi/6
+
+                # 2. Coordinate Conversion
+                x0 = rho0 * sin(ph0) * cos(th0)
+                y0 = rho0 * sin(ph0) * sin(th0)
+                z0 = rho0 * cos(ph0)
+
+                # Points
+                Origin = (0,0,0)
+                P = (x0, y0, z0)
+                Q = (x0, y0, 0) 
+
+                # 3. The Sphere Surface (rho = constant)
+                # Changed opacity from 0.1 to 0.03 for much higher transparency
+                sphere_surf = parametric_plot3d(
+                    (rho0*sin(u)*cos(v), rho0*sin(u)*sin(v), rho0*cos(u)),
+                    (u, 0, pi), (v, 0, 2*pi),
+                    opacity=0.03, color='cyan', mesh=True
+                )
+
+                # 4. Geometry Lines (Dashed)
+                line_rho = line3d([Origin, P], color='deeppink', linestyle='--', thickness=2)
+                line_drop = line3d([P, Q], color='black', linestyle='--', thickness=1)
+                line_proj = line3d([Origin, Q], color='black', linestyle='--', thickness=1)
+
+                # 5. Theta Arrow (in xy-plane)
+                r_arc_th = 1.5
+                arc_th = parametric_plot3d(
+                    (r_arc_th*cos(t), r_arc_th*sin(t), 0),
+                    (t, 0, th0), color='green', thickness=2
+                )
+                # Theta Arrow Tip
+                tip_th_start = (r_arc_th*cos(th0 - 0.1), r_arc_th*sin(th0 - 0.1), 0)
+                tip_th_end = (r_arc_th*cos(th0), r_arc_th*sin(th0), 0)
+                arrow_th = arrow3d(tip_th_start, tip_th_end, color='green', width=1, head_width=0.3)
+
+                # 6. Phi Arrow (drops from z-axis)
+                r_arc_ph = 1.5
+                arc_ph = parametric_plot3d(
+                    (r_arc_ph*sin(t)*cos(th0), r_arc_ph*sin(t)*sin(th0), r_arc_ph*cos(t)),
+                    (t, 0, ph0), color='red', thickness=2
+                )
+                # Phi Arrow Tip
+                tip_ph_start = (r_arc_ph*sin(ph0 - 0.1)*cos(th0), r_arc_ph*sin(ph0 - 0.1)*sin(th0), r_arc_ph*cos(ph0 - 0.1))
+                tip_ph_end   = (r_arc_ph*sin(ph0)*cos(th0), r_arc_ph*sin(ph0)*sin(th0), r_arc_ph*cos(ph0))
+                arrow_ph = arrow3d(tip_ph_start, tip_ph_end, color='red', width=1, head_width=0.3)
+
+                # 7. Points
+                pt_P = point3d(P, size=20, color='black')
+                pt_Q = point3d(Q, size=10, color='black')
+
+                # 8. Labels
+                lbl_rho = text3d("ρ", (x0/2, y0/2, z0/2 + 0.3), color='deeppink', fontweight='bold', fontsize=14)
+                lbl_th = text3d("θ", (r_arc_th*cos(th0/2)+0.2, r_arc_th*sin(th0/2)+0.2, 0), color='green', fontweight='bold', fontsize=14)
+                lbl_ph = text3d("φ", (0.3*cos(th0), 0.3*sin(th0), r_arc_ph*cos(ph0/2)), color='red', fontweight='bold', fontsize=14)
+                lbl_P = text3d("P", (x0, y0, z0+0.4), color='black', fontweight='bold', fontsize=14)
+
+                # 9. Axes
+                L = 5
+                axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L), color='black', width=1)
+                
+                lbl_axes = text3d("x", (L+0.2, 0, 0), color='black') + \
+                          text3d("y", (0, L+0.2, 0), color='black') + \
+                          text3d("z", (0, 0, L+0.2), color='black')
+
+                # 10. Combine
+                plot_objects = sphere_surf + line_rho + line_drop + line_proj + \
+                              arc_th + arrow_th + arc_ph + arrow_ph + \
+                              pt_P + pt_Q + \
+                              lbl_rho + lbl_th + lbl_ph + lbl_P + \
+                              axes + lbl_axes
+                              
+                show(plot_objects, frame=False)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          Using the conversion formulas, we obtain
+          <md>
+            <mrow>x \amp= \rho \sin(\phi) \cos(\theta) = 4 \sin\lp \dfrac{\pi}{6} \rp \cos\lp \dfrac{\pi}{3} \rp = 1, </mrow>
+            <mrow>y \amp= \rho \sin(\phi) \sin(\theta) = 4 \sin\lp \dfrac{\pi}{6} \rp \sin\lp \dfrac{\pi}{3} \rp = \sqrt{3}, </mrow>
+            <mrow>z \amp= \rho \cos(\phi) = 4 \cos\lp \dfrac{\pi}{6} \rp = 2\sqrt{3}. </mrow>
+          </md>
+          Therefore, the rectangular coordinates are <m>\lp 1, \sqrt{3}, 2\sqrt{3} \rp</m>.
+        </p>
+      </solution>
+    </example>
+
+    <example>
+      <p>
+        Convert the rectangular coordinates <m>\lp -2, 2, 1 \rp</m> to spherical coordinates.
+      </p>
+
+      <hint>
+        <p>
+          We are given the rectangular coordinates
+          <md>
+            x = -2, \qquad\quad y = 2, \qquad\quad z = 1
+          </md>
+          Now we have everything we need to convert this point to spherical coordinates, which is conventionally denoted <m>(\rho, \theta, \phi)</m>!
+        </p>
+
+        <p>
+          As always, Richard included a visual below to help you better understand the geometry of spherical coordinates. 
+          Our goal here is to find the values of <m>\rho</m>, <m>\theta</m>, and <m>\phi</m> for the point <m>P</m>.
+        </p>
+
+        <figure>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v, t')
+
+                # 1. Input Rectangular Coordinates
+                x0 = -2
+                y0 = 2
+                z0 = 1
+
+                # 2. Calculate Spherical Coordinates
+                rho0 = sqrt(x0^2 + y0^2 + z0^2)  # rho = 3
+                th0 = arctan2(y0, x0)            # theta = 3pi/4 (135 degrees)
+                ph0 = arccos(z0/rho0)            # phi = arccos(1/3)
+
+                # Points
+                Origin = (0,0,0)
+                P = (x0, y0, z0)
+                Q = (x0, y0, 0) 
+
+                # 3. The Sphere Surface (rho = 3)
+                sphere_surf = parametric_plot3d(
+                    (rho0*sin(u)*cos(v), rho0*sin(u)*sin(v), rho0*cos(u)),
+                    (u, 0, pi), (v, 0, 2*pi),
+                    opacity=0.03, color='cyan', mesh=True
+                )
+
+                # 4. Geometry Lines (Dashed)
+                line_rho = line3d([Origin, P], color='deeppink', linestyle='--', thickness=2)
+                line_drop = line3d([P, Q], color='black', linestyle='--', thickness=1)
+                line_proj = line3d([Origin, Q], color='black', linestyle='--', thickness=1)
+
+                # 5. Theta Arrow (xy-plane)
+                # Draws from 0 to th0 (3pi/4)
+                r_arc_th = 1.5
+                arc_th = parametric_plot3d(
+                    (r_arc_th*cos(t), r_arc_th*sin(t), 0),
+                    (t, 0, th0), color='green', thickness=2
+                )
+                # Theta Arrow Tip
+                tip_th_start = (r_arc_th*cos(th0 - 0.1), r_arc_th*sin(th0 - 0.1), 0)
+                tip_th_end = (r_arc_th*cos(th0), r_arc_th*sin(th0), 0)
+                arrow_th = arrow3d(tip_th_start, tip_th_end, color='green', width=1, head_width=0.3)
+
+                # 6. Phi Arrow (drops from z-axis)
+                r_arc_ph = 1.5
+                # The phi arc is in the vertical plane defined by theta
+                arc_ph = parametric_plot3d(
+                    (r_arc_ph*sin(t)*cos(th0), r_arc_ph*sin(t)*sin(th0), r_arc_ph*cos(t)),
+                    (t, 0, ph0), color='red', thickness=2
+                )
+                # Phi Arrow Tip
+                tip_ph_start = (r_arc_ph*sin(ph0 - 0.1)*cos(th0), r_arc_ph*sin(ph0 - 0.1)*sin(th0), r_arc_ph*cos(ph0 - 0.1))
+                tip_ph_end   = (r_arc_ph*sin(ph0)*cos(th0), r_arc_ph*sin(ph0)*sin(th0), r_arc_ph*cos(ph0))
+                arrow_ph = arrow3d(tip_ph_start, tip_ph_end, color='red', width=1, head_width=0.3)
+
+                # 7. Points
+                pt_P = point3d(P, size=20, color='black')
+                pt_Q = point3d(Q, size=10, color='black')
+
+                # 8. Labels
+                # Adjust label positions for the 2nd Quadrant
+                lbl_rho = text3d("ρ", (x0/2, y0/2, z0/2 + 0.3), color='deeppink', fontweight='bold', fontsize=14)
+                
+                # Theta label near the middle of the large arc
+                lbl_th = text3d("θ", (r_arc_th*cos(th0/2), r_arc_th*sin(th0/2)+0.3, 0), color='green', fontweight='bold', fontsize=14)
+                
+                lbl_ph = text3d("φ", (0.2*cos(th0), 0.2*sin(th0), r_arc_ph*cos(ph0/2)), color='red', fontweight='bold', fontsize=14)
+                lbl_P = text3d("P(-2,2,1)", (x0, y0, z0+0.4), color='black', fontweight='bold', fontsize=12)
+
+                # 9. Axes
+                L = 3.5
+                # Standard Positive Axes
+                x_axis = arrow3d((0,0,0), (L,0,0), color='black', width=1)
+                y_axis = arrow3d((0,0,0), (0,L,0), color='black', width=1)
+                z_axis = arrow3d((0,0,0), (0,0,L), color='black', width=1)
+                
+                # Negative X-Axis (Dashed) to help see x=-2
+                # Using list syntax [] for line3d points
+                x_axis_neg = line3d([(0,0,0), (-L,0,0)], color='black', linestyle='--', thickness=1)
+                
+                lbl_axes = text3d("x", (L+0.2, 0, 0), color='black') + \
+                          text3d("-x", (-L-0.2, 0, 0), color='black') + \
+                          text3d("y", (0, L+0.2, 0), color='black') + \
+                          text3d("z", (0, 0, L+0.2), color='black')
+
+                # 10. Combine
+                plot_objects = sphere_surf + line_rho + line_drop + line_proj + \
+                              arc_th + arrow_th + arc_ph + arrow_ph + \
+                              pt_P + pt_Q + \
+                              lbl_rho + lbl_th + lbl_ph + lbl_P + \
+                              x_axis + y_axis + z_axis + x_axis_neg + lbl_axes
+                              
+                show(plot_objects, frame=False)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          Using the conversion formulas, we obtain
+          <md>
+            <mrow>\rho^2 \amp= x^2 + y^2 + z^2 = 9 \amp\amp\implies \qquad \rho = 3, </mrow>
+            <mrow>\tan(\theta) \amp= \dfrac{y}{x} = \dfrac{2}{-2} = -1 \amp\amp\implies \qquad \theta = \dfrac{3\pi}{4}, </mrow>
+            <mrow>\cos(\phi) \amp= \dfrac{z}{\rho} = \dfrac{1}{3} \amp\amp\implies \qquad \phi = \arccos\lp \dfrac{1}{3} \rp \approx 1.231 </mrow>
+          </md>
+          Therefore, the spherical coordinates are <m>\lp 3, \dfrac{3\pi}{4}, 1.231 \rp</m>.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      What about the level surfaces in spherical coordinates? 
+      Similar to cylindrical coordinates, we can fix one of the three spherical coordinates and let the other two vary to see what kind of surface is formed. 
+      <ul>
+        <li>
+          <p>
+            Fixing <m>\rho = R</m> (a constant) gives us a sphere of radius <m>R</m> centered at the origin. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Fixing <m>\theta = \theta_0</m> (a constant) gives us a vertical half-plane that extends from the <m>z</m>-axis at an angle of <m>\theta_0</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Fixing <m>\phi = \phi_0</m> (a constant) gives us a cone with its vertex at the origin and its axis along the <m>z</m>-axis. 
+            The angle between the axis and the surface of the cone is <m>\phi_0</m>. 
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <figure>
+      <image source="sec127-SurfaceLevel-Spherical.png" width="90%"></image>
+      <caption>Level Surfaces in Spherical Coordinates</caption>
+    </figure>
+
+    <p>
+      Similarly, level surfaces can help us visualize regions described in spherical coordinates. 
+    </p>
+
+    <example>
+      <p>
+        Sketch the set <m>\left\{(\rho,\theta,\phi) \mid \rho = 1, \quad \dfrac{\pi}{3} \leq \phi \leq \dfrac{2\pi}{3} \right\}</m> described in spherical coordinates.
+      </p>
+
+      <hint>
+        <p>
+          Observe that <m>\rho = 1</m> is a constant, so we are looking at the level surface of a sphere with radius 1. 
+        </p>
+
+        <p>
+          Now consider the bounds on <m>\phi</m>. 
+          By setting <m>\phi</m> to be the two bounds should give us two level surfaces that restrict the region of the sphere we want to sketch.
+        </p>
+
+        <p>
+          This is more like a FYI. 
+          Observe that <m>\theta</m> is not restricted at all, so this won't be a restriction on the region. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          The two level surfaces for <m>\phi = \dfrac{\pi}{3}</m> and <m>\phi = \dfrac{2\pi}{3}</m> are cones that intersect the sphere <m>\rho = 1</m>. 
+          The region described is the "band" on the sphere between these two cones. 
+          The sketch is shown below.
+        </p>
+
+        <figure>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v')
+
+                # --- 1. The Spherical Strip (The Set) ---
+                # rho = 1 is fixed.
+                # u = theta (0 to 2pi)
+                # v = phi (pi/3 to 2pi/3)
+                
+                # Transformation: x = rho*sin(phi)*cos(theta)
+                sphere_strip = parametric_plot3d(
+                    (1 * sin(v) * cos(u), 1 * sin(v) * sin(u), 1 * cos(v)),
+                    (u, 0, 2*pi), (v, pi/3, 2*pi/3),
+                    color='cyan', opacity=0.8, mesh=True
+                )
+
+                # --- 2. The Boundaries (Level Surfaces of Phi) ---
+                # Top Rim (Phi = pi/3)
+                # This is a circle at z = cos(pi/3) = 0.5, radius = sin(pi/3) = sqrt(3)/2
+                phi_top = pi/3
+                r_top = sin(phi_top)
+                z_top = cos(phi_top)
+                
+                rim_top = parametric_plot3d(
+                    (r_top*cos(u), r_top*sin(u), z_top),
+                    (u, 0, 2*pi), color='blue', thickness=3
+                )
+
+                # Bottom Rim (Phi = 2pi/3)
+                phi_bot = 2*pi/3
+                r_bot = sin(phi_bot)
+                z_bot = cos(phi_bot)
+                
+                rim_bot = parametric_plot3d(
+                    (r_bot*cos(u), r_bot*sin(u), z_bot),
+                    (u, 0, 2*pi), color='blue', thickness=3
+                )
+
+                # --- 3. Cone Visualization (Dashed Lines) ---
+                # These help visualize the "angle from z-axis" nature of phi
+                # Line from Origin to a point on the top rim
+                line_cone_top = line3d([(0,0,0), (0, r_top, z_top)], color='black', linestyle='--', thickness=2)
+                # Line from Origin to a point on the bottom rim
+                line_cone_bot = line3d([(0,0,0), (0, r_bot, z_bot)], color='black', linestyle='--', thickness=2)
+
+                # --- 4. Labels ---
+                # Labeling the surfaces
+                lbl_phi1 = text3d("phi = pi/3", (0, r_top + 0.4, z_top), color='black', fontweight='bold')
+                lbl_phi2 = text3d("phi = 2pi/3", (0, r_bot + 0.4, z_bot), color='black', fontweight='bold')
+                lbl_rho  = text3d("rho = 1", (1.1, 0, 0), color='black', fontweight='bold')
+
+                # --- 5. Axes ---
+                L = 1.5
+                axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L), color='black', width=1)
+                
+                lbl_axes = text3d("x", (L+0.1, 0, 0), color='black') + \
+                          text3d("y", (0, L+0.1, 0), color='black') + \
+                          text3d("z", (0, 0, L+0.1), color='black')
+
+                # --- 6. Combine and Show ---
+                plot_objects = sphere_strip + rim_top + rim_bot + \
+                              line_cone_top + line_cone_bot + \
+                              lbl_phi1 + lbl_phi2 + lbl_rho + \
+                              axes + lbl_axes
+
+                show(plot_objects, frame=False, aspect_ratio=1)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+    
+    <p>
+      Now that we learned two new coordinate systems in <m>\R^3</m>, then the next natural question to ponder is <alert>how to convert coordinates between these two coordinates?</alert>
+    </p>
+
+    <p>
+      Well there is a straightforward way to do this by using rectangular coordinates as an intermediary! 
+      If you are not satisfied with this method and want to figure out the conversion formulas directly, feel free to give it a try as an exercise 
+      (and this is not difficult at all! You will just need to pick up a lot of the clues here and there!).  
+    </p>
+
+    <p>
+      You may be wondering why bother extending the polar coordinates to spherical coordinates when we already have cylindrical coordinates (and the "height" of the point is a lot easier to deal with)? 
+      Well the most obvious answer is that we live on the planet of <alert>earth</alert>, which is (approximately) a sphere! 
+      We can locate things easier on earth using spherical coordinates. 
+    </p>
+
+    <p>
+      The two types of angles, <m>\theta</m> and <m>\phi</m>, are the two measures we often use to locate points on the surface of earth. 
+      <ul>
+        <li>
+          <p>
+            A <alert>longitude</alert> is the angle measured East or West from the prime meridian (which runs through Greenwich, England). 
+            It ranges from <m>-180^\circ</m> (West) to <m>180^\circ</m> (East). 
+          </p>
+          <p>
+            If we align the prime meridian with the positive <m>x</m>-axis, then the longitude corresponds to <m>\theta</m> (just be mindful of the range and the direction of <m>\theta</m>)
+          </p>
+        </li>
+        <li>
+          <p>
+            A <alert>latitude</alert> measures the angle North or South from the equator. 
+            It ranges from <m>-90^\circ</m> (South) to <m>90^\circ</m> (North). 
+          </p>
+          <p>
+            This is similar to <m>\phi</m>, but with a slight modification (recalibration). 
+            Since <m>\phi</m> measures the angle of declination from the North Pole, we can convert latitude to <m>\phi</m> using the formula <m>\text{latitude} = 90^\circ - \phi</m> (so we basically recalibrate the value of <m>\phi</m> to measure from the equator instead of the North Pole).
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <figure>
+      <image source="sec127-Spherical-Earth.png" width="50%"></image>
+      <caption>Longtitude and latitude provide spherical coordinates on the surface of the earth</caption>
+    </figure>
+
+    <p>
+      We will look at more applications to the cylindrical and spherical coordinates in later chapters. 
+      The two new coordinates systems are very useful in integration and vector calculus! 
+    </p>
+
+  </subsection>
+
+  <worksheet xml:id="ws-sec127">
+    <title>Assigned Problems for Section 12.7</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="12.7.3">
+      <p>
+        Convert the cylindrical coordinates <m>\lp 0,\dfrac{\pi}{5},\dfrac{1}{2} \rp</m> to rectangular coordinates.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.9">
+      <p>
+        Convert the rectangular coordinates <m>\lp \dfrac{5}{\sqrt{2}},\dfrac{5}{\sqrt{2}},2 \rp</m> to cylindrical coordinates.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.13">
+      <p>
+        Describe the set <m>\left\{(x,y,z) \mid y^2 + z^2 \leq 4, \quad x = 0 \right\}</m> in cylindrical coordinates. 
+      </p>
+    </exercise>
+
+    <exercise number="12.7.21">
+      <p>
+        Sketch the set <m>\left\{(r,\theta,z) \mid 1 \leq r \leq 3 , \quad 0 \leq z \leq 4 \right\}</m> described in cylindrical coordinates.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.29">
+      <p>
+        Find an equation of the form <m>r = f(\theta,z)</m> in cylindrical coordinates for the surface <m>\dfrac{x^2}{y^z} = 1</m>.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.37">
+      <p>
+        Convert the spherical coordinates <m>\lp 6,\dfrac{\pi}{6},\dfrac{5\pi}{6} \rp</m> to rectangular coordinates.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.43">
+      <p>
+        Convert the rectangular coordinates <m>\lp \dfrac{1}{2},\dfrac{\sqrt{3}}{2},\sqrt{3} \rp</m> to spherical coordinates.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.45">
+      <p>
+        Convert the cylindrical coordinates <m>\lp 2,0,2 \rp</m> to spherical coordinates.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.47">
+      <p>
+        Convert the spherical coordinates <m>\lp 4,0,\dfrac{\pi}{4} \rp</m> to cylindrical coordinates.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.53">
+      <p>
+        Describe the set <m>\left\{(x,y,z) \mid y^2 + z^2 \leq 4, \quad x = 0 \right\}</m> in spherical coordinates.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.61">
+      <p>
+        Sketch the set of points <m>\left\{(\rho,\theta,\phi) \mid \rho \leq 2, \quad 0 \leq \theta \leq \dfrac{\pi}{2}, \quad \dfrac{\pi}{2} \leq \phi \leq \pi \right\}</m> described in spherical coordinates.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.71">
+      <p>
+        Find an equation of the form <m>\rho = f(\theta, \phi)</m> in spherical coordinates for the surface <m>x^2 - y^2 = 4</m>.
+      </p>
+    </exercise>
+
+    <exercise number="12.7.81">
+      <p>
+        An apple modeled by taking all the points in and on a sphere of radius <m>2</m> inches is cored with a vertical cylinder of radius <m>1</m> in. 
+        Use inequalities in cylindrical coordinates to describe the set of all points that remain in the apple once the core is removed.
+      </p>
+    </exercise>
+
+  </worksheet>
 
 </section>

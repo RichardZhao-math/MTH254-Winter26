@@ -428,9 +428,9 @@
       <solution>
         <p>
           <md>
-            <mrow> \lp 3\v{i} - \v{j} - 2\v{k}\rp \times \lp 3\v{j} - 2\v{k} \rp\amp= 9\v{i} \times \v{j} - 6\v{i} \times \v{k} - 3\v{j} \times \v{j} + 2\v{j} \times \v{k} - 6\v{k} \times \v{k} + 4\v{k} \times \v{k}</mrow>
-            <mrow> \amp= 9\v{k} - 6(-\v{j}) - 3(0) + 2(-\v{i}) - 6(0) + 4(0)</mrow>
-            <mrow> \amp= 9\v{k} + 6\v{j} - 2\v{i}</mrow>
+            <mrow> \lp 3\v{i} - \v{j} - 2\v{k}\rp \times \lp 3\v{j} - 2\v{k} \rp\amp= 9\v{i} \times \v{j} - 6\v{i} \times \v{k} - 3\v{j} \times \v{j} + 2\v{j} \times \v{k} - 6\v{k} \times \v{j} + 4\v{k} \times \v{k}</mrow>
+            <mrow> \amp= 9\v{k} - 6(-\v{j}) - 3(\v{0}) + 2\v{i} - 6(-\v{i}) + 4(\v{0})</mrow>
+            <mrow> \amp= 9\v{k} + 8\v{j} + 6\v{i}</mrow>
           </md>
         </p>
       </solution>
