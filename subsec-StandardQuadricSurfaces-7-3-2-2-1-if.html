@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>sagecell.makeSagecell({
+  "inputLocation": ".sage-interact",
+  "autoeval": true,
+  "hide": [
+    "editor",
+    "evalButton",
+    "permalink"
+  ]
+});
+</script><link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+</head>
+<body class="ptx-content ignore-math" id="changeme">
+<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q} 
+\newcommand{\R}{\mathbb R} 
+
+\newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('t')
+
+# --- 1. Define Parameters of the Ellipsoid ---
+a = 2  # x-radius
+b = 3  # y-radius
+c = 5  # z-radius
+
+# --- 2. The Traces ---
+
+# XY Trace (z=0): Ellipse x^2/4 + y^2/9 = 1
+# Parametrization: x = a*cos(t), y = b*sin(t), z = 0
+trace_xy = parametric_plot3d(
+    (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
+    color='red', thickness=3, legend_label='xy-trace (z=0)'
+)
+
+# XZ Trace (y=0): Ellipse x^2/4 + z^2/25 = 1
+# Parametrization: x = a*cos(t), y = 0, z = c*sin(t)
+trace_xz = parametric_plot3d(
+    (a*cos(t), 0, c*sin(t)), (t, 0, 2*pi),
+    color='green', thickness=3, legend_label='xz-trace (y=0)'
+)
+
+# YZ Trace (x=0): Ellipse y^2/9 + z^2/25 = 1
+# Parametrization: x = 0, y = b*cos(t), z = c*sin(t)
+trace_yz = parametric_plot3d(
+    (0, b*cos(t), c*sin(t)), (t, 0, 2*pi),
+    color='blue', thickness=3, legend_label='yz-trace (x=0)'
+)
+
+# --- 3. Ghost Ellipsoid (Optional Context) ---
+# A very faint version of the full surface to show how traces fit
+var('u, v')
+surface = parametric_plot3d(
+    (a*cos(u)*sin(v), b*sin(u)*sin(v), c*cos(v)),
+    (u, 0, 2*pi), (v, 0, pi),
+    color='gray', opacity=0.1, mesh=false
+)
+
+# --- 4. Labels and Axes ---
+# Label the traces in 3D space
+lbl_xy = text3d("xy-trace", (a+0.5, b+0.5, 0), color='red')
+lbl_xz = text3d("xz-trace", (a+0.5, 0, c+0.5), color='green')
+lbl_yz = text3d("yz-trace", (0, b+0.5, c+0.5), color='blue')
+
+# Axes
+L_max = 6
+axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+      arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+      arrow3d((0,0,0), (0,0,L_max), color='black', width=1)
+
+lbl_axes = text3d("x", (L_max+0.2, 0, 0), color='black') + \
+          text3d("y", (0, L_max+0.2, 0), color='black') + \
+          text3d("z", (0, 0, L_max+0.2), color='black')
+
+# --- 5. Combine and Show ---
+plot_objects = trace_xy + trace_xz + trace_yz + surface + \
+              lbl_xy + lbl_xz + lbl_yz + \
+              axes + lbl_axes
+
+show(plot_objects, frame=False, aspect_ratio=1)
+</script></pre></div>
+</body>
+</html>

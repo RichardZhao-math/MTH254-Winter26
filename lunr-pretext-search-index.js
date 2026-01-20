@@ -1999,6 +1999,798 @@ var ptx_lunr_docs = [
   "body": " Let denote the line of intersection of the planes and . Find parametric equations for the line .   To find a point on , substitute an arbitrary value for (say, ) and then solve the resulting pair of equations for and .   "
 },
 {
+  "id": "sec126-QuadricSurfaces",
+  "level": "1",
+  "url": "sec126-QuadricSurfaces.html",
+  "type": "Section",
+  "number": "12.6",
+  "title": "A Survey to Quadric Surfaces",
+  "body": " A Survey to Quadric Surfaces   In the previous section, we focused primarily on planes in , which has the form . We will take a step further by exploring some curved surfaces in defined by second-degree polynomial equations.  In this section, we will introduce quadric surfaces , which are the three-dimensional analogs of conic sections studied in MTH 253 or MTH 253Z. This will give us a taste of the rich variety of surfaces and methods to analyze them in the second half of the class.    After this section, students will be able to:     recognize and classify the six standard types of quadric surfaces from their algebraic equations.    apply the method of traces to visualize, analyze, and sketch the quadric surface in .    identify and describe quadratic cylinders as surfaces that extend conic sections along a specific axis.    manipulate general second-degree equations algebraically to match standard forms for identification and graphing.       Quadric really just means \"second degree\". A quadric surface is a surface in that can be defined by a second-degree polynomial equation in three variables , typically denoted as , , and . That is, the equation contains all the possible combinations of these variables up to the second degree.  Hence, the general equation of a quadric surface is where are constants.  There are 17 different types of quadric surfaces based on the CRC Standard Mathematical Tables . In this section, we will focus on the most common types in .   Review: Conic Sections  You may recall from MTH 253 or MTH 253Z a concept called the conic sections . These are the curves obtained by intersecting a plane with a double-napped cone. Depending on the angle and position of the intersecting plane, different types of conic sections can be formed, as shown in the following diagram.    Types of conic sections where (a) are the standard conic sections and (b) are the degenerate conic sections   The standard conic sections include circles, ellipses, parabolas, and hyperbolas. The degenerate conic sections include a point, a line, or two intersecting lines.  But why splitting the conic sections into these categories? This really comes down to the equations that define them. Recall that the equation of a conic section is really the general equation of a second-degree polynomial in , typically denoted as and . where are constants. The standard conic sections means the equation remains to be second-degree, while the degenerate conic sections means the equation reduces to first-degree or even a constant.  You may notice the similarity between the general equations of conic sections and quadric surfaces. In fact, quadric surfaces can be thought of as the three-dimensional analogs of conic sections. We add an additional variable and consider second-degree polynomial equations in three variables instead of two.  Just like conic sections, quadric surfaces can also be classified into different types based on their equations and geometric properties. The goal of this section is to explore these different types of quadric surfaces, understand their equations, and visualize their shapes in .    Standard Quadric Surfaces  The first type of quadric surfaces we will explore is the ellipsoid . An ellipsoid has the general equation where are positive constants.   The ellipsoid with equation .      Observe that , , and control the lengths of the semi-axes along the , , and axes, respectively. When , the ellipsoid becomes a sphere with radius .  But how should we describe the ellipsoid in words? One way to do this is to use traces . Recall a trace is the curve obtained by intersecting a surface with a coordinate plane. Since a coordinate plane can be obtained by setting a variable to be a constant, the traces will be some curves in . So what the traces tell us is how the surface behaves when we \"slice\" it along the coordinate planes.  There are \"standard\" traces for quadric surfaces, which are obtained by setting one variable to be zero.   The -trace is obtained by setting . That is, we look at the curve obtained by intersecting the quadric surface with the -plane.    The -trace is obtained by setting . That is, we look at the curve obtained by intersecting the quadric surface with the -plane.    The -trace is obtained by setting . That is, we look at the curve obtained by intersecting the quadric surface with the -plane.      Describe the traces of the ellipsoid .   So what are the \"standard\" traces of the ellipsoid and how do we find them?  P.S.: Richard will use the \"standard\" traces here since they are the most easiest to work with (but not necessarily the most informative... but this is a good start! :D).    To find the traces, we will set one variable to zero at a time and analyze the resulting equations.    -trace : Setting , we get .  This is an ellipse on the -plane centered at the origin with semi-major axis length 3 along the -axis and semi-minor axis length 2 along the -axis.     -trace : Setting , we get .  This is an ellipse on the -plane centered at the origin with semi-major axis length 5 along the -axis and semi-minor axis length 2 along the -axis.     -trace : Setting , we get .  This is an ellipse on the -plane centered at the origin with semi-major axis length 5 along the -axis and semi-minor axis length 3 along the -axis.      The traces of the ellipsoid .      See that we can determine what the ellipsoid looks like when we know its traces!    We can imagine that the traces of the ellipsoid are all ellipses (or a point in the degenerate case) since slicing an ellipsoid with a plane will always yield an ellipse (or a point).  The second type of quadric surfaces here is the hyperboloid , and it comes in two different flavors.  The diagram below shows the first flavor of hyperboloid, which has the general equation where are positive constants. We call this a hyperboloid of one sheet .   The hyperboloid with equation .      Observe that and control the lengths of the semi-axes along the and axes, respectively (so they control the size of the \"waist\"). But what about ? is not shown directly on this hyperboloid...  One way to understand how affects the shape of the hyperboloid is to look at its traces. Just like before, we will look at the \"standard\" traces obtained by setting one variable to be zero and see how the value of affects them in the following example.   Describe the traces of the hyperboloid .  How does the value of (in this problem, the ), affect the shape of the hyperboloid?   To find the traces, we will set one variable to zero at a time and analyze the resulting equations.    -trace : Setting , we get .  This is an ellipse on the -plane centered at the origin with semi-major axis length 5 along the -axis and semi-minor axis length 3 along the -axis.  So it makes sense for the values of and to control the size of the \"waist\" of the hyperboloid.     -trace : Setting , we get .  This is a hyperbola on the -plane centered at the origin that opens along the -axis. The vertices are located at , and the asymptotes are given by the lines .     -trace : Setting , we get .  This is a hyperbola on the -plane centered at the origin that opens along the -axis. The vertices are located at , and the asymptotes are given by the lines .     Observe that the value of (in this problem, the ) affects the steepness of the hyperbolas in the and traces. A larger value results in a steeper asymptotes in the traces, which means the hyperbolas are less \"wide\" compared to the waist; a smaller value results in less steep asymptotes, which means the hyperbolas are more \"wide\" compared to the waist.   The traces of the hyperboloid        The second flavor of hyperboloid is shown in the diagram below, which has the general equation where are positive constants. We call this a hyperboloid of two sheets .   The hyperboloid with equation .      Observe that there is a gap between the two sheets of the hyperboloid. That is because the right-hand side of the equation is negative when . Yet the left side of the hyperboloid equation is always non-negative, so there are no points on the region when .  Just like before, we can analyze the traces of the hyperboloid of two sheets to understand the surface. Feel free to try this as an exercise! Just one small hint here: there is no -trace since setting results in no points on the surface. If we set for some , we will get an ellipse as the trace instead.  The figure below shows the (interesting) traces of the hyperboloid of two sheets.   The traces of the hyperboloid .      The third type of quadric surfaces is the elliptic cone . An elliptic cone has the general equation where are positive constants.   The elliptic cone      The elliptic cone can be thought of as the transition surface between the hyperboloid of one sheet and the hyperboloid of two sheets.   If we increase the constant term on the right side of the elliptic cone by adding a , the two(ish) sheets will move toward each other, creating a hyperboloid of one sheet.    If we decrease the constant term on the right side of the elliptic cone by subtracting a , the two(ish) sheets will move away from each other, creating a hyperboloid of two sheets.   When the constant term on the right side of the hyperboloid equations is zero, we get the elliptic cone. Positive constant on the right-hand side means two sheets merge into one, while negative constant means one sheet splits into two.  Of course, we can analyze the traces of the elliptic cone as well. Try this as an exercise! If you play your cards right, you will find that the -trace is a point at the origin, while the - and -traces are pairs of lines through the origin. They are the three degenerate conic sections... Boring... But when you move up (or down) from the vertex along the -axis, you will see that the traces are ellipses that grow larger as you move away from the vertex!  As always, Richard coded the diagram below to illustrate the traces of the elliptic cone.   The traces of the elliptic cone .      The next type of quadric surfaces is the paraboloids , which also comes in two different flavors.  An elliptic paraboloid has the general equation where are positive constants.   The elliptic paraboloid .      Similarly, the traces of the elliptic paraboloid can tell us a lot! Again, feel free to try this as an exercise. You will find that the -trace is a point at the origin, while the - and -traces are parabolas that open upward. Moving up along the -axis from the vertex, you will see that the traces are ellipses that grow larger as you move away from the vertex!  The figure below shows the traces of the elliptic paraboloid.   The traces of the elliptic paraboloid .      The second flavor is the hyperbolic paraboloid , which has the general equation where are positive constants.   The hyperbolic paraboloid .      The traces of the hyperbolic paraboloid are also very interesting! Try this as an exercise. You will find that the -trace is a point at the origin (aka the saddle point!), while the - and -traces are parabolas that open in opposite directions. Moving up along the -axis from the saddle point, you will see that the -traces are hyperbolas that open along the -axis, while moving down along the -axis, the -traces are hyperbolas that open along the -axis!  The figure below shows the traces of the hyperbolic paraboloid. Feel free to rotate around the diagram to get a better view of the traces!   Interactive traces of the hyperbolic paraboloid with custom button layout.      Now let's take a pause and look back at what we have covered so far. We have learned six types of quadric surfaces. Make sure you know how to identify each type from its equation, and be able to analyze them using their traces (and sometimes the \"standard\" traces are not enough if we get the degenerate conic sections!).   State the type of quadric surface and describe the trace obtained by intersecting with the plane .   To determine the type of quadric surface, we match the equation to the standard forms we have learned. Yet, there is no fractions on the term and the term... What to do?  Recall that we can always manipulate the equation algebraically to get it into a more recognizable form. For example, we know that can be rewritten as if we want to get some fractions out of it.    We first rewrite the equation as which matches the standard form of a hyperboloid of two sheets.  To find the trace on the plane , we substitute into the equation. We obtain The trace is an ellipse on the plane .     Sketch the surface    There are two approaches to sketching a surface.  One is to rewrite the equation into a more recognizable form, then use the standard sketch as a starting point. But the downside is that we may not be able to match it to a standard form easily, especially when there are some slight alternations involved (then not only you will need to recognize the type of surface, but also the alternation).  The other approach is to analyze the traces of the surface, then sketch it based on the traces. This approach is more general and works for any surface, but it may take more time and effort.  Alternatively, you can just put the equation into a 3D graphing tool (like GeoGebra or WolframAlpha) and get an instant sketch. But remember that Richard will not accept any calculator-generated answers without any justification on the exams.    Approach 1: Recognizing the Standard Form  By doing some algebraic manipulation, we can rewrite the equation as The format matches the standard form of a hyperboloid of one sheet. Yet there is a slight alternation that and are swapped in their usual positions.  Hence, instead of having a standard hyperboloid of one sheet that opens along the -axis, this surface opens along the -axis.   The surface .        Approach 2: Analyzing the Traces  Let's analyze the \"standard\" traces first.    -trace: Setting gives . This is a hyperbola opening along the -axis, where the vertices are at and the asymptotes are .     -trace: Setting gives . This is an ellipse centered at the origin with -intercepts at and -intercepts at .     -trace: Setting gives . This is a hyperbola opening along the -axis, where the vertices are at and the asymptotes are .   Now we can sketch the traces and combine them to form the surface!   The surface with traces.        In practice, it is often insanely difficult to sketch a surface from scratch, especially on paper. Richard is happy if you can describe the surface well either by matching things to the standard forms and point out any features (and also any alternation if any) or by analyzing the traces. This is a math class, not an art class!    Quadratic Cylinders  We are still in the investigation of the standard quadric surfaces, but the following three types can be considered as special cases called quadratic cylinders . The term cylinder is used here in a more general sense, meaning that the surface extends infinitely in one direction (think about this as a vertical wall that goes up and down forever if the cylinder extends along the -axis). They are a bit less interesting in the sense that their non-degenerate traces are just conic section.  The first type of the quadratic cylinder is right circular cylinder that we have seen in earlier section. Its general equation is where is a positive constant representing the radius of the circular cross-sections. The only interesting traces of this surface are the traces , which are circles of radius .   The traces of the cylinder .      We can turn the circular cylinder into an elliptic cylinder by changing the cross-sectional shape from a circle to an ellipse. Its general equation is where and are positive constants representing the semi-major and semi-minor axes of the elliptical trace. The interesting traces are again the traces , which are ellipses with semi-major axis and semi-minor axis .   The traces of the elliptic cylinder .      The next type of quadratic cylinder is the hyperbolic cylinder , whose general equation is Again, the only interesting traces are the traces , which are hyperbolas opening along the -axis with vertices at and asymptotes .   The traces of the hyperbolic cylinder .      Last but not least, we have the parabolic cylinder , whose general equation is where is a nonzero constant that controls the \"width\" of the parabolic traces. The interesting traces are the traces , which are parabolas opening along the -axis with vertex at .   The traces of the parabolic cylinder .      Observe that all these quadratic cylinders can be obtained by extending a conic section (circle, ellipse, hyperbola, or parabola) along an axis perpendicular to the plane containing the conic section. That is, there is nothing new or interesting going on in the third dimension for these surfaces. Some people believe that the quadratic cylinders are essentially some degenerate cases of the quadric surfaces.   Your textbook include a summary page for this section (page 724). I recommend you organize your notes to include a similar summary page for your reference (with more details if you like). Again, Richard cares more about your understanding and the ability to analyze surfaces than sketching a perfect surface by hand!   Assigned Problems for Section 12.6   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.     In the following exercises, state whether the given equation defines an ellipsoid or hyperboloid, and if a hyperboloid, whether it is of one or two sheets.                In the following exercises, state whether the given equation defines an elliptic paraboloid, a hyperbolic paraboloid, or an elliptic cone.                In the following exercises, state the type of the quadric surface and describe the trace obtained by intersecting with the given plane.     ,      ,      Match each of the ellipsoids in the figure below with the correct equation.                         In the following exercises, sketch the given surface.                    Find the equation of the hyperboloid shown in the following figure.       "
+},
+{
+  "id": "sec126-QuadricSurfaces-2-2",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#sec126-QuadricSurfaces-2-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "quadric surfaces "
+},
+{
+  "id": "sec126-QuadricSurfaces-2-3",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#sec126-QuadricSurfaces-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     recognize and classify the six standard types of quadric surfaces from their algebraic equations.    apply the method of traces to visualize, analyze, and sketch the quadric surface in .    identify and describe quadratic cylinders as surfaces that extend conic sections along a specific axis.    manipulate general second-degree equations algebraically to match standard forms for identification and graphing.    "
+},
+{
+  "id": "sec126-QuadricSurfaces-3",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#sec126-QuadricSurfaces-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Quadric quadric surface "
+},
+{
+  "id": "subsec-ConicSections-Review-2",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-ConicSections-Review-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "conic sections "
+},
+{
+  "id": "subsec-ConicSections-Review-3",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-ConicSections-Review-3",
+  "type": "Figure",
+  "number": "12.6.1",
+  "title": "",
+  "body": "  Types of conic sections where (a) are the standard conic sections and (b) are the degenerate conic sections  "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-2",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "ellipsoid "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-3",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-3",
+  "type": "Figure",
+  "number": "12.6.2",
+  "title": "",
+  "body": " The ellipsoid with equation .     "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-5",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "traces "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-7",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-7",
+  "type": "Example",
+  "number": "12.6.3",
+  "title": "",
+  "body": " Describe the traces of the ellipsoid .   So what are the \"standard\" traces of the ellipsoid and how do we find them?  P.S.: Richard will use the \"standard\" traces here since they are the most easiest to work with (but not necessarily the most informative... but this is a good start! :D).    To find the traces, we will set one variable to zero at a time and analyze the resulting equations.    -trace : Setting , we get .  This is an ellipse on the -plane centered at the origin with semi-major axis length 3 along the -axis and semi-minor axis length 2 along the -axis.     -trace : Setting , we get .  This is an ellipse on the -plane centered at the origin with semi-major axis length 5 along the -axis and semi-minor axis length 2 along the -axis.     -trace : Setting , we get .  This is an ellipse on the -plane centered at the origin with semi-major axis length 5 along the -axis and semi-minor axis length 3 along the -axis.      The traces of the ellipsoid .      See that we can determine what the ellipsoid looks like when we know its traces!   "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-9",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hyperboloid "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-10",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hyperboloid of one sheet "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-11",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-11",
+  "type": "Figure",
+  "number": "12.6.5",
+  "title": "",
+  "body": " The hyperboloid with equation .     "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-14",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-14",
+  "type": "Example",
+  "number": "12.6.6",
+  "title": "",
+  "body": " Describe the traces of the hyperboloid .  How does the value of (in this problem, the ), affect the shape of the hyperboloid?   To find the traces, we will set one variable to zero at a time and analyze the resulting equations.    -trace : Setting , we get .  This is an ellipse on the -plane centered at the origin with semi-major axis length 5 along the -axis and semi-minor axis length 3 along the -axis.  So it makes sense for the values of and to control the size of the \"waist\" of the hyperboloid.     -trace : Setting , we get .  This is a hyperbola on the -plane centered at the origin that opens along the -axis. The vertices are located at , and the asymptotes are given by the lines .     -trace : Setting , we get .  This is a hyperbola on the -plane centered at the origin that opens along the -axis. The vertices are located at , and the asymptotes are given by the lines .     Observe that the value of (in this problem, the ) affects the steepness of the hyperbolas in the and traces. A larger value results in a steeper asymptotes in the traces, which means the hyperbolas are less \"wide\" compared to the waist; a smaller value results in less steep asymptotes, which means the hyperbolas are more \"wide\" compared to the waist.   The traces of the hyperboloid       "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-15",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-15",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hyperboloid of two sheets "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-16",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-16",
+  "type": "Figure",
+  "number": "12.6.8",
+  "title": "",
+  "body": " The hyperboloid with equation .     "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-20",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-20",
+  "type": "Figure",
+  "number": "12.6.9",
+  "title": "",
+  "body": " The traces of the hyperboloid .     "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-21",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-21",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "elliptic cone "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-22",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-22",
+  "type": "Figure",
+  "number": "12.6.10",
+  "title": "",
+  "body": " The elliptic cone     "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-26",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-26",
+  "type": "Figure",
+  "number": "12.6.11",
+  "title": "",
+  "body": " The traces of the elliptic cone .     "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-27",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-27",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "paraboloids "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-28",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-28",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "elliptic paraboloid "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-29",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-29",
+  "type": "Figure",
+  "number": "12.6.12",
+  "title": "",
+  "body": " The elliptic paraboloid .     "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-32",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-32",
+  "type": "Figure",
+  "number": "12.6.13",
+  "title": "",
+  "body": " The traces of the elliptic paraboloid .     "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-33",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-33",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hyperbolic paraboloid "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-34",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-34",
+  "type": "Figure",
+  "number": "12.6.14",
+  "title": "",
+  "body": " The hyperbolic paraboloid .     "
+},
+{
+  "id": "fig-hyperbolic-paraboloid-interactive-layout",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#fig-hyperbolic-paraboloid-interactive-layout",
+  "type": "Figure",
+  "number": "12.6.15",
+  "title": "",
+  "body": " Interactive traces of the hyperbolic paraboloid with custom button layout.     "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-39",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-39",
+  "type": "Example",
+  "number": "12.6.16",
+  "title": "",
+  "body": " State the type of quadric surface and describe the trace obtained by intersecting with the plane .   To determine the type of quadric surface, we match the equation to the standard forms we have learned. Yet, there is no fractions on the term and the term... What to do?  Recall that we can always manipulate the equation algebraically to get it into a more recognizable form. For example, we know that can be rewritten as if we want to get some fractions out of it.    We first rewrite the equation as which matches the standard form of a hyperboloid of two sheets.  To find the trace on the plane , we substitute into the equation. We obtain The trace is an ellipse on the plane .   "
+},
+{
+  "id": "subsec-StandardQuadricSurfaces-40",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces-40",
+  "type": "Example",
+  "number": "12.6.17",
+  "title": "",
+  "body": " Sketch the surface    There are two approaches to sketching a surface.  One is to rewrite the equation into a more recognizable form, then use the standard sketch as a starting point. But the downside is that we may not be able to match it to a standard form easily, especially when there are some slight alternations involved (then not only you will need to recognize the type of surface, but also the alternation).  The other approach is to analyze the traces of the surface, then sketch it based on the traces. This approach is more general and works for any surface, but it may take more time and effort.  Alternatively, you can just put the equation into a 3D graphing tool (like GeoGebra or WolframAlpha) and get an instant sketch. But remember that Richard will not accept any calculator-generated answers without any justification on the exams.    Approach 1: Recognizing the Standard Form  By doing some algebraic manipulation, we can rewrite the equation as The format matches the standard form of a hyperboloid of one sheet. Yet there is a slight alternation that and are swapped in their usual positions.  Hence, instead of having a standard hyperboloid of one sheet that opens along the -axis, this surface opens along the -axis.   The surface .        Approach 2: Analyzing the Traces  Let's analyze the \"standard\" traces first.    -trace: Setting gives . This is a hyperbola opening along the -axis, where the vertices are at and the asymptotes are .     -trace: Setting gives . This is an ellipse centered at the origin with -intercepts at and -intercepts at .     -trace: Setting gives . This is a hyperbola opening along the -axis, where the vertices are at and the asymptotes are .   Now we can sketch the traces and combine them to form the surface!   The surface with traces.       "
+},
+{
+  "id": "subsec-QuadraticCylinders-2",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-QuadraticCylinders-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "quadratic cylinders "
+},
+{
+  "id": "subsec-QuadraticCylinders-3",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-QuadraticCylinders-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "right circular cylinder "
+},
+{
+  "id": "subsec-QuadraticCylinders-4",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-QuadraticCylinders-4",
+  "type": "Figure",
+  "number": "12.6.20",
+  "title": "",
+  "body": " The traces of the cylinder .     "
+},
+{
+  "id": "subsec-QuadraticCylinders-5",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-QuadraticCylinders-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "elliptic cylinder "
+},
+{
+  "id": "subsec-QuadraticCylinders-6",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-QuadraticCylinders-6",
+  "type": "Figure",
+  "number": "12.6.21",
+  "title": "",
+  "body": " The traces of the elliptic cylinder .     "
+},
+{
+  "id": "subsec-QuadraticCylinders-7",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-QuadraticCylinders-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "hyperbolic cylinder "
+},
+{
+  "id": "subsec-QuadraticCylinders-8",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-QuadraticCylinders-8",
+  "type": "Figure",
+  "number": "12.6.22",
+  "title": "",
+  "body": " The traces of the hyperbolic cylinder .     "
+},
+{
+  "id": "subsec-QuadraticCylinders-9",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-QuadraticCylinders-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "parabolic cylinder "
+},
+{
+  "id": "subsec-QuadraticCylinders-10",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#subsec-QuadraticCylinders-10",
+  "type": "Figure",
+  "number": "12.6.23",
+  "title": "",
+  "body": " The traces of the parabolic cylinder .     "
+},
+{
+  "id": "ws-sec126-3-2",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-3-2",
+  "type": "Worksheet Exercise",
+  "number": "12.6.3",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec126-3-3",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-3-3",
+  "type": "Worksheet Exercise",
+  "number": "12.6.7",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec126-4-2",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-4-2",
+  "type": "Worksheet Exercise",
+  "number": "12.6.9",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec126-4-3",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-4-3",
+  "type": "Worksheet Exercise",
+  "number": "12.6.13",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec126-5-2",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-5-2",
+  "type": "Worksheet Exercise",
+  "number": "12.6.17",
+  "title": "",
+  "body": "  ,   "
+},
+{
+  "id": "ws-sec126-5-3",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-5-3",
+  "type": "Worksheet Exercise",
+  "number": "12.6.19",
+  "title": "",
+  "body": "  ,   "
+},
+{
+  "id": "ws-sec126-6",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-6",
+  "type": "Worksheet Exercise",
+  "number": "12.6.25",
+  "title": "",
+  "body": " Match each of the ellipsoids in the figure below with the correct equation.                      "
+},
+{
+  "id": "ws-sec126-7-2",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-7-2",
+  "type": "Worksheet Exercise",
+  "number": "12.6.29",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec126-7-3",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-7-3",
+  "type": "Worksheet Exercise",
+  "number": "12.6.33",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec126-7-4",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-7-4",
+  "type": "Worksheet Exercise",
+  "number": "12.6.39",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec126-8",
+  "level": "2",
+  "url": "sec126-QuadricSurfaces.html#ws-sec126-8",
+  "type": "Worksheet Exercise",
+  "number": "12.6.45",
+  "title": "",
+  "body": " Find the equation of the hyperboloid shown in the following figure.     "
+},
+{
+  "id": "sec127-CylindricalSphericalCoordinates",
+  "level": "1",
+  "url": "sec127-CylindricalSphericalCoordinates.html",
+  "type": "Section",
+  "number": "12.7",
+  "title": "Cylindrical and Spherical Coordinates",
+  "body": " Cylindrical and Spherical Coordinates   We have been working almost exclusively with the rectangular coordinate system so far in . There are in fact other ways to describe points in , and sometimes these alternative coordinate systems can make our lives a lot easier!  In this section, we are going to expand our toolkit by introducing two new coordinate systems: cylindrical coordinates and spherical coordinates . These systems are designed specifically to make working with cylinders and spheres much more natural.    After this section, students will be able to:     locate points in using cylindrical and spherical coordinates and understand the geometric meaning of each component (like , , , and ).    convert coordinates and equations between rectangular, cylindrical, and spherical systems.    identify and sketch level surfaces to build intuition for how these coordinate systems grid up the space.    describe and sketch solid regions defined by inequalities in cylindrical and spherical coordinates.      Recall back in , we defined rectangular coordinates in using an ordered triple , where , , and measure the directed distances along the -, -, and -axes, respectively. This is a direct extension of the rectangular coordinate system in .  Back in MTH 253 or MTH 253Z, you may learn about another coordinate system in called polar coordinates . In polar coordinates, a point in the plane is represented by an ordered pair , where is the directed distance from the pole to the point, and is the angle formed by the positive -axis and the line segment connecting the pole to the point.  The polar coordinate system can also be extended to , and there are two common ways to do so. In this section, we will investigate both of these extensions, and they are the cylindrical coordinates and spherical coordinates .   Review: Polar Coordinates  In polar coordinates plane, there is a pole and a polar axis . To translate these terms to rectangular coordinates plane, the pole corresponds to the origin and the polar axis corresponds to the positive -axis.  To plot a point in polar coordinates, we start at the pole, rotate radians about the pole in the counterclockwise direction (if is positive) or clockwise direction (if is negative), and then move units along the ray formed by the rotation. If is positive, we move in the same direction as the ray; if is negative, we move in the opposite direction of the ray.  If you learn about polar coordinates from Richard (well none of you did), Richard likes to use the grid shown below to help students visualize polar coordinates plane.    Polar Coordinates Plane with Grid, where the concentric circles represent different values of , and the lines radiating from the pole represent different values of   Now that we have another coordinate system in , it is important to know how to convert between rectangular coordinates and polar coordinates. We can figure out the conversion formulas by constructing a right triangle with legs parallel to the - and -axes, and the hypotenuse connecting the origin to the point .    Right triangle to convert between polar and rectangular coordinates   The right triangle above gives us the following conversion formulas.   Conversion between Polar and Rectangular Coordinates   A point with polar coordinates has rectangular coordinates , where   A point with rectangular coordinates has polar coordinates , where     Just be careful that the radius can be negative here, and the angle may not be in the range of the inverse tangent function . Remember to adjust and accordingly!  We will not go in further detail about polar coordinates here since this is just a review. Feel free to refer back to your MTH 253 or MTH 253Z notes if you need a refresher on this topic. Here is the lecture notes when Richard taught polar coordinates in MTH 112Z before (just in case you want to know more about polar coordinates).    Cylindrical Coordinates  Cylindrical coordinates in is one way to extend polar coordinates in . Imagine we plot a point in polar coordinates plane, then we can create a circle using the radius . The value will determine where the point is located on the circle. There is no \"height\" of this point yet since we are still in .  Now we extend this idea to !  One way to do so is to assign a \"height\" value to the point. If we move the circle up or down along the -axis, we really create a cylinder to locate the point in .  That is, we can represent a point in using the ordered triple , where are the polar coordinates of the projection of the point onto the -plane, and is the directed distance from the -plane to the point. This ordered triple is called the cylindrical coordinates of the point.    Cylindrical coordinates where has the cylindrical coordinates   Similar to polar coordinates, it is important to know how to convert between rectangular coordinates and cylindrical coordinates. The conversion formulas on the -plane are the same as the polar coordinates formulas (since we literally construct the cylindrical coordinates using polar coordinates on the -plane), and we just add the coordinate as is.   Conversion between Cylindrical and Rectangular Coordinates   A point with cylindrical coordinates has rectangular coordinates , where   A point with rectangular coordinates has cylindrical coordinates , where      Convert the cylindrical coordinates to rectangular coordinates.   Conventionally, we use to denote cylindrical coordinates. That is, we read the cylindrical coordinates as Now we have everything we need to convert this point to rectangular coordinates!  As always, Richard included a visual below to help you better understand the geometry of cylindrical coordinates.         Using the conversion formulas, we obtain Therefore, the rectangular coordinates are .     Convert the rectangular coordinates to cylindrical coordinates.   We are given the rectangular coordinates Now we have everything we need to convert this point to cylindrical coordinates, which is conventionally denoted !  As always, Richard included a visual below to help you better understand the geometry of cylindrical coordinates. Our goal here is to find the values of , , and for the point .         Using the conversion formulas, we obtain Therefore, the cylindrical coordinates are .    Recall the way we build the cylindrical coordinates is to extend polar coordinates by introducing the \"height\" of the point along the -axis. The -plane on which we do all the fun polar coordinates stuff on is called the level surface    The level surface is a surface obtained by setting one of the coordinates to be constant. In rectangular coordinates, the level surfaces are the coordinate planes discussed in .  Yet, not all level surfaces are planes in cylindrical coordinates. Let's think it through together. If we set , where is a constant, then we are just looking at a horizontal plane intersecting the -axis at .  If we set , where is a constant, then we are looking at all the points that are units away from the -axis, regardless of the -coordinate. This creates a right circular cylinder of radius centered along the -axis.  If we set , where is a constant, then we are looking at all the points that form an angle of with the positive -axis when projected onto the -plane. Taking all possible z -values, this creates a half -plane originating from the -axis and making an angle of with the -plane.    Level Surfaces in Cylindrical Coordinates   But why do we care about level surfaces? One of the reasons is that level surfaces can help us visualize surfaces defined in cylindrical coordinates rather than imagining the whole 3-dimensional graph at once. The level surfaces can act as \"slices\" of the surface to help us understand the overall shape of the surface.   Sketch the set described in cylindrical coordinates.   Observe that the three coordinates are all bounded in some way. Instead of trying to imagine the whole 3-dimensional shape at once, we can analyze the level surfaces to help us sketch the shape step by step.  So what are the level surfaces here? Putting the level surfaces together (with the right bounds!), we can determine the shape!    Let's start by analyzing the level surfaces one by one! The level surface is a right circular cylinder of radius 1 centered along the -axis, and the level surface is another right circular cylinder of radius 3 centered along the -axis. The region between these two cylinders is a hollow cylindrical shell.  The level surface is the half -plane, and the level surface is the half -plane. The region between these two half-planes is a quarter of the hollow cylindrical shell we obtained above.  The level surface is the -plane, and the level surface is a horizontal plane intersecting the -axis at . The region between these two planes is a vertical slice of the quarter hollow cylindrical shell we obtained above.  Putting these three regions together, we obtain a quarter of a hollow cylindrical shell with inner radius 1, outer radius 3, and height 4, as shown in the diagram below.           Spherical Coordinates  Spherical coordinates in is another way to extend polar coordinates in . Instead of directly lifting the point in polar coordinates up or down to create a cylinder, we can create a sphere by rotating the radius up and down.    Spherical coordinates where has the spherical coordinates   As indicated in the diagram above, we can create a sphere by knowing the radius and two different types of angles:    is the directed distance from the origin to the point (aka the radius of the sphere). Since the radius of the sphere should be the same as the radius of the -trace, this value should match up with in polar\/cylindrical coordinates.     is the polar angle of projection onto the -plane, which is the same as the angle in polar\/cylindrical coordinates (the standard angle rotation from the positive -axis to the projection of the point onto the -plane).     is the angle of declination , which measures how much we rotate the radius down from the top of the sphere along the -axis (declines from the vertical).     Feel free to play with the applet below to get a better understanding of spherical coordinates and how the three coordinates work together to locate a point in !   Spherical Coordinates Applet. Open in GeoGebra     P.S.: you may want to open the applet in GeoGebra directly using the link above to get the full menu and controls. Richard is a bit sick of trying to figure out how to make the embedded applet work properly with scaling and full controls...  Now that we know how spherical coordinates work, it is important to know how to convert between rectangular coordinates and spherical coordinates. The only thing we can carry over from polar\/cylindrical coordinates is the angle . So we have the conversion formula We will next need to figure out how to relate and to , , and .   is easy to relate since it is just the radius of the sphere centered at the origin. Therefore, we have the conversion formula    is a bit tricky to relate. One of the reasons why we define as the angle of declination is that it allows us to construct a right triangle with legs parallel to the -plane and the -axis, and the hypotenuse being the radius (see the diagram below). Using this right triangle, we have the conversion formula     Conversion between rectangular and spherical coordinates.   The diagram above can also help us convert from spherical coordinates to rectangular coordinates. is the most straightforward to relate since it is just the vertical leg of the right triangle. Therefore, we have the conversion formula   To relate and to spherical coordinates, we can first find the radius of the -trace using the right triangle. This radius is just . Then we can use the polar coordinates conversion formulas to find and as follows:   Let's summarize it to a fancy theorem!   Conversion between Spherical and Rectangular Coordinates   A point with spherical coordinates has rectangular coordinates , where   A point with rectangular coordinates has spherical coordinates , where      Convert the spherical coordinates to rectangular coordinates.   Conventionally, we use to denote spherical coordinates. That is, we read the spherical coordinates as Now we have everything we need to convert this point to rectangular coordinates!  As always, Richard included a visual below to help you better understand the geometry of spherical coordinates.         Using the conversion formulas, we obtain Therefore, the rectangular coordinates are .     Convert the rectangular coordinates to spherical coordinates.   We are given the rectangular coordinates Now we have everything we need to convert this point to spherical coordinates, which is conventionally denoted !  As always, Richard included a visual below to help you better understand the geometry of spherical coordinates. Our goal here is to find the values of , , and for the point .         Using the conversion formulas, we obtain Therefore, the spherical coordinates are .    What about the level surfaces in spherical coordinates? Similar to cylindrical coordinates, we can fix one of the three spherical coordinates and let the other two vary to see what kind of surface is formed.   Fixing (a constant) gives us a sphere of radius centered at the origin.    Fixing (a constant) gives us a vertical half-plane that extends from the -axis at an angle of .    Fixing (a constant) gives us a cone with its vertex at the origin and its axis along the -axis. The angle between the axis and the surface of the cone is .       Level Surfaces in Spherical Coordinates   Similarly, level surfaces can help us visualize regions described in spherical coordinates.   Sketch the set described in spherical coordinates.   Observe that is a constant, so we are looking at the level surface of a sphere with radius 1.  Now consider the bounds on . By setting to be the two bounds should give us two level surfaces that restrict the region of the sphere we want to sketch.  This is more like a FYI. Observe that is not restricted at all, so this won't be a restriction on the region.    The two level surfaces for and are cones that intersect the sphere . The region described is the \"band\" on the sphere between these two cones. The sketch is shown below.         Now that we learned two new coordinate systems in , then the next natural question to ponder is how to convert coordinates between these two coordinates?   Well there is a straightforward way to do this by using rectangular coordinates as an intermediary! If you are not satisfied with this method and want to figure out the conversion formulas directly, feel free to give it a try as an exercise (and this is not difficult at all! You will just need to pick up a lot of the clues here and there!).  You may be wondering why bother extending the polar coordinates to spherical coordinates when we already have cylindrical coordinates (and the \"height\" of the point is a lot easier to deal with)? Well the most obvious answer is that we live on the planet of earth , which is (approximately) a sphere! We can locate things easier on earth using spherical coordinates.  The two types of angles, and , are the two measures we often use to locate points on the surface of earth.   A longitude is the angle measured East or West from the prime meridian (which runs through Greenwich, England). It ranges from (West) to (East).  If we align the prime meridian with the positive -axis, then the longitude corresponds to (just be mindful of the range and the direction of )    A latitude measures the angle North or South from the equator. It ranges from (South) to (North).  This is similar to , but with a slight modification (recalibration). Since measures the angle of declination from the North Pole, we can convert latitude to using the formula (so we basically recalibrate the value of to measure from the equator instead of the North Pole).       Longtitude and latitude provide spherical coordinates on the surface of the earth   We will look at more applications to the cylindrical and spherical coordinates in later chapters. The two new coordinates systems are very useful in integration and vector calculus!    Assigned Problems for Section 12.7   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Convert the cylindrical coordinates to rectangular coordinates.    Convert the rectangular coordinates to cylindrical coordinates.    Describe the set in cylindrical coordinates.    Sketch the set described in cylindrical coordinates.    Find an equation of the form in cylindrical coordinates for the surface .    Convert the spherical coordinates to rectangular coordinates.    Convert the rectangular coordinates to spherical coordinates.    Convert the cylindrical coordinates to spherical coordinates.    Convert the spherical coordinates to cylindrical coordinates.    Describe the set in spherical coordinates.    Sketch the set of points described in spherical coordinates.    Find an equation of the form in spherical coordinates for the surface .    An apple modeled by taking all the points in and on a sphere of radius inches is cored with a vertical cylinder of radius in. Use inequalities in cylindrical coordinates to describe the set of all points that remain in the apple once the core is removed.    "
+},
+{
+  "id": "sec127-CylindricalSphericalCoordinates-2-2",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#sec127-CylindricalSphericalCoordinates-2-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "cylindrical coordinates spherical coordinates "
+},
+{
+  "id": "sec127-CylindricalSphericalCoordinates-2-3",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#sec127-CylindricalSphericalCoordinates-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     locate points in using cylindrical and spherical coordinates and understand the geometric meaning of each component (like , , , and ).    convert coordinates and equations between rectangular, cylindrical, and spherical systems.    identify and sketch level surfaces to build intuition for how these coordinate systems grid up the space.    describe and sketch solid regions defined by inequalities in cylindrical and spherical coordinates.    "
+},
+{
+  "id": "sec127-CylindricalSphericalCoordinates-4",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#sec127-CylindricalSphericalCoordinates-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "polar coordinates "
+},
+{
+  "id": "sec127-CylindricalSphericalCoordinates-5",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#sec127-CylindricalSphericalCoordinates-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "cylindrical coordinates spherical coordinates "
+},
+{
+  "id": "subsec-PolarCoordinates-Review-2",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-PolarCoordinates-Review-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "pole polar axis "
+},
+{
+  "id": "subsec-PolarCoordinates-Review-5",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-PolarCoordinates-Review-5",
+  "type": "Figure",
+  "number": "12.7.1",
+  "title": "",
+  "body": "  Polar Coordinates Plane with Grid, where the concentric circles represent different values of , and the lines radiating from the pole represent different values of  "
+},
+{
+  "id": "subsec-PolarCoordinates-Review-7",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-PolarCoordinates-Review-7",
+  "type": "Figure",
+  "number": "12.7.2",
+  "title": "",
+  "body": "  Right triangle to convert between polar and rectangular coordinates  "
+},
+{
+  "id": "thm-Conversion-PolarRectangular",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#thm-Conversion-PolarRectangular",
+  "type": "Theorem",
+  "number": "12.7.3",
+  "title": "Conversion between Polar and Rectangular Coordinates.",
+  "body": " Conversion between Polar and Rectangular Coordinates   A point with polar coordinates has rectangular coordinates , where   A point with rectangular coordinates has polar coordinates , where    "
+},
+{
+  "id": "subsec-CylindricalCoordinates-5",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "cylindrical coordinates "
+},
+{
+  "id": "subsec-CylindricalCoordinates-6",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates-6",
+  "type": "Figure",
+  "number": "12.7.4",
+  "title": "",
+  "body": "  Cylindrical coordinates where has the cylindrical coordinates  "
+},
+{
+  "id": "thm-Conversion-CylindricalRectangular",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#thm-Conversion-CylindricalRectangular",
+  "type": "Theorem",
+  "number": "12.7.5",
+  "title": "Conversion between Cylindrical and Rectangular Coordinates.",
+  "body": " Conversion between Cylindrical and Rectangular Coordinates   A point with cylindrical coordinates has rectangular coordinates , where   A point with rectangular coordinates has cylindrical coordinates , where    "
+},
+{
+  "id": "subsec-CylindricalCoordinates-9",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates-9",
+  "type": "Example",
+  "number": "12.7.6",
+  "title": "",
+  "body": " Convert the cylindrical coordinates to rectangular coordinates.   Conventionally, we use to denote cylindrical coordinates. That is, we read the cylindrical coordinates as Now we have everything we need to convert this point to rectangular coordinates!  As always, Richard included a visual below to help you better understand the geometry of cylindrical coordinates.         Using the conversion formulas, we obtain Therefore, the rectangular coordinates are .   "
+},
+{
+  "id": "subsec-CylindricalCoordinates-10",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates-10",
+  "type": "Example",
+  "number": "12.7.8",
+  "title": "",
+  "body": " Convert the rectangular coordinates to cylindrical coordinates.   We are given the rectangular coordinates Now we have everything we need to convert this point to cylindrical coordinates, which is conventionally denoted !  As always, Richard included a visual below to help you better understand the geometry of cylindrical coordinates. Our goal here is to find the values of , , and for the point .         Using the conversion formulas, we obtain Therefore, the cylindrical coordinates are .   "
+},
+{
+  "id": "subsec-CylindricalCoordinates-16",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates-16",
+  "type": "Figure",
+  "number": "12.7.10",
+  "title": "",
+  "body": "  Level Surfaces in Cylindrical Coordinates  "
+},
+{
+  "id": "subsec-CylindricalCoordinates-18",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates-18",
+  "type": "Example",
+  "number": "12.7.11",
+  "title": "",
+  "body": " Sketch the set described in cylindrical coordinates.   Observe that the three coordinates are all bounded in some way. Instead of trying to imagine the whole 3-dimensional shape at once, we can analyze the level surfaces to help us sketch the shape step by step.  So what are the level surfaces here? Putting the level surfaces together (with the right bounds!), we can determine the shape!    Let's start by analyzing the level surfaces one by one! The level surface is a right circular cylinder of radius 1 centered along the -axis, and the level surface is another right circular cylinder of radius 3 centered along the -axis. The region between these two cylinders is a hollow cylindrical shell.  The level surface is the half -plane, and the level surface is the half -plane. The region between these two half-planes is a quarter of the hollow cylindrical shell we obtained above.  The level surface is the -plane, and the level surface is a horizontal plane intersecting the -axis at . The region between these two planes is a vertical slice of the quarter hollow cylindrical shell we obtained above.  Putting these three regions together, we obtain a quarter of a hollow cylindrical shell with inner radius 1, outer radius 3, and height 4, as shown in the diagram below.        "
+},
+{
+  "id": "subsec-SphericalCoordinates-3",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates-3",
+  "type": "Figure",
+  "number": "12.7.13",
+  "title": "",
+  "body": "  Spherical coordinates where has the spherical coordinates  "
+},
+{
+  "id": "subsec-SphericalCoordinates-4",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "polar angle of projection angle of declination "
+},
+{
+  "id": "fig-geogebra-full-menu-scaled",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#fig-geogebra-full-menu-scaled",
+  "type": "Figure",
+  "number": "12.7.14",
+  "title": "",
+  "body": " Spherical Coordinates Applet. Open in GeoGebra    "
+},
+{
+  "id": "subsec-SphericalCoordinates-11",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates-11",
+  "type": "Figure",
+  "number": "12.7.15",
+  "title": "",
+  "body": "  Conversion between rectangular and spherical coordinates.  "
+},
+{
+  "id": "thm-Conversion-SphericalRectangular",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#thm-Conversion-SphericalRectangular",
+  "type": "Theorem",
+  "number": "12.7.16",
+  "title": "Conversion between Spherical and Rectangular Coordinates.",
+  "body": " Conversion between Spherical and Rectangular Coordinates   A point with spherical coordinates has rectangular coordinates , where   A point with rectangular coordinates has spherical coordinates , where    "
+},
+{
+  "id": "subsec-SphericalCoordinates-16",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates-16",
+  "type": "Example",
+  "number": "12.7.17",
+  "title": "",
+  "body": " Convert the spherical coordinates to rectangular coordinates.   Conventionally, we use to denote spherical coordinates. That is, we read the spherical coordinates as Now we have everything we need to convert this point to rectangular coordinates!  As always, Richard included a visual below to help you better understand the geometry of spherical coordinates.         Using the conversion formulas, we obtain Therefore, the rectangular coordinates are .   "
+},
+{
+  "id": "subsec-SphericalCoordinates-17",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates-17",
+  "type": "Example",
+  "number": "12.7.19",
+  "title": "",
+  "body": " Convert the rectangular coordinates to spherical coordinates.   We are given the rectangular coordinates Now we have everything we need to convert this point to spherical coordinates, which is conventionally denoted !  As always, Richard included a visual below to help you better understand the geometry of spherical coordinates. Our goal here is to find the values of , , and for the point .         Using the conversion formulas, we obtain Therefore, the spherical coordinates are .   "
+},
+{
+  "id": "subsec-SphericalCoordinates-19",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates-19",
+  "type": "Figure",
+  "number": "12.7.21",
+  "title": "",
+  "body": "  Level Surfaces in Spherical Coordinates  "
+},
+{
+  "id": "subsec-SphericalCoordinates-21",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates-21",
+  "type": "Example",
+  "number": "12.7.22",
+  "title": "",
+  "body": " Sketch the set described in spherical coordinates.   Observe that is a constant, so we are looking at the level surface of a sphere with radius 1.  Now consider the bounds on . By setting to be the two bounds should give us two level surfaces that restrict the region of the sphere we want to sketch.  This is more like a FYI. Observe that is not restricted at all, so this won't be a restriction on the region.    The two level surfaces for and are cones that intersect the sphere . The region described is the \"band\" on the sphere between these two cones. The sketch is shown below.        "
+},
+{
+  "id": "subsec-SphericalCoordinates-26",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates-26",
+  "type": "Figure",
+  "number": "12.7.24",
+  "title": "",
+  "body": "  Longtitude and latitude provide spherical coordinates on the surface of the earth  "
+},
+{
+  "id": "ws-sec127-3",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-3",
+  "type": "Worksheet Exercise",
+  "number": "12.7.3",
+  "title": "",
+  "body": " Convert the cylindrical coordinates to rectangular coordinates.  "
+},
+{
+  "id": "ws-sec127-4",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-4",
+  "type": "Worksheet Exercise",
+  "number": "12.7.9",
+  "title": "",
+  "body": " Convert the rectangular coordinates to cylindrical coordinates.  "
+},
+{
+  "id": "ws-sec127-5",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-5",
+  "type": "Worksheet Exercise",
+  "number": "12.7.13",
+  "title": "",
+  "body": " Describe the set in cylindrical coordinates.  "
+},
+{
+  "id": "ws-sec127-6",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-6",
+  "type": "Worksheet Exercise",
+  "number": "12.7.21",
+  "title": "",
+  "body": " Sketch the set described in cylindrical coordinates.  "
+},
+{
+  "id": "ws-sec127-7",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-7",
+  "type": "Worksheet Exercise",
+  "number": "12.7.29",
+  "title": "",
+  "body": " Find an equation of the form in cylindrical coordinates for the surface .  "
+},
+{
+  "id": "ws-sec127-8",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-8",
+  "type": "Worksheet Exercise",
+  "number": "12.7.37",
+  "title": "",
+  "body": " Convert the spherical coordinates to rectangular coordinates.  "
+},
+{
+  "id": "ws-sec127-9",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-9",
+  "type": "Worksheet Exercise",
+  "number": "12.7.43",
+  "title": "",
+  "body": " Convert the rectangular coordinates to spherical coordinates.  "
+},
+{
+  "id": "ws-sec127-10",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-10",
+  "type": "Worksheet Exercise",
+  "number": "12.7.45",
+  "title": "",
+  "body": " Convert the cylindrical coordinates to spherical coordinates.  "
+},
+{
+  "id": "ws-sec127-11",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-11",
+  "type": "Worksheet Exercise",
+  "number": "12.7.47",
+  "title": "",
+  "body": " Convert the spherical coordinates to cylindrical coordinates.  "
+},
+{
+  "id": "ws-sec127-12",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-12",
+  "type": "Worksheet Exercise",
+  "number": "12.7.53",
+  "title": "",
+  "body": " Describe the set in spherical coordinates.  "
+},
+{
+  "id": "ws-sec127-13",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-13",
+  "type": "Worksheet Exercise",
+  "number": "12.7.61",
+  "title": "",
+  "body": " Sketch the set of points described in spherical coordinates.  "
+},
+{
+  "id": "ws-sec127-14",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-14",
+  "type": "Worksheet Exercise",
+  "number": "12.7.71",
+  "title": "",
+  "body": " Find an equation of the form in spherical coordinates for the surface .  "
+},
+{
+  "id": "ws-sec127-15",
+  "level": "2",
+  "url": "sec127-CylindricalSphericalCoordinates.html#ws-sec127-15",
+  "type": "Worksheet Exercise",
+  "number": "12.7.81",
+  "title": "",
+  "body": " An apple modeled by taking all the points in and on a sphere of radius inches is cored with a vertical cylinder of radius in. Use inequalities in cylindrical coordinates to describe the set of all points that remain in the apple once the core is removed.  "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

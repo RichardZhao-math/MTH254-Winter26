@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>sagecell.makeSagecell({
+  "inputLocation": ".sage-interact",
+  "autoeval": true,
+  "hide": [
+    "editor",
+    "evalButton",
+    "permalink"
+  ]
+});
+</script><link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+</head>
+<body class="ptx-content ignore-math" id="changeme">
+<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q} 
+\newcommand{\R}{\mathbb R} 
+
+\newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div style="width:600px; height:450px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t, x, y')
+
+# --- Parameters ---
+a = 2
+b = 3
+k_val = 2 
+
+# Bounds
+surf_x = 4
+surf_y = 6
+trace_x_limit = 5.5
+trace_y_limit = 7.5
+
+# We use the 'layout' parameter to define the grid of controls.
+# Row 1: The 4 trace toggles
+# Row 2: The surface toggle
+@interact(layout=[
+    ['show_xz', 'show_yz', 'show_z_pos', 'show_z_neg'], 
+    ['show_surface']
+])
+def _(
+    show_xz      = checkbox(True, label="xz-trace (Green)"),
+    show_yz      = checkbox(True, label="yz-trace (Blue)"),
+    show_z_pos   = checkbox(True, label="z=k (Red X)"),
+    show_z_neg   = checkbox(True, label="z=-k (Red Y)"),
+    show_surface = checkbox(True, label="Show Surface Mesh")
+):
+    # Initialize the plot with axes (always visible)
+    L_max = 9
+    P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+        arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+        arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+        arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+        arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+        arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
+    
+    P += text3d("x", (L_max+1, 0, 0), color='black') + \
+        text3d("y", (0, L_max+1, 0), color='black') + \
+        text3d("z", (0, 0, L_max+1), color='black')
+
+    # --- 1. Surface ---
+    if show_surface:
+        P += plot3d(
+            (x/a)^2 - (y/b)^2, (x, -surf_x, surf_x), (y, -surf_y, surf_y),
+            color='gray', opacity=0.2, mesh=True, plot_points=[15, 15]
+        )
+
+    # --- 2. XZ Trace (Parabola Up) ---
+    if show_xz:
+        P += parametric_plot3d(
+            (t, 0, (t/a)^2), (t, -trace_x_limit, trace_x_limit), 
+            color='green', thickness=4
+        )
+        z_tip_x = (trace_x_limit/a)^2
+        P += text3d("xz", (trace_x_limit, 0, z_tip_x + 1), color='green', fontweight='bold')
+
+    # --- 3. YZ Trace (Parabola Down) ---
+    if show_yz:
+        P += parametric_plot3d(
+            (0, t, -(t/b)^2), (t, -trace_y_limit, trace_y_limit), 
+            color='blue', thickness=4
+        )
+        z_tip_y = -(trace_y_limit/b)^2
+        P += text3d("yz", (0, trace_y_limit, z_tip_y - 1), color='blue', fontweight='bold')
+
+    # --- 4. Z=k Trace (Hyperbola along X) ---
+    if show_z_pos:
+        Ak = a * sqrt(k_val)
+        Bk = b * sqrt(k_val)
+        P += parametric_plot3d(
+            (Ak*cosh(t), Bk*sinh(t), k_val), (t, -1.5, 1.5), color='red', thickness=4
+        ) + parametric_plot3d(
+            (-Ak*cosh(t), Bk*sinh(t), k_val), (t, -1.5, 1.5), color='red', thickness=4
+        )
+        P += text3d("z=k", (Ak+1, Bk, k_val), color='red', fontweight='bold')
+
+    # --- 5. Z=-k Trace (Hyperbola along Y) ---
+    if show_z_neg:
+        Ak = a * sqrt(k_val)
+        Bk = b * sqrt(k_val)
+        P += parametric_plot3d(
+            (Ak*sinh(t), Bk*cosh(t), -k_val), (t, -1.5, 1.5), color='red', thickness=4
+        ) + parametric_plot3d(
+            (Ak*sinh(t), -Bk*cosh(t), -k_val), (t, -1.5, 1.5), color='red', thickness=4
+        )
+        P += text3d("z=-k", (Ak, Bk+3, -k_val), color='red', fontweight='bold')
+
+    show(P, frame=False, aspect_ratio=1)
+</script></pre></div>
+</body>
+</html>

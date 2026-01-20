@@ -102,15 +102,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.5';
+eBookConfig.runestone_version = '7.11.10';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
+<script src="_static/prefix-runtime.3dca4b99808f4053.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.80892ed1280c2803.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -130,18 +130,22 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec126-QuadricSurfaces.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch12-VectorGeometry.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch13-CalcVectorFunctions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec126-QuadricSurfaces.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch12-VectorGeometry.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
 \newcommand{\Z}{\mathbb Z} 
 \newcommand{\Q}{\mathbb Q} 
 \newcommand{\R}{\mathbb R} 
 
 \newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
 
 \newcommand{\lp}{\left(}
 \newcommand{\rp}{\right)}
 \newcommand{\la}{\left\langle}
 \newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -164,53 +168,65 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsubsec-LinearCombinations" class="internal"><span class="title">Linear Combinations of Vectors</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsec-VectorApplication" class="internal"><span class="title">Applications of Vectors</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Homework problems for this section</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Assigned Problems for Section 12.1</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec122-3DSpaces.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Three-Dimensional Spaces: Surfaces, Vectors, and Curves</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Practice problems for this section</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Surfaces" class="internal"><span class="title">Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Vectors" class="internal"><span class="title">Vectors in 3-Space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-ParametricLines" class="internal"><span class="title">Curves and Lines</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Assigned Problems for Section 12.2</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec123-DotProduct.html#ws-sec123" class="internal"><span class="title">Assigned Problems for Section 12.3</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec124-CrossProduct.html" class="internal"><span class="codenumber">12.4</span> <span class="title">The Cross Product</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossProduct" class="internal"><span class="title">The Cross Product</span></a></div></li></ul>
-</li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div></li>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossPropertiesBasis" class="internal"><span class="title">Properties of the Cross Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-AreaGeometry" class="internal"><span class="title">Geometry: Area of a Parallelogram</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-Volume" class="internal"><span class="title">Geometry: Volume of a Parallelepiped</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-ApplicationTorque" class="internal"><span class="title">Application: Torque</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec124-CrossProduct.html#ws-sec124" class="internal"><span class="title">Assigned Problems for Section 12.4</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch13-CalcVectorFunctions.html" class="internal"><span class="codenumber">13</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-DefiningPlanes" class="internal"><span class="title">Defining a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec125-Planesin3D.html#ws-sec125" class="internal"><span class="title">Assigned Problems for Section 12.5</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch14-DifferentiationMultiVariables.html" class="internal"><span class="codenumber">14</span> <span class="title">Differentiation in Several Variables</span></a></div>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-ConicSections-Review" class="internal"><span class="title">Review: Conic Sections</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces" class="internal"><span class="title">Standard Quadric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-QuadraticCylinders" class="internal"><span class="title">Quadratic Cylinders</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#ws-sec126" class="internal"><span class="title">Assigned Problems for Section 12.6</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch15-MultipleIntegration.html" class="internal"><span class="codenumber">15</span> <span class="title">Multiple Integration</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Integration in Two Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Double Integrals over More General Regions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec153-tripleIntegrals.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Triple Integrals</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec156-ChangeofVariables.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Change of Variables</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-PolarCoordinates-Review" class="internal"><span class="title">Review: Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates" class="internal"><span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates" class="internal"><span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#ws-sec127" class="internal"><span class="title">Assigned Problems for Section 12.7</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -218,19 +234,516 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec127-CylindricalSphericalCoordinates"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cylindrical and Spherical Coordinates</span>
 </h2>
-<section class="introduction" id="sec127-CylindricalSphericalCoordinates-2"><div class="para" id="sec127-CylindricalSphericalCoordinates-2-1">Just the introduction texts...<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="sec127-CylindricalSphericalCoordinates-2"><div class="para" id="sec127-CylindricalSphericalCoordinates-2-1">We have been working almost exclusively with the rectangular coordinate system <span class="process-math">\((x,y,z)\)</span> so far in <span class="process-math">\(\R^3\text{.}\)</span> There are in fact other ways to describe points in <span class="process-math">\(\R^3\text{,}\)</span> and sometimes these alternative coordinate systems can make our lives a lot easier!<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="objectives goal-like" id="sec127-CylindricalSphericalCoordinates-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
-<div class="introduction" id="sec127-CylindricalSphericalCoordinates-2-2-1"><div class="para" id="sec127-CylindricalSphericalCoordinates-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec127-CylindricalSphericalCoordinates-2-2">In this section, we are going to expand our toolkit by introducing two new coordinate systems: <dfn class="terminology">cylindrical coordinates</dfn> and <dfn class="terminology">spherical coordinates</dfn>. These systems are designed specifically to make working with cylinders and spheres much more natural.<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="objectives goal-like" id="sec127-CylindricalSphericalCoordinates-2-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="introduction" id="sec127-CylindricalSphericalCoordinates-2-3-1"><div class="para" id="sec127-CylindricalSphericalCoordinates-2-3-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<ul class="disc" id="sec127-CylindricalSphericalCoordinates-2-2-2"><li id="sec127-CylindricalSphericalCoordinates-2-2-2-1">
-<div class="para" id="sec127-CylindricalSphericalCoordinates-2-2-2-1-1">blahblahblah<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec127-CylindricalSphericalCoordinates-2-3-2">
+<li id="sec127-CylindricalSphericalCoordinates-2-3-2-1">
+<div class="para" id="sec127-CylindricalSphericalCoordinates-2-3-2-1-1">locate points in <span class="process-math">\(\R^3\)</span> using cylindrical and spherical coordinates and understand the geometric meaning of each component (like <span class="process-math">\(r\text{,}\)</span> <span class="process-math">\(\rho\text{,}\)</span> <span class="process-math">\(\theta\text{,}\)</span> and <span class="process-math">\(\phi\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-2-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Objective"><a href="#sec127-CylindricalSphericalCoordinates-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li></ul>
-<div class="autopermalink" data-description="Objectives"><a href="#sec127-CylindricalSphericalCoordinates-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="autopermalink" data-description="Section 12.7: Cylindrical and Spherical Coordinates"><a href="#sec127-CylindricalSphericalCoordinates" title="Copy heading and permalink for Section 12.7: Cylindrical and Spherical Coordinates" aria-label="Copy heading and permalink for Section 12.7: Cylindrical and Spherical Coordinates">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Objective"><a href="#sec127-CylindricalSphericalCoordinates-2-3-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec127-CylindricalSphericalCoordinates-2-3-2-2">
+<div class="para" id="sec127-CylindricalSphericalCoordinates-2-3-2-2-1">convert coordinates and equations between rectangular, cylindrical, and spherical systems.<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-2-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec127-CylindricalSphericalCoordinates-2-3-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec127-CylindricalSphericalCoordinates-2-3-2-3">
+<div class="para" id="sec127-CylindricalSphericalCoordinates-2-3-2-3-1">identify and sketch level surfaces to build intuition for how these coordinate systems grid up the space.<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-2-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec127-CylindricalSphericalCoordinates-2-3-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec127-CylindricalSphericalCoordinates-2-3-2-4">
+<div class="para" id="sec127-CylindricalSphericalCoordinates-2-3-2-4-1">describe and sketch solid regions defined by inequalities in cylindrical and spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-2-3-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec127-CylindricalSphericalCoordinates-2-3-2-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec127-CylindricalSphericalCoordinates-2-3" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="para" id="sec127-CylindricalSphericalCoordinates-3">Recall back in <a href="sec122-3DSpaces.html" class="internal" title="Section 12.2: Three-Dimensional Spaces: Surfaces, Vectors, and Curves">Section 12.2</a>, we defined rectangular coordinates in <span class="process-math">\(\R^3\)</span> using an ordered triple <span class="process-math">\((x,y,z)\text{,}\)</span> where <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> measure the directed distances along the <span class="process-math">\(x\)</span>-, <span class="process-math">\(y\)</span>-, and <span class="process-math">\(z\)</span>-axes, respectively. This is a direct extension of the rectangular coordinate system in <span class="process-math">\(\R^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec127-CylindricalSphericalCoordinates-4">Back in MTH 253 or MTH 253Z, you may learn about another coordinate system in <span class="process-math">\(\R^2\)</span> called <dfn class="terminology">polar coordinates</dfn>. In polar coordinates, a point in the plane is represented by an ordered pair <span class="process-math">\((r,\theta)\text{,}\)</span> where <span class="process-math">\(r\)</span> is the directed distance from the pole to the point, and <span class="process-math">\(\theta\)</span> is the angle formed by the positive <span class="process-math">\(x\)</span>-axis and the line segment connecting the pole to the point.<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec127-CylindricalSphericalCoordinates-5">The polar coordinate system can also be extended to <span class="process-math">\(\R^3\text{,}\)</span> and there are two common ways to do so. In this section, we will investigate both of these extensions, and they are the <dfn class="terminology">cylindrical coordinates</dfn> and <dfn class="terminology">spherical coordinates</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#sec127-CylindricalSphericalCoordinates-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="subsec-PolarCoordinates-Review"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Review: Polar Coordinates</span>
+</h3>
+<div class="para" id="subsec-PolarCoordinates-Review-2">In polar coordinates plane, there is a <dfn class="terminology">pole</dfn> and a <dfn class="terminology">polar axis</dfn>. To translate these terms to rectangular coordinates plane, the pole corresponds to the origin and the polar axis corresponds to the positive <span class="process-math">\(x\)</span>-axis.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-PolarCoordinates-Review-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-PolarCoordinates-Review-3">To plot a point in polar coordinates, we start at the pole, rotate <span class="process-math">\(\theta\)</span> radians about the pole in the counterclockwise direction (if <span class="process-math">\(\theta\)</span> is positive) or clockwise direction (if <span class="process-math">\(\theta\)</span> is negative), and then move <span class="process-math">\(r\)</span> units along the ray formed by the rotation. If <span class="process-math">\(r\)</span> is positive, we move in the same direction as the ray; if <span class="process-math">\(r\)</span> is negative, we move in the opposite direction of the ray.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-PolarCoordinates-Review-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-PolarCoordinates-Review-4">If you learn about polar coordinates from Richard (well none of you did), Richard likes to use the grid shown below to help students visualize polar coordinates plane.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-PolarCoordinates-Review-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-PolarCoordinates-Review-5"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/sec127-PolarCoordinate-Blank.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Polar Coordinates Plane with Grid, where the concentric circles represent different values of <span class="process-math">\(r\text{,}\)</span> and the lines radiating from the pole represent different values of <span class="process-math">\(\theta\)</span><div class="autopermalink" data-description="Figure 12.7.1"><a href="#subsec-PolarCoordinates-Review-5" title="Copy heading and permalink for Figure 12.7.1" aria-label="Copy heading and permalink for Figure 12.7.1">🔗</a></div></figcaption></figure><div class="para" id="subsec-PolarCoordinates-Review-6">Now that we have another coordinate system in <span class="process-math">\(\R^2\text{,}\)</span> it is important to know how to convert between rectangular coordinates and polar coordinates. We can figure out the conversion formulas by constructing a right triangle with legs parallel to the <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-axes, and the hypotenuse connecting the origin to the point <span class="process-math">\((x,y)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-PolarCoordinates-Review-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-PolarCoordinates-Review-7"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec127-Conversion-PolarRectangular.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Right triangle to convert between polar and rectangular coordinates<div class="autopermalink" data-description="Figure 12.7.2"><a href="#subsec-PolarCoordinates-Review-7" title="Copy heading and permalink for Figure 12.7.2" aria-label="Copy heading and permalink for Figure 12.7.2">🔗</a></div></figcaption></figure><div class="para" id="subsec-PolarCoordinates-Review-8">The right triangle above gives us the following conversion formulas.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-PolarCoordinates-Review-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-Conversion-PolarRectangular"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between Polar and Rectangular Coordinates.</span>
+</h4>
+<div class="para logical" id="thm-Conversion-PolarRectangular-2-1">
+<div class="para">A point with polar coordinates <span class="process-math">\((r,\theta)\)</span> has rectangular coordinates <span class="process-math">\((x,y)\text{,}\)</span> where</div>
+<div class="displaymath process-math" id="thm-Conversion-PolarRectangular-2-1-3">
+\begin{equation*}
+x = r \cos(\theta) \qquad \text{ and } \qquad y = r\sin(\theta)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Conversion-PolarRectangular-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="thm-Conversion-PolarRectangular-2-2">
+<div class="para">A point with rectangular coordinates <span class="process-math">\((x,y)\)</span> has polar coordinates <span class="process-math">\((r,\theta)\text{,}\)</span> where</div>
+<div class="displaymath process-math" id="thm-Conversion-PolarRectangular-2-2-3">
+\begin{equation*}
+r^2 = x^2 + y^2 \qquad \text{ and } \qquad \tan(\theta) = \dfrac{y}{x} 
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Conversion-PolarRectangular-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 12.7.3: Conversion between Polar and Rectangular Coordinates"><a href="#thm-Conversion-PolarRectangular" title="Copy heading and permalink for Theorem 12.7.3: Conversion between Polar and Rectangular Coordinates" aria-label="Copy heading and permalink for Theorem 12.7.3: Conversion between Polar and Rectangular Coordinates">🔗</a></div></article><div class="para" id="subsec-PolarCoordinates-Review-10">Just be careful that the radius <span class="process-math">\(r\)</span> can be negative here, and the angle <span class="process-math">\(\theta\)</span> may not be in the range of the inverse tangent function <span class="process-math">\(\lp -\frac{\pi}{2}, \frac{\pi}{2} \rp\text{.}\)</span> Remember to adjust <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\)</span> accordingly!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-PolarCoordinates-Review-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-PolarCoordinates-Review-11">We will not go in further detail about polar coordinates here since this is just a review. Feel free to refer back to your MTH 253 or MTH 253Z notes if you need a refresher on this topic. <a class="external" href="https://drive.google.com/file/d/1G_ptIyjfD-JyVwoxdDnea0edF2EM_iFq/view?usp=sharing" target="_blank">Here</a> is the lecture notes when Richard taught polar coordinates in MTH 112Z before (just in case you want to know more about polar coordinates).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-PolarCoordinates-Review-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Review: Polar Coordinates"><a href="#subsec-PolarCoordinates-Review" title="Copy heading and permalink for Subsection: Review: Polar Coordinates" aria-label="Copy heading and permalink for Subsection: Review: Polar Coordinates">🔗</a></div></section><section class="subsection" id="subsec-CylindricalCoordinates"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cylindrical Coordinates</span>
+</h3>
+<div class="para" id="subsec-CylindricalCoordinates-2">Cylindrical coordinates in <span class="process-math">\(\R^3\)</span> is one way to extend polar coordinates in <span class="process-math">\(\R^2\text{.}\)</span> Imagine we plot a point in polar coordinates plane, then we can create a circle using the radius <span class="process-math">\(r\text{.}\)</span> The <span class="process-math">\(\theta\)</span> value will determine where the point is located on the circle. There is no "height" of this point yet since we are still in <span class="process-math">\(\R^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-3">Now we extend this idea to <span class="process-math">\(\R^3\text{!}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-4">One way to do so is to assign a "height" value <span class="process-math">\(z\)</span> to the point. If we move the circle up or down along the <span class="process-math">\(z\)</span>-axis, we really create a cylinder to locate the point in <span class="process-math">\(\R^3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-5">That is, we can represent a point in <span class="process-math">\(R^3\)</span> using the ordered triple <span class="process-math">\((r,\theta,z)\text{,}\)</span> where <span class="process-math">\((r,\theta)\)</span> are the polar coordinates of the projection of the point onto the <span class="process-math">\(xy\)</span>-plane, and <span class="process-math">\(z\)</span> is the directed distance from the <span class="process-math">\(xy\)</span>-plane to the point. This ordered triple <span class="process-math">\((r,\theta,z)\)</span> is called the <dfn class="terminology">cylindrical coordinates</dfn> of the point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-CylindricalCoordinates-6"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec127-Cylindrical-Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Cylindrical coordinates where <span class="process-math">\(P\)</span> has the cylindrical coordinates <span class="process-math">\((r,\theta,z)\)</span><div class="autopermalink" data-description="Figure 12.7.4"><a href="#subsec-CylindricalCoordinates-6" title="Copy heading and permalink for Figure 12.7.4" aria-label="Copy heading and permalink for Figure 12.7.4">🔗</a></div></figcaption></figure><div class="para" id="subsec-CylindricalCoordinates-7">Similar to polar coordinates, it is important to know how to convert between rectangular coordinates and cylindrical coordinates. The conversion formulas on the <span class="process-math">\(xy\)</span>-plane are the same as the polar coordinates formulas (since we literally construct the cylindrical coordinates using polar coordinates on the <span class="process-math">\(xy\)</span>-plane), and we just add the <span class="process-math">\(z\)</span> coordinate as is.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-Conversion-CylindricalRectangular"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between Cylindrical and Rectangular Coordinates.</span>
+</h4>
+<div class="para logical" id="thm-Conversion-CylindricalRectangular-2-1">
+<div class="para">A point with cylindrical coordinates <span class="process-math">\((r,\theta,z)\)</span> has rectangular coordinates <span class="process-math">\((x,y,z)\text{,}\)</span> where</div>
+<div class="displaymath process-math" id="thm-Conversion-CylindricalRectangular-2-1-3">
+\begin{equation*}
+x = r \cos(\theta) \qquad\quad y = r\sin(\theta) \qquad\quad z = z
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Conversion-CylindricalRectangular-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="thm-Conversion-CylindricalRectangular-2-2">
+<div class="para">A point with rectangular coordinates <span class="process-math">\((x,y,z)\)</span> has cylindrical coordinates <span class="process-math">\((r,\theta,z)\text{,}\)</span> where</div>
+<div class="displaymath process-math" id="thm-Conversion-CylindricalRectangular-2-2-3">
+\begin{equation*}
+r^2 = x^2 + y^2 \qquad\quad \tan(\theta) = \dfrac{y}{x} \qquad\quad z = z
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Conversion-CylindricalRectangular-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 12.7.5: Conversion between Cylindrical and Rectangular Coordinates"><a href="#thm-Conversion-CylindricalRectangular" title="Copy heading and permalink for Theorem 12.7.5: Conversion between Cylindrical and Rectangular Coordinates" aria-label="Copy heading and permalink for Theorem 12.7.5: Conversion between Cylindrical and Rectangular Coordinates">🔗</a></div></article><article class="example example-like" id="subsec-CylindricalCoordinates-9"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-CylindricalCoordinates-9-1">Convert the cylindrical coordinates <span class="process-math">\(\lp 3, \dfrac{\pi}{4}, 2 \rp\)</span> to rectangular coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-CylindricalCoordinates-9-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="subsec-CylindricalCoordinates-9-2-1">
+<div class="para">Conventionally, we use <span class="process-math">\((r,\theta,z)\)</span> to denote cylindrical coordinates. That is, we read the cylindrical coordinates as</div>
+<div class="displaymath process-math" id="subsec-CylindricalCoordinates-9-2-1-2">
+\begin{equation*}
+r = 3, \qquad\quad \theta = \dfrac{\pi}{4}, \qquad\quad z = 2
+\end{equation*}
+</div>
+<div class="para">Now we have everything we need to convert this point to rectangular coordinates!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-9-2-2">As always, Richard included a visual below to help you better understand the geometry of cylindrical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-9-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-CylindricalCoordinates-9-2-3"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-CylindricalCoordinates-9-2-3-1-1" width="480" height="480" src="subsec-CylindricalCoordinates-9-2-3-1-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 12.7.7"><a href="#subsec-CylindricalCoordinates-9-2-3" title="Copy heading and permalink for Figure 12.7.7" aria-label="Copy heading and permalink for Figure 12.7.7">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Hint 12.7.6.1"><a href="#subsec-CylindricalCoordinates-9-2" title="Copy heading and permalink for Hint 12.7.6.1" aria-label="Copy heading and permalink for Hint 12.7.6.1">🔗</a></div>
+</div></details><details id="subsec-CylindricalCoordinates-9-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-CylindricalCoordinates-9-3-1">
+<div class="para">Using the conversion formulas, we obtain</div>
+<div class="displaymath process-math" id="subsec-CylindricalCoordinates-9-3-1-1">
+\begin{align*}
+x \amp= r \cos(\theta) = 3 \cos\lp \dfrac{\pi}{4} \rp = \dfrac{3\sqrt{2}}{2}, \\
+y \amp= r \sin(\theta) = 3 \sin\lp \dfrac{\pi}{4} \rp = \dfrac{3\sqrt{2}}{2}, \\
+z \amp= z = 2. 
+\end{align*}
+</div>
+<div class="para">Therefore, the rectangular coordinates are <span class="process-math">\(\lp \dfrac{3\sqrt{2}}{2}, \dfrac{3\sqrt{2}}{2}, 2 \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-9-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 12.7.6.1"><a href="#subsec-CylindricalCoordinates-9-3" title="Copy heading and permalink for Solution 12.7.6.1" aria-label="Copy heading and permalink for Solution 12.7.6.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.7.6"><a href="#subsec-CylindricalCoordinates-9" title="Copy heading and permalink for Example 12.7.6" aria-label="Copy heading and permalink for Example 12.7.6">🔗</a></div></article><article class="example example-like" id="subsec-CylindricalCoordinates-10"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-CylindricalCoordinates-10-1">Convert the rectangular coordinates <span class="process-math">\(\lp 1, -1, 1 \rp\)</span> to cylindrical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-CylindricalCoordinates-10-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="subsec-CylindricalCoordinates-10-2-1">
+<div class="para">We are given the rectangular coordinates</div>
+<div class="displaymath process-math" id="subsec-CylindricalCoordinates-10-2-1-1">
+\begin{equation*}
+x = 1, \qquad\quad y = -1, \qquad\quad z = 1
+\end{equation*}
+</div>
+<div class="para">Now we have everything we need to convert this point to cylindrical coordinates, which is conventionally denoted <span class="process-math">\((r, \theta, z)\text{!}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-10-2-2">As always, Richard included a visual below to help you better understand the geometry of cylindrical coordinates. Our goal here is to find the values of <span class="process-math">\(r\text{,}\)</span> <span class="process-math">\(\theta\text{,}\)</span> and <span class="process-math">\(z\)</span> for the point <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-10-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-CylindricalCoordinates-10-2-3"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-CylindricalCoordinates-10-2-3-1-1" width="480" height="480" src="subsec-CylindricalCoordinates-10-2-3-1-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 12.7.9"><a href="#subsec-CylindricalCoordinates-10-2-3" title="Copy heading and permalink for Figure 12.7.9" aria-label="Copy heading and permalink for Figure 12.7.9">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Hint 12.7.8.1"><a href="#subsec-CylindricalCoordinates-10-2" title="Copy heading and permalink for Hint 12.7.8.1" aria-label="Copy heading and permalink for Hint 12.7.8.1">🔗</a></div>
+</div></details><details id="subsec-CylindricalCoordinates-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-CylindricalCoordinates-10-3-1">
+<div class="para">Using the conversion formulas, we obtain</div>
+<div class="displaymath process-math" id="subsec-CylindricalCoordinates-10-3-1-1">
+\begin{align*}
+r^2 = x^2 + y^2 \amp= 1^2 + (-1)^2 = 2 \amp\amp\implies \qquad r = \sqrt{2}, \\
+\tan(\theta) \amp= \dfrac{y}{x} = \dfrac{-1}{1} = -1 \amp\amp\implies \qquad \theta = -\dfrac{\pi}{4}, \\
+z \amp= 1 
+\end{align*}
+</div>
+<div class="para">Therefore, the cylindrical coordinates are <span class="process-math">\(\lp \sqrt{2}, -\dfrac{\pi}{4}, 1 \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-10-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 12.7.8.1"><a href="#subsec-CylindricalCoordinates-10-3" title="Copy heading and permalink for Solution 12.7.8.1" aria-label="Copy heading and permalink for Solution 12.7.8.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.7.8"><a href="#subsec-CylindricalCoordinates-10" title="Copy heading and permalink for Example 12.7.8" aria-label="Copy heading and permalink for Example 12.7.8">🔗</a></div></article><div class="para" id="subsec-CylindricalCoordinates-11">Recall the way we build the cylindrical coordinates is to extend polar coordinates by introducing the "height" of the point along the <span class="process-math">\(z\)</span>-axis. The <span class="process-math">\(xy\)</span>-plane on which we do all the fun polar coordinates stuff on is called the <em class="alert">level surface</em> <span class="process-math">\(z = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-12">The <em class="alert">level surface</em> is a surface obtained by setting one of the coordinates to be constant. In rectangular coordinates, the level surfaces are the coordinate planes discussed in <a href="sec122-3DSpaces.html" class="internal" title="Section 12.2: Three-Dimensional Spaces: Surfaces, Vectors, and Curves">Section 12.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-13">Yet, not all level surfaces are planes in cylindrical coordinates. Let’s think it through together. If we set <span class="process-math">\(z = c\text{,}\)</span> where <span class="process-math">\(c\)</span> is a constant, then we are just looking at a horizontal plane intersecting the <span class="process-math">\(z\)</span>-axis at <span class="process-math">\(z = c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-14">If we set <span class="process-math">\(r = R\text{,}\)</span> where <span class="process-math">\(R\)</span> is a constant, then we are looking at all the points that are <span class="process-math">\(R\)</span> units away from the <span class="process-math">\(z\)</span>-axis, regardless of the <span class="process-math">\(z\)</span>-coordinate. This creates a right circular cylinder of radius <span class="process-math">\(R\)</span> centered along the <span class="process-math">\(z\)</span>-axis.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-15">If we set <span class="process-math">\(\theta = \theta_0\text{,}\)</span> where <span class="process-math">\(\theta_0\)</span> is a constant, then we are looking at all the points that form an angle of <span class="process-math">\(\theta_0\)</span> with the positive <span class="process-math">\(x\)</span>-axis when projected onto the <span class="process-math">\(xy\)</span>-plane. Taking all possible <em class="emphasis">z</em>-values, this creates a <em class="emphasis">half</em>-plane originating from the <span class="process-math">\(z\)</span>-axis and making an angle of <span class="process-math">\(\theta_0\)</span> with the <span class="process-math">\(xz\)</span>-plane.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-CylindricalCoordinates-16"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/sec127-SurfaceLevel-Cylindrical.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Level Surfaces in Cylindrical Coordinates<div class="autopermalink" data-description="Figure 12.7.10"><a href="#subsec-CylindricalCoordinates-16" title="Copy heading and permalink for Figure 12.7.10" aria-label="Copy heading and permalink for Figure 12.7.10">🔗</a></div></figcaption></figure><div class="para" id="subsec-CylindricalCoordinates-17">But why do we care about level surfaces? One of the reasons is that level surfaces can help us visualize <em class="emphasis">surfaces</em> defined in cylindrical coordinates rather than imagining the whole 3-dimensional graph at once. The level surfaces can act as "slices" of the surface to help us understand the overall shape of the surface.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-CylindricalCoordinates-18"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-CylindricalCoordinates-18-1">Sketch the set <span class="process-math">\(\left\{(r,\theta,z) \mid 1 \leq r \leq 3, \quad 0 \leq \theta \leq \dfrac{\pi}{2}, \quad 0 \leq z \leq 4 \right\}\)</span> described in cylindrical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-CylindricalCoordinates-18-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-CylindricalCoordinates-18-2-1">Observe that the three coordinates are all bounded in some way. Instead of trying to imagine the whole 3-dimensional shape at once, we can analyze the level surfaces to help us sketch the shape step by step.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-18-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-18-2-2">So what are the level surfaces here? Putting the level surfaces together (with the right bounds!), we can determine the shape!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-18-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 12.7.11.1"><a href="#subsec-CylindricalCoordinates-18-2" title="Copy heading and permalink for Hint 12.7.11.1" aria-label="Copy heading and permalink for Hint 12.7.11.1">🔗</a></div>
+</div></details><details id="subsec-CylindricalCoordinates-18-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-CylindricalCoordinates-18-3-1">Let’s start by analyzing the level surfaces one by one! The level surface <span class="process-math">\(r = 1\)</span> is a right circular cylinder of radius 1 centered along the <span class="process-math">\(z\)</span>-axis, and the level surface <span class="process-math">\(r = 3\)</span> is another right circular cylinder of radius 3 centered along the <span class="process-math">\(z\)</span>-axis. The region between these two cylinders is a hollow cylindrical shell.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-18-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-18-3-2">The level surface <span class="process-math">\(\theta = 0\)</span> is the half <span class="process-math">\(xz\)</span>-plane, and the level surface <span class="process-math">\(\theta = \frac{\pi}{2}\)</span> is the half <span class="process-math">\(yz\)</span>-plane. The region between these two half-planes is a quarter of the hollow cylindrical shell we obtained above.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-18-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-18-3-3">The level surface <span class="process-math">\(z = 0\)</span> is the <span class="process-math">\(xy\)</span>-plane, and the level surface <span class="process-math">\(z = 4\)</span> is a horizontal plane intersecting the <span class="process-math">\(z\)</span>-axis at <span class="process-math">\(z = 4\text{.}\)</span> The region between these two planes is a vertical slice of the quarter hollow cylindrical shell we obtained above.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-18-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-CylindricalCoordinates-18-3-4">Putting these three regions together, we obtain a quarter of a hollow cylindrical shell with inner radius 1, outer radius 3, and height 4, as shown in the diagram below.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-CylindricalCoordinates-18-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-CylindricalCoordinates-18-3-5"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-CylindricalCoordinates-18-3-5-1-1" width="480" height="480" src="subsec-CylindricalCoordinates-18-3-5-1-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 12.7.12"><a href="#subsec-CylindricalCoordinates-18-3-5" title="Copy heading and permalink for Figure 12.7.12" aria-label="Copy heading and permalink for Figure 12.7.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 12.7.11.1"><a href="#subsec-CylindricalCoordinates-18-3" title="Copy heading and permalink for Solution 12.7.11.1" aria-label="Copy heading and permalink for Solution 12.7.11.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.7.11"><a href="#subsec-CylindricalCoordinates-18" title="Copy heading and permalink for Example 12.7.11" aria-label="Copy heading and permalink for Example 12.7.11">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Cylindrical Coordinates"><a href="#subsec-CylindricalCoordinates" title="Copy heading and permalink for Subsection: Cylindrical Coordinates" aria-label="Copy heading and permalink for Subsection: Cylindrical Coordinates">🔗</a></div></section><section class="subsection" id="subsec-SphericalCoordinates"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Spherical Coordinates</span>
+</h3>
+<div class="para" id="subsec-SphericalCoordinates-2">Spherical coordinates in <span class="process-math">\(\R^3\)</span> is another way to extend polar coordinates in <span class="process-math">\(\R^2\text{.}\)</span> Instead of directly lifting the point in polar coordinates up or down to create a cylinder, we can create a sphere by rotating the radius up and down.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-SphericalCoordinates-3"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec127-Spherical-Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Spherical coordinates where <span class="process-math">\(P\)</span> has the spherical coordinates <span class="process-math">\((\rho,\theta,\phi)\)</span><div class="autopermalink" data-description="Figure 12.7.13"><a href="#subsec-SphericalCoordinates-3" title="Copy heading and permalink for Figure 12.7.13" aria-label="Copy heading and permalink for Figure 12.7.13">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-SphericalCoordinates-4">
+<div class="para">As indicated in the diagram above, we can create a sphere by knowing the radius and two different types of angles:</div>
+<ul class="disc" id="subsec-SphericalCoordinates-4-1">
+<li id="subsec-SphericalCoordinates-4-1-1">
+<div class="para" id="subsec-SphericalCoordinates-4-1-1-1">
+<span class="process-math">\(\rho\)</span> is the directed distance from the origin to the point (aka the radius of the sphere). Since the radius of the sphere should be the same as the radius of the <span class="process-math">\(xy\)</span>-trace, this value should match up with <span class="process-math">\(r\)</span> in polar/cylindrical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-SphericalCoordinates-4-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-SphericalCoordinates-4-1-2">
+<div class="para" id="subsec-SphericalCoordinates-4-1-2-1">
+<span class="process-math">\(\theta\)</span> is the <dfn class="terminology">polar angle of projection</dfn> onto the <span class="process-math">\(xy\)</span>-plane, which is the same as the angle in polar/cylindrical coordinates (the standard angle rotation from the positive <span class="process-math">\(x\)</span>-axis to the projection of the point onto the <span class="process-math">\(xy\)</span>-plane).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-SphericalCoordinates-4-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-SphericalCoordinates-4-1-3">
+<div class="para" id="subsec-SphericalCoordinates-4-1-3-1">
+<span class="process-math">\(\phi\)</span> is the <dfn class="terminology">angle of declination</dfn>, which measures how much we rotate the radius down from the top of the sphere along the <span class="process-math">\(z\)</span>-axis (declines from the vertical).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-4-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-SphericalCoordinates-4-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-SphericalCoordinates-5">Feel free to play with the applet below to get a better understanding of spherical coordinates and how the three coordinates work together to locate a point in <span class="process-math">\(\R^3\text{!}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-geogebra-full-menu-scaled"><iframe src="https://www.geogebra.org/classic/h9xS5ZZs?embed&amp;showMenuBar=false&amp;showToolBar=false&amp;showAlgebraInput=false&amp;scale=0.6" id="fig-geogebra-full-menu-scaled-2" width="600" height="337"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Spherical Coordinates Applet. <a class="external" href="https://www.geogebra.org/classic/h9xS5ZZs" target="_blank">Open in GeoGebra</a><div class="autopermalink" data-description="Figure 12.7.14"><a href="#fig-geogebra-full-menu-scaled" title="Copy heading and permalink for Figure 12.7.14" aria-label="Copy heading and permalink for Figure 12.7.14">🔗</a></div></figcaption></figure><div class="para" id="subsec-SphericalCoordinates-7">P.S.: you may want to open the applet in GeoGebra directly using the link above to get the full menu and controls. Richard is a bit sick of trying to figure out how to make the embedded applet work properly with scaling and full controls...<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-SphericalCoordinates-8">
+<div class="para">Now that we know how spherical coordinates work, it is important to know how to convert between rectangular coordinates and spherical coordinates. The only thing we can carry over from polar/cylindrical coordinates is the angle <span class="process-math">\(\theta\text{.}\)</span> So we have the conversion formula</div>
+<div class="displaymath process-math" id="subsec-SphericalCoordinates-8-2">
+\begin{equation*}
+\tan(\theta) = \frac{y}{x}
+\end{equation*}
+</div>
+<div class="para">We will next need to figure out how to relate <span class="process-math">\(\rho\)</span> and <span class="process-math">\(\phi\)</span> to <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-SphericalCoordinates-9">
+<div class="para">
+<span class="process-math">\(\rho\)</span> is easy to relate since it is just the radius of the sphere centered at the origin. Therefore, we have the conversion formula</div>
+<div class="displaymath process-math" id="subsec-SphericalCoordinates-9-2">
+\begin{equation*}
+\rho^2 = x^2 + y^2 + z^2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-SphericalCoordinates-10">
+<div class="para">
+<span class="process-math">\(\phi\)</span> is a bit tricky to relate. One of the reasons why we define <span class="process-math">\(\phi\)</span> as the angle of <em class="emphasis">declination</em> is that it allows us to construct a right triangle with legs parallel to the <span class="process-math">\(xy\)</span>-plane and the <span class="process-math">\(z\)</span>-axis, and the hypotenuse being the radius <span class="process-math">\(\rho\)</span> (see the diagram below). Using this right triangle, we have the conversion formula</div>
+<div class="displaymath process-math" id="subsec-SphericalCoordinates-10-7">
+\begin{equation*}
+\cos(\phi) = \frac{z}{\rho}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-SphericalCoordinates-11"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec127-Spherical-Coordinates.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Conversion between rectangular and spherical coordinates.<div class="autopermalink" data-description="Figure 12.7.15"><a href="#subsec-SphericalCoordinates-11" title="Copy heading and permalink for Figure 12.7.15" aria-label="Copy heading and permalink for Figure 12.7.15">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-SphericalCoordinates-12">
+<div class="para">The diagram above can also help us convert from spherical coordinates to rectangular coordinates. <span class="process-math">\(z\)</span> is the most straightforward to relate since it is just the vertical leg of the right triangle. Therefore, we have the conversion formula</div>
+<div class="displaymath process-math" id="subsec-SphericalCoordinates-12-2">
+\begin{equation*}
+z = \rho \cos(\phi)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-SphericalCoordinates-13">
+<div class="para">To relate <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> to spherical coordinates, we can first find the radius of the <span class="process-math">\(xy\)</span>-trace using the right triangle. This radius is just <span class="process-math">\(r = \rho \sin(\phi)\text{.}\)</span> Then we can use the polar coordinates conversion formulas to find <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> as follows:</div>
+<div class="displaymath process-math" id="subsec-SphericalCoordinates-13-7">
+\begin{equation*}
+x = r \cos(\theta) = \rho \sin(\phi) \cos(\theta) \qquad \text{ and } \qquad y = r \sin(\theta) = \rho \sin(\phi) \sin(\theta)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-SphericalCoordinates-14">Let’s summarize it to a fancy theorem!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-Conversion-SphericalRectangular"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conversion between Spherical and Rectangular Coordinates.</span>
+</h4>
+<div class="para logical" id="thm-Conversion-SphericalRectangular-2-1">
+<div class="para">A point with spherical coordinates <span class="process-math">\((\rho,\theta,\phi)\)</span> has rectangular coordinates <span class="process-math">\((x,y,z)\text{,}\)</span> where</div>
+<div class="displaymath process-math" id="thm-Conversion-SphericalRectangular-2-1-3">
+\begin{equation*}
+x = \rho \sin(\phi) \cos(\theta), \qquad y = \rho \sin(\phi) \sin(\theta), \qquad z = \rho \cos(\phi)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Conversion-SphericalRectangular-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="thm-Conversion-SphericalRectangular-2-2">
+<div class="para">A point with rectangular coordinates <span class="process-math">\((x,y,z)\)</span> has spherical coordinates <span class="process-math">\((\rho,\theta,\phi)\text{,}\)</span> where</div>
+<div class="displaymath process-math" id="thm-Conversion-SphericalRectangular-2-2-3">
+\begin{equation*}
+\rho^2 = x^2 + y^2 + z^2, \qquad \tan(\theta) = \dfrac{y}{x}, \qquad \cos(\phi) = \dfrac{z}{\rho}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Conversion-SphericalRectangular-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 12.7.16: Conversion between Spherical and Rectangular Coordinates"><a href="#thm-Conversion-SphericalRectangular" title="Copy heading and permalink for Theorem 12.7.16: Conversion between Spherical and Rectangular Coordinates" aria-label="Copy heading and permalink for Theorem 12.7.16: Conversion between Spherical and Rectangular Coordinates">🔗</a></div></article><article class="example example-like" id="subsec-SphericalCoordinates-16"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-SphericalCoordinates-16-1">Convert the spherical coordinates <span class="process-math">\(\lp 4, \dfrac{\pi}{3}, \dfrac{\pi}{6} \rp\)</span> to rectangular coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-SphericalCoordinates-16-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="subsec-SphericalCoordinates-16-2-1">
+<div class="para">Conventionally, we use <span class="process-math">\((\rho,\theta,\phi)\)</span> to denote spherical coordinates. That is, we read the spherical coordinates as</div>
+<div class="displaymath process-math" id="subsec-SphericalCoordinates-16-2-1-2">
+\begin{equation*}
+\rho = 4, \qquad\quad \theta = \dfrac{\pi}{3}, \qquad\quad \phi = \dfrac{\pi}{6}
+\end{equation*}
+</div>
+<div class="para">Now we have everything we need to convert this point to rectangular coordinates!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-SphericalCoordinates-16-2-2">As always, Richard included a visual below to help you better understand the geometry of spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-16-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-SphericalCoordinates-16-2-3"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-SphericalCoordinates-16-2-3-1-1" width="480" height="480" src="subsec-SphericalCoordinates-16-2-3-1-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 12.7.18"><a href="#subsec-SphericalCoordinates-16-2-3" title="Copy heading and permalink for Figure 12.7.18" aria-label="Copy heading and permalink for Figure 12.7.18">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Hint 12.7.17.1"><a href="#subsec-SphericalCoordinates-16-2" title="Copy heading and permalink for Hint 12.7.17.1" aria-label="Copy heading and permalink for Hint 12.7.17.1">🔗</a></div>
+</div></details><details id="subsec-SphericalCoordinates-16-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-SphericalCoordinates-16-3-1">
+<div class="para">Using the conversion formulas, we obtain</div>
+<div class="displaymath process-math" id="subsec-SphericalCoordinates-16-3-1-1">
+\begin{align*}
+x \amp= \rho \sin(\phi) \cos(\theta) = 4 \sin\lp \dfrac{\pi}{6} \rp \cos\lp \dfrac{\pi}{3} \rp = 1, \\
+y \amp= \rho \sin(\phi) \sin(\theta) = 4 \sin\lp \dfrac{\pi}{6} \rp \sin\lp \dfrac{\pi}{3} \rp = \sqrt{3}, \\
+z \amp= \rho \cos(\phi) = 4 \cos\lp \dfrac{\pi}{6} \rp = 2\sqrt{3}. 
+\end{align*}
+</div>
+<div class="para">Therefore, the rectangular coordinates are <span class="process-math">\(\lp 1, \sqrt{3}, 2\sqrt{3} \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-16-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 12.7.17.1"><a href="#subsec-SphericalCoordinates-16-3" title="Copy heading and permalink for Solution 12.7.17.1" aria-label="Copy heading and permalink for Solution 12.7.17.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.7.17"><a href="#subsec-SphericalCoordinates-16" title="Copy heading and permalink for Example 12.7.17" aria-label="Copy heading and permalink for Example 12.7.17">🔗</a></div></article><article class="example example-like" id="subsec-SphericalCoordinates-17"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-SphericalCoordinates-17-1">Convert the rectangular coordinates <span class="process-math">\(\lp -2, 2, 1 \rp\)</span> to spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-17-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-SphericalCoordinates-17-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="subsec-SphericalCoordinates-17-2-1">
+<div class="para">We are given the rectangular coordinates</div>
+<div class="displaymath process-math" id="subsec-SphericalCoordinates-17-2-1-1">
+\begin{equation*}
+x = -2, \qquad\quad y = 2, \qquad\quad z = 1
+\end{equation*}
+</div>
+<div class="para">Now we have everything we need to convert this point to spherical coordinates, which is conventionally denoted <span class="process-math">\((\rho, \theta, \phi)\text{!}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-17-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-SphericalCoordinates-17-2-2">As always, Richard included a visual below to help you better understand the geometry of spherical coordinates. Our goal here is to find the values of <span class="process-math">\(\rho\text{,}\)</span> <span class="process-math">\(\theta\text{,}\)</span> and <span class="process-math">\(\phi\)</span> for the point <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-17-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-SphericalCoordinates-17-2-3"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-SphericalCoordinates-17-2-3-1-1" width="480" height="480" src="subsec-SphericalCoordinates-17-2-3-1-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 12.7.20"><a href="#subsec-SphericalCoordinates-17-2-3" title="Copy heading and permalink for Figure 12.7.20" aria-label="Copy heading and permalink for Figure 12.7.20">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Hint 12.7.19.1"><a href="#subsec-SphericalCoordinates-17-2" title="Copy heading and permalink for Hint 12.7.19.1" aria-label="Copy heading and permalink for Hint 12.7.19.1">🔗</a></div>
+</div></details><details id="subsec-SphericalCoordinates-17-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-SphericalCoordinates-17-3-1">
+<div class="para">Using the conversion formulas, we obtain</div>
+<div class="displaymath process-math" id="subsec-SphericalCoordinates-17-3-1-1">
+\begin{align*}
+\rho^2 \amp= x^2 + y^2 + z^2 = 9 \amp\amp\implies \qquad \rho = 3, \\
+\tan(\theta) \amp= \dfrac{y}{x} = \dfrac{2}{-2} = -1 \amp\amp\implies \qquad \theta = \dfrac{3\pi}{4}, \\
+\cos(\phi) \amp= \dfrac{z}{\rho} = \dfrac{1}{3} \amp\amp\implies \qquad \phi = \arccos\lp \dfrac{1}{3} \rp \approx 1.231 
+\end{align*}
+</div>
+<div class="para">Therefore, the spherical coordinates are <span class="process-math">\(\lp 3, \dfrac{3\pi}{4}, 1.231 \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-17-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 12.7.19.1"><a href="#subsec-SphericalCoordinates-17-3" title="Copy heading and permalink for Solution 12.7.19.1" aria-label="Copy heading and permalink for Solution 12.7.19.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.7.19"><a href="#subsec-SphericalCoordinates-17" title="Copy heading and permalink for Example 12.7.19" aria-label="Copy heading and permalink for Example 12.7.19">🔗</a></div></article><div class="para logical" id="subsec-SphericalCoordinates-18">
+<div class="para">What about the level surfaces in spherical coordinates? Similar to cylindrical coordinates, we can fix one of the three spherical coordinates and let the other two vary to see what kind of surface is formed.</div>
+<ul class="disc" id="subsec-SphericalCoordinates-18-1">
+<li id="subsec-SphericalCoordinates-18-1-1">
+<div class="para" id="subsec-SphericalCoordinates-18-1-1-1">Fixing <span class="process-math">\(\rho = R\)</span> (a constant) gives us a sphere of radius <span class="process-math">\(R\)</span> centered at the origin.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-18-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-SphericalCoordinates-18-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-SphericalCoordinates-18-1-2">
+<div class="para" id="subsec-SphericalCoordinates-18-1-2-1">Fixing <span class="process-math">\(\theta = \theta_0\)</span> (a constant) gives us a vertical half-plane that extends from the <span class="process-math">\(z\)</span>-axis at an angle of <span class="process-math">\(\theta_0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-18-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-SphericalCoordinates-18-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-SphericalCoordinates-18-1-3">
+<div class="para" id="subsec-SphericalCoordinates-18-1-3-1">Fixing <span class="process-math">\(\phi = \phi_0\)</span> (a constant) gives us a cone with its vertex at the origin and its axis along the <span class="process-math">\(z\)</span>-axis. The angle between the axis and the surface of the cone is <span class="process-math">\(\phi_0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-18-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-SphericalCoordinates-18-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-SphericalCoordinates-19"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/sec127-SurfaceLevel-Spherical.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Level Surfaces in Spherical Coordinates<div class="autopermalink" data-description="Figure 12.7.21"><a href="#subsec-SphericalCoordinates-19" title="Copy heading and permalink for Figure 12.7.21" aria-label="Copy heading and permalink for Figure 12.7.21">🔗</a></div></figcaption></figure><div class="para" id="subsec-SphericalCoordinates-20">Similarly, level surfaces can help us visualize regions described in spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-SphericalCoordinates-21"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-SphericalCoordinates-21-1">Sketch the set <span class="process-math">\(\left\{(\rho,\theta,\phi) \mid \rho = 1, \quad \dfrac{\pi}{3} \leq \phi \leq \dfrac{2\pi}{3} \right\}\)</span> described in spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-21-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-SphericalCoordinates-21-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-SphericalCoordinates-21-2-1">Observe that <span class="process-math">\(\rho = 1\)</span> is a constant, so we are looking at the level surface of a sphere with radius 1.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-21-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-SphericalCoordinates-21-2-2">Now consider the bounds on <span class="process-math">\(\phi\text{.}\)</span> By setting <span class="process-math">\(\phi\)</span> to be the two bounds should give us two level surfaces that restrict the region of the sphere we want to sketch.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-21-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-SphericalCoordinates-21-2-3">This is more like a FYI. Observe that <span class="process-math">\(\theta\)</span> is not restricted at all, so this won’t be a restriction on the region.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-21-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 12.7.22.1"><a href="#subsec-SphericalCoordinates-21-2" title="Copy heading and permalink for Hint 12.7.22.1" aria-label="Copy heading and permalink for Hint 12.7.22.1">🔗</a></div>
+</div></details><details id="subsec-SphericalCoordinates-21-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-SphericalCoordinates-21-3-1">The two level surfaces for <span class="process-math">\(\phi = \dfrac{\pi}{3}\)</span> and <span class="process-math">\(\phi = \dfrac{2\pi}{3}\)</span> are cones that intersect the sphere <span class="process-math">\(\rho = 1\text{.}\)</span> The region described is the "band" on the sphere between these two cones. The sketch is shown below.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-21-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-SphericalCoordinates-21-3-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="subsec-SphericalCoordinates-21-3-2-1-1" width="480" height="480" src="subsec-SphericalCoordinates-21-3-2-1-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 12.7.23"><a href="#subsec-SphericalCoordinates-21-3-2" title="Copy heading and permalink for Figure 12.7.23" aria-label="Copy heading and permalink for Figure 12.7.23">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 12.7.22.1"><a href="#subsec-SphericalCoordinates-21-3" title="Copy heading and permalink for Solution 12.7.22.1" aria-label="Copy heading and permalink for Solution 12.7.22.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 12.7.22"><a href="#subsec-SphericalCoordinates-21" title="Copy heading and permalink for Example 12.7.22" aria-label="Copy heading and permalink for Example 12.7.22">🔗</a></div></article><div class="para" id="subsec-SphericalCoordinates-22">Now that we learned two new coordinate systems in <span class="process-math">\(\R^3\text{,}\)</span> then the next natural question to ponder is <em class="alert">how to convert coordinates between these two coordinates?</em><div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-SphericalCoordinates-23">Well there is a straightforward way to do this by using rectangular coordinates as an intermediary! If you are not satisfied with this method and want to figure out the conversion formulas directly, feel free to give it a try as an exercise (and this is not difficult at all! You will just need to pick up a lot of the clues here and there!).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-SphericalCoordinates-24">You may be wondering why bother extending the polar coordinates to spherical coordinates when we already have cylindrical coordinates (and the "height" of the point is a lot easier to deal with)? Well the most obvious answer is that we live on the planet of <em class="alert">earth</em>, which is (approximately) a sphere! We can locate things easier on earth using spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-SphericalCoordinates-25">
+<div class="para">The two types of angles, <span class="process-math">\(\theta\)</span> and <span class="process-math">\(\phi\text{,}\)</span> are the two measures we often use to locate points on the surface of earth.</div>
+<ul class="disc" id="subsec-SphericalCoordinates-25-3">
+<li id="subsec-SphericalCoordinates-25-3-1">
+<div class="para" id="subsec-SphericalCoordinates-25-3-1-1">A <em class="alert">longitude</em> is the angle measured East or West from the prime meridian (which runs through Greenwich, England). It ranges from <span class="process-math">\(-180^\circ\)</span> (West) to <span class="process-math">\(180^\circ\)</span> (East).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-25-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-SphericalCoordinates-25-3-1-2">If we align the prime meridian with the positive <span class="process-math">\(x\)</span>-axis, then the longitude corresponds to <span class="process-math">\(\theta\)</span> (just be mindful of the range and the direction of <span class="process-math">\(\theta\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-25-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-SphericalCoordinates-25-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-SphericalCoordinates-25-3-2">
+<div class="para" id="subsec-SphericalCoordinates-25-3-2-1">A <em class="alert">latitude</em> measures the angle North or South from the equator. It ranges from <span class="process-math">\(-90^\circ\)</span> (South) to <span class="process-math">\(90^\circ\)</span> (North).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-25-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-SphericalCoordinates-25-3-2-2">This is similar to <span class="process-math">\(\phi\text{,}\)</span> but with a slight modification (recalibration). Since <span class="process-math">\(\phi\)</span> measures the angle of declination from the North Pole, we can convert latitude to <span class="process-math">\(\phi\)</span> using the formula <span class="process-math">\(\text{latitude} = 90^\circ - \phi\)</span> (so we basically recalibrate the value of <span class="process-math">\(\phi\)</span> to measure from the equator instead of the North Pole).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-25-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-SphericalCoordinates-25-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-SphericalCoordinates-26"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec127-Spherical-Earth.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12.7.24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Longtitude and latitude provide spherical coordinates on the surface of the earth<div class="autopermalink" data-description="Figure 12.7.24"><a href="#subsec-SphericalCoordinates-26" title="Copy heading and permalink for Figure 12.7.24" aria-label="Copy heading and permalink for Figure 12.7.24">🔗</a></div></figcaption></figure><div class="para" id="subsec-SphericalCoordinates-27">We will look at more applications to the cylindrical and spherical coordinates in later chapters. The two new coordinates systems are very useful in integration and vector calculus!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-SphericalCoordinates-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Spherical Coordinates"><a href="#subsec-SphericalCoordinates" title="Copy heading and permalink for Subsection: Spherical Coordinates" aria-label="Copy heading and permalink for Subsection: Spherical Coordinates">🔗</a></div></section><section class="worksheet" id="ws-sec127" data-margins="0.75in 0.75in 0.75in 0.75in"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Assigned Problems for Section 12.7</span><div class="print-links"><a href="ws-sec127-printable.html" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<section class="introduction" id="ws-sec127-2"><div class="para" id="ws-sec127-2-1">The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec127-2-2">The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><article class="exercise exercise-like" id="ws-sec127-3"><h4 class="heading"><span class="codenumber">12.7.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-3-1">Convert the cylindrical coordinates <span class="process-math">\(\lp 0,\dfrac{\pi}{5},\dfrac{1}{2} \rp\)</span> to rectangular coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.3"><a href="#ws-sec127-3" title="Copy heading and permalink for Worksheet Exercise 12.7.3" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-4"><h4 class="heading"><span class="codenumber">12.7.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-4-1">Convert the rectangular coordinates <span class="process-math">\(\lp \dfrac{5}{\sqrt{2}},\dfrac{5}{\sqrt{2}},2 \rp\)</span> to cylindrical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.9"><a href="#ws-sec127-4" title="Copy heading and permalink for Worksheet Exercise 12.7.9" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.9">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-5"><h4 class="heading"><span class="codenumber">12.7.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-5-1">Describe the set <span class="process-math">\(\left\{(x,y,z) \mid y^2 + z^2 \leq 4, \quad x = 0 \right\}\)</span> in cylindrical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.13"><a href="#ws-sec127-5" title="Copy heading and permalink for Worksheet Exercise 12.7.13" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.13">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-6"><h4 class="heading"><span class="codenumber">12.7.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-6-1">Sketch the set <span class="process-math">\(\left\{(r,\theta,z) \mid 1 \leq r \leq 3 , \quad 0 \leq z \leq 4 \right\}\)</span> described in cylindrical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.21"><a href="#ws-sec127-6" title="Copy heading and permalink for Worksheet Exercise 12.7.21" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.21">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-7"><h4 class="heading"><span class="codenumber">12.7.29<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-7-1">Find an equation of the form <span class="process-math">\(r = f(\theta,z)\)</span> in cylindrical coordinates for the surface <span class="process-math">\(\dfrac{x^2}{y^z} = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.29"><a href="#ws-sec127-7" title="Copy heading and permalink for Worksheet Exercise 12.7.29" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.29">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-8"><h4 class="heading"><span class="codenumber">12.7.37<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-8-1">Convert the spherical coordinates <span class="process-math">\(\lp 6,\dfrac{\pi}{6},\dfrac{5\pi}{6} \rp\)</span> to rectangular coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.37"><a href="#ws-sec127-8" title="Copy heading and permalink for Worksheet Exercise 12.7.37" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.37">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-9"><h4 class="heading"><span class="codenumber">12.7.43<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-9-1">Convert the rectangular coordinates <span class="process-math">\(\lp \dfrac{1}{2},\dfrac{\sqrt{3}}{2},\sqrt{3} \rp\)</span> to spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.43"><a href="#ws-sec127-9" title="Copy heading and permalink for Worksheet Exercise 12.7.43" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.43">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-10"><h4 class="heading"><span class="codenumber">12.7.45<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-10-1">Convert the cylindrical coordinates <span class="process-math">\(\lp 2,0,2 \rp\)</span> to spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.45"><a href="#ws-sec127-10" title="Copy heading and permalink for Worksheet Exercise 12.7.45" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.45">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-11"><h4 class="heading"><span class="codenumber">12.7.47<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-11-1">Convert the spherical coordinates <span class="process-math">\(\lp 4,0,\dfrac{\pi}{4} \rp\)</span> to cylindrical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.47"><a href="#ws-sec127-11" title="Copy heading and permalink for Worksheet Exercise 12.7.47" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.47">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-12"><h4 class="heading"><span class="codenumber">12.7.53<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-12-1">Describe the set <span class="process-math">\(\left\{(x,y,z) \mid y^2 + z^2 \leq 4, \quad x = 0 \right\}\)</span> in spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.53"><a href="#ws-sec127-12" title="Copy heading and permalink for Worksheet Exercise 12.7.53" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.53">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-13"><h4 class="heading"><span class="codenumber">12.7.61<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-13-1">Sketch the set of points <span class="process-math">\(\left\{(\rho,\theta,\phi) \mid \rho \leq 2, \quad 0 \leq \theta \leq \dfrac{\pi}{2}, \quad \dfrac{\pi}{2} \leq \phi \leq \pi \right\}\)</span> described in spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.61"><a href="#ws-sec127-13" title="Copy heading and permalink for Worksheet Exercise 12.7.61" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.61">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-14"><h4 class="heading"><span class="codenumber">12.7.71<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-14-1">Find an equation of the form <span class="process-math">\(\rho = f(\theta, \phi)\)</span> in spherical coordinates for the surface <span class="process-math">\(x^2 - y^2 = 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.71"><a href="#ws-sec127-14" title="Copy heading and permalink for Worksheet Exercise 12.7.71" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.71">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec127-15"><h4 class="heading"><span class="codenumber">12.7.81<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec127-15-1">An apple modeled by taking all the points in and on a sphere of radius <span class="process-math">\(2\)</span> inches is cored with a vertical cylinder of radius <span class="process-math">\(1\)</span> in. Use inequalities in cylindrical coordinates to describe the set of all points that remain in the apple once the core is removed.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec127-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 12.7.81"><a href="#ws-sec127-15" title="Copy heading and permalink for Worksheet Exercise 12.7.81" aria-label="Copy heading and permalink for Worksheet Exercise 12.7.81">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 12.7"><a href="#ws-sec127" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 12.7" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 12.7">🔗</a></div></section><div class="autopermalink" data-description="Section 12.7: Cylindrical and Spherical Coordinates"><a href="#sec127-CylindricalSphericalCoordinates" title="Copy heading and permalink for Section 12.7: Cylindrical and Spherical Coordinates" aria-label="Copy heading and permalink for Section 12.7: Cylindrical and Spherical Coordinates">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="sec126-QuadricSurfaces.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch13-CalcVectorFunctions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec126-QuadricSurfaces.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>sagecell.makeSagecell({
+  "inputLocation": ".sage-interact",
+  "autoeval": true,
+  "hide": [
+    "editor",
+    "evalButton",
+    "permalink"
+  ]
+});
+</script><link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+</head>
+<body class="ptx-content ignore-math" id="changeme">
+<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q} 
+\newcommand{\R}{\mathbb R} 
+
+\newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t')
+
+# 1. Input Rectangular Coordinates
+x0 = 1
+y0 = -1
+z0 = 1
+
+# 2. Convert to Cylindrical
+r0 = sqrt(x0^2 + y0^2)   
+th0 = arctan2(y0, x0)    # approx -0.78 radians
+
+# Points
+P = (x0, y0, z0)
+Q = (x0, y0, 0)
+Origin = (0,0,0)
+Z_tick = (0,0,z0)
+
+# 3. The Cylinder 
+cylinder = parametric_plot3d(
+    (r0*cos(u), r0*sin(u), v),
+    (u, 0, 2*pi), (v, 0, z0),
+    opacity=0.15, color='cyan', mesh=True
+)
+
+# 4. The Geometry Lines (Dashed)
+# Note the brackets [] around the points
+line_r = line3d([Origin, Q], color='deeppink', linestyle='--', thickness=2)
+line_drop = line3d([P, Q], color='black', linestyle='--', thickness=1.5)
+line_proj_z = line3d([P, Z_tick], color='black', linestyle='--', thickness=1.5)
+
+# 5. Theta Arrow (Negative Angle Logic)
+r_arc = 0.6 * r0
+
+# Draw arc from th0 (negative) up to 0
+arc_path = parametric_plot3d(
+    (r_arc*cos(t), r_arc*sin(t), 0), 
+    (t, th0, 0),  
+    color='green', thickness=2
+)
+
+# Arrow tip 
+tip_shift = 0.2
+tip_start = (r_arc*cos(th0 + tip_shift), r_arc*sin(th0 + tip_shift), 0)
+tip_end   = (r_arc*cos(th0), r_arc*sin(th0), 0)
+
+arrow_head = arrow3d(tip_start, tip_end, color='green', width=1, head_width=0.3)
+
+# 6. Points
+pt_P = point3d(P, size=20, color='black')
+pt_Q = point3d(Q, size=10, color='black')
+
+# 7. Labels
+lbl_r = text3d("r", (x0/2, y0/2 - 0.2, 0), color='black', fontweight='bold', fontsize=12)
+lbl_th = text3d("θ", (r_arc*cos(th0/2)+0.2, r_arc*sin(th0/2)-0.2, 0), color='black', fontweight='bold', fontsize=12)
+lbl_z = text3d("z", (-0.2, 0, z0/2), color='black', fontweight='bold', fontsize=12)
+lbl_P = text3d("P(1,-1,1)", (P[0], P[1], P[2]+0.2), color='black', fontweight='bold', fontsize=12)
+lbl_Q = text3d("Q", (Q[0], Q[1]-0.2, Q[2]), color='black', fontsize=10)
+
+# 8. Axes (Modified for Positive/Negative Y)
+L = 2.5 
+
+# Positive Axes (Solid Arrows)
+x_axis = arrow3d((0,0,0), (L,0,0), color='black', width=1)
+y_axis_pos = arrow3d((0,0,0), (0,L,0), color='black', width=1) 
+z_axis = arrow3d((0,0,0), (0,0,L), color='black', width=1)
+
+# Negative Y Axis (Dashed Line)
+# FIX: The points must be inside a list [...]
+y_axis_neg = line3d([(0,0,0), (0,-L,0)], color='black', linestyle='--', thickness=1)
+
+# Axis Labels
+lbl_axes = text3d("x", (L+0.2, 0, 0), color='black') + \
+          text3d("y", (0, L+0.2, 0), color='black') + \
+          text3d("z", (0, 0, L+0.2), color='black')
+
+# 9. Combine
+plot_objects = cylinder + line_r + line_drop + line_proj_z + \
+              arc_path + arrow_head + \
+              pt_P + pt_Q + \
+              lbl_r + lbl_th + lbl_z + lbl_P + lbl_Q + \
+              x_axis + y_axis_pos + y_axis_neg + z_axis + lbl_axes
+              
+show(plot_objects, frame=False)
+</script></pre></div>
+</body>
+</html>

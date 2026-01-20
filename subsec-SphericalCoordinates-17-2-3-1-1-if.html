@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>sagecell.makeSagecell({
+  "inputLocation": ".sage-interact",
+  "autoeval": true,
+  "hide": [
+    "editor",
+    "evalButton",
+    "permalink"
+  ]
+});
+</script><link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+</head>
+<body class="ptx-content ignore-math" id="changeme">
+<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q} 
+\newcommand{\R}{\mathbb R} 
+
+\newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t')
+
+# 1. Input Rectangular Coordinates
+x0 = -2
+y0 = 2
+z0 = 1
+
+# 2. Calculate Spherical Coordinates
+rho0 = sqrt(x0^2 + y0^2 + z0^2)  # rho = 3
+th0 = arctan2(y0, x0)            # theta = 3pi/4 (135 degrees)
+ph0 = arccos(z0/rho0)            # phi = arccos(1/3)
+
+# Points
+Origin = (0,0,0)
+P = (x0, y0, z0)
+Q = (x0, y0, 0) 
+
+# 3. The Sphere Surface (rho = 3)
+sphere_surf = parametric_plot3d(
+    (rho0*sin(u)*cos(v), rho0*sin(u)*sin(v), rho0*cos(u)),
+    (u, 0, pi), (v, 0, 2*pi),
+    opacity=0.03, color='cyan', mesh=True
+)
+
+# 4. Geometry Lines (Dashed)
+line_rho = line3d([Origin, P], color='deeppink', linestyle='--', thickness=2)
+line_drop = line3d([P, Q], color='black', linestyle='--', thickness=1)
+line_proj = line3d([Origin, Q], color='black', linestyle='--', thickness=1)
+
+# 5. Theta Arrow (xy-plane)
+# Draws from 0 to th0 (3pi/4)
+r_arc_th = 1.5
+arc_th = parametric_plot3d(
+    (r_arc_th*cos(t), r_arc_th*sin(t), 0),
+    (t, 0, th0), color='green', thickness=2
+)
+# Theta Arrow Tip
+tip_th_start = (r_arc_th*cos(th0 - 0.1), r_arc_th*sin(th0 - 0.1), 0)
+tip_th_end = (r_arc_th*cos(th0), r_arc_th*sin(th0), 0)
+arrow_th = arrow3d(tip_th_start, tip_th_end, color='green', width=1, head_width=0.3)
+
+# 6. Phi Arrow (drops from z-axis)
+r_arc_ph = 1.5
+# The phi arc is in the vertical plane defined by theta
+arc_ph = parametric_plot3d(
+    (r_arc_ph*sin(t)*cos(th0), r_arc_ph*sin(t)*sin(th0), r_arc_ph*cos(t)),
+    (t, 0, ph0), color='red', thickness=2
+)
+# Phi Arrow Tip
+tip_ph_start = (r_arc_ph*sin(ph0 - 0.1)*cos(th0), r_arc_ph*sin(ph0 - 0.1)*sin(th0), r_arc_ph*cos(ph0 - 0.1))
+tip_ph_end   = (r_arc_ph*sin(ph0)*cos(th0), r_arc_ph*sin(ph0)*sin(th0), r_arc_ph*cos(ph0))
+arrow_ph = arrow3d(tip_ph_start, tip_ph_end, color='red', width=1, head_width=0.3)
+
+# 7. Points
+pt_P = point3d(P, size=20, color='black')
+pt_Q = point3d(Q, size=10, color='black')
+
+# 8. Labels
+# Adjust label positions for the 2nd Quadrant
+lbl_rho = text3d("ρ", (x0/2, y0/2, z0/2 + 0.3), color='deeppink', fontweight='bold', fontsize=14)
+
+# Theta label near the middle of the large arc
+lbl_th = text3d("θ", (r_arc_th*cos(th0/2), r_arc_th*sin(th0/2)+0.3, 0), color='green', fontweight='bold', fontsize=14)
+
+lbl_ph = text3d("φ", (0.2*cos(th0), 0.2*sin(th0), r_arc_ph*cos(ph0/2)), color='red', fontweight='bold', fontsize=14)
+lbl_P = text3d("P(-2,2,1)", (x0, y0, z0+0.4), color='black', fontweight='bold', fontsize=12)
+
+# 9. Axes
+L = 3.5
+# Standard Positive Axes
+x_axis = arrow3d((0,0,0), (L,0,0), color='black', width=1)
+y_axis = arrow3d((0,0,0), (0,L,0), color='black', width=1)
+z_axis = arrow3d((0,0,0), (0,0,L), color='black', width=1)
+
+# Negative X-Axis (Dashed) to help see x=-2
+# Using list syntax [] for line3d points
+x_axis_neg = line3d([(0,0,0), (-L,0,0)], color='black', linestyle='--', thickness=1)
+
+lbl_axes = text3d("x", (L+0.2, 0, 0), color='black') + \
+          text3d("-x", (-L-0.2, 0, 0), color='black') + \
+          text3d("y", (0, L+0.2, 0), color='black') + \
+          text3d("z", (0, 0, L+0.2), color='black')
+
+# 10. Combine
+plot_objects = sphere_surf + line_rho + line_drop + line_proj + \
+              arc_th + arrow_th + arc_ph + arrow_ph + \
+              pt_P + pt_Q + \
+              lbl_rho + lbl_th + lbl_ph + lbl_P + \
+              x_axis + y_axis + z_axis + x_axis_neg + lbl_axes
+              
+show(plot_objects, frame=False)
+</script></pre></div>
+</body>
+</html>
