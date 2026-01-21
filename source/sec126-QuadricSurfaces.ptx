@@ -255,71 +255,89 @@
         </p>
 
         <figure>
-          <caption>The traces of the ellipsoid <m>\dfrac{x^2}{4} + \dfrac{y^2}{9} + \dfrac{z^2}{25} = 1</m>.</caption>
-          <sidebyside width="80%">
+          <caption>The traces of the ellipsoid <m>\lp \dfrac{x}{2} \rp^2 + \lp \dfrac{y}{3} \rp^2 + \lp \dfrac{z}{5} \rp^2 = 1</m>.</caption>
+          <sidebyside width="100%">
             <interactive platform="sage" width="100%" aspect="1:1">
               <slate surface="sage">
-                var('t')
+                var('u, v, t, x, y')
 
-                # --- 1. Define Parameters of the Ellipsoid ---
+                # --- 1. Parameters ---
                 a = 2  # x-radius
                 b = 3  # y-radius
                 c = 5  # z-radius
 
-                # --- 2. The Traces ---
-                
-                # XY Trace (z=0): Ellipse x^2/4 + y^2/9 = 1
-                # Parametrization: x = a*cos(t), y = b*sin(t), z = 0
-                trace_xy = parametric_plot3d(
-                    (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
-                    color='red', thickness=3, legend_label='xy-trace (z=0)'
-                )
+                # Plane sizes (slightly larger than the ellipsoid)
+                p_x = a + 1.5
+                p_y = b + 1.5
+                p_z = c + 1.5
 
-                # XZ Trace (y=0): Ellipse x^2/4 + z^2/25 = 1
-                # Parametrization: x = a*cos(t), y = 0, z = c*sin(t)
-                trace_xz = parametric_plot3d(
-                    (a*cos(t), 0, c*sin(t)), (t, 0, 2*pi),
-                    color='green', thickness=3, legend_label='xz-trace (y=0)'
-                )
+                # --- 2. Interactive Layout ---
+                # Row 1: Traces (Curves)
+                # Row 2: Planes (Flat surfaces)
+                # Row 3: The Ellipsoid itself
+                @interact(layout=[
+                    ['show_trace_xy', 'show_trace_xz', 'show_trace_yz'], 
+                    ['show_plane_xy', 'show_plane_xz', 'show_plane_yz'],
+                    ['show_surface']
+                ])
+                def _(
+                    show_trace_xy = checkbox(False, label="xy-trace (Curve)"),
+                    show_trace_xz = checkbox(False, label="xz-trace (Curve)"),
+                    show_trace_yz = checkbox(False, label="yz-trace (Curve)"),
+                    show_plane_xy = checkbox(False, label="xy-plane (z=0)"),
+                    show_plane_xz = checkbox(False, label="xz-plane (y=0)"),
+                    show_plane_yz = checkbox(False, label="yz-plane (x=0)"),
+                    show_surface  = checkbox(True, label="Show Ellipsoid")
+                ):
+                    # --- Axes Setup ---
+                    L_max = 6
+                    P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+                        arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+                        arrow3d((0,0,0), (0,0,L_max), color='black', width=1)
+                    
+                    P += text3d("x", (L_max+0.2, 0, 0), color='black') + \
+                        text3d("y", (0, L_max+0.2, 0), color='black') + \
+                        text3d("z", (0, 0, L_max+0.2), color='black')
 
-                # YZ Trace (x=0): Ellipse y^2/9 + z^2/25 = 1
-                # Parametrization: x = 0, y = b*cos(t), z = c*sin(t)
-                trace_yz = parametric_plot3d(
-                    (0, b*cos(t), c*sin(t)), (t, 0, 2*pi),
-                    color='blue', thickness=3, legend_label='yz-trace (x=0)'
-                )
+                    # --- 1. Surface (Ellipsoid) ---
+                    if show_surface:
+                        P += parametric_plot3d(
+                            (a*cos(u)*sin(v), b*sin(u)*sin(v), c*cos(v)),
+                            (u, 0, 2*pi), (v, 0, pi),
+                            color='teal', opacity=0.3, mesh=True, plot_points=[20, 20]
+                        )
 
-                # --- 3. Ghost Ellipsoid (Optional Context) ---
-                # A very faint version of the full surface to show how traces fit
-                var('u, v')
-                surface = parametric_plot3d(
-                    (a*cos(u)*sin(v), b*sin(u)*sin(v), c*cos(v)),
-                    (u, 0, 2*pi), (v, 0, pi),
-                    color='gray', opacity=0.1, mesh=false
-                )
+                    # --- 2. Traces (Curves) ---
+                    if show_trace_xy:
+                        P += parametric_plot3d((a*cos(t), b*sin(t), 0), (t, 0, 2*pi), color='red', thickness=4)
+                        P += text3d("xy", (a+0.5, b+0.5, 0), color='red', fontweight='bold')
 
-                # --- 4. Labels and Axes ---
-                # Label the traces in 3D space
-                lbl_xy = text3d("xy-trace", (a+0.5, b+0.5, 0), color='red')
-                lbl_xz = text3d("xz-trace", (a+0.5, 0, c+0.5), color='green')
-                lbl_yz = text3d("yz-trace", (0, b+0.5, c+0.5), color='blue')
+                    if show_trace_xz:
+                        P += parametric_plot3d((a*cos(t), 0, c*sin(t)), (t, 0, 2*pi), color='green', thickness=4)
+                        P += text3d("xz", (a+0.5, 0, c+0.5), color='green', fontweight='bold')
 
-                # Axes
-                L_max = 6
-                axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
-                      arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
-                      arrow3d((0,0,0), (0,0,L_max), color='black', width=1)
-                
-                lbl_axes = text3d("x", (L_max+0.2, 0, 0), color='black') + \
-                          text3d("y", (0, L_max+0.2, 0), color='black') + \
-                          text3d("z", (0, 0, L_max+0.2), color='black')
+                    if show_trace_yz:
+                        P += parametric_plot3d((0, b*cos(t), c*sin(t)), (t, 0, 2*pi), color='blue', thickness=4)
+                        P += text3d("yz", (0, b+0.5, c+0.5), color='blue', fontweight='bold')
 
-                # --- 5. Combine and Show ---
-                plot_objects = trace_xy + trace_xz + trace_yz + surface + \
-                              lbl_xy + lbl_xz + lbl_yz + \
-                              axes + lbl_axes
+                    # --- 3. Coordinate Planes (Rectangles) ---
+                    # We use polygon3d to create transparent filled rectangles
+                    alpha_plane = 0.2
 
-                show(plot_objects, frame=False, aspect_ratio=1)
+                    if show_plane_xy:
+                        # Plane z=0 (Red tint)
+                        P += polygon3d([(-p_x, -p_y, 0), (p_x, -p_y, 0), (p_x, p_y, 0), (-p_x, p_y, 0)], color='red', opacity=alpha_plane)
+
+                    if show_plane_xz:
+                        # Plane y=0 (Green tint)
+                        P += polygon3d([(-p_x, 0, -p_z), (p_x, 0, -p_z), (p_x, 0, p_z), (-p_x, 0, p_z)], color='green', opacity=alpha_plane)
+
+                    if show_plane_yz:
+                        # Plane x=0 (Blue tint)
+                        P += polygon3d([(0, -p_y, -p_z), (0, p_y, -p_z), (0, p_y, p_z), (0, -p_y, p_z)], color='blue', opacity=alpha_plane)
+
+                    # --- Combine and Show ---
+                    show(P, frame=False, aspect_ratio=1)
               </slate>
             </interactive>
           </sidebyside>
@@ -466,71 +484,107 @@
         </p>
 
         <figure>
-          <caption>The traces of the hyperboloid <m>\lp \dfrac{x}{5} \rp^2 + \lp \dfrac{y}{3} \rp^2 = \lp \dfrac{z}{7} \rp^2 + 1</m></caption>
-          <sidebyside width="80%">
+          <caption>The traces of the hyperboloid <m>\lp \dfrac{x}{5} \rp^2 + \lp \dfrac{y}{3} \rp^2 - \lp \dfrac{z}{7} \rp^2 = 1</m>.</caption>
+          <sidebyside width="100%">
             <interactive platform="sage" width="100%" aspect="1:1">
               <slate surface="sage">
-                var('u, v, t')
+                var('u, v, t, x, y')
 
-                # --- 1. Define Parameters ---
+                # --- 1. Parameters ---
                 a = 5  # x-radius
                 b = 3  # y-radius
                 c = 7  # z-radius
 
-                # --- 2. The Traces ---
+                # Plane sizes (for the transparent rectangles)
+                p_x = 12
+                p_y = 12
+                p_z = 15
 
-                # XY Trace (z=0)
-                trace_xy = parametric_plot3d(
-                    (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
-                    color='red', thickness=4
-                )
+                # --- 2. Interactive Layout ---
+                # Row 1: Traces (Curves)
+                # Row 2: Planes (Rectangles)
+                # Row 3: Surface (Mesh)
+                @interact(layout=[
+                    ['show_trace_xy', 'show_trace_xz', 'show_trace_yz'], 
+                    ['show_plane_xy', 'show_plane_xz', 'show_plane_yz'],
+                    ['show_surface']
+                ])
+                def _(
+                    show_trace_xy = checkbox(False, label="xy-trace (Ellipse)"),
+                    show_trace_xz = checkbox(False, label="xz-trace (Hyperbola)"),
+                    show_trace_yz = checkbox(False, label="yz-trace (Hyperbola)"),
+                    show_plane_xy = checkbox(False, label="xy-plane (z=0)"),
+                    show_plane_xz = checkbox(False, label="xz-plane (y=0)"),
+                    show_plane_yz = checkbox(False, label="yz-plane (x=0)"),
+                    show_surface  = checkbox(True, label="Show Hyperboloid")
+                ):
+                    # --- Axes Setup ---
+                    # Lengths based on parameters
+                    L_max = 16
+                    P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+                        arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+                        arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+                        arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+                        arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+                        arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
+                    
+                    P += text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
+                        text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
+                        text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
 
-                # XZ Trace (y=0)
-                trace_xz = parametric_plot3d(
-                    (a*cosh(t), 0, c*sinh(t)), (t, -2, 2), color='green', thickness=4
-                ) + parametric_plot3d(
-                    (-a*cosh(t), 0, c*sinh(t)), (t, -2, 2), color='green', thickness=4
-                )
+                    # --- 1. Surface ---
+                    if show_surface:
+                        P += parametric_plot3d(
+                            (a*cosh(u)*cos(v), b*cosh(u)*sin(v), c*sinh(u)),
+                            (u, -1.5, 1.5), (v, 0, 2*pi),
+                            color='teal', opacity=0.3, mesh=True, plot_points=[15, 20]
+                        )
 
-                # YZ Trace (x=0)
-                trace_yz = parametric_plot3d(
-                    (0, b*cosh(t), c*sinh(t)), (t, -2, 2), color='blue', thickness=4
-                ) + parametric_plot3d(
-                    (0, -b*cosh(t), c*sinh(t)), (t, -2, 2), color='blue', thickness=4
-                )
+                    # --- 2. Traces (Curves) ---
+                    
+                    # XY Trace (z=0): Ellipse
+                    if show_trace_xy:
+                        P += parametric_plot3d(
+                            (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
+                            color='red', thickness=4
+                        )
+                        P += text3d("xy", (a+2, b+2, 0), color='red', fontweight='bold')
 
-                # --- 3. The Mesh Surface ---
-                surface = parametric_plot3d(
-                    (a*cosh(u)*cos(v), b*cosh(u)*sin(v), c*sinh(u)),
-                    (u, -1.5, 1.5), (v, 0, 2*pi),
-                    color='gray', opacity=0.2, mesh=True, plot_points=[15, 20] 
-                )
+                    # XZ Trace (y=0): Hyperbola
+                    if show_trace_xz:
+                        P += parametric_plot3d(
+                            (a*cosh(t), 0, c*sinh(t)), (t, -2, 2), color='green', thickness=4
+                        ) + parametric_plot3d(
+                            (-a*cosh(t), 0, c*sinh(t)), (t, -2, 2), color='green', thickness=4
+                        )
+                        P += text3d("xz", (a+4, 0, c), color='green', fontweight='bold')
 
-                # --- 4. BOLD and LONG AXES ---
-                L_max = 20
+                    # YZ Trace (x=0): Hyperbola
+                    if show_trace_yz:
+                        P += parametric_plot3d(
+                            (0, b*cosh(t), c*sinh(t)), (t, -2, 2), color='blue', thickness=4
+                        ) + parametric_plot3d(
+                            (0, -b*cosh(t), c*sinh(t)), (t, -2, 2), color='blue', thickness=4
+                        )
+                        P += text3d("yz", (0, b+4, c), color='blue', fontweight='bold')
 
-                axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=3) + \
-                      arrow3d((0,0,0), (-L_max,0,0), color='black', width=3) + \
-                      arrow3d((0,0,0), (0,L_max,0), color='black', width=3) + \
-                      arrow3d((0,0,0), (0,-L_max,0), color='black', width=3) + \
-                      arrow3d((0,0,0), (0,0,L_max), color='black', width=3) + \
-                      arrow3d((0,0,0), (0,0,-L_max), color='black', width=3)
+                    # --- 3. Coordinate Planes (Rectangles) ---
+                    alpha_plane = 0.2
 
-                lbl_axes = text3d("x", (L_max+1, 0, 0), color='black', fontsize=14, fontweight='bold') + \
-                          text3d("y", (0, L_max+1, 0), color='black', fontsize=14, fontweight='bold') + \
-                          text3d("z", (0, 0, L_max+1), color='black', fontsize=14, fontweight='bold')
+                    if show_plane_xy:
+                        # z=0 (Red tint)
+                        P += polygon3d([(-p_x, -p_y, 0), (p_x, -p_y, 0), (p_x, p_y, 0), (-p_x, p_y, 0)], color='red', opacity=alpha_plane)
 
-                # --- 5. Labels ---
-                lbl_xy = text3d("xy (Ellipse)", (a + 4, b + 4, 0), color='red', fontweight='bold')
-                lbl_xz = text3d("xz (Hyperbola)", (a + 6, 0, c), color='green', fontweight='bold')
-                lbl_yz = text3d("yz (Hyperbola)", (0, b + 6, c), color='blue', fontweight='bold')
+                    if show_plane_xz:
+                        # y=0 (Green tint)
+                        P += polygon3d([(-p_x, 0, -p_z), (p_x, 0, -p_z), (p_x, 0, p_z), (-p_x, 0, p_z)], color='green', opacity=alpha_plane)
 
-                # --- 6. Combine and Show ---
-                plot_objects = trace_xy + trace_xz + trace_yz + surface + \
-                              lbl_xy + lbl_xz + lbl_yz + \
-                              axes + lbl_axes
+                    if show_plane_yz:
+                        # x=0 (Blue tint)
+                        P += polygon3d([(0, -p_y, -p_z), (0, p_y, -p_z), (0, p_y, p_z), (0, -p_y, p_z)], color='blue', opacity=alpha_plane)
 
-                show(plot_objects, frame=False, aspect_ratio=1)
+                    # --- Combine and Show ---
+                    show(P, frame=False, aspect_ratio=1)
               </slate>
             </interactive>
           </sidebyside>
@@ -618,98 +672,127 @@
     </p>
 
     <figure>
-      <caption>The traces of the hyperboloid <m>\lp\dfrac{x}{a}\rp^2 +1 \lp\dfrac{y}{b}\rp^2 = \lp\dfrac{z}{c}\rp^2 - 1</m>.</caption>
-      <sidebyside width="80%">
+      <caption>The traces of the hyperboloid <m>\lp\dfrac{x}{a}\rp^2 + \lp\dfrac{y}{b}\rp^2 = \lp\dfrac{z}{c}\rp^2 - 1</m>.</caption>
+      <sidebyside width="100%">
         <interactive platform="sage" width="100%" aspect="1:1">
           <slate surface="sage">
-            var('u, v, t')
+            var('u, v, t, x, y')
 
             # --- 1. Parameters ---
-            # Equation: (z/c)^2 - (x/a)^2 - (y/b)^2 = 1
-            # Changed b to 3 so a != b (Ellipses, not circles)
             a = 2
             b = 3
             c = 2 
+            k_val = 5  # Height for horizontal cuts
 
-            # Trace height z = k. 
-            # Must be > c. Since we make sheets deeper, we can place k higher up.
-            k_val = 5
+            # Plane Sizes
+            p_x = 8
+            p_y = 10
+            p_z = 8
 
-            # --- 2. Vertical Traces (Hyperbolas) ---
+            # --- 2. Interactive Layout ---
+            # Row 1: Traces (Curves) - Note the first one is z = +/- k
+            # Row 2: Planes (Rectangles) - Note the first one is z = +/- k
+            # Row 3: Surface
+            @interact(layout=[
+                ['show_trace_z', 'show_trace_xz', 'show_trace_yz'], 
+                ['show_plane_z', 'show_plane_xz', 'show_plane_yz'],
+                ['show_surface']
+            ])
+            def _(
+                # Traces
+                show_trace_z  = checkbox(False, label="z = +/- k (Ellipses)"),
+                show_trace_xz = checkbox(False, label="xz-trace (Hyperbolas)"),
+                show_trace_yz = checkbox(False, label="yz-trace (Hyperbolas)"),
+                
+                # Planes
+                show_plane_z  = checkbox(False, label="z = +/- k planes"),
+                show_plane_xz = checkbox(False, label="xz-plane (y=0)"),
+                show_plane_yz = checkbox(False, label="yz-plane (x=0)"),
+                
+                # Surface
+                show_surface  = checkbox(True, label="Show Hyperboloid")
+            ):
+                # --- Axes Setup ---
+                L_max = 10
+                P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
+                
+                P += text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
+                    text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
+                    text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
 
-            # XZ Trace (y=0): z^2/c^2 - x^2/a^2 = 1
-            # Param: z = +/- c*cosh(t), x = a*sinh(t)
-            trace_xz = parametric_plot3d((a*sinh(t), 0, c*cosh(t)), (t, -2.2, 2.2), color='green', thickness=4) + \
-                      parametric_plot3d((a*sinh(t), 0, -c*cosh(t)), (t, -2.2, 2.2), color='green', thickness=4)
+                # --- 1. Surface ---
+                if show_surface:
+                    # Upper Sheet
+                    P += parametric_plot3d(
+                        (a*sinh(u)*cos(v), b*sinh(u)*sin(v), c*cosh(u)),
+                        (u, 0, 1.8), (v, 0, 2*pi),
+                        color='teal', opacity=0.3, mesh=True, plot_points=[15, 20]
+                    )
+                    # Lower Sheet
+                    P += parametric_plot3d(
+                        (a*sinh(u)*cos(v), b*sinh(u)*sin(v), -c*cosh(u)),
+                        (u, 0, 1.8), (v, 0, 2*pi),
+                        color='teal', opacity=0.3, mesh=True, plot_points=[15, 20]
+                    )
 
-            # YZ Trace (x=0): z^2/c^2 - y^2/b^2 = 1
-            # Param: z = +/- c*cosh(t), y = b*sinh(t)
-            trace_yz = parametric_plot3d((0, b*sinh(t), c*cosh(t)), (t, -2.2, 2.2), color='blue', thickness=4) + \
-                      parametric_plot3d((0, b*sinh(t), -c*cosh(t)), (t, -2.2, 2.2), color='blue', thickness=4)
+                # --- 2. Traces (Curves) ---
+                
+                # Horizontal Traces (Ellipses at z = +/- k)
+                if show_trace_z:
+                    R = sqrt((k_val/c)^2 - 1)
+                    # Top Ellipse
+                    P += parametric_plot3d(
+                        (a*R*cos(t), b*R*sin(t), k_val), (t, 0, 2*pi),
+                        color='red', thickness=4
+                    )
+                    # Bottom Ellipse
+                    P += parametric_plot3d(
+                        (a*R*cos(t), b*R*sin(t), -k_val), (t, 0, 2*pi),
+                        color='red', thickness=4
+                    )
+                    P += text3d("z=k", (a*R+1, b*R+1, k_val), color='red', fontweight='bold')
 
+                # XZ Trace (y=0): Hyperbolas
+                if show_trace_xz:
+                    P += parametric_plot3d(
+                        (a*sinh(t), 0, c*cosh(t)), (t, -2.2, 2.2), color='green', thickness=4
+                    ) + parametric_plot3d(
+                        (a*sinh(t), 0, -c*cosh(t)), (t, -2.2, 2.2), color='green', thickness=4
+                    )
+                    P += text3d("xz", (a+4, 0, c+1), color='green', fontweight='bold')
 
-            # --- 3. Horizontal Traces (Ellipses) at z = +/- k ---
-            # At z = k: x^2/a^2 + y^2/b^2 = (k/c)^2 - 1
-            # Radius factor R
-            R = sqrt((k_val/c)^2 - 1)
+                # YZ Trace (x=0): Hyperbolas
+                if show_trace_yz:
+                    P += parametric_plot3d(
+                        (0, b*sinh(t), c*cosh(t)), (t, -2.2, 2.2), color='blue', thickness=4
+                    ) + parametric_plot3d(
+                        (0, b*sinh(t), -c*cosh(t)), (t, -2.2, 2.2), color='blue', thickness=4
+                    )
+                    P += text3d("yz", (0, b+4, c+1), color='blue', fontweight='bold')
 
-            # Top Ellipse (z = k)
-            trace_z_top = parametric_plot3d(
-                (a*R*cos(t), b*R*sin(t), k_val), (t, 0, 2*pi),
-                color='red', thickness=4
-            )
+                # --- 3. Planes (Rectangles) ---
+                alpha_plane = 0.2
 
-            # Bottom Ellipse (z = -k)
-            trace_z_bot = parametric_plot3d(
-                (a*R*cos(t), b*R*sin(t), -k_val), (t, 0, 2*pi),
-                color='red', thickness=4
-            )
+                if show_plane_z:
+                    # Plane z=k (Red tint)
+                    P += polygon3d([(-p_x, -p_y, k_val), (p_x, -p_y, k_val), (p_x, p_y, k_val), (-p_x, p_y, k_val)], color='red', opacity=alpha_plane)
+                    # Plane z=-k (Red tint)
+                    P += polygon3d([(-p_x, -p_y, -k_val), (p_x, -p_y, -k_val), (p_x, p_y, -k_val), (-p_x, p_y, -k_val)], color='red', opacity=alpha_plane)
 
+                if show_plane_xz:
+                    # Plane y=0 (Green tint)
+                    P += polygon3d([(-p_x, 0, -p_z), (p_x, 0, -p_z), (p_x, 0, p_z), (-p_x, 0, p_z)], color='green', opacity=alpha_plane)
 
-            # --- 4. The Mesh Surface (Two Sheets) ---
-            # Increased u max from 1.3 to 1.8 for "deeper" sheets
-            sheet_top = parametric_plot3d(
-                (a*sinh(u)*cos(v), b*sinh(u)*sin(v), c*cosh(u)),
-                (u, 0, 1.8), (v, 0, 2*pi),
-                color='gray', opacity=0.2, mesh=True, plot_points=[15, 20]
-            )
+                if show_plane_yz:
+                    # Plane x=0 (Blue tint)
+                    P += polygon3d([(0, -p_y, -p_z), (0, p_y, -p_z), (0, p_y, p_z), (0, -p_y, p_z)], color='blue', opacity=alpha_plane)
 
-            # Lower Sheet
-            sheet_bot = parametric_plot3d(
-                (a*sinh(u)*cos(v), b*sinh(u)*sin(v), -c*cosh(u)),
-                (u, 0, 1.8), (v, 0, 2*pi),
-                color='gray', opacity=0.2, mesh=True, plot_points=[15, 20]
-            )
-
-
-            # --- 5. Labels and Axes ---
-            lbl_xz = text3d("xz (Hyperbola)", (a+4, 0, c+1), color='green', fontweight='bold')
-            lbl_yz = text3d("yz (Hyperbola)", (0, b+4, c+1), color='blue', fontweight='bold')
-
-            lbl_z  = text3d("z = k (Ellipse)", (a+3, b+2, k_val), color='red', fontweight='bold')
-            lbl_z2 = text3d("z = -k (Ellipse)", (a+3, b+2, -k_val), color='red', fontweight='bold')
-
-            # Standard Axes (width=1)
-            # Increased Length to 10 to accomodate deeper sheets
-            L_max = 10
-            axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
-
-            lbl_axes = text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
-                      text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
-                      text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
-
-            # --- 6. Combine ---
-            plot_objects = trace_xz + trace_yz + trace_z_top + trace_z_bot + \
-                          sheet_top + sheet_bot + \
-                          lbl_xz + lbl_yz + lbl_z + lbl_z2 + \
-                          axes + lbl_axes
-
-            show(plot_objects, frame=False, aspect_ratio=1)
+                show(P, frame=False, aspect_ratio=1)
           </slate>
         </interactive>
       </sidebyside>
@@ -810,104 +893,123 @@
 
     <figure>
       <caption>The traces of the elliptic cone <m>\lp\dfrac{x}{a}\rp^2 + \lp\dfrac{y}{b}\rp^2 = \lp\dfrac{z}{c}\rp^2</m>.</caption>
-      <sidebyside width="80%">
+      <sidebyside width="100%">
         <interactive platform="sage" width="100%" aspect="1:1">
           <slate surface="sage">
-            var('u, v, t')
+            var('u, v, t, x, y')
 
             # --- 1. Parameters ---
-            # Equation: (z/c)^2 = (x/a)^2 + (y/b)^2
             a = 2
             b = 3
             c = 2 
+            k_val = 5  # Height for horizontal cuts
 
-            # Trace height for ellipses
-            k_val = 5
+            # Plane Sizes
+            p_x = 8
+            p_y = 10
+            p_z = 8
 
-            # --- 2. Vertical Traces (Intersecting Lines) ---
+            # --- 2. Interactive Layout ---
+            @interact(layout=[
+                ['show_trace_z', 'show_trace_xz', 'show_trace_yz'], 
+                ['show_plane_z', 'show_plane_xz', 'show_plane_yz'],
+                ['show_surface']
+            ])
+            def _(
+                # Traces
+                show_trace_z  = checkbox(False, label="z = +/- k (Ellipses)"),
+                show_trace_xz = checkbox(False, label="xz-trace (Lines)"),
+                show_trace_yz = checkbox(False, label="yz-trace (Lines)"),
+                
+                # Planes
+                show_plane_z  = checkbox(False, label="z = +/- k planes"),
+                show_plane_xz = checkbox(False, label="xz-plane (y=0)"),
+                show_plane_yz = checkbox(False, label="yz-plane (x=0)"),
+                
+                # Surface
+                show_surface  = checkbox(True, label="Show Cone")
+            ):
+                # --- Axes Setup ---
+                L_max = 8
+                P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+                    arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
+                
+                P += text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
+                    text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
+                    text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
 
-            # XZ Trace (y=0): z^2/c^2 = x^2/a^2  => z = +/- (c/a)x
-            # These are just lines passing through origin in the xz plane.
-            # We draw them as segments from x = -L to L
-            L_line = 6
-            trace_xz = line3d([(-L_line, 0, -L_line*(c/a)), (L_line, 0, L_line*(c/a))], color='green', thickness=4) + \
-                      line3d([(-L_line, 0, L_line*(c/a)), (L_line, 0, -L_line*(c/a))], color='green', thickness=4)
+                # --- 1. Surface ---
+                if show_surface:
+                    # Upper Cone
+                    P += parametric_plot3d(
+                        (a*u*cos(v), b*u*sin(v), c*u),
+                        (u, 0, 3.5), (v, 0, 2*pi),
+                        color='teal', opacity=0.3, mesh=True, plot_points=[10, 20]
+                    )
+                    # Lower Cone
+                    P += parametric_plot3d(
+                        (a*u*cos(v), b*u*sin(v), -c*u),
+                        (u, 0, 3.5), (v, 0, 2*pi),
+                        color='teal', opacity=0.3, mesh=True, plot_points=[10, 20]
+                    )
 
-            # YZ Trace (x=0): z^2/c^2 = y^2/b^2 => z = +/- (c/b)y
-            trace_yz = line3d([(0, -L_line, -L_line*(c/b)), (0, L_line, L_line*(c/b))], color='blue', thickness=4) + \
-                      line3d([(0, -L_line, L_line*(c/b)), (0, L_line, -L_line*(c/b))], color='blue', thickness=4)
+                # --- 2. Traces ---
+                
+                # Horizontal Traces (Ellipses at z = +/- k)
+                if show_trace_z:
+                    R = k_val / c
+                    # Top Ellipse
+                    P += parametric_plot3d(
+                        (a*R*cos(t), b*R*sin(t), k_val), (t, 0, 2*pi),
+                        color='red', thickness=4
+                    )
+                    # Bottom Ellipse
+                    P += parametric_plot3d(
+                        (a*R*cos(t), b*R*sin(t), -k_val), (t, 0, 2*pi),
+                        color='red', thickness=4
+                    )
+                    P += text3d("z=k", (a*R+1, b*R+1, k_val), color='red', fontweight='bold')
 
+                # XZ Trace (y=0): Lines z = +/- (c/a)x
+                if show_trace_xz:
+                    L_line = 6
+                    P += line3d([(-L_line, 0, -L_line*(c/a)), (L_line, 0, L_line*(c/a))], color='green', thickness=4)
+                    P += line3d([(-L_line, 0, L_line*(c/a)), (L_line, 0, -L_line*(c/a))], color='green', thickness=4)
+                    P += text3d("xz", (a+4, 0, c+2), color='green', fontweight='bold')
 
-            # --- 3. Horizontal Traces (Ellipses) at z = +/- k ---
-            # At z = k: x^2/a^2 + y^2/b^2 = (k/c)^2
-            # This is an ellipse with radius scaling factor R = k/c
-            R = k_val / c
+                # YZ Trace (x=0): Lines z = +/- (c/b)y
+                if show_trace_yz:
+                    L_line = 6
+                    P += line3d([(0, -L_line, -L_line*(c/b)), (0, L_line, L_line*(c/b))], color='blue', thickness=4)
+                    P += line3d([(0, -L_line, L_line*(c/b)), (0, L_line, -L_line*(c/b))], color='blue', thickness=4)
+                    P += text3d("yz", (0, b+4, c+2), color='blue', fontweight='bold')
 
-            # Top Ellipse (z = k)
-            trace_z_top = parametric_plot3d(
-                (a*R*cos(t), b*R*sin(t), k_val), (t, 0, 2*pi),
-                color='red', thickness=4
-            )
+                # --- 3. Planes ---
+                alpha_plane = 0.2
 
-            # Bottom Ellipse (z = -k)
-            trace_z_bot = parametric_plot3d(
-                (a*R*cos(t), b*R*sin(t), -k_val), (t, 0, 2*pi),
-                color='red', thickness=4
-            )
+                if show_plane_z:
+                    # z=k (Red tint)
+                    P += polygon3d([(-p_x, -p_y, k_val), (p_x, -p_y, k_val), (p_x, p_y, k_val), (-p_x, p_y, k_val)], color='red', opacity=alpha_plane)
+                    # z=-k (Red tint)
+                    P += polygon3d([(-p_x, -p_y, -k_val), (p_x, -p_y, -k_val), (p_x, p_y, -k_val), (-p_x, p_y, -k_val)], color='red', opacity=alpha_plane)
 
+                if show_plane_xz:
+                    # y=0 (Green tint)
+                    P += polygon3d([(-p_x, 0, -p_z), (p_x, 0, -p_z), (p_x, 0, p_z), (-p_x, 0, p_z)], color='green', opacity=alpha_plane)
 
-            # --- 4. The Mesh Surface (Cone) ---
-            # Parametrization: x = a*u*cos(v), y = b*u*sin(v), z = c*u  (for top half)
-            # We plot top and bottom halves separately or use |u| logic.
-            # Let's use u for height factor directly.
+                if show_plane_yz:
+                    # x=0 (Blue tint)
+                    P += polygon3d([(0, -p_y, -p_z), (0, p_y, -p_z), (0, p_y, p_z), (0, -p_y, p_z)], color='blue', opacity=alpha_plane)
 
-            # Upper Cone (z \gt 0)
-            cone_top = parametric_plot3d(
-                (a*u*cos(v), b*u*sin(v), c*u),
-                (u, 0, 3.5), (v, 0, 2*pi), # u goes up to 3.5 to make it "deep"
-                color='gray', opacity=0.2, mesh=True, plot_points=[10, 20]
-            )
-
-            # Lower Cone (z \lt 0)
-            cone_bot = parametric_plot3d(
-                (a*u*cos(v), b*u*sin(v), -c*u),
-                (u, 0, 3.5), (v, 0, 2*pi),
-                color='gray', opacity=0.2, mesh=True, plot_points=[10, 20]
-            )
-
-
-            # --- 5. Labels and Axes ---
-            lbl_xz = text3d("xz (Lines)", (a+4, 0, c+2), color='green', fontweight='bold')
-            lbl_yz = text3d("yz (Lines)", (0, b+4, c+2), color='blue', fontweight='bold')
-
-            lbl_z  = text3d("z = k (ellipse)", (a+3, b+2, k_val), color='red', fontweight='bold')
-            lbl_z2 = text3d("z = -k (ellipse)", (a+3, b+2, -k_val), color='red', fontweight='bold')
-
-            # Standard Axes (width=1)
-            L_max = 8
-            axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
-
-            lbl_axes = text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
-                      text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
-                      text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
-
-            # --- 6. Combine ---
-            plot_objects = trace_xz + trace_yz + trace_z_top + trace_z_bot + \
-                          cone_top + cone_bot + \
-                          lbl_xz + lbl_yz + lbl_z + lbl_z2 + \
-                          axes + lbl_axes
-
-            show(plot_objects, frame=False, aspect_ratio=1)
+                show(P, frame=False, aspect_ratio=1)
           </slate>
         </interactive>
       </sidebyside>
     </figure>
-
     <p>
       The next type of quadric surfaces is the <term>paraboloids</term>, which also comes in two different flavors. 
     </p>
@@ -980,88 +1082,109 @@
 
     <figure>
       <caption>The traces of the elliptic paraboloid <m>z = \lp\dfrac{x}{a}\rp^2 + \lp\dfrac{y}{b}\rp^2</m>.</caption>
-      <sidebyside width="80%">
+      <sidebyside width="100%">
         <interactive platform="sage" width="100%" aspect="1:1">
           <slate surface="sage">
-            var('u, v, t')
+    var('u, v, t, x, y')
 
-            # --- 1. Parameters ---
-            # Equation: z = (x/a)^2 + (y/b)^2
-            a = 2
-            b = 3
+    # --- 1. Parameters ---
+    a = 2
+    b = 3
+    k_val = 5  # Trace height
 
-            # Trace height z = k
-            k_val = 5
+    # Plane Sizes
+    p_x = 8
+    p_y = 10
+    p_z = 6
 
-            # --- 2. Vertical Traces (Parabolas) ---
+    # --- 2. Interactive Layout ---
+    @interact(layout=[
+        ['show_trace_z', 'show_trace_xz', 'show_trace_yz'], 
+        ['show_plane_z', 'show_plane_xz', 'show_plane_yz'],
+        ['show_surface']
+    ])
+    def _(
+        # Traces
+        show_trace_z  = checkbox(False, label="z = k (Ellipse)"),
+        show_trace_xz = checkbox(False, label="xz-trace (Parabola)"),
+        show_trace_yz = checkbox(False, label="yz-trace (Parabola)"),
+        
+        # Planes
+        show_plane_z  = checkbox(False, label="z = k plane"),
+        show_plane_xz = checkbox(False, label="xz-plane (y=0)"),
+        show_plane_yz = checkbox(False, label="yz-plane (x=0)"),
+        
+        # Surface
+        show_surface  = checkbox(True, label="Show Paraboloid")
+    ):
+        # --- Axes Setup ---
+        L_max = 10
+        P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+            arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+            arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+            arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+            arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+            arrow3d((0,0,0), (0,0,-1), color='black', width=1)
+        
+        P += text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
+            text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
+            text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
 
-            # XZ Trace (y=0): z = (x/a)^2
-            # We plot this from negative to positive x to show the full curve
-            # Range: let x go from -a*sqrt(k) to a*sqrt(k) (approx -4.5 to 4.5)
-            limit_x = a * sqrt(k_val) + 0.5
-            trace_xz = parametric_plot3d(
-                (t, 0, (t/a)^2), (t, -limit_x, limit_x), 
-                color='green', thickness=4
+        # --- 1. Surface ---
+        if show_surface:
+            max_u = sqrt(k_val)
+            P += parametric_plot3d(
+                (a*u*cos(v), b*u*sin(v), u^2),
+                (u, 0, max_u), (v, 0, 2*pi),
+                color='teal', opacity=0.3, mesh=True, plot_points=[15, 20]
             )
 
-            # YZ Trace (x=0): z = (y/b)^2
-            limit_y = b * sqrt(k_val) + 0.5
-            trace_yz = parametric_plot3d(
-                (0, t, (t/b)^2), (t, -limit_y, limit_y), 
-                color='blue', thickness=4
-            )
-
-
-            # --- 3. Horizontal Trace (Ellipse) at z = k ---
-            # At z = k: (x/a)^2 + (y/b)^2 = k
-            # This is an ellipse with radii: A = a*sqrt(k), B = b*sqrt(k)
+        # --- 2. Traces ---
+        
+        # Horizontal Trace (Ellipse at z = k)
+        if show_trace_z:
             A = a * sqrt(k_val)
             B = b * sqrt(k_val)
-
-            trace_z = parametric_plot3d(
+            P += parametric_plot3d(
                 (A*cos(t), B*sin(t), k_val), (t, 0, 2*pi),
                 color='red', thickness=4
             )
+            P += text3d("z=k", (A+1, B+1, k_val), color='red', fontweight='bold')
 
-
-            # --- 4. The Mesh Surface (Paraboloid) ---
-            # Parametrization: x = a*u*cos(v), y = b*u*sin(v), z = u^2
-            # u goes from 0 to sqrt(k_val) (roughly 2.24)
-            max_u = sqrt(k_val)
-
-            surface = parametric_plot3d(
-                (a*u*cos(v), b*u*sin(v), u^2),
-                (u, 0, max_u), (v, 0, 2*pi),
-                color='gray', opacity=0.2, mesh=True, plot_points=[15, 20]
+        # XZ Trace (y=0): Parabola z = (x/a)^2
+        if show_trace_xz:
+            limit_x = a * sqrt(k_val) + 0.5
+            P += parametric_plot3d(
+                (t, 0, (t/a)^2), (t, -limit_x, limit_x), 
+                color='green', thickness=4
             )
+            P += text3d("xz", (limit_x, 0, k_val), color='green', fontweight='bold')
 
+        # YZ Trace (x=0): Parabola z = (y/b)^2
+        if show_trace_yz:
+            limit_y = b * sqrt(k_val) + 0.5
+            P += parametric_plot3d(
+                (0, t, (t/b)^2), (t, -limit_y, limit_y), 
+                color='blue', thickness=4
+            )
+            P += text3d("yz", (0, limit_y, k_val), color='blue', fontweight='bold')
 
-            # --- 5. Labels and Axes ---
-            # Position labels well outside the surface
-            lbl_xz = text3d("xz (Parabola)", (limit_x + 2, 0, k_val), color='green', fontweight='bold')
-            lbl_yz = text3d("yz (Parabola)", (0, limit_y + 2, k_val), color='blue', fontweight='bold')
-            lbl_z  = text3d("z = k (Ellipse)", (A + 1, B + 1, k_val), color='red', fontweight='bold')
+        # --- 3. Planes ---
+        alpha_plane = 0.2
 
-            # Standard Axes (width=1)
-            L_max = 10
-            axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,-1), color='black', width=1) # Short negative z axis
+        if show_plane_z:
+            # z=k (Red tint)
+            P += polygon3d([(-p_x, -p_y, k_val), (p_x, -p_y, k_val), (p_x, p_y, k_val), (-p_x, p_y, k_val)], color='red', opacity=alpha_plane)
 
-            lbl_axes = text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
-                      text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
-                      text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
+        if show_plane_xz:
+            # y=0 (Green tint)
+            P += polygon3d([(-p_x, 0, 0), (p_x, 0, 0), (p_x, 0, p_z), (-p_x, 0, p_z)], color='green', opacity=alpha_plane)
 
-            # --- 6. Combine ---
-            plot_objects = trace_xz + trace_yz + trace_z + \
-                          surface + \
-                          lbl_xz + lbl_yz + lbl_z + \
-                          axes + lbl_axes
+        if show_plane_yz:
+            # x=0 (Blue tint)
+            P += polygon3d([(0, -p_y, 0), (0, p_y, 0), (0, p_y, p_z), (0, -p_y, p_z)], color='blue', opacity=alpha_plane)
 
-            show(plot_objects, frame=False, aspect_ratio=1)
+        show(P, frame=False, aspect_ratio=1)
           </slate>
         </interactive>
       </sidebyside>
@@ -1132,103 +1255,136 @@
       Feel free to rotate around the diagram to get a better view of the traces! 
     </p>
 
-      <figure xml:id="fig-hyperbolic-paraboloid-interactive-layout">
-        <caption>Interactive traces of the hyperbolic paraboloid with custom button layout.</caption>
-        <sidebyside width="100%">
-          <interactive platform="sage" width="10%" aspect="4:3">
-            <slate surface="sage">
-            var('u, v, t, x, y')
+    <figure>
+      <caption>The traces of the hyperbolic paraboloid <m>z = \dfrac{y^2}{b^2} - \dfrac{x^2}{a^2}</m>.</caption>
+      <sidebyside width="100%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+          var('u, v, t, x, y')
 
-            # --- Parameters ---
-            a = 2
-            b = 3
-            k_val = 2 
+          # --- Parameters ---
+          a = 2
+          b = 3
+          k_val = 2 
 
-            # Bounds
-            surf_x = 4
-            surf_y = 6
-            trace_x_limit = 5.5
-            trace_y_limit = 7.5
+          # Bounds for the surface
+          surf_x = 4
+          surf_y = 6
+          
+          # Bounds for the traces
+          trace_x_limit = 5.5
+          trace_y_limit = 7.5
+          
+          # Bounds for the coordinate planes (made slightly larger to look "infinite")
+          plane_L = 8
 
-            # We use the 'layout' parameter to define the grid of controls.
-            # Row 1: The 4 trace toggles
-            # Row 2: The surface toggle
-            @interact(layout=[
-                ['show_xz', 'show_yz', 'show_z_pos', 'show_z_neg'], 
-                ['show_surface']
-            ])
-            def _(
-                show_xz      = checkbox(True, label="xz-trace (Green)"),
-                show_yz      = checkbox(True, label="yz-trace (Blue)"),
-                show_z_pos   = checkbox(True, label="z=k (Red X)"),
-                show_z_neg   = checkbox(True, label="z=-k (Red Y)"),
-                show_surface = checkbox(True, label="Show Surface Mesh")
-            ):
-                # Initialize the plot with axes (always visible)
-                L_max = 9
-                P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
-                    arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
-                    arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
-                    arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
-                    arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
-                    arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
-                
-                P += text3d("x", (L_max+1, 0, 0), color='black') + \
-                    text3d("y", (0, L_max+1, 0), color='black') + \
-                    text3d("z", (0, 0, L_max+1), color='black')
+          # We use the 'layout' parameter to define the grid of controls.
+          # Row 1: The 4 trace toggles
+          # Row 2: The 4 plane toggles
+          # Row 3: The surface toggle
+          @interact(layout=[
+              ['show_xz', 'show_yz', 'show_z_pos', 'show_z_neg'], 
+              ['plane_xz', 'plane_yz', 'plane_z_pos', 'plane_z_neg'],
+              ['show_surface']
+          ])
+          def _(
+              show_xz      = checkbox(False, label="Trace xz (Green)"),
+              show_yz      = checkbox(False, label="Trace yz (Blue)"),
+              show_z_pos   = checkbox(False, label="Trace z=k (Red)"),
+              show_z_neg   = checkbox(False, label="Trace z=-k (Red)"),
+              plane_xz     = checkbox(False, label="Plane y=0"),
+              plane_yz     = checkbox(False, label="Plane x=0"),
+              plane_z_pos  = checkbox(False, label="Plane z=k"),
+              plane_z_neg  = checkbox(False, label="Plane z=-k"),
+              show_surface = checkbox(True, label="Show Surface Mesh")
+          ):
+              # Initialize the plot with axes (always visible)
+              L_max = 9
+              P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+                  arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
+              
+              P += text3d("x", (L_max+1, 0, 0), color='black') + \
+                  text3d("y", (0, L_max+1, 0), color='black') + \
+                  text3d("z", (0, 0, L_max+1), color='black')
 
-                # --- 1. Surface ---
-                if show_surface:
-                    P += plot3d(
-                        (x/a)^2 - (y/b)^2, (x, -surf_x, surf_x), (y, -surf_y, surf_y),
-                        color='gray', opacity=0.2, mesh=True, plot_points=[15, 15]
-                    )
+              # --- 1. Surface ---
+              if show_surface:
+                  P += plot3d(
+                      (x/a)^2 - (y/b)^2, (x, -surf_x, surf_x), (y, -surf_y, surf_y),
+                      color='gray', opacity=0.2, mesh=True, plot_points=[15, 15]
+                  )
 
-                # --- 2. XZ Trace (Parabola Up) ---
-                if show_xz:
-                    P += parametric_plot3d(
-                        (t, 0, (t/a)^2), (t, -trace_x_limit, trace_x_limit), 
-                        color='green', thickness=4
-                    )
-                    z_tip_x = (trace_x_limit/a)^2
-                    P += text3d("xz", (trace_x_limit, 0, z_tip_x + 1), color='green', fontweight='bold')
+              # --- 2. XZ Trace (Parabola Up) ---
+              if show_xz:
+                  P += parametric_plot3d(
+                      (t, 0, (t/a)^2), (t, -trace_x_limit, trace_x_limit), 
+                      color='green', thickness=4
+                  )
+                  z_tip_x = (trace_x_limit/a)^2
+                  P += text3d("xz", (trace_x_limit, 0, z_tip_x + 1), color='green', fontweight='bold')
+              
+              # --- 2b. XZ Plane (y=0) ---
+              if plane_xz:
+                  P += parametric_plot3d(
+                      (u, 0, v), (u, -plane_L, plane_L), (v, -2, plane_L),
+                      color='green', opacity=0.1
+                  )
 
-                # --- 3. YZ Trace (Parabola Down) ---
-                if show_yz:
-                    P += parametric_plot3d(
-                        (0, t, -(t/b)^2), (t, -trace_y_limit, trace_y_limit), 
-                        color='blue', thickness=4
-                    )
-                    z_tip_y = -(trace_y_limit/b)^2
-                    P += text3d("yz", (0, trace_y_limit, z_tip_y - 1), color='blue', fontweight='bold')
+              # --- 3. YZ Trace (Parabola Down) ---
+              if show_yz:
+                  P += parametric_plot3d(
+                      (0, t, -(t/b)^2), (t, -trace_y_limit, trace_y_limit), 
+                      color='blue', thickness=4
+                  )
+                  z_tip_y = -(trace_y_limit/b)^2
+                  P += text3d("yz", (0, trace_y_limit, z_tip_y - 1), color='blue', fontweight='bold')
 
-                # --- 4. Z=k Trace (Hyperbola along X) ---
-                if show_z_pos:
-                    Ak = a * sqrt(k_val)
-                    Bk = b * sqrt(k_val)
-                    P += parametric_plot3d(
-                        (Ak*cosh(t), Bk*sinh(t), k_val), (t, -1.5, 1.5), color='red', thickness=4
-                    ) + parametric_plot3d(
-                        (-Ak*cosh(t), Bk*sinh(t), k_val), (t, -1.5, 1.5), color='red', thickness=4
-                    )
-                    P += text3d("z=k", (Ak+1, Bk, k_val), color='red', fontweight='bold')
+              # --- 3b. YZ Plane (x=0) ---
+              if plane_yz:
+                  P += parametric_plot3d(
+                      (0, u, v), (u, -plane_L, plane_L), (v, -plane_L, 2),
+                      color='blue', opacity=0.1
+                  )
 
-                # --- 5. Z=-k Trace (Hyperbola along Y) ---
-                if show_z_neg:
-                    Ak = a * sqrt(k_val)
-                    Bk = b * sqrt(k_val)
-                    P += parametric_plot3d(
-                        (Ak*sinh(t), Bk*cosh(t), -k_val), (t, -1.5, 1.5), color='red', thickness=4
-                    ) + parametric_plot3d(
-                        (Ak*sinh(t), -Bk*cosh(t), -k_val), (t, -1.5, 1.5), color='red', thickness=4
-                    )
-                    P += text3d("z=-k", (Ak, Bk+3, -k_val), color='red', fontweight='bold')
+              # --- 4. Z=k Trace (Hyperbola along X) ---
+              if show_z_pos:
+                  Ak = a * sqrt(k_val)
+                  Bk = b * sqrt(k_val)
+                  P += parametric_plot3d(
+                      (Ak*cosh(t), Bk*sinh(t), k_val), (t, -1.5, 1.5), color='red', thickness=4
+                  ) + parametric_plot3d(
+                      (-Ak*cosh(t), Bk*sinh(t), k_val), (t, -1.5, 1.5), color='red', thickness=4
+                  )
+                  P += text3d("z=k", (Ak+1, Bk, k_val), color='red', fontweight='bold')
 
-                show(P, frame=False, aspect_ratio=1)
-            </slate>
-          </interactive>
-        </sidebyside>
-      </figure>
+              # --- 4b. Z=k Plane ---
+              if plane_z_pos:
+                  P += plot3d(k_val, (x, -plane_L, plane_L), (y, -plane_L, plane_L), color='red', opacity=0.1)
+
+              # --- 5. Z=-k Trace (Hyperbola along Y) ---
+              if show_z_neg:
+                  Ak = a * sqrt(k_val)
+                  Bk = b * sqrt(k_val)
+                  P += parametric_plot3d(
+                      (Ak*sinh(t), Bk*cosh(t), -k_val), (t, -1.5, 1.5), color='red', thickness=4
+                  ) + parametric_plot3d(
+                      (Ak*sinh(t), -Bk*cosh(t), -k_val), (t, -1.5, 1.5), color='red', thickness=4
+                  )
+                  P += text3d("z=-k", (Ak, Bk+3, -k_val), color='red', fontweight='bold')
+              
+              # --- 5b. Z=-k Plane ---
+              if plane_z_neg:
+                  P += plot3d(-k_val, (x, -plane_L, plane_L), (y, -plane_L, plane_L), color='red', opacity=0.1)
+
+              show(P, frame=False, aspect_ratio=1)
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
 
     <p>
       Now let's take a pause and look back at what we have covered so far.
@@ -1416,92 +1572,124 @@
           Now we can sketch the traces and combine them to form the surface! 
         </p>
 
-        <figure xml:id="fig-surface-static-ticks-traces">
+        <figure>
           <caption>The surface <m>x^2 - y^2 + 9z^2 = 9</m> with traces.</caption>
           <sidebyside width="80%">
             <interactive platform="sage" width="100%" aspect="1:1">
               <slate surface="sage">
-                var('u, v, t')
+                var('u, v, t, x, y')
 
-                # --- 1. The Surface (Hyperboloid of One Sheet along Y-axis) ---
-                # Equation: (x/3)^2 - (y/3)^2 + (z/1)^2 = 1
-                surface = parametric_plot3d(
-                    (3*cosh(u)*cos(v), 3*sinh(u), 1*cosh(u)*sin(v)),
-                    (u, -2, 2), (v, 0, 2*pi),
-                    color='teal', opacity=0.2, mesh=True, plot_points=[20, 20]
-                )
-
-                # --- 2. The Traces ---
-
-                # xy-trace (z=0): x^2/9 - y^2/9 = 1 (Hyperbola opening along x)
-                # x = +/- 3*cosh(t), y = 3*sinh(t)
-                limit_t = 1.8
-                trace_xy = parametric_plot3d(
-                    (3*cosh(t), 3*sinh(t), 0), (t, -limit_t, limit_t), color='red', thickness=4
-                ) + parametric_plot3d(
-                    (-3*cosh(t), 3*sinh(t), 0), (t, -limit_t, limit_t), color='red', thickness=4
-                )
-
-                # yz-trace (x=0): z^2/1 - y^2/9 = 1 (Hyperbola opening along z)
-                # z = +/- 1*cosh(t), y = 3*sinh(t)
-                trace_yz = parametric_plot3d(
-                    (0, 3*sinh(t), cosh(t)), (t, -limit_t, limit_t), color='blue', thickness=4
-                ) + parametric_plot3d(
-                    (0, 3*sinh(t), -cosh(t)), (t, -limit_t, limit_t), color='blue', thickness=4
-                )
-
-                # xz-trace (y=0): x^2/9 + z^2 = 1 (Ellipse)
-                trace_xz = parametric_plot3d(
-                    (3*cos(t), 0, sin(t)), (t, 0, 2*pi), color='green', thickness=4
-                )
-
-                # --- 3. The Axes ---
+                # --- Parameters ---
                 L_x = 12
                 L_y = 12
                 L_z = 5
+                
+                # Layout: 
+                # Row 1: The 3 Trace toggles
+                # Row 2: The 3 Plane toggles
+                # Row 3: The Surface toggle
+                @interact(layout=[
+                    ['show_xy', 'show_yz', 'show_xz'], 
+                    ['plane_xy', 'plane_yz', 'plane_xz'],
+                    ['show_surface']
+                ])
+                def _(
+                    show_xy      = checkbox(False, label="xy-trace (z=0)"),
+                    show_yz      = checkbox(False, label="yz-trace (x=0)"),
+                    show_xz      = checkbox(False, label="xz-trace (y=0)"),
+                    plane_xy     = checkbox(False, label="Plane z=0"),
+                    plane_yz     = checkbox(False, label="Plane x=0"),
+                    plane_xz     = checkbox(False, label="Plane y=0"),
+                    show_surface = checkbox(True, label="Show Surface")
+                ):
+                    # Initialize plot
+                    P = Graphics()
 
-                axes = arrow3d((0,0,0), (L_x,0,0), color='black', width=1) + \
-                      arrow3d((0,0,0), (-L_x,0,0), color='black', width=1) + \
-                      arrow3d((0,0,0), (0,L_y,0), color='black', width=1) + \
-                      arrow3d((0,0,0), (0,-L_y,0), color='black', width=1) + \
-                      arrow3d((0,0,0), (0,0,L_z), color='black', width=1) + \
-                      arrow3d((0,0,0), (0,0,-L_z), color='black', width=1)
+                    # --- 1. The Surface (Hyperboloid of One Sheet along Y-axis) ---
+                    if show_surface:
+                        P += parametric_plot3d(
+                            (3*cosh(u)*cos(v), 3*sinh(u), 1*cosh(u)*sin(v)),
+                            (u, -2, 2), (v, 0, 2*pi),
+                            color='teal', opacity=0.2, mesh=True, plot_points=[20, 20]
+                        )
 
-                lbl_axes = text3d("x", (L_x+1, 0, 0), color='black', fontsize=12) + \
-                          text3d("y", (0, L_y+1, 0), color='black', fontsize=12) + \
-                          text3d("z", (0, 0, L_z+0.5), color='black', fontsize=12)
+                    # --- 2. The Traces ---
 
-                # Labels for Traces
-                lbl_xy = text3d("xy (hyperbola)", (9, 9, 0), color='red', fontweight='bold')
-                lbl_yz = text3d("yz (hyperbola)", (0, 9, 4), color='blue', fontweight='bold')
-                lbl_xz = text3d("xz (ellipse)", (3.5, 0, 1.5), color='green', fontweight='bold')
+                    # xy-trace (z=0): Hyperbola
+                    if show_xy:
+                        limit_t = 1.8
+                        P += parametric_plot3d(
+                            (3*cosh(t), 3*sinh(t), 0), (t, -limit_t, limit_t), color='red', thickness=4
+                        ) + parametric_plot3d(
+                            (-3*cosh(t), 3*sinh(t), 0), (t, -limit_t, limit_t), color='red', thickness=4
+                        )
+                        P += text3d("xy", (9, 9, 0), color='red', fontweight='bold')
 
-                # --- 4. Custom Ticks ---
-                def draw_tick(axis, val, size=0.4):
-                    if axis == 'x':
-                        obj = line3d([(val, -size, 0), (val, size, 0)], color='black', thickness=2)
-                        lbl = text3d(str(val), (val, -size*4, 0), color='black', fontsize=10)
-                    elif axis == 'y':
-                        obj = line3d([(-size, val, 0), (size, val, 0)], color='black', thickness=2)
-                        lbl = text3d(str(val), (size*4, val, 0), color='black', fontsize=10)
-                    elif axis == 'z':
-                        obj = line3d([(-size, 0, val), (size, 0, val)], color='black', thickness=2)
-                        lbl = text3d(str(val), (size*4, 0, val), color='black', fontsize=10)
-                    else:
-                        return point3d((0,0,0), size=0)
-                        
-                    return obj + lbl
+                    # yz-trace (x=0): Hyperbola
+                    if show_yz:
+                        limit_t = 1.8
+                        P += parametric_plot3d(
+                            (0, 3*sinh(t), cosh(t)), (t, -limit_t, limit_t), color='blue', thickness=4
+                        ) + parametric_plot3d(
+                            (0, 3*sinh(t), -cosh(t)), (t, -limit_t, limit_t), color='blue', thickness=4
+                        )
+                        P += text3d("yz", (0, 9, 4), color='blue', fontweight='bold')
 
-                ticks_x = sum([draw_tick('x', i) for i in [-10, -5, 5, 10]])
-                ticks_y = sum([draw_tick('y', i) for i in [-10, -5, 5, 10]])
-                ticks_z = sum([draw_tick('z', i) for i in [-4, -2, 2, 4]])
+                    # xz-trace (y=0): Ellipse
+                    if show_xz:
+                        P += parametric_plot3d(
+                            (3*cos(t), 0, sin(t)), (t, 0, 2*pi), color='green', thickness=4
+                        )
+                        P += text3d("xz", (3.5, 0, 1.5), color='green', fontweight='bold')
 
-                # --- 5. Combine and Show ---
-                plot_objects = surface + trace_xy + trace_yz + trace_xz + \
-                              axes + lbl_axes + lbl_xy + lbl_yz + lbl_xz + \
-                              ticks_x + ticks_y + ticks_z
+                    # --- 3. The Planes ---
+                    
+                    # Plane z=0 (Red tint)
+                    if plane_xy:
+                        P += plot3d(0, (x, -L_x, L_x), (y, -L_y, L_y), color='red', opacity=0.1)
 
-                show(plot_objects, frame=False, aspect_ratio=1)
+                    # Plane x=0 (Blue tint)
+                    if plane_yz:
+                        P += parametric_plot3d((0, u, v), (u, -L_y, L_y), (v, -L_z, L_z), color='blue', opacity=0.1)
+
+                    # Plane y=0 (Green tint)
+                    if plane_xz:
+                        P += parametric_plot3d((u, 0, v), (u, -L_x, L_x), (v, -L_z, L_z), color='green', opacity=0.1)
+
+                    # --- 4. Axes and Ticks (Static elements) ---
+                    axes = arrow3d((0,0,0), (L_x,0,0), color='black', width=1) + \
+                          arrow3d((0,0,0), (-L_x,0,0), color='black', width=1) + \
+                          arrow3d((0,0,0), (0,L_y,0), color='black', width=1) + \
+                          arrow3d((0,0,0), (0,-L_y,0), color='black', width=1) + \
+                          arrow3d((0,0,0), (0,0,L_z), color='black', width=1) + \
+                          arrow3d((0,0,0), (0,0,-L_z), color='black', width=1)
+
+                    lbl_axes = text3d("x", (L_x+1, 0, 0), color='black', fontsize=12) + \
+                              text3d("y", (0, L_y+1, 0), color='black', fontsize=12) + \
+                              text3d("z", (0, 0, L_z+0.5), color='black', fontsize=12)
+
+                    # Custom tick function
+                    def draw_tick(axis, val, size=0.4):
+                        if axis == 'x':
+                            obj = line3d([(val, -size, 0), (val, size, 0)], color='black', thickness=2)
+                            lbl = text3d(str(val), (val, -size*4, 0), color='black', fontsize=10)
+                        elif axis == 'y':
+                            obj = line3d([(-size, val, 0), (size, val, 0)], color='black', thickness=2)
+                            lbl = text3d(str(val), (size*4, val, 0), color='black', fontsize=10)
+                        elif axis == 'z':
+                            obj = line3d([(-size, 0, val), (size, 0, val)], color='black', thickness=2)
+                            lbl = text3d(str(val), (size*4, 0, val), color='black', fontsize=10)
+                        else:
+                            return point3d((0,0,0), size=0)
+                        return obj + lbl
+
+                    ticks_x = sum([draw_tick('x', i) for i in [-10, -5, 5, 10]])
+                    ticks_y = sum([draw_tick('y', i) for i in [-10, -5, 5, 10]])
+                    ticks_z = sum([draw_tick('z', i) for i in [-4, -2, 2, 4]])
+
+                    P += axes + lbl_axes + ticks_x + ticks_y + ticks_z
+
+                    show(P, frame=False, aspect_ratio=1)
               </slate>
             </interactive>
           </sidebyside>
@@ -1536,67 +1724,98 @@
       The only interesting traces of this surface are the traces <m>z = k</m>, which are circles of radius <m>r</m>. 
     </p>
 
-    <figure>
+    <figure xml:id="fig-cylinder-interactive-layout">
       <caption>The traces of the cylinder <m>x^2 + y^2 = r^2</m>.</caption>
       <sidebyside width="80%">
         <interactive platform="sage" width="100%" aspect="1:1">
           <slate surface="sage">
-            var('u, v, t')
+            var('u, v, t, x, y')
 
-            # --- 1. Parameters ---
+            # --- Parameters ---
             r = 2   # Radius
             h = 4   # Half-height (plots from -h to h)
+            L = 6   # Axis/Plane drawing length
 
-            # --- 2. The Surface (Cylinder) ---
-            # Parametrization: x = r*cos(v), y = r*sin(v), z = u
-            surface = parametric_plot3d(
-                (r*cos(v), r*sin(v), u),
-                (u, -h, h), (v, 0, 2*pi),
-                color='teal', opacity=0.2, mesh=True, plot_points=[10, 20]
-            )
+            # Layout: 
+            # Row 1: The 3 Trace toggles
+            # Row 2: The 3 Plane toggles
+            # Row 3: The Surface toggle
+            @interact(layout=[
+                ['show_xy', 'show_xz', 'show_yz'], 
+                ['plane_xy', 'plane_xz', 'plane_yz'],
+                ['show_surface']
+            ])
+            def _(
+                show_xy      = checkbox(False, label="xy-trace (Circle)"),
+                show_xz      = checkbox(False, label="xz-trace (Lines)"),
+                show_yz      = checkbox(False, label="yz-trace (Lines)"),
+                plane_xy     = checkbox(False, label="Plane z=0"),
+                plane_xz     = checkbox(False, label="Plane y=0"),
+                plane_yz     = checkbox(False, label="Plane x=0"),
+                show_surface = checkbox(True, label="Show Surface")
+            ):
+                # Initialize plot
+                P = Graphics()
 
-            # --- 3. The Traces ---
+                # --- 1. The Surface (Cylinder) ---
+                if show_surface:
+                    P += parametric_plot3d(
+                        (r*cos(v), r*sin(v), u),
+                        (u, -h, h), (v, 0, 2*pi),
+                        color='teal', opacity=0.2, mesh=True, plot_points=[10, 20]
+                    )
 
-            # xy-trace (z=0): Circle x^2 + y^2 = r^2
-            trace_xy = parametric_plot3d(
-                (r*cos(t), r*sin(t), 0), (t, 0, 2*pi),
-                color='red', thickness=4
-            )
+                # --- 2. The Traces ---
 
-            # xz-trace (y=0): Lines x = +/- r
-            # Two vertical lines at x=2 and x=-2
-            trace_xz = line3d([(r, 0, -h-1), (r, 0, h+1)], color='green', thickness=4) + \
-                      line3d([(-r, 0, -h-1), (-r, 0, h+1)], color='green', thickness=4)
+                # xy-trace (z=0): Circle x^2 + y^2 = r^2
+                if show_xy:
+                    P += parametric_plot3d(
+                        (r*cos(t), r*sin(t), 0), (t, 0, 2*pi),
+                        color='red', thickness=4
+                    )
+                    P += text3d("xy", (r+1, r+1, 0), color='red', fontweight='bold')
 
-            # yz-trace (x=0): Lines y = +/- r
-            # Two vertical lines at y=2 and y=-2
-            trace_yz = line3d([(0, r, -h-1), (0, r, h+1)], color='blue', thickness=4) + \
-                      line3d([(0, -r, -h-1), (0, -r, h+1)], color='blue', thickness=4)
+                # xz-trace (y=0): Lines x = +/- r
+                if show_xz:
+                    P += line3d([(r, 0, -h-1), (r, 0, h+1)], color='green', thickness=4) + \
+                        line3d([(-r, 0, -h-1), (-r, 0, h+1)], color='green', thickness=4)
+                    P += text3d("xz", (r, 0, h+1.5), color='green', fontweight='bold')
 
-            # --- 4. Axes and Labels ---
-            L = h + 2 # Axis length
+                # yz-trace (x=0): Lines y = +/- r
+                if show_yz:
+                    P += line3d([(0, r, -h-1), (0, r, h+1)], color='blue', thickness=4) + \
+                        line3d([(0, -r, -h-1), (0, -r, h+1)], color='blue', thickness=4)
+                    P += text3d("yz", (0, r, h+1.5), color='blue', fontweight='bold')
 
-            axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,-L), color='black', width=1)
+                # --- 3. The Planes ---
+                
+                # Plane z=0 (Red tint) - The xy-plane
+                if plane_xy:
+                    P += plot3d(0, (x, -L, L), (y, -L, L), color='red', opacity=0.1)
 
-            lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
-                      text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
-                      text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+                # Plane y=0 (Green tint) - The xz-plane
+                if plane_xz:
+                    P += parametric_plot3d((u, 0, v), (u, -L, L), (v, -L, L), color='green', opacity=0.1)
 
-            # Trace Labels
-            lbl_xy = text3d("xy (Circle)", (r+1, r+1, 0), color='red', fontweight='bold')
-            lbl_xz = text3d("xz (Lines)", (r, 0, h+1.5), color='green', fontweight='bold')
-            lbl_yz = text3d("yz (Lines)", (0, r, h+1.5), color='blue', fontweight='bold')
+                # Plane x=0 (Blue tint) - The yz-plane
+                if plane_yz:
+                    P += parametric_plot3d((0, u, v), (u, -L, L), (v, -L, L), color='blue', opacity=0.1)
 
-            # --- 5. Combine and Show ---
-            plot_objects = surface + trace_xy + trace_xz + trace_yz + \
-                          axes + lbl_axes + lbl_xy + lbl_xz + lbl_yz
+                # --- 4. Axes and Labels ---
+                axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,-L), color='black', width=1)
 
-            show(plot_objects, frame=False, aspect_ratio=1)
+                lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
+                          text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
+                          text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+
+                P += axes + lbl_axes
+
+                show(P, frame=False, aspect_ratio=1)
           </slate>
         </interactive>
       </sidebyside>
@@ -1613,65 +1832,98 @@
     </p>
 
     <figure>
-      <caption>The traces of the elliptic cylinder <m>\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1</m>.</caption>
+      <caption>The traces of the elliptic cylinder <m>\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1</m>.</caption>
       <sidebyside width="80%">
         <interactive platform="sage" width="100%" aspect="1:1">
           <slate surface="sage">
-            var('u, v, t')
+            var('u, v, t, x, y')
 
-            # --- 1. Parameters ---
+            # --- Parameters ---
             a = 2   # x-radius
             b = 3   # y-radius
             h = 4   # Half-height (plots from -h to h)
+            L = 6   # Axis/Plane drawing length
 
-            # --- 2. The Surface (Elliptic Cylinder) ---
-            # Parametrization: x = a*cos(v), y = b*sin(v), z = u
-            surface = parametric_plot3d(
-                (a*cos(v), b*sin(v), u),
-                (u, -h, h), (v, 0, 2*pi),
-                color='teal', opacity=0.2, mesh=True, plot_points=[10, 20]
-            )
+            # Layout: 
+            # Row 1: The 3 Trace toggles
+            # Row 2: The 3 Plane toggles
+            # Row 3: The Surface toggle
+            @interact(layout=[
+                ['show_xy', 'show_xz', 'show_yz'], 
+                ['plane_xy', 'plane_xz', 'plane_yz'],
+                ['show_surface']
+            ])
+            def _(
+                show_xy      = checkbox(False, label="xy-trace (Ellipse)"),
+                show_xz      = checkbox(False, label="xz-trace (Lines)"),
+                show_yz      = checkbox(False, label="yz-trace (Lines)"),
+                plane_xy     = checkbox(False, label="Plane z=0"),
+                plane_xz     = checkbox(False, label="Plane y=0"),
+                plane_yz     = checkbox(False, label="Plane x=0"),
+                show_surface = checkbox(True, label="Show Surface")
+            ):
+                # Initialize plot
+                P = Graphics()
 
-            # --- 3. The Traces ---
+                # --- 1. The Surface (Elliptic Cylinder) ---
+                if show_surface:
+                    P += parametric_plot3d(
+                        (a*cos(v), b*sin(v), u),
+                        (u, -h, h), (v, 0, 2*pi),
+                        color='teal', opacity=0.2, mesh=True, plot_points=[10, 20]
+                    )
 
-            # xy-trace (z=0): Ellipse x^2/a^2 + y^2/b^2 = 1
-            trace_xy = parametric_plot3d(
-                (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
-                color='red', thickness=4
-            )
+                # --- 2. The Traces ---
 
-            # xz-trace (y=0): Lines x = +/- a
-            trace_xz = line3d([(a, 0, -h-1), (a, 0, h+1)], color='green', thickness=4) + \
-                      line3d([(-a, 0, -h-1), (-a, 0, h+1)], color='green', thickness=4)
+                # xy-trace (z=0): Ellipse x^2/a^2 + y^2/b^2 = 1
+                if show_xy:
+                    P += parametric_plot3d(
+                        (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
+                        color='red', thickness=4
+                    )
+                    P += text3d("xy", (a+1, b+1, 0), color='red', fontweight='bold')
 
-            # yz-trace (x=0): Lines y = +/- b
-            trace_yz = line3d([(0, b, -h-1), (0, b, h+1)], color='blue', thickness=4) + \
-                      line3d([(0, -b, -h-1), (0, -b, h+1)], color='blue', thickness=4)
+                # xz-trace (y=0): Lines x = +/- a
+                if show_xz:
+                    P += line3d([(a, 0, -h-1), (a, 0, h+1)], color='green', thickness=4) + \
+                        line3d([(-a, 0, -h-1), (-a, 0, h+1)], color='green', thickness=4)
+                    P += text3d("xz", (a, 0, h+1.5), color='green', fontweight='bold')
 
-            # --- 4. Axes and Labels ---
-            L = h + 2 # Axis length
+                # yz-trace (x=0): Lines y = +/- b
+                if show_yz:
+                    P += line3d([(0, b, -h-1), (0, b, h+1)], color='blue', thickness=4) + \
+                        line3d([(0, -b, -h-1), (0, -b, h+1)], color='blue', thickness=4)
+                    P += text3d("yz", (0, b, h+1.5), color='blue', fontweight='bold')
 
-            axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,-L), color='black', width=1)
+                # --- 3. The Planes ---
+                
+                # Plane z=0 (Red tint) - The xy-plane
+                if plane_xy:
+                    P += plot3d(0, (x, -L, L), (y, -L, L), color='red', opacity=0.1)
 
-            lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
-                      text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
-                      text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+                # Plane y=0 (Green tint) - The xz-plane
+                if plane_xz:
+                    P += parametric_plot3d((u, 0, v), (u, -L, L), (v, -L, L), color='green', opacity=0.1)
 
-            # Trace Labels
-            lbl_xy = text3d("xy (Ellipse)", (a+1, b+1, 0), color='red', fontweight='bold')
-            lbl_xz = text3d("xz (Lines)", (a, 0, h+1.5), color='green', fontweight='bold')
-            lbl_yz = text3d("yz (Lines)", (0, b, h+1.5), color='blue', fontweight='bold')
+                # Plane x=0 (Blue tint) - The yz-plane
+                if plane_yz:
+                    P += parametric_plot3d((0, u, v), (u, -L, L), (v, -L, L), color='blue', opacity=0.1)
 
-            # --- 5. Combine and Show ---
-            plot_objects = surface + trace_xy + trace_xz + trace_yz + \
-                          axes + lbl_axes + lbl_xy + lbl_xz + lbl_yz
+                # --- 4. Axes and Labels ---
+                axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,-L), color='black', width=1)
 
-            show(plot_objects, frame=False, aspect_ratio=1)
+                lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
+                          text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
+                          text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+
+                P += axes + lbl_axes
+
+                show(P, frame=False, aspect_ratio=1)
           </slate>
         </interactive>
       </sidebyside>
@@ -1686,82 +1938,106 @@
     </p>
 
     <figure>
-      <caption>The traces of the hyperbolic cylinder <m>\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1</m>.</caption>
+      <caption>The traces of the hyperbolic cylinder <m>\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1</m>.</caption>
       <sidebyside width="80%">
         <interactive platform="sage" width="100%" aspect="1:1">
           <slate surface="sage">
-            var('u, v, t')
+            var('u, v, t, x, y')
 
-            # --- 1. Parameters ---
+            # --- Parameters ---
             a = 2   # x-radius
             b = 3   # y-radius
             h = 4   # Half-height
+            L = 6   # Axis/Plane drawing length
 
-            # --- 2. The Surface (Hyperbolic Cylinder) ---
-            # Equation: x^2/a^2 - y^2/b^2 = 1
-            # Parametrization: x = +/- a*cosh(v), y = b*sinh(v), z = u
+            # Layout: 
+            # Row 1: The 3 Trace toggles
+            # Row 2: The 3 Plane toggles
+            # Row 3: The Surface toggle
+            @interact(layout=[
+                ['show_xy', 'show_xz', 'show_yz'], 
+                ['plane_xy', 'plane_xz', 'plane_yz'],
+                ['show_surface']
+            ])
+            def _(
+                show_xy      = checkbox(False, label="xy-trace (Hyperbola)"),
+                show_xz      = checkbox(False, label="xz-trace (Lines)"),
+                show_yz      = checkbox(False, label="yz-trace (None)"),
+                plane_xy     = checkbox(False, label="Plane z=0"),
+                plane_xz     = checkbox(False, label="Plane y=0"),
+                plane_yz     = checkbox(False, label="Plane x=0"),
+                show_surface = checkbox(True, label="Show Surface")
+            ):
+                # Initialize plot
+                P = Graphics()
 
-            # Branch 1 (x \gt 0)
-            surface_pos = parametric_plot3d(
-                (a*cosh(v), b*sinh(v), u),
-                (u, -h, h), (v, -1.5, 1.5),
-                color='teal', opacity=0.2, mesh=True, plot_points=[10, 15]
-            )
+                # --- 1. The Surface (Hyperbolic Cylinder) ---
+                if show_surface:
+                    # Branch 1 (x \gt 0)
+                    P += parametric_plot3d(
+                        (a*cosh(v), b*sinh(v), u),
+                        (u, -h, h), (v, -1.5, 1.5),
+                        color='teal', opacity=0.2, mesh=True, plot_points=[10, 15]
+                    )
+                    # Branch 2 (x \lt 0)
+                    P += parametric_plot3d(
+                        (-a*cosh(v), b*sinh(v), u),
+                        (u, -h, h), (v, -1.5, 1.5),
+                        color='teal', opacity=0.2, mesh=True, plot_points=[10, 15]
+                    )
 
-            # Branch 2 (x \lt 0)
-            surface_neg = parametric_plot3d(
-                (-a*cosh(v), b*sinh(v), u),
-                (u, -h, h), (v, -1.5, 1.5),
-                color='teal', opacity=0.2, mesh=True, plot_points=[10, 15]
-            )
+                # --- 2. The Traces ---
 
-            surface = surface_pos + surface_neg
+                # xy-trace (z=0): Hyperbola x^2/a^2 - y^2/b^2 = 1
+                if show_xy:
+                    P += parametric_plot3d(
+                        (a*cosh(t), b*sinh(t), 0), (t, -1.5, 1.5),
+                        color='red', thickness=4
+                    ) + parametric_plot3d(
+                        (-a*cosh(t), b*sinh(t), 0), (t, -1.5, 1.5),
+                        color='red', thickness=4
+                    )
+                    P += text3d("xy", (a+1, b+1, 0), color='red', fontweight='bold')
 
-            # --- 3. The Traces ---
+                # xz-trace (y=0): Lines x = +/- a
+                if show_xz:
+                    P += line3d([(a, 0, -h-1), (a, 0, h+1)], color='green', thickness=4) + \
+                        line3d([(-a, 0, -h-1), (-a, 0, h+1)], color='green', thickness=4)
+                    P += text3d("xz", (a, 0, h+1.5), color='green', fontweight='bold')
 
-            # xy-trace (z=0): Hyperbola x^2/a^2 - y^2/b^2 = 1
-            # Branch 1
-            trace_xy_pos = parametric_plot3d(
-                (a*cosh(t), b*sinh(t), 0), (t, -1.5, 1.5),
-                color='red', thickness=4
-            )
-            # Branch 2
-            trace_xy_neg = parametric_plot3d(
-                (-a*cosh(t), b*sinh(t), 0), (t, -1.5, 1.5),
-                color='red', thickness=4
-            )
-            trace_xy = trace_xy_pos + trace_xy_neg
+                # yz-trace (x=0): None
+                if show_yz:
+                    P += text3d("No Trace (x != 0)", (0, 0, h+1.5), color='blue', fontweight='bold')
 
-            # xz-trace (y=0): Lines x = +/- a
-            trace_xz = line3d([(a, 0, -h-1), (a, 0, h+1)], color='green', thickness=4) + \
-                      line3d([(-a, 0, -h-1), (-a, 0, h+1)], color='green', thickness=4)
+                # --- 3. The Planes ---
+                
+                # Plane z=0 (Red tint) - The xy-plane
+                if plane_xy:
+                    P += plot3d(0, (x, -L, L), (y, -L, L), color='red', opacity=0.1)
 
-            # yz-trace (x=0): None! The surface does not intersect x=0.
-            # We skip plotting it.
+                # Plane y=0 (Green tint) - The xz-plane
+                if plane_xz:
+                    P += parametric_plot3d((u, 0, v), (u, -L, L), (v, -L, L), color='green', opacity=0.1)
 
-            # --- 4. Axes and Labels ---
-            L = h + 2
+                # Plane x=0 (Blue tint) - The yz-plane (Passes through the gap)
+                if plane_yz:
+                    P += parametric_plot3d((0, u, v), (u, -L, L), (v, -L, L), color='blue', opacity=0.1)
 
-            axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,-L), color='black', width=1)
+                # --- 4. Axes and Labels ---
+                axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,-L), color='black', width=1)
 
-            lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
-                      text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
-                      text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+                lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
+                          text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
+                          text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
 
-            # Trace Labels
-            lbl_xy = text3d("xy (Hyperbola)", (a+1, b+1, 0), color='red', fontweight='bold')
-            lbl_xz = text3d("xz (Lines)", (a, 0, h+1.5), color='green', fontweight='bold')
+                P += axes + lbl_axes
 
-            # --- 5. Combine and Show ---
-            plot_objects = surface + trace_xy + trace_xz + \
-                          axes + lbl_axes + lbl_xy + lbl_xz
-
-            show(plot_objects, frame=False, aspect_ratio=1)
+                show(P, frame=False, aspect_ratio=1)
           </slate>
         </interactive>
       </sidebyside>
@@ -1781,60 +2057,96 @@
       <sidebyside width="80%">
         <interactive platform="sage" width="100%" aspect="1:1">
           <slate surface="sage">
-            var('u, v, t')
+            var('u, v, t, x, y')
 
-            # --- 1. Parameters ---
+            # --- Parameters ---
             # Equation: y = x^2
-            # We adjust limits to get a good aspect ratio
-            x_limit = 2.5  # x goes from -2.5 to 2.5
-            y_max = x_limit^2 # y goes up to 6.25
-            h = 4 # Half-height for z
-
-            # --- 2. The Surface (Parabolic Cylinder) ---
-            # Parametrization: x = u, y = u^2, z = v
-            surface = parametric_plot3d(
-                (u, u^2, v),
-                (u, -x_limit, x_limit), (v, -h, h),
-                color='teal', opacity=0.2, mesh=True, plot_points=[15, 10]
-            )
-
-            # --- 3. The Traces ---
-
-            # xy-trace (z=0): Parabola y = x^2
-            trace_xy = parametric_plot3d(
-                (t, t^2, 0), (t, -x_limit, x_limit),
-                color='red', thickness=4
-            )
-
-            # xz-trace (y=0) and yz-trace (x=0)
-            # Both vertical planes intersect the surface only at the z-axis (the vertex line)
-            trace_vertical = line3d([(0, 0, -h-1), (0, 0, h+1)], color='black', thickness=4)
-
-            # --- 4. Axes and Labels ---
+            x_limit = 2.5
+            h = 4
             L_x = 4
-            L_y = 8
+            L_y = 7
             L_z = 5
+            
+            # Layout: 
+            # Row 1: The 3 Trace toggles
+            # Row 2: The 3 Plane toggles
+            # Row 3: The Surface toggle
+            @interact(layout=[
+                ['show_xy', 'show_xz', 'show_yz'], 
+                ['plane_xy', 'plane_xz', 'plane_yz'],
+                ['show_surface']
+            ])
+            def _(
+                show_xy      = checkbox(False, label="xy-trace (Parabola)"),
+                show_xz      = checkbox(False, label="xz-trace (Line)"),
+                show_yz      = checkbox(False, label="yz-trace (Line)"),
+                plane_xy     = checkbox(False, label="Plane z=0"),
+                plane_xz     = checkbox(False, label="Plane y=0"),
+                plane_yz     = checkbox(False, label="Plane x=0"),
+                show_surface = checkbox(True, label="Show Surface")
+            ):
+                # Initialize plot
+                P = Graphics()
 
-            axes = arrow3d((0,0,0), (L_x,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (-L_x,0,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,L_y,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,-L_y,0), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,L_z), color='black', width=1) + \
-                  arrow3d((0,0,0), (0,0,-L_z), color='black', width=1)
+                # --- 1. The Surface (Parabolic Cylinder) ---
+                if show_surface:
+                    P += parametric_plot3d(
+                        (u, u^2, v),
+                        (u, -x_limit, x_limit), (v, -h, h),
+                        color='teal', opacity=0.2, mesh=True, plot_points=[15, 10]
+                    )
 
-            lbl_axes = text3d("x", (L_x+0.2, 0, 0), color='black', fontsize=12) + \
-                      text3d("y", (0, L_y+0.5, 0), color='black', fontsize=12) + \
-                      text3d("z", (0, 0, L_z+0.5), color='black', fontsize=12)
+                # --- 2. The Traces ---
 
-            # Trace Labels
-            lbl_xy = text3d("xy (Parabola)", (2.5, 6.5, 0), color='red', fontweight='bold')
-            lbl_vert = text3d("xz and yz (Line)", (0, -1, h), color='black', fontweight='bold')
+                # xy-trace (z=0): Parabola y = x^2
+                if show_xy:
+                    P += parametric_plot3d(
+                        (t, t^2, 0), (t, -x_limit, x_limit),
+                        color='red', thickness=4
+                    )
+                    P += text3d("xy", (2.5, 6.25, 0), color='red', fontweight='bold')
 
-            # --- 5. Combine and Show ---
-            plot_objects = surface + trace_xy + trace_vertical + \
-                          axes + lbl_axes + lbl_xy + lbl_vert
+                # xz-trace (y=0): Intersection is x=0, y=0 (z-axis)
+                if show_xz:
+                    P += line3d([(0, 0, -h-1), (0, 0, h+1)], color='green', thickness=4)
+                    P += text3d("xz", (0.2, 0, h+1), color='green', fontweight='bold')
 
-            show(plot_objects, frame=False, aspect_ratio=1)
+                # yz-trace (x=0): Intersection is y=0, x=0 (z-axis)
+                if show_yz:
+                    # Slightly offset thickness or dashes could separate them visually, 
+                    # but here we just plot over the previous one.
+                    P += line3d([(0, 0, -h-1), (0, 0, h+1)], color='blue', thickness=4, linestyle="--")
+                    P += text3d("yz", (-0.2, 0, h+1), color='blue', fontweight='bold')
+
+                # --- 3. The Planes ---
+                
+                # Plane z=0 (Red tint) - The xy-plane
+                if plane_xy:
+                    P += plot3d(0, (x, -L_x, L_x), (y, -L_y, L_y), color='red', opacity=0.1)
+
+                # Plane y=0 (Green tint) - The xz-plane
+                if plane_xz:
+                    P += parametric_plot3d((u, 0, v), (u, -L_x, L_x), (v, -L_z, L_z), color='green', opacity=0.1)
+
+                # Plane x=0 (Blue tint) - The yz-plane
+                if plane_yz:
+                    P += parametric_plot3d((0, u, v), (u, -L_y, L_y), (v, -L_z, L_z), color='blue', opacity=0.1)
+
+                # --- 4. Axes and Labels ---
+                axes = arrow3d((0,0,0), (L_x,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (-L_x,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L_y,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,-L_y,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L_z), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,-L_z), color='black', width=1)
+
+                lbl_axes = text3d("x", (L_x+0.2, 0, 0), color='black', fontsize=12) + \
+                          text3d("y", (0, L_y+0.5, 0), color='black', fontsize=12) + \
+                          text3d("z", (0, 0, L_z+0.5), color='black', fontsize=12)
+
+                P += axes + lbl_axes
+
+                show(P, frame=False, aspect_ratio=1)
           </slate>
         </interactive>
       </sidebyside>
@@ -1842,7 +2154,7 @@
 
     <p>
       Observe that all these quadratic cylinders can be obtained by extending a conic section (circle, ellipse, hyperbola, or parabola) along an axis perpendicular to the plane containing the conic section. 
-      That is, there is nothing new or interesting going on in the third dimension for these surfaces. 
+      That is, there is nothing interesting going on in the third dimension for these surfaces. 
       Some people believe that the quadratic cylinders are essentially some degenerate cases of the quadric surfaces. 
     </p>
   </subsection>
