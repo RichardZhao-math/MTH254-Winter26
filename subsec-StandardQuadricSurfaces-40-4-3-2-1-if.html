@@ -104,11 +104,8 @@ window.MathJax = {
 <div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t, x, y')
 
 # --- Parameters ---
-# Equation: y = x^2
-x_limit = 2.5
-h = 4
-L_x = 4
-L_y = 7
+L_x = 12
+L_y = 12
 L_z = 5
 
 # Layout: 
@@ -116,67 +113,74 @@ L_z = 5
 # Row 2: The 3 Plane toggles
 # Row 3: The Surface toggle
 @interact(layout=[
-    ['show_xy', 'show_xz', 'show_yz'], 
-    ['plane_xy', 'plane_xz', 'plane_yz'],
+    ['show_xy', 'show_yz', 'show_xz'], 
+    ['plane_xy', 'plane_yz', 'plane_xz'],
     ['show_surface']
 ])
 def _(
-    show_xy      = checkbox(False, label="xy-trace (Parabola)"),
-    show_xz      = checkbox(False, label="xz-trace (Line)"),
-    show_yz      = checkbox(False, label="yz-trace (Line)"),
+    show_xy      = checkbox(False, label="xy-trace (z=0)"),
+    show_yz      = checkbox(False, label="yz-trace (x=0)"),
+    show_xz      = checkbox(False, label="xz-trace (y=0)"),
     plane_xy     = checkbox(False, label="Plane z=0"),
-    plane_xz     = checkbox(False, label="Plane y=0"),
     plane_yz     = checkbox(False, label="Plane x=0"),
+    plane_xz     = checkbox(False, label="Plane y=0"),
     show_surface = checkbox(True, label="Show Surface")
 ):
     # Initialize plot
     P = Graphics()
 
-    # --- 1. The Surface (Parabolic Cylinder) ---
+    # --- 1. The Surface (Hyperboloid of One Sheet along Y-axis) ---
     if show_surface:
         P += parametric_plot3d(
-            (u, u^2, v),
-            (u, -x_limit, x_limit), (v, -h, h),
-            color='teal', opacity=0.2, mesh=True, plot_points=[15, 10]
+            (3*cosh(u)*cos(v), 3*sinh(u), 1*cosh(u)*sin(v)),
+            (u, -2, 2), (v, 0, 2*pi),
+            color='teal', opacity=0.2, mesh=True, plot_points=[20, 20]
         )
 
     # --- 2. The Traces ---
 
-    # xy-trace (z=0): Parabola y = x^2
+    # xy-trace (z=0): Hyperbola
     if show_xy:
+        limit_t = 1.8
         P += parametric_plot3d(
-            (t, t^2, 0), (t, -x_limit, x_limit),
-            color='red', thickness=4
+            (3*cosh(t), 3*sinh(t), 0), (t, -limit_t, limit_t), color='red', thickness=4
+        ) + parametric_plot3d(
+            (-3*cosh(t), 3*sinh(t), 0), (t, -limit_t, limit_t), color='red', thickness=4
         )
-        P += text3d("xy", (2.5, 6.25, 0), color='red', fontweight='bold')
+        P += text3d("xy", (9, 9, 0), color='red', fontweight='bold')
 
-    # xz-trace (y=0): Intersection is x=0, y=0 (z-axis)
-    if show_xz:
-        P += line3d([(0, 0, -h-1), (0, 0, h+1)], color='green', thickness=4)
-        P += text3d("xz", (0.2, 0, h+1), color='green', fontweight='bold')
-
-    # yz-trace (x=0): Intersection is y=0, x=0 (z-axis)
+    # yz-trace (x=0): Hyperbola
     if show_yz:
-        # Slightly offset thickness or dashes could separate them visually, 
-        # but here we just plot over the previous one.
-        P += line3d([(0, 0, -h-1), (0, 0, h+1)], color='blue', thickness=4, linestyle="--")
-        P += text3d("yz", (-0.2, 0, h+1), color='blue', fontweight='bold')
+        limit_t = 1.8
+        P += parametric_plot3d(
+            (0, 3*sinh(t), cosh(t)), (t, -limit_t, limit_t), color='blue', thickness=4
+        ) + parametric_plot3d(
+            (0, 3*sinh(t), -cosh(t)), (t, -limit_t, limit_t), color='blue', thickness=4
+        )
+        P += text3d("yz", (0, 9, 4), color='blue', fontweight='bold')
+
+    # xz-trace (y=0): Ellipse
+    if show_xz:
+        P += parametric_plot3d(
+            (3*cos(t), 0, sin(t)), (t, 0, 2*pi), color='green', thickness=4
+        )
+        P += text3d("xz", (3.5, 0, 1.5), color='green', fontweight='bold')
 
     # --- 3. The Planes ---
     
-    # Plane z=0 (Red tint) - The xy-plane
+    # Plane z=0 (Red tint)
     if plane_xy:
         P += plot3d(0, (x, -L_x, L_x), (y, -L_y, L_y), color='red', opacity=0.1)
 
-    # Plane y=0 (Green tint) - The xz-plane
-    if plane_xz:
-        P += parametric_plot3d((u, 0, v), (u, -L_x, L_x), (v, -L_z, L_z), color='green', opacity=0.1)
-
-    # Plane x=0 (Blue tint) - The yz-plane
+    # Plane x=0 (Blue tint)
     if plane_yz:
         P += parametric_plot3d((0, u, v), (u, -L_y, L_y), (v, -L_z, L_z), color='blue', opacity=0.1)
 
-    # --- 4. Axes and Labels ---
+    # Plane y=0 (Green tint)
+    if plane_xz:
+        P += parametric_plot3d((u, 0, v), (u, -L_x, L_x), (v, -L_z, L_z), color='green', opacity=0.1)
+
+    # --- 4. Axes and Ticks (Static elements) ---
     axes = arrow3d((0,0,0), (L_x,0,0), color='black', width=1) + \
           arrow3d((0,0,0), (-L_x,0,0), color='black', width=1) + \
           arrow3d((0,0,0), (0,L_y,0), color='black', width=1) + \
@@ -184,11 +188,30 @@ def _(
           arrow3d((0,0,0), (0,0,L_z), color='black', width=1) + \
           arrow3d((0,0,0), (0,0,-L_z), color='black', width=1)
 
-    lbl_axes = text3d("x", (L_x+0.2, 0, 0), color='black', fontsize=12) + \
-              text3d("y", (0, L_y+0.5, 0), color='black', fontsize=12) + \
+    lbl_axes = text3d("x", (L_x+1, 0, 0), color='black', fontsize=12) + \
+              text3d("y", (0, L_y+1, 0), color='black', fontsize=12) + \
               text3d("z", (0, 0, L_z+0.5), color='black', fontsize=12)
 
-    P += axes + lbl_axes
+    # Custom tick function
+    def draw_tick(axis, val, size=0.4):
+        if axis == 'x':
+            obj = line3d([(val, -size, 0), (val, size, 0)], color='black', thickness=2)
+            lbl = text3d(str(val), (val, -size*4, 0), color='black', fontsize=10)
+        elif axis == 'y':
+            obj = line3d([(-size, val, 0), (size, val, 0)], color='black', thickness=2)
+            lbl = text3d(str(val), (size*4, val, 0), color='black', fontsize=10)
+        elif axis == 'z':
+            obj = line3d([(-size, 0, val), (size, 0, val)], color='black', thickness=2)
+            lbl = text3d(str(val), (size*4, 0, val), color='black', fontsize=10)
+        else:
+            return point3d((0,0,0), size=0)
+        return obj + lbl
+
+    ticks_x = sum([draw_tick('x', i) for i in [-10, -5, 5, 10]])
+    ticks_y = sum([draw_tick('y', i) for i in [-10, -5, 5, 10]])
+    ticks_z = sum([draw_tick('z', i) for i in [-4, -2, 2, 4]])
+
+    P += axes + lbl_axes + ticks_x + ticks_y + ticks_z
 
     show(P, frame=False, aspect_ratio=1)
 </script></pre></div>

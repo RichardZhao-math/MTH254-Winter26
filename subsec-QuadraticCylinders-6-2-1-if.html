@@ -101,61 +101,94 @@ window.MathJax = {
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t')
+<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t, x, y')
 
-# --- 1. Parameters ---
+# --- Parameters ---
 a = 2   # x-radius
 b = 3   # y-radius
 h = 4   # Half-height (plots from -h to h)
+L = 6   # Axis/Plane drawing length
 
-# --- 2. The Surface (Elliptic Cylinder) ---
-# Parametrization: x = a*cos(v), y = b*sin(v), z = u
-surface = parametric_plot3d(
-    (a*cos(v), b*sin(v), u),
-    (u, -h, h), (v, 0, 2*pi),
-    color='teal', opacity=0.2, mesh=True, plot_points=[10, 20]
-)
+# Layout: 
+# Row 1: The 3 Trace toggles
+# Row 2: The 3 Plane toggles
+# Row 3: The Surface toggle
+@interact(layout=[
+    ['show_xy', 'show_xz', 'show_yz'], 
+    ['plane_xy', 'plane_xz', 'plane_yz'],
+    ['show_surface']
+])
+def _(
+    show_xy      = checkbox(False, label="xy-trace (Ellipse)"),
+    show_xz      = checkbox(False, label="xz-trace (Lines)"),
+    show_yz      = checkbox(False, label="yz-trace (Lines)"),
+    plane_xy     = checkbox(False, label="Plane z=0"),
+    plane_xz     = checkbox(False, label="Plane y=0"),
+    plane_yz     = checkbox(False, label="Plane x=0"),
+    show_surface = checkbox(True, label="Show Surface")
+):
+    # Initialize plot
+    P = Graphics()
 
-# --- 3. The Traces ---
+    # --- 1. The Surface (Elliptic Cylinder) ---
+    if show_surface:
+        P += parametric_plot3d(
+            (a*cos(v), b*sin(v), u),
+            (u, -h, h), (v, 0, 2*pi),
+            color='teal', opacity=0.2, mesh=True, plot_points=[10, 20]
+        )
 
-# xy-trace (z=0): Ellipse x^2/a^2 + y^2/b^2 = 1
-trace_xy = parametric_plot3d(
-    (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
-    color='red', thickness=4
-)
+    # --- 2. The Traces ---
 
-# xz-trace (y=0): Lines x = +/- a
-trace_xz = line3d([(a, 0, -h-1), (a, 0, h+1)], color='green', thickness=4) + \
-          line3d([(-a, 0, -h-1), (-a, 0, h+1)], color='green', thickness=4)
+    # xy-trace (z=0): Ellipse x^2/a^2 + y^2/b^2 = 1
+    if show_xy:
+        P += parametric_plot3d(
+            (a*cos(t), b*sin(t), 0), (t, 0, 2*pi),
+            color='red', thickness=4
+        )
+        P += text3d("xy", (a+1, b+1, 0), color='red', fontweight='bold')
 
-# yz-trace (x=0): Lines y = +/- b
-trace_yz = line3d([(0, b, -h-1), (0, b, h+1)], color='blue', thickness=4) + \
-          line3d([(0, -b, -h-1), (0, -b, h+1)], color='blue', thickness=4)
+    # xz-trace (y=0): Lines x = +/- a
+    if show_xz:
+        P += line3d([(a, 0, -h-1), (a, 0, h+1)], color='green', thickness=4) + \
+            line3d([(-a, 0, -h-1), (-a, 0, h+1)], color='green', thickness=4)
+        P += text3d("xz", (a, 0, h+1.5), color='green', fontweight='bold')
 
-# --- 4. Axes and Labels ---
-L = h + 2 # Axis length
+    # yz-trace (x=0): Lines y = +/- b
+    if show_yz:
+        P += line3d([(0, b, -h-1), (0, b, h+1)], color='blue', thickness=4) + \
+            line3d([(0, -b, -h-1), (0, -b, h+1)], color='blue', thickness=4)
+        P += text3d("yz", (0, b, h+1.5), color='blue', fontweight='bold')
 
-axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
-      arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
-      arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
-      arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
-      arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
-      arrow3d((0,0,0), (0,0,-L), color='black', width=1)
+    # --- 3. The Planes ---
+    
+    # Plane z=0 (Red tint) - The xy-plane
+    if plane_xy:
+        P += plot3d(0, (x, -L, L), (y, -L, L), color='red', opacity=0.1)
 
-lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
-          text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
-          text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+    # Plane y=0 (Green tint) - The xz-plane
+    if plane_xz:
+        P += parametric_plot3d((u, 0, v), (u, -L, L), (v, -L, L), color='green', opacity=0.1)
 
-# Trace Labels
-lbl_xy = text3d("xy (Ellipse)", (a+1, b+1, 0), color='red', fontweight='bold')
-lbl_xz = text3d("xz (Lines)", (a, 0, h+1.5), color='green', fontweight='bold')
-lbl_yz = text3d("yz (Lines)", (0, b, h+1.5), color='blue', fontweight='bold')
+    # Plane x=0 (Blue tint) - The yz-plane
+    if plane_yz:
+        P += parametric_plot3d((0, u, v), (u, -L, L), (v, -L, L), color='blue', opacity=0.1)
 
-# --- 5. Combine and Show ---
-plot_objects = surface + trace_xy + trace_xz + trace_yz + \
-              axes + lbl_axes + lbl_xy + lbl_xz + lbl_yz
+    # --- 4. Axes and Labels ---
+    axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+          arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
+          arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+          arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
+          arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
+          arrow3d((0,0,0), (0,0,-L), color='black', width=1)
 
-show(plot_objects, frame=False, aspect_ratio=1)
+    lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
+              text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
+              text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+
+    P += axes + lbl_axes
+
+    show(P, frame=False, aspect_ratio=1)
 </script></pre></div>
 </body>
 </html>

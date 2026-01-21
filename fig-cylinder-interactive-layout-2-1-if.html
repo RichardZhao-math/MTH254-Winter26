@@ -101,84 +101,92 @@ window.MathJax = {
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="width:600px; height:600px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t, x, y')
+<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t, x, y')
 
-# --- 1. Parameters ---
-a = 2  # x-radius
-b = 3  # y-radius
-c = 5  # z-radius
+# --- Parameters ---
+r = 2   # Radius
+h = 4   # Half-height (plots from -h to h)
+L = 6   # Axis/Plane drawing length
 
-# Plane sizes (slightly larger than the ellipsoid)
-p_x = a + 1.5
-p_y = b + 1.5
-p_z = c + 1.5
-
-# --- 2. Interactive Layout ---
-# Row 1: Traces (Curves)
-# Row 2: Planes (Flat surfaces)
-# Row 3: The Ellipsoid itself
+# Layout: 
+# Row 1: The 3 Trace toggles
+# Row 2: The 3 Plane toggles
+# Row 3: The Surface toggle
 @interact(layout=[
-    ['show_trace_xy', 'show_trace_xz', 'show_trace_yz'], 
-    ['show_plane_xy', 'show_plane_xz', 'show_plane_yz'],
+    ['show_xy', 'show_xz', 'show_yz'], 
+    ['plane_xy', 'plane_xz', 'plane_yz'],
     ['show_surface']
 ])
 def _(
-    show_trace_xy = checkbox(False, label="xy-trace (Curve)"),
-    show_trace_xz = checkbox(False, label="xz-trace (Curve)"),
-    show_trace_yz = checkbox(False, label="yz-trace (Curve)"),
-    show_plane_xy = checkbox(False, label="xy-plane (z=0)"),
-    show_plane_xz = checkbox(False, label="xz-plane (y=0)"),
-    show_plane_yz = checkbox(False, label="yz-plane (x=0)"),
-    show_surface  = checkbox(True, label="Show Ellipsoid")
+    show_xy      = checkbox(False, label="xy-trace (Circle)"),
+    show_xz      = checkbox(False, label="xz-trace (Lines)"),
+    show_yz      = checkbox(False, label="yz-trace (Lines)"),
+    plane_xy     = checkbox(False, label="Plane z=0"),
+    plane_xz     = checkbox(False, label="Plane y=0"),
+    plane_yz     = checkbox(False, label="Plane x=0"),
+    show_surface = checkbox(True, label="Show Surface")
 ):
-    # --- Axes Setup ---
-    L_max = 6
-    P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
-        arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
-        arrow3d((0,0,0), (0,0,L_max), color='black', width=1)
-    
-    P += text3d("x", (L_max+0.2, 0, 0), color='black') + \
-        text3d("y", (0, L_max+0.2, 0), color='black') + \
-        text3d("z", (0, 0, L_max+0.2), color='black')
+    # Initialize plot
+    P = Graphics()
 
-    # --- 1. Surface (Ellipsoid) ---
+    # --- 1. The Surface (Cylinder) ---
     if show_surface:
         P += parametric_plot3d(
-            (a*cos(u)*sin(v), b*sin(u)*sin(v), c*cos(v)),
-            (u, 0, 2*pi), (v, 0, pi),
-            color='teal', opacity=0.3, mesh=True, plot_points=[20, 20]
+            (r*cos(v), r*sin(v), u),
+            (u, -h, h), (v, 0, 2*pi),
+            color='teal', opacity=0.2, mesh=True, plot_points=[10, 20]
         )
 
-    # --- 2. Traces (Curves) ---
-    if show_trace_xy:
-        P += parametric_plot3d((a*cos(t), b*sin(t), 0), (t, 0, 2*pi), color='red', thickness=4)
-        P += text3d("xy", (a+0.5, b+0.5, 0), color='red', fontweight='bold')
+    # --- 2. The Traces ---
 
-    if show_trace_xz:
-        P += parametric_plot3d((a*cos(t), 0, c*sin(t)), (t, 0, 2*pi), color='green', thickness=4)
-        P += text3d("xz", (a+0.5, 0, c+0.5), color='green', fontweight='bold')
+    # xy-trace (z=0): Circle x^2 + y^2 = r^2
+    if show_xy:
+        P += parametric_plot3d(
+            (r*cos(t), r*sin(t), 0), (t, 0, 2*pi),
+            color='red', thickness=4
+        )
+        P += text3d("xy", (r+1, r+1, 0), color='red', fontweight='bold')
 
-    if show_trace_yz:
-        P += parametric_plot3d((0, b*cos(t), c*sin(t)), (t, 0, 2*pi), color='blue', thickness=4)
-        P += text3d("yz", (0, b+0.5, c+0.5), color='blue', fontweight='bold')
+    # xz-trace (y=0): Lines x = +/- r
+    if show_xz:
+        P += line3d([(r, 0, -h-1), (r, 0, h+1)], color='green', thickness=4) + \
+            line3d([(-r, 0, -h-1), (-r, 0, h+1)], color='green', thickness=4)
+        P += text3d("xz", (r, 0, h+1.5), color='green', fontweight='bold')
 
-    # --- 3. Coordinate Planes (Rectangles) ---
-    # We use polygon3d to create transparent filled rectangles
-    alpha_plane = 0.2
+    # yz-trace (x=0): Lines y = +/- r
+    if show_yz:
+        P += line3d([(0, r, -h-1), (0, r, h+1)], color='blue', thickness=4) + \
+            line3d([(0, -r, -h-1), (0, -r, h+1)], color='blue', thickness=4)
+        P += text3d("yz", (0, r, h+1.5), color='blue', fontweight='bold')
 
-    if show_plane_xy:
-        # Plane z=0 (Red tint)
-        P += polygon3d([(-p_x, -p_y, 0), (p_x, -p_y, 0), (p_x, p_y, 0), (-p_x, p_y, 0)], color='red', opacity=alpha_plane)
+    # --- 3. The Planes ---
+    
+    # Plane z=0 (Red tint) - The xy-plane
+    if plane_xy:
+        P += plot3d(0, (x, -L, L), (y, -L, L), color='red', opacity=0.1)
 
-    if show_plane_xz:
-        # Plane y=0 (Green tint)
-        P += polygon3d([(-p_x, 0, -p_z), (p_x, 0, -p_z), (p_x, 0, p_z), (-p_x, 0, p_z)], color='green', opacity=alpha_plane)
+    # Plane y=0 (Green tint) - The xz-plane
+    if plane_xz:
+        P += parametric_plot3d((u, 0, v), (u, -L, L), (v, -L, L), color='green', opacity=0.1)
 
-    if show_plane_yz:
-        # Plane x=0 (Blue tint)
-        P += polygon3d([(0, -p_y, -p_z), (0, p_y, -p_z), (0, p_y, p_z), (0, -p_y, p_z)], color='blue', opacity=alpha_plane)
+    # Plane x=0 (Blue tint) - The yz-plane
+    if plane_yz:
+        P += parametric_plot3d((0, u, v), (u, -L, L), (v, -L, L), color='blue', opacity=0.1)
 
-    # --- Combine and Show ---
+    # --- 4. Axes and Labels ---
+    axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+          arrow3d((0,0,0), (-L,0,0), color='black', width=1) + \
+          arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+          arrow3d((0,0,0), (0,-L,0), color='black', width=1) + \
+          arrow3d((0,0,0), (0,0,L), color='black', width=1) + \
+          arrow3d((0,0,0), (0,0,-L), color='black', width=1)
+
+    lbl_axes = text3d("x", (L+0.5, 0, 0), color='black', fontsize=12) + \
+              text3d("y", (0, L+0.5, 0), color='black', fontsize=12) + \
+              text3d("z", (0, 0, L+0.5), color='black', fontsize=12)
+
+    P += axes + lbl_axes
+
     show(P, frame=False, aspect_ratio=1)
 </script></pre></div>
 </body>

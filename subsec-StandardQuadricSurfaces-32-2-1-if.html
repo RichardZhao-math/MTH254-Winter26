@@ -101,85 +101,106 @@ window.MathJax = {
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t')
+<div style="width:600px; height:600px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t, x, y')
 
 # --- 1. Parameters ---
-# Equation: z = (x/a)^2 + (y/b)^2
 a = 2
 b = 3
+k_val = 5  # Trace height
 
-# Trace height z = k
-k_val = 5
+# Plane Sizes
+p_x = 8
+p_y = 10
+p_z = 6
 
-# --- 2. Vertical Traces (Parabolas) ---
+# --- 2. Interactive Layout ---
+@interact(layout=[
+    ['show_trace_z', 'show_trace_xz', 'show_trace_yz'], 
+    ['show_plane_z', 'show_plane_xz', 'show_plane_yz'],
+    ['show_surface']
+])
+def _(
+    # Traces
+    show_trace_z  = checkbox(False, label="z = k (Ellipse)"),
+    show_trace_xz = checkbox(False, label="xz-trace (Parabola)"),
+    show_trace_yz = checkbox(False, label="yz-trace (Parabola)"),
+    
+    # Planes
+    show_plane_z  = checkbox(False, label="z = k plane"),
+    show_plane_xz = checkbox(False, label="xz-plane (y=0)"),
+    show_plane_yz = checkbox(False, label="yz-plane (x=0)"),
+    
+    # Surface
+    show_surface  = checkbox(True, label="Show Paraboloid")
+):
+    # --- Axes Setup ---
+    L_max = 10
+    P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+        arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+        arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+        arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+        arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+        arrow3d((0,0,0), (0,0,-1), color='black', width=1)
+    
+    P += text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
+        text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
+        text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
 
-# XZ Trace (y=0): z = (x/a)^2
-# We plot this from negative to positive x to show the full curve
-# Range: let x go from -a*sqrt(k) to a*sqrt(k) (approx -4.5 to 4.5)
-limit_x = a * sqrt(k_val) + 0.5
-trace_xz = parametric_plot3d(
-    (t, 0, (t/a)^2), (t, -limit_x, limit_x), 
-    color='green', thickness=4
-)
+    # --- 1. Surface ---
+    if show_surface:
+        max_u = sqrt(k_val)
+        P += parametric_plot3d(
+            (a*u*cos(v), b*u*sin(v), u^2),
+            (u, 0, max_u), (v, 0, 2*pi),
+            color='teal', opacity=0.3, mesh=True, plot_points=[15, 20]
+        )
 
-# YZ Trace (x=0): z = (y/b)^2
-limit_y = b * sqrt(k_val) + 0.5
-trace_yz = parametric_plot3d(
-    (0, t, (t/b)^2), (t, -limit_y, limit_y), 
-    color='blue', thickness=4
-)
+    # --- 2. Traces ---
+    
+    # Horizontal Trace (Ellipse at z = k)
+    if show_trace_z:
+        A = a * sqrt(k_val)
+        B = b * sqrt(k_val)
+        P += parametric_plot3d(
+            (A*cos(t), B*sin(t), k_val), (t, 0, 2*pi),
+            color='red', thickness=4
+        )
+        P += text3d("z=k", (A+1, B+1, k_val), color='red', fontweight='bold')
 
+    # XZ Trace (y=0): Parabola z = (x/a)^2
+    if show_trace_xz:
+        limit_x = a * sqrt(k_val) + 0.5
+        P += parametric_plot3d(
+            (t, 0, (t/a)^2), (t, -limit_x, limit_x), 
+            color='green', thickness=4
+        )
+        P += text3d("xz", (limit_x, 0, k_val), color='green', fontweight='bold')
 
-# --- 3. Horizontal Trace (Ellipse) at z = k ---
-# At z = k: (x/a)^2 + (y/b)^2 = k
-# This is an ellipse with radii: A = a*sqrt(k), B = b*sqrt(k)
-A = a * sqrt(k_val)
-B = b * sqrt(k_val)
+    # YZ Trace (x=0): Parabola z = (y/b)^2
+    if show_trace_yz:
+        limit_y = b * sqrt(k_val) + 0.5
+        P += parametric_plot3d(
+            (0, t, (t/b)^2), (t, -limit_y, limit_y), 
+            color='blue', thickness=4
+        )
+        P += text3d("yz", (0, limit_y, k_val), color='blue', fontweight='bold')
 
-trace_z = parametric_plot3d(
-    (A*cos(t), B*sin(t), k_val), (t, 0, 2*pi),
-    color='red', thickness=4
-)
+    # --- 3. Planes ---
+    alpha_plane = 0.2
 
+    if show_plane_z:
+        # z=k (Red tint)
+        P += polygon3d([(-p_x, -p_y, k_val), (p_x, -p_y, k_val), (p_x, p_y, k_val), (-p_x, p_y, k_val)], color='red', opacity=alpha_plane)
 
-# --- 4. The Mesh Surface (Paraboloid) ---
-# Parametrization: x = a*u*cos(v), y = b*u*sin(v), z = u^2
-# u goes from 0 to sqrt(k_val) (roughly 2.24)
-max_u = sqrt(k_val)
+    if show_plane_xz:
+        # y=0 (Green tint)
+        P += polygon3d([(-p_x, 0, 0), (p_x, 0, 0), (p_x, 0, p_z), (-p_x, 0, p_z)], color='green', opacity=alpha_plane)
 
-surface = parametric_plot3d(
-    (a*u*cos(v), b*u*sin(v), u^2),
-    (u, 0, max_u), (v, 0, 2*pi),
-    color='gray', opacity=0.2, mesh=True, plot_points=[15, 20]
-)
+    if show_plane_yz:
+        # x=0 (Blue tint)
+        P += polygon3d([(0, -p_y, 0), (0, p_y, 0), (0, p_y, p_z), (0, -p_y, p_z)], color='blue', opacity=alpha_plane)
 
-
-# --- 5. Labels and Axes ---
-# Position labels well outside the surface
-lbl_xz = text3d("xz (Parabola)", (limit_x + 2, 0, k_val), color='green', fontweight='bold')
-lbl_yz = text3d("yz (Parabola)", (0, limit_y + 2, k_val), color='blue', fontweight='bold')
-lbl_z  = text3d("z = k (Ellipse)", (A + 1, B + 1, k_val), color='red', fontweight='bold')
-
-# Standard Axes (width=1)
-L_max = 10
-axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
-      arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
-      arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
-      arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
-      arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
-      arrow3d((0,0,0), (0,0,-1), color='black', width=1) # Short negative z axis
-
-lbl_axes = text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
-          text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
-          text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
-
-# --- 6. Combine ---
-plot_objects = trace_xz + trace_yz + trace_z + \
-              surface + \
-              lbl_xz + lbl_yz + lbl_z + \
-              axes + lbl_axes
-
-show(plot_objects, frame=False, aspect_ratio=1)
+    show(P, frame=False, aspect_ratio=1)
 </script></pre></div>
 </body>
 </html>

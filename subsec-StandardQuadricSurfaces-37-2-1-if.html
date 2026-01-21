@@ -103,39 +103,44 @@ window.MathJax = {
 \)</span></div>
 <div style="width:600px; height:600px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t, x, y')
 
-# --- 1. Parameters ---
+# --- Parameters ---
 a = 2
 b = 3
-c = 2 
-k_val = 5  # Height for horizontal cuts
+k_val = 2 
 
-# Plane Sizes
-p_x = 8
-p_y = 10
-p_z = 8
+# Bounds for the surface
+surf_x = 4
+surf_y = 6
 
-# --- 2. Interactive Layout ---
+# Bounds for the traces
+trace_x_limit = 5.5
+trace_y_limit = 7.5
+
+# Bounds for the coordinate planes (made slightly larger to look "infinite")
+plane_L = 8
+
+# We use the 'layout' parameter to define the grid of controls.
+# Row 1: The 4 trace toggles
+# Row 2: The 4 plane toggles
+# Row 3: The surface toggle
 @interact(layout=[
-    ['show_trace_z', 'show_trace_xz', 'show_trace_yz'], 
-    ['show_plane_z', 'show_plane_xz', 'show_plane_yz'],
+    ['show_xz', 'show_yz', 'show_z_pos', 'show_z_neg'], 
+    ['plane_xz', 'plane_yz', 'plane_z_pos', 'plane_z_neg'],
     ['show_surface']
 ])
 def _(
-    # Traces
-    show_trace_z  = checkbox(False, label="z = +/- k (Ellipses)"),
-    show_trace_xz = checkbox(False, label="xz-trace (Lines)"),
-    show_trace_yz = checkbox(False, label="yz-trace (Lines)"),
-    
-    # Planes
-    show_plane_z  = checkbox(False, label="z = +/- k planes"),
-    show_plane_xz = checkbox(False, label="xz-plane (y=0)"),
-    show_plane_yz = checkbox(False, label="yz-plane (x=0)"),
-    
-    # Surface
-    show_surface  = checkbox(True, label="Show Cone")
+    show_xz      = checkbox(False, label="Trace xz (Green)"),
+    show_yz      = checkbox(False, label="Trace yz (Blue)"),
+    show_z_pos   = checkbox(False, label="Trace z=k (Red)"),
+    show_z_neg   = checkbox(False, label="Trace z=-k (Red)"),
+    plane_xz     = checkbox(False, label="Plane y=0"),
+    plane_yz     = checkbox(False, label="Plane x=0"),
+    plane_z_pos  = checkbox(False, label="Plane z=k"),
+    plane_z_neg  = checkbox(False, label="Plane z=-k"),
+    show_surface = checkbox(True, label="Show Surface Mesh")
 ):
-    # --- Axes Setup ---
-    L_max = 8
+    # Initialize the plot with axes (always visible)
+    L_max = 9
     P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
         arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
         arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
@@ -143,72 +148,78 @@ def _(
         arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
         arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
     
-    P += text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
-        text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
-        text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
+    P += text3d("x", (L_max+1, 0, 0), color='black') + \
+        text3d("y", (0, L_max+1, 0), color='black') + \
+        text3d("z", (0, 0, L_max+1), color='black')
 
     # --- 1. Surface ---
     if show_surface:
-        # Upper Cone
-        P += parametric_plot3d(
-            (a*u*cos(v), b*u*sin(v), c*u),
-            (u, 0, 3.5), (v, 0, 2*pi),
-            color='teal', opacity=0.3, mesh=True, plot_points=[10, 20]
-        )
-        # Lower Cone
-        P += parametric_plot3d(
-            (a*u*cos(v), b*u*sin(v), -c*u),
-            (u, 0, 3.5), (v, 0, 2*pi),
-            color='teal', opacity=0.3, mesh=True, plot_points=[10, 20]
+        P += plot3d(
+            (x/a)^2 - (y/b)^2, (x, -surf_x, surf_x), (y, -surf_y, surf_y),
+            color='gray', opacity=0.2, mesh=True, plot_points=[15, 15]
         )
 
-    # --- 2. Traces ---
+    # --- 2. XZ Trace (Parabola Up) ---
+    if show_xz:
+        P += parametric_plot3d(
+            (t, 0, (t/a)^2), (t, -trace_x_limit, trace_x_limit), 
+            color='green', thickness=4
+        )
+        z_tip_x = (trace_x_limit/a)^2
+        P += text3d("xz", (trace_x_limit, 0, z_tip_x + 1), color='green', fontweight='bold')
     
-    # Horizontal Traces (Ellipses at z = +/- k)
-    if show_trace_z:
-        R = k_val / c
-        # Top Ellipse
+    # --- 2b. XZ Plane (y=0) ---
+    if plane_xz:
         P += parametric_plot3d(
-            (a*R*cos(t), b*R*sin(t), k_val), (t, 0, 2*pi),
-            color='red', thickness=4
+            (u, 0, v), (u, -plane_L, plane_L), (v, -2, plane_L),
+            color='green', opacity=0.1
         )
-        # Bottom Ellipse
+
+    # --- 3. YZ Trace (Parabola Down) ---
+    if show_yz:
         P += parametric_plot3d(
-            (a*R*cos(t), b*R*sin(t), -k_val), (t, 0, 2*pi),
-            color='red', thickness=4
+            (0, t, -(t/b)^2), (t, -trace_y_limit, trace_y_limit), 
+            color='blue', thickness=4
         )
-        P += text3d("z=k", (a*R+1, b*R+1, k_val), color='red', fontweight='bold')
+        z_tip_y = -(trace_y_limit/b)^2
+        P += text3d("yz", (0, trace_y_limit, z_tip_y - 1), color='blue', fontweight='bold')
 
-    # XZ Trace (y=0): Lines z = +/- (c/a)x
-    if show_trace_xz:
-        L_line = 6
-        P += line3d([(-L_line, 0, -L_line*(c/a)), (L_line, 0, L_line*(c/a))], color='green', thickness=4)
-        P += line3d([(-L_line, 0, L_line*(c/a)), (L_line, 0, -L_line*(c/a))], color='green', thickness=4)
-        P += text3d("xz", (a+4, 0, c+2), color='green', fontweight='bold')
+    # --- 3b. YZ Plane (x=0) ---
+    if plane_yz:
+        P += parametric_plot3d(
+            (0, u, v), (u, -plane_L, plane_L), (v, -plane_L, 2),
+            color='blue', opacity=0.1
+        )
 
-    # YZ Trace (x=0): Lines z = +/- (c/b)y
-    if show_trace_yz:
-        L_line = 6
-        P += line3d([(0, -L_line, -L_line*(c/b)), (0, L_line, L_line*(c/b))], color='blue', thickness=4)
-        P += line3d([(0, -L_line, L_line*(c/b)), (0, L_line, -L_line*(c/b))], color='blue', thickness=4)
-        P += text3d("yz", (0, b+4, c+2), color='blue', fontweight='bold')
+    # --- 4. Z=k Trace (Hyperbola along X) ---
+    if show_z_pos:
+        Ak = a * sqrt(k_val)
+        Bk = b * sqrt(k_val)
+        P += parametric_plot3d(
+            (Ak*cosh(t), Bk*sinh(t), k_val), (t, -1.5, 1.5), color='red', thickness=4
+        ) + parametric_plot3d(
+            (-Ak*cosh(t), Bk*sinh(t), k_val), (t, -1.5, 1.5), color='red', thickness=4
+        )
+        P += text3d("z=k", (Ak+1, Bk, k_val), color='red', fontweight='bold')
 
-    # --- 3. Planes ---
-    alpha_plane = 0.2
+    # --- 4b. Z=k Plane ---
+    if plane_z_pos:
+        P += plot3d(k_val, (x, -plane_L, plane_L), (y, -plane_L, plane_L), color='red', opacity=0.1)
 
-    if show_plane_z:
-        # z=k (Red tint)
-        P += polygon3d([(-p_x, -p_y, k_val), (p_x, -p_y, k_val), (p_x, p_y, k_val), (-p_x, p_y, k_val)], color='red', opacity=alpha_plane)
-        # z=-k (Red tint)
-        P += polygon3d([(-p_x, -p_y, -k_val), (p_x, -p_y, -k_val), (p_x, p_y, -k_val), (-p_x, p_y, -k_val)], color='red', opacity=alpha_plane)
-
-    if show_plane_xz:
-        # y=0 (Green tint)
-        P += polygon3d([(-p_x, 0, -p_z), (p_x, 0, -p_z), (p_x, 0, p_z), (-p_x, 0, p_z)], color='green', opacity=alpha_plane)
-
-    if show_plane_yz:
-        # x=0 (Blue tint)
-        P += polygon3d([(0, -p_y, -p_z), (0, p_y, -p_z), (0, p_y, p_z), (0, -p_y, p_z)], color='blue', opacity=alpha_plane)
+    # --- 5. Z=-k Trace (Hyperbola along Y) ---
+    if show_z_neg:
+        Ak = a * sqrt(k_val)
+        Bk = b * sqrt(k_val)
+        P += parametric_plot3d(
+            (Ak*sinh(t), Bk*cosh(t), -k_val), (t, -1.5, 1.5), color='red', thickness=4
+        ) + parametric_plot3d(
+            (Ak*sinh(t), -Bk*cosh(t), -k_val), (t, -1.5, 1.5), color='red', thickness=4
+        )
+        P += text3d("z=-k", (Ak, Bk+3, -k_val), color='red', fontweight='bold')
+    
+    # --- 5b. Z=-k Plane ---
+    if plane_z_neg:
+        P += plot3d(-k_val, (x, -plane_L, plane_L), (y, -plane_L, plane_L), color='red', opacity=0.1)
 
     show(P, frame=False, aspect_ratio=1)
 </script></pre></div>

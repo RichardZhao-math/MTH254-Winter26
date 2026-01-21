@@ -101,94 +101,123 @@ window.MathJax = {
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t')
+<div style="width:600px; height:600px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v, t, x, y')
 
 # --- 1. Parameters ---
-# Equation: (z/c)^2 - (x/a)^2 - (y/b)^2 = 1
-# Changed b to 3 so a != b (Ellipses, not circles)
 a = 2
 b = 3
 c = 2 
+k_val = 5  # Height for horizontal cuts
 
-# Trace height z = k. 
-# Must be > c. Since we make sheets deeper, we can place k higher up.
-k_val = 5
+# Plane Sizes
+p_x = 8
+p_y = 10
+p_z = 8
 
-# --- 2. Vertical Traces (Hyperbolas) ---
+# --- 2. Interactive Layout ---
+# Row 1: Traces (Curves) - Note the first one is z = +/- k
+# Row 2: Planes (Rectangles) - Note the first one is z = +/- k
+# Row 3: Surface
+@interact(layout=[
+    ['show_trace_z', 'show_trace_xz', 'show_trace_yz'], 
+    ['show_plane_z', 'show_plane_xz', 'show_plane_yz'],
+    ['show_surface']
+])
+def _(
+    # Traces
+    show_trace_z  = checkbox(False, label="z = +/- k (Ellipses)"),
+    show_trace_xz = checkbox(False, label="xz-trace (Hyperbolas)"),
+    show_trace_yz = checkbox(False, label="yz-trace (Hyperbolas)"),
+    
+    # Planes
+    show_plane_z  = checkbox(False, label="z = +/- k planes"),
+    show_plane_xz = checkbox(False, label="xz-plane (y=0)"),
+    show_plane_yz = checkbox(False, label="yz-plane (x=0)"),
+    
+    # Surface
+    show_surface  = checkbox(True, label="Show Hyperboloid")
+):
+    # --- Axes Setup ---
+    L_max = 10
+    P = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
+        arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
+        arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
+        arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
+        arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
+        arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
+    
+    P += text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
+        text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
+        text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
 
-# XZ Trace (y=0): z^2/c^2 - x^2/a^2 = 1
-# Param: z = +/- c*cosh(t), x = a*sinh(t)
-trace_xz = parametric_plot3d((a*sinh(t), 0, c*cosh(t)), (t, -2.2, 2.2), color='green', thickness=4) + \
-          parametric_plot3d((a*sinh(t), 0, -c*cosh(t)), (t, -2.2, 2.2), color='green', thickness=4)
+    # --- 1. Surface ---
+    if show_surface:
+        # Upper Sheet
+        P += parametric_plot3d(
+            (a*sinh(u)*cos(v), b*sinh(u)*sin(v), c*cosh(u)),
+            (u, 0, 1.8), (v, 0, 2*pi),
+            color='teal', opacity=0.3, mesh=True, plot_points=[15, 20]
+        )
+        # Lower Sheet
+        P += parametric_plot3d(
+            (a*sinh(u)*cos(v), b*sinh(u)*sin(v), -c*cosh(u)),
+            (u, 0, 1.8), (v, 0, 2*pi),
+            color='teal', opacity=0.3, mesh=True, plot_points=[15, 20]
+        )
 
-# YZ Trace (x=0): z^2/c^2 - y^2/b^2 = 1
-# Param: z = +/- c*cosh(t), y = b*sinh(t)
-trace_yz = parametric_plot3d((0, b*sinh(t), c*cosh(t)), (t, -2.2, 2.2), color='blue', thickness=4) + \
-          parametric_plot3d((0, b*sinh(t), -c*cosh(t)), (t, -2.2, 2.2), color='blue', thickness=4)
+    # --- 2. Traces (Curves) ---
+    
+    # Horizontal Traces (Ellipses at z = +/- k)
+    if show_trace_z:
+        R = sqrt((k_val/c)^2 - 1)
+        # Top Ellipse
+        P += parametric_plot3d(
+            (a*R*cos(t), b*R*sin(t), k_val), (t, 0, 2*pi),
+            color='red', thickness=4
+        )
+        # Bottom Ellipse
+        P += parametric_plot3d(
+            (a*R*cos(t), b*R*sin(t), -k_val), (t, 0, 2*pi),
+            color='red', thickness=4
+        )
+        P += text3d("z=k", (a*R+1, b*R+1, k_val), color='red', fontweight='bold')
 
+    # XZ Trace (y=0): Hyperbolas
+    if show_trace_xz:
+        P += parametric_plot3d(
+            (a*sinh(t), 0, c*cosh(t)), (t, -2.2, 2.2), color='green', thickness=4
+        ) + parametric_plot3d(
+            (a*sinh(t), 0, -c*cosh(t)), (t, -2.2, 2.2), color='green', thickness=4
+        )
+        P += text3d("xz", (a+4, 0, c+1), color='green', fontweight='bold')
 
-# --- 3. Horizontal Traces (Ellipses) at z = +/- k ---
-# At z = k: x^2/a^2 + y^2/b^2 = (k/c)^2 - 1
-# Radius factor R
-R = sqrt((k_val/c)^2 - 1)
+    # YZ Trace (x=0): Hyperbolas
+    if show_trace_yz:
+        P += parametric_plot3d(
+            (0, b*sinh(t), c*cosh(t)), (t, -2.2, 2.2), color='blue', thickness=4
+        ) + parametric_plot3d(
+            (0, b*sinh(t), -c*cosh(t)), (t, -2.2, 2.2), color='blue', thickness=4
+        )
+        P += text3d("yz", (0, b+4, c+1), color='blue', fontweight='bold')
 
-# Top Ellipse (z = k)
-trace_z_top = parametric_plot3d(
-    (a*R*cos(t), b*R*sin(t), k_val), (t, 0, 2*pi),
-    color='red', thickness=4
-)
+    # --- 3. Planes (Rectangles) ---
+    alpha_plane = 0.2
 
-# Bottom Ellipse (z = -k)
-trace_z_bot = parametric_plot3d(
-    (a*R*cos(t), b*R*sin(t), -k_val), (t, 0, 2*pi),
-    color='red', thickness=4
-)
+    if show_plane_z:
+        # Plane z=k (Red tint)
+        P += polygon3d([(-p_x, -p_y, k_val), (p_x, -p_y, k_val), (p_x, p_y, k_val), (-p_x, p_y, k_val)], color='red', opacity=alpha_plane)
+        # Plane z=-k (Red tint)
+        P += polygon3d([(-p_x, -p_y, -k_val), (p_x, -p_y, -k_val), (p_x, p_y, -k_val), (-p_x, p_y, -k_val)], color='red', opacity=alpha_plane)
 
+    if show_plane_xz:
+        # Plane y=0 (Green tint)
+        P += polygon3d([(-p_x, 0, -p_z), (p_x, 0, -p_z), (p_x, 0, p_z), (-p_x, 0, p_z)], color='green', opacity=alpha_plane)
 
-# --- 4. The Mesh Surface (Two Sheets) ---
-# Increased u max from 1.3 to 1.8 for "deeper" sheets
-sheet_top = parametric_plot3d(
-    (a*sinh(u)*cos(v), b*sinh(u)*sin(v), c*cosh(u)),
-    (u, 0, 1.8), (v, 0, 2*pi),
-    color='gray', opacity=0.2, mesh=True, plot_points=[15, 20]
-)
+    if show_plane_yz:
+        # Plane x=0 (Blue tint)
+        P += polygon3d([(0, -p_y, -p_z), (0, p_y, -p_z), (0, p_y, p_z), (0, -p_y, p_z)], color='blue', opacity=alpha_plane)
 
-# Lower Sheet
-sheet_bot = parametric_plot3d(
-    (a*sinh(u)*cos(v), b*sinh(u)*sin(v), -c*cosh(u)),
-    (u, 0, 1.8), (v, 0, 2*pi),
-    color='gray', opacity=0.2, mesh=True, plot_points=[15, 20]
-)
-
-
-# --- 5. Labels and Axes ---
-lbl_xz = text3d("xz (Hyperbola)", (a+4, 0, c+1), color='green', fontweight='bold')
-lbl_yz = text3d("yz (Hyperbola)", (0, b+4, c+1), color='blue', fontweight='bold')
-
-lbl_z  = text3d("z = k (Ellipse)", (a+3, b+2, k_val), color='red', fontweight='bold')
-lbl_z2 = text3d("z = -k (Ellipse)", (a+3, b+2, -k_val), color='red', fontweight='bold')
-
-# Standard Axes (width=1)
-# Increased Length to 10 to accomodate deeper sheets
-L_max = 10
-axes = arrow3d((0,0,0), (L_max,0,0), color='black', width=1) + \
-      arrow3d((0,0,0), (-L_max,0,0), color='black', width=1) + \
-      arrow3d((0,0,0), (0,L_max,0), color='black', width=1) + \
-      arrow3d((0,0,0), (0,-L_max,0), color='black', width=1) + \
-      arrow3d((0,0,0), (0,0,L_max), color='black', width=1) + \
-      arrow3d((0,0,0), (0,0,-L_max), color='black', width=1)
-
-lbl_axes = text3d("x", (L_max+1, 0, 0), color='black', fontsize=12) + \
-          text3d("y", (0, L_max+1, 0), color='black', fontsize=12) + \
-          text3d("z", (0, 0, L_max+1), color='black', fontsize=12)
-
-# --- 6. Combine ---
-plot_objects = trace_xz + trace_yz + trace_z_top + trace_z_bot + \
-              sheet_top + sheet_bot + \
-              lbl_xz + lbl_yz + lbl_z + lbl_z2 + \
-              axes + lbl_axes
-
-show(plot_objects, frame=False, aspect_ratio=1)
+    show(P, frame=False, aspect_ratio=1)
 </script></pre></div>
 </body>
 </html>
