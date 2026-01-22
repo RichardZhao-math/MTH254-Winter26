@@ -681,12 +681,38 @@
       <p>
         Write the equation of the plane with normal vector <m>\v{n} = \la -1,2,1 \ra</m> passing through the point <m>\lp 4,1,5 \rp</m> in the scalar form <m>ax + by + cz = d</m>. 
       </p>
+
+      <solution>
+        <p>
+          The vector equation is
+          <me>
+            \la-1,2,1\ra\cdot\la x_0,y_0,z_0\ra=\la-1,2,1\ra\cdot\la 4,1,5\ra=-4+2+5=3
+          </me>
+          To obtain the scalar form we compute the dot product on the left-hand side above. 
+          <me>
+            -x+2y+z=3
+          </me>
+          or in the other scalar form. 
+          <me>
+            -(x-4)+2(y-1)+(z-5)=0
+          </me>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.5.15">
       <p>
         Find a vector normal to the plane <m>3(x - 4) - 8(y - 1) + 11z = 0</m>. 
       </p>
+
+      <solution>
+        <p>
+          Using the scalar form of the equation of the plane, <m>3x-8y+11z=4</m>, a vector normal to the plane is the coefficients vector
+          <me>
+            \v{n}=\la3,-8,11\ra
+          </me>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.5.23">
@@ -712,18 +738,138 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+                We look for an intersection point by setting the components equal. 
+                Be careful to use different parameters for the two lines, say <m>t</m> for <m>\v{r}_1</m> and <m>s</m> for <m>\v{r}_2</m>.
+                <md>
+                  <mrow> x: \quad t \amp= 4 </mrow>
+                  <mrow> y: \quad 2t - 1 \amp= 2s - 1 </mrow>
+                  <mrow> z: \quad t - 3 \amp= -1 </mrow>
+                </md>
+                From the first equation, <m>t=4</m>. 
+                However, from the third equation, <m>t - 3 = -1 \implies t = 2</m>. 
+                Since <m>t</m> cannot be both 4 and 2, there is no solution.
+                The lines do not intersect (and their direction vectors <m>\la 1,2,1 \ra</m> and <m>\la 0,2,0 \ra</m> are not parallel).
+                Thus, they are skew lines and there is no single plane containing both.
+              </p>
+            </li>
+            <li>
+              <p>
+                Again, we set the components equal using parameters <m>t</m> and <m>s</m>.
+                <md>
+                  <mrow> x: \quad 3t \amp= 4s </mrow>
+                  <mrow> y: \quad 2t + 1 \amp= 4s - 3 </mrow>
+                  <mrow> z: \quad t - 5 \amp= -1 </mrow>
+                </md>
+                From the third equation, <m>t = 4</m>.
+                Plugging <m>t=4</m> into the first equation: <m>3(4) = 4s \implies 12 = 4s \implies s = 3</m>.
+                Now we check if these values satisfy the second equation (the y-coordinate):
+                <md>
+                  <mrow> \text{LHS: } 2(4) + 1 = 9 </mrow>
+                  <mrow> \text{RHS: } 4(3) - 3 = 9 </mrow>
+                </md>
+                They match! The lines intersect at the point derived from <m>t=4</m>:
+                <me> P = (3(4), 2(4)+1, 4-5) = (12, 9, -1) </me>
+              </p>
+              <p>
+                Since the lines intersect, they define a plane. 
+                The normal vector <m>\v{n}</m> is the cross product of the direction vectors <m>\v{v}_1 = \la 3, 2, 1 \ra</m> and <m>\v{v}_2 = \la 4, 4, 0 \ra</m>.
+                <md>
+                   <mrow>
+                     \v{n} = \v{v}_1 \times \v{v}_2 \amp = \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 3 \amp 2 \amp 1 \\ 4 \amp 4 \amp 0 \end{vmatrix}
+                   </mrow>
+                   <mrow> \amp = \v{i}(0-4) - \v{j}(0-4) + \v{k}(12-8) </mrow>
+                   <mrow> \amp = \la -4, 4, 4 \ra </mrow>
+                </md>
+                We can simplify this normal vector by dividing by -4 to get <m>\v{n} = \la 1, -1, -1 \ra</m>.
+                Using the intersection point <m>(12, 9, -1)</m>, the equation of the plane is:
+                <md>
+                  <mrow> 1(x - 12) - 1(y - 9) - 1(z - (-1)) \amp= 0 </mrow>
+                  <mrow> x - 12 - y + 9 - z - 1 \amp= 0 </mrow>
+                  <mrow> x - y - z \amp= 4 </mrow>
+                </md>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.5.33">
       <p>
         Draw the plane given by the equation <m>x + y + z = 4</m>. 
       </p>
+
+      <solution>
+        <p>
+          To draw the plane, we find the intercepts where the plane crosses the coordinate axes.
+          <ul>
+            <li><alert>x-intercept:</alert> Set <m>y=0, z=0</m>. <m>x = 4</m>. Point <m>(4,0,0)</m>.</li>
+            <li><alert>y-intercept:</alert> Set <m>x=0, z=0</m>. <m>y = 4</m>. Point <m>(0,4,0)</m>.</li>
+            <li><alert>z-intercept:</alert> Set <m>x=0, y=0</m>. <m>z = 4</m>. Point <m>(0,0,4)</m>.</li>
+          </ul>
+          The traces form a triangle connecting these three points.
+        </p>
+        <figure>
+          <caption>Plane <m>x + y + z = 4</m> with traces</caption>
+          <sidebyside width="80%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('x,y')
+              # Intercepts
+              Ix = (4,0,0); Iy = (0,4,0); Iz = (0,0,4)
+              
+              # The Plane z = 4 - x - y
+              plane_plot = plot3d(4-x-y, (x, 0, 4), (y, 0, 4), color='green', opacity=0.3)
+              
+              # The Traces
+              xy_trace = line3d([Ix, Iy], color='red', thickness=3)
+              yz_trace = line3d([Iy, Iz], color='red', thickness=3)
+              xz_trace = line3d([Ix, Iz], color='red', thickness=3)
+              
+              # Axes
+              axes = arrow3d((0,0,0), (5,0,0), color='black') + \
+                     arrow3d((0,0,0), (0,5,0), color='black') + \
+                     arrow3d((0,0,0), (0,0,5), color='black')
+              labels = text3d("x", (5.2,0,0)) + text3d("y", (0,5.2,0)) + text3d("z", (0,0,5.2))
+              
+              show(plane_plot + xy_trace + yz_trace + xz_trace + axes + labels, frame=False)
+            </slate>
+          </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
     </exercise>
 
     <exercise number="12.5.41">
       <p>
         Find the intersection of the line <m>\v{r}(t) = \la 1,1,0 \ra + t \la 0,2,4 \ra</m> and the plane <m>x + y + z = 14</m>. 
       </p>
+
+      <solution>
+        <p>
+          The line has parametric equations
+          <me>
+            x(t)=1, \qquad y(t)=1+2t, \qquad z(t)=4t
+          </me>
+          To find a value of <m>t</m> for which <m>(x,y,z)</m> lies on the plane, we substitute the parametric equations in the equation of the plane and solve for <m>t</m>. 
+          <md>
+            <mrow>x+y+z \amp = 14</mrow>
+            <mrow>1+(1+2t)+4t \amp = 14</mrow>
+            <mrow>6t \amp = 12 \qquad \implies \qquad t=2</mrow>
+          </md>
+          The point <m>P</m> of intersection has coordinates
+          <me>
+            x(2)=1, \qquad y(2)=1+2\cdot2=5, \qquad z(2)=4\cdot2=8
+          </me>
+          That is, <m>P=(1,5,8)</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.5.59">
@@ -739,12 +885,58 @@
       <p>
         Compute the angle between the two planes <m>2x + 3y + 7z = 2</m> and <m>4x - 2y + 2z = 4</m>. 
       </p>
+
+      <solution>
+        <p>
+          The planes <m>2x+3y+7z=2</m> and <m>4x-2y+2z=4</m> have the normal vectors of <m>\v{n}_1=\la2,3,7\ra</m> and <m>\v{n}_2=\la4,-2,2\ra</m> respectively.
+          The cosine of the angle between <m>\v{n}_1</m> and <m>\v{n}_2</m> is
+          <md>
+            <mrow> \cos \theta \amp= \frac{\v{n}_1\cdot \v{n}_2}{\|\v{n}_1\|\|\v{n}_2\|} </mrow>
+            <mrow> \amp=\frac{\la2,3,7\ra\cdot\la4,-2,2\ra}{\|\la2,3,7\ra\|\|\la4,-2,2\ra\|} </mrow>
+            <mrow> \amp=\frac{8-6+14}{\sqrt{2^2+3^2+7^2}\sqrt{4^2+(-2)^2+2^2}} </mrow>
+            <mrow> \amp=\frac{16}{\sqrt{62}\sqrt{24}} </mrow> 
+            <mrow> \amp\approx 0.415 </mrow>
+          </md>
+          The solution for <m>0\le\theta\lt\pi</m> is <m>\theta=1.143</m> rad or <m>\theta=65.49^{\circ}</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.5.65">
       <p>
         Find a plane that is perpendicular to the two planes <m>x + y = 3</m> and <m>x + 2y - z = 4</m>. 
       </p>
+
+      <solution>
+        <p>
+          The vector forms of the equations of the planes are <m>\la 1,1,0 \ra \cdot \la x,y,z \ra = 3</m> and <m>\la 1,2,-1 \ra \cdot \la x,y,z \ra = 4</m>, hence the vectors <m>\v{n}_1=\la1,1,0\ra</m> and <m>\v{n}_2=\la1,2,-1\ra</m> are normal to the planes.
+          We denote the equation of the planes which are perpendicular to the two planes by
+          <md>
+            ax + by + cz = d 
+          </md>
+          Then, the normal <m>\v{n}=\la a,b,c\ra</m> to the planes is orthogonal to the normals <m>\v{n}_1</m> and <m>\v{n}_2</m> of the given planes. 
+          Therefore, <m>\v{n}\cdot \v{n}_1=0</m> and <m>\v{n}\cdot \v{n}_2=0</m> which gives us
+          <md>
+            <mrow>\la a,b,c \ra \cdot \la 1,1,0 \ra \amp = 0</mrow>
+            <mrow>\la a,b,c \ra \cdot \la 1,2,-1 \ra \amp = 0</mrow>
+          </md>
+          We obtain the following equations.
+          <me>
+            \begin{cases} a+b=0 \\ a+2b-c=0 \end{cases}
+          </me>
+          The first equation implies that <m>b=-a</m>. 
+          Substituting in the second equation we get <m>a-2a-c=0</m>, and hence <m>c=-a</m>.
+          Substituting them back to the equation of the perpendicular planes, we get
+          <me>
+            ax-ay-az=d \qquad \implies \qquad x-y-z=\frac{d}{a}
+          </me>
+          <m>\frac{d}{a}</m> is an arbitrary constant which we denote by <m>f</m>.
+          Therefore, the planes which are perpendicular to the given planes are
+          <me>
+            x-y-z=f
+          </me>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.5.67">

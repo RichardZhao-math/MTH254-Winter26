@@ -1091,6 +1091,19 @@
       <p>
         Calculate <m>\v{v} \times \v{w}</m>, where <m>\v{v} = \la \frac{2}{3}, 1, \frac{1}{2} \ra</m> and <m>\v{w} = \la 4, -6, 3 \ra</m>.
       </p>
+
+      <solution>
+        <p>
+          We have
+          <md>
+            <mrow>\v{v} \times \v{w} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ \frac{2}{3} \amp 1 \amp \frac{1}{2} \\ 4 \amp -6 \amp 3 \end{vmatrix}</mrow>
+            <mrow> \amp= \v{i}\begin{vmatrix} 1 \amp \frac{1}{2} \\ -6 \amp 3 \end{vmatrix} - \v{j}\begin{vmatrix} \frac{2}{3} \amp \frac{1}{2} \\ 4 \amp 3 \end{vmatrix} + \v{k}\begin{vmatrix} \frac{2}{3} \amp 1 \\ 4 \amp -6 \end{vmatrix}</mrow>
+            <mrow> \amp= (3 + 3)\v{i} - (2 - 2)\v{j} + (-4 - 4)\v{k}</mrow>
+            <mrow> \amp= 6\v{i} + 0\v{j} -8\v{k}</mrow>
+            <mrow> \amp= \la 6,0,-8 \ra</mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.4.17">
@@ -1106,6 +1119,19 @@
           \v{u} \times \v{v} = \la 1,1,0 \ra, \qquad \v{u} \times \v{w} = \la 0,3,1 \ra, \qquad \v{v} \times \v{w} = \la 2,-1,1 \ra
         </md>
       </p>
+
+      <solution>
+        <p>
+          Using the properties of the cross product, we obtain
+          <md>
+            <mrow> \v{w} \times \lp \v{u} + \v{v} \rp \amp= \v{w} \times \v{u} + \v{w} \times \v{v} </mrow>
+            <mrow> \amp= -\v{u} \times \v{w} - \v{v} \times \v{w} </mrow>
+            <mrow> \amp= -\la 0,3,1 \ra - \la 2,-1,1 \ra </mrow>
+            <mrow> \amp= \la 0,-3,-1 \ra - \la 2,-1,1 \ra </mrow>
+            <mrow> \amp= \la -2,-2,-2 \ra </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.4.37">
@@ -1120,6 +1146,12 @@
         <image source="sec124-HW37-Figure.png" width="35%"></image>
         <caption>The magnetic field vector <m>\v{B}</m> points directly out of the page. </caption>
       </figure>
+
+      <solution>
+        <p>
+          Since the magnetic field <m>\v{B}</m> points directly out the page (toward us), the right-hand rule implies that the cross product <m>\v{v} \times \v{B}</m> is in the direction of <m>\v{F}_2</m>. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.4.41">
@@ -1130,12 +1162,63 @@
       <figure>
         <image source="sec124-HW41-Figure.png" width="50%"></image>
       </figure>
+
+      <solution>
+        <p>
+          The area of the parallelogram equals the length of the cross product of the two vectors <m>\v{v} = \la 1,3,1 \ra</m> and <m>\v{w} = \la -4,2,6 \ra</m>. 
+          We calculate the cross product as follows: 
+          <md>
+            <mrow> \v{v} \times \v{w} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1 \amp 3 \amp 1 \\ -4 \amp 2 \amp 6 \end{vmatrix} </mrow>
+            <mrow> \amp= (18 - 2)\v{i} - (6 + 4)\v{j} + (2 + 12)\v{k} </mrow>
+            <mrow> \amp= 16\v{i} - 10\v{j} + 14\v{k}</mrow>
+          </md>
+          The length of this vector <m>16\v{i} - 10\v{j} + 14\v{k}</m> is 
+          <md>
+            \sqrt{16^2 + (-10)^2 + 14^2} = 2\sqrt{138} \approx 23.49 \text{ units}^2
+          </md>
+          Hence, the area of the parallelogram is approximately <m>23.49 \text{ units}^2</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.4.47">
       <p>
         Sketch the triangle with vertices at the origin <m>O</m>, <m>P = (3,3,0)</m>, and <m>Q = (0,3,3)</m>, and compute its area using cross product. 
-      </p>  
+      </p>
+
+      <solution>
+        <p>
+          The triangle <m>OPQ</m> is shown in the following figure. 
+        </p>
+
+        <figure>
+          <image source="sec124-HW47-Solution-Diagram.png" width="50%"></image>
+        </figure>
+
+        <p>
+          The area <m>S</m> of the triangle is half of the area of the parallelogram spanned by the vectors <m>\overrightarrow{OP} = \la 3,3,0 \ra</m> and <m>\overrightarrow{OQ} = \la 0,3,3 \ra</m>.
+          Thus, 
+          <md>
+            S = \frac{1}{2} \|\overrightarrow{OP} \times \overrightarrow{OQ}\|
+          </md>
+          We compute the cross product:
+          <md>
+            <mrow> \overrightarrow{OP} \times \overrightarrow{OQ} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 3 \amp 3 \amp 0 \\ 0 \amp 3 \amp 3 \end{vmatrix} </mrow> 
+            <mrow> \amp= \begin{vmatrix} 3 \amp 0 \\ 3 \amp 3 \end{vmatrix} \v{i} - \begin{vmatrix} 3 \amp 0 \\ 0 \amp 3 \end{vmatrix} \v{j} + \begin{vmatrix} 3 \amp 3 \\ 0 \amp 3 \end{vmatrix} \v{k} </mrow>
+            <mrow> \amp= 9\v{i} - 9\v{j} + 9\v{k}</mrow>
+            <mrow> \amp= 9\la 1, -1, 1 \ra </mrow>
+          </md>
+          Substituting into the area formula, we obtain 
+          <md>
+            <mrow> S \amp= \frac{1}{2} \|9 \la 1,-1,1 \ra \| </mrow>
+            <mrow> \amp= \frac{9}{2} \|\la 1,-1,1 \ra \| </mrow>
+            <mrow> \amp= \frac{9}{2} \sqrt{1^2 + (-1)^2 + 1^2} </mrow>
+            <mrow> \amp= \frac{9\sqrt{3}}{2} </mrow>
+            <mrow> \amp\approx 7.8 </mrow>
+          </md>
+          The area of the triangle is <m>S = \dfrac{9\sqrt{3}}{2} \approx 7.8</m>. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.4.51">
@@ -1143,6 +1226,51 @@
         Check that the four points <m>P = (2,4,4)</m>, <m>Q = (3,1,6)</m>, <m>R = (2,8,0)</m>, and <m>S = (7,2,1)</m> all lie in a plane. 
         Then use vectors to find the area of the quadrilateral they define. 
       </p>
+
+      <solution>
+        <p>
+          The points <m>P</m>, <m>Q</m>, and <m>R</m> determine a plane with normal vector <m>\v{n}</m>. 
+          <m>S</m> lies in that plane if <m>\overrightarrow{PS}</m> is perpendicular to <m>\v{n}</m>. 
+          To find <m>\v{n}</m>, we compute
+          <md>
+            <mrow> \overrightarrow{PQ} \times \overrightarrow{PR} \amp \la 1,-3,2 \ra \times \la 0,4,-4 \ra </mrow>
+            <mrow> \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1 \amp -3 \amp 2 \\ 0 \amp 4 \amp -4 \end{vmatrix} </mrow>
+            <mrow> \amp= \begin{vmatrix} -3 \amp 2 \\ 4 \amp -4 \end{vmatrix} \v{i} - \begin{vmatrix} 1 \amp 2 \\ 0 \amp -4 \end{vmatrix} \v{j} + \begin{vmatrix} 1 \amp -3 \\ 0 \amp 4 \end{vmatrix} \v{k}</mrow>
+            <mrow> \amp= 4\v{i} + 4\v{j} + 4\v{k} </mrow>
+          </md>
+          Since 
+          <md>
+            \la 4,4,4 \ra \cdot \overrightarrow{PS} = \la 4,4,4 \ra \cdot \la 5,-2,-3 \ra = 0
+          </md>
+          the normal vector is also orthogonal to <m>\overrightarrow{PS}</m>, so that the vector <m>\overrightarrow{PS}</m>, and therefore the point <m>S</m>, also lies in the plane. 
+          So all four points lie in a plane. 
+        </p>
+
+        <p>
+          To find the area of the quadrilateral of which they are the vectices, divide the quadrilateral into the two triangles <m>\triangle PQR</m> and <m>\triangle SQR</m>. 
+          The area of each of these triangles is given by half the magnitude of the cross product of two of its sides.
+          First, we must compute various vectors: 
+          <md>
+            <mrow> \overrightarrow{PQ} \amp= \la 3-2, 1-4, 6-4 \ra = \la 1,-3,2 \ra</mrow>
+            <mrow> \overrightarrow{PR} \amp= \la 2-2, 8-4, 0-4 \ra = \la 0,4,-4 \ra</mrow>
+            <mrow> \overrightarrow{SQ} \amp= \la 3-7, 1-2, 6-1 \ra = \la -4,-1,5 \ra</mrow>
+            <mrow> \overrightarrow{SR} \amp= \la 2-7, 8-2, 0-1 \ra = \la -5,6,-1 \ra</mrow>
+          </md>
+          To find the area of <m>\triangle PQR</m>, we must compute <m>\overrightarrow{PQ} \times \overrightarrow{PR}</m>; 
+          to find the area of <m>\triangle SQR</m>, we must compute <m>\overrightarrow{SQ} \times \overrightarrow{SR}</m>.
+          <md>
+            <mrow> \overrightarrow{PQ} \times \overrightarrow{PR} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1 \amp -3 \amp 2 \\ 0 \amp 4 \amp -4 \end{vmatrix} = 4\v{i} + 4\v{j} + 4\v{k}</mrow>
+            <mrow> \overrightarrow{SQ} \times \overrightarrow{SR} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ -4 \amp -1 \amp 5 \\ -5 \amp 6 \amp -1 \end{vmatrix} = -29\v{i} - 29\v{j} - 29\v{k}</mrow>
+          </md>
+          The area of the quadrilateral, <m>\c{S}</m>, is given by
+          <md>
+            <mrow> \c{S} \amp= \frac{1}{2} \| 4\v{i} + 4\v{j} + 4\v{k} \| + \frac{1}{2} \| -29\v{i} - 29\v{j} - 29\v{k} \| </mrow>
+            <mrow> \amp= \frac{1}{2} \lp 4\sqrt{3} + 29 \sqrt{3} \rp </mrow>
+            <mrow> \amp= \frac{33\sqrt{3}}{2} </mrow>
+            <mrow> \amp\approx 28.58 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.4.55">
@@ -1167,6 +1295,39 @@
       <figure>
         <image source="sec124-HW67-Figure.png" width="40%"></image>
       </figure>
+
+      <solution>
+        <p>
+          We denote by <m>O</m> and <m>P</m> the points shown in the figure and compute the position vector <m>\v{r} = \overrightarrow{OP}</m> and the force vector <m>\v{F}</m>.
+        </p>
+        <p>
+          Denoting by <m>\theta</m> the angle between the arm and the <m>x</m>-axis we have
+        </p>
+        <me>
+          \v{r} = \overrightarrow{OP} = 10 (\cos \theta \v{i} + \sin \theta \v{j})
+        </me>
+        <p>
+          The angle between the force vector <m>\v{F}</m> and the <m>x</m>-axis is <m>(\theta + 125^\circ)</m>, hence,
+        </p>
+        <me>
+          \v{F} = 25 (\cos (\theta + 125^\circ) \v{i} + \sin (\theta + 125^\circ) \v{j})
+        </me>
+        <p>
+          The torque <m>\boldsymbol{\tau}</m> about <m>O</m> acting at the point <m>P</m> is the cross product <m>\boldsymbol{\tau} = \v{r} \times \v{F}</m>. We compute it using the cross products of the unit vectors <m>\v{i}</m> and <m>\v{j}</m>:
+        </p>
+        <md>
+          <mrow>\boldsymbol{\tau} = \v{r} \times \v{F} \amp = 10 (\cos \theta \v{i} + \sin \theta \v{j}) \times 25 (\cos (\theta + 125^\circ) \v{i} + \sin (\theta + 125^\circ) \v{j})</mrow>
+          <mrow>\amp = 250 (\cos \theta \v{i} + \sin \theta \v{j}) \times (\cos (\theta + 125^\circ) \v{i} + \sin (\theta + 125^\circ) \v{j})</mrow>
+          <mrow>\amp = 250 (\cos \theta \sin (\theta + 125^\circ) \v{k} + \sin \theta \cos (\theta + 125^\circ) (-\v{k}))</mrow>
+          <mrow>\amp = 250 (\sin (\theta + 125^\circ) \cos \theta - \sin \theta \cos (\theta + 125^\circ)) \v{k}</mrow>
+        </md>
+        <p>
+          We now use the identity <m>\sin \alpha \cos \beta - \sin \beta \cos \alpha = \sin(\alpha - \beta)</m> to obtain
+        </p>
+        <me>
+          \boldsymbol{\tau} = 250 \sin (\theta + 125^\circ - \theta) \v{k} = 250 \sin 125^\circ \v{k} \approx 204.79 \v{k}
+        </me>
+      </solution>
     </exercise>
 
   </worksheet>

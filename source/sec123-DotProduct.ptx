@@ -1482,30 +1482,96 @@
       <p>
         Compute the dot product <m>\lp \v{i} + \v{j} + \v{k} \rp \cdot \lp 3\v{i} + 2\v{j} - 5\v{k} \rp</m>
       </p>
+
+      <solution>
+        <p>
+          We use properties of the dot product to obtain
+          <md>
+            <mrow>\lp \v{i} + \v{j} + \v{k} \rp \cdot \lp 3\v{i} + 2\v{j} - 5\v{k} \rp \amp= 3\v{i}\cdot \v{i} + 2\v{i} \cdot \v{j} - 5\v{i} \cdot \v{k} + 3\v{j} \cdot \v{i} + 2\v{j} \cdot \v{j} - 5\v{j} \cdot \v{k} + 3\v{k} \cdot \v{i} + 2\v{k} \cdot \v{j} - 5\v{k} \cdot \v{k} </mrow>
+            <mrow> \amp= 3\|\v{i}\|^2 + 2\|\v{j}\|^2 - 5\|\v{k}\|^2 </mrow>
+            <mrow> \amp= 3\cdot 1 + 2\cdot 1 - 5\cdot 1 </mrow>
+            <mrow> \amp= 0 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.13">
       <p>
         Determine whether the two vectors <m>\la 1,1,1 \ra</m> and <m>\la 1,-2,-2 \ra</m> are orthogonal and, if not, whether the angle between them is acute or obtuse. 
       </p>
+
+      <solution>
+        <p>
+          We compute the dot product of the two vectors: 
+          <md>
+            \la 1,1,1 \ra \cdot \la 1,-2,-2 \ra = 1\cdot 1 + 1\cdot (-2) + 1\cdot (-2) = 1 - 2 - 2 = -3
+          </md>
+          Since the dot product is negative, the angle between the vectors is obtuse.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.25">
       <p>
         Find the angle bewteen the vectors <m>\la 1,1,1 \ra</m> and <m>\la 1,0,1 \ra</m>. 
       </p>
+
+      <solution>
+        <p>
+          We denote <m>\v{v} = \la 1,1,1 \ra</m> and <m>\v{w} = \la 1,0,1 \ra</m>. 
+          To use the formula for the cosine of the angle <m>\theta</m> between two vectors we need to compute the following values: 
+          <md>
+            <mrow>\|\v{v}\| \amp= \sqrt{1^2 + 1^2 + 1^2} = \sqrt{3} </mrow>
+            <mrow>\|\v{w}\| \amp= \sqrt{1^2 + 0^2 + 1^2} = \sqrt{2} </mrow>
+            <mrow>\v{v} \cdot \v{w} \amp= 1\cdot 1 + 1\cdot 0 + 1\cdot 1 = 2 </mrow>
+          </md>
+          Hence, 
+          <md>
+            \cos(\theta) = \frac{\v{v}\cdot \v{w}}{\|\v{v}\|\|\v{w}\|} = \frac{2}{\sqrt{3}\cdot \sqrt{2}} = \frac{2}{\sqrt{6}} = \frac{\sqrt{6}}{3}
+          </md>
+          and so, 
+          <md>
+            \theta = \cos^{-1}\lp \frac{\sqrt{6}}{3} \rp \approx 0.615
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.37">
       <p>
         Simplify the expression <m>\lp \v{v} - \v{w} \rp \cdot \v{v} + \v{v} \cdot \v{w}</m>
       </p>
+
+      <solution>
+        <p>
+          By properties of the dot product we obtain
+          <md>
+            <mrow>\lp \v{v} - \v{w} \rp \cdot \v{v} + \v{v} \cdot \v{w} \amp= \v{v} \cdot \v{v} - \v{w} \cdot \v{v} + \v{v} \cdot \v{w} </mrow>
+            <mrow> \amp= \|\v{v}\|^2 - \v{w} \cdot \v{v} + \v{v} \cdot \v{w} </mrow>
+            <mrow> \amp= \|\v{v}\|^2 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.43">
       <p>
         Use the properties of the dot product to evaluate the expression <m>2\v{u} \cdot \lp 3\v{u} - \v{v} \rp</m>, assuming that <m>\v{u} \cdot \v{v} = 2</m>, <m>\|\v{u}\| = 1</m>, and <m>\|\v{v}\| = 3</m>. 
       </p>
+
+      <solution>
+        <p>
+          By properties of the dot product we obtain
+          <md>
+            <mrow>2\v{u} \cdot \lp 3\v{u} - \v{v} \rp \amp= (2\v{u}) \cdot (3\v{u}) - (2\v{u}) \cdot \v{v} </mrow>
+            <mrow> \amp= 6 (\v{u}\cdot \v{u}) - 2 (\v{u} \cdot \v{v}) </mrow>
+            <mrow> \amp= 6 \|\v{u}\|^2 - 2 (\v{u} \cdot \v{v}) </mrow>
+            <mrow> \amp= 6\cdot 1^2 - 2 \cdot 2 </mrow>
+            <mrow> \amp= 2 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.48">
@@ -1530,18 +1596,104 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+                We use the relation between the dot product and the angle between two vectors to write
+                <md>
+                  \v{v} \cdot \v{w} = \|\v{v}\|\|\v{w}\| \cos(120^\circ) = 2 \cdot 3 \cdot \lp -\frac{1}{2} \rp = -3
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                By the relation of the dot product with length and by properties of the dot product we have
+                <md>
+                  <mrow> \|2\v{v} + \v{w}\|^2 \amp= (2\v{v} + \v{w}) \cdot (2\v{v} + \v{w}) </mrow>
+                  <mrow> \amp= 4(\v{v} \cdot \v) + 4(\v{v} \cdot \v{w}) + (\v{w} \cdot \v{w}) </mrow>
+                  <mrow> \amp= 4\|\v{v}\|^2 + 4(\v{v} \cdot \v{w}) + \|\v{w}\|^2 </mrow>
+                </md>
+                We now substitute <m>\v{v}\cdot \v{w} = -3</m> from part a) and the given information, obtaining
+                <md>
+                  <mrow> \|2\v{v} + \v{w}\|^2 \amp= 4\cdot 2^2 + 4\cdot (-3) + 3^2 = 13 </mrow>
+                  <mrow> \implies \qquad \|2\v{v} + \v{w}\| \amp= \sqrt{13} \approx 3.61 </mrow>
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                We express the length in terms of a dot product and use properties of the dot product. 
+                This gives
+                <md>
+                  <mrow> \|2\v{v} - 3\v{w}\|^2 \amp= (2\v{v} - 3\v{w}) \cdot (2\v{v} - 3\v{w}) </mrow>
+                  <mrow> \amp= 4\v{v} \cdot \v{v} - 6\v{v} \cdot \v{w} - 6\v{w} \cdot \v{v} + 9\v{w} \cdot \v{w} </mrow>
+                  <mrow> \amp= 4\|\v{v}\|^2 - 12\v{v} \cdot \v{w} + 9\|\v{w}\|^2 </mrow>
+                </md>
+                Substituting <m>\v{v}\cdot \v{w} = -3</m> from part a) and the given values yields
+                <md>
+                  <mrow> \|2\v{v} - 3\v{w}\|^2 \amp= 4\cdot 2^2 - 12\cdot (-3) + 9\cdot 3^2 = 133 </mrow>
+                  <mrow> \implies \qquad \|2\v{v} - 3\v{w}\| \amp= \sqrt{133} \approx 11.53 </mrow>
+                </md>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.57">
       <p>
         Find the projection of <m>\v{u}</m> along <m>\v{v}</m>, where <m>\v{u} = \la -1,2,0 \ra</m> and <m>\v{v} = \la 2,0,1 \ra</m>. 
       </p>
+
+      <solution>
+        <p>
+          The projection of <m>\v{u}</m> along <m>\v{v}</m> is the following vector: 
+          <md>
+            \v{u}_{\parallel \v{v}} = \lp \frac{\v{u} \cdot \v{v}}{\v{v} \cdot \v{v}} \rp \v{v}
+          </md>
+          We compute the values in this expression: 
+          <md>
+            <mrow> \v{u} \cdot \v{v} \amp= \la -1,2,0 \ra \cdot \la 2,0,1 \ra = -1 \cdot 2 + 2 \cdot 0 + 0 \cdot 1 = -2 </mrow>
+            <mrow> \v{v} \cdot \v{v} \amp= \|\v{v}\|^2 = 2^2 + 0^2 + 1^2 = 5 </mrow>
+          </md>
+          Hence, 
+          <md>
+            \v{u}_{\parallel \v{v}} = \frac{-2}{5} \la 2,0,1 \ra = \la -\frac{4}{5},0,-\frac{2}{5} \ra
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.69">
       <p>
         Find the decomposition <m>\v{a} = \v{a}_{\parallel \v{b}} + \v{a}_{\perp \v{b}}</m> with respect to <m>\v{b}</m>, where <m>\v{a} = \la 4,-1,0 \ra</m> and <m>\v{b} = \la 0,1,1 \ra</m>. 
       </p>
+
+      <solution>
+        <p>
+          We first compute <m>\v{a} \cdot \v{b}</m> and <m>\v{b} \cdot \v{b}</m> to find the projection of <m>\v{a}</m> along <m>\v{b}</m>:
+          <md>
+            <mrow> \v{a} \cdot \v{b} \amp= \la 4,-1,0 \ra \cdot \la 0,1,1 \ra = 4\cdot 0 + (-1)\cdot 1 + 0\cdot 1 = -1 </mrow>
+            <mrow> \v{b} \cdot \v{b} \amp= \|\v{b}\|^2 = 0^2 + 1^2 + 1^2 = 2 </mrow>
+          </md>
+          Hence, 
+          <md>
+            \v{a}_{\parallel \v{b}} = \lp \frac{\v{a} \cdot \v{b}}{\v{b} \cdot \v{b}} \rp \v{b} = \frac{-1}{2} \la 0,1,1 \ra = \la 0,-\frac{1}{2}, -\frac{1}{2} \ra
+          </md>
+          We now find the vector <m>\v{a}_{\perp \v{b}}</m> orthogonal to <m>\v{b}</m> by computing the difference: 
+          <md>
+            \v{a} - \v{a}_{\perp \v{b}} = \la 4,-1,0 \ra - \la 0,-\frac{1}{2},-\frac{1}{2} \ra = \la 4,-\frac{1}{2},\frac{1}{2} \ra
+          </md>
+          Thus, we have
+          <md>
+            \v{a} = \v{a}_{\parallel \v{b}} + \v{a}_{\perp \v{b}} = \la 0,-\frac{1}{2}, -\frac{1}{2} \ra + \la 4,-\frac{1}{2},\frac{1}{2} \ra
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.75">
@@ -1583,12 +1735,70 @@
       <figure>
         <image source="sec123-HW87-Figure.png" width="50%"></image>
       </figure>
+
+      <solution>
+        <p>
+          Gravity exerts a force <m>\v{F}_g</m> of magnitude <m>40g</m> newtons where <m>g = 9.8</m>. 
+          The magnitude of the force required to push the wagon equals the component of the force <m>\v{F}_g</m> along the ramp. 
+          Resolving <m>\v{F}_g</m> into a sum <m>\v{F}_g = \v{F}_\parallel + \v{F}_\perp</m>, where <m>\v{F}_\parallel</m> is the force along the ramp and <m>\v{F}_\perp</m> is the force orthogonal to the ramp, we need to find the magnitude of <m>\v{F}_\parallel</m>. 
+        </p>
+
+        <figure>
+          <image source="sec123-HW87-Solution-Diagram.png" width="50%"></image>
+        </figure>
+
+        <p>
+          The angle between <m>\v{F}_g</m> and the ramp is <m>90^\circ - 10^\circ = 80^\circ</m>. 
+          Hence, 
+          <md>
+            \v{F}_\parallel = \|\v{F}_g\| \cos(80^\circ) = 40 \cdot 9.8 \cdot \cos(80^\circ) \approx 68.07 \text{ N}
+          </md>
+          Therefore the minimum force required to push the wagon is <m>68.07</m> N. 
+        </p>
+
+        <p>
+          Actually, this is the force required to keep the wagon from sliding down the hill; any slight amount greater than this force will serve to push it up the hill. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.91">
       <p>
         Prove that <m>\|\v{v} + \v{w}\|^2 - \|\v{v} - \v{w}\|^2 = 4\v{v} \cdot \v{w}</m>. 
       </p>
+
+      <solution>
+        <p>
+          We expand the left-hand side using the property <m>\|\v{u}\|^2 = \v{u} \cdot \v{u}</m> and the distributive property of the dot product.
+        </p>
+
+        <p>
+          First, we expand the term <m>\|\v{v} + \v{w}\|^2</m>:
+          <md>
+            <mrow> \|\v{v} + \v{w}\|^2 \amp= (\v{v} + \v{w}) \cdot (\v{v} + \v{w}) </mrow>
+            <mrow> \amp= \v{v} \cdot \v{v} + \v{v} \cdot \v{w} + \v{w} \cdot \v{v} + \v{w} \cdot \v{w} </mrow>
+            <mrow> \amp= \|\v{v}\|^2 + 2(\v{v} \cdot \v{w}) + \|\v{w}\|^2 </mrow>
+          </md>
+        </p>
+
+        <p>
+          Next, we expand the term <m>\|\v{v} - \v{w}\|^2</m>:
+          <md>
+            <mrow> \|\v{v} - \v{w}\|^2 \amp= (\v{v} - \v{w}) \cdot (\v{v} - \v{w}) </mrow>
+            <mrow> \amp= \v{v} \cdot \v{v} - \v{v} \cdot \v{w} - \v{w} \cdot \v{v} + \v{w} \cdot \v{w} </mrow>
+            <mrow> \amp= \|\v{v}\|^2 - 2(\v{v} \cdot \v{w}) + \|\v{w}\|^2 </mrow>
+          </md>
+        </p>
+
+        <p>
+          Finally, we subtract the second expression from the first:
+          <md>
+            <mrow> \|\v{v} + \v{w}\|^2 - \|\v{v} - \v{w}\|^2 \amp= \lp \|\v{v}\|^2 + 2(\v{v} \cdot \v{w}) + \|\v{w}\|^2 \rp - \lp \|\v{v}\|^2 - 2(\v{v} \cdot \v{w}) + \|\v{w}\|^2 \rp </mrow>
+            <mrow> \amp= \|\v{v}\|^2 + 2(\v{v} \cdot \v{w}) + \|\v{w}\|^2 - \|\v{v}\|^2 + 2(\v{v} \cdot \v{w}) - \|\v{w}\|^2 </mrow>
+            <mrow> \amp= 4\v{v} \cdot \v{w} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
   </worksheet>
