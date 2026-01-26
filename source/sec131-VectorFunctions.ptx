@@ -5,7 +5,12 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In single-variable calculus, we studied functions of the form <m>y=f(x)</m>, which result in graphs that are curves in the <m>xy</m>-plane. 
+      In linear algebra or the previous chapter, we studied vectors, which represent magnitude and direction but are static. 
+    </p>
+    <p>
+      In this section, we combine these concepts to define <term>vector-valued functions</term>. 
+      By allowing the components of a vector to be functions of a parameter <m>t</m> (often representing time), we can describe dynamic motion in space. 
     </p>
 
     <objectives>
@@ -17,12 +22,667 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            determine the domain of a vector-valued function.
+          </p>
+        </li>
+        <li>
+          <p>
+            distinguish between the <em>path</em> and the <em>curve</em> of a vector-valued function.
+          </p>
+        </li>
+        <li>
+          <p>
+            analyze and identify space curves by examining their projections onto the coordinate planes.
+          </p>
+        </li>
+        <li>
+          <p>
+            construct parametrizations for curves in <m>\R^3</m>. 
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <p>
+    Imagine you are tracking the position of a particle moving in <m>\R^2</m>. 
+    At any time <m>t</m>, the position of the particle can be represented by a vector <m>\v{r}(t) = \la x(t), y(t) \ra</m>, where <m>x(t)</m> and <m>y(t)</m> are functions that describe the particle's coordinates in the plane. 
+    As time progresses, the tip of the vector <m>\v{r}(t)</m> traces out a path in the plane, known as a <term>Plane Curve</term>.
+  </p>
+
+  <figure>
+    <image source="VectorValuedFunction.gif" width="65%"></image>
+    <caption>Plane Curve in <m>\R^2</m></caption>
+  </figure>
+
+  <p>
+    Similarly, if the particle is moving in <m>\R^3</m>, at any time <m>t</m>, the position of the particle can be represented by a vector <m>\v{r}(t) = \la x(t), y(t), z(t) \ra</m>, where <m>x(t)</m>, <m>y(t)</m>, and <m>z(t)</m> are functions that describe the particle's coordinates in <m>\R^3</m>. 
+    As time progresses, the tip of the vector <m>\v{r}(t)</m> traces out a path in space, known as a <term>Space Curve</term>.
+  </p>
+
+  <figure>
+    <image source="VectorValuedFunction_Space.gif" width="65%"></image>
+    <caption>Space Curve in <m>\R^3</m></caption>
+  </figure>
+
+  <p>
+    The function <m>\v{r}(t)</m> is called a <term>Vector-Valued Function</term> because it assigns a vector to each value of the parameter <m>t</m>. 
+    In <m>\R^3</m>, a vector-valued function is typically expressed as 
+    <md>
+      \v{r}(t) = \la x(t), y(t), z(t) \ra
+    </md>
+    where <m>t</m> is called the <term>parameter</term> of the function, and <m>x(t)</m>, <m>y(t)</m>, and <m>z(t)</m> are the <term>component</term> or <term>coordinate functions</term> that determine the coordinates of the vector in space. 
+  </p>
+
+  <p>
+    Note that the parameter <m>t</m> often represents time, but it can represent other quantities as well. 
+  </p>
+
+  <subsection xml:id="subsec-BasicVectorValuedFunctions">
+    <title>Domain, Path, and Curve</title>
+
+    <p>
+      Now that we have a function, we want to understand its domain. 
+      The <term>domain</term> of a vector-valued function is the set of all possible values of the parameter <m>t</m> for which all the component functions are defined.
+    </p>
+
+    <example>
+      <p>
+        What is the domain of <m>\v{r}(t) = \la t^3, \ln(3-t), \sqrt{t} \ra</m>?
+      </p>
+
+      <hint>
+        <p>
+          The component functions are 
+          <md>
+            x(t) = t^3\, , \qquad y(t) = \ln(3-t)\, , \qquad z(t) = \sqrt{t}
+          </md>
+          We can find their domains individually. 
+        </p>
+
+        <p>
+          The domain of <m>\v{r}(t)</m> must be the set of all <m>t</m> values for which all three component functions are defined. 
+          How can we find a set of <m>t</m> values that works for all three component functions? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          The domain of <m>x(t) = t^3</m> is <m>(-\infty, \infty)</m> because the cubic function is defined for all real numbers. 
+        </p>
+        <p>
+          The domain of <m>y(t) = \ln(3-t)</m> is <m>(-\infty, 3)</m> because the natural logarithm function is only defined for positive arguments.
+        </p> 
+        <p>
+          The domain of <m>z(t) = \sqrt{t}</m> is <m>[0, \infty)</m> because the square root function is only defined for non-negative numbers.
+        </p>
+
+        <p>
+          To find the domain of <m>\v{r}(t)</m>, we need to find the intersection of the domains of the three component functions to ensure that all components are defined. 
+          That is, the domain of <m>\v{r}(t)</m> is 
+          <md>
+            (-\infty, \infty) \cap (-\infty, 3) \cap [0,\infty)
+          </md>
+          which simplifies to <m>[0, 3)</m>. 
+        </p>
+
+        <p>
+          Hence, the domain of <m>\v{r}(t)</m> is <m>D = \left\{ t \in \R \mid 0 \leq t \lt 3 \right\}</m>. 
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      There are two things we are discussing here: 
+      the <term>path</term> parametrized by <m>\v{r}(t)</m> and the <term>curve</term> <m>\c{C}</m> traced by the tip of the vector <m>\v{r}(t)</m>. 
+      <ul marker="">
+        <li>
+          <p>
+            The <term>path</term> is the vector-valued function <m>\v{r}(t)</m> itself. 
+            It describes how the curve is traversed as the parameter <m>t</m> varies. 
+            You can think of it as the specific trip you take along that road. 
+          </p>
+        </li>
+        <li>
+          <p>
+            The <term>curve</term> <m>\c{C}</m> is the set of points in space. 
+            It is a static geometric object left behind by the path. 
+            You can think of it as the physical road on a map. 
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      For example, let's say we have the vector-valued function
+      <md>
+        \v{r}(t) = \la \cos(t), \frac{t}{2}, \sin(3t) \ra 
+      </md>
+      where <m>-3\pi \leq t \leq 3\pi</m>. 
+    </p>
+
+    <p>
+      The path is the function <m>\v{r}(t)</m> itself, which describes how the curve is traced out as <m>t</m> varies from <m>-3\pi</m> to <m>3\pi</m> (see the figure below). 
+    </p>
+
+    <figure>
+      <image source="sec131_Path_Example.gif" width="65%"></image>
+      <caption>The Path of <m>\v{r}(t)</m></caption>
+    </figure>
+
+    <p>
+      The curve <m>\c{C}</m> is the set of points in space traced out by the tip of the vector <m>\v{r}(t)</m> as <m>t</m> varies from <m>-3\pi</m> to <m>3\pi</m> (see the figure below).
+    </p>
+
+    <figure>
+      <image source="sec131_Curve_Example.png" width="65%"></image>
+      <caption>The Curve traced by <m>\v{r}(t)</m></caption>
+    </figure>
+  </subsection>
+
+
+  <subsection xml:id="subsec-Projection_VectorValuedFunctions">
+    <title>Projections of Vector-Valued Functions</title>
+    
+    <p>
+      Next, let's discuss how to describe the curve traced by a vector-valued function. 
+      One way to do so is to eliminate one variable through <alert>projection onto a coordinate plane</alert>. 
+      Then we can easily describe the resulting curve in two dimensions. 
+    </p>
+
+    <example>
+      <p>
+        The curve traced by <m>\v{r}(t) = \la -\sin(t), \cos(t), t \ra</m> for <m>t \geq 0</m> is called a <term>helix</term>. 
+        Describe the curve in terms of its projections onto the coordinate planes.
+      </p>
+
+      <hint>
+        <p>
+          We can project the curve onto the standard <m>xy</m>-plane, <m>yz</m>-plane, and <m>xz</m>-plane by setting the appropriate coordinate to zero. 
+          Then we can observe the resulting curves in two dimensions. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          By setting <m>z = 0</m>, we project the curve onto the <m>xy</m>-plane. 
+          The projection is given by <m>\v{p}(t) = \la -\sin(t),\cos(t),0 \ra</m>. 
+          This implies that
+          <md>
+            x(t) = -\sin(t) \, , \qquad y(t) = \cos(t)
+          </md>
+          Squaring and adding these equations gives 
+          <md>
+            x^2 + y^2 = \sin^2(t) + \cos^2(t) = 1
+          </md>
+          Hence, the projection onto the <m>xy</m>-plane is a circle of radius <m>1</m> centered at the origin. 
+        </p>
+
+        <p>
+          By setting <m>x = 0</m>, we project the curve onto the <m>yz</m>-plane. 
+          The projection is given by <m>\la 0, \cos(t), t \ra</m>. 
+          This implies that
+          <md>
+            y(t) = \cos(t) \, , \qquad z(t) = t
+          </md>
+          We can simply express <m>y</m> in terms of <m>z</m> as <m>y = \cos(z)</m>. 
+          Hence, the projection onto the <m>yz</m>-plane is a cosine curve that oscillates between <m>1</m> and <m>-1</m> as <m>z</m> increases. 
+        </p>
+
+        <p>
+          By setting <m>y = 0</m>, we project the curve onto the <m>xz</m>-plane. 
+          The projection is given by <m>\la -\sin(t), 0, t \ra</m>. 
+          This implies that
+          <md>
+            x(t) = -\sin(t) \, , \qquad z(t) = t
+          </md>
+          We can simply express <m>x</m> in terms of <m>z</m> as <m>x = -\sin(z)</m>. 
+          Hence, the projection onto the <m>xz</m>-plane is a negative sine curve that oscillates between <m>1</m> and <m>-1</m> as <m>z</m> increases.
+        </p>
+
+        <p>
+          The diagram below summarizes the projections of the helix onto the three coordinate planes. 
+        </p>
+
+        <figure>
+          <image source="sec131_Projection_Helix.png" width="65%"></image>
+          <caption>Projections of a Helix <m>\v{r}(t) = \la -\sin(t), \cos(t), t \ra</m> onto the Coordinate Planes</caption>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      Projections are useful not only for visualizing curves in <m>\R^3</m>, but also for analyzing the curves in <m>\R^3</m>. 
+      That is, by studying the projections onto the coordinate planes, we can obtain the vector-valued function of the curve in <m>\R^3</m>. 
+    </p>
+
+    <example>
+      <p>
+        Match the vector-valued functions (a)-(f) with the space curves (I)-(VI) in the figure below. 
+        <ol marker="(a)">
+          <li>
+            <p>
+              <m>\v{r}(t) = \la t\cos(t), t, t\sin(t) \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}(t) = \la \cos(t), \sin(t), \dfrac{1}{1+t^2} \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}(t) = \la t, \dfrac{1}{1+t^2}, t^2 \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}(t) = \la \cos(t), \sin(t), \cos(2t) \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}(t) = \la \cos(8t), \sin(8t), e^{0.8t} \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}(t) = \la \cos^2(t), \sin^2(t), t \ra</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <figure>
+        <image source="sec131_MatchingGraphs_Example.png" width="95%"></image>
+      </figure>
+
+      <hint>
+        <p>
+          To match the vector-valued functions with the space curves, we can analyze the projections of each curve onto the coordinate planes. 
+          By examining the behavior of the projections, we can identify which vector-valued function corresponds to each curve.
+        </p>
+      </hint>
+
+      <solution>
+        <title>If you want to analyze the functions... </title>
+        <p>
+          The correct matches are:
+        </p>
+        <ol marker="a">
+          <li>
+            <p>
+              <m>\mathbf{r}(t) = \langle t \cos(t), t, t \sin(t) \rangle</m> corresponds to graph <strong>II</strong>.
+              Observe that <m>x^2 + z^2 = t^2 \cos^2(t) + t^2 \sin^2(t) = t^2 = y^2</m>. This indicates the curve lies on the cone <m>y^2 = x^2 + z^2</m>. The spiral radius increases as the variable <m>y</m> increases, which matches graph II.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\mathbf{r}(t) = \langle \cos(t), \sin(t), \frac{1}{1+t^2} \rangle</m> corresponds to graph <strong>VI</strong>.
+              Here, <m>x^2 + y^2 = 1</m>, so the curve lies on a cylinder. The <m>z</m>-component <m>z = \frac{1}{1+t^2}</m> peaks at <m>z=1</m> and approaches <m>0</m> as <m>t \to \pm \infty</m>. Graph VI shows a spiral on a cylinder that rises to a peak and flattens out towards the bottom, matching this behavior.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\mathbf{r}(t) = \langle t, \frac{1}{1+t^2}, t^2 \rangle</m> corresponds to graph <strong>V</strong>.
+              Notice that <m>z = t^2 = x^2</m>, meaning the curve lies on the parabolic cylinder <m>z = x^2</m>. As <m>x</m> moves away from zero, <m>z</m> increases quadratically while <m>y</m> approaches zero. This matches the parabolic track seen in graph V.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\mathbf{r}(t) = \langle \cos(t), \sin(t), \cos(2t) \rangle</m> corresponds to graph <strong>I</strong>.
+              The curve lies on the cylinder <m>x^2 + y^2 = 1</m>. Since all components are periodic, the curve is a closed loop. The <m>z</m>-component oscillates between <m>-1</m> and <m>1</m> with a frequency double that of the rotation in <m>xy</m>, creating the "saddle" shape seen in graph I.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\mathbf{r}(t) = \langle \cos(8t), \sin(8t), e^{0.8t} \rangle</m> corresponds to graph <strong>IV</strong>.
+              This describes a helix on the cylinder <m>x^2 + y^2 = 1</m>. The <m>z</m>-component grows exponentially, which means the vertical spacing (pitch) between the coils increases as the curve rises. This is clearly visible in graph IV.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\mathbf{r}(t) = \langle \cos^2(t), \sin^2(t), t \rangle</m> corresponds to graph <strong>III</strong>.
+              Observe that <m>x + y = \cos^2(t) + \sin^2(t) = 1</m>. The curve is confined to the plane <m>x + y = 1</m>. As <m>z=t</m> increases, the point oscillates along a line segment in the <m>xy</m>-plane, creating the wave-like shape on a flat plane seen in graph III.
+            </p>
+          </li>
+        </ol>
+      </solution>
+
+      <solution>
+        <title>If you want to analyze the curves... </title>
+        <p>
+          The correct matches are:
+        </p>
+        <ol marker="I">
+          <li>
+            <p>
+              <strong>Graph I</strong> matches equation <strong>(d)</strong> <m>\mathbf{r}(t) = \langle \cos(t), \sin(t), \cos(2t) \rangle</m>.
+              This is the only closed loop among the graphs. Mathematically, this corresponds to the only function where all three components are periodic, meaning the curve eventually retraces its path.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Graph II</strong> matches equation <strong>(a)</strong> <m>\mathbf{r}(t) = \langle t \cos(t), t, t \sin(t) \rangle</m>.
+              The graph shows a spiral expanding along the <m>y</m>-axis, forming a cone. This matches equation (a) because the radius of the spiral in the <m>xz</m>-plane is <m>\sqrt{(t\cos t)^2 + (t\sin t)^2} = |t|</m>, which equals the distance along the <m>y</m>-axis (<m>|y|</m>).
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Graph III</strong> matches equation <strong>(f)</strong> <m>\mathbf{r}(t) = \langle \cos^2(t), \sin^2(t), t \rangle</m>.
+              The graph shows a wave confined to a flat vertical plane. This matches equation (f) because <m>x + y = \cos^2(t) + \sin^2(t) = 1</m>, meaning the curve lies entirely on the plane <m>x + y = 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Graph IV</strong> matches equation <strong>(e)</strong> <m>\mathbf{r}(t) = \langle \cos(8t), \sin(8t), e^{0.8t} \rangle</m>.
+              The graph is a helix where the vertical distance between coils increases (the pitch widens). This matches equation (e) because the <m>z</m>-component grows exponentially (<m>e^{0.8t}</m>), causing the curve to rise faster and faster.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Graph V</strong> matches equation <strong>(c)</strong> <m>\mathbf{r}(t) = \langle t, \frac{1}{1+t^2}, t^2 \rangle</m>.
+              The graph shows a parabolic shape where the <m>y</m>-coordinate approaches zero as the curve rises. This matches equation (c) because <m>z = x^2</m> (a parabola) and <m>y = \frac{1}{1+t^2}</m>, which approaches 0 as <m>t \to \infty</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <strong>Graph VI</strong> matches equation <strong>(b)</strong> <m>\mathbf{r}(t) = \langle \cos(t), \sin(t), \frac{1}{1+t^2} \rangle</m>.
+              The graph depicts a spiral that is confined near the <m>z=0</m> plane, rising to a peak and falling back. This corresponds to the "bell curve" behavior of the <m>z</m>-component <m>\frac{1}{1+t^2}</m>, which is bounded between 0 and 1.
+            </p>
+          </li>
+        </ol>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-Parametrization_VectorValuedFunctions">
+    <title>Parametrization of Vector-Valued Functions</title>
+    
+    <p>
+      Parametrization is the process of expressing a curve using a vector-valued function. 
+      That is, given a curve in space, we want to find a vector-valued function <m>\v{r}(t)</m> that traces out the curve as <m>t</m> varies over some interval. 
+    </p>
+
+    <p>
+      There are generally two main approaches to parametrizing a curve. 
+      <ul marker="">
+        <li>
+          <p>
+            <alert>Method 1</alert>: picking one of the variables as the parameter and expressing the other variables in terms of that parameter.
+          </p>
+        </li>
+        <li>
+          <p>
+            <alert>Method 2</alert>: using known parametrizations of standard curves (e.g., circles)) and adjusting them to fit the given curve.
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <example>
+      <p>
+        Find the parametrization of the curve <m>\c{C}</m> obtained by the intersection of the surfaces <m>x^2 + y^2 = 1</m> and <m>y + z = 2</m>.
+      </p>
+
+      <solution>
+        <title>Using Method 1...</title>
+        <p>
+          We can use <m>y</m> as the parameter. 
+        </p>
+
+        <p>
+          From the first surface, we have <m>x^2 + y^2 = 1</m>, so <m>x = \pm\sqrt{1-y^2}</m>, where <m>-1 \leq y \leq 1</m>.  
+          From the second surface, we have <m>z = 2 - y</m>. 
+        </p>
+
+        <p>
+          That is, the curve of intersection can be expressed as
+          <md>
+            \v{r}(t) = \la \pm\sqrt{1-t^2}, t, 2 - t \ra 
+          </md>
+          where <m>-1 \leq t \leq 1</m>. 
+        </p>
+
+        <p>
+          <alert>Note:</alert> the <m>\pm</m> sign makes the <m>x</m>-component not a function of <m>t</m>. 
+          In practice, we would split the parametrization into two separate parts: one for <m>x = \sqrt{1-t^2}</m> and another for <m>x = -\sqrt{1-t^2}</m>, each defined over the interval <m>-1 \leq t \leq 1</m>. 
+        </p>
+      </solution>
+
+      <solution>
+        <title>Using Method 2...</title>
+        <p>
+          We can use the standard parametrization of a circle in the <m>xy</m>-plane, and then adjust it to fit the given constraint. 
+        </p>
+
+        <p>
+          The standard parametrization of the circle <m>x^2 + y^2 = 1</m> is 
+          <md>
+            x = \cos(t)\, , \qquad y = \sin(t)
+          </md>
+          for <m>0 \leq t \leq 2\pi</m>. 
+        </p>
+
+        <p>
+          Next, we can use the second surface equation <m>y + z = 2</m> to express <m>z</m> in terms of <m>t</m>. 
+          That is, <m>z = 2 - y = 2 - \sin(t)</m>. 
+        </p>
+
+        <p>
+          Hence, the curve of intersection can be expressed as
+          <md>
+            \v{r}(t) = \la \cos(t), \sin(t), 2 - \sin(t) \ra
+          </md>
+          for <m>0 \leq t \leq 2\pi</m>.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Observe that there are infinitely many ways to parametrize a curve. 
+      One way to check your answer is to literally graph the curve and the parametrization to see if they match.  
+    </p>
+
+    <p>
+      We can graph the curves using the <url href="https://www.geogebra.org/3d?lang=en">GeoGebra 3D Graphing Calculator</url> or other 3D graphing software. 
+      If you type "Curve(cos(t),sin(t),2-sin(t),t,0,2 π)" into GeoGebra, you will see that the curve of intersection is a slanted ellipse. 
+      If you type "Curve(\sqrt{1-t^2},t,2-t,t,-1,1)" and "Curve(-\sqrt{1-t^2},t,2-t,t,-1,1)", you will also get the same slanted ellipse. 
+    </p>
+
+    <p>
+      To make it more convincing, you can graph the two surfaces and see if the intersection is the slanted ellipse. 
+    </p>
+  </subsection>
+
+  <p>
+    While the ideas in this section doesn't seem too difficult, it does require some practice to get comfortable with them. 
+    For example, Richard knew how to parametrize things because he knows the standard parametrizations of circles and stuff. 
+    Practice will help you internalize these concepts! 
+  </p>
+
+  <worksheet xml:id="ws-sec131">
+    <title>Assigned Problems for Section 13.1</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="13.1.1">
+      <p>
+        What is the domain of <m>\v{r}(t) = e^t\v{i} + \dfrac{1}{t}\v{j} + (t + 1)^{-3}\v{k}</m>? 
+      </p>
+    </exercise>
+
+    <exercise number="13.1.5">
+      <p>
+        Find a vector parametrization of the line through <m>P = (3,-5,7)</m> in the direction <m>\v{v} = \la 3,0,1 \ra</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.1.7">
+      <p>
+        Determine whether the space curve given by <m>\v{r}(t) = \la \sin(t), \dfrac{\cos(t)}{2}, t \ra</m> intersects the <m>z</m>-axis, and if it does, determine where. 
+      </p>
+    </exercise>
+
+    <exercise number="13.1.15">
+      <p>
+        Match the vector-valued functions (a)-(f) with the space curves (i)-(vi) in the figure below. 
+        <ol marker="(a)">
+          <li>
+            <p>
+              <m>\v{r}(t) = \la t+15, e^{0.08t}\cos(t), e^{0.08t}\sin(t) \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}(t) = \la \cos(t), \sin(t), \sin(12t) \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}(t) = \la t, t, \dfrac{25t}{1+t^2} \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}(t) = \la \cos^3(t), \sin^3(t), \sin(2t) \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}(t) = \la t, t^2, 2t \ra</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\v{r}(t) = \la \cos(t), \sin(t), \cos(t)\sin(12t) \ra</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <figure>
+        <image source="sec131-HW15-Figure.png" width="85%"></image>
+      </figure>
+    </exercise>
+
+    <exercise number="13.1.17">
+      <p>
+        Match the space curves (A)-(C) in the figure below with their projections (i)-(iii) onto the <m>xy</m>-plane. 
+      </p>
+
+      <figure>
+        <image source="sec131-HW17-Figure.png" width="85%"></image>
+      </figure>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, the function <m>\v{r}(t)</m> traces a circle. 
+          Determine the radius, center, and plane containing the circle. 
+        </p>
+      </introduction>
+    
+      <exercise number="13.1.19">
+        <p>
+          <m>\v{r}(t) = (9\cos(t))\v{i} + (9\sin(t))\v{j}</m>
+        </p>
+      </exercise>
+
+      <exercise number="13.1.21">
+        <p>
+          <m>\v{r}(t) = \la \sin(t), 0, 4+\cos(t) \ra</m>
+        </p>
+      </exercise>
+    
+    </exercisegroup>
+
+    <exercise number="13.1.25">
+      <p>
+        Let <m>\c{C}</m> be the curve given by <m>\v{r}(t) = \la t\cos(t), t\sin(t), t \ra</m>. 
+        <ol>
+          <li>
+            <p>
+              Show that <m>\c{C}</m> lies on the cone <m>x^2 + y^2 = z^2</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Sketch the cone and make a rough sketch of <m>\c{C}</m> on the cone. 
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercise number="13.1.29">
+      <p>
+        Parametrize the part of the intersection of the surfaces
+        <md>
+          y^2 - z^2 = x - 2\, , \qquad y^2 + z^2 = 9
+        </md>
+        where <m>z \geq 0</m> using <m>t = y</m> as the parameter. 
+      </p>
+    </exercise>
+
+    <exercise number="13.1.33">
+      <p>
+        Use sine and cosine to parametrize the intersection of the cylinder <m>x^2 + y^2 = 1</m> and the plane <m>x + y + z = 1</m>. 
+        Then describe the projections of this curve onto the three coordinate planes. 
+      </p>
+    </exercise>
+
+    <exercise number="13.1.37">
+      <p>
+        Two paths <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> intersect if there is a point <m>P</m> lying on both curves. 
+        We say that <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> collide if <m>\v{r}_1(t_0) = \v{r}_2(t_0)</m> at some point <m>t_0</m>.
+      </p>
+
+      <p>
+        Determine whether <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> collide or intersect, giving the coordinates of the corresponding points if they exist: 
+        <md>
+          \v{r}_1(t) = \la t^3+3, t+1, 6t^{-1} \ra\, , \qquad \v{r}_2(t) = \la 4t, 2t-2, t^2-7 \ra
+        </md>
+      </p>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, find a parametrization of the curve. 
+        </p>
+      </introduction>
+    
+      <exercise number="13.1.43">
+        <p>
+          The circle of radius <m>2</m> with center <m>(1,2,5)</m> in a plane parallel to the <m>yz</m>-plane.
+        </p>
+      </exercise>
+
+      <exercise number="13.1.45">
+        <p>
+          The intersection of the plane <m>y = \dfrac{1}{2}</m> with the sphere <m>x^2 + y^2 + z^2 = 1</m>. `
+        </p>
+      </exercise>
+    
+    </exercisegroup>
+  
+  </worksheet>
 
 </section>

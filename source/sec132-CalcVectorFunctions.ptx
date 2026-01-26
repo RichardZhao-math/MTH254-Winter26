@@ -5,7 +5,12 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In the previous section, we established that a vector-valued function <m>\v{r}(t)</m> traces out a curve in space as the parameter <m>t</m> varies. 
+      Now, we turn our attention to the <em>calculus</em> of these functions.
+    </p>
+
+    <p>
+      Just as we used limits, derivatives, and integrals in single-variable calculus to analyze the behavior of functions (such as their rate of change and accumulation), we will define these operations for vector-valued functions. 
     </p>
 
     <objectives>
@@ -17,12 +22,804 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            evaluate limits of vector-valued functions. 
+          </p>
+        </li>
+        <li>
+          <p>
+            compute the derivative <m>\v{r}'(t)</m> and apply standard differentiation rules. 
+          </p>
+        </li>
+        <li>
+          <p>
+            interpret the derivative <m>\v{r}'(t_0)</m> geometrically as a tangent vector and construct the parametrization of the tangent line at a given point.
+          </p>
+        </li>
+        <li>
+          <p>
+            evaluate definite and indefinite integrals of vector-valued functions. 
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <p>
+    Long story short, all the fun calculus stuff you learned (and love) about functions of a single variable extends naturally to vector-valued functions. 
+    The only difference is that we have to do everything <em>component-wise</em>, since a vector-valued function is just a collection of component functions bundled together, and each component function is a single variable function.
+  </p>
+
+  <subsection xml:id="subsec-Limit-VectorValuedFunctions">
+    <title>Limit of a Vector-Valued Function</title>
+
+    <p>
+      Recall back in MTH 251 (or MTH 251Z), we defined limit as the function value getting arbitrarily close to some point as the input approaches some value. 
+      In the case of vector-valued functions, the input is some parameter <m>t</m>, and the output is a vector in space. 
+      That is, we say that a vector-valued function <m>\v{r}(t)</m> approaches a limit <m>\v{u}</m> (a vector) as <m>t</m> approaches <m>t_0</m> if the distance between <m>\v{r}(t)</m> and <m>\v{u}</m> approaches <m>0</m> as <m>t</m> approaches <m>t_0</m>.
+    </p>
+
+    <definition xml:id="def-Limit_VectorValuedFunctions">
+      <title>Limit of a Vector-Valued Function</title>
+      <statement>
+        <p>
+          A vector-valued function <m>\v{r}(t)</m> approaches the limit <m>\v{u}</m> (a vector) as <m>t</m> approaches <m>t_0</m> if <m>\displaystyle \lim_{t\to t_0} \|\v{r}(t) - \v{u}\| = 0</m>. 
+          In this case, we write
+          <md>
+            \lim_{t\to t_0} \v{r}(t) = \v{u}
+          </md>
+        </p>
+      </statement>
+    </definition>
+
+    <figure>
+      <image source="sec132_Limit_VectorValuedFunctions.png" width="50%"></image>
+      <caption>The vector-valued function <m>\v{r}(t)</m> approaches the vector <m>\v{u}</m> as <m>t\to t_0</m></caption>
+    </figure>
+
+    <p>
+      It turns out that we can compute limits of vector-valued functions by examining the behavior of each component function individually. 
+      Observe that each component function is a single-variable function, so we can apply all the limit laws we learned in MTH 251 (or MTH 251Z) to each component function. 
+      That is, the limit of a vector-valued function can be computed <em>componentwise</em>.
+    </p>
+
+    <theorem xml:id="thm-Limit-VectorValuedFunctions">
+      <title>Vector-Valued Limits Are Computed Componentwise</title>
+      <statement>
+        <p>
+          A vector-valued function <m>\v{r}(t) = \la x(t), y(t), z(t) \ra</m> approaches a limit as <m>t\to t_0</m> if and only if each component approaches a limit, and in this case, 
+          <md>
+            \lim_{t\to t_0} \v{r}(t) = \la \lim_{t\to t_0} x(t), \lim_{t\to t_0} y(t), \lim_{t\to t_0} z(t) \ra
+          </md>
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <p>
+        Evaluate <m>\displaystyle \lim_{t\to 0}\la \frac{1}{t + 1}, \frac{e^t - 1}{t}, 4t \ra</m>
+      </p>
+
+      <hint>
+        <p>
+          Remember the limit can be computed componentwise. 
+          So what is the limit of each of the components as <m>t</m> approaches <m>0</m>? 
+        </p>
+
+        <p>
+          Also, back from Calculus I (or differential calculus), what is the very first step you should do when evaluating a limit? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We will evaluate the limit componentwise:
+          <ul marker="">
+            <li>
+              <p>
+                <m>\displaystyle \lim_{t\to 0} \frac{1}{t + 1} = \frac{1}{0 + 1} = 1</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\displaystyle \lim_{t\to 0} \frac{e^t - 1}{t} = \lim_{t\to 0} \frac{e^t}{1} = e^0 = 1</m> (using L'Hôpital's Rule)
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\displaystyle \lim_{t\to 0} 4t = 4(0) = 0</m>
+              </p>
+            </li>
+          </ul>
+          Therefore,
+          <md>
+            <mrow> \lim_{t\to 0} \la \frac{1}{t + 1}, \frac{e^t - 1}{t}, 4t \ra \amp= \la \lim_{t\to 0} \frac{1}{t + 1}, \lim_{t\to 0} \frac{e^t - 1}{t}, \lim_{t\to 0} 4t \ra </mrow>
+            <mrow> \amp= \la 1, 1, 0 \ra </mrow>  
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      If we can evaluate the limit, then we can find the limit of the difference quotient, which leads us to the derivative of a vector-valued function.
+    </p>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-Derivative-VectorValuedFunctions">
+    <title>Derivative of a Vector-Valued Function</title>
+
+    <p>
+      Recall from MTH 251 (or MTH 251Z) that the derivative of a single-variable function is defined as the limit of the difference quotient. 
+      We extend this definition to vector-valued functions in the same way. 
+      That is, given a vector-valued function <m>\v{r}(t)</m>, we define the difference quotient on <m>[t,t + h]</m> as follows
+      <md>
+        \text{d.q.} = \frac{\v{r}(t + h) - \v{r}(t)}{h}
+      </md>
+      The derivative of <m>\v{r}(t)</m> is the limit of the difference quotient as <m>h\to 0</m>. 
+    </p>
+    
+    <definition xml:id="def-Derivative-VectorValuedFunctions">
+      <title>Derivative of a Vector-Valued Function</title>
+      <statement>
+        <p>
+          The derivative of a vector-valued function <m>\v{r}(t)</m> is defined as the limit of the difference quotient
+          <md>
+            \v{r}'(t) = \frac{d}{dt} \v{r}(t) = \lim_{h\to 0} \frac{\v{r}(t+h) - \v{r}(t)}{h}
+          </md>
+          In Leibniz notation, the derivative is written as <m>\dfrac{d\v{r}}{dt}</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      We say that <m>\v{r}(t)</m> is <term>differentiable</term> at <m>t</m> if the derivative <m>\v{r}'(t)</m> exists. 
+    </p>
+
+    <p>
+      Similar to limits, we can compute the derivative of a vector-valued function by examining the behavior of each component function individually.
+      That is, if <m>\v{r}(t) = \la x(t), y(t), z(t) \ra</m>, then 
+      <md>
+        <mrow> \lim_{h\to 0} \frac{\v{r}(t+h) - \v{r}(t)}{h} \amp= \lim_{h\to 0} \frac{\la x(t+h), y(t+h), z(t+h) \ra - \la x(t), y(t), z(t) \ra}{h} </mrow>
+        <mrow> \amp= \lim_{h\to 0} \la \frac{x(t+h) - x(t)}{h}, \frac{y(t+h) - y(t)}{h}, \frac{z(t+h) - z(t)}{h} \ra </mrow>
+        <mrow> \amp = \la \lim_{h\to 0} \frac{x(t+h) - x(t)}{h}, \lim_{h\to 0} \frac{y(t+h) - y(t)}{h}, \lim_{h\to 0} \frac{z(t+h) - z(t)}{h} \ra </mrow>
+        <mrow> \amp= \la x'(t), y'(t), z'(t) \ra </mrow>
+      </md>
+      Let's make it into a cool theorem! 
+    </p>
+
+    <theorem xml:id="thm-Derivative-VectorValuedFunctions">
+      <title>Vector-Valued Derivatives Are Computed Componentwise</title>
+      <statement>
+        <p>
+          A vector-valued function <m>\v{r}(t) = \la x(t), y(t), z(t) \ra</m> is differentiable if and only if each component is differentiable
+          In this case, 
+          <md>
+            \v{r}'(t) = \frac{d}{dt}\v{r}(t) = \la x'(t), y'(t), z'(t) \ra
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <p>
+        Compute the derivative of <m>\v{r}(t) = \la e^{3t-4}, e^{6-t}, (t+1)^{-1} \ra</m>
+      </p>
+
+      <hint>
+        <p>
+          Remember the derivative can be computed componentwise. 
+          So what is the derivative of each of the components?
+        </p>
+
+        <p>
+          You probably want to dig out the formula sheet you made back in Calculus I (or differential calculus) to remind yourself of the derivative formulas if needed. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We will compute the derivative componentwise:
+          <ul marker="">
+            <li>
+              <p>
+                <m>\dfrac{d}{dt} e^{3t-4} = 3e^{3t-4}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dfrac{d}{dt} e^{6-t} = -e^{6-t}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\dfrac{d}{dt} (t+1)^{-1} = - (t+1)^{-2}</m>
+              </p>
+            </li>
+          </ul>
+          Therefore,
+          <md>
+            <mrow> \v{r}'(t) \amp= \la \frac{d}{dt} e^{3t-4}, \frac{d}{dt} e^{6-t}, \frac{d}{dt} (t+1)^{-1} \ra </mrow>
+            <mrow> \amp= \la 3e^{3t-4}, -e^{6-t}, - (t+1)^{-2} \ra </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      We also learned many derivative rules back in MTH 251 (or MTH 251Z). 
+      They also extend naturally to vector-valued functions as well since vector operations are also defined componentwise.
+    </p>
+
+    <theorem xml:id="thm-DerivativeRules-VectorValuedFunctions">
+      <title>Differentiation Rules for Vector-Valued Functions</title>
+      <statement>
+        <p>
+          Assume that <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> are differentiable. 
+          Then 
+          <ul>
+            <li>
+              <p>
+                <term>Sum Rule: </term> <m>\lp \v{r}_1(t) + \v{r}_2(t) \rp' = \v{r}_1'(t) + \v{r}_2'(t)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Constant Multiple Rule: </term> For any constant <m>c</m>, <m>\lp c\v{r}_1(t) \rp' = c\v{r}_1'(t)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Scalar Product Rule: </term> For any differentiable scalar-valued function <m>f</m>, 
+                <md>
+                  \frac{d}{dt}\lp f(t)\v{r}(t) \rp = f'(t) \v{r}(t) + f(t) \v{r}'(t)
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Chain Rule: </term> For any differentiable scalar-valued function <m>g</m>, 
+                <md>
+                  \frac{d}{dt}\v{r}\lp g(t) \rp = \v{r}'\lp g(t) \rp \, g'(t)
+                </md>
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      The only weird rule here is the <term>Scalar Product Rule</term>, since we are multiplying two different types of functions together. 
+      Richard included a brief proof below to convince you why this works. 
+    </p>
+
+    <note>
+      <title>Proof of the Scalar Product Rule</title>
+
+      <p>
+        Let <m>\v{r}(t) = \la x(t), y(t), z(t) \ra</m>. 
+        Then
+        <md>
+          <mrow>\frac{d}{dt}\lp f(t)\v{r}(t) \rp \amp= \frac{d}{dt} \la f(t)x(t), f(t)y(t), f(t)z(t) \ra </mrow>
+          <mrow> \amp= \la \frac{d}{dt} \lp f(t)x(t) \rp, \frac{d}{dt} \lp f(t)y(t) \rp, \frac{d}{dt} \lp f(t)z(t) \rp \ra </mrow>
+        </md>
+        Using the product rule from MTH 251 (or MTH 251Z) on each component, we have
+        <md>
+          <mrow> \frac{d}{dt}\lp f(t)\v{r}(t) \rp \amp= \la f'(t)x(t) + f(t)x'(t), f'(t)y(t) + f(t)y'(t), f'(t)z(t) + f(t)z'(t) \ra </mrow>
+          <mrow> \amp= f'(t) \la x(t), y(t), z(t) \ra + f(t) \la x'(t), y'(t), z'(t) \ra </mrow>
+          <mrow> \amp= f'(t)\v{r}(t) + f(t)\v{r}'(t) </mrow>
+        </md>
+        as desired.
+      </p>
+    </note>
+
+    <p>
+      You are more than welcome to prove the other rules on your own as an exercise! 
+      The proofs are very similar to the one above, in the sense that we will need to break everything down componentwise and then apply the corresponding single-variable calculus rule to each component. 
+    </p>
+
+    <example>
+      <p>
+        Evaluate <m>\dfrac{d}{dt} \v{r}\lp g(t) \rp</m> using the Chain Rule, where 
+        <md>
+          \v{r}(t) = \la t^2, \sin(t), e^t \ra \quad \text{and} \quad g(t) = \ln(t)
+        </md>
+      </p>
+
+      <hint>
+        <p>
+          Recall the chain rule formula says
+          <md>
+            \frac{d}{dt}\v{r}\lp g(t) \rp = \v{r}'\lp g(t) \rp \, g'(t)
+          </md>
+          So we need to compute <m>\v{r}'(t)</m> and <m>g'(t)</m> first. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          First, we compute <m>\v{r}'(t)</m>. 
+          <md>
+            \v{r}'(t) = \frac{d}{dt} \la t^2, \sin(t), e^t \ra = \la 2t, \cos(t), e^t \ra
+          </md>
+          Next, we compute <m>g'(t)</m>. 
+          <md>
+            g'(t) = \frac{d}{dt} \ln(t) = \frac{1}{t}
+          </md>
+          Putting them together, by the Chain Rule, we have
+          <md>
+            <mrow> \frac{d}{dt} \v{r}\lp g(t) \rp \amp= \v{r}'\lp g(t) \rp \, g'(t) </mrow>
+            <mrow> \amp= \v{r}'\lp \ln(t) \rp \cdot \frac{1}{t} </mrow>
+            <mrow> \amp= \la 2\ln(t), \cos(\ln(t)), e^{\ln(t)} \ra \cdot \frac{1}{t} </mrow>
+            <mrow> \amp= \la \frac{2\ln(t)}{t}, \frac{\cos(\ln(t))}{t}, \frac{e^{\ln(t)}}{t} \ra </mrow>
+            <mrow> \amp= \la \frac{2\ln(t)}{t}, \frac{\cos(\ln(t))}{t}, 1 \ra </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      But what about multiplying two vector-valued functions? 
+      We learned back in the previous chapter that we can multiply two vectors using the dot product or the cross product.
+      It turns out that we have product rules for both of these operations as well.
+    </p>
+
+    <theorem xml:id="thm-ProductRule-Dot-Cross-VectorValuedFunctions">
+      <statement>
+        <p>
+          Assume that <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m> are differentiable. 
+          Then
+          <md>
+            <mrow> \amp\text{Dot Product Rule: } \amp\amp \frac{d}{dt}\lp \v{r}_1(t) \cdot \v{r}_2(t) \rp = \v{r}_1'(t) \cdot \v{r}_2(t) + \v{r}_1(t) \cdot \v{r}_2'(t) </mrow>
+            <mrow> \amp\text{Cross Product Rule: } \amp\amp \frac{d}{dt}\lp \v{r}_1(t) \times \v{r}_2(t) \rp = \v{r}_1'(t) \times \v{r}_2(t) + \v{r}_1(t) \times \v{r}_2'(t) </mrow>
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <note>
+      <title>Proof of the Product Rules</title>
+      <p>
+        The proofs of both rules are very similar to the proof of the Scalar Product Rule. 
+        We break down the dot product and cross product componentwise, and then apply the corresponding single-variable calculus product rule to each component.
+      </p>
+
+      <p>
+        For the dot product, recall that 
+        <md>
+          \v{r}_1(t) \cdot \v{r}_2(t) = x_1(t)x_2(t) + y_1(t)y_2(t) + z_1(t)z_2(t)
+        </md> 
+        So we can apply the product rule from MTH 251 (or MTH 251Z) to each of the three terms individually. 
+      </p>
+
+      <p>
+        Let <m>\v{r}_1(t) = \la x_1(t), y_1(t), z_1(t) \ra</m> and <m>\v{r}_2(t) = \la x_2(t), y_2(t), z_2(t) \ra</m>. 
+        Then
+        <md>
+          <mrow> \frac{d}{dt}\lp \v{r}_1(t) \cdot \v{r}_2(t) \rp \amp= \frac{d}{dt} \lp x_1(t)x_2(t) + y_1(t)y_2(t) + z_1(t)z_2(t) \rp </mrow>
+          <mrow> \amp= x_1'(t)x_2(t) + x_1(t)x_2'(t) + y_1'(t)y_2(t) + y_1(t)y_2'(t) </mrow>
+          <mrow> \amp \qquad + z_1'(t)z_2(t) + z_1(t)z_2'(t) </mrow>
+          <mrow> \amp= \lp x_1'(t)x_2(t) + y_1'(t)y_2(t) + z_1'(t)z_2(t) \rp </mrow>
+          <mrow> \amp \qquad + \lp x_1(t)x_2'(t) + y_1(t)y_2'(t) + z_1(t)z_2'(t) \rp </mrow>
+          <mrow> \amp= \v{r}_1'(t) \cdot \v{r}_2(t) + \v{r}_1(t) \cdot \v{r}_2'(t) </mrow>
+        </md>
+        as desired.
+      </p>
+
+      <p>
+        For the cross product, recall that 
+        <md>
+          \v{r}_1(t) \times \v{r}_2(t) = \la y_1(t)z_2(t) - z_1(t)y_2(t), z_1(t)x_2(t) - x_1(t)z_2(t), x_1(t)y_2(t) - y_1(t)x_2(t) \ra
+        </md> 
+        So we can apply the product rule from MTH 251 (or MTH 251Z) to each of the three components individually.
+      </p>
+
+      <p>
+        Let <m>\v{r}_1(t) = \la x_1(t), y_1(t), z_1(t) \ra</m> and <m>\v{r}_2(t) = \la x_2(t), y_2(t), z_2(t) \ra</m>. 
+        Then
+        <md>
+          <mrow> \frac{d}{dt}\lp \v{r}_1(t) \times \v{r}_2(t) \rp \amp= \frac{d}{dt} \la y_1(t)z_2(t) - z_1(t)y_2(t), z_1(t)x_2(t) - x_1(t)z_2(t), x_1(t)y_2(t) - y_1(t)x_2(t) \ra </mrow>
+          <mrow> \amp= \la \frac{d}{dt} \lp y_1(t)z_2(t) - z_1(t)y_2(t) \rp, \frac{d}{dt} \lp z_1(t)x_2(t) - x_1(t)z_2(t) \rp, \frac{d}{dt} \lp x_1(t)y_2(t) - y_1(t)x_2(t) \rp \ra </mrow>
+        </md>
+        Using the product rule from MTH 251 (or MTH 251Z) on each component, we have
+        <md>
+          <mrow> \frac{d}{dt}\lp \v{r}_1(t) \times \v{r}_2(t) \rp \amp= \bigg\langle y_1'(t)z_2(t) + y_1(t)z_2'(t) - z_1'(t)y_2(t) - z_1(t)y_2'(t), </mrow>
+          <mrow> \amp \qquad \quad z_1'(t)x_2(t) + z_1(t)x_2'(t) - x_1'(t)z_2(t) - x_1(t)z_2'(t),  </mrow>
+          <mrow> \amp \qquad \quad x_1'(t)y_2(t) + x_1(t)y_2'(t) - y_1'(t)x_2(t) - y_1(t)x_2'(t) \bigg\rangle </mrow>
+          <mrow> \amp= \v{r}_1'(t) \times \v{r}_2(t) + \v{r}_1(t) \times \v{r}_2'(t) </mrow>
+        </md>
+      </p>
+    </note>
+    
+    <p>
+      <alert>P.S.:</alert> Recall the cross product is NOT commutative, so be sure to keep the order of the vectors the same when applying the cross product rule! 
+    </p>
+    
+    <example>
+      <p>
+        Let 
+        <md>
+          \v{r}_1(t) = \la t^2,1,2t \ra \quad \text{ and } \quad \v{r}_2(t) = \la 1,2,e^t \ra
+        </md>
+        Find <m>\dfrac{d}{dt} \lp \v{r}_1(t) \cdot \v{r}_2(t) \rp</m> and <m>\dfrac{d}{dt} \lp \v{r}_1(t) \times \v{r}_2(t) \rp</m>. 
+      </p>
+
+      <solution>
+        <p>
+          First, we compute the derivatives of <m>\v{r}_1(t)</m> and <m>\v{r}_2(t)</m>:
+          <md>
+            <mrow> \v{r}_1'(t) \amp= \frac{d}{dt} \la t^2,1,2t \ra = \la 2t,0,2 \ra </mrow>
+            <mrow> \v{r}_2'(t) \amp= \frac{d}{dt} \la 1,2,e^t \ra = \la 0,0,e^t \ra </mrow>
+          </md>
+          Now, using the Dot Product Rule, we have
+          <md>
+            <mrow> \frac{d}{dt} \lp \v{r}_1(t) \cdot \v{r}_2(t) \rp \amp= \v{r}_1'(t) \cdot \v{r}_2(t) + \v{r}_1(t) \cdot \v{r}_2'(t) </mrow>
+            <mrow> \amp= \la 2t,0,2 \ra \cdot \la 1,2,e^t \ra + \la t^2,1,2t \ra \cdot \la 0,0,e^t \ra </mrow>
+            <mrow> \amp= 2t(1) + 0(2) + 2(e^t) + t^2(0) + 1(0) + 2t(e^t) </mrow>
+            <mrow> \amp= 2t + 2e^t + 2te^t </mrow>
+          </md>
+          Next, using the Cross Product Rule, we have
+          <md>
+            <mrow> \frac{d}{dt} \lp \v{r}_1(t) \times \v{r}_2(t) \rp \amp= \v{r}_1'(t) \times \v{r}_2(t) + \v{r}_1(t) \times \v{r}_2'(t) </mrow>
+            <mrow> \amp= \la 2t,0,2 \ra \times \la 1,2,e^t \ra + \la t^2,1,2t \ra \times \la 0,0,e^t \ra </mrow>
+            <mrow> \amp= \la 0( e^t ) - 2( 2 ), 2(1) - 2t( e^t ), 2t( 2 ) - 0(1) \ra </mrow>
+            <mrow> \amp \qquad + \la 1( e^t ) - 2t( 0 ), 2t(0) - t^2( e^t ), t^2( 0 ) - 1(0) \ra </mrow>
+            <mrow> \amp= \la -4, 2 - 2te^t, 4t \ra + \la e^t, -t^2e^t, 0 \ra </mrow>
+            <mrow> \amp= \la -4 + e^t, 2 - e^t(2t + t^2), 4t \ra </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      One of the reasons we learned about the derivative in the first place is to find the tangent line to a curve at a given point. 
+      We can do the same thing for vector-valued functions as well. 
+    </p>
+
+  </subsection>
+
+  <subsection xml:id="subsec-TangentVector-VectorValuedFunctions">
+    <title>Derivative as a Tangent Vector</title>
+
+    <p>
+      Recall back in MTH 251 (or MTH 251Z), we learned that the derivative of a single-variable function at a point gives us the <alert>slope</alert> of the tangent line to the curve at that point. 
+      But there is no slope in <m>\R^3</m>... so what gives? 
+    </p>
+
+    <p>
+      Back in <xref ref="sec122-3DSpaces"/>, we learned that a line in <m>\R^3</m> can be represented using a point and a direction vector. 
+      It turns out that the derivative of a vector-valued function at a point gives us a <em>direction vector</em> for the tangent line to the curve at that point. 
+      That is, the derivative of the vector-valued function at a point gives us the <alert>direction</alert> of the tangent line to the curve at that point. 
+    </p>
+
+    <definition xml:id="def-TangentVector-VectorValuedFunctions">
+      <title>Tangent Vector and Tangent Line</title>
+      <statement>
+        <p>
+          The derivative of a vector-valued function <m>\v{r}(t)</m> at a point <m>t = t_0</m>, denoted <m>\v{r}'(t_0)</m>, is a <term>tangent vector</term> (if it exists and is nonzero). 
+          The tangent vector is a direction vector for the tangent line to the curve. 
+          The <term>tangent line</term> then is the line with vector parameterization
+          <md>
+            \v{L}(t) = \v{r}(t_0) + t \v{r}'(t_0)
+          </md>
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <p>
+        Find an equation of the tangent line to the curve defined by <m>\v{r}(t) = \la 2\cos(t), \sin(t), t \ra</m> at the point <m>\lp 0,1,\dfrac{\pi}{2} \rp</m>.
+      </p>
+
+      <hint>
+        <p>
+          Recall back in MTH 251 (or MTH 251Z) that to find the equation of the tangent line, we need a point on the line and the slope of the tangent line. 
+          Since we are in <m>\R^3</m>, we trade the slope for a direction vector instead. 
+        </p>
+
+        <p>
+          So what is a point on the line and a direction vector for the tangent line at the given point? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          First, we need to find the value of <m>t</m> that corresponds to the given point <m>\lp 0,1,\dfrac{\pi}{2} \rp</m>. 
+          From the third component, we see that <m>t = \dfrac{\pi}{2}</m>. 
+          Next, we compute the derivative of <m>\v{r}(t)</m>:
+          <md>
+            \v{r}'(t) = \frac{d}{dt} \la 2\cos(t), \sin(t), t \ra = \la -2\sin(t), \cos(t), 1 \ra
+          </md>
+          Evaluating at <m>t = \dfrac{\pi}{2}</m>, we have
+          <md>
+            \v{r}'\lp \frac{\pi}{2} \rp = \la -2\sin\lp \frac{\pi}{2} \rp, \cos\lp \frac{\pi}{2} \rp, 1 \ra = \la -2(1), 0, 1 \ra = \la -2, 0, 1 \ra
+          </md>
+          Therefore, a vector parameterization of the tangent line is
+          <md>
+            <mrow> \v{L}(t) \amp= \v{r}\lp \frac{\pi}{2} \rp + t\v{r}'\lp \frac{\pi}{2} \rp </mrow>
+            <mrow> \amp= \la 0, 1, \frac{\pi}{2} \ra + t \la -2, 0, 1 \ra </mrow>
+            <mrow> \amp= \la -2t, 1, \frac{\pi}{2} + t \ra </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-Integration-VectorValuedFunctions">
+    <title>Vector-valued Integration</title>
+
+    <p>
+      Last but not least, we turn our attention to integration of vector-valued functions. 
+      Recall back in MTH 252 (or MTH 252Z) that integration and differentiation are inverse operations (guaranteed by the Fundamental Theorem of Calculus). 
+      This implies that if things work out for differentiation, it will also work out for integration as well. 
+    </p>
+
+    <p>
+      Since the derivative of a vector-valued function is computed componentwise, it follows that the integral of a vector-valued function is also computed componentwise.
+    </p>
+
+    <theorem xml:id="thm-Integral-VectorValuedFunctions">
+      <title>Vector-Valued Integrals Are Computed Componentwise</title>
+      <statement>
+        <p>
+          Assume that <m>\v{r}(t) = \la x(t), y(t), z(t) \ra</m> is integrable on <m>[a,b]</m>. 
+          Then the <term>definite integral</term> is computed componentwise:
+          <md>
+            \int_a^b \v{r}(t)\, dt = \la \int_a^b x(t)\, dt, \int_a^b y(t)\, dt, \int_a^b z(t)\, dt \ra
+          </md>
+        </p>
+
+        <p>
+          The <term>indefinite integral</term> (or antiderivative) of <m>\v{r}(t)</m> is also computed componentwise:
+          <md>
+            <mrow> \int \v{r}(t)\, dt \amp= \la \int x(t)\, dt, \int y(t)\, dt, \int z(t)\, dt \ra </mrow>
+            <mrow> \amp= \la X(t), Y(t), Z(t) \ra + \v{c} </mrow>
+          </md>
+          where <m>X(t)</m>, <m>Y(t)</m>, and <m>Z(t)</m> are antiderivatives of <m>x(t)</m>, <m>y(t)</m>, and <m>z(t)</m>, respectively, and <m>\v{c}</m> is a constant vector.
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      The indefinite integral (antiderivative) is easier to understand first. 
+      We are looking for some antiderivative of each of the component functions, and then we just combine them back into a vector. 
+      But what about the definite integral? 
+    </p>
+
+    <p>
+      Recall back in MTH 252 (or MTH 252Z) that the definite integral defines the signed area under the curve of the function.
+      But this result doesn't make sense in this case... 
+      The definite integral of a vector-valued function is also a vector, but area should be a scalar... What???
+    </p>
+
+    <p>
+      It turns out that the definite integral gives us the <em>net change</em> in position as we move along the curve from <m>t = a</m> to <m>t = b</m> on each component of the vector. 
+      So interpreting the definite integral as the accumulation function is still valid here! 
+    </p>
+
+    <example>
+      <p>
+        Evaluate the indefinite integral <m>\displaystyle \int \la \frac{1}{t^2}, \frac{1}{t^4}, \frac{1}{t^5} \ra \, dt</m>
+      </p>
+
+      <hint>
+        <p>
+          Remember the integral can be computed componentwise. 
+          So what is the antiderivative of each of the components?
+        </p>
+
+        <p>
+          Also, don't forget the arbitrary constant at the end, either as a vector or componentwise.
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We will compute the integral componentwise:
+          <ul marker="">
+            <li>
+              <p>
+                <m>\int \frac{1}{t^2}\, dt = \int t^{-2}\, dt = -t^{-1} + C_1 = -\frac{1}{t} + C_1</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\int \frac{1}{t^4}\, dt = \int t^{-4}\, dt = -\frac{1}{3}t^{-3} + C_2 = -\frac{1}{3t^3} + C_2</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\int \frac{1}{t^5}\, dt = \int t^{-5}\, dt = -\frac{1}{4}t^{-4} + C_3 = -\frac{1}{4t^4} + C_3</m>
+              </p>
+            </li>
+          </ul>
+          Therefore,
+          <md>
+            <mrow> \int \la \frac{1}{t^2}, \frac{1}{t^4}, \frac{1}{t^5} \ra \, dt \amp= \la \int \frac{1}{t^2}\, dt, \int \frac{1}{t^4}\, dt, \int \frac{1}{t^5}\, dt \ra </mrow>
+            <mrow> \amp= \la -\frac{1}{t} + C_1, -\frac{1}{3t^3} + C_2, -\frac{1}{4t^4} + C_3 \ra </mrow>
+          </md>
+          or equivalently,
+          <md>
+            <mrow> \int \la \frac{1}{t^2}, \frac{1}{t^4}, \frac{1}{t^5} \ra \, dt \amp= \la -\frac{1}{t}, -\frac{1}{3t^3}, -\frac{1}{4t^4} \ra + \la C_1, C_2, C_3 \ra </mrow>
+            <mrow> \amp= \la -\frac{1}{t}, -\frac{1}{3t^3}, -\frac{1}{4t^4} \ra + \v{c} </mrow>
+          </md>
+          where <m>\v{c} = \la C_1, C_2, C_3 \ra</m> is a constant vector.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      But how do we evaluate definite integrals of vector-valued functions? 
+      The tool we had back in MTH 252 (or MTH 252Z) is the Fundamental Theorem of Calculus (FTC). 
+      It turns out that the FTC also holds for vector-valued functions as well!
+    </p>
+    
+
+    <theorem xml:id="thm-FTC-VectorValuedFunctions">
+      <title>Fundamental Theorem of Calculus for Vector-Valued Functions</title>
+      <statement>
+        <p>
+          <alert>Part I: </alert> If <m>\v{r}(t)</m> is continuous on <m>[a,b]</m> and <m>\v{R}(t)</m> is an antiderivative of <m>\v{r}(t)</m>, then
+          <md>
+            \int_a^b \v{r}(t)\, dt = \v{R}(b) - \v{R}(a)
+          </md>
+        </p>
+
+        <p>
+          <alert>Part II: </alert> Assume that <m>\v{r}(t)</m> is continuous on an open interval <m>I</m> and let <m>a</m> be in <m>I</m>. 
+          Then
+          <md>
+            \frac{d}{dt} \int_a^t \v{r}(s)\, ds = \v{r}(t)
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <p>
+        Evaluate the definite integral <m>\displaystyle \int_1^4 \la t^{-1}, 4\sqrt{t}, -8t^{3/2} \ra \, dt</m>
+      </p>
+
+      <hint>
+        <p>
+          Remember that the FTC also holds for vector-valued functions. 
+          So how does the process work again? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We will evaluate the integral componentwise using the FTC. 
+          <ul marker="">
+            <li>
+              <p>
+                <m>\displaystyle \int_1^4 t^{-1}\, dt = \ln|t|\bigg|_1^4 = \ln(4) - \ln(1) = \ln(4)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\displaystyle \int_1^4 4\sqrt{t}\, dt = \int_1^4 4t^{1/2}\, dt = \frac{8}{3}t^{3/2}\bigg|_1^4 = \frac{8}{3}(8-1) = \frac{56}{3}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\displaystyle \int_1^4 -8t^{3/2}\, dt = -\frac{16}{5}t^{5/2}\bigg|_1^4 = -\frac{16}{5}(32-1) = -\frac{512}{5} + \frac{16}{5} = -\frac{496}{5}</m>
+              </p>
+            </li>
+          </ul>
+          Therefore,
+          <md>
+            <mrow> \int_1^4 \la t^{-1}, 4\sqrt{t}, -8t^{3/2} \ra \, dt \amp= \la \int_1^4 t^{-1}\, dt, \int_1^4 4\sqrt{t}\, dt, \int_1^4 -8t^{3/2}\, dt \ra </mrow>
+            <mrow> \amp= \la \ln(4), \frac{56}{3}, -\frac{496}{5} \ra </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+  <p>
+    To sum up, since the vector-valued functions are built from single-variable functions componentwise, most of the rules and properties we learned back in MTH 251 (or MTH 251Z) and MTH 252 (or MTH 252Z) extend naturally to vector-valued functions as well! 
+    But you have triple the work to do since you have to deal with three components instead of just one... 
+  </p>
+
+  <worksheet xml:id="ws-sec132">
+    <title>Assigned Problems for Section 13.2</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="13.2.3">
+      <p>
+        Evaluate the limit <m>\displaystyle \lim_{t\to 0} e^{2t}\v{i} + \ln(t+1)\v{j} + 4\v{k}</m>
+      </p>
+    </exercise>
+
+    <exercise number="13.2.9">
+      <p>
+        Compute the derivative of <m>\v{r}(s) = \la e^{1-s}, 1-s, \ln(1-s) \ra</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.2.15">
+      <p>
+        Sketch the curve parametrized by <m>\v{r}_1(t) = \la t,t^2 \ra</m> together with its tangent vector at <m>t = 1</m>. 
+        Then do the same for <m>\v{r}_2(t) = \la t^3, t^6 \ra</m>
+      </p>
+    </exercise>
+
+    <exercise number="13.2.17">
+      <p>
+        Determine the value of <m>t</m> between <m>0</m> and <m>2\pi</m> such that the tangent vector to the clycloid <m>\v{r}(t) = \la t - \sin(t), 1 - \cos(t) \ra</m> is parallel to <m>\la \sqrt{3}, 1 \ra</m>.
+      </p>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, evaluate the derivative by using the appropriate Product Rule, where
+          <md>
+            \v{r}_1(t) = \la t^2, t^3, t \ra \, , \qquad \v{r}_2(t) = \la e^{3t}, e^{2t}, e^t \ra
+          </md>
+        </p>
+      </introduction>
+    
+      <exercise number="13.2.19">
+        <p>
+          <m>\dfrac{d}{dt} \lp \v{r}_1(t) \cdot \v{r}_2(t) \rp</m>
+        </p>
+      </exercise>
+
+      <exercise number="13.2.21">
+        <p>
+          <m>\dfrac{d}{dt} \lp \v{r}_1(t) \times \v{r}_2(t) \rp</m>
+        </p>
+      </exercise>
+    </exercisegroup>
+
+    <exercise number="13.2.27">
+      <p>
+        Evaluate <m>\dfrac{d}{dt}\v{r}\lp g(t) \rp</m> using the Chain Rule, where
+        <md>
+          \v{r}(t) = \la e^t, e^{2t}, 4 \ra \, , \qquad g(t) = 4t + 9
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="13.2.33">
+      <p>
+        Find a parametrization of the tangent line of <m>\v{r}(t) = \la 1-t^2, 5t, 2t^3 \ra</m> at the point <m>t = 2</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.2.45">
+      <p>
+        Evaluate the integral <m>\displaystyle \int_0^\pi \la -\sin(t), 6t, 2t+\cos(2t) \ra\, dt</m>
+      </p>
+    </exercise>
+
+    <exercise number="13.2.55">
+      <p>
+        Find both the general solution of the differential equation and the solution with the given initial condition. 
+        <md>
+          \v{r}''(t) = \la 0,2,0 \ra \, , \qquad \v{r}(3) = \la 1,1,0 \ra \, , \qquad \v{r}'(3) = \la 0,0,1 \ra
+        </md>
+      </p>
+    </exercise>
+
+  </worksheet>
 
 </section>
