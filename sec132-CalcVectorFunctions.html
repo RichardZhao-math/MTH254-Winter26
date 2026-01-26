@@ -102,15 +102,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.5';
+eBookConfig.runestone_version = '7.11.11';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
+<script src="_static/prefix-runtime.fc0e080e84d54281.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -130,18 +130,22 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec131-VectorFunctions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch13-CalcVectorFunctions.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec133-ArcLength.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec131-VectorFunctions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch13-CalcVectorFunctions.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
 \newcommand{\Z}{\mathbb Z} 
 \newcommand{\Q}{\mathbb Q} 
 \newcommand{\R}{\mathbb R} 
 
 \newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
 
 \newcommand{\lp}{\left(}
 \newcommand{\rp}{\right)}
 \newcommand{\la}{\left\langle}
 \newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -164,53 +168,89 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsubsec-LinearCombinations" class="internal"><span class="title">Linear Combinations of Vectors</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsec-VectorApplication" class="internal"><span class="title">Applications of Vectors</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Homework problems for this section</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Assigned Problems for Section 12.1</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec122-3DSpaces.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Three-Dimensional Spaces: Surfaces, Vectors, and Curves</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Practice problems for this section</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Surfaces" class="internal"><span class="title">Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Vectors" class="internal"><span class="title">Vectors in 3-Space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-ParametricLines" class="internal"><span class="title">Curves and Lines</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Assigned Problems for Section 12.2</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec123-DotProduct.html#ws-sec123" class="internal"><span class="title">Assigned Problems for Section 12.3</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec124-CrossProduct.html" class="internal"><span class="codenumber">12.4</span> <span class="title">The Cross Product</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossProduct" class="internal"><span class="title">The Cross Product</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossPropertiesBasis" class="internal"><span class="title">Properties of the Cross Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-AreaGeometry" class="internal"><span class="title">Geometry: Area of a Parallelogram</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-Volume" class="internal"><span class="title">Geometry: Volume of a Parallelepiped</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-ApplicationTorque" class="internal"><span class="title">Application: Torque</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec124-CrossProduct.html#ws-sec124" class="internal"><span class="title">Assigned Problems for Section 12.4</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-DefiningPlanes" class="internal"><span class="title">Defining a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec125-Planesin3D.html#ws-sec125" class="internal"><span class="title">Assigned Problems for Section 12.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-ConicSections-Review" class="internal"><span class="title">Review: Conic Sections</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces" class="internal"><span class="title">Standard Quadric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-QuadraticCylinders" class="internal"><span class="title">Quadratic Cylinders</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#ws-sec126" class="internal"><span class="title">Assigned Problems for Section 12.6</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-PolarCoordinates-Review" class="internal"><span class="title">Review: Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates" class="internal"><span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates" class="internal"><span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#ws-sec127" class="internal"><span class="title">Assigned Problems for Section 12.7</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch13-CalcVectorFunctions.html" class="internal"><span class="codenumber">13</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions" class="internal"><span class="title">Domain, Path, and Curve</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Projection_VectorValuedFunctions" class="internal"><span class="title">Projections of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Parametrization_VectorValuedFunctions" class="internal"><span class="title">Parametrization of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#ws-sec131" class="internal"><span class="title">Assigned Problems for Section 13.1</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch14-DifferentiationMultiVariables.html" class="internal"><span class="codenumber">14</span> <span class="title">Differentiation in Several Variables</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Limit-VectorValuedFunctions" class="internal"><span class="title">Limit of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions" class="internal"><span class="title">Derivative of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-TangentVector-VectorValuedFunctions" class="internal"><span class="title">Derivative as a Tangent Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Integration-VectorValuedFunctions" class="internal"><span class="title">Vector-valued Integration</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#ws-sec132" class="internal"><span class="title">Assigned Problems for Section 13.2</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch15-MultipleIntegration.html" class="internal"><span class="codenumber">15</span> <span class="title">Multiple Integration</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Integration in Two Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Double Integrals over More General Regions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec153-tripleIntegrals.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Triple Integrals</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec156-ChangeofVariables.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Change of Variables</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -218,19 +258,750 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec132-CalcVectorFunctions"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Calculus of Vector-Valued Functions</span>
 </h2>
-<section class="introduction" id="sec132-CalcVectorFunctions-2"><div class="para" id="sec132-CalcVectorFunctions-2-1">Just the introduction texts...<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="sec132-CalcVectorFunctions-2"><div class="para" id="sec132-CalcVectorFunctions-2-1">In the previous section, we established that a vector-valued function <span class="process-math">\(\v{r}(t)\)</span> traces out a curve in space as the parameter <span class="process-math">\(t\)</span> varies. Now, we turn our attention to the <em class="emphasis">calculus</em> of these functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="objectives goal-like" id="sec132-CalcVectorFunctions-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
-<div class="introduction" id="sec132-CalcVectorFunctions-2-2-1"><div class="para" id="sec132-CalcVectorFunctions-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec132-CalcVectorFunctions-2-2">Just as we used limits, derivatives, and integrals in single-variable calculus to analyze the behavior of functions (such as their rate of change and accumulation), we will define these operations for vector-valued functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="objectives goal-like" id="sec132-CalcVectorFunctions-2-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="introduction" id="sec132-CalcVectorFunctions-2-3-1"><div class="para" id="sec132-CalcVectorFunctions-2-3-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<ul class="disc" id="sec132-CalcVectorFunctions-2-2-2"><li id="sec132-CalcVectorFunctions-2-2-2-1">
-<div class="para" id="sec132-CalcVectorFunctions-2-2-2-1-1">blahblahblah<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec132-CalcVectorFunctions-2-3-2">
+<li id="sec132-CalcVectorFunctions-2-3-2-1">
+<div class="para" id="sec132-CalcVectorFunctions-2-3-2-1-1">evaluate limits of vector-valued functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-2-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Objective"><a href="#sec132-CalcVectorFunctions-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li></ul>
-<div class="autopermalink" data-description="Objectives"><a href="#sec132-CalcVectorFunctions-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="autopermalink" data-description="Section 13.2: Calculus of Vector-Valued Functions"><a href="#sec132-CalcVectorFunctions" title="Copy heading and permalink for Section 13.2: Calculus of Vector-Valued Functions" aria-label="Copy heading and permalink for Section 13.2: Calculus of Vector-Valued Functions">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Objective"><a href="#sec132-CalcVectorFunctions-2-3-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec132-CalcVectorFunctions-2-3-2-2">
+<div class="para" id="sec132-CalcVectorFunctions-2-3-2-2-1">compute the derivative <span class="process-math">\(\v{r}'(t)\)</span> and apply standard differentiation rules.<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-2-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec132-CalcVectorFunctions-2-3-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec132-CalcVectorFunctions-2-3-2-3">
+<div class="para" id="sec132-CalcVectorFunctions-2-3-2-3-1">interpret the derivative <span class="process-math">\(\v{r}'(t_0)\)</span> geometrically as a tangent vector and construct the parametrization of the tangent line at a given point.<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-2-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec132-CalcVectorFunctions-2-3-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec132-CalcVectorFunctions-2-3-2-4">
+<div class="para" id="sec132-CalcVectorFunctions-2-3-2-4-1">evaluate definite and indefinite integrals of vector-valued functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-2-3-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec132-CalcVectorFunctions-2-3-2-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec132-CalcVectorFunctions-2-3" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="para" id="sec132-CalcVectorFunctions-3">Long story short, all the fun calculus stuff you learned (and love) about functions of a single variable extends naturally to vector-valued functions. The only difference is that we have to do everything <em class="emphasis">component-wise</em>, since a vector-valued function is just a collection of component functions bundled together, and each component function is a single variable function.<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="subsec-Limit-VectorValuedFunctions"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit of a Vector-Valued Function</span>
+</h3>
+<div class="para" id="subsec-Limit-VectorValuedFunctions-2">Recall back in MTH 251 (or MTH 251Z), we defined limit as the function value getting arbitrarily close to some point as the input approaches some value. In the case of vector-valued functions, the input is some parameter <span class="process-math">\(t\text{,}\)</span> and the output is a vector in space. That is, we say that a vector-valued function <span class="process-math">\(\v{r}(t)\)</span> approaches a limit <span class="process-math">\(\v{u}\)</span> (a vector) as <span class="process-math">\(t\)</span> approaches <span class="process-math">\(t_0\)</span> if the distance between <span class="process-math">\(\v{r}(t)\)</span> and <span class="process-math">\(\v{u}\)</span> approaches <span class="process-math">\(0\)</span> as <span class="process-math">\(t\)</span> approaches <span class="process-math">\(t_0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limit-VectorValuedFunctions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-Limit_VectorValuedFunctions"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit of a Vector-Valued Function.</span>
+</h4>
+<div class="para logical" id="def-Limit_VectorValuedFunctions-2-1">
+<div class="para">A vector-valued function <span class="process-math">\(\v{r}(t)\)</span> approaches the limit <span class="process-math">\(\v{u}\)</span> (a vector) as <span class="process-math">\(t\)</span> approaches <span class="process-math">\(t_0\)</span> if <span class="process-math">\(\displaystyle \lim_{t\to t_0} \|\v{r}(t) - \v{u}\| = 0\text{.}\)</span> In this case, we write</div>
+<div class="displaymath process-math" id="def-Limit_VectorValuedFunctions-2-1-6">
+\begin{equation*}
+\lim_{t\to t_0} \v{r}(t) = \v{u}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-Limit_VectorValuedFunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 13.2.1: Limit of a Vector-Valued Function"><a href="#def-Limit_VectorValuedFunctions" title="Copy heading and permalink for Definition 13.2.1: Limit of a Vector-Valued Function" aria-label="Copy heading and permalink for Definition 13.2.1: Limit of a Vector-Valued Function">🔗</a></div></article><figure class="figure figure-like" id="subsec-Limit-VectorValuedFunctions-4"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec132_Limit_VectorValuedFunctions.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The vector-valued function <span class="process-math">\(\v{r}(t)\)</span> approaches the vector <span class="process-math">\(\v{u}\)</span> as <span class="process-math">\(t\to t_0\)</span><div class="autopermalink" data-description="Figure 13.2.2"><a href="#subsec-Limit-VectorValuedFunctions-4" title="Copy heading and permalink for Figure 13.2.2" aria-label="Copy heading and permalink for Figure 13.2.2">🔗</a></div></figcaption></figure><div class="para" id="subsec-Limit-VectorValuedFunctions-5">It turns out that we can compute limits of vector-valued functions by examining the behavior of each component function individually. Observe that each component function is a single-variable function, so we can apply all the limit laws we learned in MTH 251 (or MTH 251Z) to each component function. That is, the limit of a vector-valued function can be computed <em class="emphasis">componentwise</em>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limit-VectorValuedFunctions-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-Limit-VectorValuedFunctions"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector-Valued Limits Are Computed Componentwise.</span>
+</h4>
+<div class="para logical" id="thm-Limit-VectorValuedFunctions-2-1">
+<div class="para">A vector-valued function <span class="process-math">\(\v{r}(t) = \la x(t), y(t), z(t) \ra\)</span> approaches a limit as <span class="process-math">\(t\to t_0\)</span> if and only if each component approaches a limit, and in this case,</div>
+<div class="displaymath process-math" id="thm-Limit-VectorValuedFunctions-2-1-3">
+\begin{equation*}
+\lim_{t\to t_0} \v{r}(t) = \la \lim_{t\to t_0} x(t), \lim_{t\to t_0} y(t), \lim_{t\to t_0} z(t) \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Limit-VectorValuedFunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 13.2.3: Vector-Valued Limits Are Computed Componentwise"><a href="#thm-Limit-VectorValuedFunctions" title="Copy heading and permalink for Theorem 13.2.3: Vector-Valued Limits Are Computed Componentwise" aria-label="Copy heading and permalink for Theorem 13.2.3: Vector-Valued Limits Are Computed Componentwise">🔗</a></div></article><article class="example example-like" id="subsec-Limit-VectorValuedFunctions-7"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Limit-VectorValuedFunctions-7-1">Evaluate <span class="process-math">\(\displaystyle \lim_{t\to 0}\la \frac{1}{t + 1}, \frac{e^t - 1}{t}, 4t \ra\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limit-VectorValuedFunctions-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Limit-VectorValuedFunctions-7-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-Limit-VectorValuedFunctions-7-2-1">Remember the limit can be computed componentwise. So what is the limit of each of the components as <span class="process-math">\(t\)</span> approaches <span class="process-math">\(0\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limit-VectorValuedFunctions-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Limit-VectorValuedFunctions-7-2-2">Also, back from Calculus I (or differential calculus), what is the very first step you should do when evaluating a limit?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limit-VectorValuedFunctions-7-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.2.4.1"><a href="#subsec-Limit-VectorValuedFunctions-7-2" title="Copy heading and permalink for Hint 13.2.4.1" aria-label="Copy heading and permalink for Hint 13.2.4.1">🔗</a></div>
+</div></details><details id="subsec-Limit-VectorValuedFunctions-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Limit-VectorValuedFunctions-7-3-1">
+<div class="para">We will evaluate the limit componentwise:</div>
+<ul class="no-marker" id="subsec-Limit-VectorValuedFunctions-7-3-1-1">
+<li id="subsec-Limit-VectorValuedFunctions-7-3-1-1-1">
+<div class="para" id="subsec-Limit-VectorValuedFunctions-7-3-1-1-1-1">
+<span class="process-math">\(\displaystyle \displaystyle \lim_{t\to 0} \frac{1}{t + 1} = \frac{1}{0 + 1} = 1\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limit-VectorValuedFunctions-7-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Limit-VectorValuedFunctions-7-3-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Limit-VectorValuedFunctions-7-3-1-1-2">
+<div class="para" id="subsec-Limit-VectorValuedFunctions-7-3-1-1-2-1">
+<span class="process-math">\(\displaystyle \lim_{t\to 0} \frac{e^t - 1}{t} = \lim_{t\to 0} \frac{e^t}{1} = e^0 = 1\)</span> (using L’Hôpital’s Rule)<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limit-VectorValuedFunctions-7-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Limit-VectorValuedFunctions-7-3-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Limit-VectorValuedFunctions-7-3-1-1-3">
+<div class="para" id="subsec-Limit-VectorValuedFunctions-7-3-1-1-3-1">
+<span class="process-math">\(\displaystyle \displaystyle \lim_{t\to 0} 4t = 4(0) = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limit-VectorValuedFunctions-7-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Limit-VectorValuedFunctions-7-3-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Therefore,</div>
+<div class="displaymath process-math" id="subsec-Limit-VectorValuedFunctions-7-3-1-2">
+\begin{align*}
+\lim_{t\to 0} \la \frac{1}{t + 1}, \frac{e^t - 1}{t}, 4t \ra \amp= \la \lim_{t\to 0} \frac{1}{t + 1}, \lim_{t\to 0} \frac{e^t - 1}{t}, \lim_{t\to 0} 4t \ra \\
+\amp= \la 1, 1, 0 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limit-VectorValuedFunctions-7-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.4.1"><a href="#subsec-Limit-VectorValuedFunctions-7-3" title="Copy heading and permalink for Solution 13.2.4.1" aria-label="Copy heading and permalink for Solution 13.2.4.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.2.4"><a href="#subsec-Limit-VectorValuedFunctions-7" title="Copy heading and permalink for Example 13.2.4" aria-label="Copy heading and permalink for Example 13.2.4">🔗</a></div></article><div class="para" id="subsec-Limit-VectorValuedFunctions-8">If we can evaluate the limit, then we can find the limit of the difference quotient, which leads us to the derivative of a vector-valued function.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Limit-VectorValuedFunctions-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Limit of a Vector-Valued Function"><a href="#subsec-Limit-VectorValuedFunctions" title="Copy heading and permalink for Subsection: Limit of a Vector-Valued Function" aria-label="Copy heading and permalink for Subsection: Limit of a Vector-Valued Function">🔗</a></div></section><section class="subsection" id="subsec-Derivative-VectorValuedFunctions"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivative of a Vector-Valued Function</span>
+</h3>
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-2">
+<div class="para">Recall from MTH 251 (or MTH 251Z) that the derivative of a single-variable function is defined as the limit of the difference quotient. We extend this definition to vector-valued functions in the same way. That is, given a vector-valued function <span class="process-math">\(\v{r}(t)\text{,}\)</span> we define the difference quotient on <span class="process-math">\([t,t + h]\)</span> as follows</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-2-3">
+\begin{equation*}
+\text{d.q.} = \frac{\v{r}(t + h) - \v{r}(t)}{h}
+\end{equation*}
+</div>
+<div class="para">The derivative of <span class="process-math">\(\v{r}(t)\)</span> is the limit of the difference quotient as <span class="process-math">\(h\to 0\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-Derivative-VectorValuedFunctions"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivative of a Vector-Valued Function.</span>
+</h4>
+<div class="para logical" id="def-Derivative-VectorValuedFunctions-2-1">
+<div class="para">The derivative of a vector-valued function <span class="process-math">\(\v{r}(t)\)</span> is defined as the limit of the difference quotient</div>
+<div class="displaymath process-math" id="def-Derivative-VectorValuedFunctions-2-1-2">
+\begin{equation*}
+\v{r}'(t) = \frac{d}{dt} \v{r}(t) = \lim_{h\to 0} \frac{\v{r}(t+h) - \v{r}(t)}{h}
+\end{equation*}
+</div>
+<div class="para">In Leibniz notation, the derivative is written as <span class="process-math">\(\dfrac{d\v{r}}{dt}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-Derivative-VectorValuedFunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 13.2.5: Derivative of a Vector-Valued Function"><a href="#def-Derivative-VectorValuedFunctions" title="Copy heading and permalink for Definition 13.2.5: Derivative of a Vector-Valued Function" aria-label="Copy heading and permalink for Definition 13.2.5: Derivative of a Vector-Valued Function">🔗</a></div></article><div class="para" id="subsec-Derivative-VectorValuedFunctions-4">We say that <span class="process-math">\(\v{r}(t)\)</span> is <dfn class="terminology">differentiable</dfn> at <span class="process-math">\(t\)</span> if the derivative <span class="process-math">\(\v{r}'(t)\)</span> exists.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-5">
+<div class="para">Similar to limits, we can compute the derivative of a vector-valued function by examining the behavior of each component function individually. That is, if <span class="process-math">\(\v{r}(t) = \la x(t), y(t), z(t) \ra\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-5-2">
+\begin{align*}
+\lim_{h\to 0} \frac{\v{r}(t+h) - \v{r}(t)}{h} \amp= \lim_{h\to 0} \frac{\la x(t+h), y(t+h), z(t+h) \ra - \la x(t), y(t), z(t) \ra}{h} \\
+\amp= \lim_{h\to 0} \la \frac{x(t+h) - x(t)}{h}, \frac{y(t+h) - y(t)}{h}, \frac{z(t+h) - z(t)}{h} \ra \\
+\amp = \la \lim_{h\to 0} \frac{x(t+h) - x(t)}{h}, \lim_{h\to 0} \frac{y(t+h) - y(t)}{h}, \lim_{h\to 0} \frac{z(t+h) - z(t)}{h} \ra \\
+\amp= \la x'(t), y'(t), z'(t) \ra 
+\end{align*}
+</div>
+<div class="para">Let’s make it into a cool theorem!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-Derivative-VectorValuedFunctions"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector-Valued Derivatives Are Computed Componentwise.</span>
+</h4>
+<div class="para logical" id="thm-Derivative-VectorValuedFunctions-2-1">
+<div class="para">A vector-valued function <span class="process-math">\(\v{r}(t) = \la x(t), y(t), z(t) \ra\)</span> is differentiable if and only if each component is differentiable In this case,</div>
+<div class="displaymath process-math" id="thm-Derivative-VectorValuedFunctions-2-1-2">
+\begin{equation*}
+\v{r}'(t) = \frac{d}{dt}\v{r}(t) = \la x'(t), y'(t), z'(t) \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Derivative-VectorValuedFunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 13.2.6: Vector-Valued Derivatives Are Computed Componentwise"><a href="#thm-Derivative-VectorValuedFunctions" title="Copy heading and permalink for Theorem 13.2.6: Vector-Valued Derivatives Are Computed Componentwise" aria-label="Copy heading and permalink for Theorem 13.2.6: Vector-Valued Derivatives Are Computed Componentwise">🔗</a></div></article><article class="example example-like" id="subsec-Derivative-VectorValuedFunctions-7"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Derivative-VectorValuedFunctions-7-1">Compute the derivative of <span class="process-math">\(\v{r}(t) = \la e^{3t-4}, e^{6-t}, (t+1)^{-1} \ra\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Derivative-VectorValuedFunctions-7-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-Derivative-VectorValuedFunctions-7-2-1">Remember the derivative can be computed componentwise. So what is the derivative of each of the components?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Derivative-VectorValuedFunctions-7-2-2">You probably want to dig out the formula sheet you made back in Calculus I (or differential calculus) to remind yourself of the derivative formulas if needed.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-7-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.2.7.1"><a href="#subsec-Derivative-VectorValuedFunctions-7-2" title="Copy heading and permalink for Hint 13.2.7.1" aria-label="Copy heading and permalink for Hint 13.2.7.1">🔗</a></div>
+</div></details><details id="subsec-Derivative-VectorValuedFunctions-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-7-3-1">
+<div class="para">We will compute the derivative componentwise:</div>
+<ul class="no-marker" id="subsec-Derivative-VectorValuedFunctions-7-3-1-1">
+<li id="subsec-Derivative-VectorValuedFunctions-7-3-1-1-1">
+<div class="para" id="subsec-Derivative-VectorValuedFunctions-7-3-1-1-1-1">
+<span class="process-math">\(\displaystyle \dfrac{d}{dt} e^{3t-4} = 3e^{3t-4}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-7-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Derivative-VectorValuedFunctions-7-3-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Derivative-VectorValuedFunctions-7-3-1-1-2">
+<div class="para" id="subsec-Derivative-VectorValuedFunctions-7-3-1-1-2-1">
+<span class="process-math">\(\displaystyle \dfrac{d}{dt} e^{6-t} = -e^{6-t}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-7-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Derivative-VectorValuedFunctions-7-3-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Derivative-VectorValuedFunctions-7-3-1-1-3">
+<div class="para" id="subsec-Derivative-VectorValuedFunctions-7-3-1-1-3-1">
+<span class="process-math">\(\displaystyle \dfrac{d}{dt} (t+1)^{-1} = - (t+1)^{-2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-7-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Derivative-VectorValuedFunctions-7-3-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Therefore,</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-7-3-1-2">
+\begin{align*}
+\v{r}'(t) \amp= \la \frac{d}{dt} e^{3t-4}, \frac{d}{dt} e^{6-t}, \frac{d}{dt} (t+1)^{-1} \ra \\
+\amp= \la 3e^{3t-4}, -e^{6-t}, - (t+1)^{-2} \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-7-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.7.1"><a href="#subsec-Derivative-VectorValuedFunctions-7-3" title="Copy heading and permalink for Solution 13.2.7.1" aria-label="Copy heading and permalink for Solution 13.2.7.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.2.7"><a href="#subsec-Derivative-VectorValuedFunctions-7" title="Copy heading and permalink for Example 13.2.7" aria-label="Copy heading and permalink for Example 13.2.7">🔗</a></div></article><div class="para" id="subsec-Derivative-VectorValuedFunctions-8">We also learned many derivative rules back in MTH 251 (or MTH 251Z). They also extend naturally to vector-valued functions as well since vector operations are also defined componentwise.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-DerivativeRules-VectorValuedFunctions"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Differentiation Rules for Vector-Valued Functions.</span>
+</h4>
+<div class="para logical" id="thm-DerivativeRules-VectorValuedFunctions-2-1">
+<div class="para">Assume that <span class="process-math">\(\v{r}_1(t)\)</span> and <span class="process-math">\(\v{r}_2(t)\)</span> are differentiable. Then</div>
+<ul class="disc" id="thm-DerivativeRules-VectorValuedFunctions-2-1-3">
+<li id="thm-DerivativeRules-VectorValuedFunctions-2-1-3-1">
+<div class="para" id="thm-DerivativeRules-VectorValuedFunctions-2-1-3-1-1">
+<dfn class="terminology">Sum Rule:</dfn> <span class="process-math">\(\lp \v{r}_1(t) + \v{r}_2(t) \rp' = \v{r}_1'(t) + \v{r}_2'(t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-DerivativeRules-VectorValuedFunctions-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#thm-DerivativeRules-VectorValuedFunctions-2-1-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="thm-DerivativeRules-VectorValuedFunctions-2-1-3-2">
+<div class="para" id="thm-DerivativeRules-VectorValuedFunctions-2-1-3-2-1">
+<dfn class="terminology">Constant Multiple Rule:</dfn> For any constant <span class="process-math">\(c\text{,}\)</span> <span class="process-math">\(\lp c\v{r}_1(t) \rp' = c\v{r}_1'(t)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-DerivativeRules-VectorValuedFunctions-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#thm-DerivativeRules-VectorValuedFunctions-2-1-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="thm-DerivativeRules-VectorValuedFunctions-2-1-3-3">
+<div class="para logical" id="thm-DerivativeRules-VectorValuedFunctions-2-1-3-3-1">
+<div class="para">
+<dfn class="terminology">Scalar Product Rule:</dfn> For any differentiable scalar-valued function <span class="process-math">\(f\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="thm-DerivativeRules-VectorValuedFunctions-2-1-3-3-1-3">
+\begin{equation*}
+\frac{d}{dt}\lp f(t)\v{r}(t) \rp = f'(t) \v{r}(t) + f(t) \v{r}'(t)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-DerivativeRules-VectorValuedFunctions-2-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#thm-DerivativeRules-VectorValuedFunctions-2-1-3-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="thm-DerivativeRules-VectorValuedFunctions-2-1-3-4">
+<div class="para logical" id="thm-DerivativeRules-VectorValuedFunctions-2-1-3-4-1">
+<div class="para">
+<dfn class="terminology">Chain Rule:</dfn> For any differentiable scalar-valued function <span class="process-math">\(g\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="thm-DerivativeRules-VectorValuedFunctions-2-1-3-4-1-3">
+\begin{equation*}
+\frac{d}{dt}\v{r}\lp g(t) \rp = \v{r}'\lp g(t) \rp \, g'(t)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-DerivativeRules-VectorValuedFunctions-2-1-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#thm-DerivativeRules-VectorValuedFunctions-2-1-3-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-DerivativeRules-VectorValuedFunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 13.2.8: Differentiation Rules for Vector-Valued Functions"><a href="#thm-DerivativeRules-VectorValuedFunctions" title="Copy heading and permalink for Theorem 13.2.8: Differentiation Rules for Vector-Valued Functions" aria-label="Copy heading and permalink for Theorem 13.2.8: Differentiation Rules for Vector-Valued Functions">🔗</a></div></article><div class="para" id="subsec-Derivative-VectorValuedFunctions-10">The only weird rule here is the <dfn class="terminology">Scalar Product Rule</dfn>, since we are multiplying two different types of functions together. Richard included a brief proof below to convince you why this works.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Derivative-VectorValuedFunctions-11" class="note remark-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof of the Scalar Product Rule.</span>
+</h4></summary><article class="note remark-like knowl__content"><div class="para logical" id="subsec-Derivative-VectorValuedFunctions-11-2">
+<div class="para">Let <span class="process-math">\(\v{r}(t) = \la x(t), y(t), z(t) \ra\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-11-2-2">
+\begin{align*}
+\frac{d}{dt}\lp f(t)\v{r}(t) \rp \amp= \frac{d}{dt} \la f(t)x(t), f(t)y(t), f(t)z(t) \ra \\
+\amp= \la \frac{d}{dt} \lp f(t)x(t) \rp, \frac{d}{dt} \lp f(t)y(t) \rp, \frac{d}{dt} \lp f(t)z(t) \rp \ra 
+\end{align*}
+</div>
+<div class="para">Using the product rule from MTH 251 (or MTH 251Z) on each component, we have</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-11-2-3">
+\begin{align*}
+\frac{d}{dt}\lp f(t)\v{r}(t) \rp \amp= \la f'(t)x(t) + f(t)x'(t), f'(t)y(t) + f(t)y'(t), f'(t)z(t) + f(t)z'(t) \ra \\
+\amp= f'(t) \la x(t), y(t), z(t) \ra + f(t) \la x'(t), y'(t), z'(t) \ra \\
+\amp= f'(t)\v{r}(t) + f(t)\v{r}'(t) 
+\end{align*}
+</div>
+<div class="para">as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 13.2.9: Proof of the Scalar Product Rule"><a href="#subsec-Derivative-VectorValuedFunctions-11" title="Copy heading and permalink for Note 13.2.9: Proof of the Scalar Product Rule" aria-label="Copy heading and permalink for Note 13.2.9: Proof of the Scalar Product Rule">🔗</a></div></article></details><div class="para" id="subsec-Derivative-VectorValuedFunctions-12">You are more than welcome to prove the other rules on your own as an exercise! The proofs are very similar to the one above, in the sense that we will need to break everything down componentwise and then apply the corresponding single-variable calculus rule to each component.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Derivative-VectorValuedFunctions-13"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-13-1">
+<div class="para">Evaluate <span class="process-math">\(\dfrac{d}{dt} \v{r}\lp g(t) \rp\)</span> using the Chain Rule, where</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-13-1-2">
+\begin{equation*}
+\v{r}(t) = \la t^2, \sin(t), e^t \ra \quad \text{and} \quad g(t) = \ln(t)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Derivative-VectorValuedFunctions-13-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-13-2-1">
+<div class="para">Recall the chain rule formula says</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-13-2-1-1">
+\begin{equation*}
+\frac{d}{dt}\v{r}\lp g(t) \rp = \v{r}'\lp g(t) \rp \, g'(t)
+\end{equation*}
+</div>
+<div class="para">So we need to compute <span class="process-math">\(\v{r}'(t)\)</span> and <span class="process-math">\(g'(t)\)</span> first.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.2.10.1"><a href="#subsec-Derivative-VectorValuedFunctions-13-2" title="Copy heading and permalink for Hint 13.2.10.1" aria-label="Copy heading and permalink for Hint 13.2.10.1">🔗</a></div>
+</div></details><details id="subsec-Derivative-VectorValuedFunctions-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-13-3-1">
+<div class="para">First, we compute <span class="process-math">\(\v{r}'(t)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-13-3-1-2">
+\begin{equation*}
+\v{r}'(t) = \frac{d}{dt} \la t^2, \sin(t), e^t \ra = \la 2t, \cos(t), e^t \ra
+\end{equation*}
+</div>
+<div class="para">Next, we compute <span class="process-math">\(g'(t)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-13-3-1-4">
+\begin{equation*}
+g'(t) = \frac{d}{dt} \ln(t) = \frac{1}{t}
+\end{equation*}
+</div>
+<div class="para">Putting them together, by the Chain Rule, we have</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-13-3-1-5">
+\begin{align*}
+\frac{d}{dt} \v{r}\lp g(t) \rp \amp= \v{r}'\lp g(t) \rp \, g'(t) \\
+\amp= \v{r}'\lp \ln(t) \rp \cdot \frac{1}{t} \\
+\amp= \la 2\ln(t), \cos(\ln(t)), e^{\ln(t)} \ra \cdot \frac{1}{t} \\
+\amp= \la \frac{2\ln(t)}{t}, \frac{\cos(\ln(t))}{t}, \frac{e^{\ln(t)}}{t} \ra \\
+\amp= \la \frac{2\ln(t)}{t}, \frac{\cos(\ln(t))}{t}, 1 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-13-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.10.1"><a href="#subsec-Derivative-VectorValuedFunctions-13-3" title="Copy heading and permalink for Solution 13.2.10.1" aria-label="Copy heading and permalink for Solution 13.2.10.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.2.10"><a href="#subsec-Derivative-VectorValuedFunctions-13" title="Copy heading and permalink for Example 13.2.10" aria-label="Copy heading and permalink for Example 13.2.10">🔗</a></div></article><div class="para" id="subsec-Derivative-VectorValuedFunctions-14">But what about multiplying two vector-valued functions? We learned back in the previous chapter that we can multiply two vectors using the dot product or the cross product. It turns out that we have product rules for both of these operations as well.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-ProductRule-Dot-Cross-VectorValuedFunctions"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="thm-ProductRule-Dot-Cross-VectorValuedFunctions-1-1">
+<div class="para">Assume that <span class="process-math">\(\v{r}_1(t)\)</span> and <span class="process-math">\(\v{r}_2(t)\)</span> are differentiable. Then</div>
+<div class="displaymath process-math" id="thm-ProductRule-Dot-Cross-VectorValuedFunctions-1-1-3">
+\begin{align*}
+\amp\text{Dot Product Rule: } \amp\amp \frac{d}{dt}\lp \v{r}_1(t) \cdot \v{r}_2(t) \rp = \v{r}_1'(t) \cdot \v{r}_2(t) + \v{r}_1(t) \cdot \v{r}_2'(t) \\
+\amp\text{Cross Product Rule: } \amp\amp \frac{d}{dt}\lp \v{r}_1(t) \times \v{r}_2(t) \rp = \v{r}_1'(t) \times \v{r}_2(t) + \v{r}_1(t) \times \v{r}_2'(t) 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-ProductRule-Dot-Cross-VectorValuedFunctions-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 13.2.11"><a href="#thm-ProductRule-Dot-Cross-VectorValuedFunctions" title="Copy heading and permalink for Theorem 13.2.11" aria-label="Copy heading and permalink for Theorem 13.2.11">🔗</a></div></article><details id="subsec-Derivative-VectorValuedFunctions-16" class="note remark-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Proof of the Product Rules.</span>
+</h4></summary><article class="note remark-like knowl__content"><div class="para" id="subsec-Derivative-VectorValuedFunctions-16-2">The proofs of both rules are very similar to the proof of the Scalar Product Rule. We break down the dot product and cross product componentwise, and then apply the corresponding single-variable calculus product rule to each component.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-16-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-16-3">
+<div class="para">For the dot product, recall that</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-16-3-1">
+\begin{equation*}
+\v{r}_1(t) \cdot \v{r}_2(t) = x_1(t)x_2(t) + y_1(t)y_2(t) + z_1(t)z_2(t)
+\end{equation*}
+</div>
+<div class="para">So we can apply the product rule from MTH 251 (or MTH 251Z) to each of the three terms individually.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-16-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-16-4">
+<div class="para">Let <span class="process-math">\(\v{r}_1(t) = \la x_1(t), y_1(t), z_1(t) \ra\)</span> and <span class="process-math">\(\v{r}_2(t) = \la x_2(t), y_2(t), z_2(t) \ra\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-16-4-3">
+\begin{align*}
+\frac{d}{dt}\lp \v{r}_1(t) \cdot \v{r}_2(t) \rp \amp= \frac{d}{dt} \lp x_1(t)x_2(t) + y_1(t)y_2(t) + z_1(t)z_2(t) \rp \\
+\amp= x_1'(t)x_2(t) + x_1(t)x_2'(t) + y_1'(t)y_2(t) + y_1(t)y_2'(t) \\
+\amp \qquad + z_1'(t)z_2(t) + z_1(t)z_2'(t) \\
+\amp= \lp x_1'(t)x_2(t) + y_1'(t)y_2(t) + z_1'(t)z_2(t) \rp \\
+\amp \qquad + \lp x_1(t)x_2'(t) + y_1(t)y_2'(t) + z_1(t)z_2'(t) \rp \\
+\amp= \v{r}_1'(t) \cdot \v{r}_2(t) + \v{r}_1(t) \cdot \v{r}_2'(t) 
+\end{align*}
+</div>
+<div class="para">as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-16-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-16-5">
+<div class="para">For the cross product, recall that</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-16-5-1">
+\begin{equation*}
+\v{r}_1(t) \times \v{r}_2(t) = \la y_1(t)z_2(t) - z_1(t)y_2(t), z_1(t)x_2(t) - x_1(t)z_2(t), x_1(t)y_2(t) - y_1(t)x_2(t) \ra
+\end{equation*}
+</div>
+<div class="para">So we can apply the product rule from MTH 251 (or MTH 251Z) to each of the three components individually.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-16-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-16-6">
+<div class="para">Let <span class="process-math">\(\v{r}_1(t) = \la x_1(t), y_1(t), z_1(t) \ra\)</span> and <span class="process-math">\(\v{r}_2(t) = \la x_2(t), y_2(t), z_2(t) \ra\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-16-6-3">
+\begin{align*}
+\frac{d}{dt}\lp \v{r}_1(t) \times \v{r}_2(t) \rp \amp= \frac{d}{dt} \la y_1(t)z_2(t) - z_1(t)y_2(t), z_1(t)x_2(t) - x_1(t)z_2(t), x_1(t)y_2(t) - y_1(t)x_2(t) \ra \\
+\amp= \la \frac{d}{dt} \lp y_1(t)z_2(t) - z_1(t)y_2(t) \rp, \frac{d}{dt} \lp z_1(t)x_2(t) - x_1(t)z_2(t) \rp, \frac{d}{dt} \lp x_1(t)y_2(t) - y_1(t)x_2(t) \rp \ra 
+\end{align*}
+</div>
+<div class="para">Using the product rule from MTH 251 (or MTH 251Z) on each component, we have</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-16-6-4">
+\begin{align*}
+\frac{d}{dt}\lp \v{r}_1(t) \times \v{r}_2(t) \rp \amp= \bigg\langle y_1'(t)z_2(t) + y_1(t)z_2'(t) - z_1'(t)y_2(t) - z_1(t)y_2'(t), \\
+\amp \qquad \quad z_1'(t)x_2(t) + z_1(t)x_2'(t) - x_1'(t)z_2(t) - x_1(t)z_2'(t),  \\
+\amp \qquad \quad x_1'(t)y_2(t) + x_1(t)y_2'(t) - y_1'(t)x_2(t) - y_1(t)x_2'(t) \bigg\rangle \\
+\amp= \v{r}_1'(t) \times \v{r}_2(t) + \v{r}_1(t) \times \v{r}_2'(t) 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-16-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 13.2.12: Proof of the Product Rules"><a href="#subsec-Derivative-VectorValuedFunctions-16" title="Copy heading and permalink for Note 13.2.12: Proof of the Product Rules" aria-label="Copy heading and permalink for Note 13.2.12: Proof of the Product Rules">🔗</a></div></article></details><div class="para" id="subsec-Derivative-VectorValuedFunctions-17">
+<em class="alert">P.S.:</em> Recall the cross product is NOT commutative, so be sure to keep the order of the vectors the same when applying the cross product rule!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Derivative-VectorValuedFunctions-18"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-18-1">
+<div class="para">Let</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-18-1-1">
+\begin{equation*}
+\v{r}_1(t) = \la t^2,1,2t \ra \quad \text{ and } \quad \v{r}_2(t) = \la 1,2,e^t \ra
+\end{equation*}
+</div>
+<div class="para">Find <span class="process-math">\(\dfrac{d}{dt} \lp \v{r}_1(t) \cdot \v{r}_2(t) \rp\)</span> and <span class="process-math">\(\dfrac{d}{dt} \lp \v{r}_1(t) \times \v{r}_2(t) \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Derivative-VectorValuedFunctions-18-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Derivative-VectorValuedFunctions-18-2-1">
+<div class="para">First, we compute the derivatives of <span class="process-math">\(\v{r}_1(t)\)</span> and <span class="process-math">\(\v{r}_2(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-18-2-1-3">
+\begin{align*}
+\v{r}_1'(t) \amp= \frac{d}{dt} \la t^2,1,2t \ra = \la 2t,0,2 \ra \\
+\v{r}_2'(t) \amp= \frac{d}{dt} \la 1,2,e^t \ra = \la 0,0,e^t \ra 
+\end{align*}
+</div>
+<div class="para">Now, using the Dot Product Rule, we have</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-18-2-1-4">
+\begin{align*}
+\frac{d}{dt} \lp \v{r}_1(t) \cdot \v{r}_2(t) \rp \amp= \v{r}_1'(t) \cdot \v{r}_2(t) + \v{r}_1(t) \cdot \v{r}_2'(t) \\
+\amp= \la 2t,0,2 \ra \cdot \la 1,2,e^t \ra + \la t^2,1,2t \ra \cdot \la 0,0,e^t \ra \\
+\amp= 2t(1) + 0(2) + 2(e^t) + t^2(0) + 1(0) + 2t(e^t) \\
+\amp= 2t + 2e^t + 2te^t 
+\end{align*}
+</div>
+<div class="para">Next, using the Cross Product Rule, we have</div>
+<div class="displaymath process-math" id="subsec-Derivative-VectorValuedFunctions-18-2-1-5">
+\begin{align*}
+\frac{d}{dt} \lp \v{r}_1(t) \times \v{r}_2(t) \rp \amp= \v{r}_1'(t) \times \v{r}_2(t) + \v{r}_1(t) \times \v{r}_2'(t) \\
+\amp= \la 2t,0,2 \ra \times \la 1,2,e^t \ra + \la t^2,1,2t \ra \times \la 0,0,e^t \ra \\
+\amp= \la 0( e^t ) - 2( 2 ), 2(1) - 2t( e^t ), 2t( 2 ) - 0(1) \ra \\
+\amp \qquad + \la 1( e^t ) - 2t( 0 ), 2t(0) - t^2( e^t ), t^2( 0 ) - 1(0) \ra \\
+\amp= \la -4, 2 - 2te^t, 4t \ra + \la e^t, -t^2e^t, 0 \ra \\
+\amp= \la -4 + e^t, 2 - e^t(2t + t^2), 4t \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-18-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.13.1"><a href="#subsec-Derivative-VectorValuedFunctions-18-2" title="Copy heading and permalink for Solution 13.2.13.1" aria-label="Copy heading and permalink for Solution 13.2.13.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.2.13"><a href="#subsec-Derivative-VectorValuedFunctions-18" title="Copy heading and permalink for Example 13.2.13" aria-label="Copy heading and permalink for Example 13.2.13">🔗</a></div></article><div class="para" id="subsec-Derivative-VectorValuedFunctions-19">One of the reasons we learned about the derivative in the first place is to find the tangent line to a curve at a given point. We can do the same thing for vector-valued functions as well.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Derivative-VectorValuedFunctions-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Derivative of a Vector-Valued Function"><a href="#subsec-Derivative-VectorValuedFunctions" title="Copy heading and permalink for Subsection: Derivative of a Vector-Valued Function" aria-label="Copy heading and permalink for Subsection: Derivative of a Vector-Valued Function">🔗</a></div></section><section class="subsection" id="subsec-TangentVector-VectorValuedFunctions"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Derivative as a Tangent Vector</span>
+</h3>
+<div class="para" id="subsec-TangentVector-VectorValuedFunctions-2">Recall back in MTH 251 (or MTH 251Z), we learned that the derivative of a single-variable function at a point gives us the <em class="alert">slope</em> of the tangent line to the curve at that point. But there is no slope in <span class="process-math">\(\R^3\text{...}\)</span> so what gives?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-TangentVector-VectorValuedFunctions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-TangentVector-VectorValuedFunctions-3">Back in <a href="sec122-3DSpaces.html" class="internal" title="Section 12.2: Three-Dimensional Spaces: Surfaces, Vectors, and Curves">Section 12.2</a>, we learned that a line in <span class="process-math">\(\R^3\)</span> can be represented using a point and a direction vector. It turns out that the derivative of a vector-valued function at a point gives us a <em class="emphasis">direction vector</em> for the tangent line to the curve at that point. That is, the derivative of the vector-valued function at a point gives us the <em class="alert">direction</em> of the tangent line to the curve at that point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-TangentVector-VectorValuedFunctions-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-TangentVector-VectorValuedFunctions"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Tangent Vector and Tangent Line.</span>
+</h4>
+<div class="para logical" id="def-TangentVector-VectorValuedFunctions-2-1">
+<div class="para">The derivative of a vector-valued function <span class="process-math">\(\v{r}(t)\)</span> at a point <span class="process-math">\(t = t_0\text{,}\)</span> denoted <span class="process-math">\(\v{r}'(t_0)\text{,}\)</span> is a <dfn class="terminology">tangent vector</dfn> (if it exists and is nonzero). The tangent vector is a direction vector for the tangent line to the curve. The <dfn class="terminology">tangent line</dfn> then is the line with vector parameterization</div>
+<div class="displaymath process-math" id="def-TangentVector-VectorValuedFunctions-2-1-6">
+\begin{equation*}
+\v{L}(t) = \v{r}(t_0) + t \v{r}'(t_0)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-TangentVector-VectorValuedFunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 13.2.14: Tangent Vector and Tangent Line"><a href="#def-TangentVector-VectorValuedFunctions" title="Copy heading and permalink for Definition 13.2.14: Tangent Vector and Tangent Line" aria-label="Copy heading and permalink for Definition 13.2.14: Tangent Vector and Tangent Line">🔗</a></div></article><article class="example example-like" id="subsec-TangentVector-VectorValuedFunctions-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-TangentVector-VectorValuedFunctions-5-1">Find an equation of the tangent line to the curve defined by <span class="process-math">\(\v{r}(t) = \la 2\cos(t), \sin(t), t \ra\)</span> at the point <span class="process-math">\(\lp 0,1,\dfrac{\pi}{2} \rp\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-TangentVector-VectorValuedFunctions-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-TangentVector-VectorValuedFunctions-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-TangentVector-VectorValuedFunctions-5-2-1">Recall back in MTH 251 (or MTH 251Z) that to find the equation of the tangent line, we need a point on the line and the slope of the tangent line. Since we are in <span class="process-math">\(\R^3\text{,}\)</span> we trade the slope for a direction vector instead.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-TangentVector-VectorValuedFunctions-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-TangentVector-VectorValuedFunctions-5-2-2">So what is a point on the line and a direction vector for the tangent line at the given point?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-TangentVector-VectorValuedFunctions-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.2.15.1"><a href="#subsec-TangentVector-VectorValuedFunctions-5-2" title="Copy heading and permalink for Hint 13.2.15.1" aria-label="Copy heading and permalink for Hint 13.2.15.1">🔗</a></div>
+</div></details><details id="subsec-TangentVector-VectorValuedFunctions-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-TangentVector-VectorValuedFunctions-5-3-1">
+<div class="para">First, we need to find the value of <span class="process-math">\(t\)</span> that corresponds to the given point <span class="process-math">\(\lp 0,1,\dfrac{\pi}{2} \rp\text{.}\)</span> From the third component, we see that <span class="process-math">\(t = \dfrac{\pi}{2}\text{.}\)</span> Next, we compute the derivative of <span class="process-math">\(\v{r}(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-TangentVector-VectorValuedFunctions-5-3-1-5">
+\begin{equation*}
+\v{r}'(t) = \frac{d}{dt} \la 2\cos(t), \sin(t), t \ra = \la -2\sin(t), \cos(t), 1 \ra
+\end{equation*}
+</div>
+<div class="para">Evaluating at <span class="process-math">\(t = \dfrac{\pi}{2}\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="subsec-TangentVector-VectorValuedFunctions-5-3-1-7">
+\begin{equation*}
+\v{r}'\lp \frac{\pi}{2} \rp = \la -2\sin\lp \frac{\pi}{2} \rp, \cos\lp \frac{\pi}{2} \rp, 1 \ra = \la -2(1), 0, 1 \ra = \la -2, 0, 1 \ra
+\end{equation*}
+</div>
+<div class="para">Therefore, a vector parameterization of the tangent line is</div>
+<div class="displaymath process-math" id="subsec-TangentVector-VectorValuedFunctions-5-3-1-8">
+\begin{align*}
+\v{L}(t) \amp= \v{r}\lp \frac{\pi}{2} \rp + t\v{r}'\lp \frac{\pi}{2} \rp \\
+\amp= \la 0, 1, \frac{\pi}{2} \ra + t \la -2, 0, 1 \ra \\
+\amp= \la -2t, 1, \frac{\pi}{2} + t \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-TangentVector-VectorValuedFunctions-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.15.1"><a href="#subsec-TangentVector-VectorValuedFunctions-5-3" title="Copy heading and permalink for Solution 13.2.15.1" aria-label="Copy heading and permalink for Solution 13.2.15.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.2.15"><a href="#subsec-TangentVector-VectorValuedFunctions-5" title="Copy heading and permalink for Example 13.2.15" aria-label="Copy heading and permalink for Example 13.2.15">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Derivative as a Tangent Vector"><a href="#subsec-TangentVector-VectorValuedFunctions" title="Copy heading and permalink for Subsection: Derivative as a Tangent Vector" aria-label="Copy heading and permalink for Subsection: Derivative as a Tangent Vector">🔗</a></div></section><section class="subsection" id="subsec-Integration-VectorValuedFunctions"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector-valued Integration</span>
+</h3>
+<div class="para" id="subsec-Integration-VectorValuedFunctions-2">Last but not least, we turn our attention to integration of vector-valued functions. Recall back in MTH 252 (or MTH 252Z) that integration and differentiation are inverse operations (guaranteed by the Fundamental Theorem of Calculus). This implies that if things work out for differentiation, it will also work out for integration as well.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration-VectorValuedFunctions-3">Since the derivative of a vector-valued function is computed componentwise, it follows that the integral of a vector-valued function is also computed componentwise.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-Integral-VectorValuedFunctions"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector-Valued Integrals Are Computed Componentwise.</span>
+</h4>
+<div class="para logical" id="thm-Integral-VectorValuedFunctions-2-1">
+<div class="para">Assume that <span class="process-math">\(\v{r}(t) = \la x(t), y(t), z(t) \ra\)</span> is integrable on <span class="process-math">\([a,b]\text{.}\)</span> Then the <dfn class="terminology">definite integral</dfn> is computed componentwise:</div>
+<div class="displaymath process-math" id="thm-Integral-VectorValuedFunctions-2-1-4">
+\begin{equation*}
+\int_a^b \v{r}(t)\, dt = \la \int_a^b x(t)\, dt, \int_a^b y(t)\, dt, \int_a^b z(t)\, dt \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Integral-VectorValuedFunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="thm-Integral-VectorValuedFunctions-2-2">
+<div class="para">The <dfn class="terminology">indefinite integral</dfn> (or antiderivative) of <span class="process-math">\(\v{r}(t)\)</span> is also computed componentwise:</div>
+<div class="displaymath process-math" id="thm-Integral-VectorValuedFunctions-2-2-3">
+\begin{align*}
+\int \v{r}(t)\, dt \amp= \la \int x(t)\, dt, \int y(t)\, dt, \int z(t)\, dt \ra \\
+\amp= \la X(t), Y(t), Z(t) \ra + \v{c} 
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(X(t)\text{,}\)</span> <span class="process-math">\(Y(t)\text{,}\)</span> and <span class="process-math">\(Z(t)\)</span> are antiderivatives of <span class="process-math">\(x(t)\text{,}\)</span> <span class="process-math">\(y(t)\text{,}\)</span> and <span class="process-math">\(z(t)\text{,}\)</span> respectively, and <span class="process-math">\(\v{c}\)</span> is a constant vector.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Integral-VectorValuedFunctions-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 13.2.16: Vector-Valued Integrals Are Computed Componentwise"><a href="#thm-Integral-VectorValuedFunctions" title="Copy heading and permalink for Theorem 13.2.16: Vector-Valued Integrals Are Computed Componentwise" aria-label="Copy heading and permalink for Theorem 13.2.16: Vector-Valued Integrals Are Computed Componentwise">🔗</a></div></article><div class="para" id="subsec-Integration-VectorValuedFunctions-5">The indefinite integral (antiderivative) is easier to understand first. We are looking for some antiderivative of each of the component functions, and then we just combine them back into a vector. But what about the definite integral?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration-VectorValuedFunctions-6">Recall back in MTH 252 (or MTH 252Z) that the definite integral defines the signed area under the curve of the function. But this result doesn’t make sense in this case... The definite integral of a vector-valued function is also a vector, but area should be a scalar... What???<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration-VectorValuedFunctions-7">It turns out that the definite integral gives us the <em class="emphasis">net change</em> in position as we move along the curve from <span class="process-math">\(t = a\)</span> to <span class="process-math">\(t = b\)</span> on each component of the vector. So interpreting the definite integral as the accumulation function is still valid here!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Integration-VectorValuedFunctions-8"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Integration-VectorValuedFunctions-8-1">Evaluate the indefinite integral <span class="process-math">\(\displaystyle \int \la \frac{1}{t^2}, \frac{1}{t^4}, \frac{1}{t^5} \ra \, dt\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Integration-VectorValuedFunctions-8-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-Integration-VectorValuedFunctions-8-2-1">Remember the integral can be computed componentwise. So what is the antiderivative of each of the components?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration-VectorValuedFunctions-8-2-2">Also, don’t forget the arbitrary constant at the end, either as a vector or componentwise.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-8-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.2.17.1"><a href="#subsec-Integration-VectorValuedFunctions-8-2" title="Copy heading and permalink for Hint 13.2.17.1" aria-label="Copy heading and permalink for Hint 13.2.17.1">🔗</a></div>
+</div></details><details id="subsec-Integration-VectorValuedFunctions-8-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Integration-VectorValuedFunctions-8-3-1">
+<div class="para">We will compute the integral componentwise:</div>
+<ul class="no-marker" id="subsec-Integration-VectorValuedFunctions-8-3-1-1">
+<li id="subsec-Integration-VectorValuedFunctions-8-3-1-1-1">
+<div class="para" id="subsec-Integration-VectorValuedFunctions-8-3-1-1-1-1">
+<span class="process-math">\(\displaystyle \int \frac{1}{t^2}\, dt = \int t^{-2}\, dt = -t^{-1} + C_1 = -\frac{1}{t} + C_1\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-8-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Integration-VectorValuedFunctions-8-3-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Integration-VectorValuedFunctions-8-3-1-1-2">
+<div class="para" id="subsec-Integration-VectorValuedFunctions-8-3-1-1-2-1">
+<span class="process-math">\(\displaystyle \int \frac{1}{t^4}\, dt = \int t^{-4}\, dt = -\frac{1}{3}t^{-3} + C_2 = -\frac{1}{3t^3} + C_2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-8-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Integration-VectorValuedFunctions-8-3-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Integration-VectorValuedFunctions-8-3-1-1-3">
+<div class="para" id="subsec-Integration-VectorValuedFunctions-8-3-1-1-3-1">
+<span class="process-math">\(\displaystyle \int \frac{1}{t^5}\, dt = \int t^{-5}\, dt = -\frac{1}{4}t^{-4} + C_3 = -\frac{1}{4t^4} + C_3\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-8-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Integration-VectorValuedFunctions-8-3-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Therefore,</div>
+<div class="displaymath process-math" id="subsec-Integration-VectorValuedFunctions-8-3-1-2">
+\begin{align*}
+\int \la \frac{1}{t^2}, \frac{1}{t^4}, \frac{1}{t^5} \ra \, dt \amp= \la \int \frac{1}{t^2}\, dt, \int \frac{1}{t^4}\, dt, \int \frac{1}{t^5}\, dt \ra \\
+\amp= \la -\frac{1}{t} + C_1, -\frac{1}{3t^3} + C_2, -\frac{1}{4t^4} + C_3 \ra 
+\end{align*}
+</div>
+<div class="para">or equivalently,</div>
+<div class="displaymath process-math" id="subsec-Integration-VectorValuedFunctions-8-3-1-3">
+\begin{align*}
+\int \la \frac{1}{t^2}, \frac{1}{t^4}, \frac{1}{t^5} \ra \, dt \amp= \la -\frac{1}{t}, -\frac{1}{3t^3}, -\frac{1}{4t^4} \ra + \la C_1, C_2, C_3 \ra \\
+\amp= \la -\frac{1}{t}, -\frac{1}{3t^3}, -\frac{1}{4t^4} \ra + \v{c} 
+\end{align*}
+</div>
+<div class="para">where <span class="process-math">\(\v{c} = \la C_1, C_2, C_3 \ra\)</span> is a constant vector.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.17.1"><a href="#subsec-Integration-VectorValuedFunctions-8-3" title="Copy heading and permalink for Solution 13.2.17.1" aria-label="Copy heading and permalink for Solution 13.2.17.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.2.17"><a href="#subsec-Integration-VectorValuedFunctions-8" title="Copy heading and permalink for Example 13.2.17" aria-label="Copy heading and permalink for Example 13.2.17">🔗</a></div></article><div class="para" id="subsec-Integration-VectorValuedFunctions-9">But how do we evaluate definite integrals of vector-valued functions? The tool we had back in MTH 252 (or MTH 252Z) is the Fundamental Theorem of Calculus (FTC). It turns out that the FTC also holds for vector-valued functions as well!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-FTC-VectorValuedFunctions"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fundamental Theorem of Calculus for Vector-Valued Functions.</span>
+</h4>
+<div class="para logical" id="thm-FTC-VectorValuedFunctions-2-1">
+<div class="para">
+<em class="alert">Part I:</em> If <span class="process-math">\(\v{r}(t)\)</span> is continuous on <span class="process-math">\([a,b]\)</span> and <span class="process-math">\(\v{R}(t)\)</span> is an antiderivative of <span class="process-math">\(\v{r}(t)\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="thm-FTC-VectorValuedFunctions-2-1-6">
+\begin{equation*}
+\int_a^b \v{r}(t)\, dt = \v{R}(b) - \v{R}(a)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-FTC-VectorValuedFunctions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="thm-FTC-VectorValuedFunctions-2-2">
+<div class="para">
+<em class="alert">Part II:</em> Assume that <span class="process-math">\(\v{r}(t)\)</span> is continuous on an open interval <span class="process-math">\(I\)</span> and let <span class="process-math">\(a\)</span> be in <span class="process-math">\(I\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="thm-FTC-VectorValuedFunctions-2-2-6">
+\begin{equation*}
+\frac{d}{dt} \int_a^t \v{r}(s)\, ds = \v{r}(t)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-FTC-VectorValuedFunctions-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 13.2.18: Fundamental Theorem of Calculus for Vector-Valued Functions"><a href="#thm-FTC-VectorValuedFunctions" title="Copy heading and permalink for Theorem 13.2.18: Fundamental Theorem of Calculus for Vector-Valued Functions" aria-label="Copy heading and permalink for Theorem 13.2.18: Fundamental Theorem of Calculus for Vector-Valued Functions">🔗</a></div></article><article class="example example-like" id="subsec-Integration-VectorValuedFunctions-11"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Integration-VectorValuedFunctions-11-1">Evaluate the definite integral <span class="process-math">\(\displaystyle \int_1^4 \la t^{-1}, 4\sqrt{t}, -8t^{3/2} \ra \, dt\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Integration-VectorValuedFunctions-11-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-Integration-VectorValuedFunctions-11-2-1">Remember that the FTC also holds for vector-valued functions. So how does the process work again?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.2.19.1"><a href="#subsec-Integration-VectorValuedFunctions-11-2" title="Copy heading and permalink for Hint 13.2.19.1" aria-label="Copy heading and permalink for Hint 13.2.19.1">🔗</a></div>
+</div></details><details id="subsec-Integration-VectorValuedFunctions-11-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Integration-VectorValuedFunctions-11-3-1">
+<div class="para">We will evaluate the integral componentwise using the FTC.</div>
+<ul class="no-marker" id="subsec-Integration-VectorValuedFunctions-11-3-1-1">
+<li id="subsec-Integration-VectorValuedFunctions-11-3-1-1-1">
+<div class="para" id="subsec-Integration-VectorValuedFunctions-11-3-1-1-1-1">
+<span class="process-math">\(\displaystyle \displaystyle \int_1^4 t^{-1}\, dt = \ln|t|\bigg|_1^4 = \ln(4) - \ln(1) = \ln(4)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-11-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Integration-VectorValuedFunctions-11-3-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Integration-VectorValuedFunctions-11-3-1-1-2">
+<div class="para" id="subsec-Integration-VectorValuedFunctions-11-3-1-1-2-1">
+<span class="process-math">\(\displaystyle \displaystyle \int_1^4 4\sqrt{t}\, dt = \int_1^4 4t^{1/2}\, dt = \frac{8}{3}t^{3/2}\bigg|_1^4 = \frac{8}{3}(8-1) = \frac{56}{3}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-11-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Integration-VectorValuedFunctions-11-3-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-Integration-VectorValuedFunctions-11-3-1-1-3">
+<div class="para" id="subsec-Integration-VectorValuedFunctions-11-3-1-1-3-1">
+<span class="process-math">\(\displaystyle \displaystyle \int_1^4 -8t^{3/2}\, dt = -\frac{16}{5}t^{5/2}\bigg|_1^4 = -\frac{16}{5}(32-1) = -\frac{512}{5} + \frac{16}{5} = -\frac{496}{5}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-11-3-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-Integration-VectorValuedFunctions-11-3-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Therefore,</div>
+<div class="displaymath process-math" id="subsec-Integration-VectorValuedFunctions-11-3-1-2">
+\begin{align*}
+\int_1^4 \la t^{-1}, 4\sqrt{t}, -8t^{3/2} \ra \, dt \amp= \la \int_1^4 t^{-1}\, dt, \int_1^4 4\sqrt{t}\, dt, \int_1^4 -8t^{3/2}\, dt \ra \\
+\amp= \la \ln(4), \frac{56}{3}, -\frac{496}{5} \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration-VectorValuedFunctions-11-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.19.1"><a href="#subsec-Integration-VectorValuedFunctions-11-3" title="Copy heading and permalink for Solution 13.2.19.1" aria-label="Copy heading and permalink for Solution 13.2.19.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.2.19"><a href="#subsec-Integration-VectorValuedFunctions-11" title="Copy heading and permalink for Example 13.2.19" aria-label="Copy heading and permalink for Example 13.2.19">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Vector-valued Integration"><a href="#subsec-Integration-VectorValuedFunctions" title="Copy heading and permalink for Subsection: Vector-valued Integration" aria-label="Copy heading and permalink for Subsection: Vector-valued Integration">🔗</a></div></section><div class="para" id="sec132-CalcVectorFunctions-8">To sum up, since the vector-valued functions are built from single-variable functions componentwise, most of the rules and properties we learned back in MTH 251 (or MTH 251Z) and MTH 252 (or MTH 252Z) extend naturally to vector-valued functions as well! But you have triple the work to do since you have to deal with three components instead of just one...<div class="autopermalink" data-description="Paragraph"><a href="#sec132-CalcVectorFunctions-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="worksheet" id="ws-sec132" data-margins="0.75in 0.75in 0.75in 0.75in"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Assigned Problems for Section 13.2</span><div class="print-links"><a href="ws-sec132-printable.html" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<section class="introduction" id="ws-sec132-2"><div class="para" id="ws-sec132-2-1">The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec132-2-2">The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><article class="exercise exercise-like" id="ws-sec132-3"><h4 class="heading"><span class="codenumber">13.2.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec132-3-1">Evaluate the limit <span class="process-math">\(\displaystyle \lim_{t\to 0} e^{2t}\v{i} + \ln(t+1)\v{j} + 4\v{k}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.2.3"><a href="#ws-sec132-3" title="Copy heading and permalink for Worksheet Exercise 13.2.3" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-4"><h4 class="heading"><span class="codenumber">13.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec132-4-1">Compute the derivative of <span class="process-math">\(\v{r}(s) = \la e^{1-s}, 1-s, \ln(1-s) \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.2.9"><a href="#ws-sec132-4" title="Copy heading and permalink for Worksheet Exercise 13.2.9" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.9">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-5"><h4 class="heading"><span class="codenumber">13.2.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec132-5-1">Sketch the curve parametrized by <span class="process-math">\(\v{r}_1(t) = \la t,t^2 \ra\)</span> together with its tangent vector at <span class="process-math">\(t = 1\text{.}\)</span> Then do the same for <span class="process-math">\(\v{r}_2(t) = \la t^3, t^6 \ra\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.2.15"><a href="#ws-sec132-5" title="Copy heading and permalink for Worksheet Exercise 13.2.15" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.15">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-6"><h4 class="heading"><span class="codenumber">13.2.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec132-6-1">Determine the value of <span class="process-math">\(t\)</span> between <span class="process-math">\(0\)</span> and <span class="process-math">\(2\pi\)</span> such that the tangent vector to the clycloid <span class="process-math">\(\v{r}(t) = \la t - \sin(t), 1 - \cos(t) \ra\)</span> is parallel to <span class="process-math">\(\la \sqrt{3}, 1 \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.2.17"><a href="#ws-sec132-6" title="Copy heading and permalink for Worksheet Exercise 13.2.17" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.17">🔗</a></div></article><div class="exercisegroup" id="ws-sec132-7">
+<h4 class="heading"><span class="title">Exercise Group.</span></h4>
+<div class="introduction" id="ws-sec132-7-1"><div class="para logical" id="ws-sec132-7-1-1">
+<div class="para">In the following exercises, evaluate the derivative by using the appropriate Product Rule, where</div>
+<div class="displaymath process-math" id="ws-sec132-7-1-1-1">
+\begin{equation*}
+\v{r}_1(t) = \la t^2, t^3, t \ra \, , \qquad \v{r}_2(t) = \la e^{3t}, e^{2t}, e^t \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="ws-sec132-7-2"><h5 class="heading"><span class="codenumber">13.2.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="para" id="ws-sec132-7-2-1">
+<span class="process-math">\(\dfrac{d}{dt} \lp \v{r}_1(t) \cdot \v{r}_2(t) \rp\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.2.19"><a href="#ws-sec132-7-2" title="Copy heading and permalink for Worksheet Exercise 13.2.19" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-7-3"><h5 class="heading"><span class="codenumber">13.2.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="para" id="ws-sec132-7-3-1">
+<span class="process-math">\(\dfrac{d}{dt} \lp \v{r}_1(t) \times \v{r}_2(t) \rp\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-7-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.2.21"><a href="#ws-sec132-7-3" title="Copy heading and permalink for Worksheet Exercise 13.2.21" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.21">🔗</a></div></article>
+</div>
+<div class="autopermalink" data-description="Exercise Group 13.2.19–13.2.21"><a href="#ws-sec132-7" title="Copy heading and permalink for Exercise Group 13.2.19–13.2.21" aria-label="Copy heading and permalink for Exercise Group 13.2.19–13.2.21">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="ws-sec132-8"><h4 class="heading"><span class="codenumber">13.2.27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec132-8-1">
+<div class="para">Evaluate <span class="process-math">\(\dfrac{d}{dt}\v{r}\lp g(t) \rp\)</span> using the Chain Rule, where</div>
+<div class="displaymath process-math" id="ws-sec132-8-1-2">
+\begin{equation*}
+\v{r}(t) = \la e^t, e^{2t}, 4 \ra \, , \qquad g(t) = 4t + 9
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.2.27"><a href="#ws-sec132-8" title="Copy heading and permalink for Worksheet Exercise 13.2.27" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.27">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-9"><h4 class="heading"><span class="codenumber">13.2.33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec132-9-1">Find a parametrization of the tangent line of <span class="process-math">\(\v{r}(t) = \la 1-t^2, 5t, 2t^3 \ra\)</span> at the point <span class="process-math">\(t = 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.2.33"><a href="#ws-sec132-9" title="Copy heading and permalink for Worksheet Exercise 13.2.33" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.33">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-10"><h4 class="heading"><span class="codenumber">13.2.45<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec132-10-1">Evaluate the integral <span class="process-math">\(\displaystyle \int_0^\pi \la -\sin(t), 6t, 2t+\cos(2t) \ra\, dt\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.2.45"><a href="#ws-sec132-10" title="Copy heading and permalink for Worksheet Exercise 13.2.45" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.45">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-11"><h4 class="heading"><span class="codenumber">13.2.55<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec132-11-1">
+<div class="para">Find both the general solution of the differential equation and the solution with the given initial condition.</div>
+<div class="displaymath process-math" id="ws-sec132-11-1-1">
+\begin{equation*}
+\v{r}''(t) = \la 0,2,0 \ra \, , \qquad \v{r}(3) = \la 1,1,0 \ra \, , \qquad \v{r}'(3) = \la 0,0,1 \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.2.55"><a href="#ws-sec132-11" title="Copy heading and permalink for Worksheet Exercise 13.2.55" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.55">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 13.2"><a href="#ws-sec132" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 13.2" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 13.2">🔗</a></div></section><div class="autopermalink" data-description="Section 13.2: Calculus of Vector-Valued Functions"><a href="#sec132-CalcVectorFunctions" title="Copy heading and permalink for Section 13.2: Calculus of Vector-Valued Functions" aria-label="Copy heading and permalink for Section 13.2: Calculus of Vector-Valued Functions">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="sec131-VectorFunctions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec133-ArcLength.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec131-VectorFunctions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

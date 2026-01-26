@@ -2791,6 +2791,564 @@ var ptx_lunr_docs = [
   "body": " An apple modeled by taking all the points in and on a sphere of radius inches is cored with a vertical cylinder of radius in. Use inequalities in cylindrical coordinates to describe the set of all points that remain in the apple once the core is removed.  "
 },
 {
+  "id": "sec131-VectorFunctions",
+  "level": "1",
+  "url": "sec131-VectorFunctions.html",
+  "type": "Section",
+  "number": "13.1",
+  "title": "Vector-Valued Functions",
+  "body": " Vector-Valued Functions   In single-variable calculus, we studied functions of the form , which result in graphs that are curves in the -plane. In linear algebra or the previous chapter, we studied vectors, which represent magnitude and direction but are static.  In this section, we combine these concepts to define vector-valued functions . By allowing the components of a vector to be functions of a parameter (often representing time), we can describe dynamic motion in space.    After this section, students will be able to:     determine the domain of a vector-valued function.    distinguish between the path and the curve of a vector-valued function.    analyze and identify space curves by examining their projections onto the coordinate planes.    construct parametrizations for curves in .      Imagine you are tracking the position of a particle moving in . At any time , the position of the particle can be represented by a vector , where and are functions that describe the particle's coordinates in the plane. As time progresses, the tip of the vector traces out a path in the plane, known as a Plane Curve .    Plane Curve in   Similarly, if the particle is moving in , at any time , the position of the particle can be represented by a vector , where , , and are functions that describe the particle's coordinates in . As time progresses, the tip of the vector traces out a path in space, known as a Space Curve .    Space Curve in   The function is called a Vector-Valued Function because it assigns a vector to each value of the parameter . In , a vector-valued function is typically expressed as where is called the parameter of the function, and , , and are the component or coordinate functions that determine the coordinates of the vector in space.  Note that the parameter often represents time, but it can represent other quantities as well.   Domain, Path, and Curve  Now that we have a function, we want to understand its domain. The domain of a vector-valued function is the set of all possible values of the parameter for which all the component functions are defined.   What is the domain of ?   The component functions are We can find their domains individually.  The domain of must be the set of all values for which all three component functions are defined. How can we find a set of values that works for all three component functions?    The domain of is because the cubic function is defined for all real numbers.  The domain of is because the natural logarithm function is only defined for positive arguments.  The domain of is because the square root function is only defined for non-negative numbers.  To find the domain of , we need to find the intersection of the domains of the three component functions to ensure that all components are defined. That is, the domain of is which simplifies to .  Hence, the domain of is .    There are two things we are discussing here: the path parametrized by and the curve  traced by the tip of the vector .   The path is the vector-valued function itself. It describes how the curve is traversed as the parameter varies. You can think of it as the specific trip you take along that road.    The curve  is the set of points in space. It is a static geometric object left behind by the path. You can think of it as the physical road on a map.     For example, let's say we have the vector-valued function where .  The path is the function itself, which describes how the curve is traced out as varies from to (see the figure below).    The Path of   The curve is the set of points in space traced out by the tip of the vector as varies from to (see the figure below).    The Curve traced by     Projections of Vector-Valued Functions  Next, let's discuss how to describe the curve traced by a vector-valued function. One way to do so is to eliminate one variable through projection onto a coordinate plane . Then we can easily describe the resulting curve in two dimensions.   The curve traced by for is called a helix . Describe the curve in terms of its projections onto the coordinate planes.   We can project the curve onto the standard -plane, -plane, and -plane by setting the appropriate coordinate to zero. Then we can observe the resulting curves in two dimensions.    By setting , we project the curve onto the -plane. The projection is given by . This implies that Squaring and adding these equations gives Hence, the projection onto the -plane is a circle of radius centered at the origin.  By setting , we project the curve onto the -plane. The projection is given by . This implies that We can simply express in terms of as . Hence, the projection onto the -plane is a cosine curve that oscillates between and as increases.  By setting , we project the curve onto the -plane. The projection is given by . This implies that We can simply express in terms of as . Hence, the projection onto the -plane is a negative sine curve that oscillates between and as increases.  The diagram below summarizes the projections of the helix onto the three coordinate planes.    Projections of a Helix onto the Coordinate Planes     Projections are useful not only for visualizing curves in , but also for analyzing the curves in . That is, by studying the projections onto the coordinate planes, we can obtain the vector-valued function of the curve in .   Match the vector-valued functions (a)-(f) with the space curves (I)-(VI) in the figure below.                                      To match the vector-valued functions with the space curves, we can analyze the projections of each curve onto the coordinate planes. By examining the behavior of the projections, we can identify which vector-valued function corresponds to each curve.    If you want to analyze the functions...  The correct matches are:     corresponds to graph II . Observe that . This indicates the curve lies on the cone . The spiral radius increases as the variable increases, which matches graph II.     corresponds to graph VI . Here, , so the curve lies on a cylinder. The -component peaks at and approaches as . Graph VI shows a spiral on a cylinder that rises to a peak and flattens out towards the bottom, matching this behavior.     corresponds to graph V . Notice that , meaning the curve lies on the parabolic cylinder . As moves away from zero, increases quadratically while approaches zero. This matches the parabolic track seen in graph V.     corresponds to graph I . The curve lies on the cylinder . Since all components are periodic, the curve is a closed loop. The -component oscillates between and with a frequency double that of the rotation in , creating the \"saddle\" shape seen in graph I.     corresponds to graph IV . This describes a helix on the cylinder . The -component grows exponentially, which means the vertical spacing (pitch) between the coils increases as the curve rises. This is clearly visible in graph IV.     corresponds to graph III . Observe that . The curve is confined to the plane . As increases, the point oscillates along a line segment in the -plane, creating the wave-like shape on a flat plane seen in graph III.      If you want to analyze the curves...  The correct matches are:     Graph I matches equation (d)  . This is the only closed loop among the graphs. Mathematically, this corresponds to the only function where all three components are periodic, meaning the curve eventually retraces its path.     Graph II matches equation (a)  . The graph shows a spiral expanding along the -axis, forming a cone. This matches equation (a) because the radius of the spiral in the -plane is , which equals the distance along the -axis ( ).     Graph III matches equation (f)  . The graph shows a wave confined to a flat vertical plane. This matches equation (f) because , meaning the curve lies entirely on the plane .     Graph IV matches equation (e)  . The graph is a helix where the vertical distance between coils increases (the pitch widens). This matches equation (e) because the -component grows exponentially ( ), causing the curve to rise faster and faster.     Graph V matches equation (c)  . The graph shows a parabolic shape where the -coordinate approaches zero as the curve rises. This matches equation (c) because (a parabola) and , which approaches 0 as .     Graph VI matches equation (b)  . The graph depicts a spiral that is confined near the plane, rising to a peak and falling back. This corresponds to the \"bell curve\" behavior of the -component , which is bounded between 0 and 1.        Parametrization of Vector-Valued Functions  Parametrization is the process of expressing a curve using a vector-valued function. That is, given a curve in space, we want to find a vector-valued function that traces out the curve as varies over some interval.  There are generally two main approaches to parametrizing a curve.    Method 1 : picking one of the variables as the parameter and expressing the other variables in terms of that parameter.     Method 2 : using known parametrizations of standard curves (e.g., circles)) and adjusting them to fit the given curve.      Find the parametrization of the curve obtained by the intersection of the surfaces and .   Using Method 1...  We can use as the parameter.  From the first surface, we have , so , where . From the second surface, we have .  That is, the curve of intersection can be expressed as where .   Note: the sign makes the -component not a function of . In practice, we would split the parametrization into two separate parts: one for and another for , each defined over the interval .    Using Method 2...  We can use the standard parametrization of a circle in the -plane, and then adjust it to fit the given constraint.  The standard parametrization of the circle is for .  Next, we can use the second surface equation to express in terms of . That is, .  Hence, the curve of intersection can be expressed as for .    Observe that there are infinitely many ways to parametrize a curve. One way to check your answer is to literally graph the curve and the parametrization to see if they match.  We can graph the curves using the GeoGebra 3D Graphing Calculator or other 3D graphing software. If you type \"Curve(cos(t),sin(t),2-sin(t),t,0,2 π)\" into GeoGebra, you will see that the curve of intersection is a slanted ellipse. If you type \"Curve(\\sqrt{1-t^2},t,2-t,t,-1,1)\" and \"Curve(-\\sqrt{1-t^2},t,2-t,t,-1,1)\", you will also get the same slanted ellipse.  To make it more convincing, you can graph the two surfaces and see if the intersection is the slanted ellipse.   While the ideas in this section doesn't seem too difficult, it does require some practice to get comfortable with them. For example, Richard knew how to parametrize things because he knows the standard parametrizations of circles and stuff. Practice will help you internalize these concepts!   Assigned Problems for Section 13.1   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    What is the domain of ?    Find a vector parametrization of the line through in the direction .    Determine whether the space curve given by intersects the -axis, and if it does, determine where.    Match the vector-valued functions (a)-(f) with the space curves (i)-(vi) in the figure below.                                       Match the space curves (A)-(C) in the figure below with their projections (i)-(iii) onto the -plane.        In the following exercises, the function traces a circle. Determine the radius, center, and plane containing the circle.               Let be the curve given by .   Show that lies on the cone .    Sketch the cone and make a rough sketch of on the cone.       Parametrize the part of the intersection of the surfaces where using as the parameter.    Use sine and cosine to parametrize the intersection of the cylinder and the plane . Then describe the projections of this curve onto the three coordinate planes.    Two paths and intersect if there is a point lying on both curves. We say that and collide if at some point .  Determine whether and collide or intersect, giving the coordinates of the corresponding points if they exist:      In the following exercises, find a parametrization of the curve.    The circle of radius with center in a plane parallel to the -plane.    The intersection of the plane with the sphere . `     "
+},
+{
+  "id": "sec131-VectorFunctions-2-2",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#sec131-VectorFunctions-2-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vector-valued functions "
+},
+{
+  "id": "sec131-VectorFunctions-2-3",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#sec131-VectorFunctions-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     determine the domain of a vector-valued function.    distinguish between the path and the curve of a vector-valued function.    analyze and identify space curves by examining their projections onto the coordinate planes.    construct parametrizations for curves in .    "
+},
+{
+  "id": "sec131-VectorFunctions-3",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#sec131-VectorFunctions-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Plane Curve "
+},
+{
+  "id": "sec131-VectorFunctions-4",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#sec131-VectorFunctions-4",
+  "type": "Figure",
+  "number": "13.1.1",
+  "title": "",
+  "body": "  Plane Curve in  "
+},
+{
+  "id": "sec131-VectorFunctions-5",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#sec131-VectorFunctions-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Space Curve "
+},
+{
+  "id": "sec131-VectorFunctions-6",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#sec131-VectorFunctions-6",
+  "type": "Figure",
+  "number": "13.1.2",
+  "title": "",
+  "body": "  Space Curve in  "
+},
+{
+  "id": "sec131-VectorFunctions-7",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#sec131-VectorFunctions-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Vector-Valued Function parameter component coordinate functions "
+},
+{
+  "id": "subsec-BasicVectorValuedFunctions-2",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "domain "
+},
+{
+  "id": "subsec-BasicVectorValuedFunctions-3",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions-3",
+  "type": "Example",
+  "number": "13.1.3",
+  "title": "",
+  "body": " What is the domain of ?   The component functions are We can find their domains individually.  The domain of must be the set of all values for which all three component functions are defined. How can we find a set of values that works for all three component functions?    The domain of is because the cubic function is defined for all real numbers.  The domain of is because the natural logarithm function is only defined for positive arguments.  The domain of is because the square root function is only defined for non-negative numbers.  To find the domain of , we need to find the intersection of the domains of the three component functions to ensure that all components are defined. That is, the domain of is which simplifies to .  Hence, the domain of is .   "
+},
+{
+  "id": "subsec-BasicVectorValuedFunctions-4",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "path curve path curve "
+},
+{
+  "id": "subsec-BasicVectorValuedFunctions-7",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions-7",
+  "type": "Figure",
+  "number": "13.1.4",
+  "title": "",
+  "body": "  The Path of  "
+},
+{
+  "id": "subsec-BasicVectorValuedFunctions-9",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions-9",
+  "type": "Figure",
+  "number": "13.1.5",
+  "title": "",
+  "body": "  The Curve traced by  "
+},
+{
+  "id": "subsec-Projection_VectorValuedFunctions-3",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#subsec-Projection_VectorValuedFunctions-3",
+  "type": "Example",
+  "number": "13.1.6",
+  "title": "",
+  "body": " The curve traced by for is called a helix . Describe the curve in terms of its projections onto the coordinate planes.   We can project the curve onto the standard -plane, -plane, and -plane by setting the appropriate coordinate to zero. Then we can observe the resulting curves in two dimensions.    By setting , we project the curve onto the -plane. The projection is given by . This implies that Squaring and adding these equations gives Hence, the projection onto the -plane is a circle of radius centered at the origin.  By setting , we project the curve onto the -plane. The projection is given by . This implies that We can simply express in terms of as . Hence, the projection onto the -plane is a cosine curve that oscillates between and as increases.  By setting , we project the curve onto the -plane. The projection is given by . This implies that We can simply express in terms of as . Hence, the projection onto the -plane is a negative sine curve that oscillates between and as increases.  The diagram below summarizes the projections of the helix onto the three coordinate planes.    Projections of a Helix onto the Coordinate Planes    "
+},
+{
+  "id": "subsec-Projection_VectorValuedFunctions-5",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#subsec-Projection_VectorValuedFunctions-5",
+  "type": "Example",
+  "number": "13.1.8",
+  "title": "",
+  "body": " Match the vector-valued functions (a)-(f) with the space curves (I)-(VI) in the figure below.                                      To match the vector-valued functions with the space curves, we can analyze the projections of each curve onto the coordinate planes. By examining the behavior of the projections, we can identify which vector-valued function corresponds to each curve.    If you want to analyze the functions...  The correct matches are:     corresponds to graph II . Observe that . This indicates the curve lies on the cone . The spiral radius increases as the variable increases, which matches graph II.     corresponds to graph VI . Here, , so the curve lies on a cylinder. The -component peaks at and approaches as . Graph VI shows a spiral on a cylinder that rises to a peak and flattens out towards the bottom, matching this behavior.     corresponds to graph V . Notice that , meaning the curve lies on the parabolic cylinder . As moves away from zero, increases quadratically while approaches zero. This matches the parabolic track seen in graph V.     corresponds to graph I . The curve lies on the cylinder . Since all components are periodic, the curve is a closed loop. The -component oscillates between and with a frequency double that of the rotation in , creating the \"saddle\" shape seen in graph I.     corresponds to graph IV . This describes a helix on the cylinder . The -component grows exponentially, which means the vertical spacing (pitch) between the coils increases as the curve rises. This is clearly visible in graph IV.     corresponds to graph III . Observe that . The curve is confined to the plane . As increases, the point oscillates along a line segment in the -plane, creating the wave-like shape on a flat plane seen in graph III.      If you want to analyze the curves...  The correct matches are:     Graph I matches equation (d)  . This is the only closed loop among the graphs. Mathematically, this corresponds to the only function where all three components are periodic, meaning the curve eventually retraces its path.     Graph II matches equation (a)  . The graph shows a spiral expanding along the -axis, forming a cone. This matches equation (a) because the radius of the spiral in the -plane is , which equals the distance along the -axis ( ).     Graph III matches equation (f)  . The graph shows a wave confined to a flat vertical plane. This matches equation (f) because , meaning the curve lies entirely on the plane .     Graph IV matches equation (e)  . The graph is a helix where the vertical distance between coils increases (the pitch widens). This matches equation (e) because the -component grows exponentially ( ), causing the curve to rise faster and faster.     Graph V matches equation (c)  . The graph shows a parabolic shape where the -coordinate approaches zero as the curve rises. This matches equation (c) because (a parabola) and , which approaches 0 as .     Graph VI matches equation (b)  . The graph depicts a spiral that is confined near the plane, rising to a peak and falling back. This corresponds to the \"bell curve\" behavior of the -component , which is bounded between 0 and 1.     "
+},
+{
+  "id": "subsec-Parametrization_VectorValuedFunctions-4",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#subsec-Parametrization_VectorValuedFunctions-4",
+  "type": "Example",
+  "number": "13.1.10",
+  "title": "",
+  "body": " Find the parametrization of the curve obtained by the intersection of the surfaces and .   Using Method 1...  We can use as the parameter.  From the first surface, we have , so , where . From the second surface, we have .  That is, the curve of intersection can be expressed as where .   Note: the sign makes the -component not a function of . In practice, we would split the parametrization into two separate parts: one for and another for , each defined over the interval .    Using Method 2...  We can use the standard parametrization of a circle in the -plane, and then adjust it to fit the given constraint.  The standard parametrization of the circle is for .  Next, we can use the second surface equation to express in terms of . That is, .  Hence, the curve of intersection can be expressed as for .   "
+},
+{
+  "id": "ws-sec131-3",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-3",
+  "type": "Worksheet Exercise",
+  "number": "13.1.1",
+  "title": "",
+  "body": " What is the domain of ?  "
+},
+{
+  "id": "ws-sec131-4",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-4",
+  "type": "Worksheet Exercise",
+  "number": "13.1.5",
+  "title": "",
+  "body": " Find a vector parametrization of the line through in the direction .  "
+},
+{
+  "id": "ws-sec131-5",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-5",
+  "type": "Worksheet Exercise",
+  "number": "13.1.7",
+  "title": "",
+  "body": " Determine whether the space curve given by intersects the -axis, and if it does, determine where.  "
+},
+{
+  "id": "ws-sec131-6",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-6",
+  "type": "Worksheet Exercise",
+  "number": "13.1.15",
+  "title": "",
+  "body": " Match the vector-valued functions (a)-(f) with the space curves (i)-(vi) in the figure below.                                     "
+},
+{
+  "id": "ws-sec131-7",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-7",
+  "type": "Worksheet Exercise",
+  "number": "13.1.17",
+  "title": "",
+  "body": " Match the space curves (A)-(C) in the figure below with their projections (i)-(iii) onto the -plane.     "
+},
+{
+  "id": "ws-sec131-8-2",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-8-2",
+  "type": "Worksheet Exercise",
+  "number": "13.1.19",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec131-8-3",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-8-3",
+  "type": "Worksheet Exercise",
+  "number": "13.1.21",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec131-9",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-9",
+  "type": "Worksheet Exercise",
+  "number": "13.1.25",
+  "title": "",
+  "body": " Let be the curve given by .   Show that lies on the cone .    Sketch the cone and make a rough sketch of on the cone.     "
+},
+{
+  "id": "ws-sec131-10",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-10",
+  "type": "Worksheet Exercise",
+  "number": "13.1.29",
+  "title": "",
+  "body": " Parametrize the part of the intersection of the surfaces where using as the parameter.  "
+},
+{
+  "id": "ws-sec131-11",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-11",
+  "type": "Worksheet Exercise",
+  "number": "13.1.33",
+  "title": "",
+  "body": " Use sine and cosine to parametrize the intersection of the cylinder and the plane . Then describe the projections of this curve onto the three coordinate planes.  "
+},
+{
+  "id": "ws-sec131-12",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-12",
+  "type": "Worksheet Exercise",
+  "number": "13.1.37",
+  "title": "",
+  "body": " Two paths and intersect if there is a point lying on both curves. We say that and collide if at some point .  Determine whether and collide or intersect, giving the coordinates of the corresponding points if they exist:   "
+},
+{
+  "id": "ws-sec131-13-2",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-13-2",
+  "type": "Worksheet Exercise",
+  "number": "13.1.43",
+  "title": "",
+  "body": " The circle of radius with center in a plane parallel to the -plane.  "
+},
+{
+  "id": "ws-sec131-13-3",
+  "level": "2",
+  "url": "sec131-VectorFunctions.html#ws-sec131-13-3",
+  "type": "Worksheet Exercise",
+  "number": "13.1.45",
+  "title": "",
+  "body": " The intersection of the plane with the sphere . `  "
+},
+{
+  "id": "sec132-CalcVectorFunctions",
+  "level": "1",
+  "url": "sec132-CalcVectorFunctions.html",
+  "type": "Section",
+  "number": "13.2",
+  "title": "Calculus of Vector-Valued Functions",
+  "body": " Calculus of Vector-Valued Functions   In the previous section, we established that a vector-valued function traces out a curve in space as the parameter varies. Now, we turn our attention to the calculus of these functions.  Just as we used limits, derivatives, and integrals in single-variable calculus to analyze the behavior of functions (such as their rate of change and accumulation), we will define these operations for vector-valued functions.    After this section, students will be able to:     evaluate limits of vector-valued functions.    compute the derivative and apply standard differentiation rules.    interpret the derivative geometrically as a tangent vector and construct the parametrization of the tangent line at a given point.    evaluate definite and indefinite integrals of vector-valued functions.      Long story short, all the fun calculus stuff you learned (and love) about functions of a single variable extends naturally to vector-valued functions. The only difference is that we have to do everything component-wise , since a vector-valued function is just a collection of component functions bundled together, and each component function is a single variable function.   Limit of a Vector-Valued Function  Recall back in MTH 251 (or MTH 251Z), we defined limit as the function value getting arbitrarily close to some point as the input approaches some value. In the case of vector-valued functions, the input is some parameter , and the output is a vector in space. That is, we say that a vector-valued function approaches a limit (a vector) as approaches if the distance between and approaches as approaches .   Limit of a Vector-Valued Function   A vector-valued function approaches the limit (a vector) as approaches if . In this case, we write       The vector-valued function approaches the vector as   It turns out that we can compute limits of vector-valued functions by examining the behavior of each component function individually. Observe that each component function is a single-variable function, so we can apply all the limit laws we learned in MTH 251 (or MTH 251Z) to each component function. That is, the limit of a vector-valued function can be computed componentwise .   Vector-Valued Limits Are Computed Componentwise   A vector-valued function approaches a limit as if and only if each component approaches a limit, and in this case,      Evaluate    Remember the limit can be computed componentwise. So what is the limit of each of the components as approaches ?  Also, back from Calculus I (or differential calculus), what is the very first step you should do when evaluating a limit?    We will evaluate the limit componentwise:         (using L'Hôpital's Rule)        Therefore,     If we can evaluate the limit, then we can find the limit of the difference quotient, which leads us to the derivative of a vector-valued function.    Derivative of a Vector-Valued Function  Recall from MTH 251 (or MTH 251Z) that the derivative of a single-variable function is defined as the limit of the difference quotient. We extend this definition to vector-valued functions in the same way. That is, given a vector-valued function , we define the difference quotient on as follows The derivative of is the limit of the difference quotient as .   Derivative of a Vector-Valued Function   The derivative of a vector-valued function is defined as the limit of the difference quotient In Leibniz notation, the derivative is written as .    We say that is differentiable at if the derivative exists.  Similar to limits, we can compute the derivative of a vector-valued function by examining the behavior of each component function individually. That is, if , then Let's make it into a cool theorem!   Vector-Valued Derivatives Are Computed Componentwise   A vector-valued function is differentiable if and only if each component is differentiable In this case,      Compute the derivative of    Remember the derivative can be computed componentwise. So what is the derivative of each of the components?  You probably want to dig out the formula sheet you made back in Calculus I (or differential calculus) to remind yourself of the derivative formulas if needed.    We will compute the derivative componentwise:                 Therefore,     We also learned many derivative rules back in MTH 251 (or MTH 251Z). They also extend naturally to vector-valued functions as well since vector operations are also defined componentwise.   Differentiation Rules for Vector-Valued Functions   Assume that and are differentiable. Then    Sum Rule:       Constant Multiple Rule: For any constant ,      Scalar Product Rule: For any differentiable scalar-valued function ,      Chain Rule: For any differentiable scalar-valued function ,        The only weird rule here is the Scalar Product Rule , since we are multiplying two different types of functions together. Richard included a brief proof below to convince you why this works.   Proof of the Scalar Product Rule  Let . Then Using the product rule from MTH 251 (or MTH 251Z) on each component, we have as desired.   You are more than welcome to prove the other rules on your own as an exercise! The proofs are very similar to the one above, in the sense that we will need to break everything down componentwise and then apply the corresponding single-variable calculus rule to each component.   Evaluate using the Chain Rule, where    Recall the chain rule formula says So we need to compute and first.    First, we compute . Next, we compute . Putting them together, by the Chain Rule, we have     But what about multiplying two vector-valued functions? We learned back in the previous chapter that we can multiply two vectors using the dot product or the cross product. It turns out that we have product rules for both of these operations as well.    Assume that and are differentiable. Then      Proof of the Product Rules  The proofs of both rules are very similar to the proof of the Scalar Product Rule. We break down the dot product and cross product componentwise, and then apply the corresponding single-variable calculus product rule to each component.  For the dot product, recall that So we can apply the product rule from MTH 251 (or MTH 251Z) to each of the three terms individually.  Let and . Then as desired.  For the cross product, recall that So we can apply the product rule from MTH 251 (or MTH 251Z) to each of the three components individually.  Let and . Then Using the product rule from MTH 251 (or MTH 251Z) on each component, we have     P.S.: Recall the cross product is NOT commutative, so be sure to keep the order of the vectors the same when applying the cross product rule!   Let Find and .   First, we compute the derivatives of and : Now, using the Dot Product Rule, we have Next, using the Cross Product Rule, we have     One of the reasons we learned about the derivative in the first place is to find the tangent line to a curve at a given point. We can do the same thing for vector-valued functions as well.    Derivative as a Tangent Vector  Recall back in MTH 251 (or MTH 251Z), we learned that the derivative of a single-variable function at a point gives us the slope of the tangent line to the curve at that point. But there is no slope in ... so what gives?  Back in , we learned that a line in can be represented using a point and a direction vector. It turns out that the derivative of a vector-valued function at a point gives us a direction vector for the tangent line to the curve at that point. That is, the derivative of the vector-valued function at a point gives us the direction of the tangent line to the curve at that point.   Tangent Vector and Tangent Line   The derivative of a vector-valued function at a point , denoted , is a tangent vector (if it exists and is nonzero). The tangent vector is a direction vector for the tangent line to the curve. The tangent line then is the line with vector parameterization      Find an equation of the tangent line to the curve defined by at the point .   Recall back in MTH 251 (or MTH 251Z) that to find the equation of the tangent line, we need a point on the line and the slope of the tangent line. Since we are in , we trade the slope for a direction vector instead.  So what is a point on the line and a direction vector for the tangent line at the given point?    First, we need to find the value of that corresponds to the given point . From the third component, we see that . Next, we compute the derivative of : Evaluating at , we have Therefore, a vector parameterization of the tangent line is       Vector-valued Integration  Last but not least, we turn our attention to integration of vector-valued functions. Recall back in MTH 252 (or MTH 252Z) that integration and differentiation are inverse operations (guaranteed by the Fundamental Theorem of Calculus). This implies that if things work out for differentiation, it will also work out for integration as well.  Since the derivative of a vector-valued function is computed componentwise, it follows that the integral of a vector-valued function is also computed componentwise.   Vector-Valued Integrals Are Computed Componentwise   Assume that is integrable on . Then the definite integral is computed componentwise:   The indefinite integral (or antiderivative) of is also computed componentwise: where , , and are antiderivatives of , , and , respectively, and is a constant vector.    The indefinite integral (antiderivative) is easier to understand first. We are looking for some antiderivative of each of the component functions, and then we just combine them back into a vector. But what about the definite integral?  Recall back in MTH 252 (or MTH 252Z) that the definite integral defines the signed area under the curve of the function. But this result doesn't make sense in this case... The definite integral of a vector-valued function is also a vector, but area should be a scalar... What???  It turns out that the definite integral gives us the net change in position as we move along the curve from to on each component of the vector. So interpreting the definite integral as the accumulation function is still valid here!   Evaluate the indefinite integral    Remember the integral can be computed componentwise. So what is the antiderivative of each of the components?  Also, don't forget the arbitrary constant at the end, either as a vector or componentwise.    We will compute the integral componentwise:                 Therefore, or equivalently, where is a constant vector.    But how do we evaluate definite integrals of vector-valued functions? The tool we had back in MTH 252 (or MTH 252Z) is the Fundamental Theorem of Calculus (FTC). It turns out that the FTC also holds for vector-valued functions as well!   Fundamental Theorem of Calculus for Vector-Valued Functions    Part I: If is continuous on and is an antiderivative of , then    Part II: Assume that is continuous on an open interval and let be in . Then      Evaluate the definite integral    Remember that the FTC also holds for vector-valued functions. So how does the process work again?    We will evaluate the integral componentwise using the FTC.                 Therefore,      To sum up, since the vector-valued functions are built from single-variable functions componentwise, most of the rules and properties we learned back in MTH 251 (or MTH 251Z) and MTH 252 (or MTH 252Z) extend naturally to vector-valued functions as well! But you have triple the work to do since you have to deal with three components instead of just one...   Assigned Problems for Section 13.2   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Evaluate the limit     Compute the derivative of .    Sketch the curve parametrized by together with its tangent vector at . Then do the same for     Determine the value of between and such that the tangent vector to the clycloid is parallel to .     In the following exercises, evaluate the derivative by using the appropriate Product Rule, where                Evaluate using the Chain Rule, where     Find a parametrization of the tangent line of at the point .    Evaluate the integral     Find both the general solution of the differential equation and the solution with the given initial condition.     "
+},
+{
+  "id": "sec132-CalcVectorFunctions-2-3",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#sec132-CalcVectorFunctions-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     evaluate limits of vector-valued functions.    compute the derivative and apply standard differentiation rules.    interpret the derivative geometrically as a tangent vector and construct the parametrization of the tangent line at a given point.    evaluate definite and indefinite integrals of vector-valued functions.    "
+},
+{
+  "id": "def-Limit_VectorValuedFunctions",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#def-Limit_VectorValuedFunctions",
+  "type": "Definition",
+  "number": "13.2.1",
+  "title": "Limit of a Vector-Valued Function.",
+  "body": " Limit of a Vector-Valued Function   A vector-valued function approaches the limit (a vector) as approaches if . In this case, we write    "
+},
+{
+  "id": "subsec-Limit-VectorValuedFunctions-4",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Limit-VectorValuedFunctions-4",
+  "type": "Figure",
+  "number": "13.2.2",
+  "title": "",
+  "body": "  The vector-valued function approaches the vector as  "
+},
+{
+  "id": "thm-Limit-VectorValuedFunctions",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#thm-Limit-VectorValuedFunctions",
+  "type": "Theorem",
+  "number": "13.2.3",
+  "title": "Vector-Valued Limits Are Computed Componentwise.",
+  "body": " Vector-Valued Limits Are Computed Componentwise   A vector-valued function approaches a limit as if and only if each component approaches a limit, and in this case,    "
+},
+{
+  "id": "subsec-Limit-VectorValuedFunctions-7",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Limit-VectorValuedFunctions-7",
+  "type": "Example",
+  "number": "13.2.4",
+  "title": "",
+  "body": " Evaluate    Remember the limit can be computed componentwise. So what is the limit of each of the components as approaches ?  Also, back from Calculus I (or differential calculus), what is the very first step you should do when evaluating a limit?    We will evaluate the limit componentwise:         (using L'Hôpital's Rule)        Therefore,    "
+},
+{
+  "id": "def-Derivative-VectorValuedFunctions",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#def-Derivative-VectorValuedFunctions",
+  "type": "Definition",
+  "number": "13.2.5",
+  "title": "Derivative of a Vector-Valued Function.",
+  "body": " Derivative of a Vector-Valued Function   The derivative of a vector-valued function is defined as the limit of the difference quotient In Leibniz notation, the derivative is written as .   "
+},
+{
+  "id": "subsec-Derivative-VectorValuedFunctions-4",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "differentiable "
+},
+{
+  "id": "thm-Derivative-VectorValuedFunctions",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#thm-Derivative-VectorValuedFunctions",
+  "type": "Theorem",
+  "number": "13.2.6",
+  "title": "Vector-Valued Derivatives Are Computed Componentwise.",
+  "body": " Vector-Valued Derivatives Are Computed Componentwise   A vector-valued function is differentiable if and only if each component is differentiable In this case,    "
+},
+{
+  "id": "subsec-Derivative-VectorValuedFunctions-7",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions-7",
+  "type": "Example",
+  "number": "13.2.7",
+  "title": "",
+  "body": " Compute the derivative of    Remember the derivative can be computed componentwise. So what is the derivative of each of the components?  You probably want to dig out the formula sheet you made back in Calculus I (or differential calculus) to remind yourself of the derivative formulas if needed.    We will compute the derivative componentwise:                 Therefore,    "
+},
+{
+  "id": "thm-DerivativeRules-VectorValuedFunctions",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#thm-DerivativeRules-VectorValuedFunctions",
+  "type": "Theorem",
+  "number": "13.2.8",
+  "title": "Differentiation Rules for Vector-Valued Functions.",
+  "body": " Differentiation Rules for Vector-Valued Functions   Assume that and are differentiable. Then    Sum Rule:       Constant Multiple Rule: For any constant ,      Scalar Product Rule: For any differentiable scalar-valued function ,      Chain Rule: For any differentiable scalar-valued function ,       "
+},
+{
+  "id": "subsec-Derivative-VectorValuedFunctions-10",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Scalar Product Rule "
+},
+{
+  "id": "subsec-Derivative-VectorValuedFunctions-11",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions-11",
+  "type": "Note",
+  "number": "13.2.9",
+  "title": "Proof of the Scalar Product Rule.",
+  "body": " Proof of the Scalar Product Rule  Let . Then Using the product rule from MTH 251 (or MTH 251Z) on each component, we have as desired.  "
+},
+{
+  "id": "subsec-Derivative-VectorValuedFunctions-13",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions-13",
+  "type": "Example",
+  "number": "13.2.10",
+  "title": "",
+  "body": " Evaluate using the Chain Rule, where    Recall the chain rule formula says So we need to compute and first.    First, we compute . Next, we compute . Putting them together, by the Chain Rule, we have    "
+},
+{
+  "id": "thm-ProductRule-Dot-Cross-VectorValuedFunctions",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#thm-ProductRule-Dot-Cross-VectorValuedFunctions",
+  "type": "Theorem",
+  "number": "13.2.11",
+  "title": "",
+  "body": "  Assume that and are differentiable. Then    "
+},
+{
+  "id": "subsec-Derivative-VectorValuedFunctions-16",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions-16",
+  "type": "Note",
+  "number": "13.2.12",
+  "title": "Proof of the Product Rules.",
+  "body": " Proof of the Product Rules  The proofs of both rules are very similar to the proof of the Scalar Product Rule. We break down the dot product and cross product componentwise, and then apply the corresponding single-variable calculus product rule to each component.  For the dot product, recall that So we can apply the product rule from MTH 251 (or MTH 251Z) to each of the three terms individually.  Let and . Then as desired.  For the cross product, recall that So we can apply the product rule from MTH 251 (or MTH 251Z) to each of the three components individually.  Let and . Then Using the product rule from MTH 251 (or MTH 251Z) on each component, we have   "
+},
+{
+  "id": "subsec-Derivative-VectorValuedFunctions-18",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions-18",
+  "type": "Example",
+  "number": "13.2.13",
+  "title": "",
+  "body": " Let Find and .   First, we compute the derivatives of and : Now, using the Dot Product Rule, we have Next, using the Cross Product Rule, we have    "
+},
+{
+  "id": "def-TangentVector-VectorValuedFunctions",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#def-TangentVector-VectorValuedFunctions",
+  "type": "Definition",
+  "number": "13.2.14",
+  "title": "Tangent Vector and Tangent Line.",
+  "body": " Tangent Vector and Tangent Line   The derivative of a vector-valued function at a point , denoted , is a tangent vector (if it exists and is nonzero). The tangent vector is a direction vector for the tangent line to the curve. The tangent line then is the line with vector parameterization    "
+},
+{
+  "id": "subsec-TangentVector-VectorValuedFunctions-5",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-TangentVector-VectorValuedFunctions-5",
+  "type": "Example",
+  "number": "13.2.15",
+  "title": "",
+  "body": " Find an equation of the tangent line to the curve defined by at the point .   Recall back in MTH 251 (or MTH 251Z) that to find the equation of the tangent line, we need a point on the line and the slope of the tangent line. Since we are in , we trade the slope for a direction vector instead.  So what is a point on the line and a direction vector for the tangent line at the given point?    First, we need to find the value of that corresponds to the given point . From the third component, we see that . Next, we compute the derivative of : Evaluating at , we have Therefore, a vector parameterization of the tangent line is    "
+},
+{
+  "id": "thm-Integral-VectorValuedFunctions",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#thm-Integral-VectorValuedFunctions",
+  "type": "Theorem",
+  "number": "13.2.16",
+  "title": "Vector-Valued Integrals Are Computed Componentwise.",
+  "body": " Vector-Valued Integrals Are Computed Componentwise   Assume that is integrable on . Then the definite integral is computed componentwise:   The indefinite integral (or antiderivative) of is also computed componentwise: where , , and are antiderivatives of , , and , respectively, and is a constant vector.   "
+},
+{
+  "id": "subsec-Integration-VectorValuedFunctions-8",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Integration-VectorValuedFunctions-8",
+  "type": "Example",
+  "number": "13.2.17",
+  "title": "",
+  "body": " Evaluate the indefinite integral    Remember the integral can be computed componentwise. So what is the antiderivative of each of the components?  Also, don't forget the arbitrary constant at the end, either as a vector or componentwise.    We will compute the integral componentwise:                 Therefore, or equivalently, where is a constant vector.   "
+},
+{
+  "id": "thm-FTC-VectorValuedFunctions",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#thm-FTC-VectorValuedFunctions",
+  "type": "Theorem",
+  "number": "13.2.18",
+  "title": "Fundamental Theorem of Calculus for Vector-Valued Functions.",
+  "body": " Fundamental Theorem of Calculus for Vector-Valued Functions    Part I: If is continuous on and is an antiderivative of , then    Part II: Assume that is continuous on an open interval and let be in . Then    "
+},
+{
+  "id": "subsec-Integration-VectorValuedFunctions-11",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#subsec-Integration-VectorValuedFunctions-11",
+  "type": "Example",
+  "number": "13.2.19",
+  "title": "",
+  "body": " Evaluate the definite integral    Remember that the FTC also holds for vector-valued functions. So how does the process work again?    We will evaluate the integral componentwise using the FTC.                 Therefore,    "
+},
+{
+  "id": "ws-sec132-3",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#ws-sec132-3",
+  "type": "Worksheet Exercise",
+  "number": "13.2.3",
+  "title": "",
+  "body": " Evaluate the limit   "
+},
+{
+  "id": "ws-sec132-4",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#ws-sec132-4",
+  "type": "Worksheet Exercise",
+  "number": "13.2.9",
+  "title": "",
+  "body": " Compute the derivative of .  "
+},
+{
+  "id": "ws-sec132-5",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#ws-sec132-5",
+  "type": "Worksheet Exercise",
+  "number": "13.2.15",
+  "title": "",
+  "body": " Sketch the curve parametrized by together with its tangent vector at . Then do the same for   "
+},
+{
+  "id": "ws-sec132-6",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#ws-sec132-6",
+  "type": "Worksheet Exercise",
+  "number": "13.2.17",
+  "title": "",
+  "body": " Determine the value of between and such that the tangent vector to the clycloid is parallel to .  "
+},
+{
+  "id": "ws-sec132-7-2",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#ws-sec132-7-2",
+  "type": "Worksheet Exercise",
+  "number": "13.2.19",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec132-7-3",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#ws-sec132-7-3",
+  "type": "Worksheet Exercise",
+  "number": "13.2.21",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec132-8",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#ws-sec132-8",
+  "type": "Worksheet Exercise",
+  "number": "13.2.27",
+  "title": "",
+  "body": " Evaluate using the Chain Rule, where   "
+},
+{
+  "id": "ws-sec132-9",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#ws-sec132-9",
+  "type": "Worksheet Exercise",
+  "number": "13.2.33",
+  "title": "",
+  "body": " Find a parametrization of the tangent line of at the point .  "
+},
+{
+  "id": "ws-sec132-10",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#ws-sec132-10",
+  "type": "Worksheet Exercise",
+  "number": "13.2.45",
+  "title": "",
+  "body": " Evaluate the integral   "
+},
+{
+  "id": "ws-sec132-11",
+  "level": "2",
+  "url": "sec132-CalcVectorFunctions.html#ws-sec132-11",
+  "type": "Worksheet Exercise",
+  "number": "13.2.55",
+  "title": "",
+  "body": " Find both the general solution of the differential equation and the solution with the given initial condition.   "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
