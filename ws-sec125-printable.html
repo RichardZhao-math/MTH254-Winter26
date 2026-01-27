@@ -319,7 +319,47 @@ eBookConfig.enable_chatcodes =  false;
 </div></details><div class="autopermalink" data-description="Worksheet Exercise 12.5.15"><a href="#ws-sec125-4" title="Copy heading and permalink for Worksheet Exercise 12.5.15" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.15">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-5"><h4 class="heading"><span class="codenumber">12.5.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec125-5-1">Find an equation of the plane passing through the three points <span class="process-math">\(P = (1,0,0)\text{,}\)</span> <span class="process-math">\(Q = (0,1,1)\text{,}\)</span> and <span class="process-math">\(R = (2,0,1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 12.5.23"><a href="#ws-sec125-5" title="Copy heading and permalink for Worksheet Exercise 12.5.23" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.23">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-6"><h4 class="heading"><span class="codenumber">12.5.27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec125-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec125-5-2-1">
+<div class="para">We use the vector form of the equation of the plane.</div>
+<div class="displaymath process-math" id="ws-sec125-5-2-1-1">
+\begin{equation*}
+\v{n}\cdot\la x,y,z\ra=d 
+\end{equation*}
+</div>
+<div class="para">To find the normal vector to the plane, <span class="process-math">\(\v{n}\text{,}\)</span> we first compute the vectors <span class="process-math">\(\overrightarrow{PQ}\)</span> and <span class="process-math">\(\overrightarrow{PR}\)</span> that lie in the plane, and then find the cross product of these vectors. This gives</div>
+<div class="displaymath process-math" id="ws-sec125-5-2-1-5">
+\begin{align*}
+\overrightarrow{PQ} \amp =\la0,1,1\ra-\la1,0,0\ra=\la-1,1,1\ra\\
+\overrightarrow{PR} \amp =\la2,0,1\ra-\la1,0,0\ra=\la1,0,1\ra
+\end{align*}
+</div>
+<div class="displaymath process-math" id="ws-sec125-5-2-1-6">
+\begin{align*}
+\v{n}=\overrightarrow{PQ}\times\overrightarrow{PR} \amp= \begin{vmatrix}\v{i}\amp \v{j}\amp \v{k}\\ -1\amp 1\amp 1\\ 1\amp 0\amp 1\end{vmatrix} \\
+\amp=\begin{vmatrix}1\amp 1\\ 0\amp 1\end{vmatrix}\v{i}-\begin{vmatrix}-1\amp 1\\ 1\amp 1\end{vmatrix}\v{j}+\begin{vmatrix}-1\amp 1\\ 1\amp 0\end{vmatrix}\v{k} \\
+\amp=\v{i}+2\v{j}-\v{k} \\
+\amp=\la1,2,-1\ra 
+\end{align*}
+</div>
+<div class="para">We now choose any one of the three points in the plane, say <span class="process-math">\(P=(1,0,0),\)</span> and compute <span class="process-math">\(d\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec125-5-2-1-9">
+\begin{equation*}
+d=\v{n}\cdot\overrightarrow{OP}=\la1,2,-1\ra\cdot\la1,0,0\ra=1\cdot1+2\cdot0+(-1)\cdot0=1 
+\end{equation*}
+</div>
+<div class="para">Putting it all together, the equation of the plane is</div>
+<div class="displaymath process-math" id="ws-sec125-5-2-1-10">
+\begin{align*}
+\la1,2,-1\ra\cdot\la x,y,z\ra \amp= 1\\
+x+2y-z \amp= 1
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 12.5.23.1"><a href="#ws-sec125-5-2" title="Copy heading and permalink for Solution 12.5.23.1" aria-label="Copy heading and permalink for Solution 12.5.23.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 12.5.23"><a href="#ws-sec125-5" title="Copy heading and permalink for Worksheet Exercise 12.5.23" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.23">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec125-6"><h4 class="heading"><span class="codenumber">12.5.27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec125-6-1">
 <div class="para">In each case, determine whether or not the lines have a single point of intersection. If they do, give an equation of a plane containing them.</div>
 <ol class="lower-alpha lower-alpha-level-1" id="ws-sec125-6-1-1">
@@ -542,6 +582,54 @@ x-y-z=f
 <div class="para" id="ws-sec125-11-2-1">To find a point on <span class="process-math">\(\c{L}\text{,}\)</span> substitute an arbitrary value for <span class="process-math">\(z\)</span> (say, <span class="process-math">\(z = 2\)</span>) and then solve the resulting pair of equations for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 12.5.67.1"><a href="#ws-sec125-11-2" title="Copy heading and permalink for Hint 12.5.67.1" aria-label="Copy heading and permalink for Hint 12.5.67.1">🔗</a></div>
+</div></details><details id="ws-sec125-11-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec125-11-3-1">
+<div class="para">A direction vector for <span class="process-math">\(L\)</span> is the cross product <span class="process-math">\(\v{v}=\v{n}_1\times \v{n}_2\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec125-11-3-1-3">
+\begin{equation*}
+\v{v}=\v{n}_1\times \v{n}_2=\begin{vmatrix}\v{i}\amp \v{j}\amp \v{k}\\ 1\amp -1\amp -1\\ 2\amp 3\amp 1\end{vmatrix}=2\v{i}-3\v{j}+5\v{k}=\la2,-3,5\ra
+\end{equation*}
+</div>
+<div class="para">We now need to find a point on <span class="process-math">\(L\text{.}\)</span> We choose <span class="process-math">\(z=2\)</span> substitute in the equations of the planes and solve the resulting equations for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> This gives</div>
+<div class="displaymath process-math" id="ws-sec125-11-3-1-8">
+\begin{align*}
+x-y-2=1 \amp \qquad \implies \qquad x-y=3\\
+2x+3y+2=2 \amp \qquad \implies \qquad 2x+3y=0
+\end{align*}
+</div>
+<div class="para">The 1st equation implies that <span class="process-math">\(y=x-3\text{.}\)</span> Substituting in the 2nd equation and solving for <span class="process-math">\(x\)</span> gives</div>
+<div class="displaymath process-math" id="ws-sec125-11-3-1-11">
+\begin{equation*}
+2x+3(x-3)=0
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ws-sec125-11-3-1-12">
+\begin{equation*}
+5x=9 \qquad \implies \qquad x=\frac{9}{5}
+\end{equation*}
+</div>
+<div class="para">This also implies that <span class="process-math">\(y=\dfrac{9}{5}-3=-\dfrac{6}{5}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-11-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec125-11-3-2">
+<div class="para">We conclude that the point <span class="process-math">\((\frac{9}{5},-\frac{6}{5},2)\)</span> is on <span class="process-math">\(L\text{.}\)</span> We now use the vector parametrization of a line to obtain the following parametrization for <span class="process-math">\(L\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec125-11-3-2-4">
+\begin{equation*}
+\v{r}(t)=\la\frac{9}{5},-\frac{6}{5},2\ra+t\la2,-3,5\ra
+\end{equation*}
+</div>
+<div class="para">This yields the parametric equations</div>
+<div class="displaymath process-math" id="ws-sec125-11-3-2-5">
+\begin{equation*}
+x(t) = \frac{9}{5}+2t, \qquad y(t) = -\frac{6}{5}-3t, \qquad z(t)=2+5t
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec125-11-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 12.5.67.1"><a href="#ws-sec125-11-3" title="Copy heading and permalink for Solution 12.5.67.1" aria-label="Copy heading and permalink for Solution 12.5.67.1">🔗</a></div>
 </div></details><div class="autopermalink" data-description="Worksheet Exercise 12.5.67"><a href="#ws-sec125-11" title="Copy heading and permalink for Worksheet Exercise 12.5.67" aria-label="Copy heading and permalink for Worksheet Exercise 12.5.67">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 12.5"><a href="#ws-sec125" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 12.5" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 12.5">🔗</a></div></section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
