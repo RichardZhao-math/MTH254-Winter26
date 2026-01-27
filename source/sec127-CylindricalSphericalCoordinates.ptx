@@ -1201,72 +1201,422 @@
       <p>
         Convert the cylindrical coordinates <m>\lp 0,\dfrac{\pi}{5},\dfrac{1}{2} \rp</m> to rectangular coordinates.
       </p>
+
+      <solution>
+        <p>
+          We have <m>r = 0</m>, <m>\theta = \dfrac{\pi}{5}</m>, and <m>z = \dfrac{1}{2}</m>. 
+          Thus, 
+          <md>
+            <mrow>x \amp= r\cos(\theta) = 0 \cdot \cos\left(\dfrac{\pi}{5}\right) = 0</mrow>
+            <mrow>y \amp= r\sin(\theta) = 0 \cdot \sin\left(\dfrac{\pi}{5}\right) = 0</mrow>
+            <mrow>z \amp= z = \dfrac{1}{2}</mrow>
+          </md>
+          Hence, the rectangular coordinates are <m>\lp 0,0,\dfrac{1}{2} \rp</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.7.9">
       <p>
         Convert the rectangular coordinates <m>\lp \dfrac{5}{\sqrt{2}},\dfrac{5}{\sqrt{2}},2 \rp</m> to cylindrical coordinates.
       </p>
+
+      <solution>
+        <p>
+          We have <m>x = \dfrac{5}{\sqrt{2}}</m>, <m>y = \dfrac{5}{\sqrt{2}}</m>, and <m>z = 2</m>. 
+          Thus, 
+          <md>
+            <mrow>r \amp= \sqrt{x^2 + y^2} = \sqrt{\left(\dfrac{5}{\sqrt{2}}\right)^2 + \left(\dfrac{5}{\sqrt{2}}\right)^2} = 5</mrow>
+          </md>
+          Since the point <m>(x,y) = \lp \frac{5}{\sqrt{2}}, \frac{5}{\sqrt{2}} \rp</m> is in the first quadrant, we know that <m>0 \leq \theta \leq \frac{\pi}{2}</m>. 
+          Therefore, 
+          <md>
+            \tan(\theta) = \dfrac{y}{x} = \dfrac{\frac{5}{\sqrt{2}}}{\frac{5}{\sqrt{2}}} = 1 \qquad \implies \qquad \theta = \dfrac{\pi}{4}
+          </md>
+          The cooresponding cylindrical coordinates are 
+          <md>
+            (r,\theta,z) = \lp 5,\frac{\pi}{4}, 2 \rp
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.7.13">
       <p>
         Describe the set <m>\left\{(x,y,z) \mid y^2 + z^2 \leq 4, \quad x = 0 \right\}</m> in cylindrical coordinates. 
       </p>
+
+      <solution>
+        <p>
+          The projection of the points in this set onto the <m>xy</m>-plane are points on the <m>y</m>-axis, thus <m>\theta = \frac{\pi}{2}</m> or <m>\theta = \frac{3\pi}{2}</m>. 
+          Therefore, 
+          <md>
+            y = r\sin\lp \frac{\pi}{2} \rp = r\cdot 1 = r \qquad \text{or} \qquad y = r\sin\lp \frac{3\pi}{2} \rp = -r
+          </md>
+          In both cases, <m>y^2 = r^2</m>, thus the inequality <m>y^2 + z^2 \leq 4</m> becomes <m>r^2 + z^2 \leq 4</m>. 
+          In cylindrical coordinates, we obtain the following inequality
+          <md>
+            r^2 + z^2 \leq 4\, , \qquad \theta = \frac{\pi}{2} \quad \text{or} \quad \theta = \dfrac{3\pi}{2}
+          </md>
+          Hence, the set in cylindrical coordinates is
+          <md>
+            \left\{(r,\theta,z) \mid r^2 + z^2 \leq 4\, , \quad \theta = \frac{\pi}{2} \quad \text{or} \quad \theta = \dfrac{3\pi}{2} \right\}
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.7.21">
       <p>
         Sketch the set <m>\left\{(r,\theta,z) \mid 1 \leq r \leq 3 , \quad 0 \leq z \leq 4 \right\}</m> described in cylindrical coordinates.
       </p>
+
+      <solution>
+        <p>
+          The region <m>1 \leq r \leq 3</m>, <m>0 \leq z \leq 4</m> is a hollow cylinder with inner radius 1, outer radius 3, and height 4. 
+          The sketch is shown below. 
+        </p>
+
+        <figure>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v, r_var')
+
+                # --- 1. The Cylindrical Surfaces ---
+                # u = theta (0 to 2pi)
+                # v = z (0 to 4)
+                
+                # Inner Cylinder (r = 1)
+                cyl_inner = parametric_plot3d(
+                    (1 * cos(u), 1 * sin(u), v),
+                    (u, 0, 2*pi), (v, 0, 4),
+                    color='cyan', opacity=0.6, mesh=False
+                )
+
+                # Outer Cylinder (r = 3)
+                cyl_outer = parametric_plot3d(
+                    (3 * cos(u), 3 * sin(u), v),
+                    (u, 0, 2*pi), (v, 0, 4),
+                    color='cyan', opacity=0.4, mesh=False
+                )
+
+                # --- 2. The Flat Annular Faces (Top and Bottom) ---
+                # u = theta (0 to 2pi)
+                # r_var = radius (1 to 3)
+
+                # Top Face (z = 4)
+                top_face = parametric_plot3d(
+                    (r_var * cos(u), r_var * sin(u), 4),
+                    (u, 0, 2*pi), (r_var, 1, 3),
+                    color='gray', opacity=0.4
+                )
+
+                # Bottom Face (z = 0)
+                bot_face = parametric_plot3d(
+                    (r_var * cos(u), r_var * sin(u), 0),
+                    (u, 0, 2*pi), (r_var, 1, 3),
+                    color='gray', opacity=0.4
+                )
+
+                # --- 3. Wireframe Edges (Rims) ---
+                # Inner Rims (r=1) at z=0 and z=4
+                rim_inner_bot = parametric_plot3d((1*cos(u), 1*sin(u), 0), (u, 0, 2*pi), color='blue', thickness=2)
+                rim_inner_top = parametric_plot3d((1*cos(u), 1*sin(u), 4), (u, 0, 2*pi), color='blue', thickness=2)
+
+                # Outer Rims (r=3) at z=0 and z=4
+                rim_outer_bot = parametric_plot3d((3*cos(u), 3*sin(u), 0), (u, 0, 2*pi), color='blue', thickness=2)
+                rim_outer_top = parametric_plot3d((3*cos(u), 3*sin(u), 4), (u, 0, 2*pi), color='blue', thickness=2)
+
+                # --- 4. Labels ---
+                lbl_r1 = text3d("r = 1", (0.7, 0.7, 4.2), color='black', fontweight='bold')
+                lbl_r3 = text3d("r = 3", (2.1, 2.1, 4.2), color='black', fontweight='bold')
+                lbl_z  = text3d("z = 4", (3.2, 0, 4), color='black')
+
+                # --- 5. Axes ---
+                L = 4.5
+                axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L), color='black', width=1)
+
+                lbl_axes = text3d("x", (L+0.2, 0, 0), color='black') + \
+                          text3d("y", (0, L+0.2, 0), color='black') + \
+                          text3d("z", (0, 0, L+0.2), color='black')
+
+                # --- 6. Combine and Show ---
+                plot_objects = cyl_inner + cyl_outer + top_face + bot_face + \
+                              rim_inner_bot + rim_inner_top + rim_outer_bot + rim_outer_top + \
+                              lbl_r1 + lbl_r3 + lbl_z + \
+                              axes + lbl_axes
+
+                show(plot_objects, frame=False, aspect_ratio=1)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
     </exercise>
 
     <exercise number="12.7.29">
       <p>
-        Find an equation of the form <m>r = f(\theta,z)</m> in cylindrical coordinates for the surface <m>\dfrac{x^2}{y^z} = 1</m>.
+        Find an equation of the form <m>r = f(\theta,z)</m> in cylindrical coordinates for the surface <m>\dfrac{x^2}{yz} = 1</m>.
       </p>
+
+      <solution>
+        <p>
+          We rewrite the equation in the form 
+          <md>
+            \frac{x}{\frac{y}{x}\, z} = 1
+          </md>
+          Substituting <m>x = r\cos(\theta)</m> and <m>\frac{y}{x} = \tan(\theta)</m>, we get
+          <md>
+            <mrow> \frac{r\cos(\theta)}{\lp \tan(\theta) \rp z} \amp= 1 </mrow>
+            <mrow> r \amp= \frac{z\tan(\theta)}{\cos(\theta)} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.7.37">
       <p>
         Convert the spherical coordinates <m>\lp 6,\dfrac{\pi}{6},\dfrac{5\pi}{6} \rp</m> to rectangular coordinates.
       </p>
+
+      <solution>
+        <p>
+          Since <m>\rho = 6</m>, <m>\theta = \frac{\pi}{6}</m>, and <m>\phi = \frac{5\pi}{6}</m>, we get
+          <md>
+            <mrow> x \amp = \rho \sin(\phi) \cos(\theta) = 6 \sin\left(\frac{5\pi}{6}\right) \cos\left(\frac{\pi}{6}\right) = 6 \cdot \frac{1}{2} \cdot \frac{\sqrt{3}}{2} = \frac{3\sqrt{3}}{2} </mrow>
+            <mrow> y \amp = \rho \sin(\phi) \sin(\theta) = 6 \sin\left(\frac{5\pi}{6}\right) \sin\left(\frac{\pi}{6}\right) = 6 \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{3}{2} </mrow>
+            <mrow> z \amp = \rho \cos(\phi) = 6 \cos\left(\frac{5\pi}{6}\right) = 6 \cdot -\frac{\sqrt{3}}{2} = -3\sqrt{3} </mrow>
+          </md>
+          Hence, the rectangular coordinates are 
+          <md>
+            (x,y,z) = \lp \frac{3\sqrt{3}}{2}, \frac{3}{2}, -3\sqrt{3} \rp 
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.7.43">
       <p>
         Convert the rectangular coordinates <m>\lp \dfrac{1}{2},\dfrac{\sqrt{3}}{2},\sqrt{3} \rp</m> to spherical coordinates.
       </p>
+
+      <solution>
+        <p>
+          We have <m>x = \frac{1}{2}</m>, <m>y = \frac{\sqrt{3}}{2}</m>, and <m>z = \sqrt{3}</m>. 
+          Thus, 
+          <md>
+            \rho = \sqrt{x^2 + y^2 + z^2} = \sqrt{\lp \frac{1}{2} \rp^2 + \lp \frac{\sqrt{3}}{2} \rp^2 + \lp \sqrt{3} \rp^2} = 2
+          </md>
+          The angular coordinate <m>\theta</m> satisfies <m>0 \leq \theta \leq \frac{\pi}{2}</m>, since the point <m>(x,y) = \lp \frac{1}{2}, \frac{\sqrt{3}}{2} \rp</m> is in the first quadrant. 
+          Then we have 
+          <md>
+            \tan(\theta) = \frac{y}{x} = \sqrt{3} \qquad \implies \qquad \theta = \frac{\pi}{3}
+          </md>
+          The angle of declination <m>\phi</m> satisfies
+          <md>
+            \cos(\phi) = \frac{z}{\rho} = \frac{\sqrt{3}}{2} \qquad \implies \qquad \phi = \frac{\pi}{6}
+          </md>
+          Hence, the spherical coordinates are 
+          <md>
+            (\rho, \theta, \phi) = \lp 2, \frac{\pi}{3}, \frac{\pi}{6} \rp
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.7.45">
       <p>
         Convert the cylindrical coordinates <m>\lp 2,0,2 \rp</m> to spherical coordinates.
       </p>
+
+      <solution>
+        <p>
+          We are given that <m>r = 2</m>, <m>\theta = 0</m>, and <m>z = 2</m>.
+          Using the conversion formulas, we have
+          <md>
+            <mrow> \rho \amp= \sqrt{x^2 + y^2 + z^2} = \sqrt{r^2 + z^2} = \sqrt{4 + 4} = 2\sqrt{2} </mrow>
+            <mrow> \theta \amp= \theta = 0 </mrow>
+            <mrow> \phi \amp= \cos^{-1}\left(\frac{z}{\rho}\right) = \cos^{-1}\left(\frac{2}{2\sqrt{2}}\right) = \frac{\pi}{4} </mrow>
+          </md>
+          Hence, the spherical coordinates are 
+          <md>
+            (\rho, \theta, \phi) = \lp 2\sqrt{2}, 0, \frac{\pi}{4} \rp
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.7.47">
       <p>
         Convert the spherical coordinates <m>\lp 4,0,\dfrac{\pi}{4} \rp</m> to cylindrical coordinates.
       </p>
+
+      <solution>
+        <p>
+          We are given that <m>\rho = 4</m>, <m>\theta = 0</m>, and <m>\phi = \frac{\pi}{4}</m>.
+          To find <m>r</m>, we use the formulas <m>x = r\cos(\theta)</m> and <m>x = \rho\cos(\theta)\sin(\phi)</m> to get
+          <md>
+            r\cos(\theta) = \rho\cos(\theta)\sin(\phi)
+          </md>
+          and so
+          <md>
+            r = \rho\sin(\phi) = 4\sin\lp \frac{\pi}{4} \rp = 2\sqrt{2}
+          </md>
+        </p>
+
+        <p>
+          Clearly, <m>\theta = 0</m>, and as for <m>z</m>, 
+          <md>
+            z = \rho\cos(\phi) = 4 \cos\lp \frac{\pi}{4} \rp = 2\sqrt{2}
+          </md>
+          So, in cylindrical coordinates, our point is <m>\lp 2\sqrt{2}, 0, 2\sqrt{2} \rp</m>. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.7.53">
       <p>
         Describe the set <m>\left\{(x,y,z) \mid y^2 + z^2 \leq 4, \quad x = 0 \right\}</m> in spherical coordinates.
       </p>
+
+      <solution>
+        <p>
+          We substitute <m>y = \rho\sin(\theta)\sin(\phi)</m> and <m>z = \rho\cos(\phi)</m> in the given inequality. 
+          This gives
+          <md>
+            \rho^2 \sin^2(\theta) \sin^2(\phi) + \rho^2 cos^2(\phi) \leq 4
+          </md>
+        </p>
+
+        <p>
+          The equality <m>x = 0</m> determines that <m>\theta = \frac{\pi}{2}</m> or <m>\theta = \frac{3\pi}{2}</m> (and the origin). 
+          In both cases, <m>\sin^2(\theta) = 1</m>. 
+          Hence, we get
+          <md>
+            <mrow> \rho^2 \sin^2(\phi) + \rho^2 \cos^2(\phi) \amp\leq 4 </mrow>
+            <mrow> \rho^2 \left( \sin^2(\phi) + \cos^2(\phi) \right) \amp\leq 4 </mrow>
+            <mrow> \rho^2 \amp\leq 4 </mrow>
+            <mrow> \rho \amp\leq 2 </mrow>
+          </md>
+          We obtain the following description
+          <md>
+            \left\{\lp \rho, \theta, \phi \rp \mid 0 \leq \rho \leq 2, \, \theta = \frac{\pi}{2} \text{ or } \theta = \frac{3\pi}{2} \right\}
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.7.61">
       <p>
         Sketch the set of points <m>\left\{(\rho,\theta,\phi) \mid \rho \leq 2, \quad 0 \leq \theta \leq \dfrac{\pi}{2}, \quad \dfrac{\pi}{2} \leq \phi \leq \pi \right\}</m> described in spherical coordinates.
       </p>
+
+      <solution>
+        <p>
+          This set is the part of the ball of radius <m>2</m> which is below the first quadrant of the <m>xy</m>-plane, as shown in the following figure: 
+        </p>
+
+        <figure>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v, r')
+
+                # --- 1. The Spherical Outer Shell (rho = 2) ---
+                sphere_shell = parametric_plot3d(
+                    (2 * sin(v) * cos(u), 2 * sin(v) * sin(u), 2 * cos(v)),
+                    (u, 0, pi/2), (v, pi/2, pi),
+                    color='cyan', opacity=0.8, mesh=True
+                )
+
+                # --- 2. The Flat Boundaries ---
+                # Top Face (z=0)
+                top_face = parametric_plot3d(
+                    (r * cos(u), r * sin(u), 0),
+                    (u, 0, pi/2), (r, 0, 2),
+                    color='gray', opacity=0.3
+                )
+                # Side Face 1 (y=0)
+                side_face_xz = parametric_plot3d(
+                    (r * sin(v), 0, r * cos(v)),
+                    (v, pi/2, pi), (r, 0, 2),
+                    color='gray', opacity=0.3
+                )
+                # Side Face 2 (x=0)
+                side_face_yz = parametric_plot3d(
+                    (0, r * sin(v), r * cos(v)),
+                    (v, pi/2, pi), (r, 0, 2),
+                    color='gray', opacity=0.3
+                )
+
+                # --- 3. Wireframe Edges ---
+                arc_equator = parametric_plot3d((2*cos(u), 2*sin(u), 0), (u, 0, pi/2), color='blue', thickness=3)
+                arc_xz = parametric_plot3d((2*sin(v), 0, 2*cos(v)), (v, pi/2, pi), color='blue', thickness=3)
+                arc_yz = parametric_plot3d((0, 2*sin(v), 2*cos(v)), (v, pi/2, pi), color='blue', thickness=3)
+
+                line_x = line3d([(0,0,0), (2,0,0)], color='black', thickness=2)
+                line_y = line3d([(0,0,0), (0,2,0)], color='black', thickness=2)
+                line_z = line3d([(0,0,0), (0,0,-2)], color='black', thickness=2)
+
+                # --- 4. Labels ---
+                lbl_rho = text3d("rho = 2", (1.5, 1.5, -1), color='black', fontweight='bold')
+                
+                # New: Label for the interior volume
+                # Placed at roughly rho=1.4, theta=pi/4, phi=3pi/4
+                lbl_interior = text3d("Interior", (0.8, 0.8, -0.8), color='black', fontweight='bold')
+
+                # --- 5. Standard Axes (Z points UP) ---
+                L = 2.5
+                axes = arrow3d((0,0,0), (L,0,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,L,0), color='black', width=1) + \
+                      arrow3d((0,0,0), (0,0,L), color='black', width=1)
+
+                lbl_axes = text3d("x", (L+0.1, 0, 0), color='black') + \
+                          text3d("y", (0, L+0.1, 0), color='black') + \
+                          text3d("z", (0, 0, L+0.1), color='black')
+
+                # --- 6. Combine and Show ---
+                plot_objects = sphere_shell + top_face + side_face_xz + side_face_yz + \
+                              arc_equator + arc_xz + arc_yz + \
+                              line_x + line_y + line_z + \
+                              lbl_rho + lbl_interior + \
+                              axes + lbl_axes
+
+                show(plot_objects, frame=False, aspect_ratio=1)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
     </exercise>
 
     <exercise number="12.7.71">
       <p>
         Find an equation of the form <m>\rho = f(\theta, \phi)</m> in spherical coordinates for the surface <m>x^2 - y^2 = 4</m>.
       </p>
+
+      <solution>
+        <p>
+          We substitute <m>x = \rho\cos(\theta)\sin(\phi)</m> and <m>y = \rho\sin(\theta)\sin(\phi)</m> to obtain
+          <md>
+            4 = \rho^2\cos^2(\theta)\sin^2(\phi) - \rho^2\sin^2(\theta)\sin^2(\phi) = \rho^2\sin^2(\phi)\lp \cos^2(\theta) - \sin^2(\theta) \rp
+          </md>
+          Using the identify <m>\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)</m>, we get
+          <md>
+            <mrow> 4 \amp = \rho^2\sin^2(\phi)\cos(2\theta) </mrow>
+            <mrow> \implies \qquad \rho^2 \amp = \frac{4}{\sin^2(\phi)\cos(2\theta)} </mrow>
+          </md>
+          We take the square root of both sides. 
+          Siince <m>0 \lt \phi \lt \pi</m>, we have <m>\sin(\phi) = 0</m>. 
+          Hence, 
+          <md>
+            \rho = \frac{2}{\sin(\phi)\sqrt{\cos(2\theta)}}
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.7.81">
@@ -1274,6 +1624,27 @@
         An apple modeled by taking all the points in and on a sphere of radius <m>2</m> inches is cored with a vertical cylinder of radius <m>1</m> in. 
         Use inequalities in cylindrical coordinates to describe the set of all points that remain in the apple once the core is removed.
       </p>
+
+      <solution>
+        <p>
+          The sphere together with its interior is, in rectangular coordinates, the set of points with <m>x^2 + y^2 + z^2 \leq 4</m>.
+          In cylindrical coordinates, this is the set of points with <m>r^2 + z^2 \leq 4</m>. 
+          So we can parametrize the sphere and its interior as 
+          <md>
+            -2 \leq z \leq 2 \qquad \text{and} \qquad  0 \leq r \leq \sqrt{4 - z^2}
+          </md>
+        </p>
+
+        <p>
+          The vertical cylinder together with its interior is parametrized by <m>r \leq 1</m>. 
+          The cylinder intersects the sphere when <m>1^2 + z^2 = 4</m>, or <m>z = \pm \sqrt{3}</m>. 
+          When <m>|z| \gt \sqrt{3}</m>, all points in the sphere lie inside the cylinder, so are gone when the cylinder is removed. 
+          So removing the cylinder from the sphere gives a set of points parametrized as 
+          <md>
+            -\sqrt{3} \lt z \lt \sqrt{3} \qquad \text{and} \qquad 1 \leq r \leq \sqrt{4 - z^2}
+          </md>
+        </p>
+      </solution>
     </exercise>
 
   </worksheet>

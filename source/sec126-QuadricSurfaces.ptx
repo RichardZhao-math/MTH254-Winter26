@@ -2193,12 +2193,32 @@
         <p>
           <m>x^2 + 3y^2 + 9z^2 = 1</m>
         </p>
+
+        <solution>
+          <p>
+            We rewrite the equation as follows: 
+            <md>
+              \lp \dfrac{x}{1} \rp^2 + \lp \dfrac{y}{\frac{1}{\sqrt{3}}} \rp^2 + \lp \dfrac{z^2}{\frac{1}{3}} \rp^2 = 1
+            </md>
+            This equation defines an ellipse. 
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="12.6.7">
         <p>
           <m>x^2 + y^2 = 4 - 4z^2</m>
         </p>
+
+        <solution>
+          <p>
+            We rewrite the equation as follows: 
+            <md>
+              \lp \dfrac{x}{2} \rp^2 + \lp \dfrac{y}{2} \rp^2 + \lp \dfrac{z}{1} \rp^2 = 1
+            </md>
+            This equation defines an ellipse.
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
 
@@ -2213,12 +2233,28 @@
         <p>
           <m>z = \lp \dfrac{x}{4} \rp^2 + \lp \dfrac{y}{3} \rp^2</m>
         </p>
+
+        <solution>
+          <p>
+            This is the equation of an elliptic cone. 
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="12.6.13">
         <p>
           <m>3x^2 - 7y^2 = z</m>
         </p>
+
+        <solution>
+          <p>
+            Rewriting the equation as
+            <md>
+              z = \lp \frac{x}{\frac{1}{\sqrt{3}}} \rp^2 - \lp \frac{y}{\frac{1}{\sqrt{7}}} \rp^2
+            </md>
+            We identify it as the equation of a hyperbolic paraboloid. 
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
 
@@ -2233,12 +2269,42 @@
         <p>
           <m>x^2 + \lp \dfrac{y}{4} \rp^2 + z^2 = 1</m>, <m>\qquad y = 0</m>
         </p>
+
+        <solution>
+          <p>
+            The equation <m>x^2 + \lp \frac{y}{4} \rp^2 + z^2 = 1</m> defines an ellipsoid. 
+            The <m>xz</m>-trace is obtained by substituting <m>y = 0</m> in the equation of the ellipsoid. 
+            This gives the equation 
+            <md>
+              x^2 + z^2 = 1
+            </md>
+            which defines a circle in the <m>xz</m>-plane. 
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="12.6.19">
         <p>
           <m>x^2 + \lp \dfrac{y}{4} \rp^2 + z^2 = 1</m>, <m>\qquad z = \dfrac{1}{4}</m>
         </p>
+
+        <solution>
+          <p>
+            The quadric surface is an ellipsoid, since its equation has the form <m>\lp \frac{x}{a} \rp^2 + \lp \frac{y}{b} \rp^2 + \lp \frac{z}{c} \rp^2 = 1</m> for <m>a = 1</m>, <m>b = 4</m>, and <m>c = 1</m>. 
+            To find the trace obtained by intersecting the ellipsoid with the plane <m>z = \frac{1}{4}</m>, we set <m>z = \frac{1}{4}</m> in the equation of the ellipsoid. 
+            This gives
+            <md>
+              <mrow> x^2 + \lp \frac{y}{4} \rp^2 + \lp \frac{1}{4} \rp^2 = 1 </mrow>
+              <mrow> x^2 + \frac{y^2}{16} \amp= \frac{15}{16} </mrow>
+            </md>
+            To get the standard form we divide by <m>\frac{15}{16}</m> to obtain
+            <md>
+              <mrow> \frac{x^2}{\frac{15}{16}} + \frac{y^2}{\frac{16\cdot 15}{16}} \amp= 1 </mrow>
+              <mrow> \implies \qquad \lp \frac{x}{\frac{\sqrt{15}}{4}} \rp^2 + \lp \frac{y}{\sqrt{15}} \rp^2 \amp= 1 </mrow>
+            </md>
+            We conclude that the trace is an ellipse on the <m>xy</m>-\plane with the equation above. 
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
 
@@ -2267,6 +2333,38 @@
       <figure>
         <image source="sec126-HW25-Figure.png" width="90%"></image>
       </figure>
+
+      <solution>
+        <ol>
+          <li>
+            <p>
+              We rewrite the equation in the form 
+              <md>
+                \lp \frac{x}{4} \rp^2 + \lp \frac{y}{2} \rp^2 + \lp \frac{z}{2} \rp^2 = 1
+              </md>
+              The ellipsoid intersets the <m>x</m>, <m>y</m>, and <m>z</m> axes at the points <m>(\pm 4,0,0)</m>, <m>(0,\pm 2, 0)</m>, and <m>(0,0,\pm 2)</m>, hence <alert>(B)</alert> is the corresponding figure. 
+            </p>
+          </li>
+          <li>
+            <p>
+              We rewrite the equation in the form 
+              <md>
+                \lp \frac{x}{2} \rp^2 + \lp \frac{y}{4} \rp^2 + \lp \frac{z}{2} \rp^2 = 1
+              </md>
+              The <m>x</m>, <m>y</m>, and <m>z</m> intercepts are <m>(\pm 2,0,0)</m>, <m>(0,\pm 4, 0)</m>, and <m>(0,0,\pm 2)</m> respectively, hence <alert>(A)</alert> is the correct figure.
+            </p>
+          </li>
+          <li>
+            <p>
+              We rewrite the equation in the form 
+              <md>
+                \lp \frac{x}{2} \rp^2 + \lp \frac{y}{2} \rp^2 + \lp \frac{z}{4} \rp^2 = 1
+              </md>
+              The <m>x</m>, <m>y</m>, and <m>z</m> intercepts are <m>(\pm 2,0,0)</m>, <m>(0,\pm 2, 0)</m>, and <m>(0,0,\pm 4)</m> respectively, hence theh corresponding figure is <alert>(C)</alert>. 
+            </p>
+          </li>
+        </ol>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -2280,18 +2378,246 @@
         <p>
           <m>x^2 + y^2 - z^2 = 1</m>
         </p>
+
+        <solution>
+          <p>
+            The equation defines a hyperboloid of one sheet. 
+            The trace on the plane <m>z = z_0</m> is the circle
+            <md>
+              x^2 + y^2 = 1 + z_0^2
+            </md>
+            The trace on the plane <m>y = y_0</m> is the hyperbola
+            <md>
+              x^2 - z^2 = 1 - y_0^2
+            </md>
+            and the trace on the plane <m>x = x_0</m> is the hyperbola
+            <md>
+              y^2 - z^2 = 1 - x_0^2
+            </md>
+          </p>
+
+          <p>
+            We obtain the surface shown below.
+          </p>
+          
+          <figure>
+            <caption>The hyperboloid with equation <m>x^2 + y^2 - z^2 = 1</m>.</caption>
+            <sidebyside width="80%">
+              <interactive platform="sage" width="100%" aspect="1:1">
+                <slate surface="sage">
+                  var('u, v')
+                  
+                  # 1. Set fixed dimensions for x^2 + y^2 - z^2 = 1
+                  # In this specific case, a=1, b=1, c=1
+                  a, b, c = 1, 1, 1
+                  
+                  # 2. Define Parametric Equations
+                  # x = a*cosh(u)cos(v), y = b*cosh(u)sin(v), z = c*sinh(u)
+                  # We restrict u to -1.3 to 1.3 to keep the view focused on the center "waist"
+                  u_max = 1.3
+                  
+                  hyperboloid = parametric_plot3d(
+                      (a*cosh(u)*cos(v), b*cosh(u)*sin(v), c*sinh(u)),
+                      (u, -u_max, u_max), (v, 0, 2*pi),
+                      opacity=0.6,
+                      color='cyan',
+                      mesh=True
+                  )
+                  
+                  # 3. Define Axes and Limits
+                  # Calculate how wide the shape gets at the top/bottom to set axis length
+                  max_radius = max(a,b) * cosh(u_max)
+                  limit = max(max_radius, c*sinh(u_max)) * 1.2
+                  
+                  axes = arrow3d((-limit,0,0), (limit,0,0), color='black', width=1) + \
+                        arrow3d((0,-limit,0), (0,limit,0), color='black', width=1) + \
+                        arrow3d((0,0,-limit), (0,0,limit), color='black', width=1)
+                        
+                  lbl_axes = text3d("x", (limit+0.2, 0, 0), color='black', fontweight='bold') + \
+                            text3d("y", (0, limit+0.2, 0), color='black', fontweight='bold') + \
+                            text3d("z", (0, 0, limit+0.2), color='black', fontweight='bold')
+
+                  # 4. Mark Intercepts at the "Waist" (z=0)
+                  # Since this is a one-sheet hyperboloid, it intersects x and y axes at +/- 1
+                  pt_size = 15
+                  offset = 0.2
+                  
+                  pts = point3d([(a,0,0), (-a,0,0), (0,b,0), (0,-b,0)], size=pt_size, color='black')
+                  
+                  lbls = text3d("1",  (a+offset, 0, 0),   color='black', fontsize=20) + \
+                        text3d("-1", (-a-offset, 0, 0),  color='black', fontsize=20) + \
+                        text3d("1",  (0, b+offset, 0),   color='black', fontsize=20) + \
+                        text3d("-1", (0, -b-offset, 0),  color='black', fontsize=20)
+                  
+                  # 5. Combine and Show
+                  show(hyperboloid + axes + lbl_axes + pts + lbls, frame=False)
+                </slate>
+              </interactive>
+            </sidebyside>
+          </figure>
+        </solution>
       </exercise>
 
       <exercise number="12.6.33">
         <p>
           <m>z^2 = \lp \dfrac{x}{4} \rp^2 + \lp \dfrac{y}{8} \rp^2</m>
         </p>
+
+        <solution>
+          <p>
+            The equation defines an elliptic cone. 
+            The trace on the plane <m>z = z_0</m> is the ellipse
+            <md>
+              \lp \frac{x}{4} \rp^2 + \lp \frac{y}{8} \rp^2 = z_0^2
+            </md>
+            The trace on the plane <m>y = 0</m> is the hyperbola
+            <md>
+              z^2 - \lp \frac{x}{4} \rp^2 = 0 \qquad \implies \qquad z = \pm \frac{x}{4}
+            </md>
+            and the trace on the plane <m>x = 0</m> is the hyperbola
+            <md>
+              z^2 - \lp \frac{y}{8} \rp^2 = \lp \frac{x_0}{4} \rp^2 \qquad \implies \qquad z = \pm \frac{y}{8}
+            </md>
+          </p>
+
+          <p>
+            The sketch of the surface is shown below.
+          </p>
+
+          <figure>
+            <caption>The elliptic cone <m>z^2 = \lp \dfrac{x}{4} \rp^2 + \lp \dfrac{y}{8} \rp^2</m>.</caption>
+            <sidebyside width="80%">
+              <interactive platform="sage" width="100%" aspect="1:1">
+                <slate surface="sage">
+                  var('u, v')
+                  
+                  # 1. Define Coefficients
+                  # Equation: z^2 = (x/a)^2 + (y/b)^2
+                  a, b = 4, 8
+                  
+                  # 2. Define Parametric Equations for a Cone
+                  # x = a*u*cos(v), y = b*u*sin(v), z = u
+                  # u represents the height (z-value). 
+                  # We range u from negative to positive to show both nappes of the cone.
+                  u_max = 1
+                  
+                  cone = parametric_plot3d(
+                      (a*u*cos(v), b*u*sin(v), u),
+                      (u, -u_max, u_max), (v, 0, 2*pi),
+                      opacity=0.6,
+                      color='cyan',
+                      mesh=True
+                  )
+                  
+                  # 3. Define Axes and Limits
+                  # The widest point is at u_max, where y = b*u_max = 8*1 = 8.
+                  limit = max(a*u_max, b*u_max) * 1.2
+                  
+                  axes = arrow3d((-limit,0,0), (limit,0,0), color='black', width=1) + \
+                        arrow3d((0,-limit,0), (0,limit,0), color='black', width=1) + \
+                        arrow3d((0,0,-limit), (0,0,limit), color='black', width=1)
+                        
+                  lbl_axes = text3d("x", (limit+0.5, 0, 0), color='black', fontweight='bold') + \
+                            text3d("y", (0, limit+0.5, 0), color='black', fontweight='bold') + \
+                            text3d("z", (0, 0, limit+0.5), color='black', fontweight='bold')
+
+                  # 4. Mark Reference Points
+                  # The cone meets at the origin.
+                  # To visualize the scale (4 and 8), we mark points on the rim at z=1.
+                  pt_size = 10
+                  
+                  # Origin
+                  pts = point3d((0,0,0), size=15, color='black')
+                  
+                  # Points at z=1 to show the ellipse dimensions
+                  # At z=1: x extends to +/- 4, y extends to +/- 8
+                  pts += point3d([(a,0,1), (-a,0,1), (0,b,1), (0,-b,1)], size=pt_size, color='blue')
+                  
+                  # Labels for the reference points
+                  offset = 0.5
+                  lbls = text3d("4",   (a+offset, 0, 1),   color='black') + \
+                        text3d("-4",  (-a-offset, 0, 1),  color='black') + \
+                        text3d("8",   (0, b+offset, 1),   color='black') + \
+                        text3d("-8",  (0, -b-offset, 1),  color='black') + \
+                        text3d("z=1", (a/2, b/2, 1.2),    color='black', fontsize=10)
+                  
+                  # 5. Combine and Show
+                  show(cone + axes + lbl_axes + pts + lbls, frame=False, aspect_ratio=1)
+                </slate>
+              </interactive>
+            </sidebyside>
+          </figure>
+        </solution>
       </exercise>
 
       <exercise number="12.6.39">
         <p>
           <m>x = 1 + y^2 + z^2</m>
         </p>
+
+        <solution>
+          <p>
+            This is the equation of an elliptic paraboloid oriented along the <m>x</m>-axis.
+          </p>
+
+          <p>
+            The graph of the surface is shown below. 
+          </p>
+
+          <figure>
+            <caption>The circular paraboloid <m>x = 1 + y^2 + z^2</m>.</caption>
+            <sidebyside width="80%">
+              <interactive platform="sage" width="100%" aspect="1:1">
+                <slate surface="sage">
+                  var('u, v')
+                  
+                  # 1. Define Parametric Equations
+                  # The surface is x = 1 + r^2. Let u = r (radius in yz-plane).
+                  # x = 1 + u^2
+                  # y = u * cos(v)
+                  # z = u * sin(v)
+                  
+                  # We range u from 0 to 2. This gives x values from 1 to 5.
+                  u_max = 2
+                  
+                  paraboloid = parametric_plot3d(
+                      (1 + u^2, u*cos(v), u*sin(v)),
+                      (u, 0, u_max), (v, 0, 2*pi),
+                      opacity=0.6,
+                      color='cyan',
+                      mesh=True
+                  )
+                  
+                  # 2. Define Axes and Limits
+                  # The shape extends to x=5, and y,z go to +/- 2.
+                  # We set the limit based on the longest dimension (x).
+                  limit = (1 + u_max^2) * 1.2
+                  
+                  axes = arrow3d((0,0,0), (limit,0,0), color='black', width=1) + \
+                        arrow3d((0,-limit/2,0), (0,limit/2,0), color='black', width=1) + \
+                        arrow3d((0,0,-limit/2), (0,0,limit/2), color='black', width=1)
+                        
+                  lbl_axes = text3d("x", (limit+0.2, 0, 0), color='black', fontweight='bold') + \
+                            text3d("y", (0, limit/2+0.2, 0), color='black', fontweight='bold') + \
+                            text3d("z", (0, 0, limit/2+0.2), color='black', fontweight='bold')
+
+                  # 3. Mark Key Features
+                  # The Vertex is at (1, 0, 0)
+                  pt_size = 10
+                  pts = point3d((1,0,0), size=15, color='black')
+                  
+                  # Labels
+                  offset = 0.3
+                  lbls = text3d("Vertex (1,0,0)", (1, 0, -offset), color='black', fontsize=12)
+                  
+                  # 4. Combine and Show
+                  # We force aspect_ratio=[1,1,1] so the paraboloid doesn't look flattened
+                  show(paraboloid + axes + lbl_axes + pts + lbls, frame=False, aspect_ratio=[1,1,1])
+                </slate>
+              </interactive>
+            </sidebyside>
+          </figure>
+        </solution>
       </exercise>
     </exercisegroup> 
 
@@ -2303,6 +2629,47 @@
       <figure>
         <image source="sec126-HW45-Figure.png" width="50%"></image>
       </figure>
+
+      <solution>
+        <p>
+          The hyperboloid in the figure is of one sheet and the intersections with the planes <m>z = z_0</m> are ellipses. 
+          Hence, the equation of the hyperboloid has the form 
+          <md>
+            \lp \frac{x}{a} \rp^2 + \lp \frac{y}{b} \rp^2 - \lp \frac{z}{c} \rp^2 = 1
+          </md>
+          Substituting <m>z = 0</m>, we get
+          <md>
+            \lp \frac{x}{a} \rp^2 + \lp \frac{y}{b} \rp^2 = 1
+          </md>
+          By the given information this ellipse has <m>x</m> and <m>y</m> intercepts at the points <m>(\pm 2, 0, 0)</m> and <m>(0, \pm 3, 0)</m>, hence <m>a = 4</m> and <m>b = 6</m>. 
+        </p>
+
+        <p>
+          Substituting in the equation of the hyperbolod, we get
+          <md>
+            \lp \frac{x}{4} \rp^2 + \lp \frac{y}{6} \rp^2 - \lp \frac{z}{c} \rp^2 = 1
+          </md>
+          Substituting <m>z = 9</m>, we get
+          <md>
+            <mrow> \frac{x}{16} + \frac{y}{36} - \frac{9^2}{c^2}  \amp= 1 </mrow>
+            <mrow> \frac{x^2}{16} + \frac{y^2}{36} \amp= 1 + \frac{81}{c^2} = \frac{c^2 + 81}{c^2} </mrow>
+            <mrow> \frac{c^2x^2}{16\lp 81 + c^2 \rp} + \frac{c^2y^2}{36\lp 81 + c^2 \rp} \amp= 1 </mrow>
+            <mrow> \lp \frac{x}{\frac{4}{c}\sqrt{81 + c^2}} \rp^2 + \lp \frac{y}{\frac{6}{c}\sqrt{81 + c^2}} \rp^2 \amp= 1 </mrow>
+          </md>
+          By the given information the following must hold. 
+          <md>
+            \frac{4}{c} \sqrt{81 + c^2} = 8 \qquad \text{and} \qquad \frac{6}{c}\sqrt{81 + c^2} = 12
+          </md>
+          which implies that
+          <md>
+            \frac{\sqrt{81 + c^2}}{c} = 2 \qquad \implies \qquad 81 + c^2 = 4c^2 \qquad \implies \qquad 3c^2 = 81
+          </md>
+          Thus, <m>c = 3\sqrt{3}</m>, and by substituting back we obtain the following equation
+          <md>
+            \lp \frac{x}{4} \rp^2 + \lp \frac{y}{6} \rp^2 - \lp \frac{z}{3\sqrt{3}} \rp^2 = 1
+          </md>
+        </p>
+      </solution>
     </exercise>
 
   </worksheet>

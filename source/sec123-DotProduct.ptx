@@ -1705,6 +1705,31 @@
         <image source="R3UnitCube.png" width="50%"></image>
         <caption>Unit cube in <m>\R^3</m></caption>
       </figure>
+
+      <solution>
+        <p>
+          The cosine of the angle <m>\alpha</m> between the vectors <m>\overline{AB}</m> and <m>\overline{AC}</m> is
+          <md>
+            \cos (\alpha) = \frac{\overrightarrow{AB} \cdot \overrightarrow{AC}}{\|\overrightarrow{AB}\| \|\overrightarrow{AC}\|}
+          </md>
+        </p>
+
+        <p>
+          We compute the vectors <m>\overrightarrow{AB}</m> and <m>\overrightarrow{AC}</m> and then calculate their dot product and lengths. 
+          We get
+          <md>
+            <mrow>\overrightarrow{AB} \amp= \la 1-0, 0-0, 0-1 \ra = \la 1,0,-1 \ra </mrow>
+            <mrow>\overrightarrow{AC} \amp= \la 1-0, 1-0, 0-1 \ra = \la 1,1,-1 \ra </mrow>
+            <mrow>\overrightarrow{AB} \cdot \overrightarrow{AC} \amp= \la 1,0,-1 \ra \cdot \la 1,1,-1 \ra = 1\cdot 1 + 0\cdot 1 + (-1)\cdot (-1) = 2 </mrow>
+            <mrow>\|\overrightarrow{AB}\| \amp= \sqrt{1^2 + 0^2 + (-1)^2} = \sqrt{2} </mrow>
+            <mrow>\|\overrightarrow{AC}\| \amp= \sqrt{1^2 + 1^2 + (-1)^2} = \sqrt{3} </mrow>
+          </md>
+          Substituting these values into the formula for the cosine of the angle and solving for <m>0 \le \alpha \le \pi</m> gives
+          <md>
+            \cos(\alpha) = \frac{2}{\sqrt{2} \cdot \sqrt{3}} \approx 0.816 \qquad \implies \qquad \alpha \approx 0.615
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.85">
@@ -1725,6 +1750,51 @@
           <caption>Wind vector decomposition</caption>
         </figure>
       </hint>
+
+      <solution>
+        <p>
+          We set up a coordinate system where North is the direction of the positive <m>y</m>-axis and East is the positive <m>x</m>-axis. 
+          Since the wind is blowing out of the North, it heads South, so <m>\v{w} = \la 0, -45 \ra</m>. 
+        </p>
+
+        <figure>
+          <image source="sec123-HW85-Solution-Diagram.png" width="60%"></image>
+          <caption>Wind vector decomposition</caption>
+        </figure>
+
+        <p>
+          The bridge is oriented <m>32^\circ</m> East of North. 
+          We can define a unit vector <m>\v{u}</m> along the bridge direction using trigonometry: the <m>x</m>-component is <m>\sin(58^\circ)</m> and the <m>y</m>-component is <m>\cos(58^\circ)</m>. 
+          <md>
+            \v{u} = \la \cos(58^\circ), \sin(58^\circ) \ra
+          </md>
+        </p>
+
+        <p>
+          We first find <m>\v{w}_\parallel</m>, the vector parallel to the bridge by computing the projection of <m>\v{w}</m> along <m>\v{u}</m>:
+          <md>
+            <mrow> \v{w}_{\parallel} \amp= \text{proj}_{\v{u}} \v{w} = \lp \frac{\v{w} \cdot \v{u}}{\v{u} \cdot \v{u}} \rp \v{u} </mrow>
+            <mrow> \amp= \lp \la 0, -45 \ra \cdot \la \cos(58^\circ), \sin(58^\circ) \ra \rp \v{u} </mrow>
+            <mrow> \amp= -45\sin(58^\circ) \la \cos(58^\circ), \sin(58^\circ) \ra </mrow>
+            <mrow> \amp\approx \la -20.22, -32.36 \ra </mrow>
+          </md>
+          Next, we find <m>\v{w}_\perp</m>, the vector perpendicular to the bridge by computing the difference <m>\v{w}_{\perp} = \v{w} - \v{w}_{\parallel}</m>:
+          <md>
+             \v{w}_{\perp} = \la 0, -45 \ra - \la -20.22, -32.36 \ra = \la 20.22, -12.64 \ra
+          </md>
+          Thus, the decomposition is
+          <md>
+            \v{w} = \la -20.22, -32.36 \ra + \la 20.22, -12.64 \ra
+          </md>
+        </p>
+        
+        <p>
+          To find the speed of the wind blowing directly at the bridge, we compute the magnitude of the perpendicular component:
+          <md>
+            \|\v{w}_{\perp}\| \approx \sqrt{(20.22)^2 + (-12.64)^2} \approx 23.85 \text{ km/h}
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.3.87">

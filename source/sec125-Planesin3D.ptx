@@ -5,8 +5,9 @@
 
   <introduction>
     <p>
-      In this section, we will continue our investigation of planes in <m>\R^3</m>. 
-      We will learn how to describe any planes in <m>\R^3</m> using vectors and how to analyze their interactions with one another.
+      In this section, we extend our knowledge of linear geometry from 2-dimensions to 3-dimensions. 
+      While lines were the fundamental linear object in the plane, in 3-space, the fundamental linear object is a surface: the plane. 
+      We will learn how to describe these flat surfaces using vectors and how to analyze their interactions with one another.
     </p>
 
     <objectives>
@@ -719,6 +720,36 @@
       <p>
         Find an equation of the plane passing through the three points <m>P = (1,0,0)</m>, <m>Q = (0,1,1)</m>, and <m>R = (2,0,1)</m>. 
       </p>
+
+      <solution>
+        <p>
+          We use the vector form of the equation of the plane.
+          <me>
+            \v{n}\cdot\la x,y,z\ra=d 
+          </me>
+          To find the normal vector to the plane, <m>\v{n}</m>, we first compute the vectors <m>\overrightarrow{PQ}</m> and <m>\overrightarrow{PR}</m> that lie in the plane, and then find the cross product of these vectors.
+          This gives
+          <md>
+            <mrow>\overrightarrow{PQ} \amp =\la0,1,1\ra-\la1,0,0\ra=\la-1,1,1\ra</mrow>
+            <mrow>\overrightarrow{PR} \amp =\la2,0,1\ra-\la1,0,0\ra=\la1,0,1\ra</mrow>
+          </md>
+          <md>
+            <mrow>\v{n}=\overrightarrow{PQ}\times\overrightarrow{PR} \amp= \begin{vmatrix}\v{i}\amp \v{j}\amp \v{k}\\ -1\amp 1\amp 1\\ 1\amp 0\amp 1\end{vmatrix} </mrow>
+            <mrow> \amp=\begin{vmatrix}1\amp 1\\ 0\amp 1\end{vmatrix}\v{i}-\begin{vmatrix}-1\amp 1\\ 1\amp 1\end{vmatrix}\v{j}+\begin{vmatrix}-1\amp 1\\ 1\amp 0\end{vmatrix}\v{k} </mrow>
+            <mrow> \amp=\v{i}+2\v{j}-\v{k} </mrow>
+            <mrow> \amp=\la1,2,-1\ra </mrow>
+          </md>
+          We now choose any one of the three points in the plane, say <m>P=(1,0,0),</m> and compute <m>d</m>.
+          <me>
+            d=\v{n}\cdot\overrightarrow{OP}=\la1,2,-1\ra\cdot\la1,0,0\ra=1\cdot1+2\cdot0+(-1)\cdot0=1 
+          </me>
+          Putting it all together, the equation of the plane is
+          <md>
+            <mrow>\la1,2,-1\ra\cdot\la x,y,z\ra \amp= 1</mrow>
+            <mrow>x+2y-z \amp= 1</mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="12.5.27">
@@ -950,6 +981,42 @@
           To find a point on <m>\c{L}</m>, substitute an arbitrary value for <m>z</m> (say, <m>z = 2</m>) and then solve the resulting pair of equations for <m>x</m> and <m>y</m>. 
         </p>
       </hint>
+
+      <solution>
+        <p>
+          A direction vector for <m>L</m> is the cross product <m>\v{v}=\v{n}_1\times \v{n}_2</m>. 
+          <me>
+            \v{v}=\v{n}_1\times \v{n}_2=\begin{vmatrix}\v{i}\amp \v{j}\amp \v{k}\\ 1\amp -1\amp -1\\ 2\amp 3\amp 1\end{vmatrix}=2\v{i}-3\v{j}+5\v{k}=\la2,-3,5\ra
+          </me>
+          We now need to find a point on <m>L</m>. 
+          We choose <m>z=2</m> substitute in the equations of the planes and solve the resulting equations for <m>x</m> and <m>y</m>.
+          This gives
+          <md>
+            <mrow>x-y-2=1 \amp \qquad \implies \qquad x-y=3</mrow>
+            <mrow>2x+3y+2=2 \amp \qquad \implies \qquad 2x+3y=0</mrow>
+          </md>
+          The 1st equation implies that <m>y=x-3</m>. Substituting in the 2nd equation and solving for <m>x</m> gives
+          <me>
+            2x+3(x-3)=0
+          </me>
+          <me>
+            5x=9 \qquad \implies \qquad x=\frac{9}{5}
+          </me>
+          This also implies that <m>y=\dfrac{9}{5}-3=-\dfrac{6}{5}</m>. 
+        </p>
+
+        <p>
+          We conclude that the point <m>(\frac{9}{5},-\frac{6}{5},2)</m> is on <m>L</m>. 
+          We now use the vector parametrization of a line to obtain the following parametrization for <m>L</m>:
+          <me>
+            \v{r}(t)=\la\frac{9}{5},-\frac{6}{5},2\ra+t\la2,-3,5\ra
+          </me>
+          This yields the parametric equations
+          <me>
+            x(t) = \frac{9}{5}+2t, \qquad y(t) = -\frac{6}{5}-3t, \qquad z(t)=2+5t
+          </me>
+        </p>
+      </solution>
     </exercise>
 
   </worksheet>
