@@ -1202,7 +1202,7 @@
 
     <exercise number="13.4.67">
       <p>
-        Find an equation of the osculating circle to the curve <m>\v{r}(t) = \la 1-\sin(t), 1-2\cos(t) \ra</m> at the point where <m>t=\dfrac{\pi}{4}</m> or indicate that none exists. 
+        Find an equation of the osculating circle to the curve <m>\v{r}(t) = \la 1-\sin(t), 1-2\cos(t) \ra</m> at the point where <m>t=\pi</m> or indicate that none exists. 
       </p>
     </exercise>
 
