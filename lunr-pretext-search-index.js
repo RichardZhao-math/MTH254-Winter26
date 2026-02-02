@@ -3349,6 +3349,564 @@ var ptx_lunr_docs = [
   "body": " Find both the general solution of the differential equation and the solution with the given initial condition.   "
 },
 {
+  "id": "sec133-ArcLength",
+  "level": "1",
+  "url": "sec133-ArcLength.html",
+  "type": "Section",
+  "number": "13.3",
+  "title": "Arc Length and Speed",
+  "body": " Arc Length and Speed   In this section, we will derive the formula for arc length of a curve in parametrized by a vector-valued function. We will also use this formula to define the speed of a particle moving along a curve. Finally, we will explore the concept of arc length parametrization and how to construct one for a given vector-valued function.    After this section, students will be able to:     generalize the arc length formula from to using vector-valued functions.    calculate the arc length of a given curves.    calculate the speed of a particle moving along a curve defined by a vector-valued function.    identify and construct an arc length parametrization for a given vector-valued function.       Arc Length  Recall you learned about the arc length formula back in MTH 252Z (or MTH 252) for a curve in with explicit form . To jog your memory, the arc length of a curve over the interval is given by the formula   You may also learn about the arc length formula back in MTH 253Z (or MTH 253) for a curve in in parametric equations . To refresh your memory, the arc length of a curve traversed by the parametrized equations is given by the formula   If you remember how the above arc length formulas were derived, then we can use the same trick to derive the arc length formula for a curve in parametrized by .  The underlying idea here is to approximate the length of the curve by breaking it into small line segments , finding the lengths of those line segments, and then adding them up. This is sometimes referred to as the polygonal approximation of the curve.    Polygonal Approximation to the arc for .   Obviously, the smaller each line segments used for the approximation, the better the approximation becomes. Theoretically speaking, if we let the number of line segments approach infinity (and the max length of each line segment approaches 0), then the approximation becomes exact.  Say we want to find the length of the curve traced by over the interval . Then we can start by figuring out the length of one of those line segments using the distance formula in . Since we are letting the number of line segments approach infinity, we can take the limit as to turn the average rate of change of each component into the instantaneous rate of change. Thus, the length of that line segment becomes   Now that we have the length of one line segment, we can add up the lengths of all the line segments to approximate the length of the curve. Remember that integration is just a limit of Riemann sums, meaning we are adding infinitely many infinitesimally small pieces together. Thus, the arc length of the curve is given by the integral Let's make it into a cool theorem!   Arc Length   Let directly traverse for . Assume that exists and is continuous. Then the arc length of the curve is equal to      Find the length of the curve traced by over .   We know that This implies that     We can make a cool observation here that the integrand is essentially the magnitude of the derivative of the vector-valued function . Back in MTH 251Z (or MTH 251), we learned that the derivative of the position function is the velocity function, and the magnitude of the velocity function is the speed function. So we can derive a formula to find the speed!    Speed  The speed of a particle moving along a curve parametrized by at time is defined as the rate of change of distance traveled with respect to time. We actually know the distance traveled along a curve from the arc length formula we just derived! We can define the arc length function to capture the distance traveled along the curve from some starting point to any point . Observe that the arc length function returns the distance traveled, which is a scalar quantity. Therefore, the speed is simply the derivative of the arc length function with respect to time. Well this formula makes sense! The speed is just the magnitude of the velocity vector, which can be obtained by differentiating the position function !   Find the speed of a particle moving along the curve parametrized by at time .   The velocity vector is The speed is the magnitude of the velocity vector. That is,       Arc Length Parametrization  Recall that we saw multiple parametrizations of the same curve in (we even graphed some of them in class using GeoGebra to make sure they traced the same curve!). While these different parametrizations traced the same curve, they may do so at different rates .  For example, consider the following two curves Observe that they both trace the same circle within their respective domains. However, they do so at different speeds .  For the path , the particle completes one full revolution around the circle as goes from to , as indicated by the figure below. We can find the average speed as unit.   The Path for .    For the path , the particle completes one full revolution around the circle as goes from to , as indicated by the figure below. We can find the average rate of change as units. Observe that this is twice the speed of .   The Path for . .    This demonstrates that different parametrizations of the same curve can trace the curve at different speeds. One can easily see that the second parametrization traces the curve twice as fast as the first one because That is, is a composite function that uses as the outer function and as the inner function. The outside function controls the shape of the curve, while the inside function controls the rate at which the curve is traced.  Now that we have a way to control the rate at which a curve is traced, we can use this to create a parametrization that traces a curve at a desired rate. The nicest rate to trace a curve is at a constant speed of unit per unit time. A parametrization of this type is called an arc length parametrization . Symbolically speaking, if is an arc length parametrization of a curve, then   There are three important properties of an arc length parametrization:   The parameter directly measures the distance along the curve from some starting point (hence the name \"arc length\" parametrization).    Every velocity vector is a unit vector (since its magnitude is 1).       The distance traveled along the curve from to is simply . Symbolically speaking, we have      Since arc length parametrizations have such nice properties, it is often useful to create an arc length parametrization of a given curve. The general process to create an arc length parametrization is as follows:   Compute the arc length function for the given parametrization .    Find the inverse function of the arc length function.    Substitute into the original parametrization to get This new parametrization is an arc length parametrization.      But Richard... Why does this process work?  Great question! The key idea here is that the arc length function measures the distance traveled along the curve from to any point . Therefore, if we can invert this function to get , then we can express the original parameter in terms of the distance traveled . By substituting this back into the original parametrization, we are effectively reparametrizing the curve in terms of the distance traveled, which ensures that the new parametrization traces the curve at a constant speed of unit per unit time.  To justify this more rigorously, we can use the Chain Rule to differentiate with respect to . Well the first piece is just .  We can also figure out the second piece. By the fundamental theorem of calculus, we know that This implies that Putting them together, we have (This is just the unit vector in the direction of , called the unit tangent vector . We will discuss it more in the next section!)  We found the derivative of the arc length parametrization! To justify that it is indeed an arc length parametrization, we need to check that its speed is . We can compute the speed as follows: Thus, we have verified that is indeed an arc length parametrization!    Find an arc length parametrization of the helix with parametrization with the parameter measuring from .   Remember the goal here is to find an inside function that we can plug into the original parametrization to get an arc length parametrization. There are three main steps to this process!    The initial point corresponds to .   Step 1. Find the arc length function . We then compute the arc length function.    Step 2. Solve for .    Step 3. Substitute into the original parametrization to get the arc length parametrization.    P.S.: One can verify quickly that the curve traced by is indeed the same helix as and that the speed of is .    In practice, finding an arc length parametrization can be tricky because it involves finding the inverse of the arc length function, which may not always be possible to express in a simple closed form. This is just something to keep in mind when working with arc length parametrizations!   Find an arc length parametrization of the cycloid with parametrization    Remember the goal here is to find an inside function that we can plug into the original parametrization to get an arc length parametrization. There are three main steps to this process!  Be careful with all the trigonometric manipulations when simplifying stuff!     Step 1. Find the arc length function . We then compute the arc length function.    Step 2. We solve for . That is, .   Step 3. Substitute into the original parametrization to get the arc length parametrization.  First, note that Hence, we have       Assigned Problems for Section 13.3   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Compute the length of the curve traced by over .    The curve shown in the figure is parametrized by for . Approximate its length.   The curve traced by for .      Compute the arc length function , where for the value     Find the speed of at .    Let .   Evaluate the arc length integral .    Find the inverse of .    Verify that is an arc length parametrization.       Find a path that traces the circle in the plane with radius and center with constant speed .    Find an arc length parametrization of the curve parametrized by with the parameter measuring from .    Find an arc length parametrization of the curve parametrized by .    "
+},
+{
+  "id": "sec133-ArcLength-2-2",
+  "level": "2",
+  "url": "sec133-ArcLength.html#sec133-ArcLength-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     generalize the arc length formula from to using vector-valued functions.    calculate the arc length of a given curves.    calculate the speed of a particle moving along a curve defined by a vector-valued function.    identify and construct an arc length parametrization for a given vector-valued function.    "
+},
+{
+  "id": "subsec-ArcLength-6",
+  "level": "2",
+  "url": "sec133-ArcLength.html#subsec-ArcLength-6",
+  "type": "Figure",
+  "number": "13.3.1",
+  "title": "",
+  "body": "  Polygonal Approximation to the arc for .  "
+},
+{
+  "id": "thm-ArcLengthFormula",
+  "level": "2",
+  "url": "sec133-ArcLength.html#thm-ArcLengthFormula",
+  "type": "Theorem",
+  "number": "13.3.2",
+  "title": "Arc Length.",
+  "body": " Arc Length   Let directly traverse for . Assume that exists and is continuous. Then the arc length of the curve is equal to    "
+},
+{
+  "id": "subsec-ArcLength-11",
+  "level": "2",
+  "url": "sec133-ArcLength.html#subsec-ArcLength-11",
+  "type": "Example",
+  "number": "13.3.3",
+  "title": "",
+  "body": " Find the length of the curve traced by over .   We know that This implies that    "
+},
+{
+  "id": "subsec-Speed-3",
+  "level": "2",
+  "url": "sec133-ArcLength.html#subsec-Speed-3",
+  "type": "Example",
+  "number": "13.3.4",
+  "title": "",
+  "body": " Find the speed of a particle moving along the curve parametrized by at time .   The velocity vector is The speed is the magnitude of the velocity vector. That is,    "
+},
+{
+  "id": "subsec-ArcLengthParametrization-5",
+  "level": "2",
+  "url": "sec133-ArcLength.html#subsec-ArcLengthParametrization-5",
+  "type": "Figure",
+  "number": "13.3.5",
+  "title": "",
+  "body": " The Path for .   "
+},
+{
+  "id": "subsec-ArcLengthParametrization-7",
+  "level": "2",
+  "url": "sec133-ArcLength.html#subsec-ArcLengthParametrization-7",
+  "type": "Figure",
+  "number": "13.3.6",
+  "title": "",
+  "body": " The Path for . .   "
+},
+{
+  "id": "subsec-ArcLengthParametrization-9",
+  "level": "2",
+  "url": "sec133-ArcLength.html#subsec-ArcLengthParametrization-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "arc length parametrization "
+},
+{
+  "id": "subsec-ArcLengthParametrization-10-1-2-2",
+  "level": "2",
+  "url": "sec133-ArcLength.html#subsec-ArcLengthParametrization-10-1-2-2",
+  "type": "Figure",
+  "number": "13.3.7",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "subsec-ArcLengthParametrization-12",
+  "level": "2",
+  "url": "sec133-ArcLength.html#subsec-ArcLengthParametrization-12",
+  "type": "Note",
+  "number": "13.3.8",
+  "title": "But Richard... Why does this process work?",
+  "body": " But Richard... Why does this process work?  Great question! The key idea here is that the arc length function measures the distance traveled along the curve from to any point . Therefore, if we can invert this function to get , then we can express the original parameter in terms of the distance traveled . By substituting this back into the original parametrization, we are effectively reparametrizing the curve in terms of the distance traveled, which ensures that the new parametrization traces the curve at a constant speed of unit per unit time.  To justify this more rigorously, we can use the Chain Rule to differentiate with respect to . Well the first piece is just .  We can also figure out the second piece. By the fundamental theorem of calculus, we know that This implies that Putting them together, we have (This is just the unit vector in the direction of , called the unit tangent vector . We will discuss it more in the next section!)  We found the derivative of the arc length parametrization! To justify that it is indeed an arc length parametrization, we need to check that its speed is . We can compute the speed as follows: Thus, we have verified that is indeed an arc length parametrization!  "
+},
+{
+  "id": "subsec-ArcLengthParametrization-13",
+  "level": "2",
+  "url": "sec133-ArcLength.html#subsec-ArcLengthParametrization-13",
+  "type": "Example",
+  "number": "13.3.9",
+  "title": "",
+  "body": " Find an arc length parametrization of the helix with parametrization with the parameter measuring from .   Remember the goal here is to find an inside function that we can plug into the original parametrization to get an arc length parametrization. There are three main steps to this process!    The initial point corresponds to .   Step 1. Find the arc length function . We then compute the arc length function.    Step 2. Solve for .    Step 3. Substitute into the original parametrization to get the arc length parametrization.    P.S.: One can verify quickly that the curve traced by is indeed the same helix as and that the speed of is .   "
+},
+{
+  "id": "subsec-ArcLengthParametrization-15",
+  "level": "2",
+  "url": "sec133-ArcLength.html#subsec-ArcLengthParametrization-15",
+  "type": "Example",
+  "number": "13.3.10",
+  "title": "",
+  "body": " Find an arc length parametrization of the cycloid with parametrization    Remember the goal here is to find an inside function that we can plug into the original parametrization to get an arc length parametrization. There are three main steps to this process!  Be careful with all the trigonometric manipulations when simplifying stuff!     Step 1. Find the arc length function . We then compute the arc length function.    Step 2. We solve for . That is, .   Step 3. Substitute into the original parametrization to get the arc length parametrization.  First, note that Hence, we have    "
+},
+{
+  "id": "ws-sec133-3",
+  "level": "2",
+  "url": "sec133-ArcLength.html#ws-sec133-3",
+  "type": "Worksheet Exercise",
+  "number": "13.3.5",
+  "title": "",
+  "body": " Compute the length of the curve traced by over .  "
+},
+{
+  "id": "ws-sec133-4",
+  "level": "2",
+  "url": "sec133-ArcLength.html#ws-sec133-4",
+  "type": "Worksheet Exercise",
+  "number": "13.3.9",
+  "title": "",
+  "body": " The curve shown in the figure is parametrized by for . Approximate its length.   The curve traced by for .    "
+},
+{
+  "id": "ws-sec133-5",
+  "level": "2",
+  "url": "sec133-ArcLength.html#ws-sec133-5",
+  "type": "Worksheet Exercise",
+  "number": "13.3.11",
+  "title": "",
+  "body": " Compute the arc length function , where for the value   "
+},
+{
+  "id": "ws-sec133-6",
+  "level": "2",
+  "url": "sec133-ArcLength.html#ws-sec133-6",
+  "type": "Worksheet Exercise",
+  "number": "13.3.15",
+  "title": "",
+  "body": " Find the speed of at .  "
+},
+{
+  "id": "ws-sec133-7",
+  "level": "2",
+  "url": "sec133-ArcLength.html#ws-sec133-7",
+  "type": "Worksheet Exercise",
+  "number": "13.3.27",
+  "title": "",
+  "body": " Let .   Evaluate the arc length integral .    Find the inverse of .    Verify that is an arc length parametrization.     "
+},
+{
+  "id": "ws-sec133-8",
+  "level": "2",
+  "url": "sec133-ArcLength.html#ws-sec133-8",
+  "type": "Worksheet Exercise",
+  "number": "13.3.31",
+  "title": "",
+  "body": " Find a path that traces the circle in the plane with radius and center with constant speed .  "
+},
+{
+  "id": "ws-sec133-9",
+  "level": "2",
+  "url": "sec133-ArcLength.html#ws-sec133-9",
+  "type": "Worksheet Exercise",
+  "number": "13.3.33",
+  "title": "",
+  "body": " Find an arc length parametrization of the curve parametrized by with the parameter measuring from .  "
+},
+{
+  "id": "ws-sec133-10",
+  "level": "2",
+  "url": "sec133-ArcLength.html#ws-sec133-10",
+  "type": "Worksheet Exercise",
+  "number": "13.3.35",
+  "title": "",
+  "body": " Find an arc length parametrization of the curve parametrized by .  "
+},
+{
+  "id": "sec134-Curvature",
+  "level": "1",
+  "url": "sec134-Curvature.html",
+  "type": "Section",
+  "number": "13.4",
+  "title": "Curvature",
+  "body": " Curvature   In this section, we introduce the concept of curvature . Intuitively, curvature measures how sharply a curve bends at a given point.    After this section, students will be able to:     define curvature geometrically as the rate of change of the unit tangent vector with respect to arc length.    compute the curvature of space curves, plane curves, and graphs of functions using various derivative formulas.    calculate the Normal vector ( ) and the Binormal vector ( ).    construct the Frenet (TNB) frame of reference at a specific point on a curve.    determine the radius, center, and equation of the osculating circle for a given curve.      Long story short, curvature measures how \"curvy\" a curve is at a given point (aka how much a curve bends). With this idea, we can quickly determine that a line has zero curvature everywhere.  There are several formulas for curvature, each useful in different contexts.   Mathematical Definition of Curvature  Let's think about how to define curvature mathematically. Intuitively, curvature measures how quickly the direction of the tangent vector changes as we move along the curve. The faster the tangent vector changes direction, the higher the curvature.    Curvature is large where the unit tangent vector changes direction quickly.   Well there comes two problems to address here: (1) why using the unit tangent vector, but not just some tangent vector, and (2) how do we measure \"how quickly\" the unit tangent vector changes direction?  The first question is easier to answer. If we used a non-unit tangent vector, then the magnitude of the tangent vector would affect our measurement of curvature. Since we only care about the direction of the tangent vector when measuring curvature, we use the unit tangent vector. The unit tangent vector , denoted , is defined as This formula is just the normalized version of the tangent vector .  Now the second question is a bit more subtle. By saying \"how quickly\" the unit tangent vector changes direction, this suggests we should look at the derivative of the unit tangent vector with respect the arc length , . Hence, the derivative we want is .     However, this derivative isn't very perfect to measure curvature yet. Recall that the derivative is a vector, but we just want a scalar value to represent curvature. The easiest fix is just to take the magnitude of this vector and call it our curvature!   Curvature   Let be an arc length parametrization and the unit tangent vector. The curvature of the underlying curve at is the quantity (denoted by a lowercase Greek letter \"kappa\")     To sum up, curvature is the magnitude of the rate of change of the unit tangent vector with respect to distance traveled along the curve.   But Richard... Why using an arc length parametrization?  The short answer is because it makes the definition of curvature cleaner.  What makes an arc length parametrization special is that every velocity vector has the length of . So we don't have to worry about the speed of the parametrization affecting our measurement of curvature.    Compute the curvature of a circle of radius .   Feel free to assume that the circle is centered at the origin to make the parametrization easier, since the location of the circle should not affect its curvature.  Then a paramatrization of the circle is     To find the curvature using the formula, we first need to find an arc length parametrization of the circle.  The arc length function is given by This implies that Therefore, the arc length parametrization is   Next, we find the unit tangent vector: Then the derivative of the unit tangent vector with respect to is   Hence, the curvature is       Alternative Formulas for Curvature  In practice, it isn't always easy to find an arc length parametrization of a curve (look at the last example in !). So computing the curvature using the definition directly can be difficult. Fortunately, there are alternative formulas for curvature that work for any parametrization of a curve.  An alternative formula for curvature can be derived by dropping the requirement that the parametrization be an arc length parametrization. Without the arc length parametrization, then we need to relate the derivative with respect to to the derivative with respect to the parameter since is now a function of instead of .  Let's start by assuming we have a general parametrization . Then the arc length can be defined as a function of using the arc length function. That is, Let's call the speed of the parametrization. Then by the chain rule, we have Therefore, the curvature can be computed as That is, if we know the unit tangent vector and the speed , then we can compute the curvature using this formula.  Yet is usually not very easy to find. Remember that , so the derivative of is a nightmare to find. Also, involves a square root and a bunch of squares, which makes the derivative even worse... Rather than using this formula directly (you can try of course!), we can derive the following formula using this formula.   Formula for Curvature   If is a regular parametrization, then the curvature of the underlying curve at is      Proof of this formula  Recall that the velocity vector can be written as , where is the speed and is the unit tangent vector. To use the cross product formula, we first need the acceleration vector . Differentiating using the product rule, we obtain   Now, we compute the cross product of velocity and acceleration. Since the cross product of any vector with itself is zero ( ), the first term vanishes. Then we have   Next, we take the magnitude of both sides. Richard claims that and are always orthogonal (trust him for now. He will prove it later), the magnitude of their cross product is simply the product of their magnitudes.   We showed the formula , which implies . Substituting this into our magnitude equation: Solving for and substituting yields the final result:    This formula is often convenient to use since it only involves the first and second derivatives of the parametrization . We don't have to compute any nasty derivatives of unit tangent vectors nor the arc length parametrization.   Prove that the curvature of a line is zero.   A line can be parametrized as . We now have a parametrization of a line to work with!    Taking the derivative of , we get .  Taking the derivative again, we get .  Therefore, the curvature is as expected.     Calculate the curvature function of the curve .   More of a visualization...  Richard graphed the curve out for you. Your goal is to find the curvature function to determine how \"curvy\" the curve is at each point.   The Sketch of the Helix      First, we compute the first derivative: Then we compute the second derivative:   Next, we compute the cross product:   Then we compute the magnitude of the vectors:   Hence, the curvature function is     Remember back in , Richard mentioned that the cross product only makes sense in . That is, we can't directly use this formula for curves in . There is a workaround though. Using this workaround, we can derive a formula for curvature of plane curves as well.   Curvature of a Plane Curve   Assume is a regular parametrization of a plane curve, which means for all in the domain. At the point , the curvature is given by      Proof of this formula  To derive this formula, we can treat the plane curve as a space curve that lies in the -plane. We define the position vector with a zero -component:   First, we compute the first and second derivatives of the position vector:   Next, we compute the cross product :   Now we find the magnitude of this cross product:   We also need the magnitude of the velocity vector raised to the third power:   Finally, we substitute these results into the general curvature formula     Compute the curvature of the curve parametrized by at the point where .   More of a visualization...  Richard graphed the curve out for you. Your goal is to find the curvature to determine how \"curvy\" the curve is at this point.   the curve parametrized by at the point where .      First, we identify the components of the position vector :   Next, we compute the first and second derivatives of these components:   We evaluate these derivatives at :   Now we apply the curvature formula for a plane curve:     There is one more formula for curvature of plane curves that is often easier to use when the curve is given in the form .   Curvature of the Graph of    The curvature at the point on the graph of is equal to      Proof of this formula  We can parametrize the graph of the function by treating as the parameter . Let and . The position vector is:   First, we compute the derivatives with respect to :   Next, we substitute these into the plane curve curvature formula :   Since , we can replace with to obtain the final formula in terms of :     Compute the curvature for the cubic function at the following -values: and .   We use the curvature formula for a graph :   First, compute the derivatives:   Now, we evaluate the curvature at each specified point.   1. At :  (Since and , this is a sharp local maximum.)   2. At :  (The second derivative is zero, indicating an inflection point . The curve is momentarily straight here.)   3. At :  (Since and , this is a sharp local minimum. Notice the symmetry in curvature with .)   4. At :  (At this point, the curve is increasing very rapidly, stretching out so that it appears nearly straight, resulting in very low curvature.)    There are multiple ways to compute the curvature depending on how the curve is given. Make sure you have all the formulas handy and know when to use each one!    The Normal Vector  It turns out that and are orthogonal. We can use this fact to define another important vector called the normal vector .   If you are super interested about why the orthogonality...  Recall that is the unit tangent vector, which means its length is always equal to 1:   We can rewrite the magnitude squared as the dot product of the vector with itself:   Now, we differentiate both sides of this equation with respect to . We must use the Product Rule for dot products on the left side:   Dividing by 2, we find that: Since their dot product is zero, the vectors and are orthogonal.    Normal Vector   The unit vector in the direction of , assuming it is nonzero, is called the normal vector , denoted by . Symbolically speaking,     If you trace back to one of the alternative formulas for curvature, one of the equations we had was which implies that . By a quick substitution, we obtain the following formula This formula shows another way to find the derivative of the unit tangent vector , which will help us find the normal vector more easily.   Find the normal vector to the curve parametrized by at the point where .   To find , we must first find the unit tangent vector by normalizing the velocity vector.   Step 1: Compute We use the Product Rule for the and components: So,    Step 2: Compute the speed  Taking the square root:    Step 3: Find Notice that the term cancels out, simplifying our work for the next derivative!    Step 4: Compute     Step 5: Compute     Step 6: Find and evaluate at The normal vector is defined as . Now, evaluate at :       The Frenet Frame  At a point on a curve, we can find the vectors and . They are orthogonal unit vectors that lie in the plane of the curve at that point. In , we can find a third unit vector that is orthogonal to both and , called the binormal vector  , using the cross product. Based on what we know about the cross product, is also a unit vector orthogonal to both and . Also, the three vectors follow the right-hand rule.  The set if these three mutually orthogonal unit vectors is called the Frenet frame (or TNB frame) of the curve at the point . The Frenet frame gives us a natural coordinate system to describe motion along a curve without relying on the standard , , and axes.    The Frenet frame at a point on a curve.    Let . Find , , and at the point corresponding to .   We begin by computing the derivative of the position vector, . To find the unit tangent vector, we need the magnitude of this derivative. Notice that the expression under the square root simplifies into a perfect square:   This allows us to write a general formula for the unit tangent vector by dividing the velocity vector by its speed: Evaluating this at , we find our first vector:   To find the normal vector , we differentiate . Using the Quotient and Chain Rules on each component gives: Now we evaluate these derivatives at : So, . To get , we normalize this vector. The magnitude is . Dividing by (or multiplying by 3) yields:   Finally, we find the binormal vector by computing the cross product :       The Osculating Circle  The last question in this section for us to investigate is: how to interpret the curvature value? For example, if a curve has curvature at some point, what does that mean?  Geometrically speaking, the curvature at a point on a curve measures how closely the curve resembles a circle at that point. This \"best-fit\" circle is called the osculating circle at that point (\"osculating\", from the Latin osculari , means \"kissing\", so the osculating circle is the circle that \"kisses\" the curve at that point).    The osculating circle at a point on a curve.   Recall that the curvature of a circle of radius is . Therefore, the radius of the osculating circle at a point on a curve is given by This means that a curve with large curvature at a point has a small osculating circle (the curve is bending sharply), while a curve with small curvature at a point has a large osculating circle (the curve is bending gently).  We can also find the center of the osculating circle by a simple vector addition shown in the following diagram.    The center of the osculating circle at lies a distance from in the normal direction.   Hence, the center of the osculating circle at the point is given by where is the normal vector at that point.   Find an equation of the osculating circle to the curve at the point where .   First, we find the derivatives of the position vector at :    Step 1: Find the radius of curvature We compute the curvature using the 2D formula: The radius is the reciprocal of the curvature:    Step 2: Find the normal vector To use the definition , we first need the general formula for . Now we define : Next, we differentiate to find . Evaluating at : Finally, we normalize this vector. Since is just a scalar, the direction is clearly .    Step 3: Find the center We use the vector addition formula: The center is .   Step 4: Determine the equation of the osculating circle Using the center and radius (so ):       Assigned Problems for Section 13.4   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Calculate and for , and evaluate .    Calculate the curvature function of using .    Evaluate the curvature of the curve at the point where using .    Find the curvature of the plane curve at the point where .    Show that the curvature function of the parametrization of the ellipse is     Compute the curvature of at the point where using .    Find the normal vector to .    Find the normal vectors to at and .    Find , , and for the curve at the point .   After finding , plug in the specific value for before computing and .     Find for the curve at the point where using the formula where .    Let .   Find the general formulas for and as functions of .    Find the general formula for as a function of .    What can you conclude about the osculating planes of the curve based on your answer to (b)?       Find an equation of the osculating circle to the curve at the point where or indicate that none exists.    "
+},
+{
+  "id": "sec134-Curvature-2-1",
+  "level": "2",
+  "url": "sec134-Curvature.html#sec134-Curvature-2-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "curvature "
+},
+{
+  "id": "sec134-Curvature-2-2",
+  "level": "2",
+  "url": "sec134-Curvature.html#sec134-Curvature-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     define curvature geometrically as the rate of change of the unit tangent vector with respect to arc length.    compute the curvature of space curves, plane curves, and graphs of functions using various derivative formulas.    calculate the Normal vector ( ) and the Binormal vector ( ).    construct the Frenet (TNB) frame of reference at a specific point on a curve.    determine the radius, center, and equation of the osculating circle for a given curve.    "
+},
+{
+  "id": "subsec-Curvature-Definition-3",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-Definition-3",
+  "type": "Figure",
+  "number": "13.4.1",
+  "title": "",
+  "body": "  Curvature is large where the unit tangent vector changes direction quickly.  "
+},
+{
+  "id": "subsec-Curvature-Definition-7",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-Definition-7",
+  "type": "Figure",
+  "number": "13.4.2",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "def-Curvature",
+  "level": "2",
+  "url": "sec134-Curvature.html#def-Curvature",
+  "type": "Definition",
+  "number": "13.4.3",
+  "title": "Curvature.",
+  "body": " Curvature   Let be an arc length parametrization and the unit tangent vector. The curvature of the underlying curve at is the quantity (denoted by a lowercase Greek letter \"kappa\")    "
+},
+{
+  "id": "subsec-Curvature-Definition-11",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-Definition-11",
+  "type": "Note",
+  "number": "13.4.4",
+  "title": "But Richard... Why using an arc length parametrization?",
+  "body": " But Richard... Why using an arc length parametrization?  The short answer is because it makes the definition of curvature cleaner.  What makes an arc length parametrization special is that every velocity vector has the length of . So we don't have to worry about the speed of the parametrization affecting our measurement of curvature.  "
+},
+{
+  "id": "subsec-Curvature-Definition-12",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-Definition-12",
+  "type": "Example",
+  "number": "13.4.5",
+  "title": "",
+  "body": " Compute the curvature of a circle of radius .   Feel free to assume that the circle is centered at the origin to make the parametrization easier, since the location of the circle should not affect its curvature.  Then a paramatrization of the circle is     To find the curvature using the formula, we first need to find an arc length parametrization of the circle.  The arc length function is given by This implies that Therefore, the arc length parametrization is   Next, we find the unit tangent vector: Then the derivative of the unit tangent vector with respect to is   Hence, the curvature is    "
+},
+{
+  "id": "thm-CrossProductFormula-Curvature",
+  "level": "2",
+  "url": "sec134-Curvature.html#thm-CrossProductFormula-Curvature",
+  "type": "Theorem",
+  "number": "13.4.6",
+  "title": "Formula for Curvature.",
+  "body": " Formula for Curvature   If is a regular parametrization, then the curvature of the underlying curve at is    "
+},
+{
+  "id": "subsec-Curvature-AlternativeFormula-7",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-AlternativeFormula-7",
+  "type": "Proof",
+  "number": "1",
+  "title": "Proof of this formula.",
+  "body": " Proof of this formula  Recall that the velocity vector can be written as , where is the speed and is the unit tangent vector. To use the cross product formula, we first need the acceleration vector . Differentiating using the product rule, we obtain   Now, we compute the cross product of velocity and acceleration. Since the cross product of any vector with itself is zero ( ), the first term vanishes. Then we have   Next, we take the magnitude of both sides. Richard claims that and are always orthogonal (trust him for now. He will prove it later), the magnitude of their cross product is simply the product of their magnitudes.   We showed the formula , which implies . Substituting this into our magnitude equation: Solving for and substituting yields the final result:   "
+},
+{
+  "id": "subsec-Curvature-AlternativeFormula-9",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-AlternativeFormula-9",
+  "type": "Example",
+  "number": "13.4.7",
+  "title": "",
+  "body": " Prove that the curvature of a line is zero.   A line can be parametrized as . We now have a parametrization of a line to work with!    Taking the derivative of , we get .  Taking the derivative again, we get .  Therefore, the curvature is as expected.   "
+},
+{
+  "id": "subsec-Curvature-AlternativeFormula-10",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-AlternativeFormula-10",
+  "type": "Example",
+  "number": "13.4.8",
+  "title": "",
+  "body": " Calculate the curvature function of the curve .   More of a visualization...  Richard graphed the curve out for you. Your goal is to find the curvature function to determine how \"curvy\" the curve is at each point.   The Sketch of the Helix      First, we compute the first derivative: Then we compute the second derivative:   Next, we compute the cross product:   Then we compute the magnitude of the vectors:   Hence, the curvature function is    "
+},
+{
+  "id": "thm-Curvature-PlaneCurve",
+  "level": "2",
+  "url": "sec134-Curvature.html#thm-Curvature-PlaneCurve",
+  "type": "Theorem",
+  "number": "13.4.10",
+  "title": "Curvature of a Plane Curve.",
+  "body": " Curvature of a Plane Curve   Assume is a regular parametrization of a plane curve, which means for all in the domain. At the point , the curvature is given by    "
+},
+{
+  "id": "subsec-Curvature-AlternativeFormula-13",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-AlternativeFormula-13",
+  "type": "Proof",
+  "number": "2",
+  "title": "Proof of this formula.",
+  "body": " Proof of this formula  To derive this formula, we can treat the plane curve as a space curve that lies in the -plane. We define the position vector with a zero -component:   First, we compute the first and second derivatives of the position vector:   Next, we compute the cross product :   Now we find the magnitude of this cross product:   We also need the magnitude of the velocity vector raised to the third power:   Finally, we substitute these results into the general curvature formula   "
+},
+{
+  "id": "subsec-Curvature-AlternativeFormula-14",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-AlternativeFormula-14",
+  "type": "Example",
+  "number": "13.4.11",
+  "title": "",
+  "body": " Compute the curvature of the curve parametrized by at the point where .   More of a visualization...  Richard graphed the curve out for you. Your goal is to find the curvature to determine how \"curvy\" the curve is at this point.   the curve parametrized by at the point where .      First, we identify the components of the position vector :   Next, we compute the first and second derivatives of these components:   We evaluate these derivatives at :   Now we apply the curvature formula for a plane curve:    "
+},
+{
+  "id": "thm-Curvature-Graph",
+  "level": "2",
+  "url": "sec134-Curvature.html#thm-Curvature-Graph",
+  "type": "Theorem",
+  "number": "13.4.13",
+  "title": "Curvature of the Graph of <span class=\"process-math\">\\(f\\)<\/span>.",
+  "body": " Curvature of the Graph of    The curvature at the point on the graph of is equal to    "
+},
+{
+  "id": "subsec-Curvature-AlternativeFormula-17",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-AlternativeFormula-17",
+  "type": "Proof",
+  "number": "3",
+  "title": "Proof of this formula.",
+  "body": " Proof of this formula  We can parametrize the graph of the function by treating as the parameter . Let and . The position vector is:   First, we compute the derivatives with respect to :   Next, we substitute these into the plane curve curvature formula :   Since , we can replace with to obtain the final formula in terms of :   "
+},
+{
+  "id": "subsec-Curvature-AlternativeFormula-18",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-Curvature-AlternativeFormula-18",
+  "type": "Example",
+  "number": "13.4.14",
+  "title": "",
+  "body": " Compute the curvature for the cubic function at the following -values: and .   We use the curvature formula for a graph :   First, compute the derivatives:   Now, we evaluate the curvature at each specified point.   1. At :  (Since and , this is a sharp local maximum.)   2. At :  (The second derivative is zero, indicating an inflection point . The curve is momentarily straight here.)   3. At :  (Since and , this is a sharp local minimum. Notice the symmetry in curvature with .)   4. At :  (At this point, the curve is increasing very rapidly, stretching out so that it appears nearly straight, resulting in very low curvature.)   "
+},
+{
+  "id": "subsec-NormalVector-3",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-NormalVector-3",
+  "type": "Note",
+  "number": "13.4.15",
+  "title": "If you are super interested about why the orthogonality....",
+  "body": " If you are super interested about why the orthogonality...  Recall that is the unit tangent vector, which means its length is always equal to 1:   We can rewrite the magnitude squared as the dot product of the vector with itself:   Now, we differentiate both sides of this equation with respect to . We must use the Product Rule for dot products on the left side:   Dividing by 2, we find that: Since their dot product is zero, the vectors and are orthogonal.  "
+},
+{
+  "id": "def-NormalVector",
+  "level": "2",
+  "url": "sec134-Curvature.html#def-NormalVector",
+  "type": "Definition",
+  "number": "13.4.16",
+  "title": "Normal Vector.",
+  "body": " Normal Vector   The unit vector in the direction of , assuming it is nonzero, is called the normal vector , denoted by . Symbolically speaking,    "
+},
+{
+  "id": "subsec-NormalVector-6",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-NormalVector-6",
+  "type": "Example",
+  "number": "13.4.17",
+  "title": "",
+  "body": " Find the normal vector to the curve parametrized by at the point where .   To find , we must first find the unit tangent vector by normalizing the velocity vector.   Step 1: Compute We use the Product Rule for the and components: So,    Step 2: Compute the speed  Taking the square root:    Step 3: Find Notice that the term cancels out, simplifying our work for the next derivative!    Step 4: Compute     Step 5: Compute     Step 6: Find and evaluate at The normal vector is defined as . Now, evaluate at :    "
+},
+{
+  "id": "subsec-FrenetFrame-2",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-FrenetFrame-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "binormal vector "
+},
+{
+  "id": "subsec-FrenetFrame-3",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-FrenetFrame-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Frenet frame "
+},
+{
+  "id": "subsec-FrenetFrame-4",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-FrenetFrame-4",
+  "type": "Figure",
+  "number": "13.4.18",
+  "title": "",
+  "body": "  The Frenet frame at a point on a curve.  "
+},
+{
+  "id": "subsec-FrenetFrame-5",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-FrenetFrame-5",
+  "type": "Example",
+  "number": "13.4.19",
+  "title": "",
+  "body": " Let . Find , , and at the point corresponding to .   We begin by computing the derivative of the position vector, . To find the unit tangent vector, we need the magnitude of this derivative. Notice that the expression under the square root simplifies into a perfect square:   This allows us to write a general formula for the unit tangent vector by dividing the velocity vector by its speed: Evaluating this at , we find our first vector:   To find the normal vector , we differentiate . Using the Quotient and Chain Rules on each component gives: Now we evaluate these derivatives at : So, . To get , we normalize this vector. The magnitude is . Dividing by (or multiplying by 3) yields:   Finally, we find the binormal vector by computing the cross product :    "
+},
+{
+  "id": "subsec-OsculatingCircle-3",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-OsculatingCircle-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "osculating circle "
+},
+{
+  "id": "subsec-OsculatingCircle-4",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-OsculatingCircle-4",
+  "type": "Figure",
+  "number": "13.4.20",
+  "title": "",
+  "body": "  The osculating circle at a point on a curve.  "
+},
+{
+  "id": "subsec-OsculatingCircle-7",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-OsculatingCircle-7",
+  "type": "Figure",
+  "number": "13.4.21",
+  "title": "",
+  "body": "  The center of the osculating circle at lies a distance from in the normal direction.  "
+},
+{
+  "id": "subsec-OsculatingCircle-9",
+  "level": "2",
+  "url": "sec134-Curvature.html#subsec-OsculatingCircle-9",
+  "type": "Example",
+  "number": "13.4.22",
+  "title": "",
+  "body": " Find an equation of the osculating circle to the curve at the point where .   First, we find the derivatives of the position vector at :    Step 1: Find the radius of curvature We compute the curvature using the 2D formula: The radius is the reciprocal of the curvature:    Step 2: Find the normal vector To use the definition , we first need the general formula for . Now we define : Next, we differentiate to find . Evaluating at : Finally, we normalize this vector. Since is just a scalar, the direction is clearly .    Step 3: Find the center We use the vector addition formula: The center is .   Step 4: Determine the equation of the osculating circle Using the center and radius (so ):    "
+},
+{
+  "id": "ws-sec134-3",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-3",
+  "type": "Worksheet Exercise",
+  "number": "13.4.3",
+  "title": "",
+  "body": " Calculate and for , and evaluate .  "
+},
+{
+  "id": "ws-sec134-4",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-4",
+  "type": "Worksheet Exercise",
+  "number": "13.4.9",
+  "title": "",
+  "body": " Calculate the curvature function of using .  "
+},
+{
+  "id": "ws-sec134-5",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-5",
+  "type": "Worksheet Exercise",
+  "number": "13.4.13",
+  "title": "",
+  "body": " Evaluate the curvature of the curve at the point where using .  "
+},
+{
+  "id": "ws-sec134-6",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-6",
+  "type": "Worksheet Exercise",
+  "number": "13.4.17",
+  "title": "",
+  "body": " Find the curvature of the plane curve at the point where .  "
+},
+{
+  "id": "ws-sec134-7",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-7",
+  "type": "Worksheet Exercise",
+  "number": "13.4.25",
+  "title": "",
+  "body": " Show that the curvature function of the parametrization of the ellipse is   "
+},
+{
+  "id": "ws-sec134-8",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-8",
+  "type": "Worksheet Exercise",
+  "number": "13.4.31",
+  "title": "",
+  "body": " Compute the curvature of at the point where using .  "
+},
+{
+  "id": "ws-sec134-9",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-9",
+  "type": "Worksheet Exercise",
+  "number": "13.4.37",
+  "title": "",
+  "body": " Find the normal vector to .  "
+},
+{
+  "id": "ws-sec134-10",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-10",
+  "type": "Worksheet Exercise",
+  "number": "13.4.39",
+  "title": "",
+  "body": " Find the normal vectors to at and .  "
+},
+{
+  "id": "ws-sec134-11",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-11",
+  "type": "Worksheet Exercise",
+  "number": "13.4.43",
+  "title": "",
+  "body": " Find , , and for the curve at the point .   After finding , plug in the specific value for before computing and .   "
+},
+{
+  "id": "ws-sec134-12",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-12",
+  "type": "Worksheet Exercise",
+  "number": "13.4.49",
+  "title": "",
+  "body": " Find for the curve at the point where using the formula where .  "
+},
+{
+  "id": "ws-sec134-13",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-13",
+  "type": "Worksheet Exercise",
+  "number": "13.4.55",
+  "title": "",
+  "body": " Let .   Find the general formulas for and as functions of .    Find the general formula for as a function of .    What can you conclude about the osculating planes of the curve based on your answer to (b)?     "
+},
+{
+  "id": "ws-sec134-14",
+  "level": "2",
+  "url": "sec134-Curvature.html#ws-sec134-14",
+  "type": "Worksheet Exercise",
+  "number": "13.4.67",
+  "title": "",
+  "body": " Find an equation of the osculating circle to the curve at the point where or indicate that none exists.  "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

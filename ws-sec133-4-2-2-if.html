@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>sagecell.makeSagecell({
+  "inputLocation": ".sage-interact",
+  "autoeval": true,
+  "hide": [
+    "editor",
+    "evalButton",
+    "permalink"
+  ]
+});
+</script><link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+</head>
+<body class="ptx-content ignore-math" id="changeme">
+<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q} 
+\newcommand{\R}{\mathbb R} 
+
+\newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div style="width:600px; height:600px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('t')
+# 1. Define the curve with high point count for smoothness
+r = (cos(7*t), sin(7*t), 2*cos(t))
+# plot_points=200 ensures the curves don't look jagged
+curve = parametric_plot3d(r, (t, 0, 2*pi), thickness=3, color='blue', plot_points=200)
+
+# 2. Setup Manual Axes
+ax_lim = 2.5
+xaxis = arrow3d((-ax_lim, 0, 0), (ax_lim, 0, 0), color='black', thickness=1)
+yaxis = arrow3d((0, -ax_lim, 0), (0, ax_lim, 0), color='black', thickness=1)
+zaxis = arrow3d((0, 0, -ax_lim), (0, 0, ax_lim), color='black', thickness=1)
+
+# 3. Create Ticks and Labels loop
+ticks = Graphics()
+tick_labels = Graphics()
+
+# We want increments of 1, covering +/- 2
+tick_locations = [-2, -1, 1, 2]
+
+for i in tick_locations:
+    # X-axis ticks (drawn parallel to y)
+    ticks += line3d([(i, -0.1, 0), (i, 0.1, 0)], color='black', thickness=2)
+    tick_labels += text3d(str(i), (i, -0.3, 0), color='black', fontsize='small')
+    
+    # Y-axis ticks (drawn parallel to x)
+    ticks += line3d([(-0.1, i, 0), (0.1, i, 0)], color='black', thickness=2)
+    tick_labels += text3d(str(i), (-0.3, i, 0), color='black', fontsize='small')
+    
+    # Z-axis ticks (drawn parallel to y for visibility)
+    ticks += line3d([(0, -0.1, i), (0, 0.1, i)], color='black', thickness=2)
+    tick_labels += text3d(str(i), (0, -0.3, i), color='black', fontsize='small')
+
+# 4. Axis Names
+ax_names = text3d("x", (ax_lim + 0.2, 0, 0), color='black') + \
+          text3d("y", (0, ax_lim + 0.2, 0), color='black') + \
+          text3d("z", (0, 0, ax_lim + 0.2), color='black')
+          
+# 5. Combine and Show
+final_plot = curve + xaxis + yaxis + zaxis + ticks + tick_labels + ax_names
+final_plot.show(frame=False)
+</script></pre></div>
+</body>
+</html>

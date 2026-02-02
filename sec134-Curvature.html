@@ -102,15 +102,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.5';
+eBookConfig.runestone_version = '7.11.12';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -130,18 +130,22 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec133-ArcLength.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch13-CalcVectorFunctions.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch14-DifferentiationMultiVariables.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec133-ArcLength.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch13-CalcVectorFunctions.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
 \newcommand{\Z}{\mathbb Z} 
 \newcommand{\Q}{\mathbb Q} 
 \newcommand{\R}{\mathbb R} 
 
 \newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
 
 \newcommand{\lp}{\left(}
 \newcommand{\rp}{\right)}
 \newcommand{\la}{\left\langle}
 \newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -164,53 +168,109 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsubsec-LinearCombinations" class="internal"><span class="title">Linear Combinations of Vectors</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsec-VectorApplication" class="internal"><span class="title">Applications of Vectors</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Homework problems for this section</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Assigned Problems for Section 12.1</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec122-3DSpaces.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Three-Dimensional Spaces: Surfaces, Vectors, and Curves</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Practice problems for this section</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Surfaces" class="internal"><span class="title">Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Vectors" class="internal"><span class="title">Vectors in 3-Space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-ParametricLines" class="internal"><span class="title">Curves and Lines</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Assigned Problems for Section 12.2</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec123-DotProduct.html#ws-sec123" class="internal"><span class="title">Assigned Problems for Section 12.3</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec124-CrossProduct.html" class="internal"><span class="codenumber">12.4</span> <span class="title">The Cross Product</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossProduct" class="internal"><span class="title">The Cross Product</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossPropertiesBasis" class="internal"><span class="title">Properties of the Cross Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-AreaGeometry" class="internal"><span class="title">Geometry: Area of a Parallelogram</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-Volume" class="internal"><span class="title">Geometry: Volume of a Parallelepiped</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-ApplicationTorque" class="internal"><span class="title">Application: Torque</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec124-CrossProduct.html#ws-sec124" class="internal"><span class="title">Assigned Problems for Section 12.4</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-DefiningPlanes" class="internal"><span class="title">Defining a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec125-Planesin3D.html#ws-sec125" class="internal"><span class="title">Assigned Problems for Section 12.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-ConicSections-Review" class="internal"><span class="title">Review: Conic Sections</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces" class="internal"><span class="title">Standard Quadric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-QuadraticCylinders" class="internal"><span class="title">Quadratic Cylinders</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#ws-sec126" class="internal"><span class="title">Assigned Problems for Section 12.6</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-PolarCoordinates-Review" class="internal"><span class="title">Review: Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates" class="internal"><span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates" class="internal"><span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#ws-sec127" class="internal"><span class="title">Assigned Problems for Section 12.7</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch13-CalcVectorFunctions.html" class="internal"><span class="codenumber">13</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions" class="internal"><span class="title">Domain, Path, and Curve</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Projection_VectorValuedFunctions" class="internal"><span class="title">Projections of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Parametrization_VectorValuedFunctions" class="internal"><span class="title">Parametrization of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#ws-sec131" class="internal"><span class="title">Assigned Problems for Section 13.1</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch14-DifferentiationMultiVariables.html" class="internal"><span class="codenumber">14</span> <span class="title">Differentiation in Several Variables</span></a></div>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Limit-VectorValuedFunctions" class="internal"><span class="title">Limit of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions" class="internal"><span class="title">Derivative of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-TangentVector-VectorValuedFunctions" class="internal"><span class="title">Derivative as a Tangent Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Integration-VectorValuedFunctions" class="internal"><span class="title">Vector-valued Integration</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#ws-sec132" class="internal"><span class="title">Assigned Problems for Section 13.2</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch15-MultipleIntegration.html" class="internal"><span class="codenumber">15</span> <span class="title">Multiple Integration</span></a></div>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Integration in Two Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Double Integrals over More General Regions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec153-tripleIntegrals.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Triple Integrals</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec156-ChangeofVariables.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Change of Variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-ArcLength" class="internal"><span class="title">Arc Length</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-Speed" class="internal"><span class="title">Speed</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-ArcLengthParametrization" class="internal"><span class="title">Arc Length Parametrization</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec133-ArcLength.html#ws-sec133" class="internal"><span class="title">Assigned Problems for Section 13.3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-Curvature-Definition" class="internal"><span class="title">Mathematical Definition of Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-Curvature-AlternativeFormula" class="internal"><span class="title">Alternative Formulas for Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-NormalVector" class="internal"><span class="title">The Normal Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-FrenetFrame" class="internal"><span class="title">The Frenet Frame</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-OsculatingCircle" class="internal"><span class="title">The Osculating Circle</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec134-Curvature.html#ws-sec134" class="internal"><span class="title">Assigned Problems for Section 13.4</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -218,19 +278,1099 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec134-Curvature"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Curvature</span>
 </h2>
-<section class="introduction" id="sec134-Curvature-2"><div class="para" id="sec134-Curvature-2-1">Just the introduction texts...<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="sec134-Curvature-2"><div class="para" id="sec134-Curvature-2-1">In this section, we introduce the concept of <dfn class="terminology">curvature</dfn>. Intuitively, curvature measures how sharply a curve bends at a given point.<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="objectives goal-like" id="sec134-Curvature-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
 <div class="introduction" id="sec134-Curvature-2-2-1"><div class="para" id="sec134-Curvature-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<ul class="disc" id="sec134-Curvature-2-2-2"><li id="sec134-Curvature-2-2-2-1">
-<div class="para" id="sec134-Curvature-2-2-2-1-1">blahblahblah<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec134-Curvature-2-2-2">
+<li id="sec134-Curvature-2-2-2-1">
+<div class="para" id="sec134-Curvature-2-2-2-1-1">define curvature geometrically as the rate of change of the unit tangent vector with respect to arc length.<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Objective"><a href="#sec134-Curvature-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li></ul>
-<div class="autopermalink" data-description="Objectives"><a href="#sec134-Curvature-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="autopermalink" data-description="Section 13.4: Curvature"><a href="#sec134-Curvature" title="Copy heading and permalink for Section 13.4: Curvature" aria-label="Copy heading and permalink for Section 13.4: Curvature">🔗</a></div></section></div>
+</li>
+<li id="sec134-Curvature-2-2-2-2">
+<div class="para" id="sec134-Curvature-2-2-2-2-1">compute the curvature of space curves, plane curves, and graphs of functions using various derivative formulas.<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec134-Curvature-2-2-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec134-Curvature-2-2-2-3">
+<div class="para" id="sec134-Curvature-2-2-2-3-1">calculate the Normal vector (<span class="process-math">\(\v{N}\)</span>) and the Binormal vector (<span class="process-math">\(\v{B}\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-2-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec134-Curvature-2-2-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec134-Curvature-2-2-2-4">
+<div class="para" id="sec134-Curvature-2-2-2-4-1">construct the Frenet (TNB) frame of reference at a specific point on a curve.<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-2-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec134-Curvature-2-2-2-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec134-Curvature-2-2-2-5">
+<div class="para" id="sec134-Curvature-2-2-2-5-1">determine the radius, center, and equation of the osculating circle for a given curve.<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-2-2-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec134-Curvature-2-2-2-5" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec134-Curvature-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="para" id="sec134-Curvature-3">Long story short, curvature measures how "curvy" a curve is at a given point (aka how much a curve bends). With this idea, we can quickly determine that a line has zero curvature everywhere.<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec134-Curvature-4">There are several formulas for curvature, each useful in different contexts.<div class="autopermalink" data-description="Paragraph"><a href="#sec134-Curvature-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="subsec-Curvature-Definition"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mathematical Definition of Curvature</span>
+</h3>
+<div class="para" id="subsec-Curvature-Definition-2">Let’s think about how to define curvature mathematically. Intuitively, curvature measures how <em class="emphasis">quickly</em> the direction of the tangent vector changes as we move along the curve. The faster the tangent vector changes direction, the higher the curvature.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Curvature-Definition-3"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/sec134_Curvature_IntuitiveDiagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Curvature is large where the unit tangent vector changes direction quickly.<div class="autopermalink" data-description="Figure 13.4.1"><a href="#subsec-Curvature-Definition-3" title="Copy heading and permalink for Figure 13.4.1" aria-label="Copy heading and permalink for Figure 13.4.1">🔗</a></div></figcaption></figure><div class="para" id="subsec-Curvature-Definition-4">Well there comes two problems to address here: (1) why using the unit tangent vector, but not just some tangent vector, and (2) how do we measure "how quickly" the unit tangent vector changes direction?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-Definition-5">
+<div class="para">The first question is easier to answer. If we used a non-unit tangent vector, then the magnitude of the tangent vector would affect our measurement of curvature. Since we only care about the direction of the tangent vector when measuring curvature, we use the unit tangent vector. The <em class="alert">unit tangent vector</em>, denoted <span class="process-math">\(\v{T}(t)\text{,}\)</span> is defined as</div>
+<div class="displaymath process-math" id="subsec-Curvature-Definition-5-3">
+\begin{equation*}
+\v{T}(t) = \frac{\v{r}'(t)}{\| \v{r}'(t)\|}
+\end{equation*}
+</div>
+<div class="para">This formula is just the normalized version of the tangent vector <span class="process-math">\(\v{r}'(t)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Curvature-Definition-6">Now the second question is a bit more subtle. By saying "how quickly" the unit tangent vector changes direction, this suggests we should look at the derivative of the unit tangent vector <em class="emphasis">with respect the arc length</em>, <span class="process-math">\(s\text{.}\)</span> Hence, the derivative we want is <span class="process-math">\(\dfrac{d\v{T}}{ds}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Curvature-Definition-7"><div class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;"><img src="external/sec134_Curvature_Definition_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 13.4.2"><a href="#subsec-Curvature-Definition-7" title="Copy heading and permalink for Figure 13.4.2" aria-label="Copy heading and permalink for Figure 13.4.2">🔗</a></div></figcaption></figure><div class="para" id="subsec-Curvature-Definition-8">However, this derivative isn’t very perfect to measure curvature yet. Recall that the derivative <span class="process-math">\(\dfrac{d\v{T}}{ds}\)</span> is a vector, but we just want a scalar value to represent curvature. The easiest fix is just to take the magnitude of this vector and call it our curvature!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-Curvature"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Curvature.</span>
+</h4>
+<div class="para logical" id="def-Curvature-2-1">
+<div class="para">Let <span class="process-math">\(\v{r}(s)\)</span> be an arc length parametrization and <span class="process-math">\(\v{T}\)</span> the unit tangent vector. The <dfn class="terminology">curvature</dfn> of the underlying curve at <span class="process-math">\(\v{r}(s)\)</span> is the quantity (denoted by a lowercase Greek letter "kappa")</div>
+<div class="displaymath process-math" id="def-Curvature-2-1-5">
+\begin{equation*}
+\kappa(s) = \left\| \frac{d\v{T}}{ds} \right\|
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-Curvature-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 13.4.3: Curvature"><a href="#def-Curvature" title="Copy heading and permalink for Definition 13.4.3: Curvature" aria-label="Copy heading and permalink for Definition 13.4.3: Curvature">🔗</a></div></article><div class="para" id="subsec-Curvature-Definition-10">To sum up, curvature is the magnitude of the rate of change of the unit tangent vector <span class="process-math">\(\v{T}\)</span> with respect to distance traveled <span class="process-math">\(s\)</span> along the curve.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Curvature-Definition-11" class="note remark-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">But Richard... Why using an arc length parametrization?</span>
+</h4></summary><article class="note remark-like knowl__content"><div class="para" id="subsec-Curvature-Definition-11-2">The short answer is because it makes the definition of curvature cleaner.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Curvature-Definition-11-3">What makes an arc length parametrization special is that every velocity vector <span class="process-math">\(\v{r}'(s)\)</span> has the length of <span class="process-math">\(1\text{.}\)</span> So we don’t have to worry about the speed of the parametrization affecting our measurement of curvature.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-11-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 13.4.4: But Richard... Why using an arc length parametrization?"><a href="#subsec-Curvature-Definition-11" title="Copy heading and permalink for Note 13.4.4: But Richard... Why using an arc length parametrization?" aria-label="Copy heading and permalink for Note 13.4.4: But Richard... Why using an arc length parametrization?">🔗</a></div></article></details><article class="example example-like" id="subsec-Curvature-Definition-12"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Curvature-Definition-12-1">Compute the curvature of a circle of radius <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Curvature-Definition-12-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-Curvature-Definition-12-2-1">Feel free to assume that the circle is centered at the origin to make the parametrization easier, since the location of the circle should not affect its curvature.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-Definition-12-2-2">
+<div class="para">Then a paramatrization of the circle is</div>
+<div class="displaymath process-math" id="subsec-Curvature-Definition-12-2-2-1">
+\begin{equation*}
+\v{r}(t) = \la R\cos(t), R\sin(t) \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-12-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.4.5.1"><a href="#subsec-Curvature-Definition-12-2" title="Copy heading and permalink for Hint 13.4.5.1" aria-label="Copy heading and permalink for Hint 13.4.5.1">🔗</a></div>
+</div></details><details id="subsec-Curvature-Definition-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-Curvature-Definition-12-3-1">To find the curvature using the formula, we first need to find an arc length parametrization of the circle.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-12-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-Definition-12-3-2">
+<div class="para">The arc length function is given by</div>
+<div class="displaymath process-math" id="subsec-Curvature-Definition-12-3-2-1">
+\begin{align*}
+s = g(t) = \int_0^t \| \v{r}'(u) \| du \amp= \int_0^t \| \la -R\sin(u), R\cos(u) \ra \| du \\
+\amp= \int_0^t R du = Rt 
+\end{align*}
+</div>
+<div class="para">This implies that</div>
+<div class="displaymath process-math" id="subsec-Curvature-Definition-12-3-2-2">
+\begin{equation*}
+t = g^{-1}(s) = \frac{s}{R}
+\end{equation*}
+</div>
+<div class="para">Therefore, the arc length parametrization is</div>
+<div class="displaymath process-math" id="subsec-Curvature-Definition-12-3-2-3">
+\begin{equation*}
+\v{r}_1(s) = \v{r}\lp g^{-1}(s)\rp = \v{r}\left(\frac{s}{R}\right) = \la R\cos\left(\frac{s}{R}\right), R\sin\left(\frac{s}{R}\right) \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-12-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-Definition-12-3-3">
+<div class="para">Next, we find the unit tangent vector:</div>
+<div class="displaymath process-math" id="subsec-Curvature-Definition-12-3-3-1">
+\begin{equation*}
+\v{T}(s) = \frac{\v{r}_1'(s)}{\|\v{r}_1'(s)\|} = \frac{\la -\sin\left(\frac{s}{R}\right), \cos\left(\frac{s}{R}\right) \ra}{1} = \la -\sin\left(\frac{s}{R}\right), \cos\left(\frac{s}{R}\right) \ra
+\end{equation*}
+</div>
+<div class="para">Then the derivative of the unit tangent vector with respect to <span class="process-math">\(s\)</span> is</div>
+<div class="displaymath process-math" id="subsec-Curvature-Definition-12-3-3-3">
+\begin{equation*}
+\frac{d\v{T}}{ds} = \left\langle -\frac{1}{R}\cos\left(\frac{s}{R}\right), -\frac{1}{R}\sin\left(\frac{s}{R}\right) \right\rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-12-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-Definition-12-3-4">
+<div class="para">Hence, the curvature is</div>
+<div class="displaymath process-math" id="subsec-Curvature-Definition-12-3-4-1">
+\begin{align*}
+\kappa(s) = \left\| \frac{d\v{T}}{ds} \right\| \amp=  \sqrt{\left(-\frac{1}{R}\cos\left(\frac{s}{R}\right)\right)^2 + \left(-\frac{1}{R}\sin\left(\frac{s}{R}\right)\right)^2} \\
+\amp= \sqrt{\frac{1}{R^2}} = \frac{1}{R} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-Definition-12-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.4.5.1"><a href="#subsec-Curvature-Definition-12-3" title="Copy heading and permalink for Solution 13.4.5.1" aria-label="Copy heading and permalink for Solution 13.4.5.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.4.5"><a href="#subsec-Curvature-Definition-12" title="Copy heading and permalink for Example 13.4.5" aria-label="Copy heading and permalink for Example 13.4.5">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Mathematical Definition of Curvature"><a href="#subsec-Curvature-Definition" title="Copy heading and permalink for Subsection: Mathematical Definition of Curvature" aria-label="Copy heading and permalink for Subsection: Mathematical Definition of Curvature">🔗</a></div></section><section class="subsection" id="subsec-Curvature-AlternativeFormula"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Alternative Formulas for Curvature</span>
+</h3>
+<div class="para" id="subsec-Curvature-AlternativeFormula-2">In practice, it isn’t always easy to find an arc length parametrization of a curve (look at the last example in <a href="sec133-ArcLength.html" class="internal" title="Section 13.3: Arc Length and Speed">Section 13.3</a>!). So computing the curvature using the definition directly can be difficult. Fortunately, there are alternative formulas for curvature that work for any parametrization of a curve.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Curvature-AlternativeFormula-3">An alternative formula for curvature can be derived by dropping the requirement that the parametrization be an arc length parametrization. Without the arc length parametrization, then we need to relate the derivative with respect to <span class="process-math">\(s\)</span> to the derivative with respect to the parameter <span class="process-math">\(t\)</span> since <span class="process-math">\(\v{r}\)</span> is now a function of <span class="process-math">\(t\)</span> instead of <span class="process-math">\(s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-4">
+<div class="para">Let’s start by assuming we have a general parametrization <span class="process-math">\(\v{r}(t)\text{.}\)</span> Then the arc length <span class="process-math">\(s\)</span> can be defined as a function of <span class="process-math">\(t\)</span> using the arc length function. That is,</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-4-4">
+\begin{align*}
+s(t) \amp= \int_a^t \| \v{r}'(u) \| du \\
+\implies \qquad \frac{ds}{dt} \amp= \| \v{r}'(t) \| 
+\end{align*}
+</div>
+<div class="para">Let’s call <span class="process-math">\(v(t) = \| \v{r}'(t) \|\)</span> the speed of the parametrization. Then by the chain rule, we have</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-4-6">
+\begin{equation*}
+\frac{d\v{T}}{ds} = \frac{d\v{T}}{dt} \cdot \frac{dt}{ds} = \frac{d\v{T}}{dt} \cdot \frac{1}{v(t)} = \frac{\v{T}'(t)}{v(t)}
+\end{equation*}
+</div>
+<div class="para">Therefore, the curvature can be computed as</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-4-7">
+\begin{equation*}
+\kappa(t) = \left\| \frac{d\v{T}}{ds} \right\| = \frac{\| \v{T}'(t) \|}{v(t)}
+\end{equation*}
+</div>
+<div class="para">That is, if we know the unit tangent vector <span class="process-math">\(\v{T}(t)\)</span> and the speed <span class="process-math">\(v(t)\text{,}\)</span> then we can compute the curvature using this formula.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Curvature-AlternativeFormula-5">Yet <span class="process-math">\(\v{T}'(t)\)</span> is usually not very easy to find. Remember that <span class="process-math">\(\v{T}(t) = \frac{\v{r}'(t)}{\|\v{r}'(t)\|}\text{,}\)</span> so the derivative of <span class="process-math">\(\v{T}(t)\)</span> is a nightmare to find. Also, <span class="process-math">\(\|\v{r}'(t)\|\)</span> involves a square root and a bunch of squares, which makes the derivative even worse... Rather than using this formula directly (you can try of course!), we can derive the following formula using this formula.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-CrossProductFormula-Curvature"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Formula for Curvature.</span>
+</h4>
+<div class="para logical" id="thm-CrossProductFormula-Curvature-2-1">
+<div class="para">If <span class="process-math">\(\v{r}(t)\)</span> is a regular parametrization, then the curvature of the underlying curve at <span class="process-math">\(\v{r}(t)\)</span> is</div>
+<div class="displaymath process-math" id="thm-CrossProductFormula-Curvature-2-1-3">
+\begin{equation*}
+\kappa(t) = \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-CrossProductFormula-Curvature-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 13.4.6: Formula for Curvature"><a href="#thm-CrossProductFormula-Curvature" title="Copy heading and permalink for Theorem 13.4.6: Formula for Curvature" aria-label="Copy heading and permalink for Theorem 13.4.6: Formula for Curvature">🔗</a></div></article><details id="subsec-Curvature-AlternativeFormula-7" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="title">Proof of this formula.</span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="subsec-Curvature-AlternativeFormula-7-2">
+<div class="para">Recall that the velocity vector can be written as <span class="process-math">\(\v{r}'(t) = v(t)\v{T}(t)\text{,}\)</span> where <span class="process-math">\(v(t) = \|\v{r}'(t)\|\)</span> is the speed and <span class="process-math">\(\v{T}(t)\)</span> is the unit tangent vector. To use the cross product formula, we first need the acceleration vector <span class="process-math">\(\v{r}''(t)\text{.}\)</span> Differentiating <span class="process-math">\(\v{r}'(t)\)</span> using the product rule, we obtain</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-7-2-6">
+\begin{align*}
+\v{r}''(t) \amp = \frac{d}{dt} \lp v(t)\v{T}(t) \rp\\
+\amp = v'(t)\v{T}(t) + v(t)\v{T}'(t)
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-7-3">
+<div class="para">Now, we compute the cross product of velocity and acceleration.</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-7-3-1">
+\begin{align*}
+\v{r}'(t) \times \v{r}''(t) \amp = \lp v(t)\v{T}(t) \rp \times \lp v'(t)\v{T}(t) + v(t)\v{T}'(t) \rp\\
+\amp = v(t)v'(t)\lp \v{T}(t) \times \v{T}(t) \rp + v(t)^2\lp \v{T}(t) \times \v{T}'(t) \rp
+\end{align*}
+</div>
+<div class="para">Since the cross product of any vector with itself is zero (<span class="process-math">\(\v{T} \times \v{T} = \v{0}\)</span>), the first term vanishes. Then we have</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-7-3-3">
+\begin{equation*}
+\v{r}'(t) \times \v{r}''(t) = v(t)^2 \v{T}(t) \times \v{T}'(t) 
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-7-4">
+<div class="para">Next, we take the magnitude of both sides. Richard claims that <span class="process-math">\(\v{T}(t)\)</span> and <span class="process-math">\(\v{T}'(t)\)</span> are always orthogonal (trust him for now. He will prove it later), the magnitude of their cross product is simply the product of their magnitudes.</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-7-4-3">
+\begin{align*}
+\|\v{r}'(t) \times \v{r}''(t)\| \amp = v(t)^2 \|\v{T}(t)\| \|\v{T}'(t)\| \sin(90^\circ)\\
+\amp = v(t)^2 (1) \|\v{T}'(t)\|\\
+\amp = v(t)^2 \|\v{T}'(t)\|
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-7-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-7-5">
+<div class="para">We showed the formula <span class="process-math">\(\kappa(t) = \frac{\|\v{T}'(t)\|}{v(t)}\text{,}\)</span> which implies <span class="process-math">\(\|\v{T}'(t)\| = \kappa(t) v(t)\text{.}\)</span> Substituting this into our magnitude equation:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-7-5-3">
+\begin{align*}
+\|\v{r}'(t) \times \v{r}''(t)\| \amp = v(t)^2 \lp \kappa(t) v(t) \rp\\
+\amp = \kappa(t) v(t)^3
+\end{align*}
+</div>
+<div class="para">Solving for <span class="process-math">\(\kappa(t)\)</span> and substituting <span class="process-math">\(v(t) = \|\v{r}'(t)\|\)</span> yields the final result:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-7-5-6">
+\begin{equation*}
+\kappa(t) = \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-7-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 1: Proof of this formula"><a href="#subsec-Curvature-AlternativeFormula-7" title="Copy heading and permalink for Proof 1: Proof of this formula" aria-label="Copy heading and permalink for Proof 1: Proof of this formula">🔗</a></div></article></details><div class="para" id="subsec-Curvature-AlternativeFormula-8">This formula is often convenient to use since it only involves the first and second derivatives of the parametrization <span class="process-math">\(\v{r}(t)\text{.}\)</span> We don’t have to compute any nasty derivatives of unit tangent vectors nor the arc length parametrization.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Curvature-AlternativeFormula-9"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Curvature-AlternativeFormula-9-1">Prove that the curvature of a line is zero.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Curvature-AlternativeFormula-9-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-Curvature-AlternativeFormula-9-2-1">A line can be parametrized as <span class="process-math">\(\v{r}(t) = \v{r}_0 + t\v{v}\text{.}\)</span> We now have a parametrization of a line to work with!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.4.7.1"><a href="#subsec-Curvature-AlternativeFormula-9-2" title="Copy heading and permalink for Hint 13.4.7.1" aria-label="Copy heading and permalink for Hint 13.4.7.1">🔗</a></div>
+</div></details><details id="subsec-Curvature-AlternativeFormula-9-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-Curvature-AlternativeFormula-9-3-1">Taking the derivative of <span class="process-math">\(\v{r}(t) = \v{r}_0 + t\v{v}\text{,}\)</span> we get <span class="process-math">\(\v{r}'(t) = \v{v}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-9-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Curvature-AlternativeFormula-9-3-2">Taking the derivative again, we get <span class="process-math">\(\v{r}''(t) = \v{0}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-9-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-9-3-3">
+<div class="para">Therefore, the curvature is</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-9-3-3-1">
+\begin{equation*}
+\kappa(t) = \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3} = \frac{\|\v{v} \times \v{0}\|}{\|\v{v}\|^3} = \frac{0}{\|\v{v}\|^3} = 0
+\end{equation*}
+</div>
+<div class="para">as expected.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-9-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.4.7.1"><a href="#subsec-Curvature-AlternativeFormula-9-3" title="Copy heading and permalink for Solution 13.4.7.1" aria-label="Copy heading and permalink for Solution 13.4.7.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.4.7"><a href="#subsec-Curvature-AlternativeFormula-9" title="Copy heading and permalink for Example 13.4.7" aria-label="Copy heading and permalink for Example 13.4.7">🔗</a></div></article><article class="example example-like" id="subsec-Curvature-AlternativeFormula-10"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Curvature-AlternativeFormula-10-1">Calculate the curvature function <span class="process-math">\(\kappa(t)\)</span> of the curve <span class="process-math">\(\v{r}(t) = \la 4\cos(t), t, 4\sin(t) \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Curvature-AlternativeFormula-10-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More of a visualization...</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-Curvature-AlternativeFormula-10-2-2">Richard graphed the curve out for you. Your goal is to find the curvature function <span class="process-math">\(\kappa(t)\)</span> to determine how "curvy" the curve is at each point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-10-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Curvature-AlternativeFormula-10-2-3"><iframe id="interactive-y-axis-helix" width="600" height="600" src="interactive-y-axis-helix-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The Sketch of the Helix <span class="process-math">\(\v{r}(t) = \la 4\cos(t), t, 4\sin(t) \ra\)</span><div class="autopermalink" data-description="Figure 13.4.9"><a href="#subsec-Curvature-AlternativeFormula-10-2-3" title="Copy heading and permalink for Figure 13.4.9" aria-label="Copy heading and permalink for Figure 13.4.9">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Hint 13.4.8.1: More of a visualization..."><a href="#subsec-Curvature-AlternativeFormula-10-2" title="Copy heading and permalink for Hint 13.4.8.1: More of a visualization..." aria-label="Copy heading and permalink for Hint 13.4.8.1: More of a visualization...">🔗</a></div>
+</div></details><details id="subsec-Curvature-AlternativeFormula-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-10-3-1">
+<div class="para">First, we compute the first derivative:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-10-3-1-1">
+\begin{align*}
+\v{r}'(t) \amp= \la -4\sin(t), 1, 4\cos(t) \ra 
+\end{align*}
+</div>
+<div class="para">Then we compute the second derivative:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-10-3-1-2">
+\begin{align*}
+\v{r}''(t) \amp= \la -4\cos(t), 0, -4\sin(t) \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-10-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-10-3-2">
+<div class="para">Next, we compute the cross product:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-10-3-2-1">
+\begin{align*}
+\v{r}'(t) \times \v{r}''(t) \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ -4\sin(t) \amp 1 \amp 4\cos(t) \\ -4\cos(t) \amp 0 \amp -4\sin(t) \end{vmatrix} \\
+\amp= \la -4\sin(t), -16, 4\cos(t) \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-10-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-10-3-3">
+<div class="para">Then we compute the magnitude of the vectors:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-10-3-3-1">
+\begin{align*}
+\|\v{r}'(t)\| \amp= \sqrt{(-4\sin(t))^2 + 1^2 + (4\cos(t))^2} \\
+\amp= \sqrt{16\sin^2(t) + 1 + 16\cos^2(t)} \\
+\amp= \sqrt{16(\sin^2(t) + \cos^2(t)) + 1} \\
+\amp= \sqrt{17} \\
+\|\v{r}'(t) \times \v{r}''(t)\| \amp= \sqrt{(-4\sin(t))^2 + (-16)^2 + (4\cos(t))^2} \\
+\amp= \sqrt{16\sin^2(t) + 256 + 16\cos^2(t)} \\
+\amp= \sqrt{16(\sin^2(t) + \cos^2(t)) + 256} \\
+\amp= \sqrt{16 + 256} \\
+\amp= \sqrt{272} \\
+\amp= 4\sqrt{17} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-10-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-10-3-4">
+<div class="para">Hence, the curvature function is</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-10-3-4-1">
+\begin{align*}
+\kappa(t) \amp= \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3} \\
+\amp= \frac{4\sqrt{17}}{(\sqrt{17})^3} \\
+\amp= \frac{4\sqrt{17}}{17\sqrt{17}} \\
+\amp= \frac{4}{17} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-10-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.4.8.1"><a href="#subsec-Curvature-AlternativeFormula-10-3" title="Copy heading and permalink for Solution 13.4.8.1" aria-label="Copy heading and permalink for Solution 13.4.8.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.4.8"><a href="#subsec-Curvature-AlternativeFormula-10" title="Copy heading and permalink for Example 13.4.8" aria-label="Copy heading and permalink for Example 13.4.8">🔗</a></div></article><div class="para" id="subsec-Curvature-AlternativeFormula-11">Remember back in <a href="sec124-CrossProduct.html" class="internal" title="Section 12.4: The Cross Product">Section 12.4</a>, Richard mentioned that the cross product only makes sense in <span class="process-math">\(\R^3\text{.}\)</span> That is, we can’t directly use this formula for curves in <span class="process-math">\(\R^2\text{.}\)</span> There is a workaround though. Using this workaround, we can derive a formula for curvature of plane curves as well.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-Curvature-PlaneCurve"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Curvature of a Plane Curve.</span>
+</h4>
+<div class="para logical" id="thm-Curvature-PlaneCurve-2-1">
+<div class="para">Assume <span class="process-math">\(\v{r}(t) = \la x(t), y(t) \ra\)</span> is a regular parametrization of a plane curve, which means <span class="process-math">\(\v{r}'(t) \neq \v{0}\)</span> for all <span class="process-math">\(t\)</span> in the domain. At the point <span class="process-math">\(\lp x(t), y(t) \rp\text{,}\)</span> the curvature is given by</div>
+<div class="displaymath process-math" id="thm-Curvature-PlaneCurve-2-1-5">
+\begin{equation*}
+\kappa(t) = \frac{|x'(t)y''(t) - y'(t)x''(t)|}{\lp \lp x'(t)\rp^2 + \lp y'(t)\rp^2 \rp^\frac{3}{2}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Curvature-PlaneCurve-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 13.4.10: Curvature of a Plane Curve"><a href="#thm-Curvature-PlaneCurve" title="Copy heading and permalink for Theorem 13.4.10: Curvature of a Plane Curve" aria-label="Copy heading and permalink for Theorem 13.4.10: Curvature of a Plane Curve">🔗</a></div></article><details id="subsec-Curvature-AlternativeFormula-13" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="title">Proof of this formula.</span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="subsec-Curvature-AlternativeFormula-13-2">
+<div class="para">To derive this formula, we can treat the plane curve as a space curve that lies in the <span class="process-math">\(xy\)</span>-plane. We define the position vector with a zero <span class="process-math">\(z\)</span>-component:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-13-2-3">
+\begin{equation*}
+\v{r}(t) = \la x(t), y(t), 0 \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-13-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-13-3">
+<div class="para">First, we compute the first and second derivatives of the position vector:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-13-3-1">
+\begin{align*}
+\v{r}'(t) \amp= \la x'(t), y'(t), 0 \ra \\
+\v{r}''(t) \amp= \la x''(t), y''(t), 0 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-13-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-13-4">
+<div class="para">Next, we compute the cross product <span class="process-math">\(\v{r}'(t) \times \v{r}''(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-13-4-2">
+\begin{align*}
+\v{r}'(t) \times \v{r}''(t) \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ x'(t) \amp y'(t) \amp 0 \\ x''(t) \amp y''(t) \amp 0 \end{vmatrix} \\
+\amp= \lp 0 - 0 \rp \v{i} - \lp 0 - 0 \rp \v{j} + \lp x'(t)y''(t) - y'(t)x''(t) \rp \v{k} \\
+\amp= \la 0, 0, x'(t)y''(t) - y'(t)x''(t) \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-13-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-13-5">
+<div class="para">Now we find the magnitude of this cross product:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-13-5-1">
+\begin{align*}
+\|\v{r}'(t) \times \v{r}''(t)\| \amp= \sqrt{0^2 + 0^2 + \lp x'(t)y''(t) - y'(t)x''(t) \rp^2} \\
+\amp= |x'(t)y''(t) - y'(t)x''(t)| 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-13-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-13-6">
+<div class="para">We also need the magnitude of the velocity vector raised to the third power:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-13-6-1">
+\begin{align*}
+\|\v{r}'(t)\| \amp= \sqrt{\lp x'(t) \rp^2 + \lp y'(t) \rp^2} \\
+\|\v{r}'(t)\|^3 \amp= \lp \lp x'(t) \rp^2 + \lp y'(t) \rp^2 \rp^{\frac{3}{2}} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-13-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-13-7">
+<div class="para">Finally, we substitute these results into the general curvature formula</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-13-7-1">
+\begin{align*}
+\kappa(t) \amp= \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3} \\
+\amp= \frac{|x'(t)y''(t) - y'(t)x''(t)|}{\lp \lp x'(t) \rp^2 + \lp y'(t) \rp^2 \rp^{\frac{3}{2}}} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-13-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 2: Proof of this formula"><a href="#subsec-Curvature-AlternativeFormula-13" title="Copy heading and permalink for Proof 2: Proof of this formula" aria-label="Copy heading and permalink for Proof 2: Proof of this formula">🔗</a></div></article></details><article class="example example-like" id="subsec-Curvature-AlternativeFormula-14"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Curvature-AlternativeFormula-14-1">Compute the curvature of the curve parametrized by <span class="process-math">\(\v{r}(t) = \la \sin(3t), 2\sin(4t) \ra\)</span> at the point where <span class="process-math">\(t = \frac{\pi}{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Curvature-AlternativeFormula-14-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More of a visualization...</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-Curvature-AlternativeFormula-14-2-2">Richard graphed the curve out for you. Your goal is to find the curvature <span class="process-math">\(\kappa\lp \frac{\pi}{2} \rp\)</span> to determine how "curvy" the curve is at this point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-14-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Curvature-AlternativeFormula-14-2-3"><iframe id="interactive-lissajous-point" width="600" height="600" src="interactive-lissajous-point-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>the curve parametrized by <span class="process-math">\(\v{r}(t) = \la \sin(3t), 2\sin(4t) \ra\)</span> at the point where <span class="process-math">\(t = \frac{\pi}{2}\text{.}\)</span><div class="autopermalink" data-description="Figure 13.4.12"><a href="#subsec-Curvature-AlternativeFormula-14-2-3" title="Copy heading and permalink for Figure 13.4.12" aria-label="Copy heading and permalink for Figure 13.4.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Hint 13.4.11.1: More of a visualization..."><a href="#subsec-Curvature-AlternativeFormula-14-2" title="Copy heading and permalink for Hint 13.4.11.1: More of a visualization..." aria-label="Copy heading and permalink for Hint 13.4.11.1: More of a visualization...">🔗</a></div>
+</div></details><details id="subsec-Curvature-AlternativeFormula-14-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-14-3-1">
+<div class="para">First, we identify the components of the position vector <span class="process-math">\(\v{r}(t) = \la \sin(3t), 2\sin(4t) \ra\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-14-3-1-2">
+\begin{align*}
+x(t) \amp= \sin(3t) \\
+y(t) \amp= 2\sin(4t) 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-14-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-14-3-2">
+<div class="para">Next, we compute the first and second derivatives of these components:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-14-3-2-1">
+\begin{align*}
+x'(t) \amp= 3\cos(3t) \amp\amp x''(t) = -9\sin(3t) \\
+y'(t) \amp= 8\cos(4t) \amp\amp y''(t) = -32\sin(4t) 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-14-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-14-3-3">
+<div class="para">We evaluate these derivatives at <span class="process-math">\(t = \frac{\pi}{2}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-14-3-3-2">
+\begin{align*}
+x'\lp \frac{\pi}{2} \rp \amp= 3\cos(\frac{3\pi}{2}) = 0 \\
+x''\lp \frac{\pi}{2} \rp \amp= -9\sin(\frac{3\pi}{2}) = -9(-1) = 9 \\
+y'\lp \frac{\pi}{2} \rp \amp= 8\cos(2\pi) = 8(1) = 8 \\
+y''\lp \frac{\pi}{2} \rp \amp= -32\sin(2\pi) = 0 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-14-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-14-3-4">
+<div class="para">Now we apply the curvature formula for a plane curve:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-14-3-4-1">
+\begin{align*}
+\kappa(t) \amp= \frac{|x'(t)y''(t) - y'(t)x''(t)|}{\left( (x'(t))^2 + (y'(t))^2 \right)^{\frac{3}{2}}} \\
+\kappa\lp \frac{\pi}{2}\rp \amp= \frac{|(0)(0) - (8)(9)|}{\left( 0^2 + 8^2 \right)^{\frac{3}{2}}} \\
+\amp= \frac{|-72|}{(64)^{\frac{3}{2}}} \\
+\amp= \frac{72}{(\sqrt{64})^3} \\
+\amp= \frac{72}{8^3} \\
+\amp= \frac{72}{512} \\
+\amp= \frac{9}{64} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-14-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.4.11.1"><a href="#subsec-Curvature-AlternativeFormula-14-3" title="Copy heading and permalink for Solution 13.4.11.1" aria-label="Copy heading and permalink for Solution 13.4.11.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.4.11"><a href="#subsec-Curvature-AlternativeFormula-14" title="Copy heading and permalink for Example 13.4.11" aria-label="Copy heading and permalink for Example 13.4.11">🔗</a></div></article><div class="para" id="subsec-Curvature-AlternativeFormula-15">There is one more formula for curvature of plane curves that is often easier to use when the curve is given in the form <span class="process-math">\(y = f(x)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-Curvature-Graph"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Curvature of the Graph of <span class="process-math">\(f\)</span>.</span>
+</h4>
+<div class="para logical" id="thm-Curvature-Graph-2-1">
+<div class="para">The curvature at the point <span class="process-math">\(\lp x, f(x) \rp\)</span> on the graph of <span class="process-math">\(y = f(x)\)</span> is equal to</div>
+<div class="displaymath process-math" id="thm-Curvature-Graph-2-1-3">
+\begin{equation*}
+\kappa(x) = \frac{|f''(x)|}{\lp 1 + \lp f'(x) \rp^2 \rp^\frac{3}{2}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-Curvature-Graph-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 13.4.13: Curvature of the Graph of f"><a href="#thm-Curvature-Graph" title="Copy heading and permalink for Theorem 13.4.13: Curvature of the Graph of f" aria-label="Copy heading and permalink for Theorem 13.4.13: Curvature of the Graph of f">🔗</a></div></article><details id="subsec-Curvature-AlternativeFormula-17" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="title">Proof of this formula.</span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="subsec-Curvature-AlternativeFormula-17-2">
+<div class="para">We can parametrize the graph of the function <span class="process-math">\(y = f(x)\)</span> by treating <span class="process-math">\(x\)</span> as the parameter <span class="process-math">\(t\text{.}\)</span> Let <span class="process-math">\(x = t\)</span> and <span class="process-math">\(y = f(t)\text{.}\)</span> The position vector is:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-17-2-6">
+\begin{equation*}
+\v{r}(t) = \la t, f(t) \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-17-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-17-3">
+<div class="para">First, we compute the derivatives with respect to <span class="process-math">\(t\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-17-3-2">
+\begin{gather*}
+x(t) = t \implies x'(t) = 1, \quad x''(t) = 0 \\
+y(t) = f(t) \implies y'(t) = f'(t), \quad y''(t) = f''(t) 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-17-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-17-4">
+<div class="para">Next, we substitute these into the plane curve curvature formula <span class="process-math">\(\kappa(t) = \frac{|x'y'' - y'x''|}{((x')^2 + (y')^2)^{3/2}}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-17-4-2">
+\begin{align*}
+\kappa(t) \amp= \frac{|(1)(f''(t)) - (f'(t))(0)|}{\lp 1^2 + (f'(t))^2 \rp^{\frac{3}{2}}} \\
+\amp= \frac{|f''(t)|}{\lp 1 + (f'(t))^2 \rp^{\frac{3}{2}}} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-17-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-17-5">
+<div class="para">Since <span class="process-math">\(x = t\text{,}\)</span> we can replace <span class="process-math">\(t\)</span> with <span class="process-math">\(x\)</span> to obtain the final formula in terms of <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-17-5-5">
+\begin{equation*}
+\kappa(x) = \frac{|f''(x)|}{\lp 1 + (f'(x))^2 \rp^{\frac{3}{2}}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-17-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Proof 3: Proof of this formula"><a href="#subsec-Curvature-AlternativeFormula-17" title="Copy heading and permalink for Proof 3: Proof of this formula" aria-label="Copy heading and permalink for Proof 3: Proof of this formula">🔗</a></div></article></details><article class="example example-like" id="subsec-Curvature-AlternativeFormula-18"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Curvature-AlternativeFormula-18-1">Compute the curvature <span class="process-math">\(\kappa(x)\)</span> for the cubic function <span class="process-math">\(f(x) = x^3 - 3x^2\)</span> at the following <span class="process-math">\(x\)</span>-values: <span class="process-math">\(0, 1, 2,\)</span> and <span class="process-math">\(3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-18-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Curvature-AlternativeFormula-18-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-18-2-1">
+<div class="para">We use the curvature formula for a graph <span class="process-math">\(y=f(x)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-18-2-1-2">
+\begin{equation*}
+\kappa(x) = \frac{|f''(x)|}{\lp 1 + \lp f'(x) \rp^2 \rp^\frac{3}{2}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-18-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-18-2-2">
+<div class="para">First, compute the derivatives:</div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-18-2-2-1">
+\begin{align*}
+f(x) \amp= x^3 - 3x^2 \\
+f'(x) \amp= 3x^2 - 6x \\
+f''(x) \amp= 6x - 6 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-18-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Curvature-AlternativeFormula-18-2-3">Now, we evaluate the curvature at each specified point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-18-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-18-2-4">
+<div class="para"><dfn class="terminology">1. At <span class="process-math">\(x=0\text{:}\)</span></dfn></div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-18-2-4-2">
+\begin{align*}
+f'(0) \amp= 3(0)^2 - 6(0) = 0 \\
+f''(0) \amp= 6(0) - 6 = -6 \\
+\kappa(0) \amp= \frac{|-6|}{\lp 1 + 0^2 \rp^\frac{3}{2}} = \frac{6}{1} = 6 
+\end{align*}
+</div>
+<div class="para">(Since <span class="process-math">\(f'(0)=0\)</span> and <span class="process-math">\(f''(0) \lt 0\text{,}\)</span> this is a sharp local maximum.)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-18-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-18-2-5">
+<div class="para"><dfn class="terminology">2. At <span class="process-math">\(x=1\text{:}\)</span></dfn></div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-18-2-5-2">
+\begin{align*}
+f'(1) \amp= 3(1)^2 - 6(1) = -3 \\
+f''(1) \amp= 6(1) - 6 = 0 \\
+\kappa(1) \amp= \frac{|0|}{\lp 1 + (-3)^2 \rp^\frac{3}{2}} = 0 
+\end{align*}
+</div>
+<div class="para">(The second derivative is zero, indicating an <dfn class="terminology">inflection point</dfn>. The curve is momentarily straight here.)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-18-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-18-2-6">
+<div class="para"><dfn class="terminology">3. At <span class="process-math">\(x=2\text{:}\)</span></dfn></div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-18-2-6-2">
+\begin{align*}
+f'(2) \amp= 3(2)^2 - 6(2) = 12 - 12 = 0 \\
+f''(2) \amp= 6(2) - 6 = 6 \\
+\kappa(2) \amp= \frac{|6|}{\lp 1 + 0^2 \rp^\frac{3}{2}} = \frac{6}{1} = 6 
+\end{align*}
+</div>
+<div class="para">(Since <span class="process-math">\(f'(2)=0\)</span> and <span class="process-math">\(f''(2) \gt 0\text{,}\)</span> this is a sharp local minimum. Notice the symmetry in curvature with <span class="process-math">\(x=0\text{.}\)</span>)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-18-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Curvature-AlternativeFormula-18-2-7">
+<div class="para"><dfn class="terminology">4. At <span class="process-math">\(x=3\text{:}\)</span></dfn></div>
+<div class="displaymath process-math" id="subsec-Curvature-AlternativeFormula-18-2-7-2">
+\begin{align*}
+f'(3) \amp= 3(3)^2 - 6(3) = 27 - 18 = 9 \\
+f''(3) \amp= 6(3) - 6 = 12 \\
+\kappa(3) \amp= \frac{|12|}{\lp 1 + 9^2 \rp^\frac{3}{2}} = \frac{12}{(82)^\frac{3}{2}} \approx \frac{12}{742.5} \approx 0.016 
+\end{align*}
+</div>
+<div class="para">(At this point, the curve is increasing very rapidly, stretching out so that it appears nearly straight, resulting in very low curvature.)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-18-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.4.14.1"><a href="#subsec-Curvature-AlternativeFormula-18-2" title="Copy heading and permalink for Solution 13.4.14.1" aria-label="Copy heading and permalink for Solution 13.4.14.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.4.14"><a href="#subsec-Curvature-AlternativeFormula-18" title="Copy heading and permalink for Example 13.4.14" aria-label="Copy heading and permalink for Example 13.4.14">🔗</a></div></article><div class="para" id="subsec-Curvature-AlternativeFormula-19">There are multiple ways to compute the curvature depending on how the curve is given. Make sure you have all the formulas handy and know when to use each one!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Curvature-AlternativeFormula-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Alternative Formulas for Curvature"><a href="#subsec-Curvature-AlternativeFormula" title="Copy heading and permalink for Subsection: Alternative Formulas for Curvature" aria-label="Copy heading and permalink for Subsection: Alternative Formulas for Curvature">🔗</a></div></section><section class="subsection" id="subsec-NormalVector"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Normal Vector</span>
+</h3>
+<div class="para" id="subsec-NormalVector-2">It turns out that <span class="process-math">\(\v{T}'(t)\)</span> and <span class="process-math">\(\v{T}(t)\)</span> are orthogonal. We can use this fact to define another important vector called the <em class="emphasis">normal vector</em>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-NormalVector-3" class="note remark-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">If you are super interested about why the orthogonality....</span>
+</h4></summary><article class="note remark-like knowl__content"><div class="para logical" id="subsec-NormalVector-3-2">
+<div class="para">Recall that <span class="process-math">\(\v{T}(t)\)</span> is the <em class="emphasis">unit</em> tangent vector, which means its length is always equal to 1:</div>
+<div class="displaymath process-math" id="subsec-NormalVector-3-2-3">
+\begin{equation*}
+\|\v{T}(t)\| = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-NormalVector-3-3">
+<div class="para">We can rewrite the magnitude squared as the dot product of the vector with itself:</div>
+<div class="displaymath process-math" id="subsec-NormalVector-3-3-1">
+\begin{equation*}
+\v{T}(t) \cdot \v{T}(t) = \|\v{T}(t)\|^2 = 1^2 = 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-NormalVector-3-4">
+<div class="para">Now, we differentiate both sides of this equation with respect to <span class="process-math">\(t\text{.}\)</span> We must use the Product Rule for dot products on the left side:</div>
+<div class="displaymath process-math" id="subsec-NormalVector-3-4-2">
+\begin{align*}
+\frac{d}{dt} \lp \v{T}(t) \cdot \v{T}(t) \rp \amp= \frac{d}{dt} (1) \\
+\v{T}'(t) \cdot \v{T}(t) + \v{T}(t) \cdot \v{T}'(t) \amp= 0 \\
+2 \v{T}(t) \cdot \v{T}'(t) \amp= 0 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-NormalVector-3-5">
+<div class="para">Dividing by 2, we find that:</div>
+<div class="displaymath process-math" id="subsec-NormalVector-3-5-1">
+\begin{equation*}
+\v{T}(t) \cdot \v{T}'(t) = 0
+\end{equation*}
+</div>
+<div class="para">Since their dot product is zero, the vectors <span class="process-math">\(\v{T}(t)\)</span> and <span class="process-math">\(\v{T}'(t)\)</span> are orthogonal.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 13.4.15: If you are super interested about why the orthogonality..."><a href="#subsec-NormalVector-3" title="Copy heading and permalink for Note 13.4.15: If you are super interested about why the orthogonality..." aria-label="Copy heading and permalink for Note 13.4.15: If you are super interested about why the orthogonality...">🔗</a></div></article></details><article class="definition definition-like" id="def-NormalVector"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Normal Vector.</span>
+</h4>
+<div class="para logical" id="def-NormalVector-2-1">
+<div class="para">The unit vector in the direction of <span class="process-math">\(\v{T}'(t)\text{,}\)</span> assuming it is nonzero, is called the <dfn class="terminology">normal vector</dfn>, denoted by <span class="process-math">\(\v{N}(t)\text{.}\)</span> Symbolically speaking,</div>
+<div class="displaymath process-math" id="def-NormalVector-2-1-4">
+\begin{equation*}
+\v{N}(t) = \frac{\v{T}'(t)}{\|\v{T}'(t)\|}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-NormalVector-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 13.4.16: Normal Vector"><a href="#def-NormalVector" title="Copy heading and permalink for Definition 13.4.16: Normal Vector" aria-label="Copy heading and permalink for Definition 13.4.16: Normal Vector">🔗</a></div></article><div class="para logical" id="subsec-NormalVector-5">
+<div class="para">If you trace back to one of the alternative formulas for curvature, one of the equations we had was</div>
+<div class="displaymath process-math" id="subsec-NormalVector-5-1">
+\begin{equation*}
+\kappa (t) = \frac{\|\v{T}'(t)\|}{v(t)}
+\end{equation*}
+</div>
+<div class="para">which implies that <span class="process-math">\(\|\v{r}'(t)\| = v(t)\kappa(t)\text{.}\)</span> By a quick substitution, we obtain the following formula</div>
+<div class="displaymath process-math" id="subsec-NormalVector-5-3">
+\begin{equation*}
+\v{T}'(t) = v(t)\kappa(t)\v{N}(t)
+\end{equation*}
+</div>
+<div class="para">This formula shows another way to find the derivative of the unit tangent vector <span class="process-math">\(\v{T}'(t)\text{,}\)</span> which will help us find the normal vector <span class="process-math">\(\v{N}(t)\)</span> more easily.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-NormalVector-6"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-NormalVector-6-1">Find the normal vector to the curve parametrized by <span class="process-math">\(\v{r}(t) = \la e^t\cos(t), e^t\sin(t), e^t \ra\)</span> at the point where <span class="process-math">\(t = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-NormalVector-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-NormalVector-6-2-1">To find <span class="process-math">\(\v{N}(t)\text{,}\)</span> we must first find the unit tangent vector <span class="process-math">\(\v{T}(t)\)</span> by normalizing the velocity vector.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-NormalVector-6-2-2">
+<div class="para">
+<dfn class="terminology">Step 1: Compute <span class="process-math">\(\v{r}'(t)\)</span></dfn> We use the Product Rule for the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> components:</div>
+<div class="displaymath process-math" id="subsec-NormalVector-6-2-2-5">
+\begin{align*}
+x'(t) \amp= \frac{d}{dt}[e^t\cos(t)] = e^t\cos(t) - e^t\sin(t) = e^t(\cos(t) - \sin(t)) \\
+y'(t) \amp= \frac{d}{dt}[e^t\sin(t)] = e^t\sin(t) + e^t\cos(t) = e^t(\sin(t) + \cos(t)) \\
+z'(t) \amp= e^t 
+\end{align*}
+</div>
+<div class="para">So,</div>
+<div class="displaymath process-math" id="subsec-NormalVector-6-2-2-6">
+\begin{equation*}
+\v{r}'(t) = e^t \la \cos(t) - \sin(t), \sin(t) + \cos(t), 1 \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-NormalVector-6-2-3">
+<div class="para"><dfn class="terminology">Step 2: Compute the speed <span class="process-math">\(\|\v{r}'(t)\|\)</span></dfn></div>
+<div class="displaymath process-math" id="subsec-NormalVector-6-2-3-2">
+\begin{align*}
+\|\v{r}'(t)\|^2 \amp= (e^t)^2 \left[ (\cos(t) - \sin(t))^2 + (\sin(t) + \cos(t))^2 + 1^2 \right] \\
+\amp= e^{2t} \left[ (\cos^2(t) - 2\cos(t)\sin(t) + \sin^2(t)) + (\sin^2(t) + 2\sin(t)\cos(t) + \cos^2(t)) + 1 \right] \\
+\amp= e^{2t} \left[ (1 - 2\cos(t)\sin(t)) + (1 + 2\cos(t)\sin(t)) + 1 \right] \\
+\amp= e^{2t} [ 1 + 1 + 1 ] = 3e^{2t} 
+\end{align*}
+</div>
+<div class="para">Taking the square root:</div>
+<div class="displaymath process-math" id="subsec-NormalVector-6-2-3-3">
+\begin{equation*}
+\|\v{r}'(t)\| = \sqrt{3}e^t
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-6-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-NormalVector-6-2-4">
+<div class="para">
+<dfn class="terminology">Step 3: Find <span class="process-math">\(\v{T}(t)\)</span></dfn> Notice that the <span class="process-math">\(e^t\)</span> term cancels out, simplifying our work for the next derivative!</div>
+<div class="displaymath process-math" id="subsec-NormalVector-6-2-4-4">
+\begin{align*}
+\v{T}(t) \amp= \frac{\v{r}'(t)}{\|\v{r}'(t)\|} = \frac{e^t \la \cos(t) - \sin(t), \sin(t) + \cos(t), 1 \ra}{\sqrt{3}e^t} \\
+\amp= \frac{1}{\sqrt{3}} \la \cos(t) - \sin(t), \sin(t) + \cos(t), 1 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-6-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-NormalVector-6-2-5">
+<div class="para"><dfn class="terminology">Step 4: Compute <span class="process-math">\(\v{T}'(t)\)</span></dfn></div>
+<div class="displaymath process-math" id="subsec-NormalVector-6-2-5-2">
+\begin{align*}
+\v{T}'(t) \amp= \frac{1}{\sqrt{3}} \frac{d}{dt} \la \cos(t) - \sin(t), \sin(t) + \cos(t), 1 \ra \\
+\amp= \frac{1}{\sqrt{3}} \la -\sin(t) - \cos(t), \cos(t) - \sin(t), 0 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-6-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-NormalVector-6-2-6">
+<div class="para"><dfn class="terminology">Step 5: Compute <span class="process-math">\(\|\v{T}'(t)\|\)</span></dfn></div>
+<div class="displaymath process-math" id="subsec-NormalVector-6-2-6-2">
+\begin{align*}
+\|\v{T}'(t)\| \amp= \frac{1}{\sqrt{3}} \sqrt{(-\sin(t) - \cos(t))^2 + (\cos(t) - \sin(t))^2 + 0^2} \\
+\amp= \frac{1}{\sqrt{3}} \sqrt{(\sin^2(t) + 2\sin(t)\cos(t) + \cos^2(t)) + (\cos^2(t) - 2\sin(t)\cos(t) + \sin^2(t))} \\
+\amp= \frac{1}{\sqrt{3}} \sqrt{1 + 1} = \frac{\sqrt{2}}{\sqrt{3}} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-6-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-NormalVector-6-2-7">
+<div class="para">
+<dfn class="terminology">Step 6: Find <span class="process-math">\(\v{N}(t)\)</span> and evaluate at <span class="process-math">\(t=0\)</span></dfn> The normal vector is defined as <span class="process-math">\(\v{N}(t) = \frac{\v{T}'(t)}{\|\v{T}'(t)\|}\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-NormalVector-6-2-7-4">
+\begin{align*}
+\v{N}(t) \amp= \frac{\frac{1}{\sqrt{3}} \la -(\sin(t) + \cos(t)), \cos(t) - \sin(t), 0 \ra}{\frac{\sqrt{2}}{\sqrt{3}}} \\
+\amp= \frac{1}{\sqrt{2}} \la -(\sin(t) + \cos(t)), \cos(t) - \sin(t), 0 \ra 
+\end{align*}
+</div>
+<div class="para">Now, evaluate at <span class="process-math">\(t=0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-NormalVector-6-2-7-6">
+\begin{align*}
+\v{N}(0) \amp= \frac{1}{\sqrt{2}} \la -(\sin(0) + \cos(0)), \cos(0) - \sin(0), 0 \ra \\
+\amp= \frac{1}{\sqrt{2}} \la -(0 + 1), 1 - 0, 0 \ra \\
+\amp= \la -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-NormalVector-6-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.4.17.1"><a href="#subsec-NormalVector-6-2" title="Copy heading and permalink for Solution 13.4.17.1" aria-label="Copy heading and permalink for Solution 13.4.17.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.4.17"><a href="#subsec-NormalVector-6" title="Copy heading and permalink for Example 13.4.17" aria-label="Copy heading and permalink for Example 13.4.17">🔗</a></div></article><div class="autopermalink" data-description="Subsection: The Normal Vector"><a href="#subsec-NormalVector" title="Copy heading and permalink for Subsection: The Normal Vector" aria-label="Copy heading and permalink for Subsection: The Normal Vector">🔗</a></div></section><section class="subsection" id="subsec-FrenetFrame"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Frenet Frame</span>
+</h3>
+<div class="para logical" id="subsec-FrenetFrame-2">
+<div class="para">At a point on a curve, we can find the vectors <span class="process-math">\(\v{T}(t)\)</span> and <span class="process-math">\(\v{N}(t)\text{.}\)</span> They are orthogonal unit vectors that lie in the plane of the curve at that point. In <span class="process-math">\(\R^3\text{,}\)</span> we can find a third unit vector that is orthogonal to both <span class="process-math">\(\v{T}(t)\)</span> and <span class="process-math">\(\v{N}(t)\text{,}\)</span> called the <dfn class="terminology">binormal vector</dfn> <span class="process-math">\(\v{B}(t)\text{,}\)</span> using the cross product.</div>
+<div class="displaymath process-math" id="subsec-FrenetFrame-2-8">
+\begin{equation*}
+\v{B}(t) = \v{T}(t) \times \v{N}(t)
+\end{equation*}
+</div>
+<div class="para">Based on what we know about the cross product, <span class="process-math">\(\v{B}(t)\)</span> is also a unit vector orthogonal to both <span class="process-math">\(\v{T}(t)\)</span> and <span class="process-math">\(\v{N}(t)\text{.}\)</span> Also, the three vectors follow the right-hand rule.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FrenetFrame-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-FrenetFrame-3">The set if these three mutually orthogonal unit vectors <span class="process-math">\(\{\v{T}(t), \v{N}(t), \v{B}(t)\}\)</span> is called the <dfn class="terminology">Frenet frame</dfn> (or TNB frame) of the curve at the point <span class="process-math">\(\v{r}(t)\text{.}\)</span> The Frenet frame gives us a natural coordinate system to describe motion along a curve without relying on the standard <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> axes.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FrenetFrame-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-FrenetFrame-4"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/sec134_TNB_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The Frenet frame at a point on a curve.<div class="autopermalink" data-description="Figure 13.4.18"><a href="#subsec-FrenetFrame-4" title="Copy heading and permalink for Figure 13.4.18" aria-label="Copy heading and permalink for Figure 13.4.18">🔗</a></div></figcaption></figure><article class="example example-like" id="subsec-FrenetFrame-5"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-FrenetFrame-5-1">Let <span class="process-math">\(\v{r}(t) = \la t, \dfrac{4}{3} t^\frac{3}{2}, t^2 \ra\text{.}\)</span> Find <span class="process-math">\(\v{T}\text{,}\)</span> <span class="process-math">\(\v{N}\text{,}\)</span> and <span class="process-math">\(\v{B}\)</span> at the point corresponding to <span class="process-math">\(t=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-FrenetFrame-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-FrenetFrame-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-FrenetFrame-5-2-1">
+<div class="para">We begin by computing the derivative of the position vector, <span class="process-math">\(\v{r}'(t) = \la 1, 2\sqrt{t}, 2t \ra\text{.}\)</span> To find the unit tangent vector, we need the magnitude of this derivative. Notice that the expression under the square root simplifies into a perfect square:</div>
+<div class="displaymath process-math" id="subsec-FrenetFrame-5-2-1-2">
+\begin{align*}
+\|\v{r}'(t)\| \amp= \sqrt{1 + (2\sqrt{t})^2 + (2t)^2} \\
+\amp= \sqrt{1 + 4t + 4t^2} \\
+\amp= \sqrt{(1+2t)^2} \\
+\amp= 1 + 2t 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FrenetFrame-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-FrenetFrame-5-2-2">
+<div class="para">This allows us to write a general formula for the unit tangent vector <span class="process-math">\(\v{T}(t)\)</span> by dividing the velocity vector by its speed:</div>
+<div class="displaymath process-math" id="subsec-FrenetFrame-5-2-2-2">
+\begin{equation*}
+\v{T}(t) = \frac{\la 1, 2\sqrt{t}, 2t \ra}{1+2t} = \la (1+2t)^{-1}, 2t^{1/2}(1+2t)^{-1}, 2t(1+2t)^{-1} \ra
+\end{equation*}
+</div>
+<div class="para">Evaluating this at <span class="process-math">\(t=1\text{,}\)</span> we find our first vector:</div>
+<div class="displaymath process-math" id="subsec-FrenetFrame-5-2-2-4">
+\begin{equation*}
+\v{T}(1) = \la \frac{1}{3}, \frac{2}{3}, \frac{2}{3} \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FrenetFrame-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-FrenetFrame-5-2-3">
+<div class="para">To find the normal vector <span class="process-math">\(\v{N}\text{,}\)</span> we differentiate <span class="process-math">\(\v{T}(t)\text{.}\)</span> Using the Quotient and Chain Rules on each component gives:</div>
+<div class="displaymath process-math" id="subsec-FrenetFrame-5-2-3-3">
+\begin{align*}
+\frac{d}{dt}\lp (1+2t)^{-1} \rp \amp= -2(1+2t)^{-2} \\
+\frac{d}{dt}\lp \frac{2\sqrt{t}}{1+2t} \rp \amp= \frac{(1+2t)t^{-1/2} - 2\sqrt{t}(2)}{(1+2t)^2} = \frac{1}{\sqrt{t}(1+2t)} - \frac{4\sqrt{t}}{(1+2t)^2} \\
+\frac{d}{dt}\lp \frac{2t}{1+2t} \rp \amp= \frac{(1+2t)(2) - 2t(2)}{(1+2t)^2} = \frac{2}{(1+2t)^2} 
+\end{align*}
+</div>
+<div class="para">Now we evaluate these derivatives at <span class="process-math">\(t=1\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-FrenetFrame-5-2-3-5">
+\begin{align*}
+x'(1) \amp= -2(3)^{-2} = -\frac{2}{9} \\
+y'(1) \amp= \frac{1}{1(3)} - \frac{4(1)}{9} = \frac{3}{9} - \frac{4}{9} = -\frac{1}{9} \\
+z'(1) \amp= \frac{2}{9} 
+\end{align*}
+</div>
+<div class="para">So, <span class="process-math">\(\v{T}'(1) = \la -\frac{2}{9}, -\frac{1}{9}, \frac{2}{9} \ra\text{.}\)</span> To get <span class="process-math">\(\v{N}(1)\text{,}\)</span> we normalize this vector. The magnitude is <span class="process-math">\(\sqrt{\frac{4}{81} + \frac{1}{81} + \frac{4}{81}} = \sqrt{\frac{9}{81}} = \frac{1}{3}\text{.}\)</span> Dividing <span class="process-math">\(\v{T}'(1)\)</span> by <span class="process-math">\(\frac{1}{3}\)</span> (or multiplying by 3) yields:</div>
+<div class="displaymath process-math" id="subsec-FrenetFrame-5-2-3-11">
+\begin{equation*}
+\v{N}(1) = \la -\frac{2}{3}, -\frac{1}{3}, \frac{2}{3} \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FrenetFrame-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-FrenetFrame-5-2-4">
+<div class="para">Finally, we find the binormal vector <span class="process-math">\(\v{B}\)</span> by computing the cross product <span class="process-math">\(\v{T}(1) \times \v{N}(1)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-FrenetFrame-5-2-4-3">
+\begin{align*}
+\v{B}(1) \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1/3 \amp 2/3 \amp 2/3 \\ -2/3 \amp -1/3 \amp 2/3 \end{vmatrix} \\
+\amp= \frac{1}{9} \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1 \amp 2 \amp 2 \\ -2 \amp -1 \amp 2 \end{vmatrix} \\
+\amp= \frac{1}{9} \la (4 - (-2)), - (2 - (-4)), (-1 - (-4)) \ra \\
+\amp= \frac{1}{9} \la 6, -6, 3 \ra \\
+\amp= \la \frac{2}{3}, -\frac{2}{3}, \frac{1}{3} \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FrenetFrame-5-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.4.19.1"><a href="#subsec-FrenetFrame-5-2" title="Copy heading and permalink for Solution 13.4.19.1" aria-label="Copy heading and permalink for Solution 13.4.19.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.4.19"><a href="#subsec-FrenetFrame-5" title="Copy heading and permalink for Example 13.4.19" aria-label="Copy heading and permalink for Example 13.4.19">🔗</a></div></article><div class="autopermalink" data-description="Subsection: The Frenet Frame"><a href="#subsec-FrenetFrame" title="Copy heading and permalink for Subsection: The Frenet Frame" aria-label="Copy heading and permalink for Subsection: The Frenet Frame">🔗</a></div></section><section class="subsection" id="subsec-OsculatingCircle"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Osculating Circle</span>
+</h3>
+<div class="para" id="subsec-OsculatingCircle-2">The last question in this section for us to investigate is: <em class="alert">how to interpret the curvature value?</em> For example, if a curve has curvature <span class="process-math">\(\kappa = 5\)</span> at some point, what does that mean?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-OsculatingCircle-3">Geometrically speaking, the curvature at a point on a curve measures how closely the curve resembles a circle at that point. This "best-fit" circle is called the <dfn class="terminology">osculating circle</dfn> at that point ("osculating", from the Latin <em class="emphasis">osculari</em>, means "kissing", so the osculating circle is the circle that "kisses" the curve at that point).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-OsculatingCircle-4"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec134_OsculatingCircle_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The osculating circle at a point on a curve.<div class="autopermalink" data-description="Figure 13.4.20"><a href="#subsec-OsculatingCircle-4" title="Copy heading and permalink for Figure 13.4.20" aria-label="Copy heading and permalink for Figure 13.4.20">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-OsculatingCircle-5">
+<div class="para">Recall that the curvature of a circle of radius <span class="process-math">\(R\)</span> is <span class="process-math">\(\kappa = \dfrac{1}{R}\text{.}\)</span> Therefore, the radius of the osculating circle at a point on a curve is given by</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-5-3">
+\begin{equation*}
+R = \frac{1}{\kappa}
+\end{equation*}
+</div>
+<div class="para">This means that a curve with large curvature at a point has a small osculating circle (the curve is bending sharply), while a curve with small curvature at a point has a large osculating circle (the curve is bending gently).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-OsculatingCircle-6">We can also find the center of the osculating circle by a simple vector addition shown in the following diagram.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-OsculatingCircle-7"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec134_Center_OsculatingCircle_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The center <span class="process-math">\(Q\)</span> of the osculating circle at <span class="process-math">\(P\)</span> lies a distance <span class="process-math">\(R = \frac{1}{\kappa}\)</span> from <span class="process-math">\(P\)</span> in the normal direction.<div class="autopermalink" data-description="Figure 13.4.21"><a href="#subsec-OsculatingCircle-7" title="Copy heading and permalink for Figure 13.4.21" aria-label="Copy heading and permalink for Figure 13.4.21">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-OsculatingCircle-8">
+<div class="para">Hence, the center of the osculating circle at the point <span class="process-math">\(\v{r}(t)\)</span> is given by</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-8-2">
+\begin{equation*}
+\overrightarrow{OQ} = \v{r}(t) + \frac{1}{\kappa(t)} \v{N}(t)
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\v{N}(t)\)</span> is the normal vector at that point.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-OsculatingCircle-9"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.4.22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-OsculatingCircle-9-1">Find an equation of the osculating circle to the curve <span class="process-math">\(\v{r}(t) = \la t, \ln(t) \ra\)</span> at the point where <span class="process-math">\(t=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-OsculatingCircle-9-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-OsculatingCircle-9-2-1">
+<div class="para">First, we find the derivatives of the position vector at <span class="process-math">\(t=1\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-9-2-1-2">
+\begin{align*}
+\v{r}(t) \amp= \la t, \ln(t) \ra \implies \v{r}(1) = \la 1, 0 \ra \\
+\v{r}'(t) \amp= \la 1, \frac{1}{t} \ra \implies \v{r}'(1) = \la 1, 1 \ra \\
+\v{r}''(t) \amp= \la 0, -\frac{1}{t^2} \ra \implies \v{r}''(1) = \la 0, -1 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-OsculatingCircle-9-2-2">
+<div class="para">
+<dfn class="terminology">Step 1: Find the radius of curvature <span class="process-math">\(R\)</span></dfn> We compute the curvature <span class="process-math">\(\kappa(1)\)</span> using the 2D formula:</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-9-2-2-4">
+\begin{align*}
+\kappa(1) \amp= \frac{|x'(1)y''(1) - y'(1)x''(1)|}{\|\v{r}'(1)\|^3} \\
+\amp= \frac{|(1)(-1) - (1)(0)|}{(\sqrt{1^2+1^2})^3} \\
+\amp= \frac{|-1|}{(\sqrt{2})^3} = \frac{1}{2\sqrt{2}} 
+\end{align*}
+</div>
+<div class="para">The radius is the reciprocal of the curvature:</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-9-2-2-5">
+\begin{equation*}
+R = \frac{1}{\kappa} = 2\sqrt{2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-9-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-OsculatingCircle-9-2-3">
+<div class="para">
+<dfn class="terminology">Step 2: Find the normal vector <span class="process-math">\(\v{N}\)</span></dfn> To use the definition <span class="process-math">\(\v{N}(t) = \frac{\v{T}'(t)}{\|\v{T}'(t)\|}\text{,}\)</span> we first need the general formula for <span class="process-math">\(\v{T}(t)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-9-2-3-5">
+\begin{align*}
+\|\v{r}'(t)\| \amp= \sqrt{1^2 + \left(\frac{1}{t}\right)^2} = \sqrt{\frac{t^2+1}{t^2}} = \frac{\sqrt{t^2+1}}{t} 
+\end{align*}
+</div>
+<div class="para">Now we define <span class="process-math">\(\v{T}(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-9-2-3-7">
+\begin{align*}
+\v{T}(t) \amp= \frac{\v{r}'(t)}{\|\v{r}'(t)\|} = \frac{\la 1, t^{-1} \ra}{\frac{\sqrt{t^2+1}}{t}} = \frac{t}{\sqrt{t^2+1}} \la 1, t^{-1} \ra \\
+\amp= \la \frac{t}{(t^2+1)^{1/2}}, \frac{1}{(t^2+1)^{1/2}} \ra \\
+\amp= \la t(t^2+1)^{-1/2}, (t^2+1)^{-1/2} \ra 
+\end{align*}
+</div>
+<div class="para">Next, we differentiate <span class="process-math">\(\v{T}(t)\)</span> to find <span class="process-math">\(\v{T}'(t)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-9-2-3-10">
+\begin{align*}
+x_{\v{T}}'(t) \amp= (1)(t^2+1)^{-1/2} + t\left(-\frac{1}{2}\right)(t^2+1)^{-3/2}(2t) \\
+\amp= (t^2+1)^{-1/2} - t^2(t^2+1)^{-3/2} \\
+\amp= \frac{t^2+1}{(t^2+1)^{3/2}} - \frac{t^2}{(t^2+1)^{3/2}} = \frac{1}{(t^2+1)^{3/2}} \\
+y_{\v{T}}'(t) \amp= -\frac{1}{2}(t^2+1)^{-3/2}(2t) = \frac{-t}{(t^2+1)^{3/2}} 
+\end{align*}
+</div>
+<div class="para">Evaluating at <span class="process-math">\(t=1\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-9-2-3-12">
+\begin{align*}
+\v{T}'(1) \amp= \la \frac{1}{(2)^{3/2}}, \frac{-1}{(2)^{3/2}} \ra = \la \frac{1}{2\sqrt{2}}, -\frac{1}{2\sqrt{2}} \ra = \frac{1}{2\sqrt{2}}\la 1, -1 \ra 
+\end{align*}
+</div>
+<div class="para">Finally, we normalize this vector. Since <span class="process-math">\(\frac{1}{2\sqrt{2}}\)</span> is just a scalar, the direction is clearly <span class="process-math">\(\la 1, -1 \ra\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-9-2-3-15">
+\begin{align*}
+\v{N}(1) \amp= \frac{\v{T}'(1)}{\|\v{T}'(1)\|} = \frac{\la 1, -1 \ra}{\sqrt{1^2+(-1)^2}} = \frac{1}{\sqrt{2}}\la 1, -1 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-9-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-OsculatingCircle-9-2-4">
+<div class="para">
+<dfn class="terminology">Step 3: Find the center <span class="process-math">\(Q\)</span></dfn> We use the vector addition formula:</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-9-2-4-3">
+\begin{align*}
+\overrightarrow{OQ} \amp= \v{r}(1) + \frac{1}{\kappa} \v{N}(1) \\
+\amp= \la 1, 0 \ra + (2\sqrt{2}) \left[ \frac{1}{\sqrt{2}}\la 1, -1 \ra \right] \\
+\amp= \la 1, 0 \ra + 2\la 1, -1 \ra \\
+\amp= \la 1+2, 0-2 \ra = \la 3, -2 \ra 
+\end{align*}
+</div>
+<div class="para">The center is <span class="process-math">\((3, -2)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-9-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-OsculatingCircle-9-2-5">
+<div class="para">
+<dfn class="terminology">Step 4: Determine the equation of the osculating circle</dfn> Using the center <span class="process-math">\((3, -2)\)</span> and radius <span class="process-math">\(R = 2\sqrt{2}\)</span> (so <span class="process-math">\(R^2 = 8\)</span>):</div>
+<div class="displaymath process-math" id="subsec-OsculatingCircle-9-2-5-6">
+\begin{equation*}
+(x-3)^2 + (y+2)^2 = 8
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-OsculatingCircle-9-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.4.22.1"><a href="#subsec-OsculatingCircle-9-2" title="Copy heading and permalink for Solution 13.4.22.1" aria-label="Copy heading and permalink for Solution 13.4.22.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.4.22"><a href="#subsec-OsculatingCircle-9" title="Copy heading and permalink for Example 13.4.22" aria-label="Copy heading and permalink for Example 13.4.22">🔗</a></div></article><div class="autopermalink" data-description="Subsection: The Osculating Circle"><a href="#subsec-OsculatingCircle" title="Copy heading and permalink for Subsection: The Osculating Circle" aria-label="Copy heading and permalink for Subsection: The Osculating Circle">🔗</a></div></section><section class="worksheet" id="ws-sec134" data-margins="0.75in 0.75in 0.75in 0.75in"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Assigned Problems for Section 13.4</span><div class="print-links"><a href="ws-sec134-printable.html" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<section class="introduction" id="ws-sec134-2"><div class="para" id="ws-sec134-2-1">The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec134-2-2">The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><article class="exercise exercise-like" id="ws-sec134-3"><h4 class="heading"><span class="codenumber">13.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec134-3-1">Calculate <span class="process-math">\(\v{r}'(t)\)</span> and <span class="process-math">\(\v{T}(t)\)</span> for <span class="process-math">\(\v{r}(t) = \la 3+4t, 3-5t, 9t \ra\text{,}\)</span> and evaluate <span class="process-math">\(\v{T}(1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.3"><a href="#ws-sec134-3" title="Copy heading and permalink for Worksheet Exercise 13.4.3" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-4"><h4 class="heading"><span class="codenumber">13.4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec134-4-1">Calculate the curvature function <span class="process-math">\(\kappa(t)\)</span> of <span class="process-math">\(\v{r}(t) = \la 4t+1, 4t-3, 2t \ra\)</span> using <a href="sec134-Curvature.html#thm-CrossProductFormula-Curvature" class="xref" data-knowl="./knowl/xref/thm-CrossProductFormula-Curvature.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 13.4.6: Formula for Curvature">Theorem 13.4.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.9"><a href="#ws-sec134-4" title="Copy heading and permalink for Worksheet Exercise 13.4.9" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.9">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-5"><h4 class="heading"><span class="codenumber">13.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec134-5-1">Evaluate the curvature of the curve <span class="process-math">\(\v{r}(t) = \la \cos(t), \sin(t), t^2 \ra\)</span> at the point where <span class="process-math">\(t=\frac{\pi}{2}\)</span> using <a href="sec134-Curvature.html#thm-CrossProductFormula-Curvature" class="xref" data-knowl="./knowl/xref/thm-CrossProductFormula-Curvature.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 13.4.6: Formula for Curvature">Theorem 13.4.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.13"><a href="#ws-sec134-5" title="Copy heading and permalink for Worksheet Exercise 13.4.13" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.13">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-6"><h4 class="heading"><span class="codenumber">13.4.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec134-6-1">Find the curvature of the plane curve <span class="process-math">\(y = t^4\)</span> at the point where <span class="process-math">\(t=2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.17"><a href="#ws-sec134-6" title="Copy heading and permalink for Worksheet Exercise 13.4.17" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.17">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-7"><h4 class="heading"><span class="codenumber">13.4.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec134-7-1">
+<div class="para">Show that the curvature function of the parametrization <span class="process-math">\(\v{r}(t) = \la a\cos(t), b\sin(t) \ra \)</span> of the ellipse <span class="process-math">\(\lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 = 1\)</span> is</div>
+<div class="displaymath process-math" id="ws-sec134-7-1-3">
+\begin{equation*}
+\kappa(t) = \frac{ab}{\lp b^2\cos^2(t) + a^2\sin^2(t)\rp^\frac{3}{2}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.25"><a href="#ws-sec134-7" title="Copy heading and permalink for Worksheet Exercise 13.4.25" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.25">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-8"><h4 class="heading"><span class="codenumber">13.4.31<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec134-8-1">Compute the curvature of <span class="process-math">\(\la t\cos(t), \sin(t) \ra\)</span> at the point where <span class="process-math">\(t=\pi\)</span> using <a href="sec134-Curvature.html#thm-Curvature-PlaneCurve" class="xref" data-knowl="./knowl/xref/thm-Curvature-PlaneCurve.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 13.4.10: Curvature of a Plane Curve">Theorem 13.4.10</a>.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.31"><a href="#ws-sec134-8" title="Copy heading and permalink for Worksheet Exercise 13.4.31" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.31">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-9"><h4 class="heading"><span class="codenumber">13.4.37<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec134-9-1">Find the normal vector <span class="process-math">\(\v{N}(t)\)</span> to <span class="process-math">\(\v{r} = \la 4, \sin(2t), \cos(2t) \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.37"><a href="#ws-sec134-9" title="Copy heading and permalink for Worksheet Exercise 13.4.37" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.37">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-10"><h4 class="heading"><span class="codenumber">13.4.39<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec134-10-1">Find the normal vectors to <span class="process-math">\(\v{r}(t) = \la t, \cos(t) \ra\)</span> at <span class="process-math">\(t = \dfrac{\pi}{4}\)</span> and <span class="process-math">\(t = \dfrac{3\pi}{4}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.39"><a href="#ws-sec134-10" title="Copy heading and permalink for Worksheet Exercise 13.4.39" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.39">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-11"><h4 class="heading"><span class="codenumber">13.4.43<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec134-11-1">Find <span class="process-math">\(\v{T}\text{,}\)</span> <span class="process-math">\(\v{N}\text{,}\)</span> and <span class="process-math">\(\v{B}\)</span> for the curve <span class="process-math">\(\v{r}(t) = \la t,t^2,\dfrac{2}{3}t^3 \ra\)</span> at the point <span class="process-math">\(\lp 1,1,\dfrac{2}{3} \rp\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-sec134-11-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="ws-sec134-11-2-1">After finding <span class="process-math">\(\v{T}'\text{,}\)</span> plug in the specific value for <span class="process-math">\(t\)</span> before computing <span class="process-math">\(\v{N}\)</span> and <span class="process-math">\(\v{B}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.4.43.1"><a href="#ws-sec134-11-2" title="Copy heading and permalink for Hint 13.4.43.1" aria-label="Copy heading and permalink for Hint 13.4.43.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 13.4.43"><a href="#ws-sec134-11" title="Copy heading and permalink for Worksheet Exercise 13.4.43" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.43">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-12"><h4 class="heading"><span class="codenumber">13.4.49<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec134-12-1">
+<div class="para">Find <span class="process-math">\(\v{N}\)</span> for the curve <span class="process-math">\(\la \dfrac{t^2}{2}, \dfrac{t^3}{3}, t \ra\)</span> at the point where <span class="process-math">\(t=1\)</span> using the formula</div>
+<div class="displaymath process-math" id="ws-sec134-12-1-4">
+\begin{equation*}
+\v{N}(t) = \frac{v(t)\v{r}''(t) - v'(t)\v{r}'(t)}{\|v(t)\v{r}''(t) - v'(t)\v{r}'(t)\|}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(v(t) = \|\v{r}'(t) \|\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.49"><a href="#ws-sec134-12" title="Copy heading and permalink for Worksheet Exercise 13.4.49" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.49">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-13"><h4 class="heading"><span class="codenumber">13.4.55<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec134-13-1">
+<div class="para">Let <span class="process-math">\(\v{r}(t) = \la t,1-t,t^2 \ra\text{.}\)</span>
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="ws-sec134-13-1-2">
+<li id="ws-sec134-13-1-2-1">
+<div class="para" id="ws-sec134-13-1-2-1-1">Find the general formulas for <span class="process-math">\(\v{T}\)</span> and <span class="process-math">\(\v{N}\)</span> as functions of <span class="process-math">\(t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-13-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 13.4.55.a"><a href="#ws-sec134-13-1-2-1" title="Copy heading and permalink for Item 13.4.55.a" aria-label="Copy heading and permalink for Item 13.4.55.a">🔗</a></div>
+</li>
+<li id="ws-sec134-13-1-2-2">
+<div class="para" id="ws-sec134-13-1-2-2-1">Find the general formula for <span class="process-math">\(\v{B}\)</span> as a function of <span class="process-math">\(t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-13-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 13.4.55.b"><a href="#ws-sec134-13-1-2-2" title="Copy heading and permalink for Item 13.4.55.b" aria-label="Copy heading and permalink for Item 13.4.55.b">🔗</a></div>
+</li>
+<li id="ws-sec134-13-1-2-3">
+<div class="para" id="ws-sec134-13-1-2-3-1">What can you conclude about the osculating planes of the curve based on your answer to (b)?<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-13-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 13.4.55.c"><a href="#ws-sec134-13-1-2-3" title="Copy heading and permalink for Item 13.4.55.c" aria-label="Copy heading and permalink for Item 13.4.55.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.55"><a href="#ws-sec134-13" title="Copy heading and permalink for Worksheet Exercise 13.4.55" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.55">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec134-14"><h4 class="heading"><span class="codenumber">13.4.67<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec134-14-1">Find an equation of the osculating circle to the curve <span class="process-math">\(\v{r}(t) = \la 1-\sin(t), 1-2\cos(t) \ra\)</span> at the point where <span class="process-math">\(t=\dfrac{\pi}{4}\)</span> or indicate that none exists.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec134-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.4.67"><a href="#ws-sec134-14" title="Copy heading and permalink for Worksheet Exercise 13.4.67" aria-label="Copy heading and permalink for Worksheet Exercise 13.4.67">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 13.4"><a href="#ws-sec134" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 13.4" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 13.4">🔗</a></div></section><div class="autopermalink" data-description="Section 13.4: Curvature"><a href="#sec134-Curvature" title="Copy heading and permalink for Section 13.4: Curvature" aria-label="Copy heading and permalink for Section 13.4: Curvature">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="sec133-ArcLength.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch14-DifferentiationMultiVariables.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec133-ArcLength.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

@@ -102,15 +102,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.5';
+eBookConfig.runestone_version = '7.11.12';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -137,11 +137,15 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\R}{\mathbb R} 
 
 \newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
 
 \newcommand{\lp}{\left(}
 \newcommand{\rp}{\right)}
 \newcommand{\la}{\left\langle}
 \newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -164,53 +168,109 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsubsec-LinearCombinations" class="internal"><span class="title">Linear Combinations of Vectors</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsec-VectorApplication" class="internal"><span class="title">Applications of Vectors</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Homework problems for this section</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Assigned Problems for Section 12.1</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec122-3DSpaces.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Three-Dimensional Spaces: Surfaces, Vectors, and Curves</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Practice problems for this section</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Surfaces" class="internal"><span class="title">Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Vectors" class="internal"><span class="title">Vectors in 3-Space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-ParametricLines" class="internal"><span class="title">Curves and Lines</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Assigned Problems for Section 12.2</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec123-DotProduct.html#ws-sec123" class="internal"><span class="title">Assigned Problems for Section 12.3</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec124-CrossProduct.html" class="internal"><span class="codenumber">12.4</span> <span class="title">The Cross Product</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossProduct" class="internal"><span class="title">The Cross Product</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossPropertiesBasis" class="internal"><span class="title">Properties of the Cross Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-AreaGeometry" class="internal"><span class="title">Geometry: Area of a Parallelogram</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-Volume" class="internal"><span class="title">Geometry: Volume of a Parallelepiped</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-ApplicationTorque" class="internal"><span class="title">Application: Torque</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec124-CrossProduct.html#ws-sec124" class="internal"><span class="title">Assigned Problems for Section 12.4</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-DefiningPlanes" class="internal"><span class="title">Defining a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec125-Planesin3D.html#ws-sec125" class="internal"><span class="title">Assigned Problems for Section 12.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-ConicSections-Review" class="internal"><span class="title">Review: Conic Sections</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces" class="internal"><span class="title">Standard Quadric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-QuadraticCylinders" class="internal"><span class="title">Quadratic Cylinders</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#ws-sec126" class="internal"><span class="title">Assigned Problems for Section 12.6</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-PolarCoordinates-Review" class="internal"><span class="title">Review: Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates" class="internal"><span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates" class="internal"><span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#ws-sec127" class="internal"><span class="title">Assigned Problems for Section 12.7</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch13-CalcVectorFunctions.html" class="internal"><span class="codenumber">13</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions" class="internal"><span class="title">Domain, Path, and Curve</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Projection_VectorValuedFunctions" class="internal"><span class="title">Projections of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Parametrization_VectorValuedFunctions" class="internal"><span class="title">Parametrization of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#ws-sec131" class="internal"><span class="title">Assigned Problems for Section 13.1</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch14-DifferentiationMultiVariables.html" class="internal"><span class="codenumber">14</span> <span class="title">Differentiation in Several Variables</span></a></div>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Limit-VectorValuedFunctions" class="internal"><span class="title">Limit of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions" class="internal"><span class="title">Derivative of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-TangentVector-VectorValuedFunctions" class="internal"><span class="title">Derivative as a Tangent Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Integration-VectorValuedFunctions" class="internal"><span class="title">Vector-valued Integration</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#ws-sec132" class="internal"><span class="title">Assigned Problems for Section 13.2</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch15-MultipleIntegration.html" class="internal"><span class="codenumber">15</span> <span class="title">Multiple Integration</span></a></div>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-ArcLength" class="internal"><span class="title">Arc Length</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-Speed" class="internal"><span class="title">Speed</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-ArcLengthParametrization" class="internal"><span class="title">Arc Length Parametrization</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec133-ArcLength.html#ws-sec133" class="internal"><span class="title">Assigned Problems for Section 13.3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Integration in Two Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Double Integrals over More General Regions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec153-tripleIntegrals.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Triple Integrals</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec156-ChangeofVariables.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Change of Variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-Curvature-Definition" class="internal"><span class="title">Mathematical Definition of Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-Curvature-AlternativeFormula" class="internal"><span class="title">Alternative Formulas for Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-NormalVector" class="internal"><span class="title">The Normal Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-FrenetFrame" class="internal"><span class="title">The Frenet Frame</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-OsculatingCircle" class="internal"><span class="title">The Osculating Circle</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec134-Curvature.html#ws-sec134" class="internal"><span class="title">Assigned Problems for Section 13.4</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -218,17 +278,562 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec133-ArcLength"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Arc Length and Speed</span>
 </h2>
-<section class="introduction" id="sec133-ArcLength-2"><div class="para" id="sec133-ArcLength-2-1">Just the introduction texts...<div class="autopermalink" data-description="Paragraph"><a href="#sec133-ArcLength-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="sec133-ArcLength-2"><div class="para" id="sec133-ArcLength-2-1">In this section, we will derive the formula for arc length of a curve in <span class="process-math">\(\R^3\)</span> parametrized by a vector-valued function. We will also use this formula to define the speed of a particle moving along a curve. Finally, we will explore the concept of arc length parametrization and how to construct one for a given vector-valued function.<div class="autopermalink" data-description="Paragraph"><a href="#sec133-ArcLength-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="objectives goal-like" id="sec133-ArcLength-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
 <div class="introduction" id="sec133-ArcLength-2-2-1"><div class="para" id="sec133-ArcLength-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec133-ArcLength-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<ul class="disc" id="sec133-ArcLength-2-2-2"><li id="sec133-ArcLength-2-2-2-1">
-<div class="para" id="sec133-ArcLength-2-2-2-1-1">blahblahblah<div class="autopermalink" data-description="Paragraph"><a href="#sec133-ArcLength-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec133-ArcLength-2-2-2">
+<li id="sec133-ArcLength-2-2-2-1">
+<div class="para" id="sec133-ArcLength-2-2-2-1-1">generalize the arc length formula from <span class="process-math">\(\R^2\)</span> to <span class="process-math">\(\R^3\)</span> using vector-valued functions.<div class="autopermalink" data-description="Paragraph"><a href="#sec133-ArcLength-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Objective"><a href="#sec133-ArcLength-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li></ul>
-<div class="autopermalink" data-description="Objectives"><a href="#sec133-ArcLength-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="autopermalink" data-description="Section 13.3: Arc Length and Speed"><a href="#sec133-ArcLength" title="Copy heading and permalink for Section 13.3: Arc Length and Speed" aria-label="Copy heading and permalink for Section 13.3: Arc Length and Speed">🔗</a></div></section></div>
+</li>
+<li id="sec133-ArcLength-2-2-2-2">
+<div class="para" id="sec133-ArcLength-2-2-2-2-1">calculate the arc length of a given curves.<div class="autopermalink" data-description="Paragraph"><a href="#sec133-ArcLength-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec133-ArcLength-2-2-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec133-ArcLength-2-2-2-3">
+<div class="para" id="sec133-ArcLength-2-2-2-3-1">calculate the speed of a particle moving along a curve defined by a vector-valued function.<div class="autopermalink" data-description="Paragraph"><a href="#sec133-ArcLength-2-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec133-ArcLength-2-2-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec133-ArcLength-2-2-2-4">
+<div class="para" id="sec133-ArcLength-2-2-2-4-1">identify and construct an arc length parametrization for a given vector-valued function.<div class="autopermalink" data-description="Paragraph"><a href="#sec133-ArcLength-2-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec133-ArcLength-2-2-2-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec133-ArcLength-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><section class="subsection" id="subsec-ArcLength"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Arc Length</span>
+</h3>
+<div class="para logical" id="subsec-ArcLength-2">
+<div class="para">Recall you learned about the arc length formula back in MTH 252Z (or MTH 252) for a curve in <span class="process-math">\(\R^2\)</span> with explicit form <span class="process-math">\(y = f(x)\text{.}\)</span> To jog your memory, the <em class="emphasis">arc length</em> of a curve <span class="process-math">\(y = f(x)\)</span> over the interval <span class="process-math">\([a,b]\)</span> is given by the formula</div>
+<div class="displaymath process-math" id="subsec-ArcLength-2-6">
+\begin{equation*}
+s = \int_a^b \sqrt{1 + \lp f'(x)\rp^2}\, dx
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLength-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLength-3">
+<div class="para">You may also learn about the arc length formula back in MTH 253Z (or MTH 253) for a curve in <span class="process-math">\(\R^2\)</span> in parametric equations <span class="process-math">\(\c(t) = \lp x(t), y(t) \rp\text{.}\)</span> To refresh your memory, the <em class="emphasis">arc length</em> of a curve traversed by the parametrized equations <span class="process-math">\(c(t) = \lp x(t), y(t) \rp \)</span> is given by the formula</div>
+<div class="displaymath process-math" id="subsec-ArcLength-3-5">
+\begin{equation*}
+s = \int_a^b \sqrt{\lp x'(t)\rp^2 + \lp y'(t)\rp^2}\, dt
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLength-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-ArcLength-4">If you remember how the above arc length formulas were derived, then we can use the same trick to derive the arc length formula for a curve in <span class="process-math">\(\R^3\)</span> parametrized by <span class="process-math">\(\v{r}(t) = \la x(t), y(t), z(t) \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLength-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-ArcLength-5">The underlying idea here is to <em class="emphasis">approximate</em> the length of the curve by breaking it into small <em class="emphasis">line segments</em>, finding the lengths of those line segments, and then adding them up. This is sometimes referred to as the <em class="alert">polygonal approximation</em> of the curve.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLength-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-ArcLength-6"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec133_PolygonalApproximation_ArcLength.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Polygonal Approximation to the arc <span class="process-math">\(\v{r}(t)\)</span> for <span class="process-math">\(a \leq t \leq b\text{.}\)</span><div class="autopermalink" data-description="Figure 13.3.1"><a href="#subsec-ArcLength-6" title="Copy heading and permalink for Figure 13.3.1" aria-label="Copy heading and permalink for Figure 13.3.1">🔗</a></div></figcaption></figure><div class="para" id="subsec-ArcLength-7">Obviously, the smaller each line segments used for the approximation, the better the approximation becomes. Theoretically speaking, if we let the number of line segments approach infinity (and the max length of each line segment approaches 0), then the approximation becomes exact.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLength-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLength-8">
+<div class="para">Say we want to find the length of the curve traced by <span class="process-math">\(\v{r}(t) = \la x(t), y(t), z(t) \ra\)</span> over the interval <span class="process-math">\(a \leq t \leq b\text{.}\)</span> Then we can start by figuring out the length of one of those line segments using the distance formula in <span class="process-math">\(\R^3\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-ArcLength-8-4">
+\begin{align*}
+\text{length of line segment} \amp= \sqrt{(\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2}\\
+\amp= \sqrt{\lp \lp \frac{\Delta x}{\Delta t}\rp^2 + \lp \frac{\Delta y}{\Delta t}\rp^2 + \lp \frac{\Delta z}{\Delta t}\rp^2 \rp \cdot \Delta t^2}\\
+\amp= \sqrt{\lp \frac{\Delta x}{\Delta t}\rp^2 + \lp \frac{\Delta y}{\Delta t}\rp^2 + \lp \frac{\Delta z}{\Delta t}\rp^2} \cdot \Delta t
+\end{align*}
+</div>
+<div class="para">Since we are letting the number of line segments approach infinity, we can take the limit as <span class="process-math">\(\Delta t \to 0\)</span> to turn the average rate of change of each component into the instantaneous rate of change. Thus, the length of that line segment becomes</div>
+<div class="displaymath process-math" id="subsec-ArcLength-8-6">
+\begin{align*}
+\lim_{\Delta t\to 0} \sqrt{\lp \frac{\Delta x}{\Delta t}\rp^2 + \lp \frac{\Delta y}{\Delta t}\rp^2 + \lp \frac{\Delta z}{\Delta t}\rp^2} \cdot \Delta t \amp= \sqrt{\lp \frac{dx}{dt}\rp^2 + \lp \frac{dy}{dt}\rp^2 + \lp \frac{dz}{dt}\rp^2}\, dt\\
+\amp= \sqrt{\lp x'(t) \rp^2 + \lp y'(t) \rp^2 + \lp z'(t) \rp^2} \, dt 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLength-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLength-9">
+<div class="para">Now that we have the length of one line segment, we can add up the lengths of all the line segments to approximate the length of the curve. Remember that integration is just a limit of Riemann sums, meaning we are adding infinitely many infinitesimally small pieces together. Thus, the arc length of the curve is given by the integral</div>
+<div class="displaymath process-math" id="subsec-ArcLength-9-1">
+\begin{equation*}
+s = \int_a^b \sqrt{\lp x'(t) \rp^2 + \lp y'(t) \rp^2 + \lp z'(t) \rp^2} \, dt
+\end{equation*}
+</div>
+<div class="para">Let’s make it into a cool theorem!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLength-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-ArcLengthFormula"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Arc Length.</span>
+</h4>
+<div class="para logical" id="thm-ArcLengthFormula-2-1">
+<div class="para">Let <span class="process-math">\(\v{r}(t)\)</span> directly traverse <span class="process-math">\(\c{C}\)</span> for <span class="process-math">\(a \leq t \leq b\text{.}\)</span> Assume that <span class="process-math">\(\v{r}'(t)\)</span> exists and is continuous. Then the arc length <span class="process-math">\(s\)</span> of the curve <span class="process-math">\(\c{C}\)</span> is equal to</div>
+<div class="displaymath process-math" id="thm-ArcLengthFormula-2-1-7">
+\begin{equation*}
+s = \int_a^b \sqrt{\lp x'(t) \rp^2 + \lp y'(t) \rp^2 + \lp z'(t) \rp^2} \, dt
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-ArcLengthFormula-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 13.3.2: Arc Length"><a href="#thm-ArcLengthFormula" title="Copy heading and permalink for Theorem 13.3.2: Arc Length" aria-label="Copy heading and permalink for Theorem 13.3.2: Arc Length">🔗</a></div></article><article class="example example-like" id="subsec-ArcLength-11"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-ArcLength-11-1">Find the length of the curve traced by <span class="process-math">\(\v{r}(t) = \la 2t, \ln(t), t^2 \ra\)</span> over <span class="process-math">\(1 \leq t \leq 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLength-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-ArcLength-11-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-ArcLength-11-2-1">
+<div class="para">We know that</div>
+<div class="displaymath process-math" id="subsec-ArcLength-11-2-1-1">
+\begin{equation*}
+\v{r}'(t) = \la 2, \frac{1}{t}, 2t \ra
+\end{equation*}
+</div>
+<div class="para">This implies that</div>
+<div class="displaymath process-math" id="subsec-ArcLength-11-2-1-2">
+\begin{align*}
+s \amp= \int_1^4 \|\v{r}'(t)\| \, dt \\
+\amp= \int_1^4 \sqrt{2^2 + \lp \frac{1}{t} \rp^2 + (2t)^2} \, dt \\
+\amp= \int_1^4 \sqrt{4 + \frac{1}{t^2} + 4t^2} \, dt \\
+\amp= \int_1^4 \sqrt{\lp 2t + \frac{1}{t} \rp^2} \, dt \\
+\amp= \int_1^4 \lp 2t + \frac{1}{t} \rp \, dt \\
+\amp= \lp t^2 + \ln|t| \rp \bigg|_1^4 \\
+\amp= \lp 16 + \ln(4) - \lp 1 + \ln(1) \rp \rp \\
+\amp= 15 + \ln(4) 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLength-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.3.3.1"><a href="#subsec-ArcLength-11-2" title="Copy heading and permalink for Solution 13.3.3.1" aria-label="Copy heading and permalink for Solution 13.3.3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.3.3"><a href="#subsec-ArcLength-11" title="Copy heading and permalink for Example 13.3.3" aria-label="Copy heading and permalink for Example 13.3.3">🔗</a></div></article><div class="para" id="subsec-ArcLength-12">We can make a cool observation here that the integrand is essentially the magnitude of the derivative of the vector-valued function <span class="process-math">\(\v{r}(t)\text{.}\)</span> Back in MTH 251Z (or MTH 251), we learned that the derivative of the position function is the velocity function, and the magnitude of the velocity function is the speed function. So we can derive a formula to find the speed!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLength-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Arc Length"><a href="#subsec-ArcLength" title="Copy heading and permalink for Subsection: Arc Length" aria-label="Copy heading and permalink for Subsection: Arc Length">🔗</a></div></section><section class="subsection" id="subsec-Speed"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Speed</span>
+</h3>
+<div class="para logical" id="subsec-Speed-2">
+<div class="para">The speed of a particle moving along a curve parametrized by <span class="process-math">\(\v{r}(t) = \la x(t), y(t), z(t) \ra\)</span> at time <span class="process-math">\(t\)</span> is defined as the <em class="emphasis">rate of change</em> of distance traveled with respect to time. We actually know the distance traveled along a curve from the arc length formula we just derived! We can define the <em class="alert">arc length function</em> to capture the distance traveled along the curve from some starting point <span class="process-math">\(t = a\)</span> to any point <span class="process-math">\(t\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Speed-2-7">
+\begin{align*}
+s(t) \amp= \int_a^t \sqrt{\lp x'(t) \rp^2 + \lp y'(t) \rp^2 + \lp z'(t) \rp^2} \, dt \\
+\amp= \int_a^t \| \v{r}'(u) \| \, du 
+\end{align*}
+</div>
+<div class="para">Observe that the arc length function returns the distance traveled, which is a scalar quantity. Therefore, the speed is simply the derivative of the arc length function with respect to time.</div>
+<div class="displaymath process-math" id="subsec-Speed-2-8">
+\begin{align*}
+\text{Speed at time } t \amp= \frac{d}{dt} s(t) \\
+\amp= \frac{d}{dt} \int_a^t \| \v{r}'(u) \| \, du \\
+\amp= \| \v{r}'(t) \| \amp\amp\text{by FTC}
+\end{align*}
+</div>
+<div class="para">Well this formula makes sense! The speed is just the magnitude of the velocity vector, which can be obtained by differentiating the position function <span class="process-math">\(\v{r}(t)\text{!}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Speed-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Speed-3"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Speed-3-1">Find the speed of a particle moving along the curve parametrized by <span class="process-math">\(\v{r}(t) = \la te^{t-3}, 12, 3t^{-1} \ra\)</span> at time <span class="process-math">\(t = 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Speed-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Speed-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Speed-3-2-1">
+<div class="para">The velocity vector is</div>
+<div class="displaymath process-math" id="subsec-Speed-3-2-1-1">
+\begin{align*}
+\v{r}'(t) \amp= \la e^{t-3}, 0, -3t^{-2} \ra \\
+\implies \qquad \v{r}'(3) \amp= \la e^{3-3}, 0, -3(3)^{-2} \ra = \la 1, 0, -\frac{1}{3} \ra 
+\end{align*}
+</div>
+<div class="para">The speed is the magnitude of the velocity vector. That is,</div>
+<div class="displaymath process-math" id="subsec-Speed-3-2-1-2">
+\begin{equation*}
+v(3) = \|\v{r}'(3)\| = \sqrt{1^2 + 0^2 + \lp -\frac{1}{3} \rp^2} = \sqrt{\frac{10}{9}} \approx 1.05
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Speed-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.3.4.1"><a href="#subsec-Speed-3-2" title="Copy heading and permalink for Solution 13.3.4.1" aria-label="Copy heading and permalink for Solution 13.3.4.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.3.4"><a href="#subsec-Speed-3" title="Copy heading and permalink for Example 13.3.4" aria-label="Copy heading and permalink for Example 13.3.4">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Speed"><a href="#subsec-Speed" title="Copy heading and permalink for Subsection: Speed" aria-label="Copy heading and permalink for Subsection: Speed">🔗</a></div></section><section class="subsection" id="subsec-ArcLengthParametrization"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Arc Length Parametrization</span>
+</h3>
+<div class="para" id="subsec-ArcLengthParametrization-2">Recall that we saw multiple parametrizations of the same curve in <a href="sec131-VectorFunctions.html" class="internal" title="Section 13.1: Vector-Valued Functions">Section 13.1</a> (we even graphed some of them in class using GeoGebra to make sure they traced the same curve!). While these different parametrizations traced the same curve, they may do so at <em class="alert">different rates</em>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-3">
+<div class="para">For example, consider the following two curves</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-3-1">
+\begin{gather*}
+\c{C}_1 \text{ traced by the function } \v{r}_1(t) = \la \cos(t), \sin(t) \ra \text{ ;}\\
+\c{C}_2 \text{ traced by the function } \v{r}_2(u) = \la \cos(2u), \sin(2u) \ra \text{ .}
+\end{gather*}
+</div>
+<div class="para">Observe that they both trace the same circle <span class="process-math">\(x^2 + y^2 = 1\)</span> within their respective domains. However, they do so at <em class="alert">different speeds</em>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-ArcLengthParametrization-4">For the path <span class="process-math">\(\v{r}_1(t)\text{,}\)</span> the particle completes one full revolution around the circle as <span class="process-math">\(t\)</span> goes from <span class="process-math">\(0\)</span> to <span class="process-math">\(2\pi\text{,}\)</span> as indicated by the figure below. We can find the average speed as <span class="process-math">\(\frac{2\pi}{2\pi} = 1\)</span> unit.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-ArcLengthParametrization-5"><iframe id="interactive-circle-animation-vector" width="600" height="600" src="interactive-circle-animation-vector-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The Path <span class="process-math">\(\v{r}_1(t) = \la \cos(t), \sin(t) \ra\)</span> for <span class="process-math">\(0 \leq t \leq 2\pi\text{.}\)</span><div class="autopermalink" data-description="Figure 13.3.5"><a href="#subsec-ArcLengthParametrization-5" title="Copy heading and permalink for Figure 13.3.5" aria-label="Copy heading and permalink for Figure 13.3.5">🔗</a></div></figcaption></figure><div class="para" id="subsec-ArcLengthParametrization-6">For the path <span class="process-math">\(\v{r}_2(u)\text{,}\)</span> the particle completes one full revolution around the circle as <span class="process-math">\(u\)</span> goes from <span class="process-math">\(0\)</span> to <span class="process-math">\(\pi\text{,}\)</span> as indicated by the figure below. We can find the average rate of change as <span class="process-math">\(\frac{2\pi}{\pi} = 2\)</span> units. Observe that this is twice the speed of <span class="process-math">\(\v{r}_1(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-ArcLengthParametrization-7"><iframe id="interactive-circle-animation-2t" width="600" height="600" src="interactive-circle-animation-2t-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The Path <span class="process-math">\(\v{r}_2(u) = \la \cos(2u), \sin(2u) \ra\)</span> for <span class="process-math">\(0 \leq u \leq \pi\text{.}\)</span> .<div class="autopermalink" data-description="Figure 13.3.6"><a href="#subsec-ArcLengthParametrization-7" title="Copy heading and permalink for Figure 13.3.6" aria-label="Copy heading and permalink for Figure 13.3.6">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-ArcLengthParametrization-8">
+<div class="para">This demonstrates that different parametrizations of the same curve can trace the curve at different speeds. One can easily see that the second parametrization traces the curve twice as fast as the first one because</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-8-1">
+\begin{equation*}
+\v{r}_2(u) = \v{r}_1(2u)
+\end{equation*}
+</div>
+<div class="para">That is, <span class="process-math">\(\v{r}_2(u)\)</span> is a composite function that uses <span class="process-math">\(\v{r}_1(t)\)</span> as the outer function and <span class="process-math">\(2u\)</span> as the inner function. The outside function controls the shape of the curve, while the inside function controls the rate at which the curve is traced.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-9">
+<div class="para">Now that we have a way to control the rate at which a curve is traced, we can use this to create a parametrization that traces a curve at a desired rate. The nicest rate to trace a curve is at a constant speed of <span class="process-math">\(1\)</span> unit per unit time. A parametrization of this type is called an <dfn class="terminology">arc length parametrization</dfn>. Symbolically speaking, if <span class="process-math">\(\v{r}(s)\)</span> is an arc length parametrization of a curve, then</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-9-4">
+\begin{equation*}
+\|\v{r}'(s) \| = 1 \qquad \text{ for all }s
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-10">
+<div class="para">There are three important properties of an arc length parametrization:</div>
+<ul class="disc" id="subsec-ArcLengthParametrization-10-1">
+<li id="subsec-ArcLengthParametrization-10-1-1">
+<div class="para" id="subsec-ArcLengthParametrization-10-1-1-1">The parameter <span class="process-math">\(s\)</span> directly measures the distance along the curve from some starting point (hence the name "arc length" parametrization).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-10-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-ArcLengthParametrization-10-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-ArcLengthParametrization-10-1-2">
+<div class="para" id="subsec-ArcLengthParametrization-10-1-2-1">Every velocity vector <span class="process-math">\(\v{r}'(s)\)</span> is a unit vector (since its magnitude is 1).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-10-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-ArcLengthParametrization-10-1-2-2"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/sec133_ArcLengthParametrization_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 13.3.7"><a href="#subsec-ArcLengthParametrization-10-1-2-2" title="Copy heading and permalink for Figure 13.3.7" aria-label="Copy heading and permalink for Figure 13.3.7">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Item"><a href="#subsec-ArcLengthParametrization-10-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-ArcLengthParametrization-10-1-3">
+<div class="para logical" id="subsec-ArcLengthParametrization-10-1-3-1">
+<div class="para">The distance traveled along the curve from <span class="process-math">\(s = a\)</span> to <span class="process-math">\(s = b\)</span> is simply <span class="process-math">\(b - a\text{.}\)</span> Symbolically speaking, we have</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-10-1-3-1-4">
+\begin{align*}
+\text{distance traveled over } [a,b] \amp= \int_a^b \|\v{r}'(s) \|\, ds \\
+\amp= \int_a^b 1\, ds \\
+\amp= b-a 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-10-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-ArcLengthParametrization-10-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-11">
+<div class="para">Since arc length parametrizations have such nice properties, it is often useful to create an arc length parametrization of a given curve. The general process to create an arc length parametrization is as follows:</div>
+<ol class="decimal" id="subsec-ArcLengthParametrization-11-1">
+<li id="subsec-ArcLengthParametrization-11-1-1">
+<div class="para logical" id="subsec-ArcLengthParametrization-11-1-1-1">
+<div class="para">Compute the arc length function</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-11-1-1-1-1">
+\begin{equation*}
+\displaystyle s = g(t) = \int_a^t \|\v{r}'(u)\| du
+\end{equation*}
+</div>
+<div class="para">for the given parametrization <span class="process-math">\(\v{r}(t)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-11-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#subsec-ArcLengthParametrization-11-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="subsec-ArcLengthParametrization-11-1-2">
+<div class="para" id="subsec-ArcLengthParametrization-11-1-2-1">Find the inverse function <span class="process-math">\(t = g^{-1}(s)\)</span> of the arc length function.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-11-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#subsec-ArcLengthParametrization-11-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="subsec-ArcLengthParametrization-11-1-3">
+<div class="para logical" id="subsec-ArcLengthParametrization-11-1-3-1">
+<div class="para">Substitute <span class="process-math">\(t = g^{-1}(s)\)</span> into the original parametrization to get</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-11-1-3-1-2">
+\begin{equation*}
+\v{r}_1(s) = \v{r}\lp g^{-1}(s)\rp
+\end{equation*}
+</div>
+<div class="para">This new parametrization is an arc length parametrization.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-11-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#subsec-ArcLengthParametrization-11-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-ArcLengthParametrization-12" class="note remark-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">But Richard... Why does this process work?</span>
+</h4></summary><article class="note remark-like knowl__content"><div class="para" id="subsec-ArcLengthParametrization-12-2">Great question! The key idea here is that the arc length function <span class="process-math">\(s = g(t)\)</span> measures the distance traveled along the curve from <span class="process-math">\(t = a\)</span> to any point <span class="process-math">\(t\text{.}\)</span> Therefore, if we can invert this function to get <span class="process-math">\(t = g^{-1}(s)\text{,}\)</span> then we can express the original parameter <span class="process-math">\(t\)</span> in terms of the distance traveled <span class="process-math">\(s\text{.}\)</span> By substituting this back into the original parametrization, we are effectively reparametrizing the curve in terms of the distance traveled, which ensures that the new parametrization traces the curve at a constant speed of <span class="process-math">\(1\)</span> unit per unit time.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-12-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-12-3">
+<div class="para">To justify this more rigorously, we can use the Chain Rule to differentiate <span class="process-math">\(\v{r}_1(s) = \v{r}\lp g^{-1}(s)\rp\)</span> with respect to <span class="process-math">\(s\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-12-3-3">
+\begin{equation*}
+\frac{d\v{r}_1}{ds} = \frac{d\v{r}}{dt} \cdot \frac{dt}{ds}
+\end{equation*}
+</div>
+<div class="para">Well the first piece is just <span class="process-math">\(\v{r}'(t)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-12-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-12-4">
+<div class="para">We can also figure out the second piece. By the fundamental theorem of calculus, we know that</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-12-4-1">
+\begin{equation*}
+\frac{ds}{dt} = \frac{d}{dt} \int_a^t \|\v{r}'(u)\| du = \|\v{r}'(t)\|
+\end{equation*}
+</div>
+<div class="para">This implies that</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-12-4-2">
+\begin{equation*}
+\frac{dt}{ds} = \frac{1}{\frac{ds}{dt}} = \frac{1}{\|\v{r}'(t)\|}
+\end{equation*}
+</div>
+<div class="para">Putting them together, we have</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-12-4-3">
+\begin{equation*}
+\frac{d\v{r}_1}{ds} = \frac{d\v{r}}{dt} \cdot \frac{dt}{ds} = \v{r}'(t) \cdot \frac{1}{\|\v{r}'(t)\|} = \frac{\v{r}'(t)}{\|\v{r}'(t)\|}
+\end{equation*}
+</div>
+<div class="para">(This is just the unit vector in the direction of <span class="process-math">\(\v{r}'(t)\text{,}\)</span> called the <em class="alert">unit tangent vector</em>. We will discuss it more in the next section!)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-12-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-12-5">
+<div class="para">We found the derivative of the arc length parametrization! To justify that it is indeed an arc length parametrization, we need to check that its speed is <span class="process-math">\(1\text{.}\)</span> We can compute the speed as follows:</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-12-5-2">
+\begin{equation*}
+\left\|\frac{d\v{r}_1}{ds}\right\| = \left\| \frac{\v{r}'(t)}{\|\v{r}'(t)\|} \right\| = \frac{\|\v{r}'(t)\|}{\|\v{r}'(t)\|} = 1
+\end{equation*}
+</div>
+<div class="para">Thus, we have verified that <span class="process-math">\(\v{r}_1(s)\)</span> is indeed an arc length parametrization!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-12-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 13.3.8: But Richard... Why does this process work?"><a href="#subsec-ArcLengthParametrization-12" title="Copy heading and permalink for Note 13.3.8: But Richard... Why does this process work?" aria-label="Copy heading and permalink for Note 13.3.8: But Richard... Why does this process work?">🔗</a></div></article></details><article class="example example-like" id="subsec-ArcLengthParametrization-13"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-ArcLengthParametrization-13-1">
+<div class="para">Find an arc length parametrization of the helix with parametrization</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-13-1-1">
+\begin{equation*}
+\v{r}(t) = \la \cos(t), \sin(t), t \ra
+\end{equation*}
+</div>
+<div class="para">with the parameter <span class="process-math">\(s\)</span> measuring from <span class="process-math">\((1,0,0)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-ArcLengthParametrization-13-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-ArcLengthParametrization-13-2-1">Remember the goal here is to find an inside function <span class="process-math">\(t = g^{-1}(s)\)</span> that we can plug into the original parametrization to get an arc length parametrization. There are three main steps to this process!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.3.9.1"><a href="#subsec-ArcLengthParametrization-13-2" title="Copy heading and permalink for Hint 13.3.9.1" aria-label="Copy heading and permalink for Hint 13.3.9.1">🔗</a></div>
+</div></details><details id="subsec-ArcLengthParametrization-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-ArcLengthParametrization-13-3-1">The initial point <span class="process-math">\((1,0,0)\)</span> corresponds to <span class="process-math">\(t = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-13-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-13-3-2">
+<div class="para">
+<em class="alert">Step 1.</em> Find the arc length function</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-13-3-2-2">
+\begin{equation*}
+\displaystyle s = g(t) = \int_a^t \|\v{r}'(u)\| du\text{.}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-13-3-2-3">
+\begin{align*}
+\|\v{r}'(t)\| \amp= \sqrt{\lp -\sin(t) \rp^2 + \lp \cos(t) \rp^2 + 1^2} \\
+\amp= \sqrt{\sin^2(t) + \cos^2(t) + 1} \\
+\amp= \sqrt{2} 
+\end{align*}
+</div>
+<div class="para">We then compute the arc length function.</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-13-3-2-4">
+\begin{gather*}
+s = g(t) = \int_0^t \sqrt{2}\, du = \sqrt{2}t 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-13-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-13-3-3">
+<div class="para">
+<em class="alert">Step 2.</em> Solve <span class="process-math">\(s = g(t)\)</span> for <span class="process-math">\(t\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-13-3-3-4">
+\begin{gather*}
+s = \sqrt{2}t \qquad \implies \qquad t = \frac{s}{\sqrt{2}} 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-13-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-13-3-4">
+<div class="para">
+<em class="alert">Step 3.</em> Substitute <span class="process-math">\(t = g^{-1}(s)\)</span> into the original parametrization to get the arc length parametrization.</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-13-3-4-3">
+\begin{equation*}
+\v{r}_1(s) = \v{r}\lp g^{-1}(s)\rp = \la \cos\lp \frac{s}{\sqrt{2}} \rp, \sin\lp \frac{s}{\sqrt{2}} \rp, \frac{s}{\sqrt{2}} \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-13-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-ArcLengthParametrization-13-3-5">
+<em class="alert">P.S.:</em> One can verify quickly that the curve traced by <span class="process-math">\(\v{r}_1(t)\)</span> is indeed the same helix as <span class="process-math">\(\v{r}(t)\)</span> and that the speed of <span class="process-math">\(\v{r}_1(s)\)</span> is <span class="process-math">\(1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-13-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.3.9.1"><a href="#subsec-ArcLengthParametrization-13-3" title="Copy heading and permalink for Solution 13.3.9.1" aria-label="Copy heading and permalink for Solution 13.3.9.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.3.9"><a href="#subsec-ArcLengthParametrization-13" title="Copy heading and permalink for Example 13.3.9" aria-label="Copy heading and permalink for Example 13.3.9">🔗</a></div></article><div class="para" id="subsec-ArcLengthParametrization-14">In practice, finding an arc length parametrization can be tricky because it involves finding the inverse of the arc length function, which may not always be possible to express in a simple closed form. This is just something to keep in mind when working with arc length parametrizations!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-ArcLengthParametrization-15"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-ArcLengthParametrization-15-1">
+<div class="para">Find an arc length parametrization of the cycloid with parametrization</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-15-1-1">
+\begin{equation*}
+\v{r}(t) = \la t-\sin(t), 1-\cos(t) \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-ArcLengthParametrization-15-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-ArcLengthParametrization-15-2-1">Remember the goal here is to find an inside function <span class="process-math">\(t = g^{-1}(s)\)</span> that we can plug into the original parametrization to get an arc length parametrization. There are three main steps to this process!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-ArcLengthParametrization-15-2-2">Be careful with all the trigonometric manipulations when simplifying stuff!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-15-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 13.3.10.1"><a href="#subsec-ArcLengthParametrization-15-2" title="Copy heading and permalink for Hint 13.3.10.1" aria-label="Copy heading and permalink for Hint 13.3.10.1">🔗</a></div>
+</div></details><details id="subsec-ArcLengthParametrization-15-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-ArcLengthParametrization-15-3-1">
+<div class="para">
+<em class="alert">Step 1.</em> Find the arc length function</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-15-3-1-2">
+\begin{equation*}
+\displaystyle s = g(t) = \int_a^t \|\v{r}'(u)\| du\text{.}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-15-3-1-3">
+\begin{align*}
+\|\v{r}'(t)\| \amp= \sqrt{\lp 1 - \cos(t)\rp^2 + \sin^2(t)} \\
+\amp= \sqrt{1 - 2\cos(t) + \cos^2(t) + \sin^2(t)} \\
+\amp= \sqrt{2 - 2\cos(t)} \\
+\amp= \sqrt{4\sin^2\lp \frac{t}{2} \rp} \\
+\amp= 2\sin\lp \frac{t}{2} \rp \amp 
+\end{align*}
+</div>
+<div class="para">We then compute the arc length function.</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-15-3-1-4">
+\begin{align*}
+s = g(t) \amp= \int_0^t 2\sin\lp \frac{u}{2} \rp\, du \\
+\amp= -4\cos\lp \frac{u}{2}\bigg|_0^t \\
+\amp= -4\cos\lp \frac{t}{2} \rp + 4\cos(0) \\
+\amp= 4\lp 1 - \cos\lp \frac{t}{2} \rp \rp 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-15-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-15-3-2">
+<div class="para">
+<em class="alert">Step 2.</em> We solve <span class="process-math">\(s = g(t)\)</span> for <span class="process-math">\(t\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-15-3-2-4">
+\begin{align*}
+s \amp= 4\lp 1 - \cos\lp \frac{t}{2} \rp \rp \\
+\implies \qquad \frac{s}{4} \amp= 1 - \cos\lp \frac{t}{2} \rp \\
+\implies \qquad 1 - \frac{s}{4} \amp= \cos\lp \frac{t}{2} \rp \\
+\implies \qquad t \amp= 2\cos^{-1}\lp 1 - \frac{s}{4} \rp 
+\end{align*}
+</div>
+<div class="para">That is, <span class="process-math">\(t = g^{-1}(s) = 2\cos^{-1}\lp 1 - \dfrac{s}{4} \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-15-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-ArcLengthParametrization-15-3-3">
+<em class="alert">Step 3.</em> Substitute <span class="process-math">\(t = g^{-1}(s)\)</span> into the original parametrization to get the arc length parametrization.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-15-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-ArcLengthParametrization-15-3-4">
+<div class="para">First, note that</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-15-3-4-1">
+\begin{align*}
+\sin(t) \amp= 2\sin\lp \frac{t}{2} \rp\cos\lp \frac{t}{2} \rp = 2\lp \frac{\sqrt{8s - s^2}}{4}\rp\lp \frac{4 - s}{4} \rp = \frac{(4-s)\sqrt{8s - s^2}}{8} \\
+\cos(t) \amp= 2\cos^2\lp \frac{t}{2} \rp - 1 = 2\lp \frac{4-s}{4} \rp^2 - 1 
+\end{align*}
+</div>
+<div class="para">Hence, we have</div>
+<div class="displaymath process-math" id="subsec-ArcLengthParametrization-15-3-4-2">
+\begin{align*}
+\v{r}(t) \amp= \la t - \sin(t), 1 - \cos(t) \ra \\
+\v{r}_1(s) \amp= \la 2\cos^{-1}\lp \frac{4-s}{4} \rp - \frac{(4-s)\sqrt{8s - s^2}}{8}, 1 - \lp 2\lp \frac{4-s}{4} \rp^2 - 1 \rp \ra \\
+\amp= \la 2\cos^{-1}\lp \frac{4-s}{4} \rp - \frac{(4-s)\sqrt{8s - s^2}}{8}, 1 - \lp \frac{(4-s)^2}{8} + 1 \rp \ra \\
+\amp= \la 2\cos^{-1}\lp \frac{4-s}{4} \rp - \frac{(4-s)\sqrt{8s - s^2}}{8}, 2 - \frac{(4-s)^2}{8} \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ArcLengthParametrization-15-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.3.10.1"><a href="#subsec-ArcLengthParametrization-15-3" title="Copy heading and permalink for Solution 13.3.10.1" aria-label="Copy heading and permalink for Solution 13.3.10.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 13.3.10"><a href="#subsec-ArcLengthParametrization-15" title="Copy heading and permalink for Example 13.3.10" aria-label="Copy heading and permalink for Example 13.3.10">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Arc Length Parametrization"><a href="#subsec-ArcLengthParametrization" title="Copy heading and permalink for Subsection: Arc Length Parametrization" aria-label="Copy heading and permalink for Subsection: Arc Length Parametrization">🔗</a></div></section><section class="worksheet" id="ws-sec133" data-margins="0.75in 0.75in 0.75in 0.75in"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Assigned Problems for Section 13.3</span><div class="print-links"><a href="ws-sec133-printable.html" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<section class="introduction" id="ws-sec133-2"><div class="para" id="ws-sec133-2-1">The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec133-2-2">The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><article class="exercise exercise-like" id="ws-sec133-3"><h4 class="heading"><span class="codenumber">13.3.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec133-3-1">Compute the length of the curve traced by <span class="process-math">\(\v{r}(t) = \la t, 4t^\frac{3}{2}, 2t^\frac{3}{2} \ra\)</span> over <span class="process-math">\(0 \leq t \leq 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.3.5"><a href="#ws-sec133-3" title="Copy heading and permalink for Worksheet Exercise 13.3.5" aria-label="Copy heading and permalink for Worksheet Exercise 13.3.5">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec133-4"><h4 class="heading"><span class="codenumber">13.3.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec133-4-1">The curve shown in the figure is parametrized by <span class="process-math">\(\v{r}(t) = \la \cos(7t), \sin(7t), 2\cos(t) \ra\)</span> for <span class="process-math">\(0 \leq t \leq 2\pi\text{.}\)</span> Approximate its length.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="ws-sec133-4-2"><iframe id="ws-sec133-4-2-2" width="600" height="600" src="ws-sec133-4-2-2-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.3.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The curve traced by <span class="process-math">\(\v{r}(t) = \la \cos(7t), \sin(7t), 2\cos(t) \ra\)</span> for <span class="process-math">\(0 \leq t \leq 2\pi\text{.}\)</span><div class="autopermalink" data-description="Figure 13.3.11"><a href="#ws-sec133-4-2" title="Copy heading and permalink for Figure 13.3.11" aria-label="Copy heading and permalink for Figure 13.3.11">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Worksheet Exercise 13.3.9"><a href="#ws-sec133-4" title="Copy heading and permalink for Worksheet Exercise 13.3.9" aria-label="Copy heading and permalink for Worksheet Exercise 13.3.9">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec133-5"><h4 class="heading"><span class="codenumber">13.3.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec133-5-1">
+<div class="para">Compute the arc length function <span class="process-math">\(\displaystyle s(t) = \int_a^t \left\|\v{r}'(u)\right\| du\text{,}\)</span> where</div>
+<div class="displaymath process-math" id="ws-sec133-5-1-2">
+\begin{equation*}
+\v{r}(t) = \la t^2, 2t^2, t^3 \ra
+\end{equation*}
+</div>
+<div class="para">for the value <span class="process-math">\(a = 0\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.3.11"><a href="#ws-sec133-5" title="Copy heading and permalink for Worksheet Exercise 13.3.11" aria-label="Copy heading and permalink for Worksheet Exercise 13.3.11">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec133-6"><h4 class="heading"><span class="codenumber">13.3.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec133-6-1">Find the speed of <span class="process-math">\(\v{r}(t) = \la t, \ln(t), \lp \ln(t) \rp^2 \ra\)</span> at <span class="process-math">\(t = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.3.15"><a href="#ws-sec133-6" title="Copy heading and permalink for Worksheet Exercise 13.3.15" aria-label="Copy heading and permalink for Worksheet Exercise 13.3.15">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec133-7"><h4 class="heading"><span class="codenumber">13.3.27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec133-7-1">
+<div class="para">Let <span class="process-math">\(\v{r}(t) = \la 3t+1,4t-5,2t \ra\text{.}\)</span>
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="ws-sec133-7-1-2">
+<li id="ws-sec133-7-1-2-1">
+<div class="para" id="ws-sec133-7-1-2-1-1">Evaluate the arc length integral <span class="process-math">\(\displaystyle s = g(t) = \int_0^t \|\v{r}'(u)\|\, du\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-7-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 13.3.27.a"><a href="#ws-sec133-7-1-2-1" title="Copy heading and permalink for Item 13.3.27.a" aria-label="Copy heading and permalink for Item 13.3.27.a">🔗</a></div>
+</li>
+<li id="ws-sec133-7-1-2-2">
+<div class="para" id="ws-sec133-7-1-2-2-1">Find the inverse <span class="process-math">\(g^{-1}(s)\)</span> of <span class="process-math">\(g(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-7-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 13.3.27.b"><a href="#ws-sec133-7-1-2-2" title="Copy heading and permalink for Item 13.3.27.b" aria-label="Copy heading and permalink for Item 13.3.27.b">🔗</a></div>
+</li>
+<li id="ws-sec133-7-1-2-3">
+<div class="para" id="ws-sec133-7-1-2-3-1">Verify that <span class="process-math">\(\v{r}_1(s) = \v{r}\lp g^{-1}(s)\rp\)</span> is an arc length parametrization.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-7-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 13.3.27.c"><a href="#ws-sec133-7-1-2-3" title="Copy heading and permalink for Item 13.3.27.c" aria-label="Copy heading and permalink for Item 13.3.27.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.3.27"><a href="#ws-sec133-7" title="Copy heading and permalink for Worksheet Exercise 13.3.27" aria-label="Copy heading and permalink for Worksheet Exercise 13.3.27">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec133-8"><h4 class="heading"><span class="codenumber">13.3.31<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec133-8-1">Find a path that traces the circle in the plane <span class="process-math">\(y = 10\)</span> with radius <span class="process-math">\(4\)</span> and center <span class="process-math">\((2,10,-3)\)</span> with constant speed <span class="process-math">\(8\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.3.31"><a href="#ws-sec133-8" title="Copy heading and permalink for Worksheet Exercise 13.3.31" aria-label="Copy heading and permalink for Worksheet Exercise 13.3.31">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec133-9"><h4 class="heading"><span class="codenumber">13.3.33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec133-9-1">
+<div class="para">Find an arc length parametrization of the curve parametrized by</div>
+<div class="displaymath process-math" id="ws-sec133-9-1-1">
+\begin{equation*}
+\v{r}(t) = \la \cos(t), \sin(t), \frac{2}{3}t^\frac{3}{2} \ra
+\end{equation*}
+</div>
+<div class="para">with the parameter <span class="process-math">\(s\)</span> measuring from <span class="process-math">\((1,0,0)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.3.33"><a href="#ws-sec133-9" title="Copy heading and permalink for Worksheet Exercise 13.3.33" aria-label="Copy heading and permalink for Worksheet Exercise 13.3.33">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec133-10"><h4 class="heading"><span class="codenumber">13.3.35<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec133-10-1">Find an arc length parametrization of the curve parametrized by <span class="process-math">\(\v{r}(t) = \la t^2, t^3 \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec133-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 13.3.35"><a href="#ws-sec133-10" title="Copy heading and permalink for Worksheet Exercise 13.3.35" aria-label="Copy heading and permalink for Worksheet Exercise 13.3.35">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 13.3"><a href="#ws-sec133" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 13.3" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 13.3">🔗</a></div></section><div class="autopermalink" data-description="Section 13.3: Arc Length and Speed"><a href="#sec133-ArcLength" title="Copy heading and permalink for Section 13.3: Arc Length and Speed" aria-label="Copy heading and permalink for Section 13.3: Arc Length and Speed">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec132-CalcVectorFunctions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec134-Curvature.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
