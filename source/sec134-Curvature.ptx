@@ -5,7 +5,8 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In this section, we introduce the concept of <term>curvature</term>. 
+      Intuitively, curvature measures how sharply a curve bends at a given point. 
     </p>
 
     <objectives>
@@ -17,12 +18,1194 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            define curvature geometrically as the rate of change of the unit tangent vector with respect to arc length.
+          </p>
+        </li>
+        <li>
+          <p>
+            compute the curvature of space curves, plane curves, and graphs of functions using various derivative formulas.
+          </p>
+        </li>
+        <li>
+          <p>
+            calculate the Normal vector (<m>\v{N}</m>) and the Binormal vector (<m>\v{B}</m>).
+          </p>
+        </li>
+        <li>
+          <p>
+            construct the Frenet (TNB) frame of reference at a specific point on a curve.
+          </p>
+        </li>
+        <li>
+          <p>
+            determine the radius, center, and equation of the osculating circle for a given curve.
           </p>
         </li>
       </ul>
     </objectives>
-    
   </introduction>
+
+  <p>
+    Long story short, curvature measures how "curvy" a curve is at a given point (aka how much a curve bends). 
+    With this idea, we can quickly determine that a line has zero curvature everywhere. 
+  </p>
+
+  <p>
+    There are several formulas for curvature, each useful in different contexts. 
+  </p>
+
+  <subsection xml:id="subsec-Curvature-Definition">
+    <title>Mathematical Definition of Curvature</title>
+
+    <p>
+      Let's think about how to define curvature mathematically. 
+      Intuitively, curvature measures how <em>quickly</em> the direction of the tangent vector changes as we move along the curve. 
+      The faster the tangent vector changes direction, the higher the curvature. 
+    </p>
+
+    <figure>
+      <image source="sec134_Curvature_IntuitiveDiagram.png" width="40%"></image>
+      <caption>Curvature is large where the unit tangent vector changes direction quickly. </caption>
+    </figure>
+
+    <p>
+      Well there comes two problems to address here: (1) why using the unit tangent vector, but not just some tangent vector, and (2) how do we measure "how quickly" the unit tangent vector changes direction?
+    </p>
+
+    <p>
+      The first question is easier to answer.
+      If we used a non-unit tangent vector, then the magnitude of the tangent vector would affect our measurement of curvature. 
+      Since we only care about the direction of the tangent vector when measuring curvature, we use the unit tangent vector. 
+      The <alert>unit tangent vector</alert>, denoted <m>\v{T}(t)</m>, is defined as
+      <md>
+        \v{T}(t) = \frac{\v{r}'(t)}{\| \v{r}'(t)\|}
+      </md>
+      This formula is just the normalized version of the tangent vector <m>\v{r}'(t)</m>.  
+    </p>
+
+    <p>
+      Now the second question is a bit more subtle. 
+      By saying "how quickly" the unit tangent vector changes direction, this suggests we should look at the derivative of the unit tangent vector <em>with respect the arc length</em>, <m>s</m>. 
+      Hence, the derivative we want is <m>\dfrac{d\v{T}}{ds}</m>. 
+    </p>
+
+    <figure>
+      <image source="sec134_Curvature_Definition_Diagram.png" width="85%"></image>
+    </figure>
+
+    <p>
+      However, this derivative isn't very perfect to measure curvature yet. 
+      Recall that the derivative <m>\dfrac{d\v{T}}{ds}</m> is a vector, but we just want a scalar value to represent curvature. 
+      The easiest fix is just to take the magnitude of this vector and call it our curvature! 
+    </p>
+
+    <definition xml:id="def-Curvature">
+      <title>Curvature</title>
+      <statement>
+        <p>
+          Let <m>\v{r}(s)</m> be an arc length parametrization and <m>\v{T}</m> the unit tangent vector. 
+          The <term>curvature</term> of the underlying curve at <m>\v{r}(s)</m> is the quantity (denoted by a lowercase Greek letter "kappa")
+          <md>
+            \kappa(s) = \left\| \frac{d\v{T}}{ds} \right\|
+          </md>
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      To sum up, curvature is the magnitude of the rate of change of the unit tangent vector <m>\v{T}</m> with respect to distance traveled <m>s</m> along the curve. 
+    </p>
+
+    <note>
+      <title>But Richard... Why using an arc length parametrization?</title>
+      <p>
+        The short answer is because it makes the definition of curvature cleaner. 
+      </p>
+
+      <p>
+        What makes an arc length parametrization special is that every velocity vector <m>\v{r}'(s)</m> has the length of <m>1</m>. 
+        So we don't have to worry about the speed of the parametrization affecting our measurement of curvature. 
+      </p>
+    </note>
+
+    <example>
+      <p>
+        Compute the curvature of a circle of radius <m>R</m>. 
+      </p>
+
+      <hint>
+        <p>
+          Feel free to assume that the circle is centered at the origin to make the parametrization easier, since the location of the circle should not affect its curvature. 
+        </p>
+
+        <p>
+          Then a paramatrization of the circle is 
+          <md>
+            \v{r}(t) = \la R\cos(t), R\sin(t) \ra
+          </md>
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          To find the curvature using the formula, we first need to find an arc length parametrization of the circle. 
+        </p>
+
+        <p>
+          The arc length function is given by
+          <md>
+            <mrow> s = g(t) = \int_0^t \| \v{r}'(u) \| du \amp= \int_0^t \| \la -R\sin(u), R\cos(u) \ra \| du </mrow>
+            <mrow> \amp= \int_0^t R du = Rt </mrow>
+          </md>
+          This implies that
+          <md>
+            t = g^{-1}(s) = \frac{s}{R}
+          </md>
+          Therefore, the arc length parametrization is 
+          <md>
+            \v{r}_1(s) = \v{r}\lp g^{-1}(s)\rp = \v{r}\left(\frac{s}{R}\right) = \la R\cos\left(\frac{s}{R}\right), R\sin\left(\frac{s}{R}\right) \ra
+          </md>
+        </p>
+
+        <p>
+          Next, we find the unit tangent vector:
+          <md>
+            \v{T}(s) = \frac{\v{r}_1'(s)}{\|\v{r}_1'(s)\|} = \frac{\la -\sin\left(\frac{s}{R}\right), \cos\left(\frac{s}{R}\right) \ra}{1} = \la -\sin\left(\frac{s}{R}\right), \cos\left(\frac{s}{R}\right) \ra
+          </md>
+          Then the derivative of the unit tangent vector with respect to <m>s</m> is
+          <md>
+            \frac{d\v{T}}{ds} = \left\langle -\frac{1}{R}\cos\left(\frac{s}{R}\right), -\frac{1}{R}\sin\left(\frac{s}{R}\right) \right\rangle
+          </md>
+        </p>
+
+        <p>
+          Hence, the curvature is
+          <md>
+            <mrow> \kappa(s) = \left\| \frac{d\v{T}}{ds} \right\| \amp=  \sqrt{\left(-\frac{1}{R}\cos\left(\frac{s}{R}\right)\right)^2 + \left(-\frac{1}{R}\sin\left(\frac{s}{R}\right)\right)^2} </mrow>
+            <mrow> \amp= \sqrt{\frac{1}{R^2}} = \frac{1}{R} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-Curvature-AlternativeFormula">
+    <title>Alternative Formulas for Curvature</title>
+
+    <p>
+      In practice, it isn't always easy to find an arc length parametrization of a curve (look at the last example in <xref ref="sec133-ArcLength"/>!). 
+      So computing the curvature using the definition directly can be difficult. 
+      Fortunately, there are alternative formulas for curvature that work for any parametrization of a curve.
+    </p>
+    
+    <p>
+      An alternative formula for curvature can be derived by dropping the requirement that the parametrization be an arc length parametrization. 
+      Without the arc length parametrization, then we need to relate the derivative with respect to <m>s</m> to the derivative with respect to the parameter <m>t</m> since <m>\v{r}</m> is now a function of <m>t</m> instead of <m>s</m>. 
+    </p>
+    
+    <p>
+      Let's start by assuming we have a general parametrization <m>\v{r}(t)</m>. 
+      Then the arc length <m>s</m> can be defined as a function of <m>t</m> using the arc length function. 
+      That is, 
+      <md>
+        <mrow> s(t) \amp= \int_a^t \| \v{r}'(u) \| du </mrow>
+        <mrow> \implies \qquad \frac{ds}{dt} \amp= \| \v{r}'(t) \| </mrow>
+      </md>
+      Let's call <m>v(t) = \| \v{r}'(t) \|</m> the speed of the parametrization. 
+      Then by the chain rule, we have
+      <md>
+        \frac{d\v{T}}{ds} = \frac{d\v{T}}{dt} \cdot \frac{dt}{ds} = \frac{d\v{T}}{dt} \cdot \frac{1}{v(t)} = \frac{\v{T}'(t)}{v(t)}
+      </md>
+      Therefore, the curvature can be computed as
+      <md>
+        \kappa(t) = \left\| \frac{d\v{T}}{ds} \right\| = \frac{\| \v{T}'(t) \|}{v(t)}
+      </md>
+      That is, if we know the unit tangent vector <m>\v{T}(t)</m> and the speed <m>v(t)</m>, then we can compute the curvature using this formula. 
+    </p>
+
+    <p>
+      Yet <m>\v{T}'(t)</m> is usually not very easy to find. 
+      Remember that <m>\v{T}(t) = \frac{\v{r}'(t)}{\|\v{r}'(t)\|}</m>, so the derivative of <m>\v{T}(t)</m> is a nightmare to find. 
+      Also, <m>\|\v{r}'(t)\|</m> involves a square root and a bunch of squares, which makes the derivative even worse... 
+      Rather than using this formula directly (you can try of course!), we can derive the following formula using this formula. 
+    </p>
+
+    <theorem xml:id="thm-CrossProductFormula-Curvature">
+      <title>Formula for Curvature</title>
+      <statement>
+        <p>
+          If <m>\v{r}(t)</m> is a regular parametrization, then the curvature of the underlying curve at <m>\v{r}(t)</m> is
+          <md>
+            \kappa(t) = \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3}
+          </md>
+        </p>
+      </statement>
+    </theorem>
+    
+    <proof>
+      <title>Proof of this formula</title>
+      <p>
+        Recall that the velocity vector can be written as <m>\v{r}'(t) = v(t)\v{T}(t)</m>, where <m>v(t) = \|\v{r}'(t)\|</m> is the speed and <m>\v{T}(t)</m> is the unit tangent vector. 
+        To use the cross product formula, we first need the acceleration vector <m>\v{r}''(t)</m>. 
+        Differentiating <m>\v{r}'(t)</m> using the product rule, we obtain
+        <md>
+          <mrow>\v{r}''(t) \amp = \frac{d}{dt} \lp v(t)\v{T}(t) \rp</mrow>
+          <mrow>\amp = v'(t)\v{T}(t) + v(t)\v{T}'(t)</mrow>
+        </md>
+      </p>
+
+      <p>
+        Now, we compute the cross product of velocity and acceleration. 
+        <md>
+          <mrow>\v{r}'(t) \times \v{r}''(t) \amp = \lp v(t)\v{T}(t) \rp \times \lp v'(t)\v{T}(t) + v(t)\v{T}'(t) \rp</mrow>
+          <mrow>\amp = v(t)v'(t)\lp \v{T}(t) \times \v{T}(t) \rp + v(t)^2\lp \v{T}(t) \times \v{T}'(t) \rp</mrow>
+        </md>
+        Since the cross product of any vector with itself is zero (<m>\v{T} \times \v{T} = \v{0}</m>), the first term vanishes. 
+        Then we have
+        <md>
+          \v{r}'(t) \times \v{r}''(t) = v(t)^2 \v{T}(t) \times \v{T}'(t) 
+        </md>
+      </p>
+
+      <p>
+        Next, we take the magnitude of both sides. 
+        Richard claims that <m>\v{T}(t)</m> and <m>\v{T}'(t)</m> are always orthogonal (trust him for now. He will prove it later), the magnitude of their cross product is simply the product of their magnitudes. 
+        <md>
+          <mrow>\|\v{r}'(t) \times \v{r}''(t)\| \amp = v(t)^2 \|\v{T}(t)\| \|\v{T}'(t)\| \sin(90^\circ)</mrow>
+          <mrow>\amp = v(t)^2 (1) \|\v{T}'(t)\|</mrow>
+          <mrow>\amp = v(t)^2 \|\v{T}'(t)\|</mrow>
+        </md>
+      </p>
+
+      <p>
+        We showed the formula <m>\kappa(t) = \frac{\|\v{T}'(t)\|}{v(t)}</m>, which implies <m>\|\v{T}'(t)\| = \kappa(t) v(t)</m>. 
+        Substituting this into our magnitude equation:
+        <md>
+          <mrow>\|\v{r}'(t) \times \v{r}''(t)\| \amp = v(t)^2 \lp \kappa(t) v(t) \rp</mrow>
+          <mrow>\amp = \kappa(t) v(t)^3</mrow>
+        </md>
+        Solving for <m>\kappa(t)</m> and substituting <m>v(t) = \|\v{r}'(t)\|</m> yields the final result:
+        <md>
+          \kappa(t) = \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3}
+        </md>
+      </p>
+    </proof>
+
+    <p>
+      This formula is often convenient to use since it only involves the first and second derivatives of the parametrization <m>\v{r}(t)</m>.
+      We don't have to compute any nasty derivatives of unit tangent vectors nor the arc length parametrization. 
+    </p>
+
+    <example>
+      <p>
+        Prove that the curvature of a line is zero. 
+      </p>
+
+      <hint>
+        <p>
+          A line can be parametrized as <m>\v{r}(t) = \v{r}_0 + t\v{v}</m>. 
+          We now have a parametrization of a line to work with! 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          Taking the derivative of <m>\v{r}(t) = \v{r}_0 + t\v{v}</m>, we get <m>\v{r}'(t) = \v{v}</m>. 
+        </p>
+
+        <p>
+          Taking the derivative again, we get <m>\v{r}''(t) = \v{0}</m>. 
+        </p>
+
+        <p>
+          Therefore, the curvature is
+          <md>
+            \kappa(t) = \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3} = \frac{\|\v{v} \times \v{0}\|}{\|\v{v}\|^3} = \frac{0}{\|\v{v}\|^3} = 0
+          </md>
+          as expected.
+        </p>
+      </solution>
+    </example>
+
+    <example>
+      <p>
+        Calculate the curvature function <m>\kappa(t)</m> of the curve <m>\v{r}(t) = \la 4\cos(t), t, 4\sin(t) \ra</m>. 
+      </p>
+
+      <hint>
+        <title>More of a visualization...</title>
+        <p>
+          Richard graphed the curve out for you. 
+          Your goal is to find the curvature function <m>\kappa(t)</m> to determine how "curvy" the curve is at each point. 
+        </p>
+
+        <figure>
+          <caption>The Sketch of the Helix <m>\v{r}(t) = \la 4\cos(t), t, 4\sin(t) \ra</m></caption>
+          <interactive xml:id="interactive-y-axis-helix" platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('t')
+              # 1. Define the curve
+              # This helix wraps around the y-axis with radius 4
+              r = (4*cos(t), t, 4*sin(t))
+              
+              # We plot from -2pi to 2pi to show the spiral in both directions along y
+              curve = parametric_plot3d(r, (t, -2*pi, 2*pi), thickness=3, color='blue', plot_points=200)
+              
+              # 2. Setup Axes
+              # Radius is 4, so we need x,z limits > 4. 
+              # y goes from -2pi (-6.28) to 2pi (6.28), so we need y limits > 6.3.
+              limit_radius = 5
+              limit_y = 8
+              
+              xaxis = arrow3d((-limit_radius, 0, 0), (limit_radius, 0, 0), color='black', thickness=1)
+              yaxis = arrow3d((0, -limit_y, 0), (0, limit_y, 0), color='black', thickness=1)
+              zaxis = arrow3d((0, 0, -limit_radius), (0, 0, limit_radius), color='black', thickness=1)
+              
+              # 3. Axis Labels
+              x_lbl = text3d("x", (limit_radius + 0.5, 0, 0), color='black')
+              y_lbl = text3d("y", (0, limit_y + 0.5, 0), color='black')
+              z_lbl = text3d("z", (0, 0, limit_radius + 0.5), color='black')
+              
+              # 4. Combine and Show
+              total_plot = curve + xaxis + yaxis + zaxis + x_lbl + y_lbl + z_lbl
+              total_plot.show(frame=False)
+            </slate>
+          </interactive>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          First, we compute the first derivative:
+          <md>
+            <mrow> \v{r}'(t) \amp= \la -4\sin(t), 1, 4\cos(t) \ra </mrow>
+          </md>
+          Then we compute the second derivative:
+          <md>
+            <mrow> \v{r}''(t) \amp= \la -4\cos(t), 0, -4\sin(t) \ra </mrow>
+          </md>
+        </p>
+
+        <p>
+          Next, we compute the cross product:
+          <md>
+            <mrow> \v{r}'(t) \times \v{r}''(t) \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ -4\sin(t) \amp 1 \amp 4\cos(t) \\ -4\cos(t) \amp 0 \amp -4\sin(t) \end{vmatrix} </mrow>
+            <mrow> \amp= \la -4\sin(t), -16, 4\cos(t) \ra </mrow>
+          </md>
+        </p>
+
+        <p>
+          Then we compute the magnitude of the vectors:
+          <md>
+            <mrow> \|\v{r}'(t)\| \amp= \sqrt{(-4\sin(t))^2 + 1^2 + (4\cos(t))^2} </mrow>
+            <mrow> \amp= \sqrt{16\sin^2(t) + 1 + 16\cos^2(t)} </mrow>
+            <mrow> \amp= \sqrt{16(\sin^2(t) + \cos^2(t)) + 1} </mrow>
+            <mrow> \amp= \sqrt{17} </mrow>
+            <mrow> \|\v{r}'(t) \times \v{r}''(t)\| \amp= \sqrt{(-4\sin(t))^2 + (-16)^2 + (4\cos(t))^2} </mrow>
+            <mrow> \amp= \sqrt{16\sin^2(t) + 256 + 16\cos^2(t)} </mrow>
+            <mrow> \amp= \sqrt{16(\sin^2(t) + \cos^2(t)) + 256} </mrow>
+            <mrow> \amp= \sqrt{16 + 256} </mrow>
+            <mrow> \amp= \sqrt{272} </mrow>
+            <mrow> \amp= 4\sqrt{17} </mrow>
+          </md>
+        </p>
+
+        <p>
+          Hence, the curvature function is
+          <md>
+            <mrow> \kappa(t) \amp= \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3} </mrow>
+            <mrow> \amp= \frac{4\sqrt{17}}{(\sqrt{17})^3} </mrow>
+            <mrow> \amp= \frac{4\sqrt{17}}{17\sqrt{17}} </mrow>
+            <mrow> \amp= \frac{4}{17} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Remember back in <xref ref="sec124-CrossProduct"/>, Richard mentioned that the cross product only makes sense in <m>\R^3</m>. 
+      That is, we can't directly use this formula for curves in <m>\R^2</m>. 
+      There is a workaround though. 
+      Using this workaround, we can derive a formula for curvature of plane curves as well. 
+    </p>
+
+    <theorem xml:id="thm-Curvature-PlaneCurve">
+      <title>Curvature of a Plane Curve</title>
+      <statement>
+        <p>
+          Assume <m>\v{r}(t) = \la x(t), y(t) \ra</m> is a regular parametrization of a plane curve, which means <m>\v{r}'(t) \neq \v{0}</m> for all <m>t</m> in the domain. 
+          At the point <m>\lp x(t), y(t) \rp</m>, the curvature is given by
+          <md>
+          \kappa(t) = \frac{|x'(t)y''(t) - y'(t)x''(t)|}{\lp \lp x'(t)\rp^2 + \lp y'(t)\rp^2 \rp^\frac{3}{2}}
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <title>Proof of this formula</title>
+      <p>
+        To derive this formula, we can treat the plane curve as a space curve that lies in the <m>xy</m>-plane. We define the position vector with a zero <m>z</m>-component:
+        <me>
+          \v{r}(t) = \la x(t), y(t), 0 \ra
+        </me>
+      </p>
+      
+      <p>
+        First, we compute the first and second derivatives of the position vector:
+        <md>
+          <mrow> \v{r}'(t) \amp= \la x'(t), y'(t), 0 \ra </mrow>
+          <mrow> \v{r}''(t) \amp= \la x''(t), y''(t), 0 \ra </mrow>
+        </md>
+      </p>
+
+      <p>
+        Next, we compute the cross product <m>\v{r}'(t) \times \v{r}''(t)</m>:
+        <md>
+          <mrow> \v{r}'(t) \times \v{r}''(t) \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ x'(t) \amp y'(t) \amp 0 \\ x''(t) \amp y''(t) \amp 0 \end{vmatrix} </mrow>
+          <mrow> \amp= \lp 0 - 0 \rp \v{i} - \lp 0 - 0 \rp \v{j} + \lp x'(t)y''(t) - y'(t)x''(t) \rp \v{k} </mrow>
+          <mrow> \amp= \la 0, 0, x'(t)y''(t) - y'(t)x''(t) \ra </mrow>
+        </md>
+      </p>
+
+      <p>
+        Now we find the magnitude of this cross product:
+        <md>
+          <mrow> \|\v{r}'(t) \times \v{r}''(t)\| \amp= \sqrt{0^2 + 0^2 + \lp x'(t)y''(t) - y'(t)x''(t) \rp^2} </mrow>
+          <mrow> \amp= |x'(t)y''(t) - y'(t)x''(t)| </mrow>
+        </md>
+      </p>
+
+      <p>
+        We also need the magnitude of the velocity vector raised to the third power:
+        <md>
+          <mrow> \|\v{r}'(t)\| \amp= \sqrt{\lp x'(t) \rp^2 + \lp y'(t) \rp^2} </mrow>
+          <mrow> \|\v{r}'(t)\|^3 \amp= \lp \lp x'(t) \rp^2 + \lp y'(t) \rp^2 \rp^{\frac{3}{2}} </mrow>
+        </md>
+      </p>
+
+      <p>
+        Finally, we substitute these results into the general curvature formula
+        <md>
+          <mrow> \kappa(t) \amp= \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3} </mrow>
+          <mrow> \amp= \frac{|x'(t)y''(t) - y'(t)x''(t)|}{\lp \lp x'(t) \rp^2 + \lp y'(t) \rp^2 \rp^{\frac{3}{2}}} </mrow>
+        </md>
+      </p>
+    </proof>
+    
+    <example>
+      <p>
+        Compute the curvature of the curve parametrized by <m>\v{r}(t) = \la \sin(3t), 2\sin(4t) \ra</m> at the point where <m>t = \frac{\pi}{2}</m>.
+      </p>
+
+      <hint>
+        <title>More of a visualization...</title>
+        <p>
+          Richard graphed the curve out for you. 
+          Your goal is to find the curvature <m>\kappa\lp \frac{\pi}{2} \rp</m> to determine how "curvy" the curve is at this point. 
+        </p>
+
+        <figure>
+          <caption>the curve parametrized by <m>\v{r}(t) = \la \sin(3t), 2\sin(4t) \ra</m> at the point where <m>t = \frac{\pi}{2}</m>.</caption>
+          <interactive xml:id="interactive-lissajous-point" platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('t')
+              # 1. Define the curve components
+              # Period is 2pi (LCM of periods of sin(3t) and sin(4t))
+              r = (sin(3*t), 2*sin(4*t))
+              
+              # Plot the curve
+              curve = parametric_plot(r, (t, 0, 2*pi), color='blue', thickness=2, plot_points=200)
+              
+              # 2. Define and mark the specific point at t = pi/2
+              t_val = pi/2
+              p_coords = (sin(3*t_val), 2*sin(4*t_val)) # results in (-1, 0)
+              
+              pt = point(p_coords, color='red', size=50, zorder=5)
+              lbl = text(r"$t=\pi/2$", (p_coords[0], p_coords[1] + 0.3), color='red', fontsize=12)
+              
+              # 3. Setup Manual Centered Axes
+              # x ranges [-1, 1], y ranges [-2, 2]
+              lim_x = 1.5
+              lim_y = 2.5
+              
+              xaxis = arrow((-lim_x, 0), (lim_x, 0), color='black', thickness=1)
+              yaxis = arrow((0, -lim_y), (0, lim_y), color='black', thickness=1)
+              
+              # Axis Labels
+              x_label = text("x", (lim_x + 0.1, 0.1), color='black')
+              y_label = text("y", (0.1, lim_y + 0.1), color='black')
+              
+              # 4. Ticks
+              ticks = Graphics()
+              # X-axis ticks
+              for i in [-1, 1]:
+                  ticks += line([(i, -0.1), (i, 0.1)], color='black')
+                  ticks += text(str(i), (i, -0.3), color='black', fontsize='small')
+                  
+              # Y-axis ticks
+              for i in [-2, -1, 1, 2]:
+                  ticks += line([(-0.1, i), (0.1, i)], color='black')
+                  ticks += text(str(i), (-0.3, i), color='black', fontsize='small')
+                  
+              # 5. Combine and Show
+              # axes=False hides the default bounding box axes
+              (curve + pt + lbl + xaxis + yaxis + x_label + y_label + ticks).show(axes=False)
+            </slate>
+          </interactive>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          First, we identify the components of the position vector <m>\v{r}(t) = \la \sin(3t), 2\sin(4t) \ra</m>:
+          <md>
+            <mrow> x(t) \amp= \sin(3t) </mrow>
+            <mrow> y(t) \amp= 2\sin(4t) </mrow>
+          </md>
+        </p>
+        
+        <p>
+          Next, we compute the first and second derivatives of these components:
+          <md>
+            <mrow> x'(t) \amp= 3\cos(3t) \amp\amp x''(t) = -9\sin(3t) </mrow>
+            <mrow> y'(t) \amp= 8\cos(4t) \amp\amp y''(t) = -32\sin(4t) </mrow>
+          </md>
+        </p>
+
+        <p>
+          We evaluate these derivatives at <m>t = \frac{\pi}{2}</m>:
+          <md>
+            <mrow> x'\lp \frac{\pi}{2} \rp \amp= 3\cos(\frac{3\pi}{2}) = 0 </mrow>
+            <mrow> x''\lp \frac{\pi}{2} \rp \amp= -9\sin(\frac{3\pi}{2}) = -9(-1) = 9 </mrow>
+            <mrow> y'\lp \frac{\pi}{2} \rp \amp= 8\cos(2\pi) = 8(1) = 8 </mrow>
+            <mrow> y''\lp \frac{\pi}{2} \rp \amp= -32\sin(2\pi) = 0 </mrow>
+          </md>
+        </p>
+
+        <p>
+          Now we apply the curvature formula for a plane curve:
+          <md>
+            <mrow> \kappa(t) \amp= \frac{|x'(t)y''(t) - y'(t)x''(t)|}{\left( (x'(t))^2 + (y'(t))^2 \right)^{\frac{3}{2}}} </mrow>
+            <mrow> \kappa\lp \frac{\pi}{2}\rp \amp= \frac{|(0)(0) - (8)(9)|}{\left( 0^2 + 8^2 \right)^{\frac{3}{2}}} </mrow>
+            <mrow> \amp= \frac{|-72|}{(64)^{\frac{3}{2}}} </mrow>
+            <mrow> \amp= \frac{72}{(\sqrt{64})^3} </mrow>
+            <mrow> \amp= \frac{72}{8^3} </mrow>
+            <mrow> \amp= \frac{72}{512} </mrow>
+            <mrow> \amp= \frac{9}{64} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      There is one more formula for curvature of plane curves that is often easier to use when the curve is given in the form <m>y = f(x)</m>. 
+    </p>
+
+    <theorem xml:id="thm-Curvature-Graph">
+      <title>Curvature of the Graph of <m>f</m> </title>
+      <statement>
+        <p>
+          The curvature at the point <m>\lp x, f(x) \rp</m> on the graph of <m>y = f(x)</m> is equal to 
+          <md>
+            \kappa(x) = \frac{|f''(x)|}{\lp 1 + \lp f'(x) \rp^2 \rp^\frac{3}{2}}
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <title>Proof of this formula</title>
+      <p>
+        We can parametrize the graph of the function <m>y = f(x)</m> by treating <m>x</m> as the parameter <m>t</m>. 
+        Let <m>x = t</m> and <m>y = f(t)</m>. The position vector is:
+        <me>
+          \v{r}(t) = \la t, f(t) \ra
+        </me>
+      </p>
+
+      <p>
+        First, we compute the derivatives with respect to <m>t</m>:
+        <md>
+          <mrow> x(t) = t \implies x'(t) = 1, \quad x''(t) = 0 </mrow>
+          <mrow> y(t) = f(t) \implies y'(t) = f'(t), \quad y''(t) = f''(t) </mrow>
+        </md>
+      </p>
+
+      <p>
+        Next, we substitute these into the plane curve curvature formula <m>\kappa(t) = \frac{|x'y'' - y'x''|}{((x')^2 + (y')^2)^{3/2}}</m>:
+        <md>
+          <mrow> \kappa(t) \amp= \frac{|(1)(f''(t)) - (f'(t))(0)|}{\lp 1^2 + (f'(t))^2 \rp^{\frac{3}{2}}} </mrow>
+          <mrow> \amp= \frac{|f''(t)|}{\lp 1 + (f'(t))^2 \rp^{\frac{3}{2}}} </mrow>
+        </md>
+      </p>
+
+      <p>
+        Since <m>x = t</m>, we can replace <m>t</m> with <m>x</m> to obtain the final formula in terms of <m>x</m>:
+        <me>
+          \kappa(x) = \frac{|f''(x)|}{\lp 1 + (f'(x))^2 \rp^{\frac{3}{2}}}
+        </me>
+      </p>
+    </proof>
+
+    <example>
+      <p>
+        Compute the curvature <m>\kappa(x)</m> for the cubic function <m>f(x) = x^3 - 3x^2</m> at the following <m>x</m>-values: <m>0, 1, 2,</m> and <m>3</m>.
+      </p>
+
+      <solution>
+        <p>
+          We use the curvature formula for a graph <m>y=f(x)</m>:
+          <me>
+            \kappa(x) = \frac{|f''(x)|}{\lp 1 + \lp f'(x) \rp^2 \rp^\frac{3}{2}}
+          </me>
+        </p>
+
+        <p>
+          First, compute the derivatives:
+          <md>
+            <mrow> f(x) \amp= x^3 - 3x^2 </mrow>
+            <mrow> f'(x) \amp= 3x^2 - 6x </mrow>
+            <mrow> f''(x) \amp= 6x - 6 </mrow>
+          </md>
+        </p>
+
+        <p>
+          Now, we evaluate the curvature at each specified point.
+        </p>
+
+        <p>
+          <term>1. At <m>x=0</m>:</term>
+          <md>
+            <mrow> f'(0) \amp= 3(0)^2 - 6(0) = 0 </mrow>
+            <mrow> f''(0) \amp= 6(0) - 6 = -6 </mrow>
+            <mrow> \kappa(0) \amp= \frac{|-6|}{\lp 1 + 0^2 \rp^\frac{3}{2}} = \frac{6}{1} = 6 </mrow>
+          </md>
+          (Since <m>f'(0)=0</m> and <m>f''(0) \lt 0</m>, this is a sharp local maximum.)
+        </p>
+
+        <p>
+          <term>2. At <m>x=1</m>:</term>
+          <md>
+            <mrow> f'(1) \amp= 3(1)^2 - 6(1) = -3 </mrow>
+            <mrow> f''(1) \amp= 6(1) - 6 = 0 </mrow>
+            <mrow> \kappa(1) \amp= \frac{|0|}{\lp 1 + (-3)^2 \rp^\frac{3}{2}} = 0 </mrow>
+          </md>
+          (The second derivative is zero, indicating an <term>inflection point</term>. The curve is momentarily straight here.)
+        </p>
+
+        <p>
+          <term>3. At <m>x=2</m>:</term>
+          <md>
+            <mrow> f'(2) \amp= 3(2)^2 - 6(2) = 12 - 12 = 0 </mrow>
+            <mrow> f''(2) \amp= 6(2) - 6 = 6 </mrow>
+            <mrow> \kappa(2) \amp= \frac{|6|}{\lp 1 + 0^2 \rp^\frac{3}{2}} = \frac{6}{1} = 6 </mrow>
+          </md>
+          (Since <m>f'(2)=0</m> and <m>f''(2) \gt 0</m>, this is a sharp local minimum. Notice the symmetry in curvature with <m>x=0</m>.)
+        </p>
+
+        <p>
+          <term>4. At <m>x=3</m>:</term>
+          <md>
+            <mrow> f'(3) \amp= 3(3)^2 - 6(3) = 27 - 18 = 9 </mrow>
+            <mrow> f''(3) \amp= 6(3) - 6 = 12 </mrow>
+            <mrow> \kappa(3) \amp= \frac{|12|}{\lp 1 + 9^2 \rp^\frac{3}{2}} = \frac{12}{(82)^\frac{3}{2}} \approx \frac{12}{742.5} \approx 0.016 </mrow>
+          </md>
+          (At this point, the curve is increasing very rapidly, stretching out so that it appears nearly straight, resulting in very low curvature.)
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      There are multiple ways to compute the curvature depending on how the curve is given. 
+      Make sure you have all the formulas handy and know when to use each one! 
+    </p>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-NormalVector">
+    <title>The Normal Vector</title>
+
+    <p>
+      It turns out that <m>\v{T}'(t)</m> and <m>\v{T}(t)</m> are orthogonal. 
+      We can use this fact to define another important vector called the <em>normal vector</em>. 
+    </p>
+
+    <note>
+      <title>If you are super interested about why the orthogonality...</title>
+
+      <p>
+        Recall that <m>\v{T}(t)</m> is the <em>unit</em> tangent vector, which means its length is always equal to 1:
+        <me>
+          \|\v{T}(t)\| = 1
+        </me>
+      </p>
+
+      <p>
+        We can rewrite the magnitude squared as the dot product of the vector with itself:
+        <me>
+          \v{T}(t) \cdot \v{T}(t) = \|\v{T}(t)\|^2 = 1^2 = 1
+        </me>
+      </p>
+
+      <p>
+        Now, we differentiate both sides of this equation with respect to <m>t</m>. We must use the Product Rule for dot products on the left side:
+        <md>
+          <mrow> \frac{d}{dt} \lp \v{T}(t) \cdot \v{T}(t) \rp \amp= \frac{d}{dt} (1) </mrow>
+          <mrow> \v{T}'(t) \cdot \v{T}(t) + \v{T}(t) \cdot \v{T}'(t) \amp= 0 </mrow>
+          <mrow> 2 \v{T}(t) \cdot \v{T}'(t) \amp= 0 </mrow>
+        </md>
+      </p>
+
+      <p>
+        Dividing by 2, we find that:
+        <me>
+          \v{T}(t) \cdot \v{T}'(t) = 0
+        </me>
+        Since their dot product is zero, the vectors <m>\v{T}(t)</m> and <m>\v{T}'(t)</m> are orthogonal.
+      </p>
+    </note>
+
+    <definition xml:id="def-NormalVector">
+      <title>Normal Vector</title>
+      <statement>
+        <p>
+          The unit vector in the direction of <m>\v{T}'(t)</m>, assuming it is nonzero, is called the <term>normal vector</term>, denoted by <m>\v{N}(t)</m>. 
+          Symbolically speaking, 
+          <md>
+            \v{N}(t) = \frac{\v{T}'(t)}{\|\v{T}'(t)\|}
+          </md>
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      If you trace back to one of the alternative formulas for curvature, one of the equations we had was 
+      <md>
+        \kappa (t) = \frac{\|\v{T}'(t)\|}{v(t)}
+      </md>
+      which implies that <m>\|\v{r}'(t)\| = v(t)\kappa(t)</m>. 
+      By a quick substitution, we obtain the following formula
+      <md>
+        \v{T}'(t) = v(t)\kappa(t)\v{N}(t)
+      </md>
+      This formula shows another way to find the derivative of the unit tangent vector <m>\v{T}'(t)</m>, which will help us find the normal vector <m>\v{N}(t)</m> more easily. 
+    </p>
+
+    <example>
+      <p>
+        Find the normal vector to the curve parametrized by <m>\v{r}(t) = \la e^t\cos(t), e^t\sin(t), e^t \ra</m> at the point where <m>t = 0</m>. 
+      </p>
+
+      <solution>
+    <p>
+      To find <m>\v{N}(t)</m>, we must first find the unit tangent vector <m>\v{T}(t)</m> by normalizing the velocity vector.
+    </p>
+
+    <p>
+      <term>Step 1: Compute <m>\v{r}'(t)</m></term><br/>
+      We use the Product Rule for the <m>x</m> and <m>y</m> components:
+      <md>
+        <mrow> x'(t) \amp= \frac{d}{dt}[e^t\cos(t)] = e^t\cos(t) - e^t\sin(t) = e^t(\cos(t) - \sin(t)) </mrow>
+        <mrow> y'(t) \amp= \frac{d}{dt}[e^t\sin(t)] = e^t\sin(t) + e^t\cos(t) = e^t(\sin(t) + \cos(t)) </mrow>
+        <mrow> z'(t) \amp= e^t </mrow>
+      </md>
+      So,
+      <me>
+        \v{r}'(t) = e^t \la \cos(t) - \sin(t), \sin(t) + \cos(t), 1 \ra
+      </me>
+    </p>
+
+    <p>
+      <term>Step 2: Compute the speed <m>\|\v{r}'(t)\|</m></term>
+      <md>
+        <mrow> \|\v{r}'(t)\|^2 \amp= (e^t)^2 \left[ (\cos(t) - \sin(t))^2 + (\sin(t) + \cos(t))^2 + 1^2 \right] </mrow>
+        <mrow> \amp= e^{2t} \left[ (\cos^2(t) - 2\cos(t)\sin(t) + \sin^2(t)) + (\sin^2(t) + 2\sin(t)\cos(t) + \cos^2(t)) + 1 \right] </mrow>
+        <mrow> \amp= e^{2t} \left[ (1 - 2\cos(t)\sin(t)) + (1 + 2\cos(t)\sin(t)) + 1 \right] </mrow>
+        <mrow> \amp= e^{2t} [ 1 + 1 + 1 ] = 3e^{2t} </mrow>
+      </md>
+      Taking the square root:
+      <me>
+        \|\v{r}'(t)\| = \sqrt{3}e^t
+      </me>
+    </p>
+
+    <p>
+      <term>Step 3: Find <m>\v{T}(t)</m></term><br/>
+      Notice that the <m>e^t</m> term cancels out, simplifying our work for the next derivative!
+      <md>
+        <mrow> \v{T}(t) \amp= \frac{\v{r}'(t)}{\|\v{r}'(t)\|} = \frac{e^t \la \cos(t) - \sin(t), \sin(t) + \cos(t), 1 \ra}{\sqrt{3}e^t} </mrow>
+        <mrow> \amp= \frac{1}{\sqrt{3}} \la \cos(t) - \sin(t), \sin(t) + \cos(t), 1 \ra </mrow>
+      </md>
+    </p>
+
+    <p>
+      <term>Step 4: Compute <m>\v{T}'(t)</m></term>
+      <md>
+        <mrow> \v{T}'(t) \amp= \frac{1}{\sqrt{3}} \frac{d}{dt} \la \cos(t) - \sin(t), \sin(t) + \cos(t), 1 \ra </mrow>
+        <mrow> \amp= \frac{1}{\sqrt{3}} \la -\sin(t) - \cos(t), \cos(t) - \sin(t), 0 \ra </mrow>
+      </md>
+    </p>
+
+    <p>
+      <term>Step 5: Compute <m>\|\v{T}'(t)\|</m></term>
+      <md>
+        <mrow> \|\v{T}'(t)\| \amp= \frac{1}{\sqrt{3}} \sqrt{(-\sin(t) - \cos(t))^2 + (\cos(t) - \sin(t))^2 + 0^2} </mrow>
+        <mrow> \amp= \frac{1}{\sqrt{3}} \sqrt{(\sin^2(t) + 2\sin(t)\cos(t) + \cos^2(t)) + (\cos^2(t) - 2\sin(t)\cos(t) + \sin^2(t))} </mrow>
+        <mrow> \amp= \frac{1}{\sqrt{3}} \sqrt{1 + 1} = \frac{\sqrt{2}}{\sqrt{3}} </mrow>
+      </md>
+    </p>
+
+    <p>
+      <term>Step 6: Find <m>\v{N}(t)</m> and evaluate at <m>t=0</m></term><br/>
+      The normal vector is defined as <m>\v{N}(t) = \frac{\v{T}'(t)}{\|\v{T}'(t)\|}</m>.
+      <md>
+        <mrow> \v{N}(t) \amp= \frac{\frac{1}{\sqrt{3}} \la -(\sin(t) + \cos(t)), \cos(t) - \sin(t), 0 \ra}{\frac{\sqrt{2}}{\sqrt{3}}} </mrow>
+        <mrow> \amp= \frac{1}{\sqrt{2}} \la -(\sin(t) + \cos(t)), \cos(t) - \sin(t), 0 \ra </mrow>
+      </md>
+      Now, evaluate at <m>t=0</m>:
+      <md>
+        <mrow> \v{N}(0) \amp= \frac{1}{\sqrt{2}} \la -(\sin(0) + \cos(0)), \cos(0) - \sin(0), 0 \ra </mrow>
+        <mrow> \amp= \frac{1}{\sqrt{2}} \la -(0 + 1), 1 - 0, 0 \ra </mrow>
+        <mrow> \amp= \la -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0 \ra </mrow>
+      </md>
+    </p>
+  </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-FrenetFrame">
+    <title>The Frenet Frame</title>
+
+    <p>
+      At a point on a curve, we can find the vectors <m>\v{T}(t)</m> and <m>\v{N}(t)</m>. 
+      They are orthogonal unit vectors that lie in the plane of the curve at that point. 
+      In <m>\R^3</m>, we can find a third unit vector that is orthogonal to both <m>\v{T}(t)</m> and <m>\v{N}(t)</m>, called the <term>binormal vector</term> <m>\v{B}(t)</m>, using the cross product. 
+      <md>
+        \v{B}(t) = \v{T}(t) \times \v{N}(t)
+      </md>
+      Based on what we know about the cross product, <m>\v{B}(t)</m> is also a unit vector orthogonal to both <m>\v{T}(t)</m> and <m>\v{N}(t)</m>. 
+      Also, the three vectors follow the right-hand rule. 
+    </p>
+
+    <p>
+      The set if these three mutually orthogonal unit vectors <m>\{\v{T}(t), \v{N}(t), \v{B}(t)\}</m> is called the <term>Frenet frame</term> (or TNB frame) of the curve at the point <m>\v{r}(t)</m>. 
+      The Frenet frame gives us a natural coordinate system to describe motion along a curve without relying on the standard <m>x</m>, <m>y</m>, and <m>z</m> axes. 
+    </p>
+
+    <figure>
+      <image source="sec134_TNB_Diagram.png" width="40%"></image>
+      <caption>The Frenet frame at a point on a curve. </caption>
+    </figure>
+
+    <example>
+      <p>
+        Let <m>\v{r}(t) = \la t, \dfrac{4}{3} t^\frac{3}{2}, t^2 \ra</m>. 
+        Find <m>\v{T}</m>, <m>\v{N}</m>, and <m>\v{B}</m> at the point corresponding to <m>t=1</m>. 
+      </p>
+
+      <solution>
+        <p>
+          We begin by computing the derivative of the position vector, <m>\v{r}'(t) = \la 1, 2\sqrt{t}, 2t \ra</m>. To find the unit tangent vector, we need the magnitude of this derivative. Notice that the expression under the square root simplifies into a perfect square:
+          <md>
+            <mrow> \|\v{r}'(t)\| \amp= \sqrt{1 + (2\sqrt{t})^2 + (2t)^2} </mrow>
+            <mrow> \amp= \sqrt{1 + 4t + 4t^2} </mrow>
+            <mrow> \amp= \sqrt{(1+2t)^2} </mrow>
+            <mrow> \amp= 1 + 2t </mrow>
+          </md>
+        </p>
+
+        <p>
+          This allows us to write a general formula for the unit tangent vector <m>\v{T}(t)</m> by dividing the velocity vector by its speed:
+          <me>
+            \v{T}(t) = \frac{\la 1, 2\sqrt{t}, 2t \ra}{1+2t} = \la (1+2t)^{-1}, 2t^{1/2}(1+2t)^{-1}, 2t(1+2t)^{-1} \ra
+          </me>
+          Evaluating this at <m>t=1</m>, we find our first vector:
+          <me>
+            \v{T}(1) = \la \frac{1}{3}, \frac{2}{3}, \frac{2}{3} \ra
+          </me>
+        </p>
+
+        <p>
+          To find the normal vector <m>\v{N}</m>, we differentiate <m>\v{T}(t)</m>. Using the Quotient and Chain Rules on each component gives:
+          <md>
+            <mrow> \frac{d}{dt}\lp (1+2t)^{-1} \rp \amp= -2(1+2t)^{-2} </mrow>
+            <mrow> \frac{d}{dt}\lp \frac{2\sqrt{t}}{1+2t} \rp \amp= \frac{(1+2t)t^{-1/2} - 2\sqrt{t}(2)}{(1+2t)^2} = \frac{1}{\sqrt{t}(1+2t)} - \frac{4\sqrt{t}}{(1+2t)^2} </mrow>
+            <mrow> \frac{d}{dt}\lp \frac{2t}{1+2t} \rp \amp= \frac{(1+2t)(2) - 2t(2)}{(1+2t)^2} = \frac{2}{(1+2t)^2} </mrow>
+          </md>
+          Now we evaluate these derivatives at <m>t=1</m>:
+          <md>
+            <mrow> x'(1) \amp= -2(3)^{-2} = -\frac{2}{9} </mrow>
+            <mrow> y'(1) \amp= \frac{1}{1(3)} - \frac{4(1)}{9} = \frac{3}{9} - \frac{4}{9} = -\frac{1}{9} </mrow>
+            <mrow> z'(1) \amp= \frac{2}{9} </mrow>
+          </md>
+          So, <m>\v{T}'(1) = \la -\frac{2}{9}, -\frac{1}{9}, \frac{2}{9} \ra</m>. To get <m>\v{N}(1)</m>, we normalize this vector. The magnitude is <m>\sqrt{\frac{4}{81} + \frac{1}{81} + \frac{4}{81}} = \sqrt{\frac{9}{81}} = \frac{1}{3}</m>. Dividing <m>\v{T}'(1)</m> by <m>\frac{1}{3}</m> (or multiplying by 3) yields:
+          <me>
+            \v{N}(1) = \la -\frac{2}{3}, -\frac{1}{3}, \frac{2}{3} \ra
+          </me>
+        </p>
+
+        <p>
+          Finally, we find the binormal vector <m>\v{B}</m> by computing the cross product <m>\v{T}(1) \times \v{N}(1)</m>:
+          <md>
+            <mrow> \v{B}(1) \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1/3 \amp 2/3 \amp 2/3 \\ -2/3 \amp -1/3 \amp 2/3 \end{vmatrix} </mrow>
+            <mrow> \amp= \frac{1}{9} \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1 \amp 2 \amp 2 \\ -2 \amp -1 \amp 2 \end{vmatrix} </mrow>
+            <mrow> \amp= \frac{1}{9} \la (4 - (-2)), - (2 - (-4)), (-1 - (-4)) \ra </mrow>
+            <mrow> \amp= \frac{1}{9} \la 6, -6, 3 \ra </mrow>
+            <mrow> \amp= \la \frac{2}{3}, -\frac{2}{3}, \frac{1}{3} \ra </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-OsculatingCircle">
+    <title>The Osculating Circle</title>
+
+    <p>
+      The last question in this section for us to investigate is: <alert>how to interpret the curvature value? </alert>
+      For example, if a curve has curvature <m>\kappa = 5</m> at some point, what does that mean? 
+    </p>
+
+    <p>
+      Geometrically speaking, the curvature at a point on a curve measures how closely the curve resembles a circle at that point. 
+      This "best-fit" circle is called the <term>osculating circle</term> at that point ("osculating", from the Latin <em>osculari</em>, means "kissing", so the osculating circle is the circle that "kisses" the curve at that point). 
+    </p>
+
+    <figure>
+      <image source="sec134_OsculatingCircle_Diagram.png" width="60%"></image>
+      <caption>The osculating circle at a point on a curve. </caption>
+    </figure>
+
+    <p>
+      Recall that the curvature of a circle of radius <m>R</m> is <m>\kappa = \dfrac{1}{R}</m>. 
+      Therefore, the radius of the osculating circle at a point on a curve is given by
+      <md>
+        R = \frac{1}{\kappa}
+      </md>
+      This means that a curve with large curvature at a point has a small osculating circle (the curve is bending sharply), while a curve with small curvature at a point has a large osculating circle (the curve is bending gently).
+    </p>
+
+    <p>
+      We can also find the center of the osculating circle by a simple vector addition shown in the following diagram. 
+    </p>
+
+    <figure>
+      <image source="sec134_Center_OsculatingCircle_Diagram.png" width="50%"></image>
+      <caption>The center <m>Q</m> of the osculating circle at <m>P</m> lies a distance <m>R = \frac{1}{\kappa}</m> from <m>P</m> in the normal direction. </caption>
+    </figure>
+
+    <p>
+      Hence, the center of the osculating circle at the point <m>\v{r}(t)</m> is given by
+      <md>
+        \overrightarrow{OQ} = \v{r}(t) + \frac{1}{\kappa(t)} \v{N}(t)
+      </md>
+      where <m>\v{N}(t)</m> is the normal vector at that point.
+    </p>
+
+    <example>
+      <p>
+        Find an equation of the osculating circle to the curve <m>\v{r}(t) = \la t, \ln(t) \ra</m> at the point where <m>t=1</m>.
+      </p>
+
+      <solution>
+        <p>
+          First, we find the derivatives of the position vector at <m>t=1</m>:
+          <md>
+            <mrow> \v{r}(t) \amp= \la t, \ln(t) \ra \implies \v{r}(1) = \la 1, 0 \ra </mrow>
+            <mrow> \v{r}'(t) \amp= \la 1, \frac{1}{t} \ra \implies \v{r}'(1) = \la 1, 1 \ra </mrow>
+            <mrow> \v{r}''(t) \amp= \la 0, -\frac{1}{t^2} \ra \implies \v{r}''(1) = \la 0, -1 \ra </mrow>
+          </md>
+        </p>
+
+        <p>
+          <term>Step 1: Find the radius of curvature <m>R</m></term><br/>
+          We compute the curvature <m>\kappa(1)</m> using the 2D formula:
+          <md>
+            <mrow> \kappa(1) \amp= \frac{|x'(1)y''(1) - y'(1)x''(1)|}{\|\v{r}'(1)\|^3} </mrow>
+            <mrow> \amp= \frac{|(1)(-1) - (1)(0)|}{(\sqrt{1^2+1^2})^3} </mrow>
+            <mrow> \amp= \frac{|-1|}{(\sqrt{2})^3} = \frac{1}{2\sqrt{2}} </mrow>
+          </md>
+          The radius is the reciprocal of the curvature:
+          <me>
+            R = \frac{1}{\kappa} = 2\sqrt{2}
+          </me>
+        </p>
+
+        <p>
+          <term>Step 2: Find the normal vector <m>\v{N}</m></term><br/>
+          To use the definition <m>\v{N}(t) = \frac{\v{T}'(t)}{\|\v{T}'(t)\|}</m>, we first need the general formula for <m>\v{T}(t)</m>.
+          <md>
+            <mrow> \|\v{r}'(t)\| \amp= \sqrt{1^2 + \left(\frac{1}{t}\right)^2} = \sqrt{\frac{t^2+1}{t^2}} = \frac{\sqrt{t^2+1}}{t} </mrow>
+          </md>
+          Now we define <m>\v{T}(t)</m>:
+          <md>
+            <mrow> \v{T}(t) \amp= \frac{\v{r}'(t)}{\|\v{r}'(t)\|} = \frac{\la 1, t^{-1} \ra}{\frac{\sqrt{t^2+1}}{t}} = \frac{t}{\sqrt{t^2+1}} \la 1, t^{-1} \ra </mrow>
+            <mrow> \amp= \la \frac{t}{(t^2+1)^{1/2}}, \frac{1}{(t^2+1)^{1/2}} \ra </mrow>
+            <mrow> \amp= \la t(t^2+1)^{-1/2}, (t^2+1)^{-1/2} \ra </mrow>
+          </md>
+          Next, we differentiate <m>\v{T}(t)</m> to find <m>\v{T}'(t)</m>.
+          <md>
+            <mrow> x_{\v{T}}'(t) \amp= (1)(t^2+1)^{-1/2} + t\left(-\frac{1}{2}\right)(t^2+1)^{-3/2}(2t) </mrow>
+            <mrow> \amp= (t^2+1)^{-1/2} - t^2(t^2+1)^{-3/2} </mrow>
+            <mrow> \amp= \frac{t^2+1}{(t^2+1)^{3/2}} - \frac{t^2}{(t^2+1)^{3/2}} = \frac{1}{(t^2+1)^{3/2}} </mrow>
+            <mrow> y_{\v{T}}'(t) \amp= -\frac{1}{2}(t^2+1)^{-3/2}(2t) = \frac{-t}{(t^2+1)^{3/2}} </mrow>
+          </md>
+          Evaluating at <m>t=1</m>:
+          <md>
+            <mrow> \v{T}'(1) \amp= \la \frac{1}{(2)^{3/2}}, \frac{-1}{(2)^{3/2}} \ra = \la \frac{1}{2\sqrt{2}}, -\frac{1}{2\sqrt{2}} \ra = \frac{1}{2\sqrt{2}}\la 1, -1 \ra </mrow>
+          </md>
+          Finally, we normalize this vector. Since <m>\frac{1}{2\sqrt{2}}</m> is just a scalar, the direction is clearly <m>\la 1, -1 \ra</m>.
+          <md>
+            <mrow> \v{N}(1) \amp= \frac{\v{T}'(1)}{\|\v{T}'(1)\|} = \frac{\la 1, -1 \ra}{\sqrt{1^2+(-1)^2}} = \frac{1}{\sqrt{2}}\la 1, -1 \ra </mrow>
+          </md>
+        </p>
+
+        <p>
+          <term>Step 3: Find the center <m>Q</m></term><br/>
+          We use the vector addition formula:
+          <md>
+            <mrow> \overrightarrow{OQ} \amp= \v{r}(1) + \frac{1}{\kappa} \v{N}(1) </mrow>
+            <mrow> \amp= \la 1, 0 \ra + (2\sqrt{2}) \left[ \frac{1}{\sqrt{2}}\la 1, -1 \ra \right] </mrow>
+            <mrow> \amp= \la 1, 0 \ra + 2\la 1, -1 \ra </mrow>
+            <mrow> \amp= \la 1+2, 0-2 \ra = \la 3, -2 \ra </mrow>
+          </md>
+          The center is <m>(3, -2)</m>.
+        </p>
+
+        <p>
+          <term>Step 4: Determine the equation of the osculating circle</term><br/>
+          Using the center <m>(3, -2)</m> and radius <m>R = 2\sqrt{2}</m> (so <m>R^2 = 8</m>):
+          <me>
+            (x-3)^2 + (y+2)^2 = 8
+          </me>
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <worksheet xml:id="ws-sec134">
+    <title>Assigned Problems for Section 13.4</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="13.4.3">
+      <p>
+        Calculate <m>\v{r}'(t)</m> and <m>\v{T}(t)</m> for <m>\v{r}(t) = \la 3+4t, 3-5t, 9t \ra</m>, and evaluate <m>\v{T}(1)</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.4.9">
+      <p>
+        Calculate the curvature function <m>\kappa(t)</m> of <m>\v{r}(t) = \la 4t+1, 4t-3, 2t \ra</m> using <xref ref="thm-CrossProductFormula-Curvature"/>.
+      </p>
+    </exercise>
+
+    <exercise number="13.4.13">
+      <p>
+        Evaluate the curvature of the curve <m>\v{r}(t) = \la \cos(t), \sin(t), t^2 \ra</m> at the point where <m>t=\frac{\pi}{2}</m> using <xref ref="thm-CrossProductFormula-Curvature"/>.
+      </p>
+    </exercise>
+
+    <exercise number="13.4.17">
+      <p>
+        Find the curvature of the plane curve <m>y = t^4</m> at the point where <m>t=2</m>.
+      </p>
+    </exercise>
+
+    <exercise number="13.4.25">
+      <p>
+        Show that the curvature function of the parametrization <m>\v{r}(t) = \la a\cos(t), b\sin(t) \ra </m> of the ellipse <m>\lp \dfrac{x}{a} \rp^2 + \lp \dfrac{y}{b} \rp^2 = 1</m> is 
+        <md>
+          \kappa(t) = \frac{ab}{\lp b^2\cos^2(t) + a^2\sin^2(t)\rp^\frac{3}{2}}
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="13.4.31">
+      <p>
+        Compute the curvature of <m>\la t\cos(t), \sin(t) \ra</m> at the point where <m>t=\pi</m> using <xref ref="thm-Curvature-PlaneCurve"/>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.4.37">
+      <p>
+        Find the normal vector <m>\v{N}(t)</m> to <m>\v{r} = \la 4, \sin(2t), \cos(2t) \ra</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.4.39">
+      <p>
+        Find the normal vectors to <m>\v{r}(t) = \la t, \cos(t) \ra</m> at <m>t = \dfrac{\pi}{4}</m> and <m>t = \dfrac{3\pi}{4}</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.4.43">
+      <p>
+        Find <m>\v{T}</m>, <m>\v{N}</m>, and <m>\v{B}</m> for the curve <m>\v{r}(t) = \la t,t^2,\dfrac{2}{3}t^3 \ra</m> at the point <m>\lp 1,1,\dfrac{2}{3} \rp</m>. 
+      </p>
+
+      <hint>
+        <p>
+          After finding <m>\v{T}'</m>, plug in the specific value for <m>t</m> before computing <m>\v{N}</m> and <m>\v{B}</m>. 
+        </p>
+      </hint>
+    </exercise>
+
+    <exercise number="13.4.49">
+      <p>
+        Find <m>\v{N}</m> for the curve <m>\la \dfrac{t^2}{2}, \dfrac{t^3}{3}, t \ra</m> at the point where <m>t=1</m> using the formula
+        <md>
+          \v{N}(t) = \frac{v(t)\v{r}''(t) - v'(t)\v{r}'(t)}{\|v(t)\v{r}''(t) - v'(t)\v{r}'(t)\|}
+        </md>
+        where <m>v(t) = \|\v{r}'(t) \|</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.4.55">
+      <p>
+        Let <m>\v{r}(t) = \la t,1-t,t^2 \ra</m>. 
+        <ol>
+          <li>
+            <p>
+              Find the general formulas for <m>\v{T}</m> and <m>\v{N}</m> as functions of <m>t</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the general formula for <m>\v{B}</m> as a function of <m>t</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              What can you conclude about the osculating planes of the curve based on your answer to (b)? 
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercise number="13.4.67">
+      <p>
+        Find an equation of the osculating circle to the curve <m>\v{r}(t) = \la 1-\sin(t), 1-2\cos(t) \ra</m> at the point where <m>t=\dfrac{\pi}{4}</m> or indicate that none exists. 
+      </p>
+    </exercise>
+
+  </worksheet>
 
 </section>

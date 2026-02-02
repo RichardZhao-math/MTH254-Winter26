@@ -5,7 +5,9 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In this section, we will derive the formula for arc length of a curve in <m>\R^3</m> parametrized by a vector-valued function. 
+      We will also use this formula to define the speed of a particle moving along a curve. 
+      Finally, we will explore the concept of arc length parametrization and how to construct one for a given vector-valued function.
     </p>
 
     <objectives>
@@ -17,12 +19,693 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            generalize the arc length formula from <m>\R^2</m> to <m>\R^3</m> using vector-valued functions.
+          </p>
+        </li>
+        <li>
+          <p>
+            calculate the arc length of a given curves. 
+          </p>
+        </li>
+        <li>
+          <p>
+            calculate the speed of a particle moving along a curve defined by a vector-valued function.
+          </p>
+        </li>
+        <li>
+          <p>
+            identify and construct an arc length parametrization for a given vector-valued function.
           </p>
         </li>
       </ul>
     </objectives>
-    
   </introduction>
+
+  <subsection xml:id="subsec-ArcLength">
+    <title>Arc Length</title>
+
+    <p>
+      Recall you learned about the arc length formula back in MTH 252Z (or MTH 252) for a curve in <m>\R^2</m> with explicit form <m>y = f(x)</m>. 
+      To jog your memory, the <em>arc length</em> of a curve <m>y = f(x)</m> over the interval <m>[a,b]</m> is given by the formula
+      <md>
+        s = \int_a^b \sqrt{1 + \lp f'(x)\rp^2}\, dx
+      </md>
+    </p>
+
+    <p>
+      You may also learn about the arc length formula back in MTH 253Z (or MTH 253) for a curve in <m>\R^2</m> in parametric equations <m>\c(t) = \lp x(t), y(t) \rp</m>. 
+      To refresh your memory, the <em>arc length</em> of a curve traversed by the parametrized equations <m>c(t) = \lp x(t), y(t) \rp </m> is given by the formula
+      <md>
+        s = \int_a^b \sqrt{\lp x'(t)\rp^2 + \lp y'(t)\rp^2}\, dt
+      </md>
+    </p>
+
+    <p>
+      If you remember how the above arc length formulas were derived, then we can use the same trick to derive the arc length formula for a curve in <m>\R^3</m> parametrized by <m>\v{r}(t) = \la x(t), y(t), z(t) \ra</m>. 
+    </p>
+
+    <p>
+      The underlying idea here is to <em>approximate</em> the length of the curve by breaking it into small <em>line segments</em>, finding the lengths of those line segments, and then adding them up. 
+      This is sometimes referred to as the <alert>polygonal approximation</alert> of the curve.
+    </p>
+
+    <figure>
+      <image source="sec133_PolygonalApproximation_ArcLength.png" width="60%"></image>
+      <caption>Polygonal Approximation to the arc <m>\v{r}(t)</m> for <m>a \leq t \leq b</m>. </caption>
+    </figure>
+
+    <p>
+      Obviously, the smaller each line segments used for the approximation, the better the approximation becomes. 
+      Theoretically speaking, if we let the number of line segments approach infinity (and the max length of each line segment approaches 0), then the approximation becomes exact.
+    </p>
+
+    <p>
+      Say we want to find the length of the curve traced by <m>\v{r}(t) = \la x(t), y(t), z(t) \ra</m> over the interval <m>a \leq t \leq b</m>. 
+      Then we can start by figuring out the length of one of those line segments using the distance formula in <m>\R^3</m>. 
+      <md>
+        <mrow> \text{length of line segment} \amp= \sqrt{(\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2}</mrow>
+        <mrow> \amp= \sqrt{\lp \lp \frac{\Delta x}{\Delta t}\rp^2 + \lp \frac{\Delta y}{\Delta t}\rp^2 + \lp \frac{\Delta z}{\Delta t}\rp^2 \rp \cdot \Delta t^2}</mrow>
+        <mrow> \amp= \sqrt{\lp \frac{\Delta x}{\Delta t}\rp^2 + \lp \frac{\Delta y}{\Delta t}\rp^2 + \lp \frac{\Delta z}{\Delta t}\rp^2} \cdot \Delta t</mrow>
+      </md>
+      Since we are letting the number of line segments approach infinity, we can take the limit as <m>\Delta t \to 0</m> to turn the average rate of change of each component into the instantaneous rate of change. 
+      Thus, the length of that line segment becomes
+      <md>
+        <mrow> \lim_{\Delta t\to 0} \sqrt{\lp \frac{\Delta x}{\Delta t}\rp^2 + \lp \frac{\Delta y}{\Delta t}\rp^2 + \lp \frac{\Delta z}{\Delta t}\rp^2} \cdot \Delta t \amp= \sqrt{\lp \frac{dx}{dt}\rp^2 + \lp \frac{dy}{dt}\rp^2 + \lp \frac{dz}{dt}\rp^2}\, dt</mrow>
+        <mrow> \amp= \sqrt{\lp x'(t) \rp^2 + \lp y'(t) \rp^2 + \lp z'(t) \rp^2} \, dt </mrow>
+      </md>
+    </p>
+
+    <p>
+      Now that we have the length of one line segment, we can add up the lengths of all the line segments to approximate the length of the curve. 
+      Remember that integration is just a limit of Riemann sums, meaning we are adding infinitely many infinitesimally small pieces together. 
+      Thus, the arc length of the curve is given by the integral
+      <md>
+        s = \int_a^b \sqrt{\lp x'(t) \rp^2 + \lp y'(t) \rp^2 + \lp z'(t) \rp^2} \, dt
+      </md>
+      Let's make it into a cool theorem! 
+    </p>
+
+    <theorem xml:id="thm-ArcLengthFormula">
+      <title>Arc Length</title>
+      <statement>
+        <p>
+          Let <m>\v{r}(t)</m> directly traverse <m>\c{C}</m> for <m>a \leq t \leq b</m>. 
+          Assume that <m>\v{r}'(t)</m> exists and is continuous. 
+          Then the arc length <m>s</m> of the curve <m>\c{C}</m> is equal to
+          <md>
+            s = \int_a^b \sqrt{\lp x'(t) \rp^2 + \lp y'(t) \rp^2 + \lp z'(t) \rp^2} \, dt
+          </md>
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <p>
+        Find the length of the curve traced by <m>\v{r}(t) = \la 2t, \ln(t), t^2 \ra</m> over <m>1 \leq t \leq 4</m>. 
+      </p>
+
+      <solution>
+        <p>
+          We know that
+          <md>
+            \v{r}'(t) = \la 2, \frac{1}{t}, 2t \ra
+          </md>
+          This implies that
+          <md>
+            <mrow> s \amp= \int_1^4 \|\v{r}'(t)\| \, dt </mrow>
+            <mrow> \amp= \int_1^4 \sqrt{2^2 + \lp \frac{1}{t} \rp^2 + (2t)^2} \, dt </mrow>
+            <mrow> \amp= \int_1^4 \sqrt{4 + \frac{1}{t^2} + 4t^2} \, dt </mrow>
+            <mrow> \amp= \int_1^4 \sqrt{\lp 2t + \frac{1}{t} \rp^2} \, dt </mrow>
+            <mrow> \amp= \int_1^4 \lp 2t + \frac{1}{t} \rp \, dt </mrow>
+            <mrow> \amp= \lp t^2 + \ln|t| \rp \bigg|_1^4 </mrow>
+            <mrow> \amp= \lp 16 + \ln(4) - \lp 1 + \ln(1) \rp \rp </mrow>
+            <mrow> \amp= 15 + \ln(4) </mrow>
+          </md>
+          
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+      We can make a cool observation here that the integrand is essentially the magnitude of the derivative of the vector-valued function <m>\v{r}(t)</m>. 
+      Back in MTH 251Z (or MTH 251), we learned that the derivative of the position function is the velocity function, and the magnitude of the velocity function is the speed function. 
+      So we can derive a formula to find the speed! 
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-Speed">
+    <title>Speed</title>
+    
+    <p>
+      The speed of a particle moving along a curve parametrized by <m>\v{r}(t) = \la x(t), y(t), z(t) \ra</m> at time <m>t</m> is defined as the <em>rate of change</em> of distance traveled with respect to time. 
+      We actually know the distance traveled along a curve from the arc length formula we just derived!
+      We can define the <alert>arc length function</alert> to capture the distance traveled along the curve from some starting point <m>t = a</m> to any point <m>t</m>. 
+      <md>
+        <mrow> s(t) \amp= \int_a^t \sqrt{\lp x'(t) \rp^2 + \lp y'(t) \rp^2 + \lp z'(t) \rp^2} \, dt </mrow>
+        <mrow> \amp= \int_a^t \| \v{r}'(u) \| \, du </mrow>
+      </md>
+      Observe that the arc length function returns the distance traveled, which is a scalar quantity. 
+      Therefore, the speed is simply the derivative of the arc length function with respect to time. 
+      <md>
+        <mrow>\text{Speed at time } t \amp= \frac{d}{dt} s(t) </mrow>
+        <mrow> \amp= \frac{d}{dt} \int_a^t \| \v{r}'(u) \| \, du </mrow>
+        <mrow> \amp= \| \v{r}'(t) \| \amp\amp\text{by FTC}</mrow>
+      </md>
+      Well this formula makes sense! 
+      The speed is just the magnitude of the velocity vector, which can be obtained by differentiating the position function <m>\v{r}(t)</m>! 
+    </p>
+
+    <example>
+      <p>
+        Find the speed of a particle moving along the curve parametrized by <m>\v{r}(t) = \la te^{t-3}, 12, 3t^{-1} \ra</m> at time <m>t = 3</m>.
+      </p>
+
+      <solution>
+        <p>
+          The velocity vector is
+          <md>
+            <mrow> \v{r}'(t) \amp= \la e^{t-3}, 0, -3t^{-2} \ra </mrow>
+            <mrow>\implies \qquad \v{r}'(3) \amp= \la e^{3-3}, 0, -3(3)^{-2} \ra = \la 1, 0, -\frac{1}{3} \ra </mrow>
+          </md>
+          The speed is the magnitude of the velocity vector. 
+          That is, 
+          <md>
+            v(3) = \|\v{r}'(3)\| = \sqrt{1^2 + 0^2 + \lp -\frac{1}{3} \rp^2} = \sqrt{\frac{10}{9}} \approx 1.05
+          </md>
+          
+        </p>
+      </solution>
+    </example>
+
+  </subsection>
+
+  <subsection xml:id="subsec-ArcLengthParametrization">
+    <title>Arc Length Parametrization</title>
+
+    <p>
+      Recall that we saw multiple parametrizations of the same curve in <xref ref="sec131-VectorFunctions"/> (we even graphed some of them in class using GeoGebra to make sure they traced the same curve!). 
+      While these different parametrizations traced the same curve, they may do so at <alert>different rates</alert>. 
+    </p>
+
+    <p>
+      For example, consider the following two curves
+      <md>
+        <mrow> \c{C}_1 \text{ traced by the function } \v{r}_1(t) = \la \cos(t), \sin(t) \ra \text{ ;}</mrow>
+        <mrow> \c{C}_2 \text{ traced by the function } \v{r}_2(u) = \la \cos(2u), \sin(2u) \ra \text{ .}</mrow>
+      </md>
+      Observe that they both trace the same circle <m>x^2 + y^2 = 1</m> within their respective domains. 
+      However, they do so at <alert>different speeds</alert>. 
+    </p>
+
+    <p>
+      For the path <m>\v{r}_1(t)</m>, the particle completes one full revolution around the circle as <m>t</m> goes from <m>0</m> to <m>2\pi</m>, as indicated by the figure below. 
+      We can find the average speed as <m>\frac{2\pi}{2\pi} = 1</m> unit. 
+    </p>
+
+    <figure>
+      <caption>The Path <m>\v{r}_1(t) = \la \cos(t), \sin(t) \ra</m> for <m>0 \leq t \leq 2\pi</m>. </caption>
+      <interactive xml:id="interactive-circle-animation-vector" platform="sage" width="100%" aspect="1:1">
+        <slate surface="sage">
+          var('t')
+          # 1. Define the full background circle (optional reference)
+          full_circle = parametric_plot((cos(t), sin(t)), (t, 0, 2*pi), color='lightgray', thickness=1, linestyle='--')
+          
+          # 2. Generate Frames
+          frames = []
+          step = 0.1
+          for T in srange(0, 2*pi + step, step):
+              # Current Coordinate
+              x_curr = cos(T)
+              y_curr = sin(T)
+              
+              # A. The position vector (arrow from origin to current point)
+              r_vector = arrow((0,0), (x_curr, y_curr), color='red', width=2)
+              
+              # B. The point at the tip
+              current_point = point((x_curr, y_curr), color='red', size=40, zorder=5)
+              
+              # C. The path traced so far
+              if T > 0.01:
+                  path = parametric_plot((cos(t), sin(t)), (t, 0, T), color='blue', thickness=2)
+              else:
+                  path = Graphics()
+              
+              # D. Label for t-value
+              # Positioned nicely in the corner
+              label = text(f"t = {float(T):.2f}", (1.1, 1.1), color='black', horizontal_alignment='left')
+              
+              # Combine all elements
+              frames.append(full_circle + path + r_vector + current_point + label)
+          
+          # 3. Create and show animation
+          # Fixed axes limits prevent the camera from zooming in/out
+          anim = animate(frames, xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5)
+          anim.show(delay=10)
+        </slate>
+      </interactive>
+    </figure>
+
+    <p>
+      For the path <m>\v{r}_2(u)</m>, the particle completes one full revolution around the circle as <m>u</m> goes from <m>0</m> to <m>\pi</m>, as indicated by the figure below. 
+      We can find the average rate of change as <m>\frac{2\pi}{\pi} = 2</m> units. 
+      Observe that this is twice the speed of <m>\v{r}_1(t)</m>.
+    </p>
+
+    <figure>
+      <caption>The Path <m>\v{r}_2(u) = \la \cos(2u), \sin(2u) \ra</m> for <m>0 \leq u \leq \pi</m>. .</caption>
+      <interactive xml:id="interactive-circle-animation-2t" platform="sage" width="100%" aspect="1:1">
+        <slate surface="sage">
+          var('t')
+          # 1. Define the full background circle
+          # Note: We plot 0 to pi because that completes the circle shape for cos(2t), sin(2t)
+          # plotting up to 2pi just traces it twice.
+          full_circle = parametric_plot((cos(2*t), sin(2*t)), (t, 0, 2*pi), color='lightgray', thickness=1, linestyle='--')
+          
+          # 2. Generate Frames
+          frames = []
+          step = 0.05 # Smaller step size since it moves faster
+          
+          # t goes from 0 to 2pi
+          for T in srange(0, 2*pi + step, step):
+              # Current Coordinate with 2t
+              x_curr = cos(2*T)
+              y_curr = sin(2*T)
+              
+              # A. The position vector
+              r_vector = arrow((0,0), (x_curr, y_curr), color='red', width=2)
+              
+              # B. The point at the tip
+              current_point = point((x_curr, y_curr), color='red', size=40, zorder=5)
+              
+              # C. The path traced so far
+              if T > 0.01:
+                  path = parametric_plot((cos(2*t), sin(2*t)), (t, 0, T), color='blue', thickness=2)
+              else:
+                  path = Graphics()
+              
+              # D. Label for t-value
+              label = text(f"t = {float(T):.2f}", (1.1, 1.1), color='black', horizontal_alignment='left')
+              
+              frames.append(full_circle + path + r_vector + current_point + label)
+          
+          # 3. Show animation
+          anim = animate(frames, xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5)
+          anim.show(delay=5) # Faster delay for smoother fast motion
+        </slate>
+      </interactive>
+    </figure>
+
+    <p>
+      This demonstrates that different parametrizations of the same curve can trace the curve at different speeds. 
+      One can easily see that the second parametrization traces the curve twice as fast as the first one because 
+      <md>
+        \v{r}_2(u) = \v{r}_1(2u)
+      </md>
+      That is, <m>\v{r}_2(u)</m> is a composite function that uses <m>\v{r}_1(t)</m> as the outer function and <m>2u</m> as the inner function. 
+      The outside function controls the shape of the curve, while the inside function controls the rate at which the curve is traced. 
+    </p>
+
+    <p>
+      Now that we have a way to control the rate at which a curve is traced, we can use this to create a parametrization that traces a curve at a desired rate. 
+      The nicest rate to trace a curve is at a constant speed of <m>1</m> unit per unit time. 
+      A parametrization of this type is called an <term>arc length parametrization</term>. 
+      Symbolically speaking, if <m>\v{r}(s)</m> is an arc length parametrization of a curve, then 
+      <md>
+        \|\v{r}'(s) \| = 1 \qquad \text{ for all }s
+      </md>
+    </p>
+    
+    <p>
+      There are three important properties of an arc length parametrization: 
+      <ul>
+        <li>
+          <p>
+            The parameter <m>s</m> directly measures the distance along the curve from some starting point (hence the name "arc length" parametrization). 
+          </p>
+        </li>
+        <li>
+          <p>
+            Every velocity vector <m>\v{r}'(s)</m> is a unit vector (since its magnitude is 1). 
+          </p>
+
+          <figure>
+            <image source="sec133_ArcLengthParametrization_Diagram.png" width="80%"></image>
+          </figure>
+        </li>
+        <li>
+          <p>
+            The distance traveled along the curve from <m>s = a</m> to <m>s = b</m> is simply <m>b - a</m>. 
+            Symbolically speaking, we have
+            <md>
+              <mrow> \text{distance traveled over } [a,b] \amp= \int_a^b \|\v{r}'(s) \|\, ds </mrow>
+              <mrow> \amp= \int_a^b 1\, ds </mrow>
+              <mrow> \amp= b-a </mrow>
+            </md>
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Since arc length parametrizations have such nice properties, it is often useful to create an arc length parametrization of a given curve. 
+      The general process to create an arc length parametrization is as follows:
+      <ol>
+        <li>
+          <p>
+            Compute the arc length function <md>\displaystyle s = g(t) = \int_a^t \|\v{r}'(u)\| du</md> for the given parametrization <m>\v{r}(t)</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the inverse function <m>t = g^{-1}(s)</m> of the arc length function. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Substitute <m>t = g^{-1}(s)</m> into the original parametrization to get <md>\v{r}_1(s) = \v{r}\lp g^{-1}(s)\rp</md>
+            This new parametrization is an arc length parametrization. 
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <note>
+      <title>But Richard... Why does this process work?</title>
+
+      <p>
+        Great question! 
+        The key idea here is that the arc length function <m>s = g(t)</m> measures the distance traveled along the curve from <m>t = a</m> to any point <m>t</m>. 
+        Therefore, if we can invert this function to get <m>t = g^{-1}(s)</m>, then we can express the original parameter <m>t</m> in terms of the distance traveled <m>s</m>. 
+        By substituting this back into the original parametrization, we are effectively reparametrizing the curve in terms of the distance traveled, which ensures that the new parametrization traces the curve at a constant speed of <m>1</m> unit per unit time.
+      </p>
+
+      <p>
+        To justify this more rigorously, we can use the Chain Rule to differentiate <m>\v{r}_1(s) = \v{r}\lp g^{-1}(s)\rp</m> with respect to <m>s</m>. 
+        <md>
+          \frac{d\v{r}_1}{ds} = \frac{d\v{r}}{dt} \cdot \frac{dt}{ds}
+        </md>
+        Well the first piece is just <m>\v{r}'(t)</m>. 
+      </p>
+
+      <p>
+        We can also figure out the second piece. 
+        By the fundamental theorem of calculus, we know that
+        <md>
+          \frac{ds}{dt} = \frac{d}{dt} \int_a^t \|\v{r}'(u)\| du = \|\v{r}'(t)\|
+        </md>
+        This implies that
+        <md>
+          \frac{dt}{ds} = \frac{1}{\frac{ds}{dt}} = \frac{1}{\|\v{r}'(t)\|}
+        </md>
+        Putting them together, we have
+        <md>
+          \frac{d\v{r}_1}{ds} = \frac{d\v{r}}{dt} \cdot \frac{dt}{ds} = \v{r}'(t) \cdot \frac{1}{\|\v{r}'(t)\|} = \frac{\v{r}'(t)}{\|\v{r}'(t)\|}
+        </md>
+        (This is just the unit vector in the direction of <m>\v{r}'(t)</m>, called the <alert>unit tangent vector</alert>. 
+        We will discuss it more in the next section!)
+      </p>
+
+      <p>
+        We found the derivative of the arc length parametrization! 
+        To justify that it is indeed an arc length parametrization, we need to check that its speed is <m>1</m>. 
+        We can compute the speed as follows:
+        <md>
+          \left\|\frac{d\v{r}_1}{ds}\right\| = \left\| \frac{\v{r}'(t)}{\|\v{r}'(t)\|} \right\| = \frac{\|\v{r}'(t)\|}{\|\v{r}'(t)\|} = 1
+        </md>
+        Thus, we have verified that <m>\v{r}_1(s)</m> is indeed an arc length parametrization!
+      </p>
+    </note>
+
+    <example>
+      <p>
+        Find an arc length parametrization of the helix with parametrization
+        <md>
+          \v{r}(t) = \la \cos(t), \sin(t), t \ra
+        </md>
+        with the parameter <m>s</m> measuring from <m>(1,0,0)</m>. 
+      </p>
+
+      <hint>
+        <p>
+          Remember the goal here is to find an inside function <m>t = g^{-1}(s)</m> that we can plug into the original parametrization to get an arc length parametrization. 
+          There are three main steps to this process! 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          The initial point <m>(1,0,0)</m> corresponds to <m>t = 0</m>. 
+        </p>
+
+        <p>
+          <alert>Step 1.</alert> Find the arc length function <md>\displaystyle s = g(t) = \int_a^t \|\v{r}'(u)\| du</md>. 
+          <md>
+            <mrow> \|\v{r}'(t)\| \amp= \sqrt{\lp -\sin(t) \rp^2 + \lp \cos(t) \rp^2 + 1^2} </mrow>
+            <mrow> \amp= \sqrt{\sin^2(t) + \cos^2(t) + 1} </mrow>
+            <mrow> \amp= \sqrt{2} </mrow>
+          </md>
+          We then compute the arc length function.
+          <md>
+            <mrow> s = g(t) = \int_0^t \sqrt{2}\, du = \sqrt{2}t </mrow>
+          </md>
+        </p>
+
+        <p>
+          <alert>Step 2.</alert> Solve <m>s = g(t)</m> for <m>t</m>. 
+          <md>
+            <mrow> s = \sqrt{2}t \qquad \implies \qquad t = \frac{s}{\sqrt{2}} </mrow>
+          </md>
+        </p>
+
+        <p>
+          <alert>Step 3.</alert> Substitute <m>t = g^{-1}(s)</m> into the original parametrization to get the arc length parametrization. 
+          <md>
+            \v{r}_1(s) = \v{r}\lp g^{-1}(s)\rp = \la \cos\lp \frac{s}{\sqrt{2}} \rp, \sin\lp \frac{s}{\sqrt{2}} \rp, \frac{s}{\sqrt{2}} \ra
+          </md>
+        </p>
+
+        <p>
+          <alert>P.S.:</alert> One can verify quickly that the curve traced by <m>\v{r}_1(t)</m> is indeed the same helix as <m>\v{r}(t)</m> and that the speed of <m>\v{r}_1(s)</m> is <m>1</m>. 
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      In practice, finding an arc length parametrization can be tricky because it involves finding the inverse of the arc length function, which may not always be possible to express in a simple closed form.
+      This is just something to keep in mind when working with arc length parametrizations! 
+    </p>
+
+    <example>
+      <p>
+        Find an arc length parametrization of the cycloid with parametrization
+        <md>
+          \v{r}(t) = \la t-\sin(t), 1-\cos(t) \ra
+        </md>
+      </p>
+
+      <hint>
+        <p>
+          Remember the goal here is to find an inside function <m>t = g^{-1}(s)</m> that we can plug into the original parametrization to get an arc length parametrization. 
+          There are three main steps to this process! 
+        </p>
+
+        <p>
+          Be careful with all the trigonometric manipulations when simplifying stuff! 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          <alert>Step 1.</alert> Find the arc length function <md>\displaystyle s = g(t) = \int_a^t \|\v{r}'(u)\| du</md>. 
+          <md>
+            <mrow> \|\v{r}'(t)\| \amp= \sqrt{\lp 1 - \cos(t)\rp^2 + \sin^2(t)} </mrow>
+            <mrow> \amp= \sqrt{1 - 2\cos(t) + \cos^2(t) + \sin^2(t)} </mrow>
+            <mrow> \amp= \sqrt{2 - 2\cos(t)} </mrow>
+            <mrow> \amp= \sqrt{4\sin^2\lp \frac{t}{2} \rp} </mrow>
+            <mrow> \amp= 2\sin\lp \frac{t}{2} \rp \amp </mrow>
+          </md>
+          We then compute the arc length function.
+          <md>
+            <mrow> s = g(t) \amp= \int_0^t 2\sin\lp \frac{u}{2} \rp\, du </mrow>
+            <mrow> \amp= -4\cos\lp \frac{u}{2}\bigg|_0^t </mrow>
+            <mrow> \amp= -4\cos\lp \frac{t}{2} \rp + 4\cos(0) </mrow>
+            <mrow> \amp= 4\lp 1 - \cos\lp \frac{t}{2} \rp \rp </mrow>
+          </md>
+        </p>
+
+        <p>
+          <alert>Step 2.</alert> We solve <m>s = g(t)</m> for <m>t</m>. 
+          <md>
+            <mrow>s \amp= 4\lp 1 - \cos\lp \frac{t}{2} \rp \rp </mrow>
+            <mrow> \implies \qquad \frac{s}{4} \amp= 1 - \cos\lp \frac{t}{2} \rp </mrow>
+            <mrow> \implies \qquad 1 - \frac{s}{4} \amp= \cos\lp \frac{t}{2} \rp </mrow>
+            <mrow> \implies \qquad t \amp= 2\cos^{-1}\lp 1 - \frac{s}{4} \rp </mrow>
+          </md>
+          That is, <m>t = g^{-1}(s) = 2\cos^{-1}\lp 1 - \dfrac{s}{4} \rp</m>.
+        </p>
+
+        <p>
+          <alert>Step 3.</alert> Substitute <m>t = g^{-1}(s)</m> into the original parametrization to get the arc length parametrization. 
+        </p>
+
+        <p>
+          First, note that
+          <md>
+            <mrow> \sin(t) \amp= 2\sin\lp \frac{t}{2} \rp\cos\lp \frac{t}{2} \rp = 2\lp \frac{\sqrt{8s - s^2}}{4}\rp\lp \frac{4 - s}{4} \rp = \frac{(4-s)\sqrt{8s - s^2}}{8} </mrow>
+            <mrow> \cos(t) \amp= 2\cos^2\lp \frac{t}{2} \rp - 1 = 2\lp \frac{4-s}{4} \rp^2 - 1 </mrow>
+          </md>
+          Hence, we have
+          <md>
+            <mrow> \v{r}(t) \amp= \la t - \sin(t), 1 - \cos(t) \ra </mrow>
+            <mrow> \v{r}_1(s) \amp= \la 2\cos^{-1}\lp \frac{4-s}{4} \rp - \frac{(4-s)\sqrt{8s - s^2}}{8}, 1 - \lp 2\lp \frac{4-s}{4} \rp^2 - 1 \rp \ra </mrow>
+            <mrow> \amp= \la 2\cos^{-1}\lp \frac{4-s}{4} \rp - \frac{(4-s)\sqrt{8s - s^2}}{8}, 1 - \lp \frac{(4-s)^2}{8} + 1 \rp \ra </mrow>
+            <mrow> \amp= \la 2\cos^{-1}\lp \frac{4-s}{4} \rp - \frac{(4-s)\sqrt{8s - s^2}}{8}, 2 - \frac{(4-s)^2}{8} \ra </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+
+  <worksheet xml:id="ws-sec133">
+    <title>Assigned Problems for Section 13.3</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="13.3.5">
+      <p>
+        Compute the length of the curve traced by <m>\v{r}(t) = \la t, 4t^\frac{3}{2}, 2t^\frac{3}{2} \ra</m> over <m>0 \leq t \leq 3</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.3.9">
+      <p>
+        The curve shown in the figure is parametrized by <m>\v{r}(t) = \la \cos(7t), \sin(7t), 2\cos(t) \ra</m> for <m>0 \leq t \leq 2\pi</m>. 
+        Approximate its length.
+      </p>
+
+      <figure>
+        <caption>The curve traced by <m>\v{r}(t) = \la \cos(7t), \sin(7t), 2\cos(t) \ra</m> for <m>0 \leq t \leq 2\pi</m>.</caption>
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('t')
+            # 1. Define the curve with high point count for smoothness
+            r = (cos(7*t), sin(7*t), 2*cos(t))
+            # plot_points=200 ensures the curves don't look jagged
+            curve = parametric_plot3d(r, (t, 0, 2*pi), thickness=3, color='blue', plot_points=200)
+            
+            # 2. Setup Manual Axes
+            ax_lim = 2.5
+            xaxis = arrow3d((-ax_lim, 0, 0), (ax_lim, 0, 0), color='black', thickness=1)
+            yaxis = arrow3d((0, -ax_lim, 0), (0, ax_lim, 0), color='black', thickness=1)
+            zaxis = arrow3d((0, 0, -ax_lim), (0, 0, ax_lim), color='black', thickness=1)
+            
+            # 3. Create Ticks and Labels loop
+            ticks = Graphics()
+            tick_labels = Graphics()
+            
+            # We want increments of 1, covering +/- 2
+            tick_locations = [-2, -1, 1, 2]
+            
+            for i in tick_locations:
+                # X-axis ticks (drawn parallel to y)
+                ticks += line3d([(i, -0.1, 0), (i, 0.1, 0)], color='black', thickness=2)
+                tick_labels += text3d(str(i), (i, -0.3, 0), color='black', fontsize='small')
+                
+                # Y-axis ticks (drawn parallel to x)
+                ticks += line3d([(-0.1, i, 0), (0.1, i, 0)], color='black', thickness=2)
+                tick_labels += text3d(str(i), (-0.3, i, 0), color='black', fontsize='small')
+                
+                # Z-axis ticks (drawn parallel to y for visibility)
+                ticks += line3d([(0, -0.1, i), (0, 0.1, i)], color='black', thickness=2)
+                tick_labels += text3d(str(i), (0, -0.3, i), color='black', fontsize='small')
+
+            # 4. Axis Names
+            ax_names = text3d("x", (ax_lim + 0.2, 0, 0), color='black') + \
+                      text3d("y", (0, ax_lim + 0.2, 0), color='black') + \
+                      text3d("z", (0, 0, ax_lim + 0.2), color='black')
+                      
+            # 5. Combine and Show
+            final_plot = curve + xaxis + yaxis + zaxis + ticks + tick_labels + ax_names
+            final_plot.show(frame=False)
+          </slate>
+        </interactive>
+      </figure>
+
+    </exercise>
+
+    <exercise number="13.3.11">
+      <p>
+        Compute the arc length function <m>\displaystyle s(t) = \int_a^t \left\|\v{r}'(u)\right\| du</m>, where
+        <md>
+          \v{r}(t) = \la t^2, 2t^2, t^3 \ra
+        </md>
+        for the value <m>a = 0</m>
+      </p>
+    </exercise>
+
+    <exercise number="13.3.15">
+      <p>
+        Find the speed of <m>\v{r}(t) = \la t, \ln(t), \lp \ln(t) \rp^2 \ra</m> at <m>t = 1</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.3.27">
+      <p>
+        Let <m>\v{r}(t) = \la 3t+1,4t-5,2t \ra</m>. 
+        <ol>
+          <li>
+            <p>
+              Evaluate the arc length integral <m>\displaystyle s = g(t) = \int_0^t \|\v{r}'(u)\|\, du</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Find the inverse <m>g^{-1}(s)</m> of <m>g(t)</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Verify that <m>\v{r}_1(s) = \v{r}\lp g^{-1}(s)\rp</m> is an arc length parametrization. 
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercise number="13.3.31">
+      <p>
+        Find a path that traces the circle in the plane <m>y = 10</m> with radius <m>4</m> and center <m>(2,10,-3)</m> with constant speed <m>8</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.3.33">
+      <p>
+        Find an arc length parametrization of the curve parametrized by
+        <md>
+          \v{r}(t) = \la \cos(t), \sin(t), \frac{2}{3}t^\frac{3}{2} \ra
+        </md>
+        with the parameter <m>s</m> measuring from <m>(1,0,0)</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="13.3.35">
+      <p>
+        Find an arc length parametrization of the curve parametrized by <m>\v{r}(t) = \la t^2, t^3 \ra</m>. 
+      </p>
+    </exercise>
+  </worksheet>
 
 </section>

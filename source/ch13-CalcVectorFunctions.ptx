@@ -6,9 +6,7 @@
   <!-- include sections -->
   <xi:include href="sec131-VectorFunctions.ptx" />
   <xi:include href="sec132-CalcVectorFunctions.ptx" />
-<!--
   <xi:include href="sec133-ArcLength.ptx" />
   <xi:include href="sec134-Curvature.ptx" />
--->
 
 </chapter>
