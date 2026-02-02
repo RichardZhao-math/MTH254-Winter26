@@ -960,16 +960,85 @@ g'(t) = \frac{d}{dt} \ln(t) = \frac{1}{t}
 </div></section><article class="exercise exercise-like" id="ws-sec132-3"><h4 class="heading"><span class="codenumber">13.2.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec132-3-1">Evaluate the limit <span class="process-math">\(\displaystyle \lim_{t\to 0} e^{2t}\v{i} + \ln(t+1)\v{j} + 4\v{k}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 13.2.3"><a href="#ws-sec132-3" title="Copy heading and permalink for Worksheet Exercise 13.2.3" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-4"><h4 class="heading"><span class="codenumber">13.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec132-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec132-3-2-1">
+<div class="para">Computing the limit of each component, we obtain</div>
+<div class="displaymath process-math" id="ws-sec132-3-2-1-1">
+\begin{align*}
+\lim_{t\to 0} \lp e^{2t}\v{i} + \ln(t+1)\v{j} + 4\v{k} \rp \amp= \lp \lim_{t\to 0} e^{2t} \rp \v{i} + \lp \lim_{t\to 0} \ln(t+1) \rp \v{j} + \lp \lim_{t\to 0} 4 \rp \v{k} \\
+\amp= e^0\v{i} + \ln(1)\v{j} + 4\v{k} \\
+\amp= \v{i} + 4\v{k} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.3.1"><a href="#ws-sec132-3-2" title="Copy heading and permalink for Solution 13.2.3.1" aria-label="Copy heading and permalink for Solution 13.2.3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 13.2.3"><a href="#ws-sec132-3" title="Copy heading and permalink for Worksheet Exercise 13.2.3" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-4"><h4 class="heading"><span class="codenumber">13.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec132-4-1">Compute the derivative of <span class="process-math">\(\v{r}(s) = \la e^{1-s}, 1-s, \ln(1-s) \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 13.2.9"><a href="#ws-sec132-4" title="Copy heading and permalink for Worksheet Exercise 13.2.9" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.9">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-5"><h4 class="heading"><span class="codenumber">13.2.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec132-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec132-4-2-1">
+<div class="para">Using componentwise differentiation, we have</div>
+<div class="displaymath process-math" id="ws-sec132-4-2-1-1">
+\begin{align*}
+\frac{d\v{r}}{ds} \amp= \la \frac{d}{ds}e^{1-s}, \frac{d}{ds}(1-s), \frac{d}{ds}\ln(1-s) \ra \\
+\amp= \la -e^{1-s}, -1, -\frac{1}{1-s} \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.9.1"><a href="#ws-sec132-4-2" title="Copy heading and permalink for Solution 13.2.9.1" aria-label="Copy heading and permalink for Solution 13.2.9.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 13.2.9"><a href="#ws-sec132-4" title="Copy heading and permalink for Worksheet Exercise 13.2.9" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.9">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-5"><h4 class="heading"><span class="codenumber">13.2.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec132-5-1">Sketch the curve parametrized by <span class="process-math">\(\v{r}_1(t) = \la t,t^2 \ra\)</span> together with its tangent vector at <span class="process-math">\(t = 1\text{.}\)</span> Then do the same for <span class="process-math">\(\v{r}_2(t) = \la t^3, t^6 \ra\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 13.2.15"><a href="#ws-sec132-5" title="Copy heading and permalink for Worksheet Exercise 13.2.15" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.15">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-6"><h4 class="heading"><span class="codenumber">13.2.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec132-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec132-5-2-1">Note that <span class="process-math">\(\v{r}'(t) = \la 1,2t \ra\)</span> and so <span class="process-math">\(\v{r}'(1) = \la 1,2 \ra\text{.}\)</span> The graph of <span class="process-math">\(\v{r}_1(t)\)</span> satisfies <span class="process-math">\(y = x^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec132-5-2-2">Likewise, <span class="process-math">\(\v{r}_2'(t) = \la 3t^2,6t^5 \ra\)</span> and so <span class="process-math">\(\v{r}_2'(1) = \la 3,6 \ra\text{.}\)</span> The graph of <span class="process-math">\(\v{r}_2(t)\)</span> also satisfies <span class="process-math">\(y = x^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec132-5-2-3">Both graphs and tangent vectors are given below.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="ws-sec132-5-2-4"><div class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;"><img src="external/sec132-HW15-Solution-Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13.2.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 13.2.20"><a href="#ws-sec132-5-2-4" title="Copy heading and permalink for Figure 13.2.20" aria-label="Copy heading and permalink for Figure 13.2.20">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 13.2.15.1"><a href="#ws-sec132-5-2" title="Copy heading and permalink for Solution 13.2.15.1" aria-label="Copy heading and permalink for Solution 13.2.15.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 13.2.15"><a href="#ws-sec132-5" title="Copy heading and permalink for Worksheet Exercise 13.2.15" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.15">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-6"><h4 class="heading"><span class="codenumber">13.2.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec132-6-1">Determine the value of <span class="process-math">\(t\)</span> between <span class="process-math">\(0\)</span> and <span class="process-math">\(2\pi\)</span> such that the tangent vector to the clycloid <span class="process-math">\(\v{r}(t) = \la t - \sin(t), 1 - \cos(t) \ra\)</span> is parallel to <span class="process-math">\(\la \sqrt{3}, 1 \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 13.2.17"><a href="#ws-sec132-6" title="Copy heading and permalink for Worksheet Exercise 13.2.17" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.17">🔗</a></div></article><div class="exercisegroup" id="ws-sec132-7">
+<details id="ws-sec132-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec132-6-2-1">
+<div class="para">We first find the tangent vector <span class="process-math">\(\v{r}'(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec132-6-2-1-2">
+\begin{equation*}
+\v{r}'(t) = \frac{d}{dt}\la t - \sin(t), 1 - \cos(t) \ra = \la 1 - \cos(t), \sin(t) \ra
+\end{equation*}
+</div>
+<div class="para">For this vector to be parallel to <span class="process-math">\(\v{v} = \la \sqrt{3}, 1 \ra\text{,}\)</span> the ratio of their <span class="process-math">\(y\)</span> and <span class="process-math">\(x\)</span> components (the slope) must be equal.</div>
+<div class="displaymath process-math" id="ws-sec132-6-2-1-6">
+\begin{equation*}
+\frac{\sin(t)}{1 - \cos(t)} = \frac{1}{\sqrt{3}}
+\end{equation*}
+</div>
+<div class="para">We can simplify the left side using half-angle identities: <span class="process-math">\(\sin(t) = 2\sin(t/2)\cos(t/2)\)</span> and <span class="process-math">\(1-\cos(t) = 2\sin^2(t/2)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec132-6-2-1-9">
+\begin{align*}
+\frac{2\sin(t/2)\cos(t/2)}{2\sin^2(t/2)} \amp= \frac{1}{\sqrt{3}} \\
+\cot(t/2) \amp= \frac{1}{\sqrt{3}} \\
+\tan(t/2) \amp= \sqrt{3} 
+\end{align*}
+</div>
+<div class="para">Since <span class="process-math">\(t\)</span> is between <span class="process-math">\(0\)</span> and <span class="process-math">\(2\pi\text{,}\)</span> we have <span class="process-math">\(0 \lt t/2 \lt \pi\text{.}\)</span> The only solution for the tangent function in this range is:</div>
+<div class="displaymath process-math" id="ws-sec132-6-2-1-14">
+\begin{equation*}
+t/2 = \frac{\pi}{3} \implies t = \frac{2\pi}{3}
+\end{equation*}
+</div>
+<div class="para">Thus, the tangent vector is parallel to <span class="process-math">\(\la \sqrt{3}, 1 \ra\)</span> when <span class="process-math">\(t = \frac{2\pi}{3}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.17.1"><a href="#ws-sec132-6-2" title="Copy heading and permalink for Solution 13.2.17.1" aria-label="Copy heading and permalink for Solution 13.2.17.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 13.2.17"><a href="#ws-sec132-6" title="Copy heading and permalink for Worksheet Exercise 13.2.17" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.17">🔗</a></div></article><div class="exercisegroup" id="ws-sec132-7">
 <h4 class="heading"><span class="title">Exercise Group.</span></h4>
 <div class="introduction" id="ws-sec132-7-1"><div class="para logical" id="ws-sec132-7-1-1">
 <div class="para">In the following exercises, evaluate the derivative by using the appropriate Product Rule, where</div>
@@ -985,11 +1054,40 @@ g'(t) = \frac{d}{dt} \ln(t) = \frac{1}{t}
 <div class="para" id="ws-sec132-7-2-1">
 <span class="process-math">\(\dfrac{d}{dt} \lp \v{r}_1(t) \cdot \v{r}_2(t) \rp\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 13.2.19"><a href="#ws-sec132-7-2" title="Copy heading and permalink for Worksheet Exercise 13.2.19" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-7-3"><h5 class="heading"><span class="codenumber">13.2.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<details id="ws-sec132-7-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec132-7-2-2-1">
+<div class="displaymath process-math" id="ws-sec132-7-2-2-1-1">
+\begin{align*}
+\dfrac{d}{dt} \lp \v{r}_1(t) \cdot \v{r}_2(t) \rp \amp= \v{r}_1'(t) \cdot \v{r}_2(t) + \v{r}_1(t) \cdot \v{r}_2'(t) \\
+\amp= \la 2t, 3t^2, 1 \ra \cdot \la e^{3t}, e^{2t}, e^t \ra + \la t^2, t^3, t \ra \cdot \la 3e^{3t}, 2e^{2t}, e^t \ra \\
+\amp= 2te^{3t} + 3t^2e^{2t} + e^t + 3t^2e^{3t} + 2t^3e^{2t} + te^t \\
+\amp= \lp 3t^2 + 2t \rp e^{3t} + \lp 2t^3 + 3t^2 \rp e^{2t} + (t+1)e^t 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-7-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.19.1"><a href="#ws-sec132-7-2-2" title="Copy heading and permalink for Solution 13.2.19.1" aria-label="Copy heading and permalink for Solution 13.2.19.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 13.2.19"><a href="#ws-sec132-7-2" title="Copy heading and permalink for Worksheet Exercise 13.2.19" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-7-3"><h5 class="heading"><span class="codenumber">13.2.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="para" id="ws-sec132-7-3-1">
 <span class="process-math">\(\dfrac{d}{dt} \lp \v{r}_1(t) \times \v{r}_2(t) \rp\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-7-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 13.2.21"><a href="#ws-sec132-7-3" title="Copy heading and permalink for Worksheet Exercise 13.2.21" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.21">🔗</a></div></article>
+<details id="ws-sec132-7-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec132-7-3-2-1">
+<div class="displaymath process-math" id="ws-sec132-7-3-2-1-1">
+\begin{align*}
+\dfrac{d}{dt} \lp \v{r}_1(t) \times \v{r}_2(t) \rp \amp= \v{r}_1'(t) \times \v{r}_2(t) + \v{r}_1(t) \times \v{r}_2'(t) \\
+\amp= \la 2t, 3t^2, 1 \ra \times \la e^{3t}, e^{2t}, e^t \ra + \la t^2, t^3, t \ra \times \la 3e^{3t}, 2e^{2t}, e^t \ra \\
+\amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 2t \amp 3t^2 \amp 1 \\ e^{3t} \amp e^{2t} \amp e^t \end{vmatrix} + \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ t^2 \amp t^3 \amp t \\ 3e^{3t} \amp 2e^{2t} \amp e^t \end{vmatrix} \\
+\amp= \lp 3t^2e^t - e^{2t} \rp \v{i} + \lp e^{3t} - 2te^t \rp \v{j} + \lp 2te^{2t} - 3t^2e^{3t} \rp \v{k} \\
+\amp \qquad + \lp t^3e^t - 2te^{2t} \rp \v{i} + \lp 3t^2e^{3t} - t^2e^t \rp \v{j} + \lp 2t e^{2t} - 3t^3 e^{3t} \rp \v{k} \\
+\amp= \left[ \lp 3t^2 + t^3\rp e^t - \lp 1 + 2t \rp e^{2t} \right] \v{i} + \left[ \lp 1 + 3t\rp e^{3t} - \lp 2t + t^2 \rp e^t \right] \v{j} \\
+\amp \qquad + \left[ \lp 2t + 2t^2 \rp e^{2t} - \lp 3t^2 +  3t^3 \rp e^{3t} \right] \v{k} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-7-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.21.1"><a href="#ws-sec132-7-3-2" title="Copy heading and permalink for Solution 13.2.21.1" aria-label="Copy heading and permalink for Solution 13.2.21.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 13.2.21"><a href="#ws-sec132-7-3" title="Copy heading and permalink for Worksheet Exercise 13.2.21" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.21">🔗</a></div></article>
 </div>
 <div class="autopermalink" data-description="Exercise Group 13.2.19–13.2.21"><a href="#ws-sec132-7" title="Copy heading and permalink for Exercise Group 13.2.19–13.2.21" aria-label="Copy heading and permalink for Exercise Group 13.2.19–13.2.21">🔗</a></div>
 </div>
@@ -1003,13 +1101,61 @@ g'(t) = \frac{d}{dt} \ln(t) = \frac{1}{t}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 13.2.27"><a href="#ws-sec132-8" title="Copy heading and permalink for Worksheet Exercise 13.2.27" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.27">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-9"><h4 class="heading"><span class="codenumber">13.2.33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec132-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec132-8-2-1">
+<div class="para">We first differentiate the two functions.</div>
+<div class="displaymath process-math" id="ws-sec132-8-2-1-1">
+\begin{align*}
+\v{r}'(t) \amp= \frac{d}{dt} \la e^t, e^{2t}, 4 \ra = \la e^t, 2e^{2t}, 0 \ra \\
+g'(t) \amp= \frac{d}{dt} (4t + 9) = 4 
+\end{align*}
+</div>
+<div class="para">Using the Chain Rule, we have</div>
+<div class="displaymath process-math" id="ws-sec132-8-2-1-2">
+\begin{align*}
+\frac{d}{dt}\v{r}\lp g(t) \rp \amp= \v{r}'(g(t)) \cdot g'(t) \\
+\amp= \v{r}'(4t + 9) \cdot 4 \\
+\amp= \la e^{4t+9}, 2e^{2(4t+9)}, 0 \ra \cdot 4 \\
+\amp= \la 4e^{4t+9}, 8e^{8t+18}, 0 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.27.1"><a href="#ws-sec132-8-2" title="Copy heading and permalink for Solution 13.2.27.1" aria-label="Copy heading and permalink for Solution 13.2.27.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 13.2.27"><a href="#ws-sec132-8" title="Copy heading and permalink for Worksheet Exercise 13.2.27" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.27">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-9"><h4 class="heading"><span class="codenumber">13.2.33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec132-9-1">Find a parametrization of the tangent line of <span class="process-math">\(\v{r}(t) = \la 1-t^2, 5t, 2t^3 \ra\)</span> at the point <span class="process-math">\(t = 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Worksheet Exercise 13.2.33"><a href="#ws-sec132-9" title="Copy heading and permalink for Worksheet Exercise 13.2.33" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.33">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-10"><h4 class="heading"><span class="codenumber">13.2.45<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec132-10-1">Evaluate the integral <span class="process-math">\(\displaystyle \int_0^\pi \la -\sin(t), 6t, 2t+\cos(2t) \ra\, dt\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 13.2.45"><a href="#ws-sec132-10" title="Copy heading and permalink for Worksheet Exercise 13.2.45" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.45">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-11"><h4 class="heading"><span class="codenumber">13.2.55<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec132-10-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec132-10-2-1">
+<div class="para">We integrate the vector-valued function componentwise:</div>
+<div class="displaymath process-math" id="ws-sec132-10-2-1-1">
+\begin{align*}
+\int_0^\pi \la -\sin(t), 6t, 2t+\cos(2t) \ra\, dt \amp= \la \int_0^\pi -\sin(t)\, dt, \int_0^\pi 6t\, dt, \int_0^\pi (2t+\cos(2t))\, dt \ra 
+\end{align*}
+</div>
+<div class="para">We evaluate each integral separately:</div>
+<div class="displaymath process-math" id="ws-sec132-10-2-1-2">
+\begin{align*}
+\int_0^\pi -\sin(t)\, dt \amp= \left[ \cos(t) \right]_0^\pi = \cos(\pi) - \cos(0) = -1 - 1 = -2 \\
+\int_0^\pi 6t\, dt \amp= \left[ 3t^2 \right]_0^\pi = 3\pi^2 - 0 = 3\pi^2 \\
+\int_0^\pi (2t+\cos(2t))\, dt \amp= \left[ t^2 + \frac{1}{2}\sin(2t) \right]_0^\pi \\
+\amp= \left( \pi^2 + \frac{1}{2}\sin(2\pi) \right) - \left( 0^2 + \frac{1}{2}\sin(0) \right) \\
+\amp= \pi^2 
+\end{align*}
+</div>
+<div class="para">Combining these components, the value of the vector integral is:</div>
+<div class="displaymath process-math" id="ws-sec132-10-2-1-3">
+\begin{equation*}
+\la -2, 3\pi^2, \pi^2 \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.45.1"><a href="#ws-sec132-10-2" title="Copy heading and permalink for Solution 13.2.45.1" aria-label="Copy heading and permalink for Solution 13.2.45.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 13.2.45"><a href="#ws-sec132-10" title="Copy heading and permalink for Worksheet Exercise 13.2.45" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.45">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec132-11"><h4 class="heading"><span class="codenumber">13.2.55<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec132-11-1">
 <div class="para">Find both the general solution of the differential equation and the solution with the given initial condition.</div>
 <div class="displaymath process-math" id="ws-sec132-11-1-1">
@@ -1019,7 +1165,45 @@ g'(t) = \frac{d}{dt} \ln(t) = \frac{1}{t}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 13.2.55"><a href="#ws-sec132-11" title="Copy heading and permalink for Worksheet Exercise 13.2.55" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.55">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 13.2"><a href="#ws-sec132" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 13.2" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 13.2">🔗</a></div></section><div class="autopermalink" data-description="Section 13.2: Calculus of Vector-Valued Functions"><a href="#sec132-CalcVectorFunctions" title="Copy heading and permalink for Section 13.2: Calculus of Vector-Valued Functions" aria-label="Copy heading and permalink for Section 13.2: Calculus of Vector-Valued Functions">🔗</a></div></section></div>
+<details id="ws-sec132-11-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec132-11-2-1">
+<div class="para">To find the general solution we first find <span class="process-math">\(\v{r}'(t)\)</span> by integrating <span class="process-math">\(\v{r}''(t)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec132-11-2-1-3">
+\begin{equation*}
+\v{r}'(t) = \int \v{r}''(t)\, dt = \int \la 0,2,0 \ra \, dt = \la 0,2t,0 \ra + \v{c}_1
+\end{equation*}
+</div>
+<div class="para">We now integrate <span class="process-math">\(\v{r}'(t)\)</span> to find the general solution <span class="process-math">\(\v{r}(t)\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec132-11-2-1-6">
+\begin{equation*}
+\v{r}(t) = \int \v{r}'(t)\, dt = \int \lp \la 0,2t,0 \ra + \v{c}_1 \rp\, dt = \la 0,t^2,0 \ra + \v{c}_1 t + \v{c}_2
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec132-11-2-2">
+<div class="para">We substitute the initial conditions to find the particular solution. This gives</div>
+<div class="displaymath process-math" id="ws-sec132-11-2-2-1">
+\begin{align*}
+\v{r}'(3) \amp= \la 0,6,0 \ra + \v{c}_1 = \la 0,0,1 \ra \quad \implies \quad \v{c}_1 = \la 0,-6,1 \ra \\
+\v{r}(3) \amp= \la 0,9,0 \ra + \v{c}_1 \cdot 3 + \v{c}_2 = \la 1,1,0 \ra \\
+\amp\quad\, \,  \la 0,9,0 \ra + \la 0,-18,3 \ra + \v{c}_2 = \la 1,1,0 \ra \\
+\amp\implies \quad \v{c}_2 = \la 1,10,-3 \ra 
+\end{align*}
+</div>
+<div class="para">Combining everything, we obtain the following solution</div>
+<div class="displaymath process-math" id="ws-sec132-11-2-2-2">
+\begin{align*}
+\v{r}(t) \amp= \la 0,t^2,0 \ra + t \la 0,-6,1 \ra + \la 1,10,-3 \ra \\
+\amp= \la 1, t^2-6t+10, t-3 \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec132-11-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 13.2.55.1"><a href="#ws-sec132-11-2" title="Copy heading and permalink for Solution 13.2.55.1" aria-label="Copy heading and permalink for Solution 13.2.55.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 13.2.55"><a href="#ws-sec132-11" title="Copy heading and permalink for Worksheet Exercise 13.2.55" aria-label="Copy heading and permalink for Worksheet Exercise 13.2.55">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 13.2"><a href="#ws-sec132" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 13.2" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 13.2">🔗</a></div></section><div class="autopermalink" data-description="Section 13.2: Calculus of Vector-Valued Functions"><a href="#sec132-CalcVectorFunctions" title="Copy heading and permalink for Section 13.2: Calculus of Vector-Valued Functions" aria-label="Copy heading and permalink for Section 13.2: Calculus of Vector-Valued Functions">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec131-VectorFunctions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec133-ArcLength.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
