@@ -745,12 +745,34 @@
       <p>
         Evaluate the limit <m>\displaystyle \lim_{t\to 0} e^{2t}\v{i} + \ln(t+1)\v{j} + 4\v{k}</m>
       </p>
+
+      <solution>
+        <p>
+          Computing the limit of each component, we obtain
+          <md>
+            <mrow> \lim_{t\to 0} \lp e^{2t}\v{i} + \ln(t+1)\v{j} + 4\v{k} \rp \amp= \lp \lim_{t\to 0} e^{2t} \rp \v{i} + \lp \lim_{t\to 0} \ln(t+1) \rp \v{j} + \lp \lim_{t\to 0} 4 \rp \v{k} </mrow>
+            <mrow> \amp= e^0\v{i} + \ln(1)\v{j} + 4\v{k} </mrow>
+            <mrow> \amp= \v{i} + 4\v{k} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.2.9">
       <p>
         Compute the derivative of <m>\v{r}(s) = \la e^{1-s}, 1-s, \ln(1-s) \ra</m>. 
       </p>
+
+      <solution>
+        <p>
+          Using componentwise differentiation, we have
+          <md>
+            <mrow> \frac{d\v{r}}{ds} \amp= \la \frac{d}{ds}e^{1-s}, \frac{d}{ds}(1-s), \frac{d}{ds}\ln(1-s) \ra </mrow>
+            <mrow> \amp= \la -e^{1-s}, -1, -\frac{1}{1-s} \ra </mrow>
+          </md>
+          
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.2.15">
@@ -758,12 +780,56 @@
         Sketch the curve parametrized by <m>\v{r}_1(t) = \la t,t^2 \ra</m> together with its tangent vector at <m>t = 1</m>. 
         Then do the same for <m>\v{r}_2(t) = \la t^3, t^6 \ra</m>
       </p>
+
+      <solution>
+        <p>
+          Note that <m>\v{r}'(t) = \la 1,2t \ra</m> and so <m>\v{r}'(1) = \la 1,2 \ra</m>. 
+          The graph of <m>\v{r}_1(t)</m> satisfies <m>y = x^2</m>. 
+        </p>
+
+        <p>
+          Likewise, <m>\v{r}_2'(t) = \la 3t^2,6t^5 \ra</m> and so <m>\v{r}_2'(1) = \la 3,6 \ra</m>. 
+          The graph of <m>\v{r}_2(t)</m> also satisfies <m>y = x^2</m>. 
+        </p>
+
+        <p>
+          Both graphs and tangent vectors are given below. 
+        </p>
+
+        <figure>
+          <image source="sec132-HW15-Solution-Diagram.png" width="85%"></image>
+        </figure> 
+      </solution>
     </exercise>
 
     <exercise number="13.2.17">
       <p>
         Determine the value of <m>t</m> between <m>0</m> and <m>2\pi</m> such that the tangent vector to the clycloid <m>\v{r}(t) = \la t - \sin(t), 1 - \cos(t) \ra</m> is parallel to <m>\la \sqrt{3}, 1 \ra</m>.
       </p>
+
+      <solution>
+        <p>
+          We first find the tangent vector <m>\v{r}'(t)</m>:
+          <md>
+            \v{r}'(t) = \frac{d}{dt}\la t - \sin(t), 1 - \cos(t) \ra = \la 1 - \cos(t), \sin(t) \ra
+          </md>
+          For this vector to be parallel to <m>\v{v} = \la \sqrt{3}, 1 \ra</m>, the ratio of their <m>y</m> and <m>x</m> components (the slope) must be equal. 
+          <md>
+            \frac{\sin(t)}{1 - \cos(t)} = \frac{1}{\sqrt{3}}
+          </md>
+          We can simplify the left side using half-angle identities: <m>\sin(t) = 2\sin(t/2)\cos(t/2)</m> and <m>1-\cos(t) = 2\sin^2(t/2)</m>.
+          <md>
+            <mrow> \frac{2\sin(t/2)\cos(t/2)}{2\sin^2(t/2)} \amp= \frac{1}{\sqrt{3}} </mrow>
+            <mrow> \cot(t/2) \amp= \frac{1}{\sqrt{3}} </mrow>
+            <mrow> \tan(t/2) \amp= \sqrt{3} </mrow>
+          </md>
+          Since <m>t</m> is between <m>0</m> and <m>2\pi</m>, we have <m>0 \lt t/2 \lt \pi</m>. The only solution for the tangent function in this range is:
+          <md>
+            t/2 = \frac{\pi}{3} \implies t = \frac{2\pi}{3}
+          </md>
+          Thus, the tangent vector is parallel to <m>\la \sqrt{3}, 1 \ra</m> when <m>t = \frac{2\pi}{3}</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -781,12 +847,37 @@
         <p>
           <m>\dfrac{d}{dt} \lp \v{r}_1(t) \cdot \v{r}_2(t) \rp</m>
         </p>
+
+        <solution>
+          <p>
+            <md>
+              <mrow> \dfrac{d}{dt} \lp \v{r}_1(t) \cdot \v{r}_2(t) \rp \amp= \v{r}_1'(t) \cdot \v{r}_2(t) + \v{r}_1(t) \cdot \v{r}_2'(t) </mrow>
+              <mrow> \amp= \la 2t, 3t^2, 1 \ra \cdot \la e^{3t}, e^{2t}, e^t \ra + \la t^2, t^3, t \ra \cdot \la 3e^{3t}, 2e^{2t}, e^t \ra </mrow>
+              <mrow> \amp= 2te^{3t} + 3t^2e^{2t} + e^t + 3t^2e^{3t} + 2t^3e^{2t} + te^t </mrow>
+              <mrow> \amp= \lp 3t^2 + 2t \rp e^{3t} + \lp 2t^3 + 3t^2 \rp e^{2t} + (t+1)e^t </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="13.2.21">
         <p>
           <m>\dfrac{d}{dt} \lp \v{r}_1(t) \times \v{r}_2(t) \rp</m>
         </p>
+
+        <solution>
+          <p>
+            <md>
+              <mrow> \dfrac{d}{dt} \lp \v{r}_1(t) \times \v{r}_2(t) \rp \amp= \v{r}_1'(t) \times \v{r}_2(t) + \v{r}_1(t) \times \v{r}_2'(t) </mrow>
+              <mrow> \amp= \la 2t, 3t^2, 1 \ra \times \la e^{3t}, e^{2t}, e^t \ra + \la t^2, t^3, t \ra \times \la 3e^{3t}, 2e^{2t}, e^t \ra </mrow>
+              <mrow> \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 2t \amp 3t^2 \amp 1 \\ e^{3t} \amp e^{2t} \amp e^t \end{vmatrix} + \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ t^2 \amp t^3 \amp t \\ 3e^{3t} \amp 2e^{2t} \amp e^t \end{vmatrix} </mrow>
+              <mrow> \amp= \lp 3t^2e^t - e^{2t} \rp \v{i} + \lp e^{3t} - 2te^t \rp \v{j} + \lp 2te^{2t} - 3t^2e^{3t} \rp \v{k} </mrow>
+              <mrow> \amp \qquad + \lp t^3e^t - 2te^{2t} \rp \v{i} + \lp 3t^2e^{3t} - t^2e^t \rp \v{j} + \lp 2t e^{2t} - 3t^3 e^{3t} \rp \v{k} </mrow>
+              <mrow> \amp= \left[ \lp 3t^2 + t^3\rp e^t - \lp 1 + 2t \rp e^{2t} \right] \v{i} + \left[ \lp 1 + 3t\rp e^{3t} - \lp 2t + t^2 \rp e^t \right] \v{j} </mrow>
+              <mrow> \amp \qquad + \left[ \lp 2t + 2t^2 \rp e^{2t} - \lp 3t^2 +  3t^3 \rp e^{3t} \right] \v{k} </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
 
@@ -797,6 +888,23 @@
           \v{r}(t) = \la e^t, e^{2t}, 4 \ra \, , \qquad g(t) = 4t + 9
         </md>
       </p>
+
+      <solution>
+        <p>
+          We first differentiate the two functions. 
+          <md>
+            <mrow> \v{r}'(t) \amp= \frac{d}{dt} \la e^t, e^{2t}, 4 \ra = \la e^t, 2e^{2t}, 0 \ra </mrow>
+            <mrow> g'(t) \amp= \frac{d}{dt} (4t + 9) = 4 </mrow>
+          </md>
+          Using the Chain Rule, we have
+          <md>
+            <mrow> \frac{d}{dt}\v{r}\lp g(t) \rp \amp= \v{r}'(g(t)) \cdot g'(t) </mrow>
+            <mrow> \amp= \v{r}'(4t + 9) \cdot 4 </mrow>
+            <mrow> \amp= \la e^{4t+9}, 2e^{2(4t+9)}, 0 \ra \cdot 4 </mrow>
+            <mrow> \amp= \la 4e^{4t+9}, 8e^{8t+18}, 0 \ra </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.2.33">
@@ -809,6 +917,27 @@
       <p>
         Evaluate the integral <m>\displaystyle \int_0^\pi \la -\sin(t), 6t, 2t+\cos(2t) \ra\, dt</m>
       </p>
+
+      <solution>
+        <p>
+          We integrate the vector-valued function componentwise:
+          <md>
+            <mrow> \int_0^\pi \la -\sin(t), 6t, 2t+\cos(2t) \ra\, dt \amp= \la \int_0^\pi -\sin(t)\, dt, \int_0^\pi 6t\, dt, \int_0^\pi (2t+\cos(2t))\, dt \ra </mrow>
+          </md>
+          We evaluate each integral separately:
+          <md>
+            <mrow> \int_0^\pi -\sin(t)\, dt \amp= \left[ \cos(t) \right]_0^\pi = \cos(\pi) - \cos(0) = -1 - 1 = -2 </mrow>
+            <mrow> \int_0^\pi 6t\, dt \amp= \left[ 3t^2 \right]_0^\pi = 3\pi^2 - 0 = 3\pi^2 </mrow>
+            <mrow> \int_0^\pi (2t+\cos(2t))\, dt \amp= \left[ t^2 + \frac{1}{2}\sin(2t) \right]_0^\pi </mrow>
+            <mrow> \amp= \left( \pi^2 + \frac{1}{2}\sin(2\pi) \right) - \left( 0^2 + \frac{1}{2}\sin(0) \right) </mrow>
+            <mrow> \amp= \pi^2 </mrow>
+          </md>
+          Combining these components, the value of the vector integral is:
+          <md>
+            \la -2, 3\pi^2, \pi^2 \ra
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.2.55">
@@ -818,6 +947,36 @@
           \v{r}''(t) = \la 0,2,0 \ra \, , \qquad \v{r}(3) = \la 1,1,0 \ra \, , \qquad \v{r}'(3) = \la 0,0,1 \ra
         </md>
       </p>
+
+      <solution>
+        <p>
+          To find the general solution we first find <m>\v{r}'(t)</m> by integrating <m>\v{r}''(t)</m>. 
+          <md>
+            \v{r}'(t) = \int \v{r}''(t)\, dt = \int \la 0,2,0 \ra \, dt = \la 0,2t,0 \ra + \v{c}_1
+          </md>
+          We now integrate <m>\v{r}'(t)</m> to find the general solution <m>\v{r}(t)</m>. 
+          <md>
+            \v{r}(t) = \int \v{r}'(t)\, dt = \int \lp \la 0,2t,0 \ra + \v{c}_1 \rp\, dt = \la 0,t^2,0 \ra + \v{c}_1 t + \v{c}_2
+          </md>
+        </p>
+
+        <p>
+          We substitute the initial conditions to find the particular solution. 
+          This gives
+          <md>
+            <mrow> \v{r}'(3) \amp= \la 0,6,0 \ra + \v{c}_1 = \la 0,0,1 \ra \quad \implies \quad \v{c}_1 = \la 0,-6,1 \ra </mrow>
+            <mrow> \v{r}(3) \amp= \la 0,9,0 \ra + \v{c}_1 \cdot 3 + \v{c}_2 = \la 1,1,0 \ra </mrow>
+            <mrow> \amp\quad\, \,  \la 0,9,0 \ra + \la 0,-18,3 \ra + \v{c}_2 = \la 1,1,0 \ra </mrow>
+            <mrow> \amp\implies \quad \v{c}_2 = \la 1,10,-3 \ra </mrow>
+          </md>
+          Combining everything, we obtain the following solution
+          <md>
+            <mrow> \v{r}(t) \amp= \la 0,t^2,0 \ra + t \la 0,-6,1 \ra + \la 1,10,-3 \ra </mrow>
+            <mrow> \amp= \la 1, t^2-6t+10, t-3 \ra </mrow>
+          </md>
+          
+        </p>
+      </solution>
     </exercise>
 
   </worksheet>
