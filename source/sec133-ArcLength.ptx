@@ -177,7 +177,7 @@
 
     <example>
       <p>
-        Find the speed of a particle moving along the curve parametrized by <m>\v{r}(t) = \la te^{t-3}, 12, 3t^{-1} \ra</m> at time <m>t = 3</m>.
+        Find the speed of a particle moving along the curve parametrized by <m>\v{r}(t) = \la e^{t-3}, 12, 3t^{-1} \ra</m> at time <m>t = 3</m>.
       </p>
 
       <solution>
@@ -466,7 +466,7 @@
           </md>
           We then compute the arc length function.
           <md>
-            <mrow> s = g(t) = \int_0^t \sqrt{2}\, du = \sqrt{2}t </mrow>
+            s = g(t) = \int_0^t \sqrt{2}\, du = \sqrt{2}t
           </md>
         </p>
 
@@ -527,7 +527,7 @@
           We then compute the arc length function.
           <md>
             <mrow> s = g(t) \amp= \int_0^t 2\sin\lp \frac{u}{2} \rp\, du </mrow>
-            <mrow> \amp= -4\cos\lp \frac{u}{2}\bigg|_0^t </mrow>
+            <mrow> \amp= -4\cos\lp \frac{u}{2} \rp \bigg|_0^t </mrow>
             <mrow> \amp= -4\cos\lp \frac{t}{2} \rp + 4\cos(0) </mrow>
             <mrow> \amp= 4\lp 1 - \cos\lp \frac{t}{2} \rp \rp </mrow>
           </md>
