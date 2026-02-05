@@ -14,8 +14,9 @@
     <!-- Include chapters -->
     <xi:include href="./ch12-VectorGeometry.ptx" />
     <xi:include href="./ch13-CalcVectorFunctions.ptx" />
-  <!--
     <xi:include href="./ch14-DifferentiationMultiVariables.ptx" />
+  <!--
+    
     <xi:include href="./ch15-MultipleIntegration.ptx" />
   -->
 
