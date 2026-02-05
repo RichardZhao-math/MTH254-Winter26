@@ -102,15 +102,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.5';
+eBookConfig.runestone_version = '7.11.12';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
+<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -137,11 +137,15 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\R}{\mathbb R} 
 
 \newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
 
 \newcommand{\lp}{\left(}
 \newcommand{\rp}{\right)}
 \newcommand{\la}{\left\langle}
 \newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -164,36 +168,124 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsubsec-LinearCombinations" class="internal"><span class="title">Linear Combinations of Vectors</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsec-VectorApplication" class="internal"><span class="title">Applications of Vectors</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Homework problems for this section</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Assigned Problems for Section 12.1</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec122-3DSpaces.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Three-Dimensional Spaces: Surfaces, Vectors, and Curves</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Practice problems for this section</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Surfaces" class="internal"><span class="title">Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Vectors" class="internal"><span class="title">Vectors in 3-Space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-ParametricLines" class="internal"><span class="title">Curves and Lines</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Assigned Problems for Section 12.2</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec123-DotProduct.html#ws-sec123" class="internal"><span class="title">Assigned Problems for Section 12.3</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec124-CrossProduct.html" class="internal"><span class="codenumber">12.4</span> <span class="title">The Cross Product</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossProduct" class="internal"><span class="title">The Cross Product</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossPropertiesBasis" class="internal"><span class="title">Properties of the Cross Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-AreaGeometry" class="internal"><span class="title">Geometry: Area of a Parallelogram</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-Volume" class="internal"><span class="title">Geometry: Volume of a Parallelepiped</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-ApplicationTorque" class="internal"><span class="title">Application: Torque</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec124-CrossProduct.html#ws-sec124" class="internal"><span class="title">Assigned Problems for Section 12.4</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-DefiningPlanes" class="internal"><span class="title">Defining a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec125-Planesin3D.html#ws-sec125" class="internal"><span class="title">Assigned Problems for Section 12.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-ConicSections-Review" class="internal"><span class="title">Review: Conic Sections</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces" class="internal"><span class="title">Standard Quadric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-QuadraticCylinders" class="internal"><span class="title">Quadratic Cylinders</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#ws-sec126" class="internal"><span class="title">Assigned Problems for Section 12.6</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-PolarCoordinates-Review" class="internal"><span class="title">Review: Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates" class="internal"><span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates" class="internal"><span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#ws-sec127" class="internal"><span class="title">Assigned Problems for Section 12.7</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch13-CalcVectorFunctions.html" class="internal"><span class="codenumber">13</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions" class="internal"><span class="title">Domain, Path, and Curve</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Projection_VectorValuedFunctions" class="internal"><span class="title">Projections of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Parametrization_VectorValuedFunctions" class="internal"><span class="title">Parametrization of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#ws-sec131" class="internal"><span class="title">Assigned Problems for Section 13.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Limit-VectorValuedFunctions" class="internal"><span class="title">Limit of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions" class="internal"><span class="title">Derivative of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-TangentVector-VectorValuedFunctions" class="internal"><span class="title">Derivative as a Tangent Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Integration-VectorValuedFunctions" class="internal"><span class="title">Vector-valued Integration</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#ws-sec132" class="internal"><span class="title">Assigned Problems for Section 13.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-ArcLength" class="internal"><span class="title">Arc Length</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-Speed" class="internal"><span class="title">Speed</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-ArcLengthParametrization" class="internal"><span class="title">Arc Length Parametrization</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec133-ArcLength.html#ws-sec133" class="internal"><span class="title">Assigned Problems for Section 13.3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-Curvature-Definition" class="internal"><span class="title">Mathematical Definition of Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-Curvature-AlternativeFormula" class="internal"><span class="title">Alternative Formulas for Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-NormalVector" class="internal"><span class="title">The Normal Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-FrenetFrame" class="internal"><span class="title">The Frenet Frame</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-OsculatingCircle" class="internal"><span class="title">The Osculating Circle</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec134-Curvature.html#ws-sec134" class="internal"><span class="title">Assigned Problems for Section 13.4</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch14-DifferentiationMultiVariables.html" class="internal"><span class="codenumber">14</span> <span class="title">Differentiation in Several Variables</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-FunctionsTwoVariables" class="internal"><span class="title">Functions of Two Variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-FunctionsTwoVariables-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-LevelCurvesContourMaps" class="internal"><span class="title">Level Curves and Contour Maps</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-FunctionsThreeVariables" class="internal"><span class="title">Functions of Three (or More) Variables</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#ws-sec141" class="internal"><span class="title">Assigned Problems for Section 14.1</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div></li>
@@ -203,32 +295,383 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch15-MultipleIntegration.html" class="internal"><span class="codenumber">15</span> <span class="title">Multiple Integration</span></a></div>
-<ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Integration in Two Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Double Integrals over More General Regions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec153-tripleIntegrals.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Triple Integrals</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec156-ChangeofVariables.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Change of Variables</span></a></div></li>
-</ul>
-</li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec141-FunctionsTwoVariables"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions of Two or More Variables</span>
 </h2>
-<section class="introduction" id="sec141-FunctionsTwoVariables-2"><div class="para" id="sec141-FunctionsTwoVariables-2-1">Just the introduction texts...<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="sec141-FunctionsTwoVariables-2"><div class="para" id="sec141-FunctionsTwoVariables-2-1">In single-variable calculus, we primarily studied functions of the form <span class="process-math">\(y = f(x)\text{,}\)</span> where a single input determines a single output. These functions map real numbers to real numbers and are visualized as curves in a two-dimensional plane.<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="objectives goal-like" id="sec141-FunctionsTwoVariables-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
-<div class="introduction" id="sec141-FunctionsTwoVariables-2-2-1"><div class="para" id="sec141-FunctionsTwoVariables-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec141-FunctionsTwoVariables-2-2">In this section, we extend our calculus toolkit to <em class="emphasis">multivariable functions</em>. We will begin by defining functions of two variables, <span class="process-math">\(z = f(x,y)\text{,}\)</span> which map pairs of numbers to a single real number and are visualized as surfaces in three-dimensional space.<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="objectives goal-like" id="sec141-FunctionsTwoVariables-2-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="introduction" id="sec141-FunctionsTwoVariables-2-3-1"><div class="para" id="sec141-FunctionsTwoVariables-2-3-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<ul class="disc" id="sec141-FunctionsTwoVariables-2-2-2"><li id="sec141-FunctionsTwoVariables-2-2-2-1">
-<div class="para" id="sec141-FunctionsTwoVariables-2-2-2-1-1">blahblahblah<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec141-FunctionsTwoVariables-2-3-2">
+<li id="sec141-FunctionsTwoVariables-2-3-2-1">
+<div class="para" id="sec141-FunctionsTwoVariables-2-3-2-1-1">evaluate functions of two or more variables and use correct functional notation.<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Objective"><a href="#sec141-FunctionsTwoVariables-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li></ul>
-<div class="autopermalink" data-description="Objectives"><a href="#sec141-FunctionsTwoVariables-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="autopermalink" data-description="Section 14.1: Functions of Two or More Variables"><a href="#sec141-FunctionsTwoVariables" title="Copy heading and permalink for Section 14.1: Functions of Two or More Variables" aria-label="Copy heading and permalink for Section 14.1: Functions of Two or More Variables">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Objective"><a href="#sec141-FunctionsTwoVariables-2-3-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec141-FunctionsTwoVariables-2-3-2-2">
+<div class="para" id="sec141-FunctionsTwoVariables-2-3-2-2-1">determine and sketch the domain of a function of two variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec141-FunctionsTwoVariables-2-3-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec141-FunctionsTwoVariables-2-3-2-3">
+<div class="para" id="sec141-FunctionsTwoVariables-2-3-2-3-1">determine the range of basic functions of two variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec141-FunctionsTwoVariables-2-3-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec141-FunctionsTwoVariables-2-3-2-4">
+<div class="para" id="sec141-FunctionsTwoVariables-2-3-2-4-1">analyze the shape of a surface using traces.<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-3-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec141-FunctionsTwoVariables-2-3-2-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec141-FunctionsTwoVariables-2-3-2-5">
+<div class="para" id="sec141-FunctionsTwoVariables-2-3-2-5-1">sketch and interpret level curves and contour maps to visualize functions of two variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-3-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec141-FunctionsTwoVariables-2-3-2-5" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec141-FunctionsTwoVariables-2-3-2-6">
+<div class="para" id="sec141-FunctionsTwoVariables-2-3-2-6-1">match algebraic equations of functions to their corresponding 3D graphs and contour maps.<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-3-2-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec141-FunctionsTwoVariables-2-3-2-6" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec141-FunctionsTwoVariables-2-3-2-7">
+<div class="para" id="sec141-FunctionsTwoVariables-2-3-2-7-1">extend the concept of level curves to describe functions of three variables using level surfaces.<div class="autopermalink" data-description="Paragraph"><a href="#sec141-FunctionsTwoVariables-2-3-2-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec141-FunctionsTwoVariables-2-3-2-7" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec141-FunctionsTwoVariables-2-3" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><section class="subsection" id="subsec-FunctionsTwoVariables"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions of Two Variables</span>
+</h3>
+<div class="para" id="subsec-FunctionsTwoVariables-2">Functions of two variables are defined similarly to functions of one variable, except that the input consists of two variables rather than a single number <span class="process-math">\(x\text{.}\)</span> Using function notation, we write <span class="process-math">\(z = f(x,y)\text{,}\)</span> where <span class="process-math">\(z\)</span> is the output value corresponding to the inputs (<span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span>). Hence, <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are the independent variables, and <span class="process-math">\(z\)</span> is the dependent variable.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-FunctionsTwoVariables-3">A classic example of a function of two variables to consider is the area function for rectangles. We need two inputs, the length and the width of the rectangle, to determine its area. Thus, we can define the area function <span class="process-math">\(A = f(x, y)\text{,}\)</span> where the inputs, <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are the length and width respectively, and the output <span class="process-math">\(A\)</span> is the area of the rectangle.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-FunctionsTwoVariables-4"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-FunctionsTwoVariables-4-1">
+<div class="para">Consider a rectangle with length <span class="process-math">\(x\)</span> and width <span class="process-math">\(y\text{.}\)</span> The perimeter <span class="process-math">\(P\)</span> of the rectangle can be defined using the following function</div>
+<div class="displaymath process-math" id="subsec-FunctionsTwoVariables-4-1-4">
+\begin{equation*}
+P = f(x,y) = 2x + 2y
+\end{equation*}
+</div>
+<div class="para">Find the perimeter of a rectangle with length <span class="process-math">\(5\)</span> and width <span class="process-math">\(3\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-FunctionsTwoVariables-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-FunctionsTwoVariables-4-2-1">The task itself isn’t difficult... Make sure you are using the correct function notation to format your work!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 14.1.1.1"><a href="#subsec-FunctionsTwoVariables-4-2" title="Copy heading and permalink for Hint 14.1.1.1" aria-label="Copy heading and permalink for Hint 14.1.1.1">🔗</a></div>
+</div></details><details id="subsec-FunctionsTwoVariables-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-FunctionsTwoVariables-4-3-1">
+<div class="displaymath process-math" id="subsec-FunctionsTwoVariables-4-3-1-1">
+\begin{align*}
+P \amp= f(5,3) = 2(5) + 2(3) = 10 + 6 = 16
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.1.1.1"><a href="#subsec-FunctionsTwoVariables-4-3" title="Copy heading and permalink for Solution 14.1.1.1" aria-label="Copy heading and permalink for Solution 14.1.1.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.1.1"><a href="#subsec-FunctionsTwoVariables-4" title="Copy heading and permalink for Example 14.1.1" aria-label="Copy heading and permalink for Example 14.1.1">🔗</a></div></article><div class="para" id="subsec-FunctionsTwoVariables-5">From the example, we see that we evaluate functions of two variables the same way we do functions of one variable, by substituting the input values into the function formula.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-FunctionsTwoVariables-6">Now that we have a new function type, we need to consider its domain and range. Since there are two inputs to consider, one way to organize it is to use the <em class="alert">input pair</em> <span class="process-math">\((x,y)\text{.}\)</span> That is, the domain of a function of two variables is the set of all possible input pairs <span class="process-math">\((x,y)\)</span> for which the function is defined, and the range is the set of all possible output values.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-FunctionsTwoVariables-7"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/sec141_DomainRange_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Domain of <span class="process-math">\(f\)</span> is a set of ordered pairs and range is a set of output values.<div class="autopermalink" data-description="Figure 14.1.2"><a href="#subsec-FunctionsTwoVariables-7" title="Copy heading and permalink for Figure 14.1.2" aria-label="Copy heading and permalink for Figure 14.1.2">🔗</a></div></figcaption></figure><div class="para" id="subsec-FunctionsTwoVariables-8">Now that the domain is an subset of <span class="process-math">\(\R^2\text{,}\)</span> we can find it by determining the restrictions on the input variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> that make the function defined.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-FunctionsTwoVariables-9">The range can be a bit trickier to find, as it often requires more analysis of the function itself.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-FunctionsTwoVariables-10"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-FunctionsTwoVariables-10-1">Find the domain and the range of the function <span class="process-math">\(f(x,y) = \sqrt{\lp x^2 + 1 \rp y}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-FunctionsTwoVariables-10-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-FunctionsTwoVariables-10-2-1">Remember that the domain should consist of all input <em class="alert">pairs</em> <span class="process-math">\((x,y)\)</span> for which the function is defined, and the range is the set of all possible output <em class="alert">values</em>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-FunctionsTwoVariables-10-2-2">This is essentially a square root function, so we can determine the domain by focusing on the possible inputs of a square root function and determine the range by focusing on the possible outputs of a square root function.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-10-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 14.1.3.1"><a href="#subsec-FunctionsTwoVariables-10-2" title="Copy heading and permalink for Hint 14.1.3.1" aria-label="Copy heading and permalink for Hint 14.1.3.1">🔗</a></div>
+</div></details><details id="subsec-FunctionsTwoVariables-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-FunctionsTwoVariables-10-3-1">
+<div class="para">Because <span class="process-math">\(f\)</span> involves a square root, its domain consists of ordered pairs <span class="process-math">\((x,y)\)</span> such that the expression inside the square root is nonnegative. That is,</div>
+<div class="displaymath process-math" id="subsec-FunctionsTwoVariables-10-3-1-3">
+\begin{equation*}
+\lp x^2 + 1 \rp y \geq 0 
+\end{equation*}
+</div>
+<div class="para">Hence, the domain of <span class="process-math">\(f\)</span> is <span class="process-math">\(\left\{(x,y) \mid \lp x^2 + 1 \rp y \geq 0 \right\}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-10-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-FunctionsTwoVariables-10-3-2">Furthermore, since <span class="process-math">\(x^2 + 1 \geq 0 \gt 1\text{,}\)</span> then the sign of <span class="process-math">\(\lp x^2 + 1 \rp y\)</span> depends solely on the sign of <span class="process-math">\(y\text{.}\)</span> That is, the radicand is nonnegative when <span class="process-math">\(y \geq 0\text{.}\)</span> Hence, the domain can be expressed as <span class="process-math">\(\left\{(x,y) \mid y \geq 0 \right\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-10-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-FunctionsTwoVariables-10-3-3">Again, because <span class="process-math">\(f\)</span> involves a square root, its range consists of all nonnegative real numbers. Thus, the range of <span class="process-math">\(f\)</span> is <span class="process-math">\(\left\{ z \mid z \geq 0 \right\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-10-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.1.3.1"><a href="#subsec-FunctionsTwoVariables-10-3" title="Copy heading and permalink for Solution 14.1.3.1" aria-label="Copy heading and permalink for Solution 14.1.3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.1.3"><a href="#subsec-FunctionsTwoVariables-10" title="Copy heading and permalink for Example 14.1.3" aria-label="Copy heading and permalink for Example 14.1.3">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Functions of Two Variables"><a href="#subsec-FunctionsTwoVariables" title="Copy heading and permalink for Subsection: Functions of Two Variables" aria-label="Copy heading and permalink for Subsection: Functions of Two Variables">🔗</a></div></section><section class="subsection" id="subsec-FunctionsTwoVariables-Traces"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Traces</span>
+</h3>
+<div class="para logical" id="subsec-FunctionsTwoVariables-Traces-2">
+<div class="para">Recall that <dfn class="terminology">traces</dfn> is a good tool to analyze and visualize surfaces defined in <span class="process-math">\(\R^3\text{,}\)</span> as seen in <a href="sec126-QuadricSurfaces.html" class="internal" title="Section 12.6: A Survey to Quadric Surfaces">Section 12.6</a>. A trace is the curve obtained by intersecting the surface with a coordinate plane. Usually, traces of functions of two variables can be found by fixing one of the <em class="emphasis">input</em> variables, so the coordinate planes are parallel to either the <span class="process-math">\(xz\)</span>-plane or the <span class="process-math">\(yz\)</span>-plane.</div>
+<ul class="no-marker" id="subsec-FunctionsTwoVariables-Traces-2-7">
+<li id="subsec-FunctionsTwoVariables-Traces-2-7-1">
+<div class="para" id="subsec-FunctionsTwoVariables-Traces-2-7-1-1">If we fix <span class="process-math">\(x = a\text{,}\)</span> then the trace is obtained by intersecting the graph with the vertical plane <span class="process-math">\(x = a\text{.}\)</span> Each point on this trace is of the form <span class="process-math">\((a, y, f(a,y))\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-Traces-2-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-FunctionsTwoVariables-Traces-2-7-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-FunctionsTwoVariables-Traces-2-7-2">
+<div class="para" id="subsec-FunctionsTwoVariables-Traces-2-7-2-1">If we fix <span class="process-math">\(y = b\text{,}\)</span> then the trace is obtained by intersecting the graph with the vertical plane <span class="process-math">\(y = b\text{.}\)</span> Each point on this trace is of the form <span class="process-math">\((x, b, f(x,b))\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-Traces-2-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-FunctionsTwoVariables-Traces-2-7-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsTwoVariables-Traces-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Traces"><a href="#subsec-FunctionsTwoVariables-Traces" title="Copy heading and permalink for Subsection: Traces" aria-label="Copy heading and permalink for Subsection: Traces">🔗</a></div></section><section class="subsection" id="subsec-LevelCurvesContourMaps"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Level Curves and Contour Maps</span>
+</h3>
+<div class="para" id="subsec-LevelCurvesContourMaps-2">You may be wondering: why can’t we use horizontal traces to analyze functions of two variables by fixing the output <span class="process-math">\(z = c\text{?}\)</span> We for sure can! In fact, the horizontal traces projected on the <span class="process-math">\(xy\)</span>-plane are called <dfn class="terminology">level curves</dfn> of the function.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-LevelCurvesContourMaps-3"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-LevelCurvesContourMaps-3-1">Find and sketch several level curves of the function <span class="process-math">\(f(x,y) = e^{-x^2 - y^2}\text{.}\)</span> You may want to graph the function using GeoGebra to visualize the level curves.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-LevelCurvesContourMaps-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-LevelCurvesContourMaps-3-2-1">
+<div class="para">The level curves satisfy the equation <span class="process-math">\(e^{-x^2 - y^2} = c\text{,}\)</span> where <span class="process-math">\(c\)</span> is a (positive) constant. Taking the natural logarithm of both sides, we have</div>
+<div class="displaymath process-math" id="subsec-LevelCurvesContourMaps-3-2-1-3">
+\begin{equation*}
+x^2 + y^2 = -\ln(c)
+\end{equation*}
+</div>
+<div class="para">This describes circular level curves centered at the origin with radius <span class="process-math">\(r = \sqrt{-\ln(c)}\text{,}\)</span> for <span class="process-math">\(0 \lt c \leq 1\text{.}\)</span>
+</div>
+<ul class="no-marker" id="subsec-LevelCurvesContourMaps-3-2-1-6">
+<li id="subsec-LevelCurvesContourMaps-3-2-1-6-1">
+<div class="para logical" id="subsec-LevelCurvesContourMaps-3-2-1-6-1-1">
+<div class="para">With <span class="process-math">\(c = 1\text{,}\)</span> the level curve satisfies the equation</div>
+<div class="displaymath process-math" id="subsec-LevelCurvesContourMaps-3-2-1-6-1-1-2">
+\begin{equation*}
+x^2 + y^2 = -\ln(1) = 0
+\end{equation*}
+</div>
+<div class="para">This corresponds to the single point at the origin <span class="process-math">\((0,0)\text{.}\)</span> The level curve of this point will be drawn on the <span class="process-math">\(xy\)</span>-plane. To indicate that this point is obtained by setting <span class="process-math">\(z = 1\text{,}\)</span> we can label it as <span class="process-math">\(z = 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-3-2-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-LevelCurvesContourMaps-3-2-1-6-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-LevelCurvesContourMaps-3-2-1-6-2">
+<div class="para logical" id="subsec-LevelCurvesContourMaps-3-2-1-6-2-1">
+<div class="para">With <span class="process-math">\(c = e^{-1} \approx 0.37\text{,}\)</span> the level curve satisfies the equation</div>
+<div class="displaymath process-math" id="subsec-LevelCurvesContourMaps-3-2-1-6-2-1-2">
+\begin{equation*}
+x^2 + y^2 = -\ln(e^{-1}) = 1
+\end{equation*}
+</div>
+<div class="para">This corresponds to a circle of radius <span class="process-math">\(r = 1\)</span> centered at the origin. We can label this level curve as <span class="process-math">\(z = e^{-1}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-3-2-1-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-LevelCurvesContourMaps-3-2-1-6-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">You are more than welcome to keep on graphing more level curves for other values of <span class="process-math">\(c\text{.}\)</span> Just make sure you label them accordingly!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-LevelCurvesContourMaps-3-2-2">A sketch of several level curves is shown below.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-LevelCurvesContourMaps-3-2-3"><div class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;"><img src="external/sec141_LevelCurves_Example_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 14.1.5"><a href="#subsec-LevelCurvesContourMaps-3-2-3" title="Copy heading and permalink for Figure 14.1.5" aria-label="Copy heading and permalink for Figure 14.1.5">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 14.1.4.1"><a href="#subsec-LevelCurvesContourMaps-3-2" title="Copy heading and permalink for Solution 14.1.4.1" aria-label="Copy heading and permalink for Solution 14.1.4.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.1.4"><a href="#subsec-LevelCurvesContourMaps-3" title="Copy heading and permalink for Example 14.1.4" aria-label="Copy heading and permalink for Example 14.1.4">🔗</a></div></article><div class="para" id="subsec-LevelCurvesContourMaps-4">If you draw several level curves of a function <span class="process-math">\(f(x,y) = c\)</span> for equally spaced values of <span class="process-math">\(c\text{,}\)</span> then you obtain a <dfn class="terminology">contour map</dfn> of the function. The interval between the values of <span class="process-math">\(c\)</span> is called the <dfn class="terminology">contour interval</dfn>. When you move from one level curve to another in a contour map, the output value of the function changes by the contour interval.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-LevelCurvesContourMaps-5"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/sec141_LevelCurves_Example_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 14.1.6"><a href="#subsec-LevelCurvesContourMaps-5" title="Copy heading and permalink for Figure 14.1.6" aria-label="Copy heading and permalink for Figure 14.1.6">🔗</a></div></figcaption></figure><div class="para" id="subsec-LevelCurvesContourMaps-6">You may be able to make a quick observation about the contour map above. <em class="emphasis">the steeper the graph, the closer the level curves are to each other on the contour map</em>. That is because a small change moving along the level curve results in a large change in the height when the graph is steep.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-LevelCurvesContourMaps-7"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-LevelCurvesContourMaps-7-1">
+<div class="para">Match the function with its graph (A-F) and with its contour map (I-VI) in the figure below.</div>
+<ol class="decimal ol-marker-3" id="subsec-LevelCurvesContourMaps-7-1-1">
+<li id="subsec-LevelCurvesContourMaps-7-1-1-1">
+<div class="para" id="subsec-LevelCurvesContourMaps-7-1-1-1-1">
+<span class="process-math">\(\displaystyle z = \sin(xy)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-7-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#subsec-LevelCurvesContourMaps-7-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="subsec-LevelCurvesContourMaps-7-1-1-2">
+<div class="para" id="subsec-LevelCurvesContourMaps-7-1-1-2-1">
+<span class="process-math">\(\displaystyle z = e^x\cos(y)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-7-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#subsec-LevelCurvesContourMaps-7-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="subsec-LevelCurvesContourMaps-7-1-1-3">
+<div class="para" id="subsec-LevelCurvesContourMaps-7-1-1-3-1">
+<span class="process-math">\(\displaystyle z = \sin(x - y)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-7-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#subsec-LevelCurvesContourMaps-7-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="subsec-LevelCurvesContourMaps-7-1-1-4">
+<div class="para" id="subsec-LevelCurvesContourMaps-7-1-1-4-1">
+<span class="process-math">\(\displaystyle z = \sin(x) - \sin(y)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-7-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#subsec-LevelCurvesContourMaps-7-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+<li id="subsec-LevelCurvesContourMaps-7-1-1-5">
+<div class="para" id="subsec-LevelCurvesContourMaps-7-1-1-5-1">
+<span class="process-math">\(\displaystyle z = \lp 1 - x^2 \rp\lp 1 - y^2 \rp\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-7-1-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5"><a href="#subsec-LevelCurvesContourMaps-7-1-1-5" title="Copy heading and permalink for Item 5" aria-label="Copy heading and permalink for Item 5">🔗</a></div>
+</li>
+<li id="subsec-LevelCurvesContourMaps-7-1-1-6">
+<div class="para" id="subsec-LevelCurvesContourMaps-7-1-1-6-1">
+<span class="process-math">\(\displaystyle z = \dfrac{x - y}{1 + x^2 + y^2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-7-1-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 6"><a href="#subsec-LevelCurvesContourMaps-7-1-1-6" title="Copy heading and permalink for Item 6" aria-label="Copy heading and permalink for Item 6">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-LevelCurvesContourMaps-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-LevelCurvesContourMaps-7-2"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/sec141_Graphs_Example.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The graphs.<div class="autopermalink" data-description="Figure 14.1.8"><a href="#subsec-LevelCurvesContourMaps-7-2" title="Copy heading and permalink for Figure 14.1.8" aria-label="Copy heading and permalink for Figure 14.1.8">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="subsec-LevelCurvesContourMaps-7-3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/sec141_ContourMaps_Example.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The contour maps (the level curves are not labeled).<div class="autopermalink" data-description="Figure 14.1.9"><a href="#subsec-LevelCurvesContourMaps-7-3" title="Copy heading and permalink for Figure 14.1.9" aria-label="Copy heading and permalink for Figure 14.1.9">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 14.1.7"><a href="#subsec-LevelCurvesContourMaps-7" title="Copy heading and permalink for Example 14.1.7" aria-label="Copy heading and permalink for Example 14.1.7">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Level Curves and Contour Maps"><a href="#subsec-LevelCurvesContourMaps" title="Copy heading and permalink for Subsection: Level Curves and Contour Maps" aria-label="Copy heading and permalink for Subsection: Level Curves and Contour Maps">🔗</a></div></section><section class="subsection" id="subsec-FunctionsThreeVariables"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Functions of Three (or More) Variables</span>
+</h3>
+<div class="para" id="subsec-FunctionsThreeVariables-2">If we throw in more independent variables, we can define functions of three or more variables. As you can imagine, for every variable we add, we need another dimension to represent the variable. For example, if we have a function of three variables <span class="process-math">\(w = f(x,y,z)\text{,}\)</span> then we need four dimensions to represent the graph of the function.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsThreeVariables-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-FunctionsThreeVariables-3">Since we cannot visualize four (or more) dimensions, we must rely on other methods to understand functions of three or more variables. The idea of the level curves can be extended here. By setting the output variable to be a constant, we will still have three variables left, which implies that the level curves become <dfn class="terminology">level surfaces</dfn> in <span class="process-math">\(\R^3\text{.}\)</span> This is also called the <dfn class="terminology">isotherms</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsThreeVariables-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-FunctionsThreeVariables-4">Richard will have you explore the idea of the level surface more in the assigned problems.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-FunctionsThreeVariables-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: Functions of Three (or More) Variables"><a href="#subsec-FunctionsThreeVariables" title="Copy heading and permalink for Subsection: Functions of Three (or More) Variables" aria-label="Copy heading and permalink for Subsection: Functions of Three (or More) Variables">🔗</a></div></section><section class="worksheet" id="ws-sec141" data-margins="0.75in 0.75in 0.75in 0.75in"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Assigned Problems for Section 14.1</span><div class="print-links"><a href="ws-sec141-printable.html" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<section class="introduction" id="ws-sec141-2"><div class="para" id="ws-sec141-2-1">The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec141-2-2">The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><article class="exercise exercise-like" id="ws-sec141-3"><h4 class="heading"><span class="codenumber">14.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec141-3-1">Evaluate the function <span class="process-math">\(h(x,y) = \dfrac{\sqrt{x - y^2}}{x - y}\)</span> at the given points <span class="process-math">\((20,2)\text{,}\)</span> <span class="process-math">\((1,-2)\text{,}\)</span> and <span class="process-math">\((1,1)\)</span> (or indicate that the function is undefined there).<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.1.3"><a href="#ws-sec141-3" title="Copy heading and permalink for Worksheet Exercise 14.1.3" aria-label="Copy heading and permalink for Worksheet Exercise 14.1.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec141-4"><h4 class="heading"><span class="codenumber">14.1.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec141-4-1">Sketch the domain of the function <span class="process-math">\(f(x,y) = \ln \lp 4x^2 - y \rp\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.1.9"><a href="#ws-sec141-4" title="Copy heading and permalink for Worksheet Exercise 14.1.9" aria-label="Copy heading and permalink for Worksheet Exercise 14.1.9">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec141-5"><h4 class="heading"><span class="codenumber">14.1.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec141-5-1">Describe the domain and range of the function <span class="process-math">\(P(r,s,t) = \sqrt{16 -  r^2s^2t^2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.1.17"><a href="#ws-sec141-5" title="Copy heading and permalink for Worksheet Exercise 14.1.17" aria-label="Copy heading and permalink for Worksheet Exercise 14.1.17">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec141-6"><h4 class="heading"><span class="codenumber">14.1.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec141-6-1">
+<div class="para">Match graphs (A) and (B) in the figure below with the functions</div>
+<ol class="lower-roman ol-marker-6" id="ws-sec141-6-1-1">
+<li id="ws-sec141-6-1-1-1">
+<div class="para" id="ws-sec141-6-1-1-1-1">
+<span class="process-math">\(\displaystyle f(x,y) = -x + y^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-6-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.1.19.i"><a href="#ws-sec141-6-1-1-1" title="Copy heading and permalink for Item 14.1.19.i" aria-label="Copy heading and permalink for Item 14.1.19.i">🔗</a></div>
+</li>
+<li id="ws-sec141-6-1-1-2">
+<div class="para" id="ws-sec141-6-1-1-2-1">
+<span class="process-math">\(\displaystyle g(x,y) = x + y^2\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-6-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.1.19.ii"><a href="#ws-sec141-6-1-1-2" title="Copy heading and permalink for Item 14.1.19.ii" aria-label="Copy heading and permalink for Item 14.1.19.ii">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="ws-sec141-6-2"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/sec141-HW19-Figure.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 14.1.10"><a href="#ws-sec141-6-2" title="Copy heading and permalink for Figure 14.1.10" aria-label="Copy heading and permalink for Figure 14.1.10">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Worksheet Exercise 14.1.19"><a href="#ws-sec141-6" title="Copy heading and permalink for Worksheet Exercise 14.1.19" aria-label="Copy heading and permalink for Worksheet Exercise 14.1.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec141-7"><h4 class="heading"><span class="codenumber">14.1.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec141-7-1">
+<div class="para">Match the functions (a)-(f) with their graphs (A)-(F) in the figure below.</div>
+<ol class="lower-alpha ol-marker-5" id="ws-sec141-7-1-1">
+<li id="ws-sec141-7-1-1-1">
+<div class="para" id="ws-sec141-7-1-1-1-1">
+<span class="process-math">\(\displaystyle f(x,y) = |x| + |y|\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-7-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.1.21.a"><a href="#ws-sec141-7-1-1-1" title="Copy heading and permalink for Item 14.1.21.a" aria-label="Copy heading and permalink for Item 14.1.21.a">🔗</a></div>
+</li>
+<li id="ws-sec141-7-1-1-2">
+<div class="para" id="ws-sec141-7-1-1-2-1">
+<span class="process-math">\(\displaystyle f(x,y) = \cos(x - y)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-7-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.1.21.b"><a href="#ws-sec141-7-1-1-2" title="Copy heading and permalink for Item 14.1.21.b" aria-label="Copy heading and permalink for Item 14.1.21.b">🔗</a></div>
+</li>
+<li id="ws-sec141-7-1-1-3">
+<div class="para" id="ws-sec141-7-1-1-3-1">
+<span class="process-math">\(\displaystyle f(x,y) = \dfrac{-1}{1 + 9x^2 + y^2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-7-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.1.21.c"><a href="#ws-sec141-7-1-1-3" title="Copy heading and permalink for Item 14.1.21.c" aria-label="Copy heading and permalink for Item 14.1.21.c">🔗</a></div>
+</li>
+<li id="ws-sec141-7-1-1-4">
+<div class="para" id="ws-sec141-7-1-1-4-1">
+<span class="process-math">\(\displaystyle f(x,y) = \cos\lp y^2 \rp e^{-0.1\lp x^2 + y^2 \rp}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-7-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.1.21.d"><a href="#ws-sec141-7-1-1-4" title="Copy heading and permalink for Item 14.1.21.d" aria-label="Copy heading and permalink for Item 14.1.21.d">🔗</a></div>
+</li>
+<li id="ws-sec141-7-1-1-5">
+<div class="para" id="ws-sec141-7-1-1-5-1">
+<span class="process-math">\(\displaystyle f(x,y) = \frac{-1}{1 + 9x^2 + 9y^2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-7-1-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.1.21.e"><a href="#ws-sec141-7-1-1-5" title="Copy heading and permalink for Item 14.1.21.e" aria-label="Copy heading and permalink for Item 14.1.21.e">🔗</a></div>
+</li>
+<li id="ws-sec141-7-1-1-6">
+<div class="para" id="ws-sec141-7-1-1-6-1">
+<span class="process-math">\(\displaystyle f(x,y) = \cos\lp x^2 + y^2 \rp e^{-0.1\lp x^2 + y^2 \rp}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-7-1-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.1.21.f"><a href="#ws-sec141-7-1-1-6" title="Copy heading and permalink for Item 14.1.21.f" aria-label="Copy heading and permalink for Item 14.1.21.f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="ws-sec141-7-2"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/sec141-HW21-Figure.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 14.1.11"><a href="#ws-sec141-7-2" title="Copy heading and permalink for Figure 14.1.11" aria-label="Copy heading and permalink for Figure 14.1.11">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Worksheet Exercise 14.1.21"><a href="#ws-sec141-7" title="Copy heading and permalink for Worksheet Exercise 14.1.21" aria-label="Copy heading and permalink for Worksheet Exercise 14.1.21">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec141-8"><h4 class="heading"><span class="codenumber">14.1.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec141-8-1">Sketch the graph of <span class="process-math">\(f(x,y) = x^2 + 4y^2\)</span> and draw several vertical and horizontal traces.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.1.25"><a href="#ws-sec141-8" title="Copy heading and permalink for Worksheet Exercise 14.1.25" aria-label="Copy heading and permalink for Worksheet Exercise 14.1.25">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec141-9"><h4 class="heading"><span class="codenumber">14.1.33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec141-9-1">Draw a contour map of <span class="process-math">\(f(x,y) = \dfrac{y}{x}\)</span> with an appropriate contour interval, showing at least six level curves.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.1.33"><a href="#ws-sec141-9" title="Copy heading and permalink for Worksheet Exercise 14.1.33" aria-label="Copy heading and permalink for Worksheet Exercise 14.1.33">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec141-10"><h4 class="heading"><span class="codenumber">14.1.41<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec141-10-1">
+<div class="para">In the following diagram,</div>
+<ol class="lower-alpha ol-marker-5" id="ws-sec141-10-1-1">
+<li id="ws-sec141-10-1-1-1">
+<div class="para" id="ws-sec141-10-1-1-1-1">At which of A-C is pressure increasing in the northern direction?<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-10-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.1.41.a"><a href="#ws-sec141-10-1-1-1" title="Copy heading and permalink for Item 14.1.41.a" aria-label="Copy heading and permalink for Item 14.1.41.a">🔗</a></div>
+</li>
+<li id="ws-sec141-10-1-1-2">
+<div class="para" id="ws-sec141-10-1-1-2-1">At which A-C is pressure increasing in the westerly direction?<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-10-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.1.41.b"><a href="#ws-sec141-10-1-1-2" title="Copy heading and permalink for Item 14.1.41.b" aria-label="Copy heading and permalink for Item 14.1.41.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="ws-sec141-10-2"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec141-HW41-Figure.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.1.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Atmospheric pressure (in millibars) over North America on March 26, 2009<div class="autopermalink" data-description="Figure 14.1.12"><a href="#ws-sec141-10-2" title="Copy heading and permalink for Figure 14.1.12" aria-label="Copy heading and permalink for Figure 14.1.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Worksheet Exercise 14.1.41"><a href="#ws-sec141-10" title="Copy heading and permalink for Worksheet Exercise 14.1.41" aria-label="Copy heading and permalink for Worksheet Exercise 14.1.41">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec141-11"><h4 class="heading"><span class="codenumber">14.1.47<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec141-11-1">Let <span class="process-math">\(T(x,y,z) = x^2 - y^2 + z^2\)</span> denote the temperature at each point in space. Draw level surfaces (also called isotherms) corresponding to the fixed temperatures <span class="process-math">\(T = 0,1,2,-1,-2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.1.47"><a href="#ws-sec141-11" title="Copy heading and permalink for Worksheet Exercise 14.1.47" aria-label="Copy heading and permalink for Worksheet Exercise 14.1.47">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec141-12"><h4 class="heading"><span class="codenumber">14.1.57<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec141-12-1">
+<div class="para">Let temperature in 3-space be given by</div>
+<div class="displaymath process-math" id="ws-sec141-12-1-1">
+\begin{equation*}
+T(x,y,z) = \frac{x^2}{4} + \frac{y^2}{9} + z^2
+\end{equation*}
+</div>
+<div class="para">Draw isotherms corresponding to temperatures <span class="process-math">\(T = 0, 1, 2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec141-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.1.57"><a href="#ws-sec141-12" title="Copy heading and permalink for Worksheet Exercise 14.1.57" aria-label="Copy heading and permalink for Worksheet Exercise 14.1.57">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 14.1"><a href="#ws-sec141" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 14.1" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 14.1">🔗</a></div></section><div class="autopermalink" data-description="Section 14.1: Functions of Two or More Variables"><a href="#sec141-FunctionsTwoVariables" title="Copy heading and permalink for Section 14.1: Functions of Two or More Variables" aria-label="Copy heading and permalink for Section 14.1: Functions of Two or More Variables">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="ch14-DifferentiationMultiVariables.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec142-LimitsContinuity.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

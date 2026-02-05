@@ -3907,6 +3907,330 @@ var ptx_lunr_docs = [
   "body": " Find an equation of the osculating circle to the curve at the point where or indicate that none exists.  "
 },
 {
+  "id": "sec141-FunctionsTwoVariables",
+  "level": "1",
+  "url": "sec141-FunctionsTwoVariables.html",
+  "type": "Section",
+  "number": "14.1",
+  "title": "Functions of Two or More Variables",
+  "body": " Functions of Two or More Variables   In single-variable calculus, we primarily studied functions of the form , where a single input determines a single output. These functions map real numbers to real numbers and are visualized as curves in a two-dimensional plane.  In this section, we extend our calculus toolkit to multivariable functions . We will begin by defining functions of two variables, , which map pairs of numbers to a single real number and are visualized as surfaces in three-dimensional space.    After this section, students will be able to:     evaluate functions of two or more variables and use correct functional notation.    determine and sketch the domain of a function of two variables.    determine the range of basic functions of two variables.    analyze the shape of a surface using traces.    sketch and interpret level curves and contour maps to visualize functions of two variables.    match algebraic equations of functions to their corresponding 3D graphs and contour maps.    extend the concept of level curves to describe functions of three variables using level surfaces.       Functions of Two Variables  Functions of two variables are defined similarly to functions of one variable, except that the input consists of two variables rather than a single number . Using function notation, we write , where is the output value corresponding to the inputs ( and ). Hence, and are the independent variables, and is the dependent variable.  A classic example of a function of two variables to consider is the area function for rectangles. We need two inputs, the length and the width of the rectangle, to determine its area. Thus, we can define the area function , where the inputs, and are the length and width respectively, and the output is the area of the rectangle.   Consider a rectangle with length and width . The perimeter of the rectangle can be defined using the following function Find the perimeter of a rectangle with length and width .   The task itself isn't difficult... Make sure you are using the correct function notation to format your work!         From the example, we see that we evaluate functions of two variables the same way we do functions of one variable, by substituting the input values into the function formula.  Now that we have a new function type, we need to consider its domain and range. Since there are two inputs to consider, one way to organize it is to use the input pair  . That is, the domain of a function of two variables is the set of all possible input pairs for which the function is defined, and the range is the set of all possible output values.    Domain of is a set of ordered pairs and range is a set of output values.   Now that the domain is an subset of , we can find it by determining the restrictions on the input variables and that make the function defined.  The range can be a bit trickier to find, as it often requires more analysis of the function itself.   Find the domain and the range of the function .   Remember that the domain should consist of all input pairs  for which the function is defined, and the range is the set of all possible output values .  This is essentially a square root function, so we can determine the domain by focusing on the possible inputs of a square root function and determine the range by focusing on the possible outputs of a square root function.    Because involves a square root, its domain consists of ordered pairs such that the expression inside the square root is nonnegative. That is, Hence, the domain of is .  Furthermore, since , then the sign of depends solely on the sign of . That is, the radicand is nonnegative when . Hence, the domain can be expressed as .  Again, because involves a square root, its range consists of all nonnegative real numbers. Thus, the range of is .      Traces  Recall that traces is a good tool to analyze and visualize surfaces defined in , as seen in . A trace is the curve obtained by intersecting the surface with a coordinate plane. Usually, traces of functions of two variables can be found by fixing one of the input variables, so the coordinate planes are parallel to either the -plane or the -plane.   If we fix , then the trace is obtained by intersecting the graph with the vertical plane . Each point on this trace is of the form .    If we fix , then the trace is obtained by intersecting the graph with the vertical plane . Each point on this trace is of the form .       Level Curves and Contour Maps  You may be wondering: why can't we use horizontal traces to analyze functions of two variables by fixing the output ? We for sure can! In fact, the horizontal traces projected on the -plane are called level curves of the function.   Find and sketch several level curves of the function . You may want to graph the function using GeoGebra to visualize the level curves.   The level curves satisfy the equation , where is a (positive) constant. Taking the natural logarithm of both sides, we have This describes circular level curves centered at the origin with radius , for .   With , the level curve satisfies the equation This corresponds to the single point at the origin . The level curve of this point will be drawn on the -plane. To indicate that this point is obtained by setting , we can label it as .    With , the level curve satisfies the equation This corresponds to a circle of radius centered at the origin. We can label this level curve as .   You are more than welcome to keep on graphing more level curves for other values of . Just make sure you label them accordingly!  A sketch of several level curves is shown below.       If you draw several level curves of a function for equally spaced values of , then you obtain a contour map of the function. The interval between the values of is called the contour interval . When you move from one level curve to another in a contour map, the output value of the function changes by the contour interval.     You may be able to make a quick observation about the contour map above. the steeper the graph, the closer the level curves are to each other on the contour map . That is because a small change moving along the level curve results in a large change in the height when the graph is steep.   Match the function with its graph (A-F) and with its contour map (I-VI) in the figure below.                                    The graphs.     The contour maps (the level curves are not labeled).      Functions of Three (or More) Variables  If we throw in more independent variables, we can define functions of three or more variables. As you can imagine, for every variable we add, we need another dimension to represent the variable. For example, if we have a function of three variables , then we need four dimensions to represent the graph of the function.  Since we cannot visualize four (or more) dimensions, we must rely on other methods to understand functions of three or more variables. The idea of the level curves can be extended here. By setting the output variable to be a constant, we will still have three variables left, which implies that the level curves become level surfaces in . This is also called the isotherms .  Richard will have you explore the idea of the level surface more in the assigned problems.    Assigned Problems for Section 14.1   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Evaluate the function at the given points , , and (or indicate that the function is undefined there).    Sketch the domain of the function .    Describe the domain and range of the function .    Match graphs (A) and (B) in the figure below with the functions                   Match the functions (a)-(f) with their graphs (A)-(F) in the figure below.                                   >    Sketch the graph of and draw several vertical and horizontal traces.    Draw a contour map of with an appropriate contour interval, showing at least six level curves.    In the following diagram,   At which of A-C is pressure increasing in the northern direction?    At which A-C is pressure increasing in the westerly direction?       Atmospheric pressure (in millibars) over North America on March 26, 2009     Let denote the temperature at each point in space. Draw level surfaces (also called isotherms) corresponding to the fixed temperatures .    Let temperature in 3-space be given by Draw isotherms corresponding to temperatures .    "
+},
+{
+  "id": "sec141-FunctionsTwoVariables-2-3",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#sec141-FunctionsTwoVariables-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     evaluate functions of two or more variables and use correct functional notation.    determine and sketch the domain of a function of two variables.    determine the range of basic functions of two variables.    analyze the shape of a surface using traces.    sketch and interpret level curves and contour maps to visualize functions of two variables.    match algebraic equations of functions to their corresponding 3D graphs and contour maps.    extend the concept of level curves to describe functions of three variables using level surfaces.    "
+},
+{
+  "id": "subsec-FunctionsTwoVariables-4",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#subsec-FunctionsTwoVariables-4",
+  "type": "Example",
+  "number": "14.1.1",
+  "title": "",
+  "body": " Consider a rectangle with length and width . The perimeter of the rectangle can be defined using the following function Find the perimeter of a rectangle with length and width .   The task itself isn't difficult... Make sure you are using the correct function notation to format your work!        "
+},
+{
+  "id": "subsec-FunctionsTwoVariables-7",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#subsec-FunctionsTwoVariables-7",
+  "type": "Figure",
+  "number": "14.1.2",
+  "title": "",
+  "body": "  Domain of is a set of ordered pairs and range is a set of output values.  "
+},
+{
+  "id": "subsec-FunctionsTwoVariables-10",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#subsec-FunctionsTwoVariables-10",
+  "type": "Example",
+  "number": "14.1.3",
+  "title": "",
+  "body": " Find the domain and the range of the function .   Remember that the domain should consist of all input pairs  for which the function is defined, and the range is the set of all possible output values .  This is essentially a square root function, so we can determine the domain by focusing on the possible inputs of a square root function and determine the range by focusing on the possible outputs of a square root function.    Because involves a square root, its domain consists of ordered pairs such that the expression inside the square root is nonnegative. That is, Hence, the domain of is .  Furthermore, since , then the sign of depends solely on the sign of . That is, the radicand is nonnegative when . Hence, the domain can be expressed as .  Again, because involves a square root, its range consists of all nonnegative real numbers. Thus, the range of is .   "
+},
+{
+  "id": "subsec-FunctionsTwoVariables-Traces-2",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#subsec-FunctionsTwoVariables-Traces-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "traces "
+},
+{
+  "id": "subsec-LevelCurvesContourMaps-2",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#subsec-LevelCurvesContourMaps-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "level curves "
+},
+{
+  "id": "subsec-LevelCurvesContourMaps-3",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#subsec-LevelCurvesContourMaps-3",
+  "type": "Example",
+  "number": "14.1.4",
+  "title": "",
+  "body": " Find and sketch several level curves of the function . You may want to graph the function using GeoGebra to visualize the level curves.   The level curves satisfy the equation , where is a (positive) constant. Taking the natural logarithm of both sides, we have This describes circular level curves centered at the origin with radius , for .   With , the level curve satisfies the equation This corresponds to the single point at the origin . The level curve of this point will be drawn on the -plane. To indicate that this point is obtained by setting , we can label it as .    With , the level curve satisfies the equation This corresponds to a circle of radius centered at the origin. We can label this level curve as .   You are more than welcome to keep on graphing more level curves for other values of . Just make sure you label them accordingly!  A sketch of several level curves is shown below.      "
+},
+{
+  "id": "subsec-LevelCurvesContourMaps-4",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#subsec-LevelCurvesContourMaps-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "contour map contour interval "
+},
+{
+  "id": "subsec-LevelCurvesContourMaps-5",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#subsec-LevelCurvesContourMaps-5",
+  "type": "Figure",
+  "number": "14.1.6",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "subsec-LevelCurvesContourMaps-7",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#subsec-LevelCurvesContourMaps-7",
+  "type": "Example",
+  "number": "14.1.7",
+  "title": "",
+  "body": " Match the function with its graph (A-F) and with its contour map (I-VI) in the figure below.                                    The graphs.     The contour maps (the level curves are not labeled).   "
+},
+{
+  "id": "subsec-FunctionsThreeVariables-3",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#subsec-FunctionsThreeVariables-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "level surfaces isotherms "
+},
+{
+  "id": "ws-sec141-3",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#ws-sec141-3",
+  "type": "Worksheet Exercise",
+  "number": "14.1.3",
+  "title": "",
+  "body": " Evaluate the function at the given points , , and (or indicate that the function is undefined there).  "
+},
+{
+  "id": "ws-sec141-4",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#ws-sec141-4",
+  "type": "Worksheet Exercise",
+  "number": "14.1.9",
+  "title": "",
+  "body": " Sketch the domain of the function .  "
+},
+{
+  "id": "ws-sec141-5",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#ws-sec141-5",
+  "type": "Worksheet Exercise",
+  "number": "14.1.17",
+  "title": "",
+  "body": " Describe the domain and range of the function .  "
+},
+{
+  "id": "ws-sec141-6",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#ws-sec141-6",
+  "type": "Worksheet Exercise",
+  "number": "14.1.19",
+  "title": "",
+  "body": " Match graphs (A) and (B) in the figure below with the functions                 "
+},
+{
+  "id": "ws-sec141-7",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#ws-sec141-7",
+  "type": "Worksheet Exercise",
+  "number": "14.1.21",
+  "title": "",
+  "body": " Match the functions (a)-(f) with their graphs (A)-(F) in the figure below.                                   >  "
+},
+{
+  "id": "ws-sec141-8",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#ws-sec141-8",
+  "type": "Worksheet Exercise",
+  "number": "14.1.25",
+  "title": "",
+  "body": " Sketch the graph of and draw several vertical and horizontal traces.  "
+},
+{
+  "id": "ws-sec141-9",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#ws-sec141-9",
+  "type": "Worksheet Exercise",
+  "number": "14.1.33",
+  "title": "",
+  "body": " Draw a contour map of with an appropriate contour interval, showing at least six level curves.  "
+},
+{
+  "id": "ws-sec141-10",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#ws-sec141-10",
+  "type": "Worksheet Exercise",
+  "number": "14.1.41",
+  "title": "",
+  "body": " In the following diagram,   At which of A-C is pressure increasing in the northern direction?    At which A-C is pressure increasing in the westerly direction?       Atmospheric pressure (in millibars) over North America on March 26, 2009   "
+},
+{
+  "id": "ws-sec141-11",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#ws-sec141-11",
+  "type": "Worksheet Exercise",
+  "number": "14.1.47",
+  "title": "",
+  "body": " Let denote the temperature at each point in space. Draw level surfaces (also called isotherms) corresponding to the fixed temperatures .  "
+},
+{
+  "id": "ws-sec141-12",
+  "level": "2",
+  "url": "sec141-FunctionsTwoVariables.html#ws-sec141-12",
+  "type": "Worksheet Exercise",
+  "number": "14.1.57",
+  "title": "",
+  "body": " Let temperature in 3-space be given by Draw isotherms corresponding to temperatures .  "
+},
+{
+  "id": "sec142-LimitsContinuity",
+  "level": "1",
+  "url": "sec142-LimitsContinuity.html",
+  "type": "Section",
+  "number": "14.2",
+  "title": "Limits and Continuity in Several Variables",
+  "body": " Limits and Continuity in Several Variables   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
+},
+{
+  "id": "sec142-LimitsContinuity-2-2",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     blahblahblah    "
+},
+{
+  "id": "sec143-PartialDerivatives",
+  "level": "1",
+  "url": "sec143-PartialDerivatives.html",
+  "type": "Section",
+  "number": "14.3",
+  "title": "Partial Derivatives",
+  "body": " Partial Derivatives   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
+},
+{
+  "id": "sec143-PartialDerivatives-2-2",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#sec143-PartialDerivatives-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     blahblahblah    "
+},
+{
+  "id": "sec144-DifferentiabilityTangentPlane",
+  "level": "1",
+  "url": "sec144-DifferentiabilityTangentPlane.html",
+  "type": "Section",
+  "number": "14.4",
+  "title": "Differentiability, Tangent Planes, and Linear Approximation",
+  "body": " Differentiability, Tangent Planes, and Linear Approximation   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
+},
+{
+  "id": "sec144-DifferentiabilityTangentPlane-2-2",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#sec144-DifferentiabilityTangentPlane-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     blahblahblah    "
+},
+{
+  "id": "sec145-GradientDirectionalDerivatives",
+  "level": "1",
+  "url": "sec145-GradientDirectionalDerivatives.html",
+  "type": "Section",
+  "number": "14.5",
+  "title": "The Gradient and Directional Derivatives",
+  "body": " The Gradient and Directional Derivatives   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
+},
+{
+  "id": "sec145-GradientDirectionalDerivatives-2-2",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#sec145-GradientDirectionalDerivatives-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     blahblahblah    "
+},
+{
+  "id": "sec146-ChainRule",
+  "level": "1",
+  "url": "sec146-ChainRule.html",
+  "type": "Section",
+  "number": "14.6",
+  "title": "Multivariable Calculus Chain Rules",
+  "body": " Multivariable Calculus Chain Rules   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
+},
+{
+  "id": "sec146-ChainRule-2-2",
+  "level": "2",
+  "url": "sec146-ChainRule.html#sec146-ChainRule-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     blahblahblah    "
+},
+{
+  "id": "sec147-Optimization",
+  "level": "1",
+  "url": "sec147-Optimization.html",
+  "type": "Section",
+  "number": "14.7",
+  "title": "Optimization in Several Variables",
+  "body": " Optimization in Several Variables   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
+},
+{
+  "id": "sec147-Optimization-2-2",
+  "level": "2",
+  "url": "sec147-Optimization.html#sec147-Optimization-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     blahblahblah    "
+},
+{
+  "id": "sec148-LagrangeMultipliers",
+  "level": "1",
+  "url": "sec148-LagrangeMultipliers.html",
+  "type": "Section",
+  "number": "14.8",
+  "title": "Lagrange Multipliers: Optimizing with a Constraint",
+  "body": " Lagrange Multipliers: Optimizing with a Constraint   Just the introduction texts...    After this section, students will be able to:     blahblahblah      "
+},
+{
+  "id": "sec148-LagrangeMultipliers-2-2",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     blahblahblah    "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
