@@ -5,7 +5,12 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In single-variable calculus, we primarily studied functions of the form <m>y = f(x)</m>, where a single input determines a single output. 
+      These functions map real numbers to real numbers and are visualized as curves in a two-dimensional plane. 
+    </p>
+    <p>
+      In this section, we extend our calculus toolkit to <em>multivariable functions</em>. 
+      We will begin by defining functions of two variables, <m>z = f(x,y)</m>, which map pairs of numbers to a single real number and are visualized as surfaces in three-dimensional space. 
     </p>
 
     <objectives>
@@ -17,12 +22,471 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            evaluate functions of two or more variables and use correct functional notation.
+          </p>
+        </li>
+        <li>
+          <p>
+            determine and sketch the domain of a function of two variables.
+          </p>
+        </li>
+        <li>
+          <p>
+            determine the range of basic functions of two variables.
+          </p>
+        </li>
+        <li>
+          <p>
+            analyze the shape of a surface using traces. 
+          </p>
+        </li>
+        <li>
+          <p>
+            sketch and interpret level curves and contour maps to visualize functions of two variables.
+          </p>
+        </li>
+        <li>
+          <p>
+            match algebraic equations of functions to their corresponding 3D graphs and contour maps.
+          </p>
+        </li>
+        <li>
+          <p>
+            extend the concept of level curves to describe functions of three variables using level surfaces.
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <subsection xml:id="subsec-FunctionsTwoVariables">
+    <title>Functions of Two Variables</title>
+    
+    <p>
+      Functions of two variables are defined similarly to functions of one variable, except that the input consists of two variables rather than a single number <m>x</m>. 
+      Using function notation, we write <m>z = f(x,y)</m>, where <m>z</m> is the output value corresponding to the inputs (<m>x</m> and <m>y</m>). 
+      Hence, <m>x</m> and <m>y</m> are the independent variables, and <m>z</m> is the dependent variable. 
+    </p>
+
+    <p>
+      A classic example of a function of two variables to consider is the area function for rectangles. 
+      We need two inputs, the length and the width of the rectangle, to determine its area. 
+      Thus, we can define the area function <m>A = f(x, y)</m>, where the inputs, <m>x</m> and <m>y</m> are the length and width respectively, and the output <m>A</m> is the area of the rectangle.
+    </p>
+
+    <example>
+      <p>
+        Consider a rectangle with length <m>x</m> and width <m>y</m>. 
+        The perimeter <m>P</m> of the rectangle can be defined using the following function
+        <md>
+          P = f(x,y) = 2x + 2y
+        </md>
+        Find the perimeter of a rectangle with length <m>5</m> and width <m>3</m>. 
+      </p>
+
+      <hint>
+        <p>
+          The task itself isn't difficult... 
+          Make sure you are using the correct function notation to format your work! 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          <md>
+            <mrow>P \amp= f(5,3) = 2(5) + 2(3) = 10 + 6 = 16</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      From the example, we see that we evaluate functions of two variables the same way we do functions of one variable, by substituting the input values into the function formula. 
+    </p>
+
+    <p>
+      Now that we have a new function type, we need to consider its domain and range. 
+      Since there are two inputs to consider, one way to organize it is to use the <alert>input pair</alert> <m>(x,y)</m>. 
+      That is, the domain of a function of two variables is the set of all possible input pairs <m>(x,y)</m> for which the function is defined, and the range is the set of all possible output values. 
+    </p>
+
+    <figure>
+      <image source="sec141_DomainRange_Diagram.png" width="70%"></image>
+      <caption>Domain of <m>f</m> is a set of ordered pairs and range is a set of output values.</caption>
+    </figure>
+
+    <p>
+      Now that the domain is an subset of <m>\R^2</m>, we can find it by determining the restrictions on the input variables <m>x</m> and <m>y</m> that make the function defined. 
+    </p>
+
+    <p>
+      The range can be a bit trickier to find, as it often requires more analysis of the function itself. 
+    </p>
+
+    <example>
+      <p>
+        Find the domain and the range of the function <m>f(x,y) = \sqrt{\lp x^2 + 1 \rp y}</m>.
+      </p>
+
+      <hint>
+        <p>
+          Remember that the domain should consist of all input <alert>pairs</alert> <m>(x,y)</m> for which the function is defined, and the range is the set of all possible output <alert>values</alert>.
+        </p>
+
+        <p>
+          This is essentially a square root function, so we can determine the domain by focusing on the possible inputs of a square root function and determine the range by focusing on the possible outputs of a square root function. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          Because <m>f</m> involves a square root, its domain consists of ordered pairs <m>(x,y)</m> such that the expression inside the square root is nonnegative.
+          That is, 
+          <md>
+            \lp x^2 + 1 \rp y \geq 0 
+          </md>
+          Hence, the domain of <m>f</m> is <m>\left\{(x,y) \mid \lp x^2 + 1 \rp y \geq 0 \right\}</m>. 
+        </p>
+
+        <p>
+          Furthermore, since <m>x^2 + 1 \geq 0 \gt 1</m>, then the sign of <m>\lp x^2 + 1 \rp y</m> depends solely on the sign of <m>y</m>. 
+          That is, the radicand is nonnegative when <m>y \geq 0</m>. 
+          Hence, the domain can be expressed as <m>\left\{(x,y) \mid y \geq 0 \right\}</m>. 
+        </p>
+
+        <p>
+          Again, because <m>f</m> involves a square root, its range consists of all nonnegative real numbers. 
+          Thus, the range of <m>f</m> is <m>\left\{ z \mid z \geq 0 \right\}</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-FunctionsTwoVariables-Traces">
+    <title>Traces</title>
+
+    <p>
+      Recall that <term>traces</term> is a good tool to analyze and visualize surfaces defined in <m>\R^3</m>, as seen in <xref ref="sec126-QuadricSurfaces"/>. 
+      A trace is the curve obtained by intersecting the surface with a coordinate plane. 
+      Usually, traces of functions of two variables can be found by fixing one of the <em>input</em> variables, so the coordinate planes are parallel to either the <m>xz</m>-plane or the <m>yz</m>-plane. 
+      <ul marker="">
+        <li>
+          <p>
+            If we fix <m>x = a</m>, then the trace is obtained by intersecting the graph with the vertical plane <m>x = a</m>. 
+            Each point on this trace is of the form <m>(a, y, f(a,y))</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            If we fix <m>y = b</m>, then the trace is obtained by intersecting the graph with the vertical plane <m>y = b</m>. 
+            Each point on this trace is of the form <m>(x, b, f(x,b))</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-LevelCurvesContourMaps">
+    <title>Level Curves and Contour Maps</title>
+
+    <p>
+      You may be wondering: why can't we use horizontal traces to analyze functions of two variables by fixing the output <m>z = c</m>? 
+      We for sure can! 
+      In fact, the horizontal traces projected on the <m>xy</m>-plane are called <term>level curves</term> of the function.
+    </p>
+
+    <example>
+      <p>
+        Find and sketch several level curves of the function <m>f(x,y) = e^{-x^2 - y^2}</m>. 
+        You may want to graph the function using GeoGebra to visualize the level curves. 
+      </p>
+
+      <solution>
+        <p>
+          The level curves satisfy the equation <m>e^{-x^2 - y^2} = c</m>, where <m>c</m> is a (positive) constant. 
+          Taking the natural logarithm of both sides, we have
+          <md>
+            x^2 + y^2 = -\ln(c)
+          </md>
+          This describes circular level curves centered at the origin with radius <m>r = \sqrt{-\ln(c)}</m>, for <m>0 \lt c \leq 1</m>. 
+          <ul marker="">
+            <li>
+              <p>
+                With <m>c = 1</m>, the level curve satisfies the equation 
+                <md>
+                  x^2 + y^2 = -\ln(1) = 0
+                </md>
+                This corresponds to the single point at the origin <m>(0,0)</m>. 
+                The level curve of this point will be drawn on the <m>xy</m>-plane. 
+                To indicate that this point is obtained by setting <m>z = 1</m>, we can label it as <m>z = 1</m>. 
+              </p>
+            </li>
+            <li>
+              <p>
+                With <m>c = e^{-1} \approx 0.37</m>, the level curve satisfies the equation 
+                <md>
+                  x^2 + y^2 = -\ln(e^{-1}) = 1
+                </md>
+                This corresponds to a circle of radius <m>r = 1</m> centered at the origin. 
+                We can label this level curve as <m>z = e^{-1}</m>.
+              </p>
+            </li>
+          </ul>
+          You are more than welcome to keep on graphing more level curves for other values of <m>c</m>. 
+          Just make sure you label them accordingly! 
+        </p>
+
+        <p>
+          A sketch of several level curves is shown below.
+        </p>
+
+        <figure>
+          <image source="sec141_LevelCurves_Example_Diagram.png" width="85%"></image>
+        </figure>
+      </solution>
+    </example>
+
+    <p>
+      If you draw several level curves of a function <m>f(x,y) = c</m> for equally spaced values of <m>c</m>, then you obtain a <term>contour map</term> of the function. 
+      The interval between the values of <m>c</m> is called the <term>contour interval</term>. 
+      When you move from one level curve to another in a contour map, the output value of the function changes by the contour interval. 
+    </p>
+
+    <figure>
+      <image source="sec141_LevelCurves_Example_Diagram.png" width="90%"></image>
+    </figure>
+
+    <p>
+      You may be able to make a quick observation about the contour map above. 
+      <em>the steeper the graph, the closer the level curves are to each other on the contour map</em>. 
+      That is because a small change moving along the level curve results in a large change in the height when the graph is steep.
+    </p>
+
+    <example>
+      <p>
+        Match the function with its graph (A-F) and with its contour map (I-VI) in the figure below. 
+        <ol marker="1.">
+          <li>
+            <p>
+              <m>z = \sin(xy)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>z = e^x\cos(y)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>z = \sin(x - y)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>z = \sin(x) - \sin(y)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>z = \lp 1 - x^2 \rp\lp 1 - y^2 \rp</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>z = \dfrac{x - y}{1 + x^2 + y^2}</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <figure>
+        <image source="sec141_Graphs_Example.png" width="100%"></image>
+        <caption>The graphs. </caption>
+      </figure>
+
+      <figure>
+        <image source="sec141_ContourMaps_Example.png" width="100%"></image>
+        <caption>The contour maps (the level curves are not labeled). </caption>
+      </figure>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-FunctionsThreeVariables">
+    <title>Functions of Three (or More) Variables</title>
+
+    <p>
+      If we throw in more independent variables, we can define functions of three or more variables. 
+      As you can imagine, for every variable we add, we need another dimension to represent the variable. 
+      For example, if we have a function of three variables <m>w = f(x,y,z)</m>, then we need four dimensions to represent the graph of the function. 
+    </p>
+
+    <p>
+      Since we cannot visualize four (or more) dimensions, we must rely on other methods to understand functions of three or more variables. 
+      The idea of the level curves can be extended here. 
+      By setting the output variable to be a constant, we will still have three variables left, which implies that the level curves become <term>level surfaces</term> in <m>\R^3</m>. 
+      This is also called the <term>isotherms</term>. 
+    </p>
+
+    <p>
+      Richard will have you explore the idea of the level surface more in the assigned problems. 
+    </p>
+    
+  </subsection>
+
+  <worksheet xml:id="ws-sec141">
+    <title>Assigned Problems for Section 14.1</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="14.1.3">
+      <p>
+        Evaluate the function <m>h(x,y) = \dfrac{\sqrt{x - y^2}}{x - y}</m> at the given points <m>(20,2)</m>, <m>(1,-2)</m>, and <m>(1,1)</m> 
+        (or indicate that the function is undefined there). 
+      </p>
+    </exercise>
+
+    <exercise number="14.1.9">
+      <p>
+        Sketch the domain of the function <m>f(x,y) = \ln \lp 4x^2 - y \rp</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="14.1.17">
+      <p>
+        Describe the domain and range of the function <m>P(r,s,t) = \sqrt{16 -  r^2s^2t^2}</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="14.1.19">
+      <p>
+        Match graphs (A) and (B) in the figure below with the functions
+        <ol marker="i.">
+          <li>
+            <p>
+              <m>f(x,y) = -x + y^2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>g(x,y) = x + y^2</m>
+            </p>
+          </li>
+        </ol> 
+      </p>
+
+      <figure>
+        <image source="sec141-HW19-Figure.png" width="70%"></image>
+      </figure>
+    </exercise>
+
+    <exercise number="14.1.21">
+      <p>
+        Match the functions (a)-(f) with their graphs (A)-(F) in the figure below. 
+        <ol marker="a.">
+          <li>
+            <p>
+              <m>f(x,y) = |x| + |y|</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f(x,y) = \cos(x - y)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f(x,y) = \dfrac{-1}{1 + 9x^2 + y^2}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f(x,y) = \cos\lp y^2 \rp e^{-0.1\lp x^2 + y^2 \rp}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f(x,y) = \frac{-1}{1 + 9x^2 + 9y^2}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f(x,y) = \cos\lp x^2 + y^2 \rp e^{-0.1\lp x^2 + y^2 \rp}</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <figure>
+        <image source="sec141-HW21-Figure.png" width="70%"></image>>
+      </figure>
+    </exercise>
+
+    <exercise number="14.1.25">
+      <p>
+        Sketch the graph of <m>f(x,y) = x^2 + 4y^2</m> and draw several vertical and horizontal traces. 
+      </p>
+    </exercise>
+
+    <exercise number="14.1.33">
+      <p>
+        Draw a contour map of <m>f(x,y) = \dfrac{y}{x}</m> with an appropriate contour interval, showing at least six level curves. 
+      </p>
+    </exercise>
+
+    <exercise number="14.1.41">
+      <p>
+        In the following diagram, 
+        <ol marker = "a.">
+          <li>
+            <p>
+              At which of A-C is pressure increasing in the northern direction? 
+            </p>
+          </li>
+          <li>
+            <p>
+              At which A-C is pressure increasing in the westerly direction?
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <figure>
+        <image source="sec141-HW41-Figure.png" width="60%"></image>
+        <caption>Atmospheric pressure (in millibars) over North America on March 26, 2009</caption>
+      </figure>
+    </exercise>
+
+    <exercise number="14.1.47">
+      <p>
+        Let <m>T(x,y,z) = x^2 - y^2 + z^2</m> denote the temperature at each point in space. 
+        Draw level surfaces (also called isotherms) corresponding to the fixed temperatures <m>T = 0,1,2,-1,-2</m>.
+      </p>
+    </exercise>
+
+    <exercise number="14.1.57">
+      <p>
+        Let temperature in 3-space be given by 
+        <md>
+          T(x,y,z) = \frac{x^2}{4} + \frac{y^2}{9} + z^2
+        </md>
+        Draw isotherms corresponding to temperatures <m>T = 0, 1, 2</m>.
+      </p>
+    </exercise>
+  </worksheet>
 
 </section>
