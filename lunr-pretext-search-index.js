@@ -4105,6 +4105,420 @@ var ptx_lunr_docs = [
   "body": " Let temperature in 3-space be given by Draw isotherms corresponding to temperatures .  "
 },
 {
+  "id": "sec142-LimitsContinuity",
+  "level": "1",
+  "url": "sec142-LimitsContinuity.html",
+  "type": "Section",
+  "number": "14.2",
+  "title": "Limits and Continuity in Several Variables",
+  "body": " Limits and Continuity in Several Variables   In our previous study of functions of a single variable, the concept of a limit was straightforward in one respect. We could only approach a point from two directions, the left or the right. If the function approached the same value from both sides, the limit existed.  Now that we are working with functions of two variables, the domain is a plane. This means we can approach a point from infinitely many directions—along the -axis, the -axis, a diagonal line, a parabola, or even a spiral. This increase in freedom makes the definition of a limit more complex but also more interesting. In this section, we will learn how to determine if these limits exist and how to evaluate them.    After this section, students will be able to:     understand the definition of a limit for functions of two variables informally.    evaluate limits for function of two variables.    prove that a limit does not exist .      Recall from MTH 251Z (or MH 251) that limits allow us to describe a function's behavior near a specific point, even if the function is not defined at that point. The fundamental idea is that we can make the function's output arbitrarily close to a limit value by choosing inputs that are sufficiently close to the target point.  The idea of limits also extends to functions of several variables.     Below is the formal definition of limits for functions of two variables.   Limit   Assume that is defined near . Then if, for any , there exists such that if satisfies     This is a calculus class, not a real analysis class, so we won't be doing any epsilon-delta proofs in this class. Make sure you are comfortable with the limit idea informally. That is, the limit of a function at a point is the value that the function approaches as we get closer and closer to the point.  Recall back in MTH 251Z (or MTH 251), a function is continuous at a point if the limit of the function at that point is equal to the value of the function at that point. This is the same for functions of several variables.   Continuity   A function of two variables is continuous at if We say that is continuous if it is continuous at each point in its domain.    That is, if we know that a function is continuous at a point (no hole, no jump, no asymptote), then we can evaluate the limit of the function at that point by directly substituting the point into the function.  Also recall back in MH 251Z (or MTH 251), a function is continuous at a point if the building blocks of the function are continuous at that point AND the function value is defined at that point.   Evaluate the limit .   Try arguing that the function is continuous at . Then you can evaluate the limit by directly substituting the point into the function.    Observe that and are both continuous at . Also, the denominator is not equal to 0 at . Hence, is continuous at .  Thus, we can evaluate the limit by directly substituting the point into the function. That is,     Again, back in MTH 251Z (or MTH 251), we also learned about the basic limit laws. They also hold for limits of functions of several variables.   Limit Laws   Assume that and exist. Then    Sum Law:       Constant Multiple Law: For any number ,      Product Law:       Quotient Law: If , then         Assume that and . Find the following limits.                                         Recall back in MTH 251Z (or MTH 251), the first step to evaluate a limit was to directly substitute the given point into the function. If things worked out, then great we found the limit! If not, then we had to do some some extra math to find the limit.  This is the same in limits of functions of several variables. If we can directly substitute the point into the function and get a number, then that number is (usually) the limit. If we don't get a number (especially if we get an indeterminate form like ), then we have to do some extra work to find the limit.   Evaluate the limit .   If the direct substitution doesn't work, try using a table or a graph to see how the function behaves near the point .    Let's try direct substitution first. Observe that This is an indeterminate form, so the direct substitution tells us nothing about the limit...  We can also try evaluating the limit using a table of values. Recall back in MTH 251Z (or MTH 251) that we want to see how the function behaves as we get closer and closer to the point . Then we can make a table of values for the function as BOTH AND approach 0.    Table of Values of   Observe that the value of approaches 1 as we get closer to the point in any direction. This suggests that   Alternatively, we can also evaluate the limit using a graph of the function. The graph of is shown below.   The graph of    Graphically, we can also see that the value of approaches 1 as we get closer to the point in any direction. This also suggests that     Unlike graphs of functions of a single variable where we can only approach a point from the left or the right, graphs of functions of several variables allow us to approach a point from infinitely many directions. To argue that a limit exists, we need to show that the function approaches the same value as we approach the point from any direction , like the previous example. If we can find two different directions that give different limit values, then the limit does not exist.   Evaluate the limit .   If you try direct substitution, you get , which is an indeterminate form, which means we know nothing about the limits. Making a table of values or looking at graph can be helpful. Richard coded the graph below to help you visualize what the graph looks like.   The graph of .    What do you expect the limit to be?  Also, can we come up with an algebraic approach to evaluate the limit without graphing the function?    When we are looking at the graph...  Graphically, we can see that the value of approaches within a range of the values between and ... We can't determine a single value that the function approaches as we get closer to the point . Hence, the limit does not exist .    Using an algebraic approach...  Without looking at the graph, we can also show that the limit does not exist by showing that the limit along different paths of approach give different values.  One way of approaching the point is along the line . Along this line, we have So along the line , the limit is 0.  Another way of approaching the point is along the line . Along this line, we have So along the line , the limit is .  Observe that the limit along the line is 0, while the limit along the line is . Since we get different limit values along different paths of approach, the limit does not exist.    But how do we know if a limit exists without graphing the function? There are thousands of paths of approach to a point... How can we check all of them to see if they give the same limit value?  One way to improve our efficiency is to check the limit along a family of paths. For example, we can check the limit along ALL the linear paths by setting and seeing if the limit depends on the value of . If so, then the limit does not exist.   Evaluate the limit or show that it does not exist.   Let's check the limit along the linear paths. That is, we set and see if the limit depends on .  Can you find two different values of that give different limit values?    Along the linear paths, we can set . That is,   This implies that the limit along the linear paths depends on the value of . For example, if , then the limit is . If , then the limit is . Since we get different limit values along different paths of approach, the limit does not exist.    But... if we check the limit along the linear paths and get the same limit value, does that mean the limit exists? The short answer is no. There are other paths of approach than just the linear paths. If we find two different paths of approach that give different limit values, then the limit does not exist.   Evaluate the limit or show that it does not exist.   Let's check the limit along the linear paths. That is, we set and see if the limit depends on .  Can you find two different values of that give different limit values?    Along the linear paths, we can set . That is, Observe that the limit along all the linear paths is . Does it mean the limit is ?  Richard will throw in another path of approach for us to check. Does the limit along the path also give us ?  We can check quickly that the answer is no. Along the path , we have Observe that the limit along the path is , which is different from the limit along the linear paths. Since we get different limit values along different paths of approach, the limit does not exist.    Hmm... Then how do we know if a limit exists without graphing the function, since there are infinitely many paths of approach to check?  One way to do so is to use some fancy calculus theorems to argue that there is only one possible limit value that the function can approach as we get closer to the point. One of such theorems is the Squeeze Theorem. In case you don't recall what the Squeeze Theorem is from MTH 251Z (or MTH 251), below is a quick refresher.   Squeeze Theorem   Assume that for (in some open interval containing ), Then exists and .    A classic application of the Squeeze Theorem is to evaluate limits of functions involving some trigonometric functions like sine and cosine, since they are bounded between and . So we can often convert the function to polar coordinates and try using the Squeeze Theorem to evaluate the limit.   Evaluate the limit .   Let's convert the function to polar coordinates. That is, we want the variables and instead of and .  Then try using the Squeeze Theorem to evaluate the limit.  P.S. If you forgot how to do so, find some clues in .    Recall that and . Then we obtain   Clearly, if , then . So the problem becomes   Since is bounded between and , we have As , both bounds approach zero. By the Squeeze Theorem, we conclude that Therefore,     Just a quick note that we don't have to convert the function to polar coordinates to use the Squeeze Theorem if you can find some nice bounds for the function in terms of and . This usually happens when the function involves some trigonometric functions like sine and cosine, or other functions that are bounded between two numbers.   Evaluate the limit .   You are more than welcome to try the direct substitution first, but you will get an indeterminate form... So inconclusive!  Alternatively, you can also try finding two paths of approach that give different limit values, good luck!  As a third option, you can also try using the Squeeze Theorem since there is a very obvious sine function in the expression.    Let's go with the third option and use the Squeeze Theorem because the sine function is bounded.  Since is bounded between and , we have As , both bounds approach zero. By the Squeeze Theorem, we conclude that     It takes practice and trial and error to find the right approach to evaluate a limit. If one approach doesn't work, try another approach!   Assigned Problems for Section 14.2   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Evaluate the following limit using continuity     Does exist? Explain.    Let . Set and show that the resulting limit depends on , and therefore the limit does not exist.    Evaluate the limit or show that it does not exist.    Use the Squeeze Theorem to evaluate      For the following exercises, evaluate the limit or determine that it does not exist.                    "
+},
+{
+  "id": "sec142-LimitsContinuity-2-3",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     understand the definition of a limit for functions of two variables informally.    evaluate limits for function of two variables.    prove that a limit does not exist .    "
+},
+{
+  "id": "sec142-LimitsContinuity-5",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-5",
+  "type": "Figure",
+  "number": "14.2.1",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "def-Limits_MultiVariable",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#def-Limits_MultiVariable",
+  "type": "Definition",
+  "number": "14.2.2",
+  "title": "Limit.",
+  "body": " Limit   Assume that is defined near . Then if, for any , there exists such that if satisfies    "
+},
+{
+  "id": "def-Continuity_Multivariables",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#def-Continuity_Multivariables",
+  "type": "Definition",
+  "number": "14.2.3",
+  "title": "Continuity.",
+  "body": " Continuity   A function of two variables is continuous at if We say that is continuous if it is continuous at each point in its domain.   "
+},
+{
+  "id": "sec142-LimitsContinuity-13",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-13",
+  "type": "Example",
+  "number": "14.2.4",
+  "title": "",
+  "body": " Evaluate the limit .   Try arguing that the function is continuous at . Then you can evaluate the limit by directly substituting the point into the function.    Observe that and are both continuous at . Also, the denominator is not equal to 0 at . Hence, is continuous at .  Thus, we can evaluate the limit by directly substituting the point into the function. That is,    "
+},
+{
+  "id": "thm-LimitLaws_Multivariables",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#thm-LimitLaws_Multivariables",
+  "type": "Theorem",
+  "number": "14.2.5",
+  "title": "Limit Laws.",
+  "body": " Limit Laws   Assume that and exist. Then    Sum Law:       Constant Multiple Law: For any number ,      Product Law:       Quotient Law: If , then       "
+},
+{
+  "id": "sec142-LimitsContinuity-16",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-16",
+  "type": "Example",
+  "number": "14.2.6",
+  "title": "",
+  "body": " Assume that and . Find the following limits.                                        "
+},
+{
+  "id": "sec142-LimitsContinuity-19",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-19",
+  "type": "Example",
+  "number": "14.2.7",
+  "title": "",
+  "body": " Evaluate the limit .   If the direct substitution doesn't work, try using a table or a graph to see how the function behaves near the point .    Let's try direct substitution first. Observe that This is an indeterminate form, so the direct substitution tells us nothing about the limit...  We can also try evaluating the limit using a table of values. Recall back in MTH 251Z (or MTH 251) that we want to see how the function behaves as we get closer and closer to the point . Then we can make a table of values for the function as BOTH AND approach 0.    Table of Values of   Observe that the value of approaches 1 as we get closer to the point in any direction. This suggests that   Alternatively, we can also evaluate the limit using a graph of the function. The graph of is shown below.   The graph of    Graphically, we can also see that the value of approaches 1 as we get closer to the point in any direction. This also suggests that    "
+},
+{
+  "id": "sec142-LimitsContinuity-21",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-21",
+  "type": "Example",
+  "number": "14.2.10",
+  "title": "",
+  "body": " Evaluate the limit .   If you try direct substitution, you get , which is an indeterminate form, which means we know nothing about the limits. Making a table of values or looking at graph can be helpful. Richard coded the graph below to help you visualize what the graph looks like.   The graph of .    What do you expect the limit to be?  Also, can we come up with an algebraic approach to evaluate the limit without graphing the function?    When we are looking at the graph...  Graphically, we can see that the value of approaches within a range of the values between and ... We can't determine a single value that the function approaches as we get closer to the point . Hence, the limit does not exist .    Using an algebraic approach...  Without looking at the graph, we can also show that the limit does not exist by showing that the limit along different paths of approach give different values.  One way of approaching the point is along the line . Along this line, we have So along the line , the limit is 0.  Another way of approaching the point is along the line . Along this line, we have So along the line , the limit is .  Observe that the limit along the line is 0, while the limit along the line is . Since we get different limit values along different paths of approach, the limit does not exist.   "
+},
+{
+  "id": "sec142-LimitsContinuity-24",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-24",
+  "type": "Example",
+  "number": "14.2.12",
+  "title": "",
+  "body": " Evaluate the limit or show that it does not exist.   Let's check the limit along the linear paths. That is, we set and see if the limit depends on .  Can you find two different values of that give different limit values?    Along the linear paths, we can set . That is,   This implies that the limit along the linear paths depends on the value of . For example, if , then the limit is . If , then the limit is . Since we get different limit values along different paths of approach, the limit does not exist.   "
+},
+{
+  "id": "sec142-LimitsContinuity-26",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-26",
+  "type": "Example",
+  "number": "14.2.13",
+  "title": "",
+  "body": " Evaluate the limit or show that it does not exist.   Let's check the limit along the linear paths. That is, we set and see if the limit depends on .  Can you find two different values of that give different limit values?    Along the linear paths, we can set . That is, Observe that the limit along all the linear paths is . Does it mean the limit is ?  Richard will throw in another path of approach for us to check. Does the limit along the path also give us ?  We can check quickly that the answer is no. Along the path , we have Observe that the limit along the path is , which is different from the limit along the linear paths. Since we get different limit values along different paths of approach, the limit does not exist.   "
+},
+{
+  "id": "thm-SqueezeTheorem",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#thm-SqueezeTheorem",
+  "type": "Theorem",
+  "number": "14.2.14",
+  "title": "Squeeze Theorem.",
+  "body": " Squeeze Theorem   Assume that for (in some open interval containing ), Then exists and .   "
+},
+{
+  "id": "sec142-LimitsContinuity-31",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-31",
+  "type": "Example",
+  "number": "14.2.15",
+  "title": "",
+  "body": " Evaluate the limit .   Let's convert the function to polar coordinates. That is, we want the variables and instead of and .  Then try using the Squeeze Theorem to evaluate the limit.  P.S. If you forgot how to do so, find some clues in .    Recall that and . Then we obtain   Clearly, if , then . So the problem becomes   Since is bounded between and , we have As , both bounds approach zero. By the Squeeze Theorem, we conclude that Therefore,    "
+},
+{
+  "id": "sec142-LimitsContinuity-33",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#sec142-LimitsContinuity-33",
+  "type": "Example",
+  "number": "14.2.16",
+  "title": "",
+  "body": " Evaluate the limit .   You are more than welcome to try the direct substitution first, but you will get an indeterminate form... So inconclusive!  Alternatively, you can also try finding two paths of approach that give different limit values, good luck!  As a third option, you can also try using the Squeeze Theorem since there is a very obvious sine function in the expression.    Let's go with the third option and use the Squeeze Theorem because the sine function is bounded.  Since is bounded between and , we have As , both bounds approach zero. By the Squeeze Theorem, we conclude that    "
+},
+{
+  "id": "ws-sec142-3",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#ws-sec142-3",
+  "type": "Worksheet Exercise",
+  "number": "14.2.14.2.7",
+  "title": "",
+  "body": " Evaluate the following limit using continuity   "
+},
+{
+  "id": "ws-sec142-4",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#ws-sec142-4",
+  "type": "Worksheet Exercise",
+  "number": "14.2.14.2.13",
+  "title": "",
+  "body": " Does exist? Explain.  "
+},
+{
+  "id": "ws-sec142-5",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#ws-sec142-5",
+  "type": "Worksheet Exercise",
+  "number": "14.2.14.2.15",
+  "title": "",
+  "body": " Let . Set and show that the resulting limit depends on , and therefore the limit does not exist.  "
+},
+{
+  "id": "ws-sec142-6",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#ws-sec142-6",
+  "type": "Worksheet Exercise",
+  "number": "14.2.14.2.21",
+  "title": "",
+  "body": " Evaluate the limit or show that it does not exist.  "
+},
+{
+  "id": "ws-sec142-7",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#ws-sec142-7",
+  "type": "Worksheet Exercise",
+  "number": "14.2.14.2.25",
+  "title": "",
+  "body": " Use the Squeeze Theorem to evaluate   "
+},
+{
+  "id": "ws-sec142-8-2",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#ws-sec142-8-2",
+  "type": "Worksheet Exercise",
+  "number": "14.2.14.2.31",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec142-8-3",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#ws-sec142-8-3",
+  "type": "Worksheet Exercise",
+  "number": "14.2.14.2.33",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec142-8-4",
+  "level": "2",
+  "url": "sec142-LimitsContinuity.html#ws-sec142-8-4",
+  "type": "Worksheet Exercise",
+  "number": "14.2.14.2.41",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "sec143-PartialDerivatives",
+  "level": "1",
+  "url": "sec143-PartialDerivatives.html",
+  "type": "Section",
+  "number": "14.3",
+  "title": "Partial Derivatives",
+  "body": " Partial Derivatives   In single-variable Calculus (MTH 251Z or MTH 251), the derivative gave us a powerful tool to measure the instantaneous rate of change. Geometrically, it represented the slope of the tangent line to the curve . Now that we are dealing with functions of two variables , the concept of \"rate of change\" becomes a bit more complex.  Imagine standing on the side of a mountain (a surface). The steepness of the terrain depends entirely on which direction you choose to walk! To manage this complexity, we start by restricting our movement to the coordinate directions: parallel to the -axis or parallel to the -axis. This approach leads us to the concept of partial derivatives . Essentially, we will look at how the function changes if we only wiggle one variable while holding the others constant.    After this section, students will be able to:     define partial derivatives and interpret them geometrically.    compute first-order and higher-order partial derivatives for functions of several variables.    distinguish between the notation for ordinary derivatives ( ) and partial derivatives ( ).    apply Clairaut's Theorem to compute mixed partial derivatives.      Without further ado, Let's define the partial derivatives!   Partial Derivatives   Let be a function of two variables. The partial derivative of with respect to at the point , denoted or , is defined as provided the limit exists.  The partial derivative of with respect to at the point , denoted or , is defined as provided the limit exists.  They measure the rate of change with respect to each variable separately.    We can observe from the definition that we fix one variable and let the other variable vary to compute the partial derivative. By fixing one variable, we are essentially looking at the trace curve of the surface obtained by intersecting with a plane. Then the partial derivative is the slope of the tangent line to the trace curve at the point of interest.    The partial derivatives are the slopes of the vertical trace curves.   You can imagine that the reason why we call them the partial derivatives is because they only measure the rate of change with respect to one variable while keeping the other variable fixed. There is a concept called the total derivative (or total differential ) that takes into account the rate of change with respect to both variables. We will investigate this concept in the next section.  Symbolically, we use the symbol \" \" to emphasize this \"partial\" nature. When we see \" \", we know that that is just one of the several variables affecting , and the others are being held fixed. As a comparison, when we see , we know that is the only variable affecting .  If this were a MTH 251Z (or MTH 251), then Richard would make you to evaluate the limits using the definition to get a sense of what the derivative measures (the limit of some average rate of change as the change gets smaller and smaller). However, this is MTH 254 so Richard assumes you are already comfortable with this concept. Feel free to use the derivative formulas and rules that you learned from MTH 251Z (or MTH 251) to compute partial derivatives.   Let .   Compute at the point . Also, interpret the meaning of this value in terms of the graph of .    Compute at the point . Also, interpret the meaning of this value in terms of the graph of .      If you stare at the definition of the partial derivative, we either treat or as the variable and the other as a constant. This will help you to evaluate the partial derivatives using the rules you already know!  Richard also coded the graph of below for you to visualize what the surface looks like.   The graph of .      To compute , we treat as a constant and differentiate with respect to . This means that the slope of the tangent line to the trace of the surface obtained by intersecting with the plane at the point is 12.     To compute , we treat as a constant and differentiate with respect to . This means that the slope of the tangent line to the trace of the surface obtained by intersecting with the plane at the point is 8.       We can find the higher order partial derivatives by taking the partial derivatives of the partial derivatives. Since we have two variables, we can take the partial derivatives in different orders.  Let . Then there are four different ways to take the second-order partial derivatives:   The notation should be self-explanatory regarding the order of differentiation.   Find the four second partial derivatives of .   First, we compute the partial derivatives:   For the second partial derivatives, we have     Observe that the two mixed partial derivatives and are the same in this example. It turns out that most of the functions we encounter have this property. A French mathematician Alexis Clairaut (1713-1765) also found this pattern, formulate it as a theorem, and proved it.   Clairaut's Theorem   If and both exist and are continuous on a disk , then for all points . Therefore, on ,     The proof of Clairaut's Theorem is a bit technical and requires the Mean Value Theorem. If you are interested in seeing the proof, you can check out the textbook on page A21.  The Clairaut's Theorem states that if the mixed partial derivatives are continuous, then the order of differentiation does not matter. This result can be generalized to higher order partial derivatives as well. That is, we can interchange the order of differentiation as long as the mixed partial derivatives are continuous.   Let . Compute the derivative .   Clairaut's Theorem allows us to rearrange the order of differentiation as long as the mixed partial derivatives are continuous. So which order of differentiation would be the easiest to compute?  One way to determine the order of differentiation is to see which variable appears in the simplest way in the function...    Observe that appears in the simplest way in the function, so we can start there!   The next variable that appears in the simplest way is since there is no at all! Then we have   From here, we can conclude that the rest of the derivatives will also be zero since we are taking the derivative of a constant. Therefore, .    It takes practice to get comfortable with computing partial derivatives, especially the higher order ones. The more you practice, the more you will get a sense of how to rearrange the order of differentiation to make the computation easier!   Assigned Problems for Section 14.3   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Use the Product Rule to compute and for     Use the Quotient Rule to compute     The plane intersects the surface in a certain curve. Find the slope of the tangent line to this curve at the point .     For the following exercises, compute the first-order partial derivatives.                         Given that , compute the partial derivative .     For the following exercises, compute the derivatives indicated.                In the following exercises, compute the derivative indicated.               The Laplace operator  is defined by A function satisfying the Laplace equation is called harmonic .  Show that the following functions are harmonic.                          "
+},
+{
+  "id": "sec143-PartialDerivatives-2-2",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#sec143-PartialDerivatives-2-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "partial derivatives "
+},
+{
+  "id": "sec143-PartialDerivatives-2-3",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#sec143-PartialDerivatives-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     define partial derivatives and interpret them geometrically.    compute first-order and higher-order partial derivatives for functions of several variables.    distinguish between the notation for ordinary derivatives ( ) and partial derivatives ( ).    apply Clairaut's Theorem to compute mixed partial derivatives.    "
+},
+{
+  "id": "def-PartialDerivatives",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#def-PartialDerivatives",
+  "type": "Definition",
+  "number": "14.3.1",
+  "title": "Partial Derivatives.",
+  "body": " Partial Derivatives   Let be a function of two variables. The partial derivative of with respect to at the point , denoted or , is defined as provided the limit exists.  The partial derivative of with respect to at the point , denoted or , is defined as provided the limit exists.  They measure the rate of change with respect to each variable separately.   "
+},
+{
+  "id": "sec143-PartialDerivatives-6",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#sec143-PartialDerivatives-6",
+  "type": "Figure",
+  "number": "14.3.2",
+  "title": "",
+  "body": "  The partial derivatives are the slopes of the vertical trace curves.  "
+},
+{
+  "id": "sec143-PartialDerivatives-10",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#sec143-PartialDerivatives-10",
+  "type": "Example",
+  "number": "14.3.3",
+  "title": "",
+  "body": " Let .   Compute at the point . Also, interpret the meaning of this value in terms of the graph of .    Compute at the point . Also, interpret the meaning of this value in terms of the graph of .      If you stare at the definition of the partial derivative, we either treat or as the variable and the other as a constant. This will help you to evaluate the partial derivatives using the rules you already know!  Richard also coded the graph of below for you to visualize what the surface looks like.   The graph of .      To compute , we treat as a constant and differentiate with respect to . This means that the slope of the tangent line to the trace of the surface obtained by intersecting with the plane at the point is 12.     To compute , we treat as a constant and differentiate with respect to . This means that the slope of the tangent line to the trace of the surface obtained by intersecting with the plane at the point is 8.      "
+},
+{
+  "id": "sec143-PartialDerivatives-11",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#sec143-PartialDerivatives-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "higher order partial derivatives "
+},
+{
+  "id": "sec143-PartialDerivatives-14",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#sec143-PartialDerivatives-14",
+  "type": "Example",
+  "number": "14.3.7",
+  "title": "",
+  "body": " Find the four second partial derivatives of .   First, we compute the partial derivatives:   For the second partial derivatives, we have    "
+},
+{
+  "id": "thm-ClairautTheorem",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#thm-ClairautTheorem",
+  "type": "Theorem",
+  "number": "14.3.8",
+  "title": "Clairaut’s Theorem.",
+  "body": " Clairaut's Theorem   If and both exist and are continuous on a disk , then for all points . Therefore, on ,    "
+},
+{
+  "id": "sec143-PartialDerivatives-19",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#sec143-PartialDerivatives-19",
+  "type": "Example",
+  "number": "14.3.9",
+  "title": "",
+  "body": " Let . Compute the derivative .   Clairaut's Theorem allows us to rearrange the order of differentiation as long as the mixed partial derivatives are continuous. So which order of differentiation would be the easiest to compute?  One way to determine the order of differentiation is to see which variable appears in the simplest way in the function...    Observe that appears in the simplest way in the function, so we can start there!   The next variable that appears in the simplest way is since there is no at all! Then we have   From here, we can conclude that the rest of the derivatives will also be zero since we are taking the derivative of a constant. Therefore, .   "
+},
+{
+  "id": "ws-sec143-3",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-3",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.3",
+  "title": "",
+  "body": " Use the Product Rule to compute and for   "
+},
+{
+  "id": "ws-sec143-4",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-4",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.5",
+  "title": "",
+  "body": " Use the Quotient Rule to compute   "
+},
+{
+  "id": "ws-sec143-5",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-5",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.9",
+  "title": "",
+  "body": " The plane intersects the surface in a certain curve. Find the slope of the tangent line to this curve at the point .  "
+},
+{
+  "id": "ws-sec143-6-2",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-6-2",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.17",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec143-6-3",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-6-3",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.23",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec143-6-4",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-6-4",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.33",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec143-6-5",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-6-5",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.39",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec143-7",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-7",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.45",
+  "title": "",
+  "body": " Given that , compute the partial derivative .  "
+},
+{
+  "id": "ws-sec143-8-2",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-8-2",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.53",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec143-8-3",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-8-3",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.55",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec143-9-2",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-9-2",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.61",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec143-9-3",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-9-3",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.67",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec143-10",
+  "level": "2",
+  "url": "sec143-PartialDerivatives.html#ws-sec143-10",
+  "type": "Worksheet Exercise",
+  "number": "14.3.14.3.75",
+  "title": "",
+  "body": " The Laplace operator  is defined by A function satisfying the Laplace equation is called harmonic .  Show that the following functions are harmonic.                        "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",

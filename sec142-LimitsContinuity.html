@@ -102,7 +102,7 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.12';
+eBookConfig.runestone_version = '7.11.13';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
@@ -135,6 +135,8 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Z}{\mathbb Z} 
 \newcommand{\Q}{\mathbb Q} 
 \newcommand{\R}{\mathbb R} 
+
+\newcommand{\ds}{\displaystyle}
 
 \newcommand{\v}[1]{\mathbf{#1}}
 \newcommand{\c}[1]{\mathcal{#1}}
@@ -286,13 +288,14 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#ws-sec141" class="internal"><span class="title">Assigned Problems for Section 14.1</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div></li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div>
+<ul class="structural toc-item-list active"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html#ws-sec142" class="internal"><span class="codenumber">14.2</span> <span class="title">Assigned Problems for Section 14.2</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html#ws-sec143" class="internal"><span class="codenumber">14.3</span> <span class="title">Assigned Problems for Section 14.3</span></a></div></li></ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -300,17 +303,575 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec142-LimitsContinuity"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limits and Continuity in Several Variables</span>
 </h2>
-<section class="introduction" id="sec142-LimitsContinuity-2"><div class="para" id="sec142-LimitsContinuity-2-1">Just the introduction texts...<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="sec142-LimitsContinuity-2"><div class="para" id="sec142-LimitsContinuity-2-1">In our previous study of functions of a single variable, the concept of a limit was straightforward in one respect. We could only approach a point <span class="process-math">\(x=a\)</span> from two directions, the left or the right. If the function approached the same value from both sides, the limit existed.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="objectives goal-like" id="sec142-LimitsContinuity-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
-<div class="introduction" id="sec142-LimitsContinuity-2-2-1"><div class="para" id="sec142-LimitsContinuity-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec142-LimitsContinuity-2-2">Now that we are working with functions of two variables, the domain is a plane. This means we can approach a point <span class="process-math">\((a,b)\)</span> from infinitely many directions—along the <span class="process-math">\(x\)</span>-axis, the <span class="process-math">\(y\)</span>-axis, a diagonal line, a parabola, or even a spiral. This increase in freedom makes the definition of a limit more complex but also more interesting. In this section, we will learn how to determine if these limits exist and how to evaluate them.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="objectives goal-like" id="sec142-LimitsContinuity-2-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="introduction" id="sec142-LimitsContinuity-2-3-1"><div class="para" id="sec142-LimitsContinuity-2-3-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<ul class="disc" id="sec142-LimitsContinuity-2-2-2"><li id="sec142-LimitsContinuity-2-2-2-1">
-<div class="para" id="sec142-LimitsContinuity-2-2-2-1-1">blahblahblah<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec142-LimitsContinuity-2-3-2">
+<li id="sec142-LimitsContinuity-2-3-2-1">
+<div class="para" id="sec142-LimitsContinuity-2-3-2-1-1">understand the definition of a limit for functions of two variables informally.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-2-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Objective"><a href="#sec142-LimitsContinuity-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li></ul>
-<div class="autopermalink" data-description="Objectives"><a href="#sec142-LimitsContinuity-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="autopermalink" data-description="Section 14.2: Limits and Continuity in Several Variables"><a href="#sec142-LimitsContinuity" title="Copy heading and permalink for Section 14.2: Limits and Continuity in Several Variables" aria-label="Copy heading and permalink for Section 14.2: Limits and Continuity in Several Variables">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Objective"><a href="#sec142-LimitsContinuity-2-3-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec142-LimitsContinuity-2-3-2-2">
+<div class="para" id="sec142-LimitsContinuity-2-3-2-2-1">evaluate limits for function of two variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-2-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec142-LimitsContinuity-2-3-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec142-LimitsContinuity-2-3-2-3">
+<div class="para" id="sec142-LimitsContinuity-2-3-2-3-1">prove that a limit <em class="emphasis">does not exist</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-2-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec142-LimitsContinuity-2-3-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec142-LimitsContinuity-2-3" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="para" id="sec142-LimitsContinuity-3">Recall from MTH 251Z (or MH 251) that limits allow us to describe a function’s behavior <em class="emphasis">near</em> a specific point, even if the function is not defined at that point. The fundamental idea is that we can make the function’s output arbitrarily close to a limit value <span class="process-math">\(L\)</span> by choosing inputs that are sufficiently close to the target point.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-4">The idea of limits also extends to functions of several variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="sec142-LimitsContinuity-5"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/sec142_LimitDefinition_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 14.2.1"><a href="#sec142-LimitsContinuity-5" title="Copy heading and permalink for Figure 14.2.1" aria-label="Copy heading and permalink for Figure 14.2.1">🔗</a></div></figcaption></figure><div class="para" id="sec142-LimitsContinuity-6">Below is the formal definition of limits for functions of two variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-Limits_MultiVariable"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit.</span>
+</h3>
+<div class="para logical" id="def-Limits_MultiVariable-2-1">
+<div class="para">Assume that <span class="process-math">\(f(x,y)\)</span> is defined near <span class="process-math">\(P = (a,b)\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="def-Limits_MultiVariable-2-1-3">
+\begin{equation*}
+\lim_{(x,y) \to P} f(x,y) = L
+\end{equation*}
+</div>
+<div class="para">if, for any <span class="process-math">\(\varepsilon \gt 0\text{,}\)</span> there exists <span class="process-math">\(\delta \gt 0\)</span> such that if <span class="process-math">\((x,y)\)</span> satisfies</div>
+<div class="displaymath process-math" id="def-Limits_MultiVariable-2-1-7">
+\begin{equation*}
+0 \lt d\lp (x,y), P \rp \lt \delta \, , \quad \text{then} \, |f(x,y) - L| \lt \varepsilon
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-Limits_MultiVariable-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 14.2.2: Limit"><a href="#def-Limits_MultiVariable" title="Copy heading and permalink for Definition 14.2.2: Limit" aria-label="Copy heading and permalink for Definition 14.2.2: Limit">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-8">This is a calculus class, not a real analysis class, so we won’t be doing any epsilon-delta proofs in this class. Make sure you are comfortable with the limit idea informally. That is, the limit of a function at a point is the value that the function approaches as we get closer and closer to the point.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-9">Recall back in MTH 251Z (or MTH 251), a function is continuous at a point if the limit of the function at that point is equal to the value of the function at that point. This is the same for functions of several variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-Continuity_Multivariables"><h3 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Continuity.</span>
+</h3>
+<div class="para logical" id="def-Continuity_Multivariables-2-1">
+<div class="para">A function <span class="process-math">\(f\)</span> of two variables is <dfn class="terminology">continuous</dfn> at <span class="process-math">\(P = (a,b)\)</span> if</div>
+<div class="displaymath process-math" id="def-Continuity_Multivariables-2-1-4">
+\begin{equation*}
+\lim_{(x,y) \to (a,b)} f(x,y) = f(a,b)
+\end{equation*}
+</div>
+<div class="para">We say that <span class="process-math">\(f\)</span> is continuous if it is continuous at each point <span class="process-math">\((a,b)\)</span> in its domain.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-Continuity_Multivariables-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 14.2.3: Continuity"><a href="#def-Continuity_Multivariables" title="Copy heading and permalink for Definition 14.2.3: Continuity" aria-label="Copy heading and permalink for Definition 14.2.3: Continuity">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-11">That is, if we know that a function is continuous at a point (no hole, no jump, no asymptote), then we can evaluate the limit of the function at that point by directly substituting the point into the function.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-12">Also recall back in MH 251Z (or MTH 251), a function is continuous at a point if the building blocks of the function are continuous at that point AND the function value is defined at that point.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec142-LimitsContinuity-13"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="sec142-LimitsContinuity-13-1">Evaluate the limit <span class="process-math">\(\ds \lim_{(x,y) \to (-2,1)} \dfrac{2x^2}{4x + y}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec142-LimitsContinuity-13-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-13-2-1">Try arguing that the function <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\((-2,1)\text{.}\)</span> Then you can evaluate the limit by directly substituting the point into the function.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 14.2.4.1"><a href="#sec142-LimitsContinuity-13-2" title="Copy heading and permalink for Hint 14.2.4.1" aria-label="Copy heading and permalink for Hint 14.2.4.1">🔗</a></div>
+</div></details><details id="sec142-LimitsContinuity-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-13-3-1">Observe that <span class="process-math">\(z = 2x^2\)</span> and <span class="process-math">\(z = 4x + y\)</span> are both continuous at <span class="process-math">\((-2,1)\text{.}\)</span> Also, the denominator <span class="process-math">\(4x + y\)</span> is not equal to 0 at <span class="process-math">\((-2,1)\text{.}\)</span> Hence, <span class="process-math">\(f\)</span> is continuous at <span class="process-math">\((-2,1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-13-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec142-LimitsContinuity-13-3-2">
+<div class="para">Thus, we can evaluate the limit by directly substituting the point into the function. That is,</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-13-3-2-1">
+\begin{align*}
+\lim_{(x,y) \to (-2,1)} \dfrac{2x^2}{4x + y} \amp= \dfrac{2(-2)^2}{4(-2) + 1} \\
+\amp= -\dfrac{8}{7}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-13-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.4.1"><a href="#sec142-LimitsContinuity-13-3" title="Copy heading and permalink for Solution 14.2.4.1" aria-label="Copy heading and permalink for Solution 14.2.4.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.2.4"><a href="#sec142-LimitsContinuity-13" title="Copy heading and permalink for Example 14.2.4" aria-label="Copy heading and permalink for Example 14.2.4">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-14">Again, back in MTH 251Z (or MTH 251), we also learned about the basic limit laws. They also hold for limits of functions of several variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-LimitLaws_Multivariables"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Limit Laws.</span>
+</h3>
+<div class="para logical" id="thm-LimitLaws_Multivariables-2-1">
+<div class="para">Assume that <span class="process-math">\(\ds \lim_{(x,y) \to P}f(x,y)\)</span> and <span class="process-math">\(\ds \lim_{(x,y) \to P}g(x,y)\)</span> exist. Then</div>
+<ol class="lower-roman ol-marker-6" id="thm-LimitLaws_Multivariables-2-1-3">
+<li id="thm-LimitLaws_Multivariables-2-1-3-1">
+<div class="para logical" id="thm-LimitLaws_Multivariables-2-1-3-1-1">
+<div class="para"><dfn class="terminology">Sum Law:</dfn></div>
+<div class="displaymath process-math" id="thm-LimitLaws_Multivariables-2-1-3-1-1-2">
+\begin{equation*}
+\lim_{(x,y) \to P} \lp f(x,y) + g(x,y) \rp = \lim_{(x,y) \to P} f(x,y) + \lim_{(x,y) \to P} g(x,y)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-LimitLaws_Multivariables-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item i"><a href="#thm-LimitLaws_Multivariables-2-1-3-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
+</li>
+<li id="thm-LimitLaws_Multivariables-2-1-3-2">
+<div class="para logical" id="thm-LimitLaws_Multivariables-2-1-3-2-1">
+<div class="para">
+<dfn class="terminology">Constant Multiple Law:</dfn> For any number <span class="process-math">\(k\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="thm-LimitLaws_Multivariables-2-1-3-2-1-3">
+\begin{equation*}
+\lim_{(x,y) \to P} k f(x,y) = k \lim_{(x,y) \to P} f(x,y)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-LimitLaws_Multivariables-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item ii"><a href="#thm-LimitLaws_Multivariables-2-1-3-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
+</li>
+<li id="thm-LimitLaws_Multivariables-2-1-3-3">
+<div class="para logical" id="thm-LimitLaws_Multivariables-2-1-3-3-1">
+<div class="para"><dfn class="terminology">Product Law:</dfn></div>
+<div class="displaymath process-math" id="thm-LimitLaws_Multivariables-2-1-3-3-1-2">
+\begin{equation*}
+\lim_{(x,y) \to P} f(x,y) g(x,y) = \lp \lim_{(x,y) \to P} f(x,y) \rp \lp \lim_{(x,y) \to P} g(x,y) \rp
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-LimitLaws_Multivariables-2-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item iii"><a href="#thm-LimitLaws_Multivariables-2-1-3-3" title="Copy heading and permalink for Item iii" aria-label="Copy heading and permalink for Item iii">🔗</a></div>
+</li>
+<li id="thm-LimitLaws_Multivariables-2-1-3-4">
+<div class="para logical" id="thm-LimitLaws_Multivariables-2-1-3-4-1">
+<div class="para">
+<dfn class="terminology">Quotient Law:</dfn> If <span class="process-math">\(\ds \lim_{(x,y) \to P} g(x,y) \neq 0\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="thm-LimitLaws_Multivariables-2-1-3-4-1-3">
+\begin{equation*}
+\lim_{(x,y) \to P} \dfrac{f(x,y)}{g(x,y)} = \dfrac{\ds \lim_{(x,y) \to P} f(x,y)}{\ds \lim_{(x,y) \to P} g(x,y)}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-LimitLaws_Multivariables-2-1-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item iv"><a href="#thm-LimitLaws_Multivariables-2-1-3-4" title="Copy heading and permalink for Item iv" aria-label="Copy heading and permalink for Item iv">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-LimitLaws_Multivariables-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 14.2.5: Limit Laws"><a href="#thm-LimitLaws_Multivariables" title="Copy heading and permalink for Theorem 14.2.5: Limit Laws" aria-label="Copy heading and permalink for Theorem 14.2.5: Limit Laws">🔗</a></div></article><article class="example example-like" id="sec142-LimitsContinuity-16"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="sec142-LimitsContinuity-16-1">
+<div class="para">Assume that <span class="process-math">\(\ds \lim_{(x,y) \to (2,5)} f(x,y) = 3\)</span> and <span class="process-math">\(\ds \lim_{(x,y) \to (2,5)} g(x,y) = 7\text{.}\)</span> Find the following limits.</div>
+<ol class="lower-alpha ol-marker-1" id="sec142-LimitsContinuity-16-1-3">
+<li id="sec142-LimitsContinuity-16-1-3-1">
+<div class="para" id="sec142-LimitsContinuity-16-1-3-1-1">
+<span class="process-math">\(\displaystyle \ds \lim_{(x,y) \to (2,5)} \lp g(x,y) - 2f(x,y) \rp\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-16-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#sec142-LimitsContinuity-16-1-3-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="sec142-LimitsContinuity-16-1-3-2">
+<div class="para" id="sec142-LimitsContinuity-16-1-3-2-1">
+<span class="process-math">\(\displaystyle \ds \lim_{(x,y) \to (2,5)} f(x,y)^2g(x,y)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-16-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#sec142-LimitsContinuity-16-1-3-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="sec142-LimitsContinuity-16-1-3-3">
+<div class="para" id="sec142-LimitsContinuity-16-1-3-3-1">
+<span class="process-math">\(\displaystyle \ds \lim_{(x,y) \to (2,5)} \dfrac{f(x,y)}{f(x,y) + g(x,y)}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-16-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item c"><a href="#sec142-LimitsContinuity-16-1-3-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec142-LimitsContinuity-16-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="sec142-LimitsContinuity-16-2-1">
+<ol class="lower-alpha ol-marker-1" id="sec142-LimitsContinuity-16-2-1-1">
+<li id="sec142-LimitsContinuity-16-2-1-1-1">
+<div class="para logical" id="sec142-LimitsContinuity-16-2-1-1-1-1">
+<div class="displaymath process-math" id="sec142-LimitsContinuity-16-2-1-1-1-1-1">
+\begin{align*}
+\lim_{(x,y) \to (2,5)} \lp g(x,y) - 2f(x,y) \rp \amp= \lim_{(x,y) \to (2,5)} g(x,y) + \lim_{(x,y) \to (2,5)} -2f(x,y) \amp\amp\text{by Sum Law}\\
+\amp= \lim_{(x,y) \to (2,5)} g(x,y) - 2\lim_{(x,y) \to (2,5)} f(x,y) \amp\amp\text{by Constant Multiple Law}\\
+\amp= 7 - 2(3) \\
+\amp= 1
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-16-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#sec142-LimitsContinuity-16-2-1-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="sec142-LimitsContinuity-16-2-1-1-2">
+<div class="para logical" id="sec142-LimitsContinuity-16-2-1-1-2-1">
+<div class="displaymath process-math" id="sec142-LimitsContinuity-16-2-1-1-2-1-1">
+\begin{align*}
+\lim_{(x,y) \to (2,5)} f(x,y)^2g(x,y) \amp= \lp \lim_{(x,y) \to (2,5)} f(x,y) \rp^2 \lp \lim_{(x,y) \to (2,5)} g(x,y)\rp \amp\amp\text{by Product Law}\\
+\amp= 3^2 \cdot 7 \\
+\amp= 63
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-16-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#sec142-LimitsContinuity-16-2-1-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+<li id="sec142-LimitsContinuity-16-2-1-1-3">
+<div class="para logical" id="sec142-LimitsContinuity-16-2-1-1-3-1">
+<div class="displaymath process-math" id="sec142-LimitsContinuity-16-2-1-1-3-1-1">
+\begin{align*}
+\lim_{(x,y) \to (2,5)} \dfrac{f(x,y)}{f(x,y) + g(x,y)} \amp= \dfrac{\ds \lim_{(x,y) \to (2,5)} f(x,y)}{\ds \lim_{(x,y) \to (2,5)} \lp f(x,y) + g(x,y) \rp} \amp\amp\text{by Quotient Law}\\
+\amp=   \dfrac{\ds \lim_{(x,y) \to (2,5)} f(x,y)}{\ds \lim_{(x,y) \to (2,5)} f(x,y) + \ds \lim_{(x,y) \to (2,5)} g(x,y)} \amp\amp\text{by Sum Law}\\
+\amp= \dfrac{3}{3 + 7} \\
+\amp= \dfrac{3}{10} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-16-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item c"><a href="#sec142-LimitsContinuity-16-2-1-1-3" title="Copy heading and permalink for Item c" aria-label="Copy heading and permalink for Item c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.6.1"><a href="#sec142-LimitsContinuity-16-2" title="Copy heading and permalink for Solution 14.2.6.1" aria-label="Copy heading and permalink for Solution 14.2.6.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.2.6"><a href="#sec142-LimitsContinuity-16" title="Copy heading and permalink for Example 14.2.6" aria-label="Copy heading and permalink for Example 14.2.6">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-17">Recall back in MTH 251Z (or MTH 251), the first step to evaluate a limit was to directly substitute the given point into the function. If things worked out, then great we found the limit! If not, then we had to do some some extra math to find the limit.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-18">This is the same in limits of functions of several variables. If we can directly substitute the point into the function and get a number, then that number is (usually) the limit. If we don’t get a number (especially if we get an indeterminate form like <span class="process-math">\(\dfrac{0}{0}\)</span>), then we have to do some extra work to find the limit.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec142-LimitsContinuity-19"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="sec142-LimitsContinuity-19-1">Evaluate the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{\sin\lp x^2 + y^2 \rp}{x^2 + y^2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-19-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec142-LimitsContinuity-19-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-19-2-1">If the direct substitution doesn’t work, try using a table or a graph to see how the function behaves near the point <span class="process-math">\((0,0)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-19-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 14.2.7.1"><a href="#sec142-LimitsContinuity-19-2" title="Copy heading and permalink for Hint 14.2.7.1" aria-label="Copy heading and permalink for Hint 14.2.7.1">🔗</a></div>
+</div></details><details id="sec142-LimitsContinuity-19-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="sec142-LimitsContinuity-19-3-1">
+<div class="para">Let’s try direct substitution first. Observe that</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-19-3-1-1">
+\begin{equation*}
+\lim_{(x,y) \to (0,0)} \dfrac{\sin\lp x^2 + y^2 \rp}{x^2 + y^2} = \dfrac{\sin(0)}{0} = \dfrac{0}{0}
+\end{equation*}
+</div>
+<div class="para">This is an indeterminate form, so the direct substitution tells us nothing about the limit...</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-19-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-19-3-2">We can also try evaluating the limit using a table of values. Recall back in MTH 251Z (or MTH 251) that we want to see how the function behaves as we get closer and closer to the point <span class="process-math">\((0,0)\text{.}\)</span> Then we can make a table of values for the function as BOTH <span class="process-math">\(x\)</span> AND <span class="process-math">\(y\)</span> approach 0.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-19-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="sec142-LimitsContinuity-19-3-3"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/sec142_Limit_Example_TableValues.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Table of Values of <span class="process-math">\(f(x,y) = \dfrac{\sin \lp x^2 + y^2 \rp}{x^2 + y^2}\)</span><div class="autopermalink" data-description="Figure 14.2.8"><a href="#sec142-LimitsContinuity-19-3-3" title="Copy heading and permalink for Figure 14.2.8" aria-label="Copy heading and permalink for Figure 14.2.8">🔗</a></div></figcaption></figure><div class="para logical" id="sec142-LimitsContinuity-19-3-4">
+<div class="para">Observe that the value of <span class="process-math">\(f(x,y)\)</span> approaches 1 as we get closer to the point <span class="process-math">\((0,0)\)</span> in any direction. This suggests that</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-19-3-4-3">
+\begin{equation*}
+\lim_{(x,y) \to (0,0)} \frac{\sin \lp x^2 + y^2 \rp}{x^2 + y^2}= 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-19-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-19-3-5">Alternatively, we can also evaluate the limit using a graph of the function. The graph of <span class="process-math">\(z = f(x,y)\)</span> is shown below.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-19-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="sec142-LimitsContinuity-19-3-6"><iframe id="sec142-LimitsContinuity-19-3-6-2" width="600" height="600" src="sec142-LimitsContinuity-19-3-6-2-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The graph of <span class="process-math">\(f(x,y) = \dfrac{\sin \lp x^2 + y^2 \rp}{x^2 + y^2}\)</span><div class="autopermalink" data-description="Figure 14.2.9"><a href="#sec142-LimitsContinuity-19-3-6" title="Copy heading and permalink for Figure 14.2.9" aria-label="Copy heading and permalink for Figure 14.2.9">🔗</a></div></figcaption></figure><div class="para logical" id="sec142-LimitsContinuity-19-3-7">
+<div class="para">Graphically, we can also see that the value of <span class="process-math">\(f(x,y)\)</span> approaches 1 as we get closer to the point <span class="process-math">\((0,0)\)</span> in any direction. This also suggests that</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-19-3-7-3">
+\begin{equation*}
+\lim_{(x,y) \to (0,0)} \frac{\sin \lp x^2 + y^2 \rp}{x^2 + y^2}= 1
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-19-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.7.1"><a href="#sec142-LimitsContinuity-19-3" title="Copy heading and permalink for Solution 14.2.7.1" aria-label="Copy heading and permalink for Solution 14.2.7.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.2.7"><a href="#sec142-LimitsContinuity-19" title="Copy heading and permalink for Example 14.2.7" aria-label="Copy heading and permalink for Example 14.2.7">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-20">Unlike graphs of functions of a single variable where we can only approach a point from the left or the right, graphs of functions of several variables allow us to approach a point from infinitely many directions. To argue that a limit exists, we need to show that the function approaches the same value as we approach the point from <em class="alert">any direction</em>, like the previous example. If we can find two different directions that give different limit values, then the limit does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec142-LimitsContinuity-21"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="sec142-LimitsContinuity-21-1">Evaluate the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \frac{xy}{x^2 + y^2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-21-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec142-LimitsContinuity-21-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-21-2-1">If you try direct substitution, you get <span class="process-math">\(\dfrac{0}{0}\text{,}\)</span> which is an indeterminate form, which means we know nothing about the limits. Making a table of values or looking at graph can be helpful. Richard coded the graph below to help you visualize what the graph looks like.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-21-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="sec142-LimitsContinuity-21-2-2"><iframe id="sec142-LimitsContinuity-21-2-2-2" width="600" height="600" src="sec142-LimitsContinuity-21-2-2-2-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The graph of <span class="process-math">\(f(x,y) = \frac{xy}{x^2 + y^2}\text{.}\)</span><div class="autopermalink" data-description="Figure 14.2.11"><a href="#sec142-LimitsContinuity-21-2-2" title="Copy heading and permalink for Figure 14.2.11" aria-label="Copy heading and permalink for Figure 14.2.11">🔗</a></div></figcaption></figure><div class="para" id="sec142-LimitsContinuity-21-2-3">What do you expect the limit to be?<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-21-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-21-2-4">Also, can we come up with an algebraic approach to evaluate the limit without graphing the function?<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-21-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 14.2.10.1"><a href="#sec142-LimitsContinuity-21-2" title="Copy heading and permalink for Hint 14.2.10.1" aria-label="Copy heading and permalink for Hint 14.2.10.1">🔗</a></div>
+</div></details><details id="sec142-LimitsContinuity-21-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">When we are looking at the graph...</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-21-3-2">Graphically, we can see that the value of <span class="process-math">\(f(x,y)\)</span> approaches within a range of the <span class="process-math">\(z\)</span> values between <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\text{...}\)</span> We can’t determine a single value that the function approaches as we get closer to the point <span class="process-math">\((0,0)\text{.}\)</span> Hence, the limit <em class="alert">does not exist</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-21-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.10.1: When we are looking at the graph..."><a href="#sec142-LimitsContinuity-21-3" title="Copy heading and permalink for Solution 14.2.10.1: When we are looking at the graph..." aria-label="Copy heading and permalink for Solution 14.2.10.1: When we are looking at the graph...">🔗</a></div>
+</div></details><details id="sec142-LimitsContinuity-21-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using an algebraic approach...</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-21-4-2">Without looking at the graph, we can also show that the limit does not exist by showing that the limit along different <em class="alert">paths</em> of approach give different values.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-21-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec142-LimitsContinuity-21-4-3">
+<div class="para">One way of approaching the point <span class="process-math">\((0,0)\)</span> is along the line <span class="process-math">\(y = 0\text{.}\)</span> Along this line, we have</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-21-4-3-3">
+\begin{equation*}
+\lim_{x \to 0} \dfrac{x \cdot 0}{x^2 + 0^2} = \lim_{x \to 0} 0 = 0
+\end{equation*}
+</div>
+<div class="para">So along the line <span class="process-math">\(y = 0\text{,}\)</span> the limit is 0.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-21-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec142-LimitsContinuity-21-4-4">
+<div class="para">Another way of approaching the point <span class="process-math">\((0,0)\)</span> is along the line <span class="process-math">\(y = x\text{.}\)</span> Along this line, we have</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-21-4-4-3">
+\begin{equation*}
+\lim_{x \to 0} \dfrac{x \cdot x}{x^2 + x^2} = \lim_{x \to 0} \dfrac{x^2}{2x^2} = \lim_{x \to 0} \dfrac{1}{2} = \dfrac{1}{2}
+\end{equation*}
+</div>
+<div class="para">So along the line <span class="process-math">\(y = x\text{,}\)</span> the limit is <span class="process-math">\(\dfrac{1}{2}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-21-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-21-4-5">Observe that the limit along the line <span class="process-math">\(y = 0\)</span> is 0, while the limit along the line <span class="process-math">\(y = x\)</span> is <span class="process-math">\(\dfrac{1}{2}\text{.}\)</span> Since we get different limit values along different paths of approach, the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{xy}{x^2 + y^2}\)</span> does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-21-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.10.2: Using an algebraic approach..."><a href="#sec142-LimitsContinuity-21-4" title="Copy heading and permalink for Solution 14.2.10.2: Using an algebraic approach..." aria-label="Copy heading and permalink for Solution 14.2.10.2: Using an algebraic approach...">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.2.10"><a href="#sec142-LimitsContinuity-21" title="Copy heading and permalink for Example 14.2.10" aria-label="Copy heading and permalink for Example 14.2.10">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-22">But how do we know if a limit exists without graphing the function? There are thousands of paths of approach to a point... How can we check all of them to see if they give the same limit value?<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-23">One way to improve our efficiency is to check the limit along a <em class="emphasis">family</em> of paths. For example, we can check the limit along ALL the linear paths by setting <span class="process-math">\(y = mx\)</span> and seeing if the limit depends on the value of <span class="process-math">\(m\text{.}\)</span> If so, then the limit does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec142-LimitsContinuity-24"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="sec142-LimitsContinuity-24-1">Evaluate the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{x^2 - y^2}{x^2 + y^2}\)</span> or show that it does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-24-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec142-LimitsContinuity-24-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-24-2-1">Let’s check the limit along the linear paths. That is, we set <span class="process-math">\(y = mx\)</span> and see if the limit depends on <span class="process-math">\(m\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-24-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-24-2-2">Can you find two different values of <span class="process-math">\(m\)</span> that give different limit values?<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-24-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 14.2.12.1"><a href="#sec142-LimitsContinuity-24-2" title="Copy heading and permalink for Hint 14.2.12.1" aria-label="Copy heading and permalink for Hint 14.2.12.1">🔗</a></div>
+</div></details><details id="sec142-LimitsContinuity-24-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="sec142-LimitsContinuity-24-3-1">
+<div class="para">Along the linear paths, we can set <span class="process-math">\(y = mx\text{.}\)</span> That is,</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-24-3-1-2">
+\begin{align*}
+\lim_{(x,y) \to (0,0)} \dfrac{x^2 - y^2}{x^2 + y^2} \amp= \lim_{(x,mx) \to (0,0)} \dfrac{x^2 - (mx)^2}{x^2 + (mx)^2} \\
+\amp= \lim_{(x,mx) \to (0,0)} \dfrac{x^2 - m^2x^2}{x^2 + m^2x^2} \\
+\amp= \lim_{(x,mx) \to (0,0)} \dfrac{1 - m^2}{1 + m^2} \\
+\amp= \dfrac{1 - m^2}{1 + m^2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-24-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-24-3-2">This implies that the limit along the linear paths depends on the value of <span class="process-math">\(m\text{.}\)</span> For example, if <span class="process-math">\(m = 0\text{,}\)</span> then the limit is <span class="process-math">\(\dfrac{1 - 0^2}{1 + 0^2} = 1\text{.}\)</span> If <span class="process-math">\(m = 1\text{,}\)</span> then the limit is <span class="process-math">\(\dfrac{1 - 1^2}{1 + 1^2} = \dfrac{0}{2} = 0\text{.}\)</span> Since we get different limit values along different paths of approach, the limit does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-24-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.12.1"><a href="#sec142-LimitsContinuity-24-3" title="Copy heading and permalink for Solution 14.2.12.1" aria-label="Copy heading and permalink for Solution 14.2.12.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.2.12"><a href="#sec142-LimitsContinuity-24" title="Copy heading and permalink for Example 14.2.12" aria-label="Copy heading and permalink for Example 14.2.12">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-25">But... if we check the limit along the linear paths and get the same limit value, does that mean the limit exists? The short answer is no. There are other paths of approach than just the linear paths. If we find two different paths of approach that give different limit values, then the limit does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec142-LimitsContinuity-26"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="sec142-LimitsContinuity-26-1">Evaluate the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{xy^2}{x^2 + y^4}\)</span> or show that it does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-26-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec142-LimitsContinuity-26-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-26-2-1">Let’s check the limit along the linear paths. That is, we set <span class="process-math">\(y = mx\)</span> and see if the limit depends on <span class="process-math">\(m\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-26-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-26-2-2">Can you find two different values of <span class="process-math">\(m\)</span> that give different limit values?<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-26-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 14.2.13.1"><a href="#sec142-LimitsContinuity-26-2" title="Copy heading and permalink for Hint 14.2.13.1" aria-label="Copy heading and permalink for Hint 14.2.13.1">🔗</a></div>
+</div></details><details id="sec142-LimitsContinuity-26-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="sec142-LimitsContinuity-26-3-1">
+<div class="para">Along the linear paths, we can set <span class="process-math">\(y = mx\text{.}\)</span> That is,</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-26-3-1-2">
+\begin{align*}
+\lim_{(x,y) \to (0,0)} \dfrac{xy^2}{x^2 + y^4} \amp= \lim{(x,mx) \to (0,0)} \dfrac{x\lp mx\rp^2}{x^2 + \lp mx \rp^4} \\
+\amp= \lim_{(x,mx) \to (0,0)} \frac{m^2x^3}{x^2 + m^4x^4} \\
+\amp= \lim_{(x,mx) \to (0,0)} \frac{m^2x^3}{x^2(1 + m^4x^2)} \\
+\amp= \lim_{(x,mx) \to (0,0)} \frac{m^2x}{1 + m^4x^2} \\
+\amp= 0 
+\end{align*}
+</div>
+<div class="para">Observe that the limit along all the linear paths is <span class="process-math">\(0\text{.}\)</span> Does it mean the limit is <span class="process-math">\(0\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-26-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-26-3-2">Richard will throw in another path of approach for us to check. Does the limit along the path <span class="process-math">\(x = y^2\)</span> also give us <span class="process-math">\(0\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-26-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec142-LimitsContinuity-26-3-3">
+<div class="para">We can check quickly that the answer is no. Along the path <span class="process-math">\(x = y^2\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-26-3-3-2">
+\begin{align*}
+\lim_{(x,y) \to (0,0)} \dfrac{xy^2}{x^2 + y^4} \amp= \lim_{(y^2,y) \to (0,0)} \dfrac{y^2 \cdot y^2}{(y^2)^2 + y^4} \\
+\amp= \lim_{(y^2,y) \to (0,0)} \dfrac{y^4}{2y^4} \\
+\amp= \lim_{(y^2,y) \to (0,0)} \dfrac{1}{2} \\
+\amp= \dfrac{1}{2} 
+\end{align*}
+</div>
+<div class="para">Observe that the limit along the path <span class="process-math">\(x = y^2\)</span> is <span class="process-math">\(\dfrac{1}{2}\text{,}\)</span> which is different from the limit along the linear paths. Since we get different limit values along different paths of approach, the limit does not exist.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-26-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.13.1"><a href="#sec142-LimitsContinuity-26-3" title="Copy heading and permalink for Solution 14.2.13.1" aria-label="Copy heading and permalink for Solution 14.2.13.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.2.13"><a href="#sec142-LimitsContinuity-26" title="Copy heading and permalink for Example 14.2.13" aria-label="Copy heading and permalink for Example 14.2.13">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-27">Hmm... Then how do we know if a limit exists without graphing the function, since there are infinitely many paths of approach to check?<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-28">One way to do so is to use some fancy calculus theorems to argue that there is only one possible limit value that the function can approach as we get closer to the point. One of such theorems is the Squeeze Theorem. In case you don’t recall what the Squeeze Theorem is from MTH 251Z (or MTH 251), below is a quick refresher.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-SqueezeTheorem"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Squeeze Theorem.</span>
+</h3>
+<div class="para logical" id="thm-SqueezeTheorem-2-1">
+<div class="para">Assume that for <span class="process-math">\(x \neq c\)</span> (in some open interval containing <span class="process-math">\(c\)</span>),</div>
+<div class="displaymath process-math" id="thm-SqueezeTheorem-2-1-3">
+\begin{equation*}
+l(x) \leq f(x) \leq u(x) \qquad \text{ and } \qquad \lim_{x\to c}l(x) = \lim_{x \to c} u(x) = L
+\end{equation*}
+</div>
+<div class="para">Then <span class="process-math">\(\ds \lim_{x\to c} f(x)\)</span> exists and <span class="process-math">\(\ds \lim_{x\to c} f(x) = L\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-SqueezeTheorem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 14.2.14: Squeeze Theorem"><a href="#thm-SqueezeTheorem" title="Copy heading and permalink for Theorem 14.2.14: Squeeze Theorem" aria-label="Copy heading and permalink for Theorem 14.2.14: Squeeze Theorem">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-30">A classic application of the Squeeze Theorem is to evaluate limits of functions involving some <em class="alert">trigonometric functions</em> like sine and cosine, since they are bounded between <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\text{.}\)</span> So we can often convert the function to polar coordinates and try using the Squeeze Theorem to evaluate the limit.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec142-LimitsContinuity-31"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="sec142-LimitsContinuity-31-1">Evaluate the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{x^2 - y^2}{\sqrt{x^2 + y^2}}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-31-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec142-LimitsContinuity-31-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-31-2-1">Let’s convert the function to polar coordinates. That is, we want the variables <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\)</span> instead of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-31-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-31-2-2">Then try using the Squeeze Theorem to evaluate the limit.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-31-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-31-2-3">P.S. If you forgot how to do so, find some clues in <a href="sec127-CylindricalSphericalCoordinates.html" class="internal" title="Section 12.7: Cylindrical and Spherical Coordinates">Section 12.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-31-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 14.2.15.1"><a href="#sec142-LimitsContinuity-31-2" title="Copy heading and permalink for Hint 14.2.15.1" aria-label="Copy heading and permalink for Hint 14.2.15.1">🔗</a></div>
+</div></details><details id="sec142-LimitsContinuity-31-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="sec142-LimitsContinuity-31-3-1">
+<div class="para">Recall that <span class="process-math">\(x = r\cos(\theta)\)</span> and <span class="process-math">\(y = r\sin(\theta)\text{.}\)</span> Then we obtain</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-31-3-1-3">
+\begin{align*}
+\dfrac{x^2 - y^2}{\sqrt{x^2 + y^2}} \amp= \dfrac{r^2\cos^2(\theta) - r^2\sin^2(\theta)}{\sqrt{r^2}} \\
+\amp= r\lp \cos^2(\theta) - \sin^2(\theta) \rp \\
+\amp= r\cos(2\theta) 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-31-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec142-LimitsContinuity-31-3-2">
+<div class="para">Clearly, if <span class="process-math">\((x,y) \to (0,0)\text{,}\)</span> then <span class="process-math">\(r \to 0\text{.}\)</span> So the problem becomes</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-31-3-2-3">
+\begin{equation*}
+\lim_{(x,y) \to (0,0)} \dfrac{x^2 - y^2}{\sqrt{x^2 + y^2}} = \lim_{r \to 0} r\cos(2\theta)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-31-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec142-LimitsContinuity-31-3-3">
+<div class="para">Since <span class="process-math">\(\cos(2\theta)\)</span> is bounded between <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-31-3-3-4">
+\begin{equation*}
+-r \leq r\cos(2\theta) \leq r
+\end{equation*}
+</div>
+<div class="para">As <span class="process-math">\(r \to 0\text{,}\)</span> both bounds approach zero. By the Squeeze Theorem, we conclude that</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-31-3-3-6">
+\begin{equation*}
+\lim_{r \to 0} r\cos(2\theta) = 0
+\end{equation*}
+</div>
+<div class="para">Therefore,</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-31-3-3-7">
+\begin{equation*}
+\lim_{(x,y) \to (0,0)} \dfrac{x^2 - y^2}{\sqrt{x^2 + y^2}} = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-31-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.15.1"><a href="#sec142-LimitsContinuity-31-3" title="Copy heading and permalink for Solution 14.2.15.1" aria-label="Copy heading and permalink for Solution 14.2.15.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.2.15"><a href="#sec142-LimitsContinuity-31" title="Copy heading and permalink for Example 14.2.15" aria-label="Copy heading and permalink for Example 14.2.15">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-32">Just a quick note that we don’t have to convert the function to polar coordinates to use the Squeeze Theorem if you can find some nice bounds for the function in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> This usually happens when the function involves some trigonometric functions like sine and cosine, or other functions that are bounded between two numbers.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec142-LimitsContinuity-33"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.2.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="sec142-LimitsContinuity-33-1">Evaluate the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} 3x^2 \sin\lp \dfrac{1}{x^2 + y^2} \rp\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-33-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec142-LimitsContinuity-33-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-33-2-1">You are more than welcome to try the direct substitution first, but you will get an indeterminate form... So inconclusive!<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-33-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-33-2-2">Alternatively, you can also try finding two paths of approach that give different limit values, good luck!<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-33-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec142-LimitsContinuity-33-2-3">As a third option, you can also try using the Squeeze Theorem since there is a very obvious sine function in the expression.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-33-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 14.2.16.1"><a href="#sec142-LimitsContinuity-33-2" title="Copy heading and permalink for Hint 14.2.16.1" aria-label="Copy heading and permalink for Hint 14.2.16.1">🔗</a></div>
+</div></details><details id="sec142-LimitsContinuity-33-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="sec142-LimitsContinuity-33-3-1">Let’s go with the third option and use the Squeeze Theorem because the sine function is bounded.<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-33-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec142-LimitsContinuity-33-3-2">
+<div class="para">Since <span class="process-math">\(\sin\lp \dfrac{1}{x^2 + y^2} \rp\)</span> is bounded between <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-33-3-2-4">
+\begin{equation*}
+-3x^2 \leq 3x^2 \sin\lp \dfrac{1}{x^2 + y^2} \rp \leq 3x^2
+\end{equation*}
+</div>
+<div class="para">As <span class="process-math">\((x,y) \to (0,0)\text{,}\)</span> both bounds approach zero. By the Squeeze Theorem, we conclude that</div>
+<div class="displaymath process-math" id="sec142-LimitsContinuity-33-3-2-6">
+\begin{equation*}
+\lim_{(x,y) \to (0,0)} 3x^2 \sin\lp \dfrac{1}{x^2 + y^2} \rp = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-33-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.16.1"><a href="#sec142-LimitsContinuity-33-3" title="Copy heading and permalink for Solution 14.2.16.1" aria-label="Copy heading and permalink for Solution 14.2.16.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.2.16"><a href="#sec142-LimitsContinuity-33" title="Copy heading and permalink for Example 14.2.16" aria-label="Copy heading and permalink for Example 14.2.16">🔗</a></div></article><div class="para" id="sec142-LimitsContinuity-34">It takes practice and trial and error to find the right approach to evaluate a limit. If one approach doesn’t work, try another approach!<div class="autopermalink" data-description="Paragraph"><a href="#sec142-LimitsContinuity-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="worksheet" id="ws-sec142" data-margins="0.75in 0.75in 0.75in 0.75in"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Assigned Problems for Section 14.2</span><div class="print-links"><a href="ws-sec142-printable.html" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<section class="introduction" id="ws-sec142-2"><div class="para" id="ws-sec142-2-1">The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec142-2-2">The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><article class="exercise exercise-like" id="ws-sec142-3"><h4 class="heading"><span class="codenumber">14.2.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec142-3-1">
+<div class="para">Evaluate the following limit using continuity</div>
+<div class="displaymath process-math" id="ws-sec142-3-1-1">
+\begin{equation*}
+\lim_{(x,y) \to (1,1)} \frac{e^{x^2} - e^{-y^2}}{x + y}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.7"><a href="#ws-sec142-3" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.7" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.7">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-4"><h4 class="heading"><span class="codenumber">14.2.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec142-4-1">Does <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{y^2}{x^2 + y^2}\)</span> exist? Explain.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.13"><a href="#ws-sec142-4" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.13" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.13">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-5"><h4 class="heading"><span class="codenumber">14.2.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec142-5-1">Let <span class="process-math">\(f(x,y) = \dfrac{x^3 + y^3}{xy^2}\text{.}\)</span> Set <span class="process-math">\(y = mx\)</span> and show that the resulting limit depends on <span class="process-math">\(m\text{,}\)</span> and therefore the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} f(x,y)\)</span> does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.15"><a href="#ws-sec142-5" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.15" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.15">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-6"><h4 class="heading"><span class="codenumber">14.2.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec142-6-1">Evaluate the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{xy}{3x^2 + 2y^2}\)</span> or show that it does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.21"><a href="#ws-sec142-6" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.21" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.21">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-7"><h4 class="heading"><span class="codenumber">14.2.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec142-7-1">
+<div class="para">Use the Squeeze Theorem to evaluate</div>
+<div class="displaymath process-math" id="ws-sec142-7-1-1">
+\begin{equation*}
+\lim_{(x,y) \to (4,0)} \lp x^2 - 16 \rp \cos\lp \frac{1}{(x - 4)^2 + y^2} \rp
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.25"><a href="#ws-sec142-7" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.25" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.25">🔗</a></div></article><div class="exercisegroup" id="ws-sec142-8">
+<h4 class="heading"><span class="title">Exercise Group.</span></h4>
+<div class="introduction" id="ws-sec142-8-1"><div class="para" id="ws-sec142-8-1-1">For the following exercises, evaluate the limit or determine that it does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="ws-sec142-8-2"><h5 class="heading"><span class="codenumber">14.2.31<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="para" id="ws-sec142-8-2-1">
+<span class="process-math">\(\ds \lim_{(x,y) \to (3,4)} \dfrac{1}{\sqrt{x^2 + y^2}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.31"><a href="#ws-sec142-8-2" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.31" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.31">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-8-3"><h5 class="heading"><span class="codenumber">14.2.33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="para" id="ws-sec142-8-3-1">
+<span class="process-math">\(\ds \lim_{(x,y) \to (\pi,0)} \dfrac{\cos(x)}{\sin(y)}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.33"><a href="#ws-sec142-8-3" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.33" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.33">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-8-4"><h5 class="heading"><span class="codenumber">14.2.41<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="para" id="ws-sec142-8-4-1">
+<span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{x^2 + y^2}{\sqrt{x^2 + y^2 + 1} - 1}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.41"><a href="#ws-sec142-8-4" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.41" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.41">🔗</a></div></article>
+</div>
+<div class="autopermalink" data-description="Exercise Group 14.2.14.2.31–14.2.41"><a href="#ws-sec142-8" title="Copy heading and permalink for Exercise Group 14.2.14.2.31–14.2.41" aria-label="Copy heading and permalink for Exercise Group 14.2.14.2.31–14.2.41">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet 14.2: Assigned Problems for Section 14.2"><a href="#ws-sec142" title="Copy heading and permalink for Worksheet 14.2: Assigned Problems for Section 14.2" aria-label="Copy heading and permalink for Worksheet 14.2: Assigned Problems for Section 14.2">🔗</a></div></section><div class="autopermalink" data-description="Section 14.2: Limits and Continuity in Several Variables"><a href="#sec142-LimitsContinuity" title="Copy heading and permalink for Section 14.2: Limits and Continuity in Several Variables" aria-label="Copy heading and permalink for Section 14.2: Limits and Continuity in Several Variables">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec141-FunctionsTwoVariables.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec143-PartialDerivatives.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
