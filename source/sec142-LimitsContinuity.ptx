@@ -5,7 +5,16 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In our previous study of functions of a single variable, the concept of a limit was straightforward in one respect. 
+      We could only approach a point <m>x=a</m> from two directions, the left or the right. 
+      If the function approached the same value from both sides, the limit existed.
+    </p>
+
+    <p>
+      Now that we are working with functions of two variables, the domain is a plane. 
+      This means we can approach a point <m>(a,b)</m> from infinitely many directions—along the <m>x</m>-axis, the <m>y</m>-axis, a diagonal line, a parabola, or even a spiral. 
+      This increase in freedom makes the definition of a limit more complex but also more interesting. 
+      In this section, we will learn how to determine if these limits exist and how to evaluate them.
     </p>
 
     <objectives>
@@ -17,12 +26,785 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            understand the definition of a limit for functions of two variables informally.
+          </p>
+        </li>
+        <li>
+          <p>
+            evaluate limits for function of two variables.
+          </p>
+        </li>
+        <li>
+          <p>
+            prove that a limit <em>does not exist</em>. 
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <p>
+    Recall from MTH 251Z (or MH 251) that limits allow us to describe a function's behavior <em>near</em> a specific point, even if the function is not defined at that point. 
+    The fundamental idea is that we can make the function's output arbitrarily close to a limit value <m>L</m> by choosing inputs that are sufficiently close to the target point.
+  </p>
+
+  <p>
+    The idea of limits also extends to functions of several variables. 
+  </p>
+
+  <figure>
+    <image source="sec142_LimitDefinition_Diagram.png" width="90%"></image>
+  </figure>
+
+  <p>
+    Below is the formal definition of limits for functions of two variables. 
+  </p>
+
+  <definition xml:id="def-Limits_MultiVariable">
+    <title>Limit</title>
+    <statement>
+      <p>
+        Assume that <m>f(x,y)</m> is defined near <m>P = (a,b)</m>. 
+        Then
+        <md>
+          \lim_{(x,y) \to P} f(x,y) = L
+        </md>
+        if, for any <m>\varepsilon \gt 0</m>, there exists <m>\delta \gt 0</m> such that if <m>(x,y)</m> satisfies
+        <md>
+          0 \lt d\lp (x,y), P \rp \lt \delta \, , \quad \text{then} \, |f(x,y) - L| \lt \varepsilon
+        </md>
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    This is a calculus class, not a real analysis class, so we won't be doing any epsilon-delta proofs in this class. 
+    Make sure you are comfortable with the limit idea informally. 
+    That is, the limit of a function at a point is the value that the function approaches as we get closer and closer to the point.
+  </p>
+
+  <p>
+    Recall back in MTH 251Z (or MTH 251), a function is continuous at a point if the limit of the function at that point is equal to the value of the function at that point. 
+    This is the same for functions of several variables. 
+  </p>
+
+  <definition xml:id="def-Continuity_Multivariables">
+    <title>Continuity</title>
+    <statement>
+      <p>
+        A function <m>f</m> of two variables is <term>continuous</term> at <m>P = (a,b)</m> if
+        <md>
+          \lim_{(x,y) \to (a,b)} f(x,y) = f(a,b)
+        </md>
+        We say that <m>f</m> is continuous if it is continuous at each point <m>(a,b)</m> in its domain. 
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    That is, if we know that a function is continuous at a point (no hole, no jump, no asymptote), then we can evaluate the limit of the function at that point by directly substituting the point into the function. 
+  </p>
+
+  <p>
+    Also recall back in MH 251Z (or MTH 251), a function is continuous at a point if the building blocks of the function are continuous at that point AND the function value is defined at that point. 
+  </p>
+
+  <example>
+    <p>
+      Evaluate the limit <m>\ds \lim_{(x,y) \to (-2,1)} \dfrac{2x^2}{4x + y}</m>.
+    </p>
+
+    <hint>
+      <p>
+        Try arguing that the function <m>f</m> is continuous at <m>(-2,1)</m>. 
+        Then you can evaluate the limit by directly substituting the point into the function.
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        Observe that <m>z = 2x^2</m> and <m>z = 4x + y</m> are both continuous at <m>(-2,1)</m>. 
+        Also, the denominator <m>4x + y</m> is not equal to 0 at <m>(-2,1)</m>. 
+        Hence, <m>f</m> is continuous at <m>(-2,1)</m>. 
+      </p>
+
+      <p>
+        Thus, we can evaluate the limit by directly substituting the point into the function. 
+        That is, 
+        <md>
+          <mrow> \lim_{(x,y) \to (-2,1)} \dfrac{2x^2}{4x + y} \amp= \dfrac{2(-2)^2}{4(-2) + 1} </mrow>
+          <mrow> \amp= -\dfrac{8}{7}</mrow>
+        </md>
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    Again, back in MTH 251Z (or MTH 251), we also learned about the basic limit laws. 
+    They also hold for limits of functions of several variables.
+  </p>
+
+  <theorem xml:id="thm-LimitLaws_Multivariables">
+    <title>Limit Laws</title>
+    <statement>
+      <p>
+        Assume that <m>\ds \lim_{(x,y) \to P}f(x,y)</m> and <m>\ds \lim_{(x,y) \to P}g(x,y)</m> exist. 
+        Then 
+        <ol marker="i.">
+          <li>
+            <p>
+              <term>Sum Law:</term>
+              <md>
+                \lim_{(x,y) \to P} \lp f(x,y) + g(x,y) \rp = \lim_{(x,y) \to P} f(x,y) + \lim_{(x,y) \to P} g(x,y)
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              <term>Constant Multiple Law:</term> For any number <m>k</m>, 
+              <md>
+                \lim_{(x,y) \to P} k f(x,y) = k \lim_{(x,y) \to P} f(x,y)
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              <term>Product Law:</term>
+              <md>
+                \lim_{(x,y) \to P} f(x,y) g(x,y) = \lp \lim_{(x,y) \to P} f(x,y) \rp \lp \lim_{(x,y) \to P} g(x,y) \rp
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              <term>Quotient Law:</term> If <m>\ds \lim_{(x,y) \to P} g(x,y) \neq 0</m>, then
+              <md>
+                \lim_{(x,y) \to P} \dfrac{f(x,y)}{g(x,y)} = \dfrac{\ds \lim_{(x,y) \to P} f(x,y)}{\ds \lim_{(x,y) \to P} g(x,y)}
+              </md>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  
+  <example>
+    <p>
+      Assume that <m>\ds \lim_{(x,y) \to (2,5)} f(x,y) = 3</m> and <m>\ds \lim_{(x,y) \to (2,5)} g(x,y) = 7</m>. 
+      Find the following limits. 
+      <ol marker="(a)">
+        <li>
+          <p>
+            <m>\ds \lim_{(x,y) \to (2,5)} \lp g(x,y) - 2f(x,y) \rp</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\ds \lim_{(x,y) \to (2,5)} f(x,y)^2g(x,y)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\ds \lim_{(x,y) \to (2,5)} \dfrac{f(x,y)}{f(x,y) + g(x,y)}</m>
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <solution>
+      <p>
+        <ol marker="(a)">
+          <li>
+            <p>
+              <md>
+                <mrow> \lim_{(x,y) \to (2,5)} \lp g(x,y) - 2f(x,y) \rp \amp= \lim_{(x,y) \to (2,5)} g(x,y) + \lim_{(x,y) \to (2,5)} -2f(x,y) \amp\amp\text{by Sum Law}</mrow>
+                <mrow> \amp= \lim_{(x,y) \to (2,5)} g(x,y) - 2\lim_{(x,y) \to (2,5)} f(x,y) \amp\amp\text{by Constant Multiple Law}</mrow>
+                <mrow> \amp= 7 - 2(3) </mrow>
+                <mrow> \amp= 1</mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              <md>
+                <mrow> \lim_{(x,y) \to (2,5)} f(x,y)^2g(x,y) \amp= \lp \lim_{(x,y) \to (2,5)} f(x,y) \rp^2 \lp \lim_{(x,y) \to (2,5)} g(x,y)\rp \amp\amp\text{by Product Law}</mrow>
+                <mrow> \amp= 3^2 \cdot 7 </mrow>
+                <mrow> \amp= 63</mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              <md>
+                <mrow> \lim_{(x,y) \to (2,5)} \dfrac{f(x,y)}{f(x,y) + g(x,y)} \amp= \dfrac{\ds \lim_{(x,y) \to (2,5)} f(x,y)}{\ds \lim_{(x,y) \to (2,5)} \lp f(x,y) + g(x,y) \rp} \amp\amp\text{by Quotient Law}</mrow>
+                <mrow> \amp=   \dfrac{\ds \lim_{(x,y) \to (2,5)} f(x,y)}{\ds \lim_{(x,y) \to (2,5)} f(x,y) + \ds \lim_{(x,y) \to (2,5)} g(x,y)} \amp\amp\text{by Sum Law}</mrow>
+                <mrow> \amp= \dfrac{3}{3 + 7} </mrow>
+                <mrow> \amp= \dfrac{3}{10} </mrow>
+              </md>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    Recall back in MTH 251Z (or MTH 251), the first step to evaluate a limit was to directly substitute the given point into the function. 
+    If things worked out, then great we found the limit! 
+    If not, then we had to do some some extra math to find the limit. 
+  </p>
+
+  <p>
+    This is the same in limits of functions of several variables. 
+    If we can directly substitute the point into the function and get a number, then that number is (usually) the limit. 
+    If we don't get a number (especially if we get an indeterminate form like <m>\dfrac{0}{0}</m>), then we have to do some extra work to find the limit. 
+  </p>
+
+  <example>
+    <p>
+      Evaluate the limit <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{\sin\lp x^2 + y^2 \rp}{x^2 + y^2}</m>. 
+    </p>
+
+    <hint>
+      <p>
+        If the direct substitution doesn't work, try using a table or a graph to see how the function behaves near the point <m>(0,0)</m>.
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        Let's try direct substitution first. 
+        Observe that
+        <md>
+          \lim_{(x,y) \to (0,0)} \dfrac{\sin\lp x^2 + y^2 \rp}{x^2 + y^2} = \dfrac{\sin(0)}{0} = \dfrac{0}{0}
+        </md>
+        This is an indeterminate form, so the direct substitution tells us nothing about the limit... 
+      </p>
+
+      <p>
+        We can also try evaluating the limit using a table of values. 
+        Recall back in MTH 251Z (or MTH 251) that we want to see how the function behaves as we get closer and closer to the point <m>(0,0)</m>. 
+        Then we can make a table of values for the function as BOTH <m>x</m> AND <m>y</m> approach 0. 
+      </p>
+
+      <figure>
+        <image source="sec142_Limit_Example_TableValues.png" width="80%"></image>
+        <caption>Table of Values of <m>f(x,y) = \dfrac{\sin \lp x^2 + y^2 \rp}{x^2 + y^2}</m></caption>
+      </figure>
+
+      <p>
+        Observe that the value of <m>f(x,y)</m> approaches 1 as we get closer to the point <m>(0,0)</m> in any direction. 
+        This suggests that 
+        <md>
+          \lim_{(x,y) \to (0,0)} \frac{\sin \lp x^2 + y^2 \rp}{x^2 + y^2}= 1
+        </md>
+      </p>
+
+      <p>
+        Alternatively, we can also evaluate the limit using a graph of the function. 
+        The graph of <m>z = f(x,y)</m> is shown below. 
+      </p>
+      
+      <figure>
+        <caption>The graph of <m>f(x,y) = \dfrac{\sin \lp x^2 + y^2 \rp}{x^2 + y^2}</m></caption>
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('x, y')
+            # 1. Define the function
+            # The limit at (0,0) is 1
+            f(x,y) = sin(x^2 + y^2) / (x^2 + y^2)
+            
+            # 2. Plot the surface
+            surface = plot3d(f, (x, -3, 3), (y, -3, 3), color='orange', opacity=0.8, mesh=True, plot_points=100)
+            
+            # 3. Setup Manual Axes
+            lim = 3.5
+            xaxis = arrow3d((-lim, 0, 0), (lim, 0, 0), color='black', thickness=1)
+            yaxis = arrow3d((0, -lim, 0), (0, lim, 0), color='black', thickness=1)
+            zaxis = arrow3d((0, 0, -0.5), (0, 0, 1.5), color='black', thickness=1)
+            
+            # 4. Axis Labels
+            x_lbl = text3d("x", (lim + 0.2, 0, 0), color='black')
+            y_lbl = text3d("y", (0, lim + 0.2, 0), color='black')
+            z_lbl = text3d("z", (0, 0, 1.7), color='black')
+            
+            # 5. Manual Ticks
+            ticks = Graphics()
+            
+            # Loop for +/- 1 and +/- 2
+            for i in [-2, -1, 1, 2]:
+                # X-axis ticks (small lines crossing the axis)
+                ticks += line3d([(i, -0.1, 0), (i, 0.1, 0)], color='black', thickness=2)
+                # X-axis tick labels (offset slightly)
+                ticks += text3d(str(i), (i, -0.4, 0), color='black', fontsize='small')
+                
+                # Y-axis ticks
+                ticks += line3d([(-0.1, i, 0), (0.1, i, 0)], color='black', thickness=2)
+                # Y-axis tick labels
+                ticks += text3d(str(i), (-0.4, i, 0), color='black', fontsize='small')
+
+                # Z-axis tick at 1
+                ticks += line3d([(0, -0.1, 1), (0, 0.1, 1)], color='black', thickness=2)
+                ticks += text3d("1", (0, -0.4, 1), color='black', fontsize='small')
+
+            # 6. Combine and show
+            total_plot = surface + xaxis + yaxis + zaxis + x_lbl + y_lbl + z_lbl + ticks
+            total_plot.show(frame=False)
+          </slate>
+        </interactive>
+      </figure>
+
+      <p>
+        Graphically, we can also see that the value of <m>f(x,y)</m> approaches 1 as we get closer to the point <m>(0,0)</m> in any direction. 
+        This also suggests that
+        <md>
+          \lim_{(x,y) \to (0,0)} \frac{\sin \lp x^2 + y^2 \rp}{x^2 + y^2}= 1
+        </md>
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    Unlike graphs of functions of a single variable where we can only approach a point from the left or the right, graphs of functions of several variables allow us to approach a point from infinitely many directions. 
+    To argue that a limit exists, we need to show that the function approaches the same value as we approach the point from <alert>any direction</alert>, like the previous example. 
+    If we can find two different directions that give different limit values, then the limit does not exist. 
+  </p>
+
+  <example>
+    <p>
+      Evaluate the limit <m>\ds \lim_{(x,y) \to (0,0)} \frac{xy}{x^2 + y^2}</m>. 
+    </p>
+
+    <hint>
+      <p>
+        If you try direct substitution, you get <m>\dfrac{0}{0}</m>, which is an indeterminate form, which means we know nothing about the limits. 
+        Making a table of values or looking at graph can be helpful. 
+        Richard coded the graph below to help you visualize what the graph looks like. 
+      </p>
+
+      <figure>
+        <caption>The graph of <m>f(x,y) = \frac{xy}{x^2 + y^2}</m>.</caption>
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('x, y')
+            # 1. Define the function
+            # This function has a singularity at (0,0) that depends on the path of approach
+            f(x,y) = (x*y) / (x^2 + y^2)
+            
+            # 2. Plot the surface
+            # Range of function is [-0.5, 0.5]
+            surface = plot3d(f, (x, -3, 3), (y, -3, 3), color='green', opacity=0.8, mesh=True, plot_points=100)
+            
+            # 3. Setup Manual Axes
+            lim = 3.5
+            z_lim = 1.2 # Extended to show the tick at 1
+            
+            xaxis = arrow3d((-lim, 0, 0), (lim, 0, 0), color='black', thickness=1)
+            yaxis = arrow3d((0, -lim, 0), (0, lim, 0), color='black', thickness=1)
+            zaxis = arrow3d((0, 0, -z_lim), (0, 0, z_lim), color='black', thickness=1)
+            
+            # 4. Axis Labels
+            x_lbl = text3d("x", (lim + 0.2, 0, 0), color='black')
+            y_lbl = text3d("y", (0, lim + 0.2, 0), color='black')
+            z_lbl = text3d("z", (0, 0, z_lim + 0.2), color='black')
+            
+            # 5. Manual Ticks
+            ticks = Graphics()
+            
+            # Loop for X and Y axes (+/- 1 and +/- 2)
+            for i in [-2, -1, 1, 2]:
+                # X-axis ticks
+                ticks += line3d([(i, -0.1, 0), (i, 0.1, 0)], color='black', thickness=2)
+                ticks += text3d(str(i), (i, -0.4, 0), color='black', fontsize='small')
+                
+                # Y-axis ticks
+                ticks += line3d([(-0.1, i, 0), (0.1, i, 0)], color='black', thickness=2)
+                ticks += text3d(str(i), (-0.4, i, 0), color='black', fontsize='small')
+
+            # Z-axis tick at 1 (and -1 for symmetry/context)
+            for i in [-1, 1]:
+                ticks += line3d([(0, -0.1, i), (0, 0.1, i)], color='black', thickness=2)
+                ticks += text3d(str(i), (0, -0.4, i), color='black', fontsize='small')
+
+            # 6. Combine and show
+            total_plot = surface + xaxis + yaxis + zaxis + x_lbl + y_lbl + z_lbl + ticks
+            total_plot.show(frame=False)
+          </slate>
+        </interactive>
+      </figure>
+
+      <p>
+        What do you expect the limit to be?
+      </p>
+
+      <p>
+        Also, can we come up with an algebraic approach to evaluate the limit without graphing the function? 
+      </p>
+    </hint>
+
+    <solution>
+      <title>When we are looking at the graph... </title>
+      <p>
+        Graphically, we can see that the value of <m>f(x,y)</m> approaches within a range of the <m>z</m> values between <m>-1</m> and <m>1</m>... 
+        We can't determine a single value that the function approaches as we get closer to the point <m>(0,0)</m>. 
+        Hence, the limit <alert>does not exist</alert>. 
+      </p>
+    </solution>
+
+    <solution>
+      <title>Using an algebraic approach...</title>
+      <p>
+        Without looking at the graph, we can also show that the limit does not exist by showing that the limit along different <alert>paths</alert> of approach give different values.
+      </p>
+
+      <p>
+        One way of approaching the point <m>(0,0)</m> is along the line <m>y = 0</m>. 
+        Along this line, we have
+        <md>
+          \lim_{x \to 0} \dfrac{x \cdot 0}{x^2 + 0^2} = \lim_{x \to 0} 0 = 0
+        </md>
+        So along the line <m>y = 0</m>, the limit is 0. 
+      </p>
+
+      <p>
+        Another way of approaching the point <m>(0,0)</m> is along the line <m>y = x</m>. 
+        Along this line, we have
+        <md>
+          \lim_{x \to 0} \dfrac{x \cdot x}{x^2 + x^2} = \lim_{x \to 0} \dfrac{x^2}{2x^2} = \lim_{x \to 0} \dfrac{1}{2} = \dfrac{1}{2}
+        </md>
+        So along the line <m>y = x</m>, the limit is <m>\dfrac{1}{2}</m>.
+      </p>
+
+      <p>
+        Observe that the limit along the line <m>y = 0</m> is 0, while the limit along the line <m>y = x</m> is <m>\dfrac{1}{2}</m>. 
+        Since we get different limit values along different paths of approach, the limit <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{xy}{x^2 + y^2}</m> does not exist. 
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    But how do we know if a limit exists without graphing the function? 
+    There are thousands of paths of approach to a point... 
+    How can we check all of them to see if they give the same limit value? 
+  </p>
+
+  <p>
+    One way to improve our efficiency is to check the limit along a <em>family</em> of paths. 
+    For example, we can check the limit along ALL the linear paths by setting <m>y = mx</m> and seeing if the limit depends on the value of <m>m</m>. 
+    If so, then the limit does not exist. 
+  </p>
+
+  <example>
+    <p>
+      Evaluate the limit <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{x^2 - y^2}{x^2 + y^2}</m> or show that it does not exist.
+    </p>
+
+    <hint>
+      <p>
+        Let's check the limit along the linear paths. 
+        That is, we set <m>y = mx</m> and see if the limit depends on <m>m</m>. 
+      </p>
+
+      <p>
+        Can you find two different values of <m>m</m> that give different limit values? 
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        Along the linear paths, we can set <m>y = mx</m>. 
+        That is, 
+        <md>
+          <mrow> \lim_{(x,y) \to (0,0)} \dfrac{x^2 - y^2}{x^2 + y^2} \amp= \lim_{(x,mx) \to (0,0)} \dfrac{x^2 - (mx)^2}{x^2 + (mx)^2} </mrow>
+          <mrow> \amp= \lim_{(x,mx) \to (0,0)} \dfrac{x^2 - m^2x^2}{x^2 + m^2x^2} </mrow>
+          <mrow> \amp= \lim_{(x,mx) \to (0,0)} \dfrac{1 - m^2}{1 + m^2} </mrow>
+          <mrow> \amp= \dfrac{1 - m^2}{1 + m^2} </mrow>
+        </md>
+      </p>
+
+      <p>
+        This implies that the limit along the linear paths depends on the value of <m>m</m>. 
+        For example, if <m>m = 0</m>, then the limit is <m>\dfrac{1 - 0^2}{1 + 0^2} = 1</m>. 
+        If <m>m = 1</m>, then the limit is <m>\dfrac{1 - 1^2}{1 + 1^2} = \dfrac{0}{2} = 0</m>. 
+        Since we get different limit values along different paths of approach, the limit does not exist. 
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    But... if we check the limit along the linear paths and get the same limit value, does that mean the limit exists? 
+    The short answer is no. 
+    There are other paths of approach than just the linear paths. 
+    If we find two different paths of approach that give different limit values, then the limit does not exist. 
+  </p>
+
+  <example>
+    <p>
+      Evaluate the limit <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{xy^2}{x^2 + y^4}</m> or show that it does not exist.
+    </p>
+
+    <hint>
+      <p>
+        Let's check the limit along the linear paths. 
+        That is, we set <m>y = mx</m> and see if the limit depends on <m>m</m>. 
+      </p>
+
+      <p>
+        Can you find two different values of <m>m</m> that give different limit values? 
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        Along the linear paths, we can set <m>y = mx</m>. 
+        That is, 
+        <md>
+          <mrow> \lim_{(x,y) \to (0,0)} \dfrac{xy^2}{x^2 + y^4} \amp= \lim{(x,mx) \to (0,0)} \dfrac{x\lp mx\rp^2}{x^2 + \lp mx \rp^4} </mrow>
+          <mrow> \amp= \lim_{(x,mx) \to (0,0)} \frac{m^2x^3}{x^2 + m^4x^4} </mrow>
+          <mrow> \amp= \lim_{(x,mx) \to (0,0)} \frac{m^2x^3}{x^2(1 + m^4x^2)} </mrow>
+          <mrow> \amp= \lim_{(x,mx) \to (0,0)} \frac{m^2x}{1 + m^4x^2} </mrow>
+          <mrow> \amp= 0 </mrow>
+        </md>
+        Observe that the limit along all the linear paths is <m>0</m>. 
+        Does it mean the limit is <m>0</m>? 
+      </p>
+
+      <p>
+        Richard will throw in another path of approach for us to check. 
+        Does the limit along the path <m>x = y^2</m> also give us <m>0</m>? 
+      </p>
+
+      <p>
+        We can check quickly that the answer is no. 
+        Along the path <m>x = y^2</m>, we have
+        <md>
+          <mrow> \lim_{(x,y) \to (0,0)} \dfrac{xy^2}{x^2 + y^4} \amp= \lim_{(y^2,y) \to (0,0)} \dfrac{y^2 \cdot y^2}{(y^2)^2 + y^4} </mrow>
+          <mrow> \amp= \lim_{(y^2,y) \to (0,0)} \dfrac{y^4}{2y^4} </mrow>
+          <mrow> \amp= \lim_{(y^2,y) \to (0,0)} \dfrac{1}{2} </mrow>
+          <mrow> \amp= \dfrac{1}{2} </mrow>
+        </md>
+        Observe that the limit along the path <m>x = y^2</m> is <m>\dfrac{1}{2}</m>, which is different from the limit along the linear paths. 
+        Since we get different limit values along different paths of approach, the limit does not exist. 
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    Hmm... 
+    Then how do we know if a limit exists without graphing the function, since there are infinitely many paths of approach to check? 
+  </p>
+
+  <p>
+    One way to do so is to use some fancy calculus theorems to argue that there is only one possible limit value that the function can approach as we get closer to the point. 
+    One of such theorems is the Squeeze Theorem. 
+    In case you don't recall what the Squeeze Theorem is from MTH 251Z (or MTH 251), below is a quick refresher.
+  </p>
+
+  <theorem xml:id="thm-SqueezeTheorem">
+    <title>Squeeze Theorem</title>
+    <statement>
+      <p>
+        Assume that for <m>x \neq c</m> (in some open interval containing <m>c</m>),
+        <md>
+          l(x) \leq f(x) \leq u(x) \qquad \text{ and } \qquad \lim_{x\to c}l(x) = \lim_{x \to c} u(x) = L
+        </md>
+        Then <m>\ds \lim_{x\to c} f(x)</m> exists and <m>\ds \lim_{x\to c} f(x) = L</m>. 
+      </p>
+    </statement>
+  </theorem>
+  
+  <p>
+    A classic application of the Squeeze Theorem is to evaluate limits of functions involving some <alert>trigonometric functions</alert> like sine and cosine, since they are bounded between <m>-1</m> and <m>1</m>. 
+    So we can often convert the function to polar coordinates and try using the Squeeze Theorem to evaluate the limit. 
+  </p>
+
+  <example>
+    <p>
+      Evaluate the limit <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{x^2 - y^2}{\sqrt{x^2 + y^2}}</m>.
+    </p>
+
+    <hint>
+      <p>
+        Let's convert the function to polar coordinates. 
+        That is, we want the variables <m>r</m> and <m>\theta</m> instead of <m>x</m> and <m>y</m>. 
+      </p>
+
+      <p>
+        Then try using the Squeeze Theorem to evaluate the limit. 
+      </p>
+
+      <p>
+        P.S. If you forgot how to do so, find some clues in <xref ref="sec127-CylindricalSphericalCoordinates"/>. 
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        Recall that <m>x = r\cos(\theta)</m> and <m>y = r\sin(\theta)</m>. 
+        Then we obtain
+        <md>
+          <mrow> \dfrac{x^2 - y^2}{\sqrt{x^2 + y^2}} \amp= \dfrac{r^2\cos^2(\theta) - r^2\sin^2(\theta)}{\sqrt{r^2}} </mrow>
+          <mrow> \amp= r\lp \cos^2(\theta) - \sin^2(\theta) \rp </mrow>
+          <mrow> \amp= r\cos(2\theta) </mrow>
+        </md>
+      </p>
+
+      <p>
+        Clearly, if <m>(x,y) \to (0,0)</m>, then <m>r \to 0</m>. 
+        So the problem becomes
+        <md>
+          \lim_{(x,y) \to (0,0)} \dfrac{x^2 - y^2}{\sqrt{x^2 + y^2}} = \lim_{r \to 0} r\cos(2\theta)
+        </md>
+      </p>
+
+      <p>
+        Since <m>\cos(2\theta)</m> is bounded between <m>-1</m> and <m>1</m>, we have
+        <md>
+          -r \leq r\cos(2\theta) \leq r
+        </md>
+        As <m>r \to 0</m>, both bounds approach zero. By the Squeeze Theorem, we conclude that
+        <md>
+          \lim_{r \to 0} r\cos(2\theta) = 0
+        </md>
+        Therefore, 
+        <md>
+          \lim_{(x,y) \to (0,0)} \dfrac{x^2 - y^2}{\sqrt{x^2 + y^2}} = 0
+        </md>
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    Just a quick note that we don't have to convert the function to polar coordinates to use the Squeeze Theorem if you can find some nice bounds for the function in terms of <m>x</m> and <m>y</m>. 
+    This usually happens when the function involves some trigonometric functions like sine and cosine, or other functions that are bounded between two numbers. 
+  </p>
+
+  <example>
+    <p>
+      Evaluate the limit <m>\ds \lim_{(x,y) \to (0,0)} 3x^2 \sin\lp \dfrac{1}{x^2 + y^2} \rp</m>.
+    </p>
+
+    <hint>
+      <p>
+        You are more than welcome to try the direct substitution first, but you will get an indeterminate form... 
+        So inconclusive! 
+      </p>
+      
+      <p>
+        Alternatively, you can also try finding two paths of approach that give different limit values, good luck! 
+      </p>
+
+      <p>
+        As a third option, you can also try using the Squeeze Theorem since there is a very obvious sine function in the expression. 
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        Let's go with the third option and use the Squeeze Theorem because the sine function is bounded. 
+      </p>
+
+      <p>
+        Since <m>\sin\lp \dfrac{1}{x^2 + y^2} \rp</m> is bounded between <m>-1</m> and <m>1</m>, we have
+        <md>
+          -3x^2 \leq 3x^2 \sin\lp \dfrac{1}{x^2 + y^2} \rp \leq 3x^2
+        </md>
+        As <m>(x,y) \to (0,0)</m>, both bounds approach zero. 
+        By the Squeeze Theorem, we conclude that
+        <md>
+          \lim_{(x,y) \to (0,0)} 3x^2 \sin\lp \dfrac{1}{x^2 + y^2} \rp = 0
+        </md>
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    It takes practice and trial and error to find the right approach to evaluate a limit. 
+    If one approach doesn't work, try another approach! 
+  </p>
+
+  <worksheet xml:id="ws-sec142">
+    <title>Assigned Problems for Section 14.2</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="14.2.7">
+      <p>
+        Evaluate the following limit using continuity
+        <md>
+          \lim_{(x,y) \to (1,1)} \frac{e^{x^2} - e^{-y^2}}{x + y}
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="14.2.13">
+      <p>
+        Does <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{y^2}{x^2 + y^2}</m> exist? Explain. 
+      </p>
+    </exercise>
+
+    <exercise number="14.2.15">
+      <p>
+        Let <m>f(x,y) = \dfrac{x^3 + y^3}{xy^2}</m>. 
+        Set <m>y = mx</m> and show that the resulting limit depends on <m>m</m>, and therefore the limit <m>\ds \lim_{(x,y) \to (0,0)} f(x,y)</m> does not exist. 
+      </p>
+    </exercise>
+
+    <exercise number="14.2.21">
+      <p>
+        Evaluate the limit <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{xy}{3x^2 + 2y^2}</m> or show that it does not exist.
+      </p>
+    </exercise>
+
+    <exercise number="14.2.25">
+      <p>
+        Use the Squeeze Theorem to evaluate 
+        <md>
+          \lim_{(x,y) \to (4,0)} \lp x^2 - 16 \rp \cos\lp \frac{1}{(x - 4)^2 + y^2} \rp
+        </md>
+      </p>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          For the following exercises, evaluate the limit or determine that it does not exist.
+        </p>
+      </introduction>
+    
+      <exercise number="14.2.31">
+        <p>
+          <m>\ds \lim_{(x,y) \to (3,4)} \dfrac{1}{\sqrt{x^2 + y^2}}</m>
+        </p>
+      </exercise>
+
+      <exercise number="14.2.33">
+        <p>
+          <m>\ds \lim_{(x,y) \to (\pi,0)} \dfrac{\cos(x)}{\sin(y)}</m>
+        </p>
+      </exercise>
+
+      <exercise number="14.2.41">
+        <p>
+          <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{x^2 + y^2}{\sqrt{x^2 + y^2 + 1} - 1}</m>
+        </p>
+      </exercise>
+    </exercisegroup>
+  
+  </worksheet>
 
 </section>
