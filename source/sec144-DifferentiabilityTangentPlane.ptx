@@ -5,24 +5,521 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In single-variable calculus, we learned that if a function is differentiable at a point, its graph can be approximated by a tangent line near that point. 
+      This geometric property is known as <term>local linearity</term>. 
+      In this section, we extend this concept to functions of two variables. 
+      Instead of a tangent line, we will see that a differentiable function of two variables has a <term>tangent plane</term> that approximates the surface locally.
     </p>
 
     <objectives>
       <introduction>
         <p>
-          After this section, students will be able to:
+          After completing this section, students will be able to:
         </p>
       </introduction>
       <ul>
         <li>
           <p>
-            blahblahblah
+            determine the equation of the tangent plane to a surface <m>z = f(x,y)</m> at a specific point.
+          </p>
+        </li>
+        <li>
+          <p>
+            explain the geometric meaning of differentiability and local linearity for functions of two variables.
+          </p>
+        </li>
+        <li>
+          <p>
+            construct the linearization <m>L(x,y)</m> (or linear approximation) of a function and use it to estimate function values near a known point.
+          </p>
+        </li>
+        <li>
+          <p>
+            extend the methods of linearization and differentials to functions of three or more variables.
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <subsection xml:id="subsec-TangentPlane">
+    <title>Tangent Planes</title>
+    
+    <p>
+      Recall from the last section that the partial derivative tells us the slope of the tangent line at the point on the curve obtained by intersecting the surface with a plane parallel to the <m>xz</m>-plane or <m>yz</m>-plane. 
+      Then we can construct the tangent line for each curve. 
+    </p>
+
+    <p>
+      Yet, we need to take into consideration of both tangent lines since each one only gives us the rate of change with respect to one variable. 
+      If we combine both tangent lines, we can construct a plane, called the <term>plane determined by <m>f_x</m> and <m>f_y</m></term>. 
+    </p>
+
+    <figure>
+      <image source="sec144_TangentPlane_Diagram.png" width="90%"></image>
+      <caption>The Plane Determined by <m>f_x</m> and <m>f_y</m>. </caption>
+    </figure>
+
+    <p>
+      Observe that the plane determined by <m>f_x</m> and <m>f_y</m> may NOT be tangent to the surface at the point (see part C in the above diagram). 
+      Let's first assume that the plane determined by <m>f_x</m> and <m>f_y</m> is tangent to the surface at the point and see what equation we can get for the tangent plane. 
+      Then we will discuss the weird case where the plane determined by <m>f_x</m> and <m>f_y</m> is not tangent to the surface at the point using <em>differentiability</em>. 
+    </p>
+
+    <p>
+      Let's assume that the plane determined by <m>f_x\lp a,b \rp</m> and <m>f_y\lp a,b \rp</m> is tangent to the surface at the point <m>(a,b,f(a,b))</m>. 
+      Then we can determine two vectors <m>\v{v}</m> and <m>\v{w}</m> whose tails are at the point of intersection of the two tangent lines, <m>\v{v}</m> is parallel to the first tangent line with the slope of <m>f_x</m>, and <m>\v{w}</m> is parallel to the second tangent line with the slope of <m>f_y</m>. 
+      The figure below illustrates this idea. 
+    </p>
+
+    <figure>
+      <image source="sec144_Equation_TangentPlane_Diagram.png" width="60%"></image>
+      <caption>The Plane Determined by <m>f_x</m> and <m>f_y</m>. </caption>
+    </figure>
+
+    <p>
+      We actually know the components of the two vectors <m>\v{v}</m> and <m>\v{w}</m>. 
+      For the vector <m>\v{v}</m>, which is parallel to the first tangent line whose slope is <m>f_x</m>, there is no change in the <m>y</m>-component. 
+      Also, with every unit change in the <m>x</m>-component, the <m>z</m>-component changes by <m>f_x(a,b)</m>. 
+      That is, 
+      <md>
+        \v{v} = \la 1,0,f_x(a,b) \ra
+      </md>
+      A similar argument can be made for the components of the vector <m>\v{w}</m>, which is parallel to the second tangent line whose slope is <m>f_y</m>. 
+      We have
+      <md>
+        \v{w} = \la 0,1,f_y(a,b) \ra
+      </md>
+      The cross product of these two vectors will give us a normal vector to determine the equation of the plane. 
+      <md>
+        <mrow> \v{w} \times \v{v} \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 0 \amp 1 \amp f_y(a,b) \\ 1 \amp 0 \amp f_x(a,b) \end{vmatrix} </mrow>
+        <mrow> \amp= f_x(a,b) \v{i} + f_y(a,b) \v{j} - \v{k} </mrow>
+        <mrow> \amp= \la f_x(a,b), f_y(a,b), -1 \ra </mrow>
+      </md>
+      The point <m>P = \lp a,b,f(a,b) \rp</m> is on the plane. 
+      Hence, the tangent plane to the surface at the point <m>(a,b,f(a,b))</m> has the equation
+      <md>
+        f_x(a,b) (x - a) + f_y(a,b) (y - b) - 1 (z - f(a,b)) = 0
+      </md>
+      Let's make it into a fancy theorem! 
+    </p>
+
+    <theorem xml:id="thm-EquationTangentPlane">
+      <title>Equation of the Tangent Plane</title>
+      <statement>
+        <p>
+          If <m>f(x,y)</m> is locally linear at <m>(a,b)</m>, then its tangent plane is given by the equation
+          <md>
+            z = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b)
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <p>
+        Find the tangent plane to the elliptic paraboloid <m>z = 2x^2 + y^2</m> at the point <m>(1,1,3)</m>. 
+      </p>
+
+      <solution>
+        <p>
+          Let <m>f(x,y) = 2x^2 + y^2</m>. 
+          Then we have
+          <md>
+            <mrow> f_x(x,y) = 4x \qquad \amp \qquad f_y(x,y) = 2y </mrow>
+            <mrow> f(1,1) = 4 \qquad \amp \qquad f_y(1,1) = 2 </mrow>
+          </md>
+          Using the equation of the tangent plane, we have
+          <md>
+            z = 3 + 4(x - 1) + 2(y - 1) = 4x + 2y - 3
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Recall that we made the assumption that the plane determined by <m>f_x\lp a,b \rp</m> and <m>f_y\lp a,b \rp</m> is tangent to the surface at the point <m>(a,b,f(a,b))</m> to come up with the formula. 
+      Also, the theorem states that this formula is valid if <m>f</m> is <term>locally linear</term> at <m>(a,b)</m>. 
+      You may heard of this term in MTH 251Z (or MTH 251) before. 
+      This term basically describes what a <em>differentiable</em> function looks like graphically.  
+    </p>
+    
+  </subsection>
+
+<subsection xml:id="subsec-Differentiability_TwoVariableFunctions">
+    <title>Differentiability</title>
+    <p>
+      Recall back in MTH 251Z (or MTH 251) that a function of a single variable is <em>differentiable</em> at a point if the limit of the difference quotient exists at that point. 
+      This idea can also extend to functions of two variables. 
+      But we can only take the partial derivatives with respect to each variable for functions of two variables... 
+    </p>
+
+    <p>
+      Well the partial derivatives are the derivatives of the function with respect to each variable. 
+      For a function of two variables to be differentiable at a point, the function must be differentiable with respect to each variable at that point. 
+      That is, the partial derivatives must all exist at that point. 
+    </p>
+
+    <theorem xml:id="thm-ConfirmingDifferentiability">
+      <title>Confirming Differentiability</title>
+      <statement>
+        <p>
+          If <m>f_x(x,y)</m> and <m>f_y(x,y)</m> exist and are continuous on an open disk <m>D</m>, then <m>f(x,y)</m> is differentiable on <m>D</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <p>
+        Show that <m>f(x,y) = y^8 + 2x^6 + 2xy</m> is differentiable on its domain <m>\R^2</m>. 
+      </p>
+
+      <hint>
+        <p>
+          Based on the above theorem, the function is differentiable at a point if the partial derivatives exist and are continuous at that point. 
+          Can we check off these two conditions for this function? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          Let's start by finding the partial derivatives of <m>f(x,y)</m>. 
+          Let <m>(x,y)\in \R^2</m>. 
+          Then we have
+          <md>
+            <mrow>f_x(x,y) \amp= \frac{\partial}{\partial x} \lp y^8 + 2x^6 + 2xy \rp = 12x^5 + 2y</mrow>
+            <mrow>f_y(x,y) \amp= \frac{\partial}{\partial y} \lp y^8 + 2x^6 + 2xy \rp = 8y^7 + 2x</mrow>
+          </md>
+        </p>
+
+        <p>
+          Observe that both <m>f_x(x,y)</m> and <m>f_y(x,y)</m> are polynomials, and therefore continuous on <m>\R^2</m>. 
+          Hence, <m>f</m> is differentiable on <m>\R^2</m>. 
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Geometrically speaking, a function is <em>differentiable</em> at a point if it is <term>locally linear</term> at that point. 
+      This term actually comes from the fact that if a single-variable function is differentiable at a point, then the graph of the function looks like a line near that point. 
+      The diagram below is taken from MTH 251Z (or MTH 251) notes to illustrate this idea. 
+    </p>
+
+    <figure>
+      <image source="sec144_LocallyLinear_TangentLine_Diagram.png" width="80%"></image>
+      <caption>Local Linearity: The graph looks more and more like the tangent line as we zoom in on a point. </caption>
+    </figure>
+
+    <p>
+      Imagine we extend this idea to functions of two variables. 
+      If a function of two variables is differentiable at a point (aka locally linear at the point graphically), then the surface should look more and more like the tangent plane as we zoom in on a point. 
+      The diagram below illustrates this idea. 
+    </p>
+
+    <figure>
+      <image source="sec144_LocallyLinear_TangentPlane_Diagram.png" width="80%"></image>
+      <caption>Local Linearity: The graph looks more and more like the tangent plane as we zoom in on a point. </caption>
+    </figure>
+
+    <p>
+      If a function is differentiable at a point, then we can <em>estimate</em> the function value at a point <em>near</em> the point using the tangent plane. 
+      This is called the <term>linear approximation</term> of the function at the point.
+    </p>
+      
+  </subsection>
+
+  <subsection xml:id="subsec-Linearization_FunctionTwoVariables">
+    <title>Linearization</title>
+    
+    <p>
+      Let's first revisit the idea of linearization in MTH 251Z (or MTH 251) for functions of a single variable. 
+      If a function is differentiable, then the graph of the function looks like a line near the point. 
+      Hence, we can use the tangent line to estimate the function value at a point near the point. 
+      The diagram below illustrates this idea. 
+    </p>
+
+    <figure>
+      <image source="sec144_Linearization_TangentLine_Diagram.png" width="60%"></image>
+    </figure>
+
+    <p>
+      Observe that <m>dy</m>, the change of the <m>y</m> value of the tangent line, is really close to <m>\Delta y</m>, the change of the <m>y</m> value of the function, if <m>\Delta x</m> is small. 
+      Then we can approximate the <m>y</m> value of the function at a point near the point using the <m>y</m> value of the tangent line at that point. 
+      Since they are not necessarily equal, we use another symbol <m>L(x)</m> to denote the estimated <m>y</m> values to distinguish it from the actual <m>y</m> values of the function. 
+      Then we ontain the following formula
+      <md>
+        <mrow>f(x) \amp\approx L(x) = f(a) + f'(a)(x - a) </mrow>
+      </md>
+      where the <m>L(x)</m> is called the <term>linearization centered at <m>x = a</m></term>. 
+    </p>
+
+    <p>
+      Now we extend this idea to functions of two variables. 
+      Let's say <m>z = f(x,y)</m> is differentiable at <m>(a,b)</m>. 
+      Then we can construct a tangent plane at the point <m>(a,b,f(a,b))</m>. 
+      It is a lot easier to find the <m>z</m> value of a point on the tangent plane than to find the <m>z</m> value of a point on the surface. 
+      If the point is close to <m>(a,b,f(a,b))</m>, then the <m>z</m> value of the tangent plane at that point should be close to the <m>z</m> value of the surface at that point. 
+      The diagram below illustrates this idea. 
+    </p>
+
+    <figure>
+      <image source="sec144_Linearization_TangentPlane_Diagram.png" width="60%"></image>
+    </figure>
+
+    <p>
+      If we call the estimated <m>z</m> value using the tangent plane <m>L(x,y)</m>, then we have the following formula for the linearization of a function of two variables at a point. 
+      <md>
+        <mrow>z = f(x,y) \approx L(x,y) \amp= f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b) </mrow>
+      </md>
+      Let's make it into a fancy theorem! 
+    </p>
+
+    <theorem xml:id="thm-Linearilization_TwoVariableFunction">
+      <title>Differentials and Linear Approximation</title>
+      <statement>
+        <p>
+          Assume that <m>z = f(x,y)</m> is differentiable at <m>(a,b)</m>, and let <m>dx = \Delta x</m> and <m>dy = \Delta y</m>. 
+          Then the <term>differential</term> <m>dz</m> is defined by
+          <md>
+            dz = f_x(x,y)dx + f_y(x,y)dy
+          </md>
+        </p>
+
+        <p>
+          With <m>\Delta z</m> representing the actual change in <m>z = f(x,y)</m>, it follows that <m>\Delta z \approx dz</m>, and we obtain the following linear approximation formula using differentials: 
+          <md>
+            \Delta z \approx dz = f_x(a,b)dx + f_y(a,b)dy
+          </md>
+        </p>
+
+        <p>
+          Alternatively, we can express the linear approximation formula using linearization, as follows:
+          <md>
+            f(x,y) \approx L(x,y) = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b)
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <p>
+        Let <m>f(x,y) = \dfrac{x^2}{y^2 + 1}</m>. 
+        Use the linear approximation at an appropriate point <m>(a,b)</m> to estimate the value of <m>f(4.01, 0.98)</m>. 
+      </p>
+
+      <hint>
+        <p>
+          For the linear approximation to be accurate and easy to work with, the point <m>(a,b)</m> must (1) be close to the point <m>(4.01, 0.98)</m> and (2) make the calculations of <m>f(a,b)</m>, <m>f_x(a,b)</m>, and <m>f_y(a,b)</m> easy. 
+          Usually, decimals are not easy to work with, so what is a good choice for <m>(a,b)</m>, where <m>a</m> and <m>b</m> are close to <m>4.01</m> and <m>0.98</m>, respectively, and they are integers? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We use the linear approximation at the point <m>(a,b) = (4,1)</m>, which is the closest point with integer coordinates. 
+          That is, 
+          <md>
+            <mrow> f(x,y) \approx L(x,y) \amp= f(4,1) + f_x(4,1) dx + f_y(4,1) dy </mrow>
+          </md>
+          where <m>(x,y)</m> is a point near <m>(4,1)</m>, and <m>dx</m> and <m>dy</m> are the changes in the <m>x</m> and <m>y</m> values from <m>(4,1)</m>, respectively. 
+        </p>
+
+        <p>
+          We need to find the values of <m>f(4,1)</m>, <m>f_x(4,1)</m>, and <m>f_y(4,1)</m>. 
+          <md>
+            <mrow> f(x,y) = \frac{x^2}{y^2 + 1} \qquad \amp \qquad f(4,1) = 8 </mrow>
+            <mrow> f_x(x,y) = \frac{2x}{y^2 + 1} \qquad \amp \qquad f_x(4,1) = 4 </mrow>
+            <mrow> f_y(x,y) = -\frac{2x^2 y}{(y^2 + 1)^2} \qquad \amp \qquad f_y(4,1) = -8 </mrow>
+          </md>
+          Also, observe that <m>dx = 0.01</m> and <m>dy = -0.02</m>. 
+          Substituting these values into the linear approximation formula, we have
+          <md>
+            <mrow> f(4.01, 0.98) \approx L(4.01, 0.98) \amp= 8 + 4(0.01) - 8(-0.02) = 8.2 </mrow>
+          </md>
+        </p>
+
+        <p>
+          To give us an idea of how good our estimate is, the actual value of <m>f(4.01, 0.98)</m> is 
+          <md>
+            f(4.01, 0.98) = \frac{4.01^2}{0.98^2 + 1} = 8.202
+          </md>
+          The percentage error of our estimate is
+          <md>
+            \frac{|8.202 - 8.2|}{8.202} \times 100\% \approx 0.24\%
+          </md>
+          This is a pretty good estimate!
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Other than using the formula to find the linearization of a known formula, we can also use the formula to find the linearization of an expression in general (ish). 
+      It turns out that the idea of linear approximation (and linearization) can extend to any dimension. 
+      But this can be tricky since we basically need to find a function that models the expression... 
+    </p>
+
+    <example>
+      <p>
+        Estimate the value of <m>\dfrac{8.01}{\sqrt{(1.99)(2.01)}}</m> using linear approximation. 
+      </p>
+
+      <hint>
+        <p>
+          In order to use the linear approximation formula, we need a function first. 
+          The expression can be modeled using the function
+          <md>
+            f(x,y,z) = \frac{x}{\sqrt{yz}}
+          </md>
+          at the point <m>(8,2,2)</m>. 
+        </p>
+
+        <p>
+          We can extend the idea of linear approximation in <m>\R^3</m> to <m>\R^4</m> by adding one more component to take the change in the third component into consideration. 
+          As you can imagine, the formula can be asjusted as follows: 
+          <md>
+            f(x,y,z) \approx L(x,y,z) = f(a,b,c) + f_x(a,b,c) dx + f_y(a,b,c) dy + f_z(a,b,c) dz
+          </md>
+          where <m>(x,y,z)</m> is a point near <m>(a,b,c) = (8,2,2)</m>, and <m>dx</m>, <m>dy</m>, and <m>dz</m> are the changes in the <m>x</m>, <m>y</m>, and <m>z</m> values from <m>(8,2,2)</m>, respectively. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          We use the linear approximation of the function <m>f(x,y,z) = \dfrac{x}{\sqrt{yz}}</m> at the point <m>(a,b,c) = (8,2,2)</m>, which is
+          <md>
+            f(x,y,z) \approx L(x,y,z) = f(a,b,c) + f_x(a,b,c) dx + f_y(a,b,c) dy + f_z(a,b,c) dz
+          </md>
+        </p>
+
+        <p>
+          We need to find the values of <m>f(8,2,2)</m>, <m>f_x(8,2,2)</m>, <m>f_y(8,2,2)</m>, and <m>f_z(8,2,2)</m>. 
+          <md>
+            <mrow> f(x,y,z) = \frac{x}{\sqrt{yz}} \qquad \amp \qquad f(8,2,2) = 4 </mrow>
+            <mrow> f_x(x,y,z) = \frac{1}{\sqrt{yz}} \qquad \amp \qquad f_x(8,2,2) = \frac{1}{2} </mrow>
+            <mrow> f_y(x,y,z) = - \frac{1}{2}xy^{-\frac{3}{2}}z^{-\frac{1}{2}} \qquad \amp \qquad f_y(8,2,2) = -1 </mrow>
+            <mrow> f_z(x,y,z) = -\frac{1}{2}xy^{-\frac{1}{2}}z^{-\frac{3}{2}} \qquad \amp \qquad f_z(8,2,2) = -1 </mrow>
+          </md>
+          Also, observe that <m>dx = 0.01</m>, <m>dy = -0.01</m>, and <m>dz = 0.01</m>. 
+          Substituting these values into the linear approximation formula, we have
+          <md>
+            <mrow> f(8.01, 1.99, 2.01) amp\approx L(8.01, 1.99, 2.01) </mrow>
+            <mrow> \amp= 4 + \frac{1}{2}(0.01) - 1\cdot (-0.01) - 1 \cdot 0.01 </mrow>
+            <mrow> \amp= 4.005 </mrow>
+          </md>
+        </p>
+
+        <p>
+          Using a calculator, the actual value of <m>f(8.01, 1.99, 2.01)</m> is <m>4.00505</m>. 
+          The percentage error of our estimate is
+          <md>
+            \frac{|4.00505 - 4.005|}{4.00505} \times 100\% \approx 0.00125\%
+          </md>
+           This is a super good estimate!
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <worksheet xml:id="ws-sec144">
+    <title>Assigned Problems for Section 14.4</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="14.4.7">
+      <p>
+        Find an equation of the tangent plane to <m>F(r,s) = r^2 s^{-\frac{1}{2}} + s^{-3}</m> at the point <m>(2,1)</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="14.4.11">
+      <p>
+        Find the points on the graph of <m>z = 3x^2 - 4y^2</m> at which the vector <m>\v{n} = \la 3,2,2 \ra</m> is normal to the tangent plane. 
+      </p>
+    </exercise>
+
+    <exercise number="14.4.13">
+      <p>
+        Find the points on the graph of <m>f(x,y) = 3x^2 - xy - y^2</m> at which the tangent plane is horizontal. 
+      </p>
+    </exercise>
+
+    <exercise number="14.4.15">
+      <p>
+        Find the linearization <m>L(x,y)</m> of <m>f(x,y) = x^2y^3</m> at <m>(a,b) = (1,2)</m>. 
+        Use it to estimate <m>f(2.01, 1.02)</m> and <m>f(1.97, 1.01)</m>, and compare with values obtained using a calculator. 
+      </p>
+    </exercise>
+
+    <exercise number="14.4.17">
+      <p>
+        Let <m>f(x,y) = x^3 y^{-4}</m>. 
+        Use the formula for linear approximation using differentials to estimate the change
+        <md>
+          \Delta f = f(2.03, 0.9) - f(2,1)
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="14.4.23">
+      <p>
+        Estimate <m>f(2.1, 3.8)</m> assuming that <m>f(2,4) = 5</m>, <m>f_x(2,4) = 0.3</m>, and <m>f_y(2,4) = -0.2</m>.
+      </p>
+    </exercise>
+
+    <exercise number="14.4.29">
+      <p>
+        Use the Linear Approximation to estimate the value of <m>\sqrt{(1.9)(2.02)(4.05)}</m>. 
+        Compare with the value given by a calculator. 
+      </p>
+    </exercise>
+
+    <exercise number="14.4.31">
+      <p>
+        Suppose that the plane tangent to <m>z = f(x,y)</m> at <m>(-2,3,4)</m> has equation <m>4x + 2y + z = 2</m>. 
+        Estimate <m>f(-2.1, 3.1)</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="14.4.37">
+      <p>
+        A cylinder of radius <m>r</m> and height <m>h</m> has volume <m>V(r,h) = \pi r^2 h</m>.
+        <ol marker="(a)">
+          <li>
+            <p>
+              Use the Linear Approximation to show that
+              <md>
+                \frac{\Delta V}{V} \approx \frac{2\Delta r}{r} + \frac{\Delta h}{h}
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              Estimate the percentage increase in <m>V</m> if <m>r</m> and <m>h</m> are each increased by 2%. 
+            </p>
+          </li>
+          <li>
+            <p>
+              The volume of a certain cylinder <m>V</m> is determined by measuring <m>r</m> and <m>h</m>. 
+              Which will lead to a greater error in <m>V</m>: a 1% error in <m>r</m> or a 1% error in <m>h</m>?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+  </worksheet>
 
 </section>

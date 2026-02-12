@@ -7,9 +7,9 @@
   <xi:include href="sec141-FunctionsTwoVariables.ptx" />
   <xi:include href="sec142-LimitsContinuity.ptx" />
   <xi:include href="sec143-PartialDerivatives.ptx" />
+  <xi:include href="sec144-DifferentiabilityTangentPlane.ptx" />
 
 <!--
-  <xi:include href="sec144-DifferentiabilityTangentPlane.ptx" />
   <xi:include href="sec145-GradientDirectionalDerivatives.ptx" />
   <xi:include href="sec146-ChainRule.ptx" />
   <xi:include href="sec147-Optimization.ptx" />
