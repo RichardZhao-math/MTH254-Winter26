@@ -4519,6 +4519,276 @@ var ptx_lunr_docs = [
   "body": " The Laplace operator  is defined by A function satisfying the Laplace equation is called harmonic .  Show that the following functions are harmonic.                        "
 },
 {
+  "id": "sec144-DifferentiabilityTangentPlane",
+  "level": "1",
+  "url": "sec144-DifferentiabilityTangentPlane.html",
+  "type": "Section",
+  "number": "14.4",
+  "title": "Differentiability, Tangent Planes, and Linear Approximation",
+  "body": " Differentiability, Tangent Planes, and Linear Approximation   In single-variable calculus, we learned that if a function is differentiable at a point, its graph can be approximated by a tangent line near that point. This geometric property is known as local linearity . In this section, we extend this concept to functions of two variables. Instead of a tangent line, we will see that a differentiable function of two variables has a tangent plane that approximates the surface locally.    After completing this section, students will be able to:     determine the equation of the tangent plane to a surface at a specific point.    explain the geometric meaning of differentiability and local linearity for functions of two variables.    construct the linearization (or linear approximation) of a function and use it to estimate function values near a known point.    extend the methods of linearization and differentials to functions of three or more variables.       Tangent Planes  Recall from the last section that the partial derivative tells us the slope of the tangent line at the point on the curve obtained by intersecting the surface with a plane parallel to the -plane or -plane. Then we can construct the tangent line for each curve.  Yet, we need to take into consideration of both tangent lines since each one only gives us the rate of change with respect to one variable. If we combine both tangent lines, we can construct a plane, called the plane determined by and .    The Plane Determined by and .   Observe that the plane determined by and may NOT be tangent to the surface at the point (see part C in the above diagram). Let's first assume that the plane determined by and is tangent to the surface at the point and see what equation we can get for the tangent plane. Then we will discuss the weird case where the plane determined by and is not tangent to the surface at the point using differentiability .  Let's assume that the plane determined by and is tangent to the surface at the point . Then we can determine two vectors and whose tails are at the point of intersection of the two tangent lines, is parallel to the first tangent line with the slope of , and is parallel to the second tangent line with the slope of . The figure below illustrates this idea.    The Plane Determined by and .   We actually know the components of the two vectors and . For the vector , which is parallel to the first tangent line whose slope is , there is no change in the -component. Also, with every unit change in the -component, the -component changes by . That is, A similar argument can be made for the components of the vector , which is parallel to the second tangent line whose slope is . We have The cross product of these two vectors will give us a normal vector to determine the equation of the plane. The point is on the plane. Hence, the tangent plane to the surface at the point has the equation Let's make it into a fancy theorem!   Equation of the Tangent Plane   If is locally linear at , then its tangent plane is given by the equation      Find the tangent plane to the elliptic paraboloid at the point .   Let . Then we have Using the equation of the tangent plane, we have     Recall that we made the assumption that the plane determined by and is tangent to the surface at the point to come up with the formula. Also, the theorem states that this formula is valid if is locally linear at . You may heard of this term in MTH 251Z (or MTH 251) before. This term basically describes what a differentiable function looks like graphically.    Differentiability  Recall back in MTH 251Z (or MTH 251) that a function of a single variable is differentiable at a point if the limit of the difference quotient exists at that point. This idea can also extend to functions of two variables. But we can only take the partial derivatives with respect to each variable for functions of two variables...  Well the partial derivatives are the derivatives of the function with respect to each variable. For a function of two variables to be differentiable at a point, the function must be differentiable with respect to each variable at that point. That is, the partial derivatives must all exist at that point.   Confirming Differentiability   If and exist and are continuous on an open disk , then is differentiable on .     Show that is differentiable on its domain .   Based on the above theorem, the function is differentiable at a point if the partial derivatives exist and are continuous at that point. Can we check off these two conditions for this function?    Let's start by finding the partial derivatives of . Let . Then we have   Observe that both and are polynomials, and therefore continuous on . Hence, is differentiable on .    Geometrically speaking, a function is differentiable at a point if it is locally linear at that point. This term actually comes from the fact that if a single-variable function is differentiable at a point, then the graph of the function looks like a line near that point. The diagram below is taken from MTH 251Z (or MTH 251) notes to illustrate this idea.    Local Linearity: The graph looks more and more like the tangent line as we zoom in on a point.   Imagine we extend this idea to functions of two variables. If a function of two variables is differentiable at a point (aka locally linear at the point graphically), then the surface should look more and more like the tangent plane as we zoom in on a point. The diagram below illustrates this idea.    Local Linearity: The graph looks more and more like the tangent plane as we zoom in on a point.   If a function is differentiable at a point, then we can estimate the function value at a point near the point using the tangent plane. This is called the linear approximation of the function at the point.    Linearization  Let's first revisit the idea of linearization in MTH 251Z (or MTH 251) for functions of a single variable. If a function is differentiable, then the graph of the function looks like a line near the point. Hence, we can use the tangent line to estimate the function value at a point near the point. The diagram below illustrates this idea.     Observe that , the change of the value of the tangent line, is really close to , the change of the value of the function, if is small. Then we can approximate the value of the function at a point near the point using the value of the tangent line at that point. Since they are not necessarily equal, we use another symbol to denote the estimated values to distinguish it from the actual values of the function. Then we ontain the following formula where the is called the linearization centered at .  Now we extend this idea to functions of two variables. Let's say is differentiable at . Then we can construct a tangent plane at the point . It is a lot easier to find the value of a point on the tangent plane than to find the value of a point on the surface. If the point is close to , then the value of the tangent plane at that point should be close to the value of the surface at that point. The diagram below illustrates this idea.     If we call the estimated value using the tangent plane , then we have the following formula for the linearization of a function of two variables at a point. Let's make it into a fancy theorem!   Differentials and Linear Approximation   Assume that is differentiable at , and let and . Then the differential  is defined by   With representing the actual change in , it follows that , and we obtain the following linear approximation formula using differentials:   Alternatively, we can express the linear approximation formula using linearization, as follows:      Let . Use the linear approximation at an appropriate point to estimate the value of .   For the linear approximation to be accurate and easy to work with, the point must (1) be close to the point and (2) make the calculations of , , and easy. Usually, decimals are not easy to work with, so what is a good choice for , where and are close to and , respectively, and they are integers?    We use the linear approximation at the point , which is the closest point with integer coordinates. That is, where is a point near , and and are the changes in the and values from , respectively.  We need to find the values of , , and . Also, observe that and . Substituting these values into the linear approximation formula, we have   To give us an idea of how good our estimate is, the actual value of is The percentage error of our estimate is This is a pretty good estimate!    Other than using the formula to find the linearization of a known formula, we can also use the formula to find the linearization of an expression in general (ish). It turns out that the idea of linear approximation (and linearization) can extend to any dimension. But this can be tricky since we basically need to find a function that models the expression...   Estimate the value of using linear approximation.   In order to use the linear approximation formula, we need a function first. The expression can be modeled using the function at the point .  We can extend the idea of linear approximation in to by adding one more component to take the change in the third component into consideration. As you can imagine, the formula can be asjusted as follows: where is a point near , and , , and are the changes in the , , and values from , respectively.    We use the linear approximation of the function at the point , which is   We need to find the values of , , , and . Also, observe that , , and . Substituting these values into the linear approximation formula, we have   Using a calculator, the actual value of is . The percentage error of our estimate is This is a super good estimate!      Assigned Problems for Section 14.4   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Find an equation of the tangent plane to at the point .    Find the points on the graph of at which the vector is normal to the tangent plane.    Find the points on the graph of at which the tangent plane is horizontal.    Find the linearization of at . Use it to estimate and , and compare with values obtained using a calculator.    Let . Use the formula for linear approximation using differentials to estimate the change     Estimate assuming that , , and .    Use the Linear Approximation to estimate the value of . Compare with the value given by a calculator.    Suppose that the plane tangent to at has equation . Estimate .    A cylinder of radius and height has volume .   Use the Linear Approximation to show that     Estimate the percentage increase in if and are each increased by 2%.    The volume of a certain cylinder is determined by measuring and . Which will lead to a greater error in : a 1% error in or a 1% error in ?       "
+},
+{
+  "id": "sec144-DifferentiabilityTangentPlane-2-1",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#sec144-DifferentiabilityTangentPlane-2-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "local linearity tangent plane "
+},
+{
+  "id": "sec144-DifferentiabilityTangentPlane-2-2",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#sec144-DifferentiabilityTangentPlane-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After completing this section, students will be able to:     determine the equation of the tangent plane to a surface at a specific point.    explain the geometric meaning of differentiability and local linearity for functions of two variables.    construct the linearization (or linear approximation) of a function and use it to estimate function values near a known point.    extend the methods of linearization and differentials to functions of three or more variables.    "
+},
+{
+  "id": "subsec-TangentPlane-3",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-TangentPlane-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "plane determined by and "
+},
+{
+  "id": "subsec-TangentPlane-4",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-TangentPlane-4",
+  "type": "Figure",
+  "number": "14.4.1",
+  "title": "",
+  "body": "  The Plane Determined by and .  "
+},
+{
+  "id": "subsec-TangentPlane-7",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-TangentPlane-7",
+  "type": "Figure",
+  "number": "14.4.2",
+  "title": "",
+  "body": "  The Plane Determined by and .  "
+},
+{
+  "id": "thm-EquationTangentPlane",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#thm-EquationTangentPlane",
+  "type": "Theorem",
+  "number": "14.4.3",
+  "title": "Equation of the Tangent Plane.",
+  "body": " Equation of the Tangent Plane   If is locally linear at , then its tangent plane is given by the equation    "
+},
+{
+  "id": "subsec-TangentPlane-10",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-TangentPlane-10",
+  "type": "Example",
+  "number": "14.4.4",
+  "title": "",
+  "body": " Find the tangent plane to the elliptic paraboloid at the point .   Let . Then we have Using the equation of the tangent plane, we have    "
+},
+{
+  "id": "subsec-TangentPlane-11",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-TangentPlane-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "locally linear "
+},
+{
+  "id": "thm-ConfirmingDifferentiability",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#thm-ConfirmingDifferentiability",
+  "type": "Theorem",
+  "number": "14.4.5",
+  "title": "Confirming Differentiability.",
+  "body": " Confirming Differentiability   If and exist and are continuous on an open disk , then is differentiable on .   "
+},
+{
+  "id": "subsec-Differentiability_TwoVariableFunctions-5",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-Differentiability_TwoVariableFunctions-5",
+  "type": "Example",
+  "number": "14.4.6",
+  "title": "",
+  "body": " Show that is differentiable on its domain .   Based on the above theorem, the function is differentiable at a point if the partial derivatives exist and are continuous at that point. Can we check off these two conditions for this function?    Let's start by finding the partial derivatives of . Let . Then we have   Observe that both and are polynomials, and therefore continuous on . Hence, is differentiable on .   "
+},
+{
+  "id": "subsec-Differentiability_TwoVariableFunctions-6",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-Differentiability_TwoVariableFunctions-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "locally linear "
+},
+{
+  "id": "subsec-Differentiability_TwoVariableFunctions-7",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-Differentiability_TwoVariableFunctions-7",
+  "type": "Figure",
+  "number": "14.4.7",
+  "title": "",
+  "body": "  Local Linearity: The graph looks more and more like the tangent line as we zoom in on a point.  "
+},
+{
+  "id": "subsec-Differentiability_TwoVariableFunctions-9",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-Differentiability_TwoVariableFunctions-9",
+  "type": "Figure",
+  "number": "14.4.8",
+  "title": "",
+  "body": "  Local Linearity: The graph looks more and more like the tangent plane as we zoom in on a point.  "
+},
+{
+  "id": "subsec-Differentiability_TwoVariableFunctions-10",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-Differentiability_TwoVariableFunctions-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "linear approximation "
+},
+{
+  "id": "subsec-Linearization_FunctionTwoVariables-3",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-Linearization_FunctionTwoVariables-3",
+  "type": "Figure",
+  "number": "14.4.9",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "subsec-Linearization_FunctionTwoVariables-4",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-Linearization_FunctionTwoVariables-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "linearization centered at "
+},
+{
+  "id": "subsec-Linearization_FunctionTwoVariables-6",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-Linearization_FunctionTwoVariables-6",
+  "type": "Figure",
+  "number": "14.4.10",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "thm-Linearilization_TwoVariableFunction",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#thm-Linearilization_TwoVariableFunction",
+  "type": "Theorem",
+  "number": "14.4.11",
+  "title": "Differentials and Linear Approximation.",
+  "body": " Differentials and Linear Approximation   Assume that is differentiable at , and let and . Then the differential  is defined by   With representing the actual change in , it follows that , and we obtain the following linear approximation formula using differentials:   Alternatively, we can express the linear approximation formula using linearization, as follows:    "
+},
+{
+  "id": "subsec-Linearization_FunctionTwoVariables-9",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-Linearization_FunctionTwoVariables-9",
+  "type": "Example",
+  "number": "14.4.12",
+  "title": "",
+  "body": " Let . Use the linear approximation at an appropriate point to estimate the value of .   For the linear approximation to be accurate and easy to work with, the point must (1) be close to the point and (2) make the calculations of , , and easy. Usually, decimals are not easy to work with, so what is a good choice for , where and are close to and , respectively, and they are integers?    We use the linear approximation at the point , which is the closest point with integer coordinates. That is, where is a point near , and and are the changes in the and values from , respectively.  We need to find the values of , , and . Also, observe that and . Substituting these values into the linear approximation formula, we have   To give us an idea of how good our estimate is, the actual value of is The percentage error of our estimate is This is a pretty good estimate!   "
+},
+{
+  "id": "subsec-Linearization_FunctionTwoVariables-11",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#subsec-Linearization_FunctionTwoVariables-11",
+  "type": "Example",
+  "number": "14.4.13",
+  "title": "",
+  "body": " Estimate the value of using linear approximation.   In order to use the linear approximation formula, we need a function first. The expression can be modeled using the function at the point .  We can extend the idea of linear approximation in to by adding one more component to take the change in the third component into consideration. As you can imagine, the formula can be asjusted as follows: where is a point near , and , , and are the changes in the , , and values from , respectively.    We use the linear approximation of the function at the point , which is   We need to find the values of , , , and . Also, observe that , , and . Substituting these values into the linear approximation formula, we have   Using a calculator, the actual value of is . The percentage error of our estimate is This is a super good estimate!   "
+},
+{
+  "id": "ws-sec144-3",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#ws-sec144-3",
+  "type": "Worksheet Exercise",
+  "number": "14.4.7",
+  "title": "",
+  "body": " Find an equation of the tangent plane to at the point .  "
+},
+{
+  "id": "ws-sec144-4",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#ws-sec144-4",
+  "type": "Worksheet Exercise",
+  "number": "14.4.11",
+  "title": "",
+  "body": " Find the points on the graph of at which the vector is normal to the tangent plane.  "
+},
+{
+  "id": "ws-sec144-5",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#ws-sec144-5",
+  "type": "Worksheet Exercise",
+  "number": "14.4.13",
+  "title": "",
+  "body": " Find the points on the graph of at which the tangent plane is horizontal.  "
+},
+{
+  "id": "ws-sec144-6",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#ws-sec144-6",
+  "type": "Worksheet Exercise",
+  "number": "14.4.15",
+  "title": "",
+  "body": " Find the linearization of at . Use it to estimate and , and compare with values obtained using a calculator.  "
+},
+{
+  "id": "ws-sec144-7",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#ws-sec144-7",
+  "type": "Worksheet Exercise",
+  "number": "14.4.17",
+  "title": "",
+  "body": " Let . Use the formula for linear approximation using differentials to estimate the change   "
+},
+{
+  "id": "ws-sec144-8",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#ws-sec144-8",
+  "type": "Worksheet Exercise",
+  "number": "14.4.23",
+  "title": "",
+  "body": " Estimate assuming that , , and .  "
+},
+{
+  "id": "ws-sec144-9",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#ws-sec144-9",
+  "type": "Worksheet Exercise",
+  "number": "14.4.29",
+  "title": "",
+  "body": " Use the Linear Approximation to estimate the value of . Compare with the value given by a calculator.  "
+},
+{
+  "id": "ws-sec144-10",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#ws-sec144-10",
+  "type": "Worksheet Exercise",
+  "number": "14.4.31",
+  "title": "",
+  "body": " Suppose that the plane tangent to at has equation . Estimate .  "
+},
+{
+  "id": "ws-sec144-11",
+  "level": "2",
+  "url": "sec144-DifferentiabilityTangentPlane.html#ws-sec144-11",
+  "type": "Worksheet Exercise",
+  "number": "14.4.37",
+  "title": "",
+  "body": " A cylinder of radius and height has volume .   Use the Linear Approximation to show that     Estimate the percentage increase in if and are each increased by 2%.    The volume of a certain cylinder is determined by measuring and . Which will lead to a greater error in : a 1% error in or a 1% error in ?     "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
