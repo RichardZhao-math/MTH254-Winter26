@@ -5,7 +5,9 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In the previous section, we learned how to calculate partial derivatives, which represent the rate of change of a function as we move strictly parallel to the <m>x</m>-axis or the <m>y</m>-axis. 
+      However, there are infinitely many other directions we can move on the surface. 
+      In this section, we will discuss how to take the derivative of a function in an arbitrary direction. 
     </p>
 
     <objectives>
@@ -17,12 +19,853 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            calculate the directional derivative of a function in a given direction.
+          </p>
+        </li>
+        <li>
+          <p>
+            define and compute the gradient vector of a function of two or three variables.
+          </p>
+        </li>
+        <li>
+          <p>
+            interpret the gradient vector.
+          </p>
+        </li>
+        <li>
+          <p>
+            use the gradient to find the equation of a tangent plane to a level surface.
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+  
+  <p>
+    Partial derivatives tell us about the rate of change of a function at a point in the direction parallel to the <m>x</m>-axis and the <m>y</m>-axis. 
+    But there are a lot more directions we can move on the surface. 
+    How do we measure the rate of change of a function at a point in an arbitrary direction?
+    <term>Directional Derivative</term> will tell us about it! 
+  </p>
+
+  <subsection xml:id="subsec-DirectionalDerivatives">
+    <title>Directional Derivatives</title>
+
+    <p>
+      Directional derivatives, as the name suggests, measure the rate of change of a function at a point in a specified direction. 
+      Let's come up with the definition of directional derivatives! 
+    </p>
+
+    <p>
+      Let <m>z = f(x,y)</m> and <m>P = (a,b,f(a,b))</m> be a point on the surface. 
+      Let's say we want to find the directional derivative of <m>f</m> at <m>P</m> in the direction of the unit vector <m>\v{u} = \la h,k \ra</m>. 
+      The diagram below shows this situation. 
+    </p>
+
+    <figure>
+      <image source="sec145_DirectionalDerivative_Diagram.png" width="70%"></image>
+    </figure>
+
+    <p>
+      The vector <m>\v{u}</m> and the point <m>P</m> can determine a <em>vertical</em> plane shown in the figure. 
+      This plane intersects the surface in a curve <m>\c{C}</m>. 
+      Then we can for sure construct a tangent line <m>T</m> to the curve <m>\c{C}</m> at the point <m>P</m>. 
+      Our job here is to find the slope of this tangent line. 
+    </p>
+
+    <p>
+      Let's pick another point <m>Q(x,y,f(x,y))</m> on the curve <m>\c{C}</m>. 
+      But can we express <m>x</m> and <m>y</m> in terms of a single parameter? 
+    </p>
+
+    <p>
+      Yes we can! 
+      The easiest way to do so is to project <m>P</m> and <m>Q</m> onto the <m>xy</m>-plane, resulting in <m>P' = (a,b,0)</m> and <m>Q' = (x,y,0)</m>, respectively. 
+      Since <m>\overrightarrow{P'Q'} = \la x - a, y - b \ra</m> is parallel to <m>\v{u}</m>, then 
+      <md>
+        \overrightarrow{P'Q'} = t\v{u} = t \la h,k \ra = \la th, tk \ra
+      </md>
+      which implies that <m>x = a + th</m> and <m>y = b + tk</m>. 
+      Hence, we can express <m>Q</m> as <m>Q(t) = (a + th, b + tk, f(a + th, b + tk))</m> (as opposed to keeping track of two new independent variables). 
+    </p>
+
+    <p>
+      Now we are ready to find the slope of the line <m>T</m>! 
+      Recall the slope of the line is the rise over the run. 
+      Clearly, the rise is the change in the <m>z</m>-coordinate and the run is the change in the distance between <m>P</m> and <m>Q</m>, which is <m>t</m>. 
+      Then the slope of the secant line (the line passing through <m>P</m> and <m>Q</m>) is
+      <md>
+        \frac{\Delta z}{t} = \frac{f(a + th, b + tk) - f(a,b)}{t}
+      </md>
+      This implies that the slope of the tangent line <m>T</m> is
+      <md>        
+        \lim_{t \to 0} \frac{f(a + th, b + tk) - f(a,b)}{t}
+      </md>
+      This is the definition of the directional derivative! 
+    </p>
+    
+    <theorem xml:id="thm-DirectionalDerivative">
+      <title>Directional Derivative</title>
+      <statement>
+        <p>
+          The directional derivative of <m>f</m> at <m>P = (a,b)</m> in the direction of a unit vector <m>\v{u} = \la h,k \ra</m> is the limit (assuming it exists)
+          <md>
+            D_\v{u} f(P) = D_\v{u} f(a,b) = \lim_{t\to 0} \frac{f(a + th, b + tk) - f(a,b)}{t}
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <note>
+      <title>But Richard... How is this related to the partial derivatives?</title>
+      <p>
+        It turns out that the directional derivative is the generalization of the partial derivatives. 
+        That is, we can recover the partial derivatives from the directional derivative by choosing the appropriate direction.
+      </p>
+
+      <p>
+        Let's say we pick the unit vector of <m>\v{i} = \la 1,0 \ra</m>. 
+        Then a point <m>P</m> along this direction <m>\v{i}</m> can determine a vertical plane parallel to the <m>xz</m>-plane. 
+        On this plane, the <m>y</m>-coordinate is fixed. 
+        So we expect the directional derivative to be <m>f_x</m>. 
+      </p>
+
+      <p>
+        Using the definition of the directional derivative, we have
+        <md>
+          <mrow> D_\v{i} f(a,b) \amp= \lim_{t\to 0} \frac{f(a + t(1), b + t(0)) - f(a,b)}{t} </mrow>
+          <mrow> \amp= \frac{f(a + t, b) - f(a,b)}{t} </mrow>
+          <mrow> \amp= f_x(a,b) </mrow>
+        </md>
+        So things work out great! 
+      </p>
+
+      <p>
+        Similarly, if we pick the unit vector <m>\v{j} = \la 0,1 \ra</m>, then the vertical plane determined by <m>P</m> and <m>\v{j}</m> is parallel to the <m>yz</m>-plane. 
+        On this plane, the <m>x</m>-coordinate is fixed. 
+        So we expect the directional derivative to be <m>f_y</m>.
+      </p>
+
+      <p>
+        Using the definition of the directional derivative, we have
+        <md>
+          <mrow> D_\v{j} f(a,b) \amp= \lim_{t\to 0} \frac{f(a + t(0), b + t(1)) - f(a,b)}{t} </mrow>
+          <mrow> \amp= \frac{f(a, b + t) - f(a,b)}{t} </mrow>
+          <mrow> \amp= f_y(a,b) </mrow>
+        </md>
+        So things work out great again!
+      </p>
+    </note>
+
+    <p>
+      But no one likes to compute the directional derivative using the limit definition every time. 
+      So we want to find a more efficient formula for the directional derivative. 
+      The following theorem gives us a nice formula for the directional derivative in terms of the partial derivatives. 
+    </p>
+
+    <theorem xml:id="thm-ComputingDirectionalDerivatives">
+      <title>Computing Directional Derivatives</title>
+      <statement>
+        <p>
+          If <m>f</m> is differentiable at <m>P = (a,b)</m> and <m>\v{u} = \la h,k \ra</m> is a unit vector, then the directional derivative of <m>f</m> at <m>P</m> in the direction of <m>\v{u}</m> is given by
+          <md>
+            D_\v{u} f(a,b) = \la f_x(a,b), f_y(a,b) \ra \cdot \la h,k \ra 
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <p>
+        The proof of this theorem isn't too bad but it needs a clever setup. 
+        Richard will set up the proof for you and feel free to give it a try on your own! 
+      </p>
+
+      <hint>
+        <p>
+          Let's define a new function <m>g(t) = f(a + th, b + tk)</m>. 
+          Then what is <m>g'(0)</m> using the definition of the derivative (the one with the limit)?  
+        </p>
+
+        <p>
+          Alternatively, what is <m>g'(0)</m> using the Chain Rule covered in <xref ref="sec146-ChainRule"/>?
+        </p>
+
+        <p>
+          Equating the two expressions for <m>g'(0)</m> will give us the desired formula! 
+        </p>
+      </hint>
+
+      <solution>
+        <title>The actual proof!</title>
+        <p>
+          Let <m>g(t) = f(a + th, b + tk)</m>. 
+          Then using the definition of the derivative, we have
+          <md>
+            <mrow> g'(0) \amp= \lim_{t\to 0} \frac{g(t) - g(0)}{t} </mrow>
+            <mrow> \amp= \lim_{t\to 0} \frac{f(a + th, b + tk) - f(a,b)}{t} </mrow>
+            <mrow> \amp= D_\v{u} f(a,b) </mrow>
+          </md>
+          We have established that <m>g'(0)</m> is the directional derivative of <m>f</m> at <m>P</m> in the direction of <m>\v{u}</m>.
+        </p>
+
+        <p>
+          Alternatively, we can rewrite <m>g(t) = f(x,y)</m>, where <m>x = a + th</m> and <m>y = b + tk</m>. 
+          Using the Chain Rule in <xref ref="sec146-ChainRule"/>, we have 
+          <md>
+            <mrow> g'(t) \amp= \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt} = f_x(x,y) h + f_y(x,y) k </mrow>
+          </md>
+          When <m>t = 0</m>, this gives us
+          <md>
+            <mrow> g'(0) \amp= f_x(a,b) h + f_y(a,b) k </mrow>
+          </md>
+        </p>
+
+        <p>
+          Putting them together, we obtain
+          <md>
+            D_\v{u} f(a,b) = g'(0) = f_x(a,b) h + f_y(a,b) k = \la f_x(a,b), f_y(a,b) \ra \cdot \la h,k \ra
+          </md>
+          as desired.
+        </p>
+      </solution>
+    </proof>
+    
+    <example>
+      <p>
+        Find the directional derivative <m>D_\v{u} f(x,y)</m> if <m>f(x,y) = x^3 - 3xy + 4y^2</m> and <m>\v{u}</m> is the unit vector given by the angle <m>\theta = \frac{\pi}{6}</m>. 
+      </p>
+
+      <p>
+        What is <m>D_\v{u} f(1,2)</m> and what does it mean graphically? 
+      </p>
+
+      <hint>
+        <p>
+          We are given the function <m>f</m> but the unit vector isn't given explicitly. 
+        </p>
+
+        <p>
+          Well there is a formula that allows to obtain the unit vector from the angle in <xref ref="sec121-VectorsPlane"/>. 
+          Have fun digging! 
+        </p>
+
+        <p>
+          To help you visualize the situation, Richard coded the following graph for you! 
+        </p>
+
+        <figure xml:id="fig-dir-deriv-scaled">
+          <caption>The Graph of <m>f(x,y) = x^2 - 3xy + 4y^2</m></caption>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('x, y, z, t, s')
+
+                # --- 1. Parameters  Function ---
+                f(x, y) = x^3 - 3*x*y + 4*y^2
+                p_base = (1, 2)
+                p_z = f(1, 2)
+                theta = pi/6
+                u = (cos(theta), sin(theta))
+
+                # Directional Derivative calculation for Tangent Slope
+                fx = diff(f, x)
+                fy = diff(f, y)
+                slope = fx(1, 2)*u[0] + fy(1, 2)*u[1]
+
+                # --- 2. Primary Surface ---
+                # Teal Rule: color='teal', opacity=0.3
+                surf = plot3d(f(x, y), (x, -2, 3), (y, -1, 4), color='teal', opacity=0.3, mesh=True, plot_points=[40, 40])
+
+                # --- 3. Point P ---
+                # Teal Rule: color='teal'
+                pt_p = point3d((1, 2, p_z), color='teal', size=20)
+
+                # --- 4. Unit Vector in xy-plane ---
+                vec_u = arrow3d((1, 2, 0), (1 + u[0], 2 + u[1], 0), color='teal', width=2)
+
+                # --- 5. Vertical Plane (Slice) ---
+                v_plane = parametric_plot3d([1 + s*u[0], 2 + s*u[1], t], (s, -2, 2), (t, -5, 25), color='gray', opacity=0.15)
+
+                # --- 6. Trace Tangent Line ---
+                # Trace in Red
+                trace = parametric_plot3d([1 + s*u[0], 2 + s*u[1], f(1 + s*u[0], 2 + s*u[1])], (s, -2, 2), color='red', thickness=4)
+                # Tangent Line in Purple
+                t_line = parametric_plot3d([1 + s*u[0], 2 + s*u[1], p_z + s*slope], (s, -1.2, 1.2), color='purple', thickness=5)
+
+                # --- 7. Axes Labels ---
+                ax_x = arrow3d((-2, 0, 0), (4, 0, 0), color='black', width=1)
+                ax_y = arrow3d((0, -1, 0), (0, 5, 0), color='black', width=1)
+                ax_z = arrow3d((0, 0, -5), (0, 0, 30), color='black', width=1)
+                lbl_x = text3d("x", (4.3, 0, 0))
+                lbl_y = text3d("y", (0, 5.3, 0))
+                lbl_z = text3d("z", (0, 0, 32))
+
+                # --- 8. Show with Scaled Z ---
+                # aspect_ratio=[1, 1, 0.05] shrinks the Z-axis visually
+                show(surf + pt_p + vec_u + v_plane + trace + t_line + ax_x + ax_y + ax_z + lbl_x + lbl_y + lbl_z, 
+                    frame=False, aspect_ratio=[1, 1, 0.05])
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          First, let's find the unit vector <m>\v{u}</m>. 
+          Since <m>\theta = \frac{\pi}{6}</m>, we have
+          <md>
+            \v{u} = \la \cos\lp\frac{\pi}{6}\rp, \sin\lp\frac{\pi}{6}\rp \ra = \la \frac{\sqrt{3}}{2}, \frac{1}{2} \ra
+          </md>
+          Next, we compute the partial derivatives of <m>f(x,y)</m>:
+          <md>
+            f_x(x,y) = 3x^2 - 3y \qquad \text{and} \qquad f_y(x,y) = -3x + 8y
+          </md>
+          Now we can find the general formula for the directional derivative:
+          <md>
+            <mrow> D_\v{u} f(x,y) \amp= \la 3x^2 - 3y, -3x + 8y \ra \cdot \la \frac{\sqrt{3}}{2}, \frac{1}{2} \ra </mrow>
+            <mrow> \amp= \frac{\sqrt{3}}{2}(3x^2 - 3y) + \frac{1}{2}(-3x + 8y) </mrow>
+          </md>
+          Finally, to find <m>D_\v{u} f(1,2)</m>, we substitute <m>x=1</m> and <m>y=2</m> into the partial derivatives:
+          <md>
+            f_x(1,2) = 3(1)^2 - 3(2) = 3 - 6 = -3
+          </md>
+          <md>
+            f_y(1,2) = -3(1) + 8(2) = -3 + 16 = 13
+          </md>
+          So, the directional derivative is:
+          <md>
+            <mrow> D_\v{u} f(1,2) \amp= \la -3, 13 \ra \cdot \la \frac{\sqrt{3}}{2}, \frac{1}{2} \ra </mrow>
+            <mrow> \amp= \frac{-3\sqrt{3} + 13}{2} </mrow>
+            <mrow> \amp\approx 3.9 </mrow>
+          </md>
+          Graphically, this value represents the slope of the tangent line of the curve obtained by intersecting the surface with the vertical plane determined by the point <m>P(1,2)</m> and the direction of <m>\v{u}</m>.
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-Gradient">
+    <title>The Gradient</title>
+
+    <p>
+      Observing the formula for computing the directional derivative, one of the vectors consists of the first-order partial derivatives of the function. 
+      This vector is called the <term>gradient</term> of the function. 
+    </p>
+
+    <definition xml:id="def-Gradient">
+      <statement>
+        <p>
+          The gradient of a function <m>f(x,y)</m> at a point <m>P = (a,b)</m> is the vector
+          <md>
+            \nabla f(a,b) = \la f_x(a,b), f_y(a,b) \ra
+          </md>
+        </p>
+
+        <p>
+          In three variables, for <m>f(x,y,z)</m> and <m>P = (a,b,c)</m>, the gradient is
+          <md>
+            \nabla f(a,b,c) = \la f_x(a,b,c), f_y(a,b,c), f_z(a,b,c) \ra
+          </md>
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      Sometimes the notation can be a bit sloppy and we might drop the reference to the point <m>P</m> and just write <m>\nabla f = \la \dfrac{\partial f}{\partial x}, \dfrac{\partial f}{\partial y} \ra</m>.
+      Or maybe the reference to the point becomes a subscript and we write <m>\nabla f_P</m>. 
+      They all mean the same thing. 
+    </p>
+
+    <p>
+      The symbol to denote the gradient, <m>\nabla</m>, is called "del". 
+      This is an upside-down Delta. 
+      The concept of gradient can be extended to functions of <m>n</m> variables. 
+      We will just need to take all the first-order partial derivatives and organize them into a vector. 
+      That is, the gradient of <m>f(x_1, x_2, \dots, x_n)</m> is
+      <md>
+        \nabla f = \la \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n} \ra
+      </md>
+      Likewise, if we are dealing with functions of a single variable, then the gradient is just the derivative of the function. 
+      You can think of the gradient of functions of a single variable, aka the derivative, as a vector if you want but there are only two directions to move on the curve: forward (positive) and backward (negative). 
+    </p>
+
+    <example>
+      <p>
+        Find the gradient of the function <m>f(x,y) = \sin(3x + 2y)</m> at the point <m>\lp \pi, \dfrac{3\pi}{2} \rp</m>. 
+      </p>
+
+      <solution>
+        <p>
+          To find the gradient of the function <m>f(x,y)</m>, we first calculate the partial derivatives with respect to <m>x</m> and <m>y</m>.
+        </p>
+        <p>
+          Using the chain rule, the partial derivative with respect to <m>x</m> is:
+          <me>
+            f_x(x,y) = \frac{\partial}{\partial x} \sin(3x + 2y) = 3\cos(3x + 2y)
+          </me>
+          The partial derivative with respect to <m>y</m> is:
+          <me>
+            f_y(x,y) = \frac{\partial}{\partial y} \sin(3x + 2y) = 2\cos(3x + 2y)
+          </me>
+        </p>
+        <p>
+          Now we evaluate these partial derivatives at the point <m>\lp \pi, \dfrac{3\pi}{2} \rp</m>. First, we determine the value inside the cosine function:
+          <me>
+            3(\pi) + 2\lp \dfrac{3\pi}{2} \rp = 3\pi + 3\pi = 6\pi
+          </me>
+          Since <m>\cos(6\pi) = 1</m>, we have:
+          <md>
+            <mrow>f_x\lp \pi, \dfrac{3\pi}{2} \rp \amp = 3(1) = 3</mrow>
+            <mrow>f_y\lp \pi, \dfrac{3\pi}{2} \rp \amp = 2(1) = 2</mrow>
+          </md>
+        </p>
+        <p>
+          Thus, the gradient vector is:
+          <me>
+            \nabla f\lp \pi, \dfrac{3\pi}{2} \rp = \langle 3, 2 \rangle
+          </me>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      There are some nice properties of the gradient. 
+      The proofs should be super straightforward (just use the properties of derivative plus vectors to push the symbols around).
+      So Richard will just state the properties without proof. 
+    </p>
+
+    <theorem xml:id="thm-PropertiesGradient">
+      <title>Properties of the Gradient</title>
+      <statement>
+        <p>
+          If <m>f(x,y,z)</m> and <m>g(x,y,z)</m> are differentiable and <m>c</m> is a constant, then
+          <ol marker="i.">
+            <li>
+              <p>
+                <m>\nabla (f + g) = \nabla f + \nabla g</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\nabla (cf) = c \nabla f</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Product Rule for Gradients: </term>
+                <m>\nabla (fg) = f \nabla g + g \nabla f</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Chain Rule for Gradients: </term> If <m>F(t)</m> is a differentiable function of one variable, then
+                <m>\nabla \lp F \lp f(x,y,z) \rp \rp = F'\lp f(x,y,z) \rp \nabla f</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      Remember we picked out the gradient from the formula for computing the directional derivative, 
+      so we can rewrite the formula for computing the directional derivative as
+      <md>
+        D_\v{u} f(P) = \nabla f_P \cdot \v{u}
+      </md>
+    </p>
+
+    <p>
+      But what is the difference between the gradient and the directional derivative, as they both seem to be related to the rate of change of the function at a point? 
+    </p>
+
+    <p>
+      The short answer is that the gradient is a vector while the directional derivative is a scalar. 
+      We can actually learn more about the relationship between them from this formula. 
+    </p>
+
+    <p>
+      Notice that the directional derivative is the dot product of the gradient and the unit vector.
+      A property of the dot product tells us that
+      <md>
+        D_\v{u} f(P) = \|\nabla f_P\| \|u\| \cos(\theta) = \|\nabla f_P\| \cos(\theta)
+      </md>
+      where <m>\theta</m> is the angle between the gradient and the unit vector. 
+      That is, the directional derivative (aka the rate of change of the function at a point in a specific direction) varies with the cosine of the angle <m>\theta</m> between the gradient and the direction. 
+      Since <m>\cos(\theta)</m> is bounded by <m>-1</m> and <m>1</m>, then we have
+      <md>
+        - \|\nabla f_P\| \leq D_\v{u} f(P) \leq \|\nabla f_P\|
+      </md>
+      Observe that <m>D_\v{u} f(P) = \|\nabla f_P\|</m> when <m>\theta = 0</m> (i.e., when <m>\v{u}</m> is in the same direction of <m>\nabla f_P</m>).  
+      That is, <em>the gradient points in the direction of the maximum rate of increase, and this maximum rate is <m>\|\nabla f_P\|</m></em>. 
+      Let's make it into a cool theorem! 
+    </p>
+
+    <theorem xml:id="thm-InterpretingGradient">
+      <title>Interpretation of the Gradient</title>
+      <statement>
+        <p>
+          Assume that <m>\nabla f_P \neq \v{0}</m>. 
+          Let <m>\v{u}</m> be a unit vector making an angle <m>\theta</m> with <m>\nabla f_P</m>. 
+          Then
+          <md>
+            D_\v{u} f(P) = \|\nabla f_P\| \cos(\theta)
+          </md>
+          <ol>
+            <li>
+              <p>
+                <m>\nabla f_P</m> points in the direction of fastest rate of increase of <m>f</m> at <m>P</m>, and that rate of increase is <m>\|\nabla f_P\|</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>-\nabla f_P</m> points in the direction of fastest rate of decrease of <m>f</m> at <m>P</m>, and that rate of decrease is <m>-\|\nabla f_P\|</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\nabla f_P</m> is normal to the level curve (or surface) of <m>f</m> at <m>P</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      We haven't talked about the last part of the theorem yet, so let's focus on the first two parts for now. 
+    </p>
+    
+    <example>
+      <p>
+        Let <m>f(x,y) = xe^y</m>. 
+        <ol marker="(a)">
+          <li>
+            <p>
+              Find the rate of change of <m>f</m> at the point <m>P(2,0)</m> in the direction from <m>P</m> to <m>Q\lp \frac{1}{2}, \frac{1}{2} \rp</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              In what direction does <m>f</m> have the maximum rate of increase at <m>P</m>? 
+              What is this maximum rate of increase? 
+            </p>
+          </li>
+        </ol>
+      </p>
+
+      <solution>
+        <p>
+          First, we calculate the gradient of <m>f(x,y) = xe^y</m>:
+          <me>
+            \nabla f(x,y) = \la e^y, xe^y \ra
+          </me>
+          At the point <m>P(2,0)</m>, the gradient vector is:
+          <me>
+            \nabla f(2,0) = \la e^0, 2(e^0) \ra = \la 1, 2 \ra
+          </me>
+        </p>
+        <ol marker="(a)">
+          <li>
+            <p>
+              We find the vector representing the direction from <m>P</m> to <m>Q</m>:
+              <me>
+                \overrightarrow{PQ} = \la \frac{1}{2} - 2, \frac{1}{2} - 0 \ra = \la -\frac{3}{2}, \frac{1}{2} \ra
+              </me>
+              Next, we find the unit vector <m>\mathbf{u}</m> in this direction:
+              <me>
+                |\overrightarrow{PQ}| = \sqrt{\lp -\frac{3}{2} \rp^2 + \lp \frac{1}{2} \rp^2} = \sqrt{\frac{10}{4}} = \frac{\sqrt{10}}{2}
+              </me>
+              <me>
+                \mathbf{u} = \frac{\vec{PQ}}{|\vec{PQ}|} = \la -\frac{3}{\sqrt{10}}, \frac{1}{\sqrt{10}} \ra
+              </me>
+              The rate of change is the directional derivative <m>D_{\mathbf{u}}f(2,0)</m>:
+              <md>
+                <mrow>D_{\mathbf{u}}f(2,0) = \nabla f(2,0) \cdot \mathbf{u} \amp = \la 1, 2 \ra \cdot \la -\frac{3}{\sqrt{10}}, \frac{1}{\sqrt{10}} \ra</mrow>
+                <mrow> \amp = -\frac{3}{\sqrt{10}} + \frac{2}{\sqrt{10}}</mrow>
+                <mrow> \amp = -\frac{1}{\sqrt{10}}</mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              The function has the maximum rate of increase in the direction of the gradient vector:
+              <me>
+                \la 1, 2 \ra
+              </me>
+              The maximum rate of increase is the magnitude of the gradient:
+              <me>
+                |\nabla f(2,0)| = \sqrt{1^2 + 2^2} = \sqrt{5}
+              </me>
+            </p>
+          </li>
+        </ol>
+      </solution>
+    </example>
+
+    <p>
+      Now that we know the difference between the gradient and the directional derivative, we will debrief the last part of the theorem that says the gradient is always normal to the level curve (or surface) at the point. 
+    </p>
+
+    <p>
+      Let's say we have a surface <m>S</m> in <m>\R^3</m>. 
+      Then we will need an equation of three variables to describe the surface. 
+      That is, the surface will have an equation <m>F(x,y,z) = k</m> (this also means that the surface is a level surface of the function <m>f</m>). 
+    </p>
+
+    <p>
+      Now imagine there is a point <m>P</m> on the surface and a curve <m>\v{C}</m> on the surface passing through <m>P = (a,b,c)</m>. 
+      If we call the curve <m>\v{r}(t) = \la x(t), y(t), z(t) \ra</m>, then there is a parameter <m>t_0</m> such that <m>\v{r}(t_0) = \la a,b,c \ra</m>. 
+      Since <m>\c{C}</m> lies on the surface, then we obtain
+      <md>
+        F\lp \v{r}(t) \rp = F\lp x(t), y(t), z(t) \rp = k
+      </md>
+      If everything is nice and differentiable, then we can differentiate both sides of the equation using the Chain Rule in <xref ref="sec146-ChainRule"/> to get
+      <md>
+        <mrow> \frac{\partial F}{\partial x} \frac{dx}{dt} + \frac{\partial F}{\partial y} \frac{dy}{dt} + \frac{\partial F}{\partial z} \frac{dz}{dt} \amp= 0 </mrow>
+        <mrow> \la \frac{\partial F}{\partial x}, \frac{\partial F}{\partial y}, \frac{\partial F}{\partial z} \ra \cdot \la \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt} \ra \amp= 0 </mrow>
+        <mrow> \nabla f_P \cdot \v{r}'(t_0) \amp= 0 </mrow>
+      </md>
+      The diagram below shows the situation. 
+    </p>
+
+    <figure>
+      <image source="sec145_GradientNormal_Diagram.png" width="60%"></image>
+    </figure>
+
+    <p>
+      We basically just showed that <em>the gradient vectors are normal to the surface</em>! 
+    </p>
+
+    <p>
+      Hmm but why do we need a normal vector to the surface at a point? 
+      We can find an equation of the tangent plane using the gradient vector and the point! 
+      If you compare the formula for the tangent plane in <xref ref="sec144-DifferentiabilityTangentPlane"/>, the normal vector is exactly the gradient vector! 
+    </p>
+
+    <theorem xml:id="thm-GradientNormalVector">
+      <title>Gradient as a Normal Vector</title>
+      <statement>
+        <p>
+          Let <m>P = (a,b,c)</m> be a point on the surface given by <m>F(x,y,z) = k</m> and assume that <m>\nabla f_P \neq \v{0}</m>. 
+          Then <m>\nabla f_P</m> is a vector normal to the tangent plane to the surface at <m>P</m>. 
+          Moreover, the tangent plane to the surface at <m>P</m> has equation
+          <md>
+            F_x(a,b,c) (x - a) + F_y(a,b,c) (y - b) + F_z(a,b,c)(z - c) = 0
+          </md>
+        </p>
+      </statement>
+    </theorem>
+    
+    <figure>
+      <image source="sec145_Gradient_TangentPlane_Diagram.png" width="60%"></image>
+    </figure>
+
+    <p>
+      Using this theorem, we can find an equation of the tangent plane to a surface without needing an explicit formula for our function. 
+      That is, <m>z</m> doesn't need to be isolated in the equation of the surface. 
+    </p>
+
+    <example>
+      <p>
+        Find the equation of the tangent plane at the point <m>P = (-2,1,-3)</m> to the ellipsoid
+        <md>
+          \frac{x^2}{4} + y^2 + \frac{z^2}{9} = 3
+        </md>
+      </p>
+
+      <solution>
+        <p>
+          Let <m>F(x,y,z) = \frac{x^2}{4} + y^2 + \frac{z^2}{9}</m>. 
+          Then the ellipsoid is the level surface <m>F(x,y,z) = 3</m>. 
+          +We find the gradient vector to determine the normal vector to the surface.
+        </p>
+        <p>
+          <me>
+            \nabla F(x,y,z) = \la \frac{x}{2}, 2y, \frac{2z}{9} \ra
+          </me>
+        </p>
+        <p>
+          Evaluate the gradient at the point <m>P(-2,1,-3)</m> to find the normal vector <m>\v{n}</m>:
+          <me>
+            \mathbf{n} = \nabla F(-2,1,-3) = \la -1, 2, -\frac{2}{3} \ra
+          </me>
+        </p>
+        <p>
+          The equation of the tangent plane at <m>P</m> is:
+          <md>
+            <mrow>-1(x - (-2)) + 2(y - 1) - \frac{2}{3}(z - (-3)) \amp = 0</mrow>
+            <mrow>-(x + 2) + 2(y - 1) - \frac{2}{3}(z + 3) \amp = 0</mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Now that we know what the gradient is (pointing in the direction of the maximum rate of increase) and how it behaves (normal to the level curve/surface), we can create something called the <term>gradient vector field</term> (which is super similar to the vector field you learned back in MTH 253). 
+      For example, the gradient vector field of <m>f(x,y) = x^2 - y^2</m>, superimposed on a contour map, is shown below. 
+    </p>
+
+    <figure>
+      <image source="sec145_GradientVectorField_Example.png" width="60%"></image>
+    </figure>
+
+    <p>
+      As expected, the gradient vectors are normal to the level curves. 
+      They also point in the direction of the maximum rate of increase. 
+      That is, each gradient vector is pointing "uphill". 
+    </p>
+
+    <p>
+      Below is the graph of the function <m>f(x,y) = x^2 - y^2</m>. 
+      Try to convince yourself that the gradient vectors are indeed pointing in the direction of the maximum rate of increase and that they are normal to the level curves. 
+    </p>
+
+    <figure xml:id="fig-saddle-surface-teal">
+      <caption>The surface <m>f(x,y) = x^2 - y^2</m></caption>
+      <sidebyside width="80%">
+        <interactive platform="sage" width="100%" aspect="1:1">
+          <slate surface="sage">
+            var('x, y, z')
+
+            # --- 1. Parameters ---
+            x_min, x_max = -3, 3
+            y_min, y_max = -3, 3
+            z_min, z_max = -9, 9
+            f(x, y) = x^2 - y^2
+
+            # --- 2. Primary Object (Surface) ---
+            # Teal Rule: color='teal', opacity=0.3, mesh=True
+            surf = plot3d(f(x, y), (x, x_min, x_max), (y, y_min, y_max), 
+                        color='teal', opacity=0.3, mesh=True, plot_points=[40, 40])
+
+            # --- 3. Axes  Labels ---
+            # Manual Construction (Black, width=1)
+            ax_x = arrow3d((x_min - 1, 0, 0), (x_max + 1, 0, 0), color='black', width=1)
+            ax_y = arrow3d((0, y_min - 1, 0), (0, y_max + 1, 0), color='black', width=1)
+            ax_z = arrow3d((0, 0, z_min - 1), (0, 0, z_max + 1), color='black', width=1)
+
+            lbl_x = text3d("x", (x_max + 1.5, 0, 0), color='black')
+            lbl_y = text3d("y", (0, y_max + 1.5, 0), color='black')
+            lbl_z = text3d("z", (0, 0, z_max + 2), color='black')
+
+            # --- 4. Show ---
+            # aspect_ratio=[1, 1, 0.5] to prevent excessive vertical stretching
+            show(surf + ax_x + ax_y + ax_z + lbl_x + lbl_y + lbl_z, 
+                frame=False, aspect_ratio=[1, 1, 0.5])
+          </slate>
+        </interactive>
+      </sidebyside>
+    </figure>
+
+    <p>
+      Gradient is an important concept that helps us understand the behavior of the surface. 
+      We will see more applications of the gradient in the following sections when we talk about optimization. 
+      Just a quick preview: if all the gradient vectors are pointing <em>toward</em> the same point on the gradient vector field, then that point is a local <em>maximum</em> since the surface is going uphill towards this point. 
+    </p>
+  
+  </subsection>
+
+  <worksheet xml:id="ws-sec145">
+    <title>Assigned Problems for Section 14.5</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="14.5.5">
+      <p>
+        Calculate the gradient of <m>f(x,y) = \cos\lp x^2 + y \rp</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="14.5.17">
+      <p>
+        Use the Chain Rule to calculate <m>\dfrac{d}{dt} f(\v{r}(t))</m>, where
+        <md>
+          f(x,y) = \ln(x) + \ln(y) \qquad \text{ and } \qquad \v{r}(t) = \la \cos(t), t^2 \ra
+        </md>
+        at the point where <m>t = \dfrac{\pi}{4}</m>.
+      </p>
+    </exercise>
+
+    <exercise number="14.5.25">
+      <p>
+        Calculate the directional derivative of <m>f(x,y) = \tan^{-1}(xy)</m> in the direction of <m>\v{v} = \la 1,1 \ra</m> at the point <m>P = (3,4)</m>. 
+        Remember to use a unit vector in your directional derivative computation.
+      </p>
+    </exercise>
+
+    <exercise number="14.5.35">
+      <p>
+        Determine the direction in which <m>f(x,y,z) = \dfrac{xy}{z}</m> has maximum rate of increase from <m>P = (1,-1,3)</m>, and give the rate of change in that direction. 
+      </p>
+    </exercise>
+
+    <exercise number="14.5.37">
+      <p>
+        Suppose that <m>\nabla f_P = \la 2,-4,4 \ra</m>. 
+        Is <m>f</m> increasing or decreasing at <m>P</m> in the direction of <m>\v{v} = \la 2,1,3 \ra</m>?
+      </p>
+    </exercise>
+
+    <exercise number="14.5.39">
+      <p>
+        Let <m>f(x,y,z) = \sin(xy + z)</m> and <m>P = (0,-1, \pi)</m>. 
+        Calculate <m>D_\v{u} f(P)</m>, where <m>\v{u}</m> is a unit vector making an angle <m>\theta = 30^\circ</m> with <m>\nabla f_P</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="14.5.43">
+      <p>
+        Find the two points on the ellipsoid
+        <md>
+          \frac{x^2}{4} + \frac{y^2}{9} + z^2 = 1
+        </md>
+        where the tangent plane is normal to <m>\v{v} = \la 1,1,-2 \ra</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="14.5.47">
+      <p>
+        Find an equation of the tangent plane to the surface 
+        <md>
+          xz + 2x^2y + y^2z^3 = 11
+        </md>
+        at the point <m>P = (2,1,1)</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="14.5.53">
+      <p>
+        Find a function <m>f(x,y,z)</m> such that <m>\nabla f = \la 2x,1,2 \ra</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="14.5.65">
+      <p>
+        Let <m>\c{C}</m> be the curve of intersection of the spheres 
+        <md>
+          x^3 + 2xy + yz = 7 \qquad \text{ and } \qquad 3x^2 - yz = 1
+        </md>
+        Find the parametric equations of the tangent line to <m>\c{C}</m> at <m>P = (1,2,1)</m>. 
+      </p>
+    </exercise>
+
+  </worksheet>
 
 </section>

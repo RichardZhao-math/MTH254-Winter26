@@ -5,7 +5,9 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In single-variable calculus, the Chain Rule tracks how a change in <m>x</m> ripples through a function. 
+      In multivariable calculus, an independent variable may influence a function through multiple "paths" simultaneously. 
+      This section introduces the <em>General Chain Rule</em> to account for these branching dependencies using tree diagrams and streamlines <em>implicit differentiation</em> using partial derivatives.
     </p>
 
     <objectives>
@@ -17,12 +19,439 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            apply the general chain rule to compute partial derivatives using the tree diagrams.
+          </p>
+        </li>
+        <li>
+          <p>
+            use implicit differentiation to compute partial derivatives of implicitly defined functions.
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <subsection xml:id="subsec-ChainRule_MultiCalc">
+    <title>The (Fancy) Chain Rule</title>
+
+    <p>
+      Back in MTH 251Z (or MTH 251), you learned the Chain Rule for single variable functions. 
+      The chain rule says that if <m>y = f(u)</m> and <m>u = g(x)</m>, then 
+      <md>
+        \dfrac{d}{dx} f\lp g(x) \rp = f'\lp g(x) \rp f'(x)
+      </md>
+      Alternatively, in Leibniz notation, we would write
+      <md>
+        \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
+      </md>
+    </p>
+
+    <p>
+      Now let's move on to the multivariable version of the Chain Rule. 
+      Let's start with a simple case where we have <m>z = f(x,y)</m>, where <m>x</m> and <m>y</m> are both functions of <m>t</m>. 
+      In this case, the Chain Rule says
+      <md>
+        \frac{dz}{dt} = \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt}
+      </md>
+      Observe that the spirit of the Chain Rule stays the same. 
+      But we need to account for the fact that <m>f</m> depends on <term>both</term> <m>x</m> <term>and</term> <m>y</m>, and both of those variables depend on <m>t</m>. 
+      So we have two terms in the Chain Rule, one for the contribution of <m>x</m> and one for the contribution of <m>y</m>. 
+    </p>
+
+    <example>
+      <p>
+        Let <m>f(x,y) = x^2y + 3xy^4</m>, where <m>x = \sin(2t)</m> and <m>y = \cos(t)</m>. 
+        Find <m>\dfrac{df}{dt}</m> at the point where <m>t = 0</m>.
+      </p>
+
+      <solution>
+        <p>
+          The Chain Rule gives
+          <md>
+            <mrow> \frac{df}{dt} \amp= \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt} </mrow>
+            <mrow> \amp= \lp 2xy + 3y^4 \rp \lp 2\cos(2t) \rp + \lp x^2 + 12xy^3 \rp \lp -\sin(t) \rp </mrow>
+          </md>
+          When <t>t = 0</t>, we have <m>x = \sin(0) = 0</m> and <m>y = \cos(0) = 1</m>. 
+          So we get
+          <md>
+            \frac{df}{dt}\bigg|_{t=0} = (0 + 3)(2 \cos(0)) + (0 + 0) (-\sin(0)) = 6
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <note>
+      <title>But Richard... Why can't we just replace everything with <m>t</m> and differentiate?</title>
+      
+      <p>
+        Well you for sure can! 
+        But one thing to keep in mind is that your function will likely be a lot more complicated after you replace everything with <m>t</m>. 
+      </p>
+
+      <p>
+        For example, in the above example, if we replace <m>x</m> and <m>y</m> with their definitions, we get
+        <md>
+          f(t) = \sin^2(2t)\cos(t) + 3\sin(2t)\cos^4(t)
+        </md>
+        Then a MTH 251Z (or MTH 251) student can differentiate this fine. 
+        But the work will be a lot more complicated as multiple rounds of the product rule and chain rule will be required. 
+      </p>
+    </note>
+
+    <p>
+      Now let's kick it up a notch and consider the case where <m>z = f(x,y)</m>, where <m>x</m> and <m>y</m> are both functions of <m>s</m> and <m>t</m>. 
+      That is, <m>x = g(s,t)</m> and <m>y = h(s,t)</m>. 
+      How should we take the derivative of <m>f</m>? 
+    </p>
+
+    <p>
+      One thing to keep in mind is that <m>f</m> depends on <m>s</m> and <m>t</m> through both <m>x</m> and <m>y</m>. 
+      So we can only take the partial derivative by picking one of the variables, <m>s</m> or <m>t</m>, to differentiate with respect to.  
+    </p>
+
+    <p>
+      Let's say we want to take the partial derivative of <m>f</m> with respect to <m>s</m>. 
+      Then we will need to account for all the contributions of <m>s</m> to <m>f</m>. 
+      One way to sort out the contributions is to use a tree diagram (see the diagram below).
+    </p>
+
+    <figure>
+      <image source="sec146_TreeDiagram_Easy_Diagram.png" width="60%"></image>
+    </figure>
+
+    <p>
+      In this tree diagram, we can see that <m>s</m> contributes to <m>f</m> through both <m>x</m> and <m>y</m>. 
+      So we have two terms in the Chain Rule, as follows
+      <md>
+        \frac{\partial f}{\partial s} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial s}
+      </md>
+    </p>
+
+    <p>
+      Similarly, if we want to take the partial derivative of <m>f</m> with respect to <m>t</m>, we get
+      <md>
+        \frac{\partial f}{\partial t} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t}
+      </md>
+      since <m>t</m> contributes to <m>f</m> through both <m>x</m> and <m>y</m> as well, as indicated in the tree diagram above. 
+    </p>
+
+    <example>
+      <p>
+        Let <m>f(x,y) = e^x\sin(y)</m>, where <m>x = st^2</m> and <m>y = s^2t</m>. 
+        Find the first-order partial derivatives <m>\dfrac{\partial f}{\partial s}</m> and <m>\dfrac{\partial f}{\partial t}</m>.
+      </p>
+
+      <solution>
+        <p>
+          Applying the Chain Rule, we get
+          <md>
+            <mrow> \frac{\partial f}{\partial s} \amp= \frac{\partial f}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial s} </mrow>
+            <mrow> \amp= \lp e^x\sin(y) \rp \lp t^2 \rp + \lp e^x\cos(y) \rp \lp 2st \rp </mrow>
+            <mrow> \amp= t^2e^{st^2} \sin\lp s^2t \rp + 2ste^{st^2} \cos\lp s^2t \rp </mrow>
+          </md>
+          and
+          <md>
+            <mrow> \frac{\partial f}{\partial t} \amp= \frac{\partial f}{\partial x}\frac{\partial x}{\partial t} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial t} </mrow>
+            <mrow> \amp= \lp e^x\sin(y) \rp \lp 2st \rp + \lp e^x\cos(y) \rp \lp s^2 \rp </mrow>
+            <mrow> \amp= 2ste^{st^2} \sin\lp s^2t \rp + s^2e^{st^2} \cos\lp s^2t \rp </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      You may get the idea of the Chain Rule for more complicated cases by now. 
+      We will just need to account for all the contributions of the variable we are differentiating with respect to. 
+      Using a tree diagram can be helpful to sort out the contributions. 
+    </p>
+
+    <theorem xml:id="thm-ChainRule_General">
+      <title>General Bersion of the Chain Rule</title>
+      <statement>
+        <p>
+          Let <m>f\lp x_1, \ldots, x_n \rp</m> be a differentiable function of <m>n</m> variables. 
+          Suppose that each of the variables <m>x_1, \ldots, x_n</m> is a differentiable function of <m>m</m> independent variables <m>t_1, \ldots, t_k</m>. 
+          Then, for <m>k = 1, \ldots, m</m>, 
+          <md>
+            \frac{\partial f}{\partial t_k} = \frac{\partial f}{\partial x_1}\frac{\partial x_1}{\partial t_k} + \frac{\partial f}{\partial x_2}\frac{\partial x_2}{\partial t_k} + \cdots + \frac{\partial f}{\partial x_n}\frac{\partial x_n}{\partial t_k}
+          </md>
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <p>
+        Let <m>u = x^4y + y^2z^3</m>, where <m>x = rse^t</m>, <m>y = rs^2e^{-t}</m>, and <m>z = r^2s\sin(t)</m>. 
+        Find the value of <m>\dfrac{\partial u}{\partial s}</m> when <m>r = 2</m>, <m>s = 1</m>, and <m>t = 0</m>. 
+      </p>
+
+      <solution>
+        <p>
+          We can construct a tree diagram to keep track of the variables as follows. 
+        </p>
+
+        <figure>
+          <image source="sec146_TreeDiagram_Example.png" width="60%"></image>
+        </figure>
+
+        <p>
+          The diagram implies that 
+          <md>
+            <mrow> \frac{\partial u}{\partial s} \amp= \frac{\partial u}{\partial x} \frac{\partial x}{\partial s} + \frac{\partial u}{\partial y} \frac{\partial y}{\partial s} + \frac{\partial u}{\partial z} \frac{\partial z}{\partial s} </mrow>
+            <mrow> \amp= \lp 4x^3y \rp \lp re^t \rp + \lp x^4 + 2yz^3 \rp \lp 2rse^{-t} \rp + \lp 3y^2z^2 \rp \lp r^2\sin(t) \rp </mrow>
+          </md>
+          When <m>r = 2</m>, <m>s = 1</m>, and <m>t = 0</m>, we have 
+          <md>
+            \frac{\partial u}{\partial s} = (64)(2) + (16)(4) + (0)(0) = 192
+          </md>
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-ImplicitDifferentiation_MultiCalc">
+    <title>(Fancy) Implicit Differentiation</title>
+    
+    <p>
+      Back in MTH 251Z (or MTH 251), you learned a fancy way of taking derivatives of an equation, which is called <em>implicit differentiation</em>. 
+      The whole idea of implicit differentiation is to take the derivative of <term>both sides</term> of the equation and sort out all the little derivatives pieces using the Chain Rule. 
+    </p>
+
+    <p>
+      Let's start by looking at an example to remind ourselves how implicit differentiation works.
+    </p>
+
+    <example>
+      <p>
+        Find <m>y'</m> if <m>x^3 + y^3 = 6xy</m>
+      </p>
+
+      <hint>
+        <p>
+          This is a standard implicit differentiation problem in MTH 251Z (or MTH 251). 
+          But we are in big-boy calculus now, so let's try using multivariable calculus tools to solve this problem. 
+        </p>
+
+        <p>
+          Richard will help you with the setup! 
+          Let's define a function <m>F(x,y) = x^3 + y^3 - 6xy</m>. 
+          Then the equation <m>x^3 + y^3 = 6xy</m> can be rewritten as <m>F(x,y) = 0</m>. 
+        </p>
+
+        <p>
+          If we take the derivative of both sides of the equation <m>F(x,y) = 0</m>, we get
+          <md>
+            \dfrac{\partial F}{\partial x} \cdot \dfrac{dx}{dx} + \dfrac{\partial F}{\partial y} \cdot \dfrac{dy}{dx} = 0
+          </md>
+          Well the question asks us to find <m>y'</m>... 
+          So where is it? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          Let's follow Richard's setup and define <m>F(x,y) = x^3 + y^3 - 6xy</m>. 
+          Then we have
+          <md>
+            x^3 + y^3 - 6xy = 0
+          </md>
+          Now we take the derivative of both sides of the equation using the Chain Rule. 
+          We obtain
+          <md>
+            \dfrac{\partial F}{\partial x} \cdot \dfrac{dx}{dx} + \dfrac{\partial F}{\partial y} \cdot \dfrac{dy}{dx} = 0
+          </md>
+          where <m>\dfrac{dx}{dx} = 1</m> and <m>\dfrac{dy}{dx} = y'</m>. 
+          Then we can solve for <m>y'</m> to get
+          <md>
+            y' = \frac{dy}{dx} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{F_x}{F_y}
+          </md>
+          Since <m>F_x = 3x^2 - 6y</m> and <m>F_y = 3y^2 - 6x</m>, we get
+          <md>
+            y' = -\frac{3x^2 - 6y}{3y^2 - 6x} = -\frac{x^2 - 2y}{y^2 - 2x}
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      The above example demonstrates the (fancy) implicit differentiation in multivariable calculus. 
+      The key idea is to define a function <m>F</m> such that the equation we want to differentiate can be rewritten as <m>F(x,y,z) = 0</m>. 
+      Then we can take the derivative of both sides of the equation using the Chain Rule and isolate the desired derivative. 
+    </p>
+
+    <p>
+      Now let's say we have an equation <m>F(x,y,z) = 0</m>, where <m>z</m> is implicitly defined as a function of <m>x</m> and <m>y</m>. 
+      Then we can take the derivative of both sides of the equation using the Chain Rule to get
+      <md>
+        \frac{\partial F}{\partial x} \cdot \frac{\partial x}{\partial x} + \frac{\partial F}{\partial y} \cdot \frac{\partial y}{\partial x} + \frac{\partial F}{\partial z} \cdot \frac{\partial z}{\partial x} = 0
+      </md>
+      Obviously, <m>\dfrac{\partial x}{\partial x} = 1</m>.
+      Also, sine <m>x</m> and <m>y</m> are both independent variables, then <m>\dfrac{\partial y}{\partial x} = 0</m>. 
+      So we can simplify the above equation to get
+      <md>
+        \frac{\partial F}{\partial x} + \frac{\partial F}{\partial z} \cdot \frac{\partial z}{\partial x} = 0
+      </md>
+      Assuming <m>\dfrac{\partial F}{\partial z} \neq 0</m>, we can solve for <m>\dfrac{\partial z}{\partial x}</m> to get
+      <me xml:id="eq_PartialDerivative_z_x">
+        \frac{\partial z}{\partial x} = -\frac{F_x}{F_z} \qquad \text{ and } \qquad \frac{\partial z}{\partial y} = -\frac{F_y}{F_z}
+      </me>
+      Then we can use the above formula to calculate the partial derivatives of <m>z</m> with respect to <m>x</m> and <m>y</m>. 
+    </p>
+
+    <p>
+      You may have doubts about why we can assume <m>z = f(x,y)</m> can be obtained from the equation <m>F(x,y,z) = 0</m> 
+      (if this condition is not satisfied, then we can't argue that <m>\frac{\partial y}{\partial x} = 0</m>... since <m>x</m> and <m>y</m> may not be independent of each other). 
+      Well there is a fancy math theorem called the <term>Implicit Function Theorem</term> that gives us the conditions under which we can obtain <m>z = f(x,y)</m> from the equation <m>F(x,y,z) = 0</m>. 
+      But we won't be able to prove it in this class (we don't even know what a Jacobian matrix is yet).
+    </p>
+
+    <p>
+      Feel free to look up the Implicit Function Theorem if you are interested. 
+      But you can just assume the conditions of the Implicit Function Theorem are satisfied for the problems in this class. 
+      In short, the Implicit Function Theorem says that if <m>F</m> is defined within a sphere containing <m>(a,b,c)</m>, where <m>F(a,b,c) = 0</m>, <m>F_z(a,b,c) \neq 0</m>, and <m>F_x</m>, <m>F_y</m>, and <m>F_z</m> are all continuous inside the sphere, then the equation <m>F(x,y,z) = 0</m> defines <m>z</m> as a function of <m>x</m> and <m>y</m> near the point <m>(a,b,c)</m> and this function is differentiable. 
+    </p>
+
+    <example>
+      <p>
+        Find <m>\dfrac{\partial z}{\partial x}</m> and <m>\dfrac{\partial z}{\partial y}</m> if <m>x^3 + y^3 + z^3 + 6xyz = 1</m>. 
+      </p>
+
+      <solution>
+        <p>
+          Let <m>F(x,y,z) = x^3 + y^3 + z^3 + 6xyz - 1</m>. 
+          Then we obtain
+          <md>
+            <mrow> \frac{\partial z}{\partial x} \amp= - \frac{F_x}{F_z} = - \frac{3x^2 + 6yz}{3z^2 + 6xy} = - \frac{x^2 + 2yz}{z^2 + 2xy} </mrow>
+            <mrow> \frac{\partial z}{\partial y} \amp= - \frac{F_y}{F_z} = - \frac{3y^2 + 6xz}{3z^2 + 6xy} = - \frac{y^2 + 2xz}{z^2 + 2xy} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+  <worksheet xml:id="ws-sec146">
+    <title>Assigned Problems for Section 14.6</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="14.6.1">
+      <p>
+        Let <m>f(x,y,z) = x^2y^3 + z^4</m> and <m>x = s^2</m>, <m>y = st^2</m>, and <m>z = s^2t</m>. 
+        <ol marker="(a)">
+          <li>
+            <p>
+              Calculate the primary derivatives <m>\dfrac{\partial f}{\partial x}</m>, <m>\dfrac{\partial f}{\partial y}</m>, and <m>\dfrac{\partial f}{\partial z}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Calculate <m>\dfrac{\partial x}{\partial s}</m>, <m>\dfrac{\partial y}{\partial s}</m>, and <m>\dfrac{\partial z}{\partial s}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Compute <m>\dfrac{\partial f}{\partial s}</m> using the Chain Rule: 
+              <md>
+                \frac{\partial f}{\partial s} = \frac{\partial f}{\partial x}\frac{\partial x}{\partial s} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial s} + \frac{\partial f}{\partial z}\frac{\partial z}{\partial s}
+              </md>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, use the Chain Rule to calculate the partial derivatives, 
+          Express the answer in terms of the independent variables. 
+        </p>
+      </introduction>
+    
+      <exercise number="14.6.7">
+        <p>
+          <m>\dfrac{\partial F}{\partial y}</m>; <m>F(u,v) = e^{u + v}</m>, <m>u = x^2</m>, <m>v = xy</m>.
+        </p>
+      </exercise>
+
+      <exercise number="14.6.9">
+        <p>
+          <m>\dfrac{\partial h}{\partial t_2}</m>; <m>f(x,y) = \dfrac{x}{y}</m>, <m>x = t_1t_2</m>, <m>y = t_1^2t_2</m>. 
+        </p>
+      </exercise>
+    
+    </exercisegroup>
+
+    <exercise number="14.6.13">
+      <p>
+        Use the Chain Rule to evaluate the partial derivative <m>\dfrac{\partial g}{\partial \theta}</m> at the point <m>(r, \theta) = \lp 2\sqrt{2}, \dfrac{\pi}{4} \rp</m>, where
+        <md>
+          g(x,y) = \frac{1}{x + y^2}\, , \qquad x = r\cos(\theta) \quad \text{ and } \quad y = r\sin(\theta)
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="14.6.19">
+      <p>
+        A baseball player hits the ball and then runs down the first base line at 20 ft/s. 
+        The first baseman fields the ball and then runs toward first base along the second base line at 18 ft/s as shown in the figure below. 
+      </p>
+
+      <figure>
+        <image source="sec146_HW19_Figure.png" width="60%"></image>
+      </figure>
+
+      <p>
+        Determine how fast the distance between the two players is changing at a moment when the hitter is 8 ft from first base and the first baseman is 6 ft from first base.  
+      </p>
+    </exercise>
+
+    <exercise number="14.6.21">
+      <p>
+        Two spacecraft are following paths in space given by <m>\v{r}_1 = \la \sin(t), t, t^2 \ra</m> and <m>\v{r}_2(t) = \la \cos(t), 1-t, t^3 \ra</m>. 
+        If the temperature for points in space is given by <m>T(x,y,z) = x^2y(1-z)</m>, use the Chain Rule to determine the rate of change of the difference <m>D</m> in the temperatures the two spacecraft experience at time <m>t = \pi</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="14.6.27">
+      <p>
+        Suppose that <m>z</m> is defined implicitly as a function of <m>x</m> and <m>y</m> by equation <m>F(x,y,z) = xz^2 + y^2z + xy - 1 = 0</m>. 
+        <ol marker="(a)">
+          <li>
+            <p>
+              Calculate <m>F_x</m>, <m>F_y</m>, and <m>F_z</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use <xref ref="eq_PartialDerivative_z_x"/> to calculate <m>\dfrac{\partial z}{\partial x}</m> and <m>\dfrac{\partial z}{\partial y}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercise number="14.6.31">
+      <p>
+        Calculate the partial derivative <m>\dfrac{\partial z}{\partial y}</m> of the equation <m>e^{xy} + \sin(xz) + y = 0</m> using implicit differentiation. 
+      </p>
+    </exercise>
+
+  </worksheet>
 
 </section>
