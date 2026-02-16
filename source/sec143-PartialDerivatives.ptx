@@ -505,12 +505,42 @@
       <p>
         Use the Product Rule to compute <m>f_x</m> and <m>f_y</m> for <m>f(x,y) = \lp x^2 - y\rp\lp x - y^2\rp</m>
       </p>
+
+      <solution>
+        <p>
+          Using the Product Rule for <m>f_x</m>:
+          <md>
+            <mrow> f_x \amp = \frac{\partial}{\partial x}\lp x^2 - y\rp \cdot \lp x - y^2\rp + \lp x^2 - y\rp \cdot \frac{\partial}{\partial x}\lp x - y^2\rp </mrow>
+            <mrow> \amp = \lp 2x \rp \lp x - y^2 \rp + \lp x^2 - y \rp \lp 1 \rp </mrow>
+            <mrow> \amp = 3x^2 - 2xy^2 - y </mrow>
+          </md>
+        </p>
+        <p>
+          Using the Product Rule for <m>f_y</m>:
+          <md>
+            <mrow> f_y \amp = \frac{\partial}{\partial y}\lp x^2 - y\rp \cdot \lp x - y^2\rp + \lp x^2 - y\rp \cdot \frac{\partial}{\partial y}\lp x - y^2\rp </mrow>
+            <mrow> \amp = \lp -1 \rp \lp x - y^2 \rp + \lp x^2 - y \rp \lp -2y \rp </mrow>
+            <mrow> \amp = -x + y^2 - 2x^2y + 2y^2 </mrow>
+            <mrow> \amp = 3y^2 - 2x^2y - x </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.3.5">
       <p>
         Use the Quotient Rule to compute <m>\dfrac{\partial}{\partial y} \dfrac{y}{x + y}</m>
       </p>
+
+      <solution>
+        <p>
+          <md>
+            <mrow> \frac{\partial}{\partial y} \frac{y}{x + y} \amp = \frac{\lp 1 \rp\lp x + y \rp - \lp y \rp \lp 1 \rp}{\lp x + y \rp^2} </mrow>
+            <mrow> \amp = \frac{x + y - y}{\lp x + y \rp^2} </mrow>
+            <mrow> \amp = \frac{x}{\lp x + y \rp^2} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.3.9">
@@ -518,6 +548,16 @@
         The plane <m>y = 1</m> intersects the surface <m>z = x^4 + 6xy - y^4</m> in a certain curve. 
         Find the slope of the tangent line to this curve at the point <m>P = (1,1,6)</m>. 
       </p>
+
+      <solution>
+        <p>
+          The slope of the tangent line to the curve formed by the intersection of the surface and the plane <m>y=1</m> is given by the partial derivative with respect to <m>x</m> evaluated at the point <m>(1,1)</m>.
+          <md>
+            <mrow> f_x(x,y) \amp = \frac{\partial}{\partial x} \lp x^4 + 6xy - y^4 \rp = 4x^3 + 6y </mrow>
+            <mrow> f_x(1,1) \amp = 4(1)^3 + 6(1) = 4 + 6 =10</mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -532,24 +572,75 @@
         <p>
           <m>z = x^4y + xy^{-2}</m>
         </p>
+
+        <solution>
+          <p>
+            <md>
+              <mrow> \frac{\partial z}{\partial x} \amp = \frac{\partial}{\partial x}\lp x^4y \rp + \frac{\partial}{\partial x}\lp xy^{-2} \rp </mrow>
+              <mrow> \amp = 4x^3y + y^{-2} </mrow>
+            </md>
+            <md>
+              <mrow> \frac{\partial z}{\partial y} \amp = \frac{\partial}{\partial y}\lp x^4y \rp + \frac{\partial}{\partial y}\lp xy^{-2} \rp </mrow>
+              <mrow>  \amp = x^4 - 2xy^{-3} </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.3.23">
         <p>
           <m>z = \lp \sin(x) \rp\lp \cos(y) \rp</m>
         </p>
+
+        <solution>
+          <p>
+            <md>
+              <mrow> \frac{\partial z}{\partial x} \amp = \cos(x)\cos(y) </mrow>
+            </md>
+            <md>
+              <mrow> \frac{\partial z}{\partial y} \amp = -\sin(x)\sin(y) </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.3.33">
         <p>
           <m>z = e^{-x^2 - y^2}</m>
         </p>
+
+        <solution>
+          <p>
+            <md>
+              <mrow> \frac{\partial z}{\partial x} \amp = e^{-x^2 - y^2} \cdot \frac{\partial}{\partial x} \lp -x^2 - y^2 \rp </mrow>
+              <mrow> \amp = -2xe^{-x^2 - y^2} </mrow>
+            </md>
+            <md>
+              <mrow> \frac{\partial z}{\partial y} \amp = e^{-x^2 - y^2} \cdot \frac{\partial}{\partial y} \lp -x^2 - y^2 \rp </mrow>
+              <mrow> \amp = -2ye^{-x^2 - y^2} </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.3.39">
         <p>
           <m>w = xy^2z^3</m>
         </p>
+
+        <solution>
+          <p>
+            <md>
+              <mrow> \frac{\partial w}{\partial x} \amp = y^2z^3 </mrow>
+            </md>
+            <md>
+              <mrow> \frac{\partial w}{\partial y} \amp = 2xyz^3 </mrow>
+            </md>
+            <md>
+              <mrow> \frac{\partial w}{\partial z} \amp = 3xy^2z^2 </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
 
@@ -557,6 +648,21 @@
       <p>
         Given that <m>g(u,v) = u \ln\lp u + v \rp</m>, compute the partial derivative <m>g_u(1,2)</m>. 
       </p>
+
+      <solution>
+        <p>
+          First, we find the partial derivative function <m>g_u(u,v)</m> using the Product Rule.
+          <md>
+            <mrow> g_u(u,v) \amp = 1 \cdot \ln\lp u + v \rp + u \cdot \frac{1}{u+v} \cdot 1 </mrow>
+            <mrow> \amp = \ln\lp u + v \rp + \frac{u}{u+v} </mrow>
+          </md>
+          Now we substitute <m>(1,2)</m> into the derivative.
+          <md>
+            <mrow> g_u(1,2) \amp = \ln\lp 1 + 2 \rp + \frac{1}{1+2} </mrow>
+            <mrow> \amp = \ln(3) + \frac{1}{3} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -571,12 +677,36 @@
         <p>
           <m>f(x,y) = 3x^2y - 6xy^4\, , \quad \dfrac{\partial^2 f}{\partial x^2} \text{ and } \dfrac{\partial^2 f}{\partial y^2}</m>
         </p>
+
+        <solution>
+          <p>
+            <md>
+              <mrow> \frac{\partial f}{\partial x} \amp = 6xy - 6y^4 </mrow>
+              <mrow> \frac{\partial^2 f}{\partial x^2} \amp = 6y </mrow>
+            </md>
+            <md>
+              <mrow> \frac{\partial f}{\partial y} \amp = 3x^2 - 24xy^3 </mrow>
+              <mrow> \frac{\partial^2 f}{\partial y^2} \amp = -72xy^2 </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.3.55">
         <p>
           <m>h(u,v) = \dfrac{u}{u + 4v}\, , \quad h_{vv}(u,v)</m>
         </p>
+
+        <solution>
+          <p>
+            We can rewrite <m>h(u,v) = u(u+4v)^{-1}</m> to make differentiation easier.
+            <md>
+              <mrow> h_v(u,v) \amp = u(-1)(u+4v)^{-2}(4) = -4u(u+4v)^{-2} </mrow>
+              <mrow> h_{vv}(u,v) \amp = -4u(-2)(u+4v)^{-3}(4) </mrow>
+              <mrow> \amp = 32u(u+4v)^{-3} = \frac{32u}{\lp u + 4v \rp^3} </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
 
@@ -599,6 +729,17 @@
         <p>
           <m>g(x,y,z) = \sqrt{x^2 + y^2 + z^2} \, , \quad g_{xyz}</m>
         </p>
+
+        <solution>
+          <p>
+            <md>
+              <mrow> g_x \amp = \frac{1}{2}\lp x^2 + y^2 + z^2 \rp^{-1/2} \cdot 2x = x\lp x^2 + y^2 + z^2 \rp^{-1/2} </mrow>
+              <mrow> g_{xy} \amp = x \cdot \lp -\frac{1}{2} \rp \lp x^2 + y^2 + z^2 \rp^{-3/2} \cdot 2y = -xy\lp x^2 + y^2 + z^2 \rp^{-3/2} </mrow>
+              <mrow> g_{xyz} \amp = -xy \cdot \lp -\frac{3}{2} \rp \lp x^2 + y^2 + z^2 \rp^{-5/2} \cdot 2z </mrow>
+              <mrow> \amp = 3xyz\lp x^2 + y^2 + z^2 \rp^{-5/2} </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
 
@@ -636,6 +777,79 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <p>
+          To demonstrate that each function is harmonic, we must compute the second partial derivatives with respect to <m>x</m> and <m>y</m>, and show that their sum is zero.
+        </p>
+        <ol marker="(a)">
+          <li>
+            <p>
+              We first compute the derivatives for <m>u(x,y) = x</m>.
+              <md>
+                <mrow> u_x \amp = 1 </mrow>
+                <mrow> u_{xx} \amp = 0 </mrow>
+                <mrow> u_y \amp = 0 </mrow>
+                <mrow> u_{yy} \amp = 0 </mrow>
+              </md>
+              Now we calculate the Laplacian:
+              <md>
+                <mrow> \Delta u \amp = u_{xx} + u_{yy} = 0 + 0 = 0 </mrow>
+              </md>
+              Since <m>\Delta u = 0</m>, the function is harmonic.
+            </p>
+          </li>
+          <li>
+            <p>
+              Next, we compute the derivatives for <m>u(x,y) = e^x\cos(y)</m>.
+              <md>
+                <mrow> u_x \amp = e^x\cos(y) </mrow>
+                <mrow> u_{xx} \amp = e^x\cos(y) </mrow>
+                <mrow> u_y \amp = -e^x\sin(y) </mrow>
+                <mrow> u_{yy} \amp = -e^x\cos(y) </mrow>
+              </md>
+              Summing the second derivatives gives:
+              <md>
+                <mrow> \Delta u \amp = e^x\cos(y) - e^x\cos(y) = 0 </mrow>
+              </md>
+              Therefore, the function is harmonic.
+            </p>
+          </li>
+          <li>
+            <p>
+              For <m>u(x,y) = \tan^{-1} \lp \dfrac{y}{x} \rp</m>, we use the Chain Rule to find the derivatives.
+              <md>
+                <mrow> u_x \amp = \frac{1}{1 + (y/x)^2} \cdot \lp -yx^{-2} \rp = \frac{-y}{x^2 + y^2} </mrow>
+                <mrow> u_{xx} \amp = \frac{\partial}{\partial x}\lp -y\lp x^2 + y^2 \rp^{-1} \rp = -y(-1)\lp x^2 + y^2 \rp^{-2}(2x) = \frac{2xy}{(x^2 + y^2)^2} </mrow>
+                <mrow> u_y \amp = \frac{1}{1 + (y/x)^2} \cdot \lp x^{-1} \rp = \frac{x}{x^2 + y^2} </mrow>
+                <mrow> u_{yy} \amp = \frac{\partial}{\partial y}\lp x\lp x^2 + y^2 \rp^{-1} \rp = x(-1)\lp x^2 + y^2 \rp^{-2}(2y) = \frac{-2xy}{(x^2 + y^2)^2} </mrow>
+              </md>
+              Adding the second partials:
+              <md>
+                <mrow> \Delta u \amp = \frac{2xy}{(x^2 + y^2)^2} + \frac{-2xy}{(x^2 + y^2)^2} = 0 </mrow>
+              </md>
+              Thus, the function is harmonic.
+            </p>
+          </li>
+          <li>
+            <p>
+              Finally, for <m>u(x,y) = \ln\lp x^2 + y^2 \rp</m>, we compute the derivatives using the Chain Rule and Quotient Rule.
+              <md>
+                <mrow> u_x \amp = \frac{1}{x^2 + y^2} \cdot 2x = \frac{2x}{x^2 + y^2} </mrow>
+                <mrow> u_{xx} \amp = \frac{2(x^2 + y^2) - 2x(2x)}{(x^2 + y^2)^2} = \frac{2y^2 - 2x^2}{(x^2 + y^2)^2} </mrow>
+                <mrow> u_y \amp = \frac{1}{x^2 + y^2} \cdot 2y = \frac{2y}{x^2 + y^2} </mrow>
+                <mrow> u_{yy} \amp = \frac{2(x^2 + y^2) - 2y(2y)}{(x^2 + y^2)^2} = \frac{2x^2 - 2y^2}{(x^2 + y^2)^2} </mrow>
+              </md>
+              We sum <m>u_{xx}</m> and <m>u_{yy}</m>:
+              <md>
+                <mrow> \Delta u \amp = \frac{2y^2 - 2x^2}{(x^2 + y^2)^2} + \frac{2x^2 - 2y^2}{(x^2 + y^2)^2} </mrow>
+                <mrow> \amp = \frac{2y^2 - 2x^2 + 2x^2 - 2y^2}{(x^2 + y^2)^2} = 0 </mrow>
+              </md>
+              Since the sum is zero, we conclude that the function is harmonic.
+            </p>
+          </li>
+        </ol>
+      </solution>
     </exercise>
   
   </worksheet>

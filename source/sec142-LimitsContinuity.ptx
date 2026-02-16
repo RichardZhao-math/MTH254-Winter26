@@ -748,12 +748,50 @@
           \lim_{(x,y) \to (1,1)} \frac{e^{x^2} - e^{-y^2}}{x + y}
         </md>
       </p>
+
+      <solution>
+        <p>
+          The function is the quotient of two continuous functions, and the denominator is not zero at the point <m>(1,1)</m>. 
+          Therefore, the function is continuous at this point, and we may compute the limit by substitution. 
+          <md>
+            \lim_{(x,y) \to (1,1)} \frac{e^{x^2} - e^{-y^2}}{x + y} = \frac{e^{1^2} - e^{-1^2}}{1 + 1} = \frac{e - e^{-1}}{2}
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.2.13">
       <p>
         Does <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{y^2}{x^2 + y^2}</m> exist? Explain. 
       </p>
+
+      <solution>
+        <p>
+          This limit does not exist. 
+          Consider the following paths to the point <m>(x,y) = (0,0)</m>. 
+          First along the line <m>x = 0</m> and second along the line <m>y = x</m>.
+        </p>
+
+        <p>
+          First along the line <m>x = 0</m>, we have
+          <md>
+            \lim_{y \to 0} \dfrac{y^2}{0^2 + y^2} = \lim_{y \to 0} 1 = 1
+          </md>
+          So along the line <m>x = 0</m>, the limit is 1. 
+        </p>
+
+        <p>
+          Next along the line <m>y = x</m>, we have
+          <md>
+            \lim_{x \to 0} \dfrac{x^2}{x^2 + x^2} = \lim_{x \to 0} \dfrac{1}{2} = \dfrac{1}{2}
+          </md>
+          So along the line <m>y = x</m>, the limit is <m>\dfrac{1}{2}</m>.
+        </p>
+
+        <p>
+          Since these two limits are not equal, the limit in question does not exist. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.2.15">
@@ -761,12 +799,40 @@
         Let <m>f(x,y) = \dfrac{x^3 + y^3}{xy^2}</m>. 
         Set <m>y = mx</m> and show that the resulting limit depends on <m>m</m>, and therefore the limit <m>\ds \lim_{(x,y) \to (0,0)} f(x,y)</m> does not exist. 
       </p>
+
+      <solution>
+        <p>
+          We have
+          <md>
+            f(x,mx) = \frac{x^3 + (mx)^3}{x(mx)^2} = \frac{\lp m^3 + 1 \rp x^3}{m^2x^3} = \frac{m^3 + 1}{m^2}
+          </md>
+          So <m>f</m> is a constant along any line through the origin. 
+          Since <m>\dfrac{m^3 + 1}{m^2}</m> is not a constant function of <m>m</m>, the limit of <m>f(x,mx)</m> depends on <m>m</m>. 
+          For example, 
+          <md>
+            <mrow> \text{When } m = 2, \, \amp \lim_{x\to 0} f(x.mx) = \lim_{x\to 0} \frac{2^3 + 1}{2^2} = \frac{9}{4} </mrow>
+            <mrow> \text{When } m = 1, \, \amp \lim_{x\to 0} f(x.mx) = \lim_{x\to 0} \frac{1^3 + 1}{1^2} = 2 </mrow>
+          </md>
+          Therefore, the limit in question does not exist. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.2.21">
       <p>
         Evaluate the limit <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{xy}{3x^2 + 2y^2}</m> or show that it does not exist.
       </p>
+
+      <solution>
+        <p>
+          This limit does not exist. 
+          Consider the limit as <m>(x,y) \to (0,0)</m> along the line <m>y = mx</m>. 
+          <md>
+            \lim_{x\to 0} \frac{x(mx)}{3x^2 + 2(mx)^2} = \lim_{x\to 0} \frac{mx^2}{x^2 \lp 3 + 2m^2 \rp} = \lim_{x\to 0}\frac{m}{3+2m^2}
+          </md>
+          This value is different for different values of <m>m</m>, so the limit depends on the path taken and the limit in question does not exist. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.2.25">
@@ -790,18 +856,71 @@
         <p>
           <m>\ds \lim_{(x,y) \to (3,4)} \dfrac{1}{\sqrt{x^2 + y^2}}</m>
         </p>
+
+        <solution>
+          <p>
+            The function <m>\dfrac{1}{\sqrt{x^2 + y^2}}</m> is continuous at the point <m>(3,4)</m> since it is the quotient of two continuous functions and the denominator is not zero at <m>(3,4)</m>. 
+            We compute the limit by substitution:
+            <md>
+              \lim_{(x,y) \to (3,4)} \dfrac{1}{\sqrt{x^2 + y^2}} = \dfrac{1}{\sqrt{3^2 + 4^2}} = \dfrac{1}{5}
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.2.33">
         <p>
           <m>\ds \lim_{(x,y) \to (\pi,0)} \dfrac{\cos(x)}{\sin(y)}</m>
         </p>
+
+        <solution>
+          <p>
+            This limit does not exist. As <m>(x,y)</m> approaches <m>(\pi,0)</m>, the numerator approaches <m>\cos\lp \pi \rp = -1</m> and the denominator approaches <m>\sin\lp 0 \rp = 0</m>. This form <m>-1/0</m> indicates the limit will be unbounded. We can investigate the behavior by approaching along the line <m>x = \pi</m>.
+          </p>
+
+          <p>
+            Approaching <m>0</m> from the right (<m>y \gt 0</m>):
+            <md>
+              \lim_{y \to 0^+} \dfrac{\cos\lp \pi \rp}{\sin\lp y \rp} = \lim_{y \to 0^+} \dfrac{-1}{\sin\lp y \rp} = -\infty
+            </md>
+          </p>
+
+          <p>
+            Approaching <m>0</m> from the left (<m>y \lt 0</m>):
+            <md>
+              \lim_{y \to 0^-} \dfrac{\cos\lp \pi \rp}{\sin\lp y \rp} = \lim_{y \to 0^-} \dfrac{-1}{\sin\lp y \rp} = \infty
+            </md>
+          </p>
+
+          <p>
+            Since the function approaches different infinities depending on the direction of approach, the limit <m>\text{does not exist}</m>.
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.2.41">
         <p>
           <m>\ds \lim_{(x,y) \to (0,0)} \dfrac{x^2 + y^2}{\sqrt{x^2 + y^2 + 1} - 1}</m>
         </p>
+
+        <solution>
+          <p>
+            We rewrite the function by dividing and multiplying it by the conjugate of <m>\sqrt{x^2 + y^2 + 1} - 1</m> and use the identity <m>(a - b)(a + b) = a^2 - b^2</m>. 
+            This gives
+            <md>
+              <mrow> \frac{x^2 + y^2}{\sqrt{x^2 + y^2 + 1} - 1} \amp= \frac{\lp x^2 + y^2 \rp \lp \sqrt{x^2 + y^2 + 1} + 1 \rp}{\lp\sqrt{x^2 + y^2 + 1} - 1)\rp\lp\sqrt{x^2 + y^2 + 1} + 1\rp} </mrow>
+              <mrow> \amp= \frac{\lp x^2 + y^2 \rp \lp \sqrt{x^2 + y^2 + 1} + 1 \rp}{x^2 + y^2 + 1 - 1} </mrow>
+              <mrow> \amp= \frac{\lp x^2 + y^2 \rp \lp \sqrt{x^2 + y^2 + 1} + 1 \rp}{x^2 + y^2} </mrow>
+              <mrow> \amp= \sqrt{x^2 + y^2 + 1} + 1 </mrow>
+            </md>
+            This resulting function is continuous, hence we may compute the limit by substitution:
+            <md>
+              <mrow> \lim_{(x,y) \to (0,0)} \dfrac{x^2 + y^2}{\sqrt{x^2 + y^2 + 1} - 1} \amp= \lim_{(x,y) \to (0,0)} \lp \sqrt{x^2 + y^2 + 1} + 1 \rp </mrow>
+              <mrow> \amp= \sqrt{0^2 + 0^2 + 1} + 1 </mrow>
+              <mrow> \amp= 2 </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
     </exercisegroup>
   

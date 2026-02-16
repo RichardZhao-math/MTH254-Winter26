@@ -358,18 +358,60 @@
         Evaluate the function <m>h(x,y) = \dfrac{\sqrt{x - y^2}}{x - y}</m> at the given points <m>(20,2)</m>, <m>(1,-2)</m>, and <m>(1,1)</m> 
         (or indicate that the function is undefined there). 
       </p>
+
+      <solution>
+        <p>
+          For <m>(20,2)</m>:
+          <md>
+            h(20,2) = \frac{\sqrt{20 - 2^2}}{20 - 2} = \frac{\sqrt{16}}{18} = \frac{4}{18} = \frac{2}{9}
+          </md>
+        </p>
+        <p>
+          For <m>(1,-2)</m>:
+          <md>
+            h(1,-2) = \frac{\sqrt{1 - (-2)^2}}{1 - (-2)} = \frac{\sqrt{1 - 4}}{3} = \frac{\sqrt{-3}}{3}
+          </md>
+          The function is undefined at <m>(1,-2)</m> because the term under the square root is negative.
+        </p>
+        <p>
+          For <m>(1,1)</m>:
+          <md>
+            h(1,1) = \frac{\sqrt{1 - 1^2}}{1 - 1} = \frac{0}{0}
+          </md>
+          The function is undefined at <m>(1,1)</m> due to division by zero.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.1.9">
       <p>
         Sketch the domain of the function <m>f(x,y) = \ln \lp 4x^2 - y \rp</m>. 
       </p>
+
+      <solution>
+        <p>
+          The function is defined if <m>4x^2 - y \gt 0</m>. 
+          That is, <m>y \lt 4x^2</m>. 
+          The domain is the region in the <m>xy</m>-plane that is below the parabola <m>y = 4x^2</m>. 
+        </p>
+
+        <figure>
+          <image source="sec141_HW9_Solution_Diagram.png" width="55%"></image>
+        </figure>
+      </solution>
     </exercise>
 
     <exercise number="14.1.17">
       <p>
         Describe the domain and range of the function <m>P(r,s,t) = \sqrt{16 -  r^2s^2t^2}</m>. 
       </p>
+
+      <solution>
+        <p>
+          The domain is the subset of <m>\R^3</m> where <m>r^2s^2t^2 \lt 16</m>, or <m>|rst| \lt 4</m>. 
+          The range is <m>\left\{ w \mid 0 \leq w \leq 4 \right\}</m> since the values of <m>P</m> clearly range from <m>\sqrt{16 - 16} = 0</m> to <m>\sqrt{16 - 0} = 4</m>. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.1.19">
@@ -392,6 +434,25 @@
       <figure>
         <image source="sec141-HW19-Figure.png" width="70%"></image>
       </figure>
+
+      <solution>
+        <p>
+          <ol marker="i.">
+            <li>
+              <p>
+                The vertical trace for <m>f(x,y) = -x + y^2</m> in the <m>xz</m>-plane (<m>y = 0</m>) is <m>z = -x</m>. 
+                This matches the graph shown in (B). 
+              </p>
+            </li>
+            <li>
+              <p>
+                The vertical trace for <m>f(x,y) = x + y^2</m> in the <m>xz</m>-plane (<m>y = 0</m>) is <m>z = x</m>. 
+                This matches the graph shown in (A). 
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.1.21">
@@ -440,12 +501,62 @@
       <p>
         Sketch the graph of <m>f(x,y) = x^2 + 4y^2</m> and draw several vertical and horizontal traces. 
       </p>
+
+      <solution>
+        <p>
+          The graph of the function is shown below. 
+        </p>
+
+        <figure>
+          <image source="sec141_HW25_Solution_Graph.png" width="50%"></image>
+        </figure>
+
+        <p>
+          The horizontal traces at height <m>c</m> is the curve <m>x^2 + 4y^2 = c</m>, where <m>c \geq 0</m> (if <m>c = 0</m>, it is the origin). 
+          The horizontal traces are ellipses for <m>c \gt 0</m>. 
+        </p>
+
+        <figure>
+          <image source="sec141_HW25_Solution_HorizontalTrace.png" width="50%"></image>
+        </figure>
+
+        <p>
+          The vertical traces in the plane <m>x = a</m> is the parabola <m>z = a^2 + 4y^2</m>, and the vertical trace in the plane <m>y = a</m> is the parabola <m>z = x^2 + 4a^2</m>. 
+        </p>
+
+        <figure>
+          <image source="sec141_HW25_Solution_VerticalTraces.png" width="70%"></image>
+        </figure>
+      </solution>
     </exercise>
 
     <exercise number="14.1.33">
       <p>
         Draw a contour map of <m>f(x,y) = \dfrac{y}{x}</m> with an appropriate contour interval, showing at least six level curves. 
       </p>
+
+      <solution>
+        <p>
+          The level curves are defined by <m>\frac{y}{x} = k</m>, which implies <m>y = kx</m>. 
+          These are straight lines passing through the origin with slope <m>k</m> (excluding the origin itself, where the function is undefined).
+        </p>
+        <p>
+          Examples of level curves:
+          <md>
+            <mrow> k = 0 \qquad \implies \qquad y = 0 \text{ (x-axis)} </mrow>
+            <mrow> k = 1 \qquad \implies \qquad y = x </mrow>
+            <mrow> k = -1 \qquad \implies \qquad y = -x </mrow>
+            <mrow> k = 2 \qquad \implies \qquad y = 2x </mrow>
+            <mrow> k = -2 \qquad \implies \qquad y = -2x </mrow>
+            <mrow> k = \frac{1}{2} \qquad \implies \qquad y = \frac{1}{2}x </mrow>
+          </md>
+          The contour map consists of a family of lines intersecting at the origin, shown in the figure below. 
+        </p>
+
+        <figure>
+          <image source="sec141_HW33_Solution_Diagram.png" width="40%"></image>
+        </figure>
+      </solution>
     </exercise>
 
     <exercise number="14.1.41">
@@ -469,6 +580,23 @@
         <image source="sec141-HW41-Figure.png" width="60%"></image>
         <caption>Atmospheric pressure (in millibars) over North America on March 26, 2009</caption>
       </figure>
+
+      <solution>
+        <p>
+          <ol marker="a.">
+            <li>
+              <p>
+                (A) and (B)
+              </p>
+            </li>
+            <li>
+              <p>
+                (C)
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.1.47">
@@ -476,6 +604,28 @@
         Let <m>T(x,y,z) = x^2 - y^2 + z^2</m> denote the temperature at each point in space. 
         Draw level surfaces (also called isotherms) corresponding to the fixed temperatures <m>T = 0,1,2,-1,-2</m>.
       </p>
+
+      <solution>
+        <p>
+          Each level surface of <m>T</m> is of the form <m>x^2 - y^2 + z^2 = a</m> for some constant <m>a</m>, so the level surfaces for <m>a \gt 0</m> are hyperboloids of one sheet; 
+        </p>
+
+        <p>
+          For <m>a \lt 0</m>, they are hyperboloids of two sheets; 
+        </p>
+
+        <p>
+          And for <m>a = 0</m> it is a elliptic cone. 
+        </p>
+
+        <p>
+          Note that all of these surfaces are oriented along the <m>y</m>-axis. 
+        </p>
+
+        <figure>
+          <image source="sec141_HW47_Solution_Diagram.png" width="75%"></image>
+        </figure>
+      </solution>
     </exercise>
 
     <exercise number="14.1.57">
@@ -486,6 +636,21 @@
         </md>
         Draw isotherms corresponding to temperatures <m>T = 0, 1, 2</m>.
       </p>
+
+      <solution>
+        <p>
+          Each level surface of <m>T</m> is of the form 
+          <md>
+            \frac{x^2}{4} + \frac{y^2}{9} + z^2 = a
+          </md>
+          for some constant <m>a</m>, so the level surfaces are ellipsoids for positive values of <m>a</m>, empty for negative values of <m>a</m>, and consist of the origin if <m>a = 0</m>. 
+          Plots of the various surfaces are shown below. 
+        </p>
+
+        <figure>
+          <image source="sec141_HW57_Solution_Diagram.png" width="85%"></image>
+        </figure>
+      </solution>
     </exercise>
   </worksheet>
 
