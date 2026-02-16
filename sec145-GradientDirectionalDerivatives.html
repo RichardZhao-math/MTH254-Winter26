@@ -102,14 +102,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.12';
+eBookConfig.runestone_version = '7.11.14';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.0d5f811896ddeac1.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.e2abc79debce15fd.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.d892923478694492.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -135,6 +135,8 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Z}{\mathbb Z} 
 \newcommand{\Q}{\mathbb Q} 
 \newcommand{\R}{\mathbb R} 
+
+\newcommand{\ds}{\displaystyle}
 
 \newcommand{\v}[1]{\mathbf{#1}}
 \newcommand{\c}[1]{\mathcal{#1}}
@@ -286,13 +288,39 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#ws-sec141" class="internal"><span class="title">Assigned Problems for Section 14.1</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html#ws-sec142" class="internal"><span class="codenumber">14.2</span> <span class="title">Assigned Problems for Section 14.2</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html#ws-sec143" class="internal"><span class="codenumber">14.3</span> <span class="title">Assigned Problems for Section 14.3</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#subsec-TangentPlane" class="internal"><span class="title">Tangent Planes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#subsec-Differentiability_TwoVariableFunctions" class="internal"><span class="title">Differentiability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#subsec-Linearization_FunctionTwoVariables" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#ws-sec144" class="internal"><span class="title">Assigned Problems for Section 14.4</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html#subsec-DirectionalDerivatives" class="internal"><span class="title">Directional Derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html#subsec-Gradient" class="internal"><span class="title">The Gradient</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html#ws-sec145" class="internal"><span class="title">Assigned Problems for Section 14.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec146-ChainRule.html#subsec-ChainRule_MultiCalc" class="internal"><span class="title">The (Fancy) Chain Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec146-ChainRule.html#subsec-ImplicitDifferentiation_MultiCalc" class="internal"><span class="title">(Fancy) Implicit Differentiation</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec146-ChainRule.html#ws-sec146" class="internal"><span class="title">Assigned Problems for Section 14.6</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -300,17 +328,687 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec145-GradientDirectionalDerivatives"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Gradient and Directional Derivatives</span>
 </h2>
-<section class="introduction" id="sec145-GradientDirectionalDerivatives-2"><div class="para" id="sec145-GradientDirectionalDerivatives-2-1">Just the introduction texts...<div class="autopermalink" data-description="Paragraph"><a href="#sec145-GradientDirectionalDerivatives-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="sec145-GradientDirectionalDerivatives-2"><div class="para" id="sec145-GradientDirectionalDerivatives-2-1">In the previous section, we learned how to calculate partial derivatives, which represent the rate of change of a function as we move strictly parallel to the <span class="process-math">\(x\)</span>-axis or the <span class="process-math">\(y\)</span>-axis. However, there are infinitely many other directions we can move on the surface. In this section, we will discuss how to take the derivative of a function in an arbitrary direction.<div class="autopermalink" data-description="Paragraph"><a href="#sec145-GradientDirectionalDerivatives-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="objectives goal-like" id="sec145-GradientDirectionalDerivatives-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
 <div class="introduction" id="sec145-GradientDirectionalDerivatives-2-2-1"><div class="para" id="sec145-GradientDirectionalDerivatives-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec145-GradientDirectionalDerivatives-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<ul class="disc" id="sec145-GradientDirectionalDerivatives-2-2-2"><li id="sec145-GradientDirectionalDerivatives-2-2-2-1">
-<div class="para" id="sec145-GradientDirectionalDerivatives-2-2-2-1-1">blahblahblah<div class="autopermalink" data-description="Paragraph"><a href="#sec145-GradientDirectionalDerivatives-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec145-GradientDirectionalDerivatives-2-2-2">
+<li id="sec145-GradientDirectionalDerivatives-2-2-2-1">
+<div class="para" id="sec145-GradientDirectionalDerivatives-2-2-2-1-1">calculate the directional derivative of a function in a given direction.<div class="autopermalink" data-description="Paragraph"><a href="#sec145-GradientDirectionalDerivatives-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Objective"><a href="#sec145-GradientDirectionalDerivatives-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li></ul>
-<div class="autopermalink" data-description="Objectives"><a href="#sec145-GradientDirectionalDerivatives-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="autopermalink" data-description="Section 14.5: The Gradient and Directional Derivatives"><a href="#sec145-GradientDirectionalDerivatives" title="Copy heading and permalink for Section 14.5: The Gradient and Directional Derivatives" aria-label="Copy heading and permalink for Section 14.5: The Gradient and Directional Derivatives">🔗</a></div></section></div>
+</li>
+<li id="sec145-GradientDirectionalDerivatives-2-2-2-2">
+<div class="para" id="sec145-GradientDirectionalDerivatives-2-2-2-2-1">define and compute the gradient vector of a function of two or three variables.<div class="autopermalink" data-description="Paragraph"><a href="#sec145-GradientDirectionalDerivatives-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec145-GradientDirectionalDerivatives-2-2-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec145-GradientDirectionalDerivatives-2-2-2-3">
+<div class="para" id="sec145-GradientDirectionalDerivatives-2-2-2-3-1">interpret the gradient vector.<div class="autopermalink" data-description="Paragraph"><a href="#sec145-GradientDirectionalDerivatives-2-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec145-GradientDirectionalDerivatives-2-2-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec145-GradientDirectionalDerivatives-2-2-2-4">
+<div class="para" id="sec145-GradientDirectionalDerivatives-2-2-2-4-1">use the gradient to find the equation of a tangent plane to a level surface.<div class="autopermalink" data-description="Paragraph"><a href="#sec145-GradientDirectionalDerivatives-2-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec145-GradientDirectionalDerivatives-2-2-2-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec145-GradientDirectionalDerivatives-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="para" id="sec145-GradientDirectionalDerivatives-3">Partial derivatives tell us about the rate of change of a function at a point in the direction parallel to the <span class="process-math">\(x\)</span>-axis and the <span class="process-math">\(y\)</span>-axis. But there are a lot more directions we can move on the surface. How do we measure the rate of change of a function at a point in an arbitrary direction? <dfn class="terminology">Directional Derivative</dfn> will tell us about it!<div class="autopermalink" data-description="Paragraph"><a href="#sec145-GradientDirectionalDerivatives-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="subsec-DirectionalDerivatives"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Directional Derivatives</span>
+</h3>
+<div class="para" id="subsec-DirectionalDerivatives-2">Directional derivatives, as the name suggests, measure the rate of change of a function at a point in a specified direction. Let’s come up with the definition of directional derivatives!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DirectionalDerivatives-3">Let <span class="process-math">\(z = f(x,y)\)</span> and <span class="process-math">\(P = (a,b,f(a,b))\)</span> be a point on the surface. Let’s say we want to find the directional derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(P\)</span> in the direction of the unit vector <span class="process-math">\(\v{u} = \la h,k \ra\text{.}\)</span> The diagram below shows this situation.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-DirectionalDerivatives-4"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/sec145_DirectionalDerivative_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 14.5.1"><a href="#subsec-DirectionalDerivatives-4" title="Copy heading and permalink for Figure 14.5.1" aria-label="Copy heading and permalink for Figure 14.5.1">🔗</a></div></figcaption></figure><div class="para" id="subsec-DirectionalDerivatives-5">The vector <span class="process-math">\(\v{u}\)</span> and the point <span class="process-math">\(P\)</span> can determine a <em class="emphasis">vertical</em> plane shown in the figure. This plane intersects the surface in a curve <span class="process-math">\(\c{C}\text{.}\)</span> Then we can for sure construct a tangent line <span class="process-math">\(T\)</span> to the curve <span class="process-math">\(\c{C}\)</span> at the point <span class="process-math">\(P\text{.}\)</span> Our job here is to find the slope of this tangent line.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DirectionalDerivatives-6">Let’s pick another point <span class="process-math">\(Q(x,y,f(x,y))\)</span> on the curve <span class="process-math">\(\c{C}\text{.}\)</span> But can we express <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> in terms of a single parameter?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DirectionalDerivatives-7">
+<div class="para">Yes we can! The easiest way to do so is to project <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> onto the <span class="process-math">\(xy\)</span>-plane, resulting in <span class="process-math">\(P' = (a,b,0)\)</span> and <span class="process-math">\(Q' = (x,y,0)\text{,}\)</span> respectively. Since <span class="process-math">\(\overrightarrow{P'Q'} = \la x - a, y - b \ra\)</span> is parallel to <span class="process-math">\(\v{u}\text{,}\)</span> then</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-7-8">
+\begin{equation*}
+\overrightarrow{P'Q'} = t\v{u} = t \la h,k \ra = \la th, tk \ra
+\end{equation*}
+</div>
+<div class="para">which implies that <span class="process-math">\(x = a + th\)</span> and <span class="process-math">\(y = b + tk\text{.}\)</span> Hence, we can express <span class="process-math">\(Q\)</span> as <span class="process-math">\(Q(t) = (a + th, b + tk, f(a + th, b + tk))\)</span> (as opposed to keeping track of two new independent variables).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DirectionalDerivatives-8">
+<div class="para">Now we are ready to find the slope of the line <span class="process-math">\(T\text{!}\)</span> Recall the slope of the line is the rise over the run. Clearly, the rise is the change in the <span class="process-math">\(z\)</span>-coordinate and the run is the change in the distance between <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span> which is <span class="process-math">\(t\text{.}\)</span> Then the slope of the secant line (the line passing through <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span>) is</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-8-8">
+\begin{equation*}
+\frac{\Delta z}{t} = \frac{f(a + th, b + tk) - f(a,b)}{t}
+\end{equation*}
+</div>
+<div class="para">This implies that the slope of the tangent line <span class="process-math">\(T\)</span> is</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-8-10">
+\begin{equation*}
+\lim_{t \to 0} \frac{f(a + th, b + tk) - f(a,b)}{t}
+\end{equation*}
+</div>
+<div class="para">This is the definition of the directional derivative!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-DirectionalDerivative"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Directional Derivative.</span>
+</h4>
+<div class="para logical" id="thm-DirectionalDerivative-2-1">
+<div class="para">The directional derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(P = (a,b)\)</span> in the direction of a unit vector <span class="process-math">\(\v{u} = \la h,k \ra\)</span> is the limit (assuming it exists)</div>
+<div class="displaymath process-math" id="thm-DirectionalDerivative-2-1-4">
+\begin{equation*}
+D_\v{u} f(P) = D_\v{u} f(a,b) = \lim_{t\to 0} \frac{f(a + th, b + tk) - f(a,b)}{t}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-DirectionalDerivative-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 14.5.2: Directional Derivative"><a href="#thm-DirectionalDerivative" title="Copy heading and permalink for Theorem 14.5.2: Directional Derivative" aria-label="Copy heading and permalink for Theorem 14.5.2: Directional Derivative">🔗</a></div></article><details id="subsec-DirectionalDerivatives-10" class="note remark-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Note</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">But Richard... How is this related to the partial derivatives?</span>
+</h4></summary><article class="note remark-like knowl__content"><div class="para" id="subsec-DirectionalDerivatives-10-2">It turns out that the directional derivative is the generalization of the partial derivatives. That is, we can recover the partial derivatives from the directional derivative by choosing the appropriate direction.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DirectionalDerivatives-10-3">Let’s say we pick the unit vector of <span class="process-math">\(\v{i} = \la 1,0 \ra\text{.}\)</span> Then a point <span class="process-math">\(P\)</span> along this direction <span class="process-math">\(\v{i}\)</span> can determine a vertical plane parallel to the <span class="process-math">\(xz\)</span>-plane. On this plane, the <span class="process-math">\(y\)</span>-coordinate is fixed. So we expect the directional derivative to be <span class="process-math">\(f_x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-10-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DirectionalDerivatives-10-4">
+<div class="para">Using the definition of the directional derivative, we have</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-10-4-1">
+\begin{align*}
+D_\v{i} f(a,b) \amp= \lim_{t\to 0} \frac{f(a + t(1), b + t(0)) - f(a,b)}{t} \\
+\amp= \frac{f(a + t, b) - f(a,b)}{t} \\
+\amp= f_x(a,b) 
+\end{align*}
+</div>
+<div class="para">So things work out great!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-10-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DirectionalDerivatives-10-5">Similarly, if we pick the unit vector <span class="process-math">\(\v{j} = \la 0,1 \ra\text{,}\)</span> then the vertical plane determined by <span class="process-math">\(P\)</span> and <span class="process-math">\(\v{j}\)</span> is parallel to the <span class="process-math">\(yz\)</span>-plane. On this plane, the <span class="process-math">\(x\)</span>-coordinate is fixed. So we expect the directional derivative to be <span class="process-math">\(f_y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-10-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DirectionalDerivatives-10-6">
+<div class="para">Using the definition of the directional derivative, we have</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-10-6-1">
+\begin{align*}
+D_\v{j} f(a,b) \amp= \lim_{t\to 0} \frac{f(a + t(0), b + t(1)) - f(a,b)}{t} \\
+\amp= \frac{f(a, b + t) - f(a,b)}{t} \\
+\amp= f_y(a,b) 
+\end{align*}
+</div>
+<div class="para">So things work out great again!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-10-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Note 14.5.3: But Richard... How is this related to the partial derivatives?"><a href="#subsec-DirectionalDerivatives-10" title="Copy heading and permalink for Note 14.5.3: But Richard... How is this related to the partial derivatives?" aria-label="Copy heading and permalink for Note 14.5.3: But Richard... How is this related to the partial derivatives?">🔗</a></div></article></details><div class="para" id="subsec-DirectionalDerivatives-11">But no one likes to compute the directional derivative using the limit definition every time. So we want to find a more efficient formula for the directional derivative. The following theorem gives us a nice formula for the directional derivative in terms of the partial derivatives.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-ComputingDirectionalDerivatives"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing Directional Derivatives.</span>
+</h4>
+<div class="para logical" id="thm-ComputingDirectionalDerivatives-2-1">
+<div class="para">If <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(P = (a,b)\)</span> and <span class="process-math">\(\v{u} = \la h,k \ra\)</span> is a unit vector, then the directional derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(P\)</span> in the direction of <span class="process-math">\(\v{u}\)</span> is given by</div>
+<div class="displaymath process-math" id="thm-ComputingDirectionalDerivatives-2-1-7">
+\begin{equation*}
+D_\v{u} f(a,b) = \la f_x(a,b), f_y(a,b) \ra \cdot \la h,k \ra 
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-ComputingDirectionalDerivatives-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 14.5.4: Computing Directional Derivatives"><a href="#thm-ComputingDirectionalDerivatives" title="Copy heading and permalink for Theorem 14.5.4: Computing Directional Derivatives" aria-label="Copy heading and permalink for Theorem 14.5.4: Computing Directional Derivatives">🔗</a></div></article><details id="subsec-DirectionalDerivatives-13" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="subsec-DirectionalDerivatives-13-1">The proof of this theorem isn’t too bad but it needs a clever setup. Richard will set up the proof for you and feel free to give it a try on your own!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-DirectionalDerivatives-13-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-DirectionalDerivatives-13-2-1">Let’s define a new function <span class="process-math">\(g(t) = f(a + th, b + tk)\text{.}\)</span> Then what is <span class="process-math">\(g'(0)\)</span> using the definition of the derivative (the one with the limit)?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-13-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DirectionalDerivatives-13-2-2">Alternatively, what is <span class="process-math">\(g'(0)\)</span> using the Chain Rule covered in <a href="sec146-ChainRule.html" class="internal" title="Section 14.6: Multivariable Calculus Chain Rules">Section 14.6</a>?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-13-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DirectionalDerivatives-13-2-3">Equating the two expressions for <span class="process-math">\(g'(0)\)</span> will give us the desired formula!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-13-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 1.1"><a href="#subsec-DirectionalDerivatives-13-2" title="Copy heading and permalink for Hint 1.1" aria-label="Copy heading and permalink for Hint 1.1">🔗</a></div>
+</div></details><details id="subsec-DirectionalDerivatives-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The actual proof!</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-DirectionalDerivatives-13-3-2">
+<div class="para">Let <span class="process-math">\(g(t) = f(a + th, b + tk)\text{.}\)</span> Then using the definition of the derivative, we have</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-13-3-2-2">
+\begin{align*}
+g'(0) \amp= \lim_{t\to 0} \frac{g(t) - g(0)}{t} \\
+\amp= \lim_{t\to 0} \frac{f(a + th, b + tk) - f(a,b)}{t} \\
+\amp= D_\v{u} f(a,b) 
+\end{align*}
+</div>
+<div class="para">We have established that <span class="process-math">\(g'(0)\)</span> is the directional derivative of <span class="process-math">\(f\)</span> at <span class="process-math">\(P\)</span> in the direction of <span class="process-math">\(\v{u}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-13-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DirectionalDerivatives-13-3-3">
+<div class="para">Alternatively, we can rewrite <span class="process-math">\(g(t) = f(x,y)\text{,}\)</span> where <span class="process-math">\(x = a + th\)</span> and <span class="process-math">\(y = b + tk\text{.}\)</span> Using the Chain Rule in <a href="sec146-ChainRule.html" class="internal" title="Section 14.6: Multivariable Calculus Chain Rules">Section 14.6</a>, we have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec146-ChainRule.html" id="subsec-DirectionalDerivatives-13-3-3-5">
+\begin{align*}
+g'(t) \amp= \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt} = f_x(x,y) h + f_y(x,y) k 
+\end{align*}
+</div>
+<div class="para">When <span class="process-math">\(t = 0\text{,}\)</span> this gives us</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec146-ChainRule.html" id="subsec-DirectionalDerivatives-13-3-3-7">
+\begin{align*}
+g'(0) \amp= f_x(a,b) h + f_y(a,b) k 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-13-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-DirectionalDerivatives-13-3-4">
+<div class="para">Putting them together, we obtain</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-13-3-4-1">
+\begin{equation*}
+D_\v{u} f(a,b) = g'(0) = f_x(a,b) h + f_y(a,b) k = \la f_x(a,b), f_y(a,b) \ra \cdot \la h,k \ra
+\end{equation*}
+</div>
+<div class="para">as desired.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-13-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.1: The actual proof!"><a href="#subsec-DirectionalDerivatives-13-3" title="Copy heading and permalink for Solution 1.1: The actual proof!" aria-label="Copy heading and permalink for Solution 1.1: The actual proof!">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Proof 1"><a href="#subsec-DirectionalDerivatives-13" title="Copy heading and permalink for Proof 1" aria-label="Copy heading and permalink for Proof 1">🔗</a></div></article></details><article class="example example-like" id="subsec-DirectionalDerivatives-14"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-DirectionalDerivatives-14-1">Find the directional derivative <span class="process-math">\(D_\v{u} f(x,y)\)</span> if <span class="process-math">\(f(x,y) = x^3 - 3xy + 4y^2\)</span> and <span class="process-math">\(\v{u}\)</span> is the unit vector given by the angle <span class="process-math">\(\theta = \frac{\pi}{6}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DirectionalDerivatives-14-2">What is <span class="process-math">\(D_\v{u} f(1,2)\)</span> and what does it mean graphically?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-14-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-DirectionalDerivatives-14-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-DirectionalDerivatives-14-3-1">We are given the function <span class="process-math">\(f\)</span> but the unit vector isn’t given explicitly.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-14-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DirectionalDerivatives-14-3-2">Well there is a formula that allows to obtain the unit vector from the angle in <a href="sec121-VectorsPlane.html" class="internal" title="Section 12.1: Vectors in the Plane">Section 12.1</a>. Have fun digging!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-14-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-DirectionalDerivatives-14-3-3">To help you visualize the situation, Richard coded the following graph for you!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-14-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-dir-deriv-scaled"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="fig-dir-deriv-scaled-2-1" width="480" height="480" src="fig-dir-deriv-scaled-2-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The Graph of <span class="process-math">\(f(x,y) = x^2 - 3xy + 4y^2\)</span><div class="autopermalink" data-description="Figure 14.5.6"><a href="#fig-dir-deriv-scaled" title="Copy heading and permalink for Figure 14.5.6" aria-label="Copy heading and permalink for Figure 14.5.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Hint 14.5.5.1"><a href="#subsec-DirectionalDerivatives-14-3" title="Copy heading and permalink for Hint 14.5.5.1" aria-label="Copy heading and permalink for Hint 14.5.5.1">🔗</a></div>
+</div></details><details id="subsec-DirectionalDerivatives-14-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-DirectionalDerivatives-14-4-1">
+<div class="para">First, let’s find the unit vector <span class="process-math">\(\v{u}\text{.}\)</span> Since <span class="process-math">\(\theta = \frac{\pi}{6}\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-14-4-1-3">
+\begin{equation*}
+\v{u} = \la \cos\lp\frac{\pi}{6}\rp, \sin\lp\frac{\pi}{6}\rp \ra = \la \frac{\sqrt{3}}{2}, \frac{1}{2} \ra
+\end{equation*}
+</div>
+<div class="para">Next, we compute the partial derivatives of <span class="process-math">\(f(x,y)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-14-4-1-5">
+\begin{equation*}
+f_x(x,y) = 3x^2 - 3y \qquad \text{and} \qquad f_y(x,y) = -3x + 8y
+\end{equation*}
+</div>
+<div class="para">Now we can find the general formula for the directional derivative:</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-14-4-1-6">
+\begin{align*}
+D_\v{u} f(x,y) \amp= \la 3x^2 - 3y, -3x + 8y \ra \cdot \la \frac{\sqrt{3}}{2}, \frac{1}{2} \ra \\
+\amp= \frac{\sqrt{3}}{2}(3x^2 - 3y) + \frac{1}{2}(-3x + 8y) 
+\end{align*}
+</div>
+<div class="para">Finally, to find <span class="process-math">\(D_\v{u} f(1,2)\text{,}\)</span> we substitute <span class="process-math">\(x=1\)</span> and <span class="process-math">\(y=2\)</span> into the partial derivatives:</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-14-4-1-10">
+\begin{equation*}
+f_x(1,2) = 3(1)^2 - 3(2) = 3 - 6 = -3
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-14-4-1-11">
+\begin{equation*}
+f_y(1,2) = -3(1) + 8(2) = -3 + 16 = 13
+\end{equation*}
+</div>
+<div class="para">So, the directional derivative is:</div>
+<div class="displaymath process-math" id="subsec-DirectionalDerivatives-14-4-1-12">
+\begin{align*}
+D_\v{u} f(1,2) \amp= \la -3, 13 \ra \cdot \la \frac{\sqrt{3}}{2}, \frac{1}{2} \ra \\
+\amp= \frac{-3\sqrt{3} + 13}{2} \\
+\amp\approx 3.9 
+\end{align*}
+</div>
+<div class="para">Graphically, this value represents the slope of the tangent line of the curve obtained by intersecting the surface with the vertical plane determined by the point <span class="process-math">\(P(1,2)\)</span> and the direction of <span class="process-math">\(\v{u}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-DirectionalDerivatives-14-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.5.1"><a href="#subsec-DirectionalDerivatives-14-4" title="Copy heading and permalink for Solution 14.5.5.1" aria-label="Copy heading and permalink for Solution 14.5.5.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.5.5"><a href="#subsec-DirectionalDerivatives-14" title="Copy heading and permalink for Example 14.5.5" aria-label="Copy heading and permalink for Example 14.5.5">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Directional Derivatives"><a href="#subsec-DirectionalDerivatives" title="Copy heading and permalink for Subsection: Directional Derivatives" aria-label="Copy heading and permalink for Subsection: Directional Derivatives">🔗</a></div></section><section class="subsection" id="subsec-Gradient"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Gradient</span>
+</h3>
+<div class="para" id="subsec-Gradient-2">Observing the formula for computing the directional derivative, one of the vectors consists of the first-order partial derivatives of the function. This vector is called the <dfn class="terminology">gradient</dfn> of the function.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-Gradient"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="def-Gradient-1-1">
+<div class="para">The gradient of a function <span class="process-math">\(f(x,y)\)</span> at a point <span class="process-math">\(P = (a,b)\)</span> is the vector</div>
+<div class="displaymath process-math" id="def-Gradient-1-1-3">
+\begin{equation*}
+\nabla f(a,b) = \la f_x(a,b), f_y(a,b) \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-Gradient-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="def-Gradient-1-2">
+<div class="para">In three variables, for <span class="process-math">\(f(x,y,z)\)</span> and <span class="process-math">\(P = (a,b,c)\text{,}\)</span> the gradient is</div>
+<div class="displaymath process-math" id="def-Gradient-1-2-3">
+\begin{equation*}
+\nabla f(a,b,c) = \la f_x(a,b,c), f_y(a,b,c), f_z(a,b,c) \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-Gradient-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 14.5.7"><a href="#def-Gradient" title="Copy heading and permalink for Definition 14.5.7" aria-label="Copy heading and permalink for Definition 14.5.7">🔗</a></div></article><div class="para" id="subsec-Gradient-4">Sometimes the notation can be a bit sloppy and we might drop the reference to the point <span class="process-math">\(P\)</span> and just write <span class="process-math">\(\nabla f = \la \dfrac{\partial f}{\partial x}, \dfrac{\partial f}{\partial y} \ra\text{.}\)</span> Or maybe the reference to the point becomes a subscript and we write <span class="process-math">\(\nabla f_P\text{.}\)</span> They all mean the same thing.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Gradient-5">
+<div class="para">The symbol to denote the gradient, <span class="process-math">\(\nabla\text{,}\)</span> is called "del". This is an upside-down Delta. The concept of gradient can be extended to functions of <span class="process-math">\(n\)</span> variables. We will just need to take all the first-order partial derivatives and organize them into a vector. That is, the gradient of <span class="process-math">\(f(x_1, x_2, \dots, x_n)\)</span> is</div>
+<div class="displaymath process-math" id="subsec-Gradient-5-4">
+\begin{equation*}
+\nabla f = \la \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n} \ra
+\end{equation*}
+</div>
+<div class="para">Likewise, if we are dealing with functions of a single variable, then the gradient is just the derivative of the function. You can think of the gradient of functions of a single variable, aka the derivative, as a vector if you want but there are only two directions to move on the curve: forward (positive) and backward (negative).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Gradient-6"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Gradient-6-1">Find the gradient of the function <span class="process-math">\(f(x,y) = \sin(3x + 2y)\)</span> at the point <span class="process-math">\(\lp \pi, \dfrac{3\pi}{2} \rp\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Gradient-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-Gradient-6-2-1">To find the gradient of the function <span class="process-math">\(f(x,y)\text{,}\)</span> we first calculate the partial derivatives with respect to <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Gradient-6-2-2">
+<div class="para">Using the chain rule, the partial derivative with respect to <span class="process-math">\(x\)</span> is:</div>
+<div class="displaymath process-math" id="subsec-Gradient-6-2-2-2">
+\begin{equation*}
+f_x(x,y) = \frac{\partial}{\partial x} \sin(3x + 2y) = 3\cos(3x + 2y)
+\end{equation*}
+</div>
+<div class="para">The partial derivative with respect to <span class="process-math">\(y\)</span> is:</div>
+<div class="displaymath process-math" id="subsec-Gradient-6-2-2-4">
+\begin{equation*}
+f_y(x,y) = \frac{\partial}{\partial y} \sin(3x + 2y) = 2\cos(3x + 2y)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Gradient-6-2-3">
+<div class="para">Now we evaluate these partial derivatives at the point <span class="process-math">\(\lp \pi, \dfrac{3\pi}{2} \rp\text{.}\)</span> First, we determine the value inside the cosine function:</div>
+<div class="displaymath process-math" id="subsec-Gradient-6-2-3-2">
+\begin{equation*}
+3(\pi) + 2\lp \dfrac{3\pi}{2} \rp = 3\pi + 3\pi = 6\pi
+\end{equation*}
+</div>
+<div class="para">Since <span class="process-math">\(\cos(6\pi) = 1\text{,}\)</span> we have:</div>
+<div class="displaymath process-math" id="subsec-Gradient-6-2-3-4">
+\begin{align*}
+f_x\lp \pi, \dfrac{3\pi}{2} \rp \amp = 3(1) = 3\\
+f_y\lp \pi, \dfrac{3\pi}{2} \rp \amp = 2(1) = 2
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-6-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Gradient-6-2-4">
+<div class="para">Thus, the gradient vector is:</div>
+<div class="displaymath process-math" id="subsec-Gradient-6-2-4-1">
+\begin{equation*}
+\nabla f\lp \pi, \dfrac{3\pi}{2} \rp = \langle 3, 2 \rangle
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-6-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.8.1"><a href="#subsec-Gradient-6-2" title="Copy heading and permalink for Solution 14.5.8.1" aria-label="Copy heading and permalink for Solution 14.5.8.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.5.8"><a href="#subsec-Gradient-6" title="Copy heading and permalink for Example 14.5.8" aria-label="Copy heading and permalink for Example 14.5.8">🔗</a></div></article><div class="para" id="subsec-Gradient-7">There are some nice properties of the gradient. The proofs should be super straightforward (just use the properties of derivative plus vectors to push the symbols around). So Richard will just state the properties without proof.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-PropertiesGradient"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Properties of the Gradient.</span>
+</h4>
+<div class="para logical" id="thm-PropertiesGradient-2-1">
+<div class="para">If <span class="process-math">\(f(x,y,z)\)</span> and <span class="process-math">\(g(x,y,z)\)</span> are differentiable and <span class="process-math">\(c\)</span> is a constant, then</div>
+<ol class="lower-roman ol-marker-6" id="thm-PropertiesGradient-2-1-4">
+<li id="thm-PropertiesGradient-2-1-4-1">
+<div class="para" id="thm-PropertiesGradient-2-1-4-1-1">
+<span class="process-math">\(\displaystyle \nabla (f + g) = \nabla f + \nabla g\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-PropertiesGradient-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item i"><a href="#thm-PropertiesGradient-2-1-4-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
+</li>
+<li id="thm-PropertiesGradient-2-1-4-2">
+<div class="para" id="thm-PropertiesGradient-2-1-4-2-1">
+<span class="process-math">\(\displaystyle \nabla (cf) = c \nabla f\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-PropertiesGradient-2-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item ii"><a href="#thm-PropertiesGradient-2-1-4-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
+</li>
+<li id="thm-PropertiesGradient-2-1-4-3">
+<div class="para" id="thm-PropertiesGradient-2-1-4-3-1">
+<dfn class="terminology">Product Rule for Gradients:</dfn> <span class="process-math">\(\nabla (fg) = f \nabla g + g \nabla f\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-PropertiesGradient-2-1-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item iii"><a href="#thm-PropertiesGradient-2-1-4-3" title="Copy heading and permalink for Item iii" aria-label="Copy heading and permalink for Item iii">🔗</a></div>
+</li>
+<li id="thm-PropertiesGradient-2-1-4-4">
+<div class="para" id="thm-PropertiesGradient-2-1-4-4-1">
+<dfn class="terminology">Chain Rule for Gradients:</dfn> If <span class="process-math">\(F(t)\)</span> is a differentiable function of one variable, then <span class="process-math">\(\nabla \lp F \lp f(x,y,z) \rp \rp = F'\lp f(x,y,z) \rp \nabla f\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-PropertiesGradient-2-1-4-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item iv"><a href="#thm-PropertiesGradient-2-1-4-4" title="Copy heading and permalink for Item iv" aria-label="Copy heading and permalink for Item iv">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-PropertiesGradient-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 14.5.9: Properties of the Gradient"><a href="#thm-PropertiesGradient" title="Copy heading and permalink for Theorem 14.5.9: Properties of the Gradient" aria-label="Copy heading and permalink for Theorem 14.5.9: Properties of the Gradient">🔗</a></div></article><div class="para logical" id="subsec-Gradient-9">
+<div class="para">Remember we picked out the gradient from the formula for computing the directional derivative, so we can rewrite the formula for computing the directional derivative as</div>
+<div class="displaymath process-math" id="subsec-Gradient-9-1">
+\begin{equation*}
+D_\v{u} f(P) = \nabla f_P \cdot \v{u}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Gradient-10">But what is the difference between the gradient and the directional derivative, as they both seem to be related to the rate of change of the function at a point?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Gradient-11">The short answer is that the gradient is a vector while the directional derivative is a scalar. We can actually learn more about the relationship between them from this formula.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Gradient-12">
+<div class="para">Notice that the directional derivative is the dot product of the gradient and the unit vector. A property of the dot product tells us that</div>
+<div class="displaymath process-math" id="subsec-Gradient-12-1">
+\begin{equation*}
+D_\v{u} f(P) = \|\nabla f_P\| \|u\| \cos(\theta) = \|\nabla f_P\| \cos(\theta)
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\theta\)</span> is the angle between the gradient and the unit vector. That is, the directional derivative (aka the rate of change of the function at a point in a specific direction) varies with the cosine of the angle <span class="process-math">\(\theta\)</span> between the gradient and the direction. Since <span class="process-math">\(\cos(\theta)\)</span> is bounded by <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\text{,}\)</span> then we have</div>
+<div class="displaymath process-math" id="subsec-Gradient-12-7">
+\begin{equation*}
+- \|\nabla f_P\| \leq D_\v{u} f(P) \leq \|\nabla f_P\|
+\end{equation*}
+</div>
+<div class="para">Observe that <span class="process-math">\(D_\v{u} f(P) = \|\nabla f_P\|\)</span> when <span class="process-math">\(\theta = 0\)</span> (i.e., when <span class="process-math">\(\v{u}\)</span> is in the same direction of <span class="process-math">\(\nabla f_P\)</span>). That is, <em class="emphasis">the gradient points in the direction of the maximum rate of increase, and this maximum rate is <span class="process-math">\(\|\nabla f_P\|\)</span></em>. Let’s make it into a cool theorem!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-InterpretingGradient"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Interpretation of the Gradient.</span>
+</h4>
+<div class="para logical" id="thm-InterpretingGradient-2-1">
+<div class="para">Assume that <span class="process-math">\(\nabla f_P \neq \v{0}\text{.}\)</span> Let <span class="process-math">\(\v{u}\)</span> be a unit vector making an angle <span class="process-math">\(\theta\)</span> with <span class="process-math">\(\nabla f_P\text{.}\)</span> Then</div>
+<div class="displaymath process-math" id="thm-InterpretingGradient-2-1-5">
+\begin{equation*}
+D_\v{u} f(P) = \|\nabla f_P\| \cos(\theta)
+\end{equation*}
+</div>
+<ol class="decimal" id="thm-InterpretingGradient-2-1-6">
+<li id="thm-InterpretingGradient-2-1-6-1">
+<div class="para" id="thm-InterpretingGradient-2-1-6-1-1">
+<span class="process-math">\(\nabla f_P\)</span> points in the direction of fastest rate of increase of <span class="process-math">\(f\)</span> at <span class="process-math">\(P\text{,}\)</span> and that rate of increase is <span class="process-math">\(\|\nabla f_P\|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-InterpretingGradient-2-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#thm-InterpretingGradient-2-1-6-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="thm-InterpretingGradient-2-1-6-2">
+<div class="para" id="thm-InterpretingGradient-2-1-6-2-1">
+<span class="process-math">\(-\nabla f_P\)</span> points in the direction of fastest rate of decrease of <span class="process-math">\(f\)</span> at <span class="process-math">\(P\text{,}\)</span> and that rate of decrease is <span class="process-math">\(-\|\nabla f_P\|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-InterpretingGradient-2-1-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#thm-InterpretingGradient-2-1-6-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="thm-InterpretingGradient-2-1-6-3">
+<div class="para" id="thm-InterpretingGradient-2-1-6-3-1">
+<span class="process-math">\(\nabla f_P\)</span> is normal to the level curve (or surface) of <span class="process-math">\(f\)</span> at <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-InterpretingGradient-2-1-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#thm-InterpretingGradient-2-1-6-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-InterpretingGradient-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 14.5.10: Interpretation of the Gradient"><a href="#thm-InterpretingGradient" title="Copy heading and permalink for Theorem 14.5.10: Interpretation of the Gradient" aria-label="Copy heading and permalink for Theorem 14.5.10: Interpretation of the Gradient">🔗</a></div></article><div class="para" id="subsec-Gradient-14">We haven’t talked about the last part of the theorem yet, so let’s focus on the first two parts for now.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Gradient-15"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-Gradient-15-1">
+<div class="para">Let <span class="process-math">\(f(x,y) = xe^y\text{.}\)</span>
+</div>
+<ol class="lower-alpha ol-marker-1" id="subsec-Gradient-15-1-2">
+<li id="subsec-Gradient-15-1-2-1">
+<div class="para" id="subsec-Gradient-15-1-2-1-1">Find the rate of change of <span class="process-math">\(f\)</span> at the point <span class="process-math">\(P(2,0)\)</span> in the direction from <span class="process-math">\(P\)</span> to <span class="process-math">\(Q\lp \frac{1}{2}, \frac{1}{2} \rp\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-15-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#subsec-Gradient-15-1-2-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="subsec-Gradient-15-1-2-2">
+<div class="para" id="subsec-Gradient-15-1-2-2-1">In what direction does <span class="process-math">\(f\)</span> have the maximum rate of increase at <span class="process-math">\(P\text{?}\)</span> What is this maximum rate of increase?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-15-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#subsec-Gradient-15-1-2-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Gradient-15-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Gradient-15-2-1">
+<div class="para">First, we calculate the gradient of <span class="process-math">\(f(x,y) = xe^y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Gradient-15-2-1-2">
+\begin{equation*}
+\nabla f(x,y) = \la e^y, xe^y \ra
+\end{equation*}
+</div>
+<div class="para">At the point <span class="process-math">\(P(2,0)\text{,}\)</span> the gradient vector is:</div>
+<div class="displaymath process-math" id="subsec-Gradient-15-2-1-4">
+\begin{equation*}
+\nabla f(2,0) = \la e^0, 2(e^0) \ra = \la 1, 2 \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha ol-marker-1" id="subsec-Gradient-15-2-2">
+<li id="subsec-Gradient-15-2-2-1">
+<div class="para logical" id="subsec-Gradient-15-2-2-1-1">
+<div class="para">We find the vector representing the direction from <span class="process-math">\(P\)</span> to <span class="process-math">\(Q\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Gradient-15-2-2-1-1-3">
+\begin{equation*}
+\overrightarrow{PQ} = \la \frac{1}{2} - 2, \frac{1}{2} - 0 \ra = \la -\frac{3}{2}, \frac{1}{2} \ra
+\end{equation*}
+</div>
+<div class="para">Next, we find the unit vector <span class="process-math">\(\mathbf{u}\)</span> in this direction:</div>
+<div class="displaymath process-math" id="subsec-Gradient-15-2-2-1-1-5">
+\begin{equation*}
+|\overrightarrow{PQ}| = \sqrt{\lp -\frac{3}{2} \rp^2 + \lp \frac{1}{2} \rp^2} = \sqrt{\frac{10}{4}} = \frac{\sqrt{10}}{2}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="subsec-Gradient-15-2-2-1-1-6">
+\begin{equation*}
+\mathbf{u} = \frac{\vec{PQ}}{|\vec{PQ}|} = \la -\frac{3}{\sqrt{10}}, \frac{1}{\sqrt{10}} \ra
+\end{equation*}
+</div>
+<div class="para">The rate of change is the directional derivative <span class="process-math">\(D_{\mathbf{u}}f(2,0)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Gradient-15-2-2-1-1-8">
+\begin{align*}
+D_{\mathbf{u}}f(2,0) = \nabla f(2,0) \cdot \mathbf{u} \amp = \la 1, 2 \ra \cdot \la -\frac{3}{\sqrt{10}}, \frac{1}{\sqrt{10}} \ra\\
+\amp = -\frac{3}{\sqrt{10}} + \frac{2}{\sqrt{10}}\\
+\amp = -\frac{1}{\sqrt{10}}
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-15-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#subsec-Gradient-15-2-2-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="subsec-Gradient-15-2-2-2">
+<div class="para logical" id="subsec-Gradient-15-2-2-2-1">
+<div class="para">The function has the maximum rate of increase in the direction of the gradient vector:</div>
+<div class="displaymath process-math" id="subsec-Gradient-15-2-2-2-1-1">
+\begin{equation*}
+\la 1, 2 \ra
+\end{equation*}
+</div>
+<div class="para">The maximum rate of increase is the magnitude of the gradient:</div>
+<div class="displaymath process-math" id="subsec-Gradient-15-2-2-2-1-2">
+\begin{equation*}
+|\nabla f(2,0)| = \sqrt{1^2 + 2^2} = \sqrt{5}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-15-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#subsec-Gradient-15-2-2-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 14.5.11.1"><a href="#subsec-Gradient-15-2" title="Copy heading and permalink for Solution 14.5.11.1" aria-label="Copy heading and permalink for Solution 14.5.11.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.5.11"><a href="#subsec-Gradient-15" title="Copy heading and permalink for Example 14.5.11" aria-label="Copy heading and permalink for Example 14.5.11">🔗</a></div></article><div class="para" id="subsec-Gradient-16">Now that we know the difference between the gradient and the directional derivative, we will debrief the last part of the theorem that says the gradient is always normal to the level curve (or surface) at the point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Gradient-17">Let’s say we have a surface <span class="process-math">\(S\)</span> in <span class="process-math">\(\R^3\text{.}\)</span> Then we will need an equation of three variables to describe the surface. That is, the surface will have an equation <span class="process-math">\(F(x,y,z) = k\)</span> (this also means that the surface is a level surface of the function <span class="process-math">\(f\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Gradient-18">
+<div class="para">Now imagine there is a point <span class="process-math">\(P\)</span> on the surface and a curve <span class="process-math">\(\v{C}\)</span> on the surface passing through <span class="process-math">\(P = (a,b,c)\text{.}\)</span> If we call the curve <span class="process-math">\(\v{r}(t) = \la x(t), y(t), z(t) \ra\text{,}\)</span> then there is a parameter <span class="process-math">\(t_0\)</span> such that <span class="process-math">\(\v{r}(t_0) = \la a,b,c \ra\text{.}\)</span> Since <span class="process-math">\(\c{C}\)</span> lies on the surface, then we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec146-ChainRule.html" id="subsec-Gradient-18-8">
+\begin{equation*}
+F\lp \v{r}(t) \rp = F\lp x(t), y(t), z(t) \rp = k
+\end{equation*}
+</div>
+<div class="para">If everything is nice and differentiable, then we can differentiate both sides of the equation using the Chain Rule in <a href="sec146-ChainRule.html" class="internal" title="Section 14.6: Multivariable Calculus Chain Rules">Section 14.6</a> to get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec146-ChainRule.html" id="subsec-Gradient-18-10">
+\begin{align*}
+\frac{\partial F}{\partial x} \frac{dx}{dt} + \frac{\partial F}{\partial y} \frac{dy}{dt} + \frac{\partial F}{\partial z} \frac{dz}{dt} \amp= 0 \\
+\la \frac{\partial F}{\partial x}, \frac{\partial F}{\partial y}, \frac{\partial F}{\partial z} \ra \cdot \la \frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt} \ra \amp= 0 \\
+\nabla f_P \cdot \v{r}'(t_0) \amp= 0 
+\end{align*}
+</div>
+<div class="para">The diagram below shows the situation.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Gradient-19"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec145_GradientNormal_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 14.5.12"><a href="#subsec-Gradient-19" title="Copy heading and permalink for Figure 14.5.12" aria-label="Copy heading and permalink for Figure 14.5.12">🔗</a></div></figcaption></figure><div class="para" id="subsec-Gradient-20">We basically just showed that <em class="emphasis">the gradient vectors are normal to the surface</em>!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Gradient-21">Hmm but why do we need a normal vector to the surface at a point? We can find an equation of the tangent plane using the gradient vector and the point! If you compare the formula for the tangent plane in <a href="sec144-DifferentiabilityTangentPlane.html" class="internal" title="Section 14.4: Differentiability, Tangent Planes, and Linear Approximation">Section 14.4</a>, the normal vector is exactly the gradient vector!<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-GradientNormalVector"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Gradient as a Normal Vector.</span>
+</h4>
+<div class="para logical" id="thm-GradientNormalVector-2-1">
+<div class="para">Let <span class="process-math">\(P = (a,b,c)\)</span> be a point on the surface given by <span class="process-math">\(F(x,y,z) = k\)</span> and assume that <span class="process-math">\(\nabla f_P \neq \v{0}\text{.}\)</span> Then <span class="process-math">\(\nabla f_P\)</span> is a vector normal to the tangent plane to the surface at <span class="process-math">\(P\text{.}\)</span> Moreover, the tangent plane to the surface at <span class="process-math">\(P\)</span> has equation</div>
+<div class="displaymath process-math" id="thm-GradientNormalVector-2-1-7">
+\begin{equation*}
+F_x(a,b,c) (x - a) + F_y(a,b,c) (y - b) + F_z(a,b,c)(z - c) = 0
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-GradientNormalVector-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 14.5.13: Gradient as a Normal Vector"><a href="#thm-GradientNormalVector" title="Copy heading and permalink for Theorem 14.5.13: Gradient as a Normal Vector" aria-label="Copy heading and permalink for Theorem 14.5.13: Gradient as a Normal Vector">🔗</a></div></article><figure class="figure figure-like" id="subsec-Gradient-23"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec145_Gradient_TangentPlane_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 14.5.14"><a href="#subsec-Gradient-23" title="Copy heading and permalink for Figure 14.5.14" aria-label="Copy heading and permalink for Figure 14.5.14">🔗</a></div></figcaption></figure><div class="para" id="subsec-Gradient-24">Using this theorem, we can find an equation of the tangent plane to a surface without needing an explicit formula for our function. That is, <span class="process-math">\(z\)</span> doesn’t need to be isolated in the equation of the surface.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Gradient-25"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-Gradient-25-1">
+<div class="para">Find the equation of the tangent plane at the point <span class="process-math">\(P = (-2,1,-3)\)</span> to the ellipsoid</div>
+<div class="displaymath process-math" id="subsec-Gradient-25-1-2">
+\begin{equation*}
+\frac{x^2}{4} + y^2 + \frac{z^2}{9} = 3
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-25-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Gradient-25-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-Gradient-25-2-1">Let <span class="process-math">\(F(x,y,z) = \frac{x^2}{4} + y^2 + \frac{z^2}{9}\text{.}\)</span> Then the ellipsoid is the level surface <span class="process-math">\(F(x,y,z) = 3\text{.}\)</span> +We find the gradient vector to determine the normal vector to the surface.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-25-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Gradient-25-2-2">
+<div class="displaymath process-math" id="subsec-Gradient-25-2-2-1">
+\begin{equation*}
+\nabla F(x,y,z) = \la \frac{x}{2}, 2y, \frac{2z}{9} \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-25-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Gradient-25-2-3">
+<div class="para">Evaluate the gradient at the point <span class="process-math">\(P(-2,1,-3)\)</span> to find the normal vector <span class="process-math">\(\v{n}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Gradient-25-2-3-3">
+\begin{equation*}
+\mathbf{n} = \nabla F(-2,1,-3) = \la -1, 2, -\frac{2}{3} \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-25-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Gradient-25-2-4">
+<div class="para">The equation of the tangent plane at <span class="process-math">\(P\)</span> is:</div>
+<div class="displaymath process-math" id="subsec-Gradient-25-2-4-2">
+\begin{align*}
+-1(x - (-2)) + 2(y - 1) - \frac{2}{3}(z - (-3)) \amp = 0\\
+-(x + 2) + 2(y - 1) - \frac{2}{3}(z + 3) \amp = 0
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-25-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.15.1"><a href="#subsec-Gradient-25-2" title="Copy heading and permalink for Solution 14.5.15.1" aria-label="Copy heading and permalink for Solution 14.5.15.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 14.5.15"><a href="#subsec-Gradient-25" title="Copy heading and permalink for Example 14.5.15" aria-label="Copy heading and permalink for Example 14.5.15">🔗</a></div></article><div class="para" id="subsec-Gradient-26">Now that we know what the gradient is (pointing in the direction of the maximum rate of increase) and how it behaves (normal to the level curve/surface), we can create something called the <dfn class="terminology">gradient vector field</dfn> (which is super similar to the vector field you learned back in MTH 253). For example, the gradient vector field of <span class="process-math">\(f(x,y) = x^2 - y^2\text{,}\)</span> superimposed on a contour map, is shown below.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Gradient-27"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec145_GradientVectorField_Example.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 14.5.16"><a href="#subsec-Gradient-27" title="Copy heading and permalink for Figure 14.5.16" aria-label="Copy heading and permalink for Figure 14.5.16">🔗</a></div></figcaption></figure><div class="para" id="subsec-Gradient-28">As expected, the gradient vectors are normal to the level curves. They also point in the direction of the maximum rate of increase. That is, each gradient vector is pointing "uphill".<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Gradient-29">Below is the graph of the function <span class="process-math">\(f(x,y) = x^2 - y^2\text{.}\)</span> Try to convince yourself that the gradient vectors are indeed pointing in the direction of the maximum rate of increase and that they are normal to the level curves.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-saddle-surface-teal"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="fig-saddle-surface-teal-2-1" width="480" height="480" src="fig-saddle-surface-teal-2-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.5.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The surface <span class="process-math">\(f(x,y) = x^2 - y^2\)</span><div class="autopermalink" data-description="Figure 14.5.17"><a href="#fig-saddle-surface-teal" title="Copy heading and permalink for Figure 14.5.17" aria-label="Copy heading and permalink for Figure 14.5.17">🔗</a></div></figcaption></figure><div class="para" id="subsec-Gradient-31">Gradient is an important concept that helps us understand the behavior of the surface. We will see more applications of the gradient in the following sections when we talk about optimization. Just a quick preview: if all the gradient vectors are pointing <em class="emphasis">toward</em> the same point on the gradient vector field, then that point is a local <em class="emphasis">maximum</em> since the surface is going uphill towards this point.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Gradient-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection: The Gradient"><a href="#subsec-Gradient" title="Copy heading and permalink for Subsection: The Gradient" aria-label="Copy heading and permalink for Subsection: The Gradient">🔗</a></div></section><section class="worksheet" id="ws-sec145" data-margins="0.75in 0.75in 0.75in 0.75in"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Assigned Problems for Section 14.5</span><div class="print-links"><a href="ws-sec145-printable.html" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<section class="introduction" id="ws-sec145-2"><div class="para" id="ws-sec145-2-1">The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec145-2-2">The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><article class="exercise exercise-like" id="ws-sec145-3"><h4 class="heading"><span class="codenumber">14.5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec145-3-1">Calculate the gradient of <span class="process-math">\(f(x,y) = \cos\lp x^2 + y \rp\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.5.5"><a href="#ws-sec145-3" title="Copy heading and permalink for Worksheet Exercise 14.5.5" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.5">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-4"><h4 class="heading"><span class="codenumber">14.5.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec145-4-1">
+<div class="para">Use the Chain Rule to calculate <span class="process-math">\(\dfrac{d}{dt} f(\v{r}(t))\text{,}\)</span> where</div>
+<div class="displaymath process-math" id="ws-sec145-4-1-2">
+\begin{equation*}
+f(x,y) = \ln(x) + \ln(y) \qquad \text{ and } \qquad \v{r}(t) = \la \cos(t), t^2 \ra
+\end{equation*}
+</div>
+<div class="para">at the point where <span class="process-math">\(t = \dfrac{\pi}{4}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.5.17"><a href="#ws-sec145-4" title="Copy heading and permalink for Worksheet Exercise 14.5.17" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.17">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-5"><h4 class="heading"><span class="codenumber">14.5.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec145-5-1">Calculate the directional derivative of <span class="process-math">\(f(x,y) = \tan^{-1}(xy)\)</span> in the direction of <span class="process-math">\(\v{v} = \la 1,1 \ra\)</span> at the point <span class="process-math">\(P = (3,4)\text{.}\)</span> Remember to use a unit vector in your directional derivative computation.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.5.25"><a href="#ws-sec145-5" title="Copy heading and permalink for Worksheet Exercise 14.5.25" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.25">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-6"><h4 class="heading"><span class="codenumber">14.5.35<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec145-6-1">Determine the direction in which <span class="process-math">\(f(x,y,z) = \dfrac{xy}{z}\)</span> has maximum rate of increase from <span class="process-math">\(P = (1,-1,3)\text{,}\)</span> and give the rate of change in that direction.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.5.35"><a href="#ws-sec145-6" title="Copy heading and permalink for Worksheet Exercise 14.5.35" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.35">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-7"><h4 class="heading"><span class="codenumber">14.5.37<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec145-7-1">Suppose that <span class="process-math">\(\nabla f_P = \la 2,-4,4 \ra\text{.}\)</span> Is <span class="process-math">\(f\)</span> increasing or decreasing at <span class="process-math">\(P\)</span> in the direction of <span class="process-math">\(\v{v} = \la 2,1,3 \ra\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.5.37"><a href="#ws-sec145-7" title="Copy heading and permalink for Worksheet Exercise 14.5.37" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.37">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-8"><h4 class="heading"><span class="codenumber">14.5.39<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec145-8-1">Let <span class="process-math">\(f(x,y,z) = \sin(xy + z)\)</span> and <span class="process-math">\(P = (0,-1, \pi)\text{.}\)</span> Calculate <span class="process-math">\(D_\v{u} f(P)\text{,}\)</span> where <span class="process-math">\(\v{u}\)</span> is a unit vector making an angle <span class="process-math">\(\theta = 30^\circ\)</span> with <span class="process-math">\(\nabla f_P\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.5.39"><a href="#ws-sec145-8" title="Copy heading and permalink for Worksheet Exercise 14.5.39" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.39">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-9"><h4 class="heading"><span class="codenumber">14.5.43<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec145-9-1">
+<div class="para">Find the two points on the ellipsoid</div>
+<div class="displaymath process-math" id="ws-sec145-9-1-1">
+\begin{equation*}
+\frac{x^2}{4} + \frac{y^2}{9} + z^2 = 1
+\end{equation*}
+</div>
+<div class="para">where the tangent plane is normal to <span class="process-math">\(\v{v} = \la 1,1,-2 \ra\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.5.43"><a href="#ws-sec145-9" title="Copy heading and permalink for Worksheet Exercise 14.5.43" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.43">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-10"><h4 class="heading"><span class="codenumber">14.5.47<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec145-10-1">
+<div class="para">Find an equation of the tangent plane to the surface</div>
+<div class="displaymath process-math" id="ws-sec145-10-1-1">
+\begin{equation*}
+xz + 2x^2y + y^2z^3 = 11
+\end{equation*}
+</div>
+<div class="para">at the point <span class="process-math">\(P = (2,1,1)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.5.47"><a href="#ws-sec145-10" title="Copy heading and permalink for Worksheet Exercise 14.5.47" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.47">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-11"><h4 class="heading"><span class="codenumber">14.5.53<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec145-11-1">Find a function <span class="process-math">\(f(x,y,z)\)</span> such that <span class="process-math">\(\nabla f = \la 2x,1,2 \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.5.53"><a href="#ws-sec145-11" title="Copy heading and permalink for Worksheet Exercise 14.5.53" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.53">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-12"><h4 class="heading"><span class="codenumber">14.5.65<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec145-12-1">
+<div class="para">Let <span class="process-math">\(\c{C}\)</span> be the curve of intersection of the spheres</div>
+<div class="displaymath process-math" id="ws-sec145-12-1-2">
+\begin{equation*}
+x^3 + 2xy + yz = 7 \qquad \text{ and } \qquad 3x^2 - yz = 1
+\end{equation*}
+</div>
+<div class="para">Find the parametric equations of the tangent line to <span class="process-math">\(\c{C}\)</span> at <span class="process-math">\(P = (1,2,1)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 14.5.65"><a href="#ws-sec145-12" title="Copy heading and permalink for Worksheet Exercise 14.5.65" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.65">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 14.5"><a href="#ws-sec145" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 14.5" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 14.5">🔗</a></div></section><div class="autopermalink" data-description="Section 14.5: The Gradient and Directional Derivatives"><a href="#sec145-GradientDirectionalDerivatives" title="Copy heading and permalink for Section 14.5: The Gradient and Directional Derivatives" aria-label="Copy heading and permalink for Section 14.5: The Gradient and Directional Derivatives">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec144-DifferentiabilityTangentPlane.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec146-ChainRule.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

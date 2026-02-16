@@ -4789,6 +4789,483 @@ var ptx_lunr_docs = [
   "body": " A cylinder of radius and height has volume .   Use the Linear Approximation to show that     Estimate the percentage increase in if and are each increased by 2%.    The volume of a certain cylinder is determined by measuring and . Which will lead to a greater error in : a 1% error in or a 1% error in ?     "
 },
 {
+  "id": "sec145-GradientDirectionalDerivatives",
+  "level": "1",
+  "url": "sec145-GradientDirectionalDerivatives.html",
+  "type": "Section",
+  "number": "14.5",
+  "title": "The Gradient and Directional Derivatives",
+  "body": " The Gradient and Directional Derivatives   In the previous section, we learned how to calculate partial derivatives, which represent the rate of change of a function as we move strictly parallel to the -axis or the -axis. However, there are infinitely many other directions we can move on the surface. In this section, we will discuss how to take the derivative of a function in an arbitrary direction.    After this section, students will be able to:     calculate the directional derivative of a function in a given direction.    define and compute the gradient vector of a function of two or three variables.    interpret the gradient vector.    use the gradient to find the equation of a tangent plane to a level surface.      Partial derivatives tell us about the rate of change of a function at a point in the direction parallel to the -axis and the -axis. But there are a lot more directions we can move on the surface. How do we measure the rate of change of a function at a point in an arbitrary direction? Directional Derivative will tell us about it!   Directional Derivatives  Directional derivatives, as the name suggests, measure the rate of change of a function at a point in a specified direction. Let's come up with the definition of directional derivatives!  Let and be a point on the surface. Let's say we want to find the directional derivative of at in the direction of the unit vector . The diagram below shows this situation.     The vector and the point can determine a vertical plane shown in the figure. This plane intersects the surface in a curve . Then we can for sure construct a tangent line to the curve at the point . Our job here is to find the slope of this tangent line.  Let's pick another point on the curve . But can we express and in terms of a single parameter?  Yes we can! The easiest way to do so is to project and onto the -plane, resulting in and , respectively. Since is parallel to , then which implies that and . Hence, we can express as (as opposed to keeping track of two new independent variables).  Now we are ready to find the slope of the line ! Recall the slope of the line is the rise over the run. Clearly, the rise is the change in the -coordinate and the run is the change in the distance between and , which is . Then the slope of the secant line (the line passing through and ) is This implies that the slope of the tangent line is This is the definition of the directional derivative!   Directional Derivative   The directional derivative of at in the direction of a unit vector is the limit (assuming it exists)      But Richard... How is this related to the partial derivatives?  It turns out that the directional derivative is the generalization of the partial derivatives. That is, we can recover the partial derivatives from the directional derivative by choosing the appropriate direction.  Let's say we pick the unit vector of . Then a point along this direction can determine a vertical plane parallel to the -plane. On this plane, the -coordinate is fixed. So we expect the directional derivative to be .  Using the definition of the directional derivative, we have So things work out great!  Similarly, if we pick the unit vector , then the vertical plane determined by and is parallel to the -plane. On this plane, the -coordinate is fixed. So we expect the directional derivative to be .  Using the definition of the directional derivative, we have So things work out great again!   But no one likes to compute the directional derivative using the limit definition every time. So we want to find a more efficient formula for the directional derivative. The following theorem gives us a nice formula for the directional derivative in terms of the partial derivatives.   Computing Directional Derivatives   If is differentiable at and is a unit vector, then the directional derivative of at in the direction of is given by      The proof of this theorem isn't too bad but it needs a clever setup. Richard will set up the proof for you and feel free to give it a try on your own!   Let's define a new function . Then what is using the definition of the derivative (the one with the limit)?  Alternatively, what is using the Chain Rule covered in ?  Equating the two expressions for will give us the desired formula!    The actual proof!  Let . Then using the definition of the derivative, we have We have established that is the directional derivative of at in the direction of .  Alternatively, we can rewrite , where and . Using the Chain Rule in , we have When , this gives us   Putting them together, we obtain as desired.     Find the directional derivative if and is the unit vector given by the angle .  What is and what does it mean graphically?   We are given the function but the unit vector isn't given explicitly.  Well there is a formula that allows to obtain the unit vector from the angle in . Have fun digging!  To help you visualize the situation, Richard coded the following graph for you!   The Graph of        First, let's find the unit vector . Since , we have Next, we compute the partial derivatives of : Now we can find the general formula for the directional derivative: Finally, to find , we substitute and into the partial derivatives:  So, the directional derivative is: Graphically, this value represents the slope of the tangent line of the curve obtained by intersecting the surface with the vertical plane determined by the point and the direction of .      The Gradient  Observing the formula for computing the directional derivative, one of the vectors consists of the first-order partial derivatives of the function. This vector is called the gradient of the function.    The gradient of a function at a point is the vector   In three variables, for and , the gradient is     Sometimes the notation can be a bit sloppy and we might drop the reference to the point and just write . Or maybe the reference to the point becomes a subscript and we write . They all mean the same thing.  The symbol to denote the gradient, , is called \"del\". This is an upside-down Delta. The concept of gradient can be extended to functions of variables. We will just need to take all the first-order partial derivatives and organize them into a vector. That is, the gradient of is Likewise, if we are dealing with functions of a single variable, then the gradient is just the derivative of the function. You can think of the gradient of functions of a single variable, aka the derivative, as a vector if you want but there are only two directions to move on the curve: forward (positive) and backward (negative).   Find the gradient of the function at the point .   To find the gradient of the function , we first calculate the partial derivatives with respect to and .  Using the chain rule, the partial derivative with respect to is: The partial derivative with respect to is:   Now we evaluate these partial derivatives at the point . First, we determine the value inside the cosine function: Since , we have:   Thus, the gradient vector is:     There are some nice properties of the gradient. The proofs should be super straightforward (just use the properties of derivative plus vectors to push the symbols around). So Richard will just state the properties without proof.   Properties of the Gradient   If and are differentiable and is a constant, then              Product Rule for Gradients:       Chain Rule for Gradients: If is a differentiable function of one variable, then        Remember we picked out the gradient from the formula for computing the directional derivative, so we can rewrite the formula for computing the directional derivative as   But what is the difference between the gradient and the directional derivative, as they both seem to be related to the rate of change of the function at a point?  The short answer is that the gradient is a vector while the directional derivative is a scalar. We can actually learn more about the relationship between them from this formula.  Notice that the directional derivative is the dot product of the gradient and the unit vector. A property of the dot product tells us that where is the angle between the gradient and the unit vector. That is, the directional derivative (aka the rate of change of the function at a point in a specific direction) varies with the cosine of the angle between the gradient and the direction. Since is bounded by and , then we have Observe that when (i.e., when is in the same direction of ). That is, the gradient points in the direction of the maximum rate of increase, and this maximum rate is . Let's make it into a cool theorem!   Interpretation of the Gradient   Assume that . Let be a unit vector making an angle with . Then     points in the direction of fastest rate of increase of at , and that rate of increase is .     points in the direction of fastest rate of decrease of at , and that rate of decrease is .     is normal to the level curve (or surface) of at .       We haven't talked about the last part of the theorem yet, so let's focus on the first two parts for now.   Let .   Find the rate of change of at the point in the direction from to .    In what direction does have the maximum rate of increase at ? What is this maximum rate of increase?      First, we calculate the gradient of : At the point , the gradient vector is:     We find the vector representing the direction from to : Next, we find the unit vector in this direction:  The rate of change is the directional derivative :     The function has the maximum rate of increase in the direction of the gradient vector: The maximum rate of increase is the magnitude of the gradient:       Now that we know the difference between the gradient and the directional derivative, we will debrief the last part of the theorem that says the gradient is always normal to the level curve (or surface) at the point.  Let's say we have a surface in . Then we will need an equation of three variables to describe the surface. That is, the surface will have an equation (this also means that the surface is a level surface of the function ).  Now imagine there is a point on the surface and a curve on the surface passing through . If we call the curve , then there is a parameter such that . Since lies on the surface, then we obtain If everything is nice and differentiable, then we can differentiate both sides of the equation using the Chain Rule in to get The diagram below shows the situation.     We basically just showed that the gradient vectors are normal to the surface !  Hmm but why do we need a normal vector to the surface at a point? We can find an equation of the tangent plane using the gradient vector and the point! If you compare the formula for the tangent plane in , the normal vector is exactly the gradient vector!   Gradient as a Normal Vector   Let be a point on the surface given by and assume that . Then is a vector normal to the tangent plane to the surface at . Moreover, the tangent plane to the surface at has equation        Using this theorem, we can find an equation of the tangent plane to a surface without needing an explicit formula for our function. That is, doesn't need to be isolated in the equation of the surface.   Find the equation of the tangent plane at the point to the ellipsoid    Let . Then the ellipsoid is the level surface . +We find the gradient vector to determine the normal vector to the surface.     Evaluate the gradient at the point to find the normal vector :   The equation of the tangent plane at is:     Now that we know what the gradient is (pointing in the direction of the maximum rate of increase) and how it behaves (normal to the level curve\/surface), we can create something called the gradient vector field (which is super similar to the vector field you learned back in MTH 253). For example, the gradient vector field of , superimposed on a contour map, is shown below.     As expected, the gradient vectors are normal to the level curves. They also point in the direction of the maximum rate of increase. That is, each gradient vector is pointing \"uphill\".  Below is the graph of the function . Try to convince yourself that the gradient vectors are indeed pointing in the direction of the maximum rate of increase and that they are normal to the level curves.   The surface      Gradient is an important concept that helps us understand the behavior of the surface. We will see more applications of the gradient in the following sections when we talk about optimization. Just a quick preview: if all the gradient vectors are pointing toward the same point on the gradient vector field, then that point is a local maximum since the surface is going uphill towards this point.    Assigned Problems for Section 14.5   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Calculate the gradient of .    Use the Chain Rule to calculate , where at the point where .    Calculate the directional derivative of in the direction of at the point . Remember to use a unit vector in your directional derivative computation.    Determine the direction in which has maximum rate of increase from , and give the rate of change in that direction.    Suppose that . Is increasing or decreasing at in the direction of ?    Let and . Calculate , where is a unit vector making an angle with .    Find the two points on the ellipsoid where the tangent plane is normal to .    Find an equation of the tangent plane to the surface at the point .    Find a function such that .    Let be the curve of intersection of the spheres Find the parametric equations of the tangent line to at .    "
+},
+{
+  "id": "sec145-GradientDirectionalDerivatives-2-2",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#sec145-GradientDirectionalDerivatives-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     calculate the directional derivative of a function in a given direction.    define and compute the gradient vector of a function of two or three variables.    interpret the gradient vector.    use the gradient to find the equation of a tangent plane to a level surface.    "
+},
+{
+  "id": "sec145-GradientDirectionalDerivatives-3",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#sec145-GradientDirectionalDerivatives-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Directional Derivative "
+},
+{
+  "id": "subsec-DirectionalDerivatives-4",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-DirectionalDerivatives-4",
+  "type": "Figure",
+  "number": "14.5.1",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "thm-DirectionalDerivative",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#thm-DirectionalDerivative",
+  "type": "Theorem",
+  "number": "14.5.2",
+  "title": "Directional Derivative.",
+  "body": " Directional Derivative   The directional derivative of at in the direction of a unit vector is the limit (assuming it exists)    "
+},
+{
+  "id": "subsec-DirectionalDerivatives-10",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-DirectionalDerivatives-10",
+  "type": "Note",
+  "number": "14.5.3",
+  "title": "But Richard... How is this related to the partial derivatives?",
+  "body": " But Richard... How is this related to the partial derivatives?  It turns out that the directional derivative is the generalization of the partial derivatives. That is, we can recover the partial derivatives from the directional derivative by choosing the appropriate direction.  Let's say we pick the unit vector of . Then a point along this direction can determine a vertical plane parallel to the -plane. On this plane, the -coordinate is fixed. So we expect the directional derivative to be .  Using the definition of the directional derivative, we have So things work out great!  Similarly, if we pick the unit vector , then the vertical plane determined by and is parallel to the -plane. On this plane, the -coordinate is fixed. So we expect the directional derivative to be .  Using the definition of the directional derivative, we have So things work out great again!  "
+},
+{
+  "id": "thm-ComputingDirectionalDerivatives",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#thm-ComputingDirectionalDerivatives",
+  "type": "Theorem",
+  "number": "14.5.4",
+  "title": "Computing Directional Derivatives.",
+  "body": " Computing Directional Derivatives   If is differentiable at and is a unit vector, then the directional derivative of at in the direction of is given by    "
+},
+{
+  "id": "subsec-DirectionalDerivatives-13",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-DirectionalDerivatives-13",
+  "type": "Proof",
+  "number": "1",
+  "title": "",
+  "body": " The proof of this theorem isn't too bad but it needs a clever setup. Richard will set up the proof for you and feel free to give it a try on your own!   Let's define a new function . Then what is using the definition of the derivative (the one with the limit)?  Alternatively, what is using the Chain Rule covered in ?  Equating the two expressions for will give us the desired formula!    The actual proof!  Let . Then using the definition of the derivative, we have We have established that is the directional derivative of at in the direction of .  Alternatively, we can rewrite , where and . Using the Chain Rule in , we have When , this gives us   Putting them together, we obtain as desired.   "
+},
+{
+  "id": "subsec-DirectionalDerivatives-14",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-DirectionalDerivatives-14",
+  "type": "Example",
+  "number": "14.5.5",
+  "title": "",
+  "body": " Find the directional derivative if and is the unit vector given by the angle .  What is and what does it mean graphically?   We are given the function but the unit vector isn't given explicitly.  Well there is a formula that allows to obtain the unit vector from the angle in . Have fun digging!  To help you visualize the situation, Richard coded the following graph for you!   The Graph of        First, let's find the unit vector . Since , we have Next, we compute the partial derivatives of : Now we can find the general formula for the directional derivative: Finally, to find , we substitute and into the partial derivatives:  So, the directional derivative is: Graphically, this value represents the slope of the tangent line of the curve obtained by intersecting the surface with the vertical plane determined by the point and the direction of .   "
+},
+{
+  "id": "subsec-Gradient-2",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-Gradient-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "gradient "
+},
+{
+  "id": "def-Gradient",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#def-Gradient",
+  "type": "Definition",
+  "number": "14.5.7",
+  "title": "",
+  "body": "  The gradient of a function at a point is the vector   In three variables, for and , the gradient is    "
+},
+{
+  "id": "subsec-Gradient-6",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-Gradient-6",
+  "type": "Example",
+  "number": "14.5.8",
+  "title": "",
+  "body": " Find the gradient of the function at the point .   To find the gradient of the function , we first calculate the partial derivatives with respect to and .  Using the chain rule, the partial derivative with respect to is: The partial derivative with respect to is:   Now we evaluate these partial derivatives at the point . First, we determine the value inside the cosine function: Since , we have:   Thus, the gradient vector is:    "
+},
+{
+  "id": "thm-PropertiesGradient",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#thm-PropertiesGradient",
+  "type": "Theorem",
+  "number": "14.5.9",
+  "title": "Properties of the Gradient.",
+  "body": " Properties of the Gradient   If and are differentiable and is a constant, then              Product Rule for Gradients:       Chain Rule for Gradients: If is a differentiable function of one variable, then       "
+},
+{
+  "id": "thm-InterpretingGradient",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#thm-InterpretingGradient",
+  "type": "Theorem",
+  "number": "14.5.10",
+  "title": "Interpretation of the Gradient.",
+  "body": " Interpretation of the Gradient   Assume that . Let be a unit vector making an angle with . Then     points in the direction of fastest rate of increase of at , and that rate of increase is .     points in the direction of fastest rate of decrease of at , and that rate of decrease is .     is normal to the level curve (or surface) of at .      "
+},
+{
+  "id": "subsec-Gradient-15",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-Gradient-15",
+  "type": "Example",
+  "number": "14.5.11",
+  "title": "",
+  "body": " Let .   Find the rate of change of at the point in the direction from to .    In what direction does have the maximum rate of increase at ? What is this maximum rate of increase?      First, we calculate the gradient of : At the point , the gradient vector is:     We find the vector representing the direction from to : Next, we find the unit vector in this direction:  The rate of change is the directional derivative :     The function has the maximum rate of increase in the direction of the gradient vector: The maximum rate of increase is the magnitude of the gradient:      "
+},
+{
+  "id": "subsec-Gradient-19",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-Gradient-19",
+  "type": "Figure",
+  "number": "14.5.12",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "thm-GradientNormalVector",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#thm-GradientNormalVector",
+  "type": "Theorem",
+  "number": "14.5.13",
+  "title": "Gradient as a Normal Vector.",
+  "body": " Gradient as a Normal Vector   Let be a point on the surface given by and assume that . Then is a vector normal to the tangent plane to the surface at . Moreover, the tangent plane to the surface at has equation    "
+},
+{
+  "id": "subsec-Gradient-23",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-Gradient-23",
+  "type": "Figure",
+  "number": "14.5.14",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "subsec-Gradient-25",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-Gradient-25",
+  "type": "Example",
+  "number": "14.5.15",
+  "title": "",
+  "body": " Find the equation of the tangent plane at the point to the ellipsoid    Let . Then the ellipsoid is the level surface . +We find the gradient vector to determine the normal vector to the surface.     Evaluate the gradient at the point to find the normal vector :   The equation of the tangent plane at is:    "
+},
+{
+  "id": "subsec-Gradient-26",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-Gradient-26",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "gradient vector field "
+},
+{
+  "id": "subsec-Gradient-27",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#subsec-Gradient-27",
+  "type": "Figure",
+  "number": "14.5.16",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "fig-saddle-surface-teal",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#fig-saddle-surface-teal",
+  "type": "Figure",
+  "number": "14.5.17",
+  "title": "",
+  "body": " The surface     "
+},
+{
+  "id": "ws-sec145-3",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#ws-sec145-3",
+  "type": "Worksheet Exercise",
+  "number": "14.5.5",
+  "title": "",
+  "body": " Calculate the gradient of .  "
+},
+{
+  "id": "ws-sec145-4",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#ws-sec145-4",
+  "type": "Worksheet Exercise",
+  "number": "14.5.17",
+  "title": "",
+  "body": " Use the Chain Rule to calculate , where at the point where .  "
+},
+{
+  "id": "ws-sec145-5",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#ws-sec145-5",
+  "type": "Worksheet Exercise",
+  "number": "14.5.25",
+  "title": "",
+  "body": " Calculate the directional derivative of in the direction of at the point . Remember to use a unit vector in your directional derivative computation.  "
+},
+{
+  "id": "ws-sec145-6",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#ws-sec145-6",
+  "type": "Worksheet Exercise",
+  "number": "14.5.35",
+  "title": "",
+  "body": " Determine the direction in which has maximum rate of increase from , and give the rate of change in that direction.  "
+},
+{
+  "id": "ws-sec145-7",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#ws-sec145-7",
+  "type": "Worksheet Exercise",
+  "number": "14.5.37",
+  "title": "",
+  "body": " Suppose that . Is increasing or decreasing at in the direction of ?  "
+},
+{
+  "id": "ws-sec145-8",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#ws-sec145-8",
+  "type": "Worksheet Exercise",
+  "number": "14.5.39",
+  "title": "",
+  "body": " Let and . Calculate , where is a unit vector making an angle with .  "
+},
+{
+  "id": "ws-sec145-9",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#ws-sec145-9",
+  "type": "Worksheet Exercise",
+  "number": "14.5.43",
+  "title": "",
+  "body": " Find the two points on the ellipsoid where the tangent plane is normal to .  "
+},
+{
+  "id": "ws-sec145-10",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#ws-sec145-10",
+  "type": "Worksheet Exercise",
+  "number": "14.5.47",
+  "title": "",
+  "body": " Find an equation of the tangent plane to the surface at the point .  "
+},
+{
+  "id": "ws-sec145-11",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#ws-sec145-11",
+  "type": "Worksheet Exercise",
+  "number": "14.5.53",
+  "title": "",
+  "body": " Find a function such that .  "
+},
+{
+  "id": "ws-sec145-12",
+  "level": "2",
+  "url": "sec145-GradientDirectionalDerivatives.html#ws-sec145-12",
+  "type": "Worksheet Exercise",
+  "number": "14.5.65",
+  "title": "",
+  "body": " Let be the curve of intersection of the spheres Find the parametric equations of the tangent line to at .  "
+},
+{
+  "id": "sec146-ChainRule",
+  "level": "1",
+  "url": "sec146-ChainRule.html",
+  "type": "Section",
+  "number": "14.6",
+  "title": "Multivariable Calculus Chain Rules",
+  "body": " Multivariable Calculus Chain Rules   In single-variable calculus, the Chain Rule tracks how a change in ripples through a function. In multivariable calculus, an independent variable may influence a function through multiple \"paths\" simultaneously. This section introduces the General Chain Rule to account for these branching dependencies using tree diagrams and streamlines implicit differentiation using partial derivatives.    After this section, students will be able to:     apply the general chain rule to compute partial derivatives using the tree diagrams.    use implicit differentiation to compute partial derivatives of implicitly defined functions.       The (Fancy) Chain Rule  Back in MTH 251Z (or MTH 251), you learned the Chain Rule for single variable functions. The chain rule says that if and , then Alternatively, in Leibniz notation, we would write   Now let's move on to the multivariable version of the Chain Rule. Let's start with a simple case where we have , where and are both functions of . In this case, the Chain Rule says Observe that the spirit of the Chain Rule stays the same. But we need to account for the fact that depends on both   and  , and both of those variables depend on . So we have two terms in the Chain Rule, one for the contribution of and one for the contribution of .   Let , where and . Find at the point where .   The Chain Rule gives When t = 0 , we have and . So we get      But Richard... Why can't we just replace everything with and differentiate?  Well you for sure can! But one thing to keep in mind is that your function will likely be a lot more complicated after you replace everything with .  For example, in the above example, if we replace and with their definitions, we get Then a MTH 251Z (or MTH 251) student can differentiate this fine. But the work will be a lot more complicated as multiple rounds of the product rule and chain rule will be required.   Now let's kick it up a notch and consider the case where , where and are both functions of and . That is, and . How should we take the derivative of ?  One thing to keep in mind is that depends on and through both and . So we can only take the partial derivative by picking one of the variables, or , to differentiate with respect to.  Let's say we want to take the partial derivative of with respect to . Then we will need to account for all the contributions of to . One way to sort out the contributions is to use a tree diagram (see the diagram below).     In this tree diagram, we can see that contributes to through both and . So we have two terms in the Chain Rule, as follows   Similarly, if we want to take the partial derivative of with respect to , we get since contributes to through both and as well, as indicated in the tree diagram above.   Let , where and . Find the first-order partial derivatives and .   Applying the Chain Rule, we get and     You may get the idea of the Chain Rule for more complicated cases by now. We will just need to account for all the contributions of the variable we are differentiating with respect to. Using a tree diagram can be helpful to sort out the contributions.   General Bersion of the Chain Rule   Let be a differentiable function of variables. Suppose that each of the variables is a differentiable function of independent variables . Then, for ,      Let , where , , and . Find the value of when , , and .   We can construct a tree diagram to keep track of the variables as follows.     The diagram implies that When , , and , we have       (Fancy) Implicit Differentiation  Back in MTH 251Z (or MTH 251), you learned a fancy way of taking derivatives of an equation, which is called implicit differentiation . The whole idea of implicit differentiation is to take the derivative of both sides of the equation and sort out all the little derivatives pieces using the Chain Rule.  Let's start by looking at an example to remind ourselves how implicit differentiation works.   Find if    This is a standard implicit differentiation problem in MTH 251Z (or MTH 251). But we are in big-boy calculus now, so let's try using multivariable calculus tools to solve this problem.  Richard will help you with the setup! Let's define a function . Then the equation can be rewritten as .  If we take the derivative of both sides of the equation , we get Well the question asks us to find ... So where is it?    Let's follow Richard's setup and define . Then we have Now we take the derivative of both sides of the equation using the Chain Rule. We obtain where and . Then we can solve for to get Since and , we get     The above example demonstrates the (fancy) implicit differentiation in multivariable calculus. The key idea is to define a function such that the equation we want to differentiate can be rewritten as . Then we can take the derivative of both sides of the equation using the Chain Rule and isolate the desired derivative.  Now let's say we have an equation , where is implicitly defined as a function of and . Then we can take the derivative of both sides of the equation using the Chain Rule to get Obviously, . Also, sine and are both independent variables, then . So we can simplify the above equation to get Assuming , we can solve for to get Then we can use the above formula to calculate the partial derivatives of with respect to and .  You may have doubts about why we can assume can be obtained from the equation (if this condition is not satisfied, then we can't argue that ... since and may not be independent of each other). Well there is a fancy math theorem called the Implicit Function Theorem that gives us the conditions under which we can obtain from the equation . But we won't be able to prove it in this class (we don't even know what a Jacobian matrix is yet).  Feel free to look up the Implicit Function Theorem if you are interested. But you can just assume the conditions of the Implicit Function Theorem are satisfied for the problems in this class. In short, the Implicit Function Theorem says that if is defined within a sphere containing , where , , and , , and are all continuous inside the sphere, then the equation defines as a function of and near the point and this function is differentiable.   Find and if .   Let . Then we obtain       Assigned Problems for Section 14.6   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Let and , , and .   Calculate the primary derivatives , , and .    Calculate , , and .    Compute using the Chain Rule:         In the following exercises, use the Chain Rule to calculate the partial derivatives, Express the answer in terms of the independent variables.     ; , , .     ; , , .     Use the Chain Rule to evaluate the partial derivative at the point , where     A baseball player hits the ball and then runs down the first base line at 20 ft\/s. The first baseman fields the ball and then runs toward first base along the second base line at 18 ft\/s as shown in the figure below.     Determine how fast the distance between the two players is changing at a moment when the hitter is 8 ft from first base and the first baseman is 6 ft from first base.    Two spacecraft are following paths in space given by and . If the temperature for points in space is given by , use the Chain Rule to determine the rate of change of the difference in the temperatures the two spacecraft experience at time .    Suppose that is defined implicitly as a function of and by equation .   Calculate , , and .    Use to calculate and .       Calculate the partial derivative of the equation using implicit differentiation.    "
+},
+{
+  "id": "sec146-ChainRule-2-2",
+  "level": "2",
+  "url": "sec146-ChainRule.html#sec146-ChainRule-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     apply the general chain rule to compute partial derivatives using the tree diagrams.    use implicit differentiation to compute partial derivatives of implicitly defined functions.    "
+},
+{
+  "id": "subsec-ChainRule_MultiCalc-3",
+  "level": "2",
+  "url": "sec146-ChainRule.html#subsec-ChainRule_MultiCalc-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "both and "
+},
+{
+  "id": "subsec-ChainRule_MultiCalc-4",
+  "level": "2",
+  "url": "sec146-ChainRule.html#subsec-ChainRule_MultiCalc-4",
+  "type": "Example",
+  "number": "14.6.1",
+  "title": "",
+  "body": " Let , where and . Find at the point where .   The Chain Rule gives When t = 0 , we have and . So we get    "
+},
+{
+  "id": "subsec-ChainRule_MultiCalc-5",
+  "level": "2",
+  "url": "sec146-ChainRule.html#subsec-ChainRule_MultiCalc-5",
+  "type": "Note",
+  "number": "14.6.2",
+  "title": "But Richard... Why can’t we just replace everything with <span class=\"process-math\">\\(t\\)<\/span> and differentiate?",
+  "body": " But Richard... Why can't we just replace everything with and differentiate?  Well you for sure can! But one thing to keep in mind is that your function will likely be a lot more complicated after you replace everything with .  For example, in the above example, if we replace and with their definitions, we get Then a MTH 251Z (or MTH 251) student can differentiate this fine. But the work will be a lot more complicated as multiple rounds of the product rule and chain rule will be required.  "
+},
+{
+  "id": "subsec-ChainRule_MultiCalc-9",
+  "level": "2",
+  "url": "sec146-ChainRule.html#subsec-ChainRule_MultiCalc-9",
+  "type": "Figure",
+  "number": "14.6.3",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "subsec-ChainRule_MultiCalc-12",
+  "level": "2",
+  "url": "sec146-ChainRule.html#subsec-ChainRule_MultiCalc-12",
+  "type": "Example",
+  "number": "14.6.4",
+  "title": "",
+  "body": " Let , where and . Find the first-order partial derivatives and .   Applying the Chain Rule, we get and    "
+},
+{
+  "id": "thm-ChainRule_General",
+  "level": "2",
+  "url": "sec146-ChainRule.html#thm-ChainRule_General",
+  "type": "Theorem",
+  "number": "14.6.5",
+  "title": "General Bersion of the Chain Rule.",
+  "body": " General Bersion of the Chain Rule   Let be a differentiable function of variables. Suppose that each of the variables is a differentiable function of independent variables . Then, for ,    "
+},
+{
+  "id": "subsec-ChainRule_MultiCalc-15",
+  "level": "2",
+  "url": "sec146-ChainRule.html#subsec-ChainRule_MultiCalc-15",
+  "type": "Example",
+  "number": "14.6.6",
+  "title": "",
+  "body": " Let , where , , and . Find the value of when , , and .   We can construct a tree diagram to keep track of the variables as follows.     The diagram implies that When , , and , we have    "
+},
+{
+  "id": "subsec-ImplicitDifferentiation_MultiCalc-2",
+  "level": "2",
+  "url": "sec146-ChainRule.html#subsec-ImplicitDifferentiation_MultiCalc-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "both sides "
+},
+{
+  "id": "subsec-ImplicitDifferentiation_MultiCalc-4",
+  "level": "2",
+  "url": "sec146-ChainRule.html#subsec-ImplicitDifferentiation_MultiCalc-4",
+  "type": "Example",
+  "number": "14.6.8",
+  "title": "",
+  "body": " Find if    This is a standard implicit differentiation problem in MTH 251Z (or MTH 251). But we are in big-boy calculus now, so let's try using multivariable calculus tools to solve this problem.  Richard will help you with the setup! Let's define a function . Then the equation can be rewritten as .  If we take the derivative of both sides of the equation , we get Well the question asks us to find ... So where is it?    Let's follow Richard's setup and define . Then we have Now we take the derivative of both sides of the equation using the Chain Rule. We obtain where and . Then we can solve for to get Since and , we get    "
+},
+{
+  "id": "subsec-ImplicitDifferentiation_MultiCalc-7",
+  "level": "2",
+  "url": "sec146-ChainRule.html#subsec-ImplicitDifferentiation_MultiCalc-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Implicit Function Theorem "
+},
+{
+  "id": "subsec-ImplicitDifferentiation_MultiCalc-9",
+  "level": "2",
+  "url": "sec146-ChainRule.html#subsec-ImplicitDifferentiation_MultiCalc-9",
+  "type": "Example",
+  "number": "14.6.9",
+  "title": "",
+  "body": " Find and if .   Let . Then we obtain    "
+},
+{
+  "id": "ws-sec146-3",
+  "level": "2",
+  "url": "sec146-ChainRule.html#ws-sec146-3",
+  "type": "Worksheet Exercise",
+  "number": "14.6.1",
+  "title": "",
+  "body": " Let and , , and .   Calculate the primary derivatives , , and .    Calculate , , and .    Compute using the Chain Rule:      "
+},
+{
+  "id": "ws-sec146-4-2",
+  "level": "2",
+  "url": "sec146-ChainRule.html#ws-sec146-4-2",
+  "type": "Worksheet Exercise",
+  "number": "14.6.7",
+  "title": "",
+  "body": "  ; , , .  "
+},
+{
+  "id": "ws-sec146-4-3",
+  "level": "2",
+  "url": "sec146-ChainRule.html#ws-sec146-4-3",
+  "type": "Worksheet Exercise",
+  "number": "14.6.9",
+  "title": "",
+  "body": "  ; , , .  "
+},
+{
+  "id": "ws-sec146-5",
+  "level": "2",
+  "url": "sec146-ChainRule.html#ws-sec146-5",
+  "type": "Worksheet Exercise",
+  "number": "14.6.13",
+  "title": "",
+  "body": " Use the Chain Rule to evaluate the partial derivative at the point , where   "
+},
+{
+  "id": "ws-sec146-6",
+  "level": "2",
+  "url": "sec146-ChainRule.html#ws-sec146-6",
+  "type": "Worksheet Exercise",
+  "number": "14.6.19",
+  "title": "",
+  "body": " A baseball player hits the ball and then runs down the first base line at 20 ft\/s. The first baseman fields the ball and then runs toward first base along the second base line at 18 ft\/s as shown in the figure below.     Determine how fast the distance between the two players is changing at a moment when the hitter is 8 ft from first base and the first baseman is 6 ft from first base.  "
+},
+{
+  "id": "ws-sec146-7",
+  "level": "2",
+  "url": "sec146-ChainRule.html#ws-sec146-7",
+  "type": "Worksheet Exercise",
+  "number": "14.6.21",
+  "title": "",
+  "body": " Two spacecraft are following paths in space given by and . If the temperature for points in space is given by , use the Chain Rule to determine the rate of change of the difference in the temperatures the two spacecraft experience at time .  "
+},
+{
+  "id": "ws-sec146-8",
+  "level": "2",
+  "url": "sec146-ChainRule.html#ws-sec146-8",
+  "type": "Worksheet Exercise",
+  "number": "14.6.27",
+  "title": "",
+  "body": " Suppose that is defined implicitly as a function of and by equation .   Calculate , , and .    Use to calculate and .     "
+},
+{
+  "id": "ws-sec146-9",
+  "level": "2",
+  "url": "sec146-ChainRule.html#ws-sec146-9",
+  "type": "Worksheet Exercise",
+  "number": "14.6.31",
+  "title": "",
+  "body": " Calculate the partial derivative of the equation using implicit differentiation.  "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
