@@ -856,16 +856,86 @@ l(x) \leq f(x) \leq u(x) \qquad \text{ and } \qquad \lim_{x\to c}l(x) = \lim_{x 
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.7"><a href="#ws-sec142-3" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.7" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.7">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-4"><h4 class="heading"><span class="codenumber">14.2.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec142-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec142-3-2-1">
+<div class="para">The function is the quotient of two continuous functions, and the denominator is not zero at the point <span class="process-math">\((1,1)\text{.}\)</span> Therefore, the function is continuous at this point, and we may compute the limit by substitution.</div>
+<div class="displaymath process-math" id="ws-sec142-3-2-1-2">
+\begin{equation*}
+\lim_{(x,y) \to (1,1)} \frac{e^{x^2} - e^{-y^2}}{x + y} = \frac{e^{1^2} - e^{-1^2}}{1 + 1} = \frac{e - e^{-1}}{2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.14.2.7.1"><a href="#ws-sec142-3-2" title="Copy heading and permalink for Solution 14.2.14.2.7.1" aria-label="Copy heading and permalink for Solution 14.2.14.2.7.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.7"><a href="#ws-sec142-3" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.7" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.7">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-4"><h4 class="heading"><span class="codenumber">14.2.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec142-4-1">Does <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{y^2}{x^2 + y^2}\)</span> exist? Explain.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.13"><a href="#ws-sec142-4" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.13" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.13">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-5"><h4 class="heading"><span class="codenumber">14.2.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec142-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec142-4-2-1">This limit does not exist. Consider the following paths to the point <span class="process-math">\((x,y) = (0,0)\text{.}\)</span> First along the line <span class="process-math">\(x = 0\)</span> and second along the line <span class="process-math">\(y = x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec142-4-2-2">
+<div class="para">First along the line <span class="process-math">\(x = 0\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="ws-sec142-4-2-2-2">
+\begin{equation*}
+\lim_{y \to 0} \dfrac{y^2}{0^2 + y^2} = \lim_{y \to 0} 1 = 1
+\end{equation*}
+</div>
+<div class="para">So along the line <span class="process-math">\(x = 0\text{,}\)</span> the limit is 1.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec142-4-2-3">
+<div class="para">Next along the line <span class="process-math">\(y = x\text{,}\)</span> we have</div>
+<div class="displaymath process-math" id="ws-sec142-4-2-3-2">
+\begin{equation*}
+\lim_{x \to 0} \dfrac{x^2}{x^2 + x^2} = \lim_{x \to 0} \dfrac{1}{2} = \dfrac{1}{2}
+\end{equation*}
+</div>
+<div class="para">So along the line <span class="process-math">\(y = x\text{,}\)</span> the limit is <span class="process-math">\(\dfrac{1}{2}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-4-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec142-4-2-4">Since these two limits are not equal, the limit in question does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-4-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.14.2.13.1"><a href="#ws-sec142-4-2" title="Copy heading and permalink for Solution 14.2.14.2.13.1" aria-label="Copy heading and permalink for Solution 14.2.14.2.13.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.13"><a href="#ws-sec142-4" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.13" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.13">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-5"><h4 class="heading"><span class="codenumber">14.2.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec142-5-1">Let <span class="process-math">\(f(x,y) = \dfrac{x^3 + y^3}{xy^2}\text{.}\)</span> Set <span class="process-math">\(y = mx\)</span> and show that the resulting limit depends on <span class="process-math">\(m\text{,}\)</span> and therefore the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} f(x,y)\)</span> does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.15"><a href="#ws-sec142-5" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.15" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.15">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-6"><h4 class="heading"><span class="codenumber">14.2.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec142-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec142-5-2-1">
+<div class="para">We have</div>
+<div class="displaymath process-math" id="ws-sec142-5-2-1-1">
+\begin{equation*}
+f(x,mx) = \frac{x^3 + (mx)^3}{x(mx)^2} = \frac{\lp m^3 + 1 \rp x^3}{m^2x^3} = \frac{m^3 + 1}{m^2}
+\end{equation*}
+</div>
+<div class="para">So <span class="process-math">\(f\)</span> is a constant along any line through the origin. Since <span class="process-math">\(\dfrac{m^3 + 1}{m^2}\)</span> is not a constant function of <span class="process-math">\(m\text{,}\)</span> the limit of <span class="process-math">\(f(x,mx)\)</span> depends on <span class="process-math">\(m\text{.}\)</span> For example,</div>
+<div class="displaymath process-math" id="ws-sec142-5-2-1-7">
+\begin{align*}
+\text{When } m = 2, \, \amp \lim_{x\to 0} f(x.mx) = \lim_{x\to 0} \frac{2^3 + 1}{2^2} = \frac{9}{4} \\
+\text{When } m = 1, \, \amp \lim_{x\to 0} f(x.mx) = \lim_{x\to 0} \frac{1^3 + 1}{1^2} = 2 
+\end{align*}
+</div>
+<div class="para">Therefore, the limit in question does not exist.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.14.2.15.1"><a href="#ws-sec142-5-2" title="Copy heading and permalink for Solution 14.2.14.2.15.1" aria-label="Copy heading and permalink for Solution 14.2.14.2.15.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.15"><a href="#ws-sec142-5" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.15" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.15">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-6"><h4 class="heading"><span class="codenumber">14.2.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec142-6-1">Evaluate the limit <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{xy}{3x^2 + 2y^2}\)</span> or show that it does not exist.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.21"><a href="#ws-sec142-6" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.21" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.21">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-7"><h4 class="heading"><span class="codenumber">14.2.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec142-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec142-6-2-1">
+<div class="para">This limit does not exist. Consider the limit as <span class="process-math">\((x,y) \to (0,0)\)</span> along the line <span class="process-math">\(y = mx\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec142-6-2-1-3">
+\begin{equation*}
+\lim_{x\to 0} \frac{x(mx)}{3x^2 + 2(mx)^2} = \lim_{x\to 0} \frac{mx^2}{x^2 \lp 3 + 2m^2 \rp} = \lim_{x\to 0}\frac{m}{3+2m^2}
+\end{equation*}
+</div>
+<div class="para">This value is different for different values of <span class="process-math">\(m\text{,}\)</span> so the limit depends on the path taken and the limit in question does not exist.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.14.2.21.1"><a href="#ws-sec142-6-2" title="Copy heading and permalink for Solution 14.2.14.2.21.1" aria-label="Copy heading and permalink for Solution 14.2.14.2.21.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.21"><a href="#ws-sec142-6" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.21" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.21">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-7"><h4 class="heading"><span class="codenumber">14.2.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec142-7-1">
 <div class="para">Use the Squeeze Theorem to evaluate</div>
 <div class="displaymath process-math" id="ws-sec142-7-1-1">
@@ -884,15 +954,72 @@ l(x) \leq f(x) \leq u(x) \qquad \text{ and } \qquad \lim_{x\to c}l(x) = \lim_{x 
 <div class="para" id="ws-sec142-8-2-1">
 <span class="process-math">\(\ds \lim_{(x,y) \to (3,4)} \dfrac{1}{\sqrt{x^2 + y^2}}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.31"><a href="#ws-sec142-8-2" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.31" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.31">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-8-3"><h5 class="heading"><span class="codenumber">14.2.33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<details id="ws-sec142-8-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec142-8-2-2-1">
+<div class="para">The function <span class="process-math">\(\dfrac{1}{\sqrt{x^2 + y^2}}\)</span> is continuous at the point <span class="process-math">\((3,4)\)</span> since it is the quotient of two continuous functions and the denominator is not zero at <span class="process-math">\((3,4)\text{.}\)</span> We compute the limit by substitution:</div>
+<div class="displaymath process-math" id="ws-sec142-8-2-2-1-4">
+\begin{equation*}
+\lim_{(x,y) \to (3,4)} \dfrac{1}{\sqrt{x^2 + y^2}} = \dfrac{1}{\sqrt{3^2 + 4^2}} = \dfrac{1}{5}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.14.2.31.1"><a href="#ws-sec142-8-2-2" title="Copy heading and permalink for Solution 14.2.14.2.31.1" aria-label="Copy heading and permalink for Solution 14.2.14.2.31.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.31"><a href="#ws-sec142-8-2" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.31" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.31">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-8-3"><h5 class="heading"><span class="codenumber">14.2.33<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="para" id="ws-sec142-8-3-1">
 <span class="process-math">\(\ds \lim_{(x,y) \to (\pi,0)} \dfrac{\cos(x)}{\sin(y)}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.33"><a href="#ws-sec142-8-3" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.33" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.33">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-8-4"><h5 class="heading"><span class="codenumber">14.2.41<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<details id="ws-sec142-8-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec142-8-3-2-1">This limit does not exist. As <span class="process-math">\((x,y)\)</span> approaches <span class="process-math">\((\pi,0)\text{,}\)</span> the numerator approaches <span class="process-math">\(\cos\lp \pi \rp = -1\)</span> and the denominator approaches <span class="process-math">\(\sin\lp 0 \rp = 0\text{.}\)</span> This form <span class="process-math">\(-1/0\)</span> indicates the limit will be unbounded. We can investigate the behavior by approaching along the line <span class="process-math">\(x = \pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec142-8-3-2-2">
+<div class="para">Approaching <span class="process-math">\(0\)</span> from the right (<span class="process-math">\(y \gt 0\)</span>):</div>
+<div class="displaymath process-math" id="ws-sec142-8-3-2-2-3">
+\begin{equation*}
+\lim_{y \to 0^+} \dfrac{\cos\lp \pi \rp}{\sin\lp y \rp} = \lim_{y \to 0^+} \dfrac{-1}{\sin\lp y \rp} = -\infty
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec142-8-3-2-3">
+<div class="para">Approaching <span class="process-math">\(0\)</span> from the left (<span class="process-math">\(y \lt 0\)</span>):</div>
+<div class="displaymath process-math" id="ws-sec142-8-3-2-3-3">
+\begin{equation*}
+\lim_{y \to 0^-} \dfrac{\cos\lp \pi \rp}{\sin\lp y \rp} = \lim_{y \to 0^-} \dfrac{-1}{\sin\lp y \rp} = \infty
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec142-8-3-2-4">Since the function approaches different infinities depending on the direction of approach, the limit <span class="process-math">\(\text{does not exist}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-3-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.14.2.33.1"><a href="#ws-sec142-8-3-2" title="Copy heading and permalink for Solution 14.2.14.2.33.1" aria-label="Copy heading and permalink for Solution 14.2.14.2.33.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.33"><a href="#ws-sec142-8-3" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.33" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.33">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec142-8-4"><h5 class="heading"><span class="codenumber">14.2.41<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="para" id="ws-sec142-8-4-1">
 <span class="process-math">\(\ds \lim_{(x,y) \to (0,0)} \dfrac{x^2 + y^2}{\sqrt{x^2 + y^2 + 1} - 1}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.41"><a href="#ws-sec142-8-4" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.41" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.41">🔗</a></div></article>
+<details id="ws-sec142-8-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec142-8-4-2-1">
+<div class="para">We rewrite the function by dividing and multiplying it by the conjugate of <span class="process-math">\(\sqrt{x^2 + y^2 + 1} - 1\)</span> and use the identity <span class="process-math">\((a - b)(a + b) = a^2 - b^2\text{.}\)</span> This gives</div>
+<div class="displaymath process-math" id="ws-sec142-8-4-2-1-3">
+\begin{align*}
+\frac{x^2 + y^2}{\sqrt{x^2 + y^2 + 1} - 1} \amp= \frac{\lp x^2 + y^2 \rp \lp \sqrt{x^2 + y^2 + 1} + 1 \rp}{\lp\sqrt{x^2 + y^2 + 1} - 1)\rp\lp\sqrt{x^2 + y^2 + 1} + 1\rp} \\
+\amp= \frac{\lp x^2 + y^2 \rp \lp \sqrt{x^2 + y^2 + 1} + 1 \rp}{x^2 + y^2 + 1 - 1} \\
+\amp= \frac{\lp x^2 + y^2 \rp \lp \sqrt{x^2 + y^2 + 1} + 1 \rp}{x^2 + y^2} \\
+\amp= \sqrt{x^2 + y^2 + 1} + 1 
+\end{align*}
+</div>
+<div class="para">This resulting function is continuous, hence we may compute the limit by substitution:</div>
+<div class="displaymath process-math" id="ws-sec142-8-4-2-1-4">
+\begin{align*}
+\lim_{(x,y) \to (0,0)} \dfrac{x^2 + y^2}{\sqrt{x^2 + y^2 + 1} - 1} \amp= \lim_{(x,y) \to (0,0)} \lp \sqrt{x^2 + y^2 + 1} + 1 \rp \\
+\amp= \sqrt{0^2 + 0^2 + 1} + 1 \\
+\amp= 2 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec142-8-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.2.14.2.41.1"><a href="#ws-sec142-8-4-2" title="Copy heading and permalink for Solution 14.2.14.2.41.1" aria-label="Copy heading and permalink for Solution 14.2.14.2.41.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.2.14.2.41"><a href="#ws-sec142-8-4" title="Copy heading and permalink for Worksheet Exercise 14.2.14.2.41" aria-label="Copy heading and permalink for Worksheet Exercise 14.2.14.2.41">🔗</a></div></article>
 </div>
 <div class="autopermalink" data-description="Exercise Group 14.2.14.2.31–14.2.41"><a href="#ws-sec142-8" title="Copy heading and permalink for Exercise Group 14.2.14.2.31–14.2.41" aria-label="Copy heading and permalink for Exercise Group 14.2.14.2.31–14.2.41">🔗</a></div>
 </div>
