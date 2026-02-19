@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>sagecell.makeSagecell({
+  "inputLocation": ".sage-interact",
+  "autoeval": true,
+  "hide": [
+    "editor",
+    "evalButton",
+    "permalink"
+  ]
+});
+</script><link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+</head>
+<body class="ptx-content ignore-math" id="changeme">
+<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
+\newcommand{\Z}{\mathbb Z} 
+\newcommand{\Q}{\mathbb Q} 
+\newcommand{\R}{\mathbb R} 
+
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
+
+\newcommand{\lp}{\left(}
+\newcommand{\rp}{\right)}
+\newcommand{\la}{\left\langle}
+\newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div style="width:480px; height:480px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"><pre class="ptx-sagecell sage-interact"><script type="text/x-sage">var('u, v')
+
+# --- 1. Parameters and Function ---
+# Parametrize the triangular region 0 \leq x \leq 15, 0 \leq y \leq 15-x
+# Let x = u, y = v*(15 - u) where u in [0, 15] and v in [0, 1]
+x_expr = u
+y_expr = v*(15 - u)
+z_expr = x_expr*y_expr - 8*x_expr - y_expr^2 + 12*y_expr + 160
+
+# --- 2. Primary Object (Surface) ---
+# Teal Rule: color='teal', opacity=0.3, mesh=True
+surf = parametric_plot3d([x_expr, y_expr, z_expr], (u, 0, 15), (v, 0, 1), 
+                        color='teal', opacity=0.3, mesh=True, plot_points=[40, 40])
+
+# --- 3. The Region in the xy-plane (Shadow) ---
+region = parametric_plot3d([x_expr, y_expr, 0], (u, 0, 15), (v, 0, 1), color='gray', opacity=0.4)
+
+# Outline the boundary of the triangular domain in the xy-plane
+b1 = parametric_plot3d([u, 0, 0], (u, 0, 15), color='black', thickness=2)
+b2 = parametric_plot3d([u, 15-u, 0], (u, 0, 15), color='black', thickness=2)
+b3 = parametric_plot3d([0, u, 0], (u, 0, 15), color='black', thickness=2)
+
+# --- 4. Axes and Labels ---
+# Manual Construction (Black, width=1)
+ax_x = arrow3d((0, 0, 0), (16, 0, 0), color='black', width=1)
+ax_y = arrow3d((0, 0, 0), (0, 16, 0), color='black', width=1)
+ax_z = arrow3d((0, 0, 0), (0, 0, 220), color='black', width=1)
+
+lbl_x = text3d("x", (16.5, 0, 0), color='black')
+lbl_y = text3d("y", (0, 16.5, 0), color='black')
+lbl_z = text3d("z", (0, 0, 230), color='black')
+
+# --- 5. Show ---
+# Scaled Z-axis to prevent the surface from appearing as a thin tower
+show(surf + region + b1 + b2 + b3 + ax_x + ax_y + ax_z + lbl_x + lbl_y + lbl_z, 
+    frame=False, aspect_ratio=[1, 1, 0.05])
+</script></pre></div>
+</body>
+</html>

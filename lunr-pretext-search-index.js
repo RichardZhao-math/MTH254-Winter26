@@ -5266,6 +5266,276 @@ var ptx_lunr_docs = [
   "body": " Calculate the partial derivative of the equation using implicit differentiation.  "
 },
 {
+  "id": "sec147-Optimization",
+  "level": "1",
+  "url": "sec147-Optimization.html",
+  "type": "Section",
+  "number": "14.7",
+  "title": "Optimization in Several Variables",
+  "body": " Optimization in Several Variables   In single-variable calculus (MTH 251Z or MTH 251), we learned how to find the highest peaks and lowest valleys on a 2D curve. We accomplished this by using the first derivative to find critical points and the second derivative to classify them.  In MTH 254, we are taking these exact same concepts and elevating them to 3D surfaces. Instead of walking along a single path, imagine hiking across a mountainous landscape. We want to find the mountain summits (local maxima), the bottom of the basins (local minima), and the mountain passes (saddle points). We will also learn how to find the absolute highest and lowest elevation points within a specifically fenced-off area (global extrema on a closed and bounded region).    After this section, students will be able to:     locate critical points of a two-variable function .    classify critical points as local maxima, local minima, or saddle points using the Second Partial Derivative Test.    determine the global extreme values of a continuous function over a closed and bounded region.      Recall back in MTH 251Z (or MTH 251) that we do optimization problems by (1) determine the critical points, (2) use the Second Derivative Test to determine whether they are local minima, local maxima, or saddle points, and (3) determine the global extreme values by comparing the local extreme values and the values of the function on the boundary of the domain. In this section, we will apply the same process to functions of two variables.   Critical Points and Local Extrema  Let's start by finding the critical points of a two-variable function. Recall back in MTH 251Z (or MTH 251), we defined the critical points as the points where the derivative of a function is zero or undefined. This idea carries over to MTH 254. Yet we can only take the partial derivatives of a two-variable function, so we need to find the points where both partial derivatives are zero or undefined.   Critical Point   A point in the domain of is called a critical point if    or does not exist, and     or does not exist.        Find the critical points of .   Recall that the critical points are the points where both partial derivatives are zero or undefined. So let's start by finding the partial derivatives of first! How many variables do we have in the partial derivatives? Do we have enough equations to solve for the variables?    Since is a polynomial, it is differentiable everywhere in . Therefore, the only critical points will occur where both partial derivatives are equal to zero.  First, we compute the partial derivatives of with respect to and :   Next, we set both partial derivatives equal to zero to create a system of linear equations:   From the second equation, we can isolate to get . Substituting this into the first equation yields:   Now, we plug back into the equation to find the corresponding -coordinate:   Thus, the system has exactly one solution, and the only critical point of the function is .    Sometimes we may need some tricks (and even calculators) to find the critical points, especially when the first-order partial derivatives are not nice functions.   Find the critical points of .   This function is a polynomial and therefore differentiable at all points in . Thus, the critical points occur only at points where and .  To make differentiation easier, we can slightly group and expand the function as . Now we compute the partial derivatives:   Setting gives us . This equation is satisfied if , , or . We can substitute each of these cases into our second equation, , to find the corresponding coordinate:    If , then , which yields . This gives the critical point .    If , then , which yields or . This gives the critical points and .    If , then , which again yields or . This gives the critical points and .    Therefore, the function has a total of five critical points: , , , , and .    One of the reasons why we care about the critical points in general is because local maxima (peaks) and local minima (valleys) occur at critical points. Richard will include the technical definition of local maxima and local minima below. But he likes to call them peaks and valleys, as they look like peaks and valleys on the graphs.   Local Extreme Values   A function has a local extremum at if there exists an open disk such that    Local maximum : for all      Local minimum : for all        In other words, a local maximum is a point where the function value is greater than or equal to the function values at all nearby points, which appears as a peak on the graph, and a local minimum is a point where the function value is less than or equal to the function values at all nearby points, which appears as a valley on the graph.  Imagine if you are at a peak or valley, you will need to turn around on the graph, which means the tangent plane at that point will be horizontal. Therefore, the partial derivatives at that point will be zero, which means that the point must be a critical point. This is the Fermat's Theorem !    At the peak, the tangent line\/plane is horizontal.    Fermat's Theorem   If has a local minimum or maximum at , then is a critical point of .    Back in MTH 251Z (or MTH 251), we know that not all critical points are peak or valley points. It can also be an inflection point. Similarly, in MTH 254, not all critical points are peak or valley points. Some of them are saddle points , as shown in the figure below.    Local Maximum, Local Minimum, and Saddle Point   But how do we determine whether a critical point is a peak point, valley point, or saddle point? The second partial derivative test will tell us the answer!   Second Partial Derivative Test   Let be a critical point of . Assume that , , and are continuous near . Then   If then is a local minimum.    If then is a local maximum.    If then is a saddle point.    If then the test is inconclusive.       The magical quantity is also called the determinant of the Hessian matrix, . That is, If , then must be positive, which means and must have the same sign.   If , then , and the graph of near looks like a bowl, which means that is a local minimum (valley point).    If , then , and the graph of near looks like an upside-down bowl, which means that is a local maximum (peak point).     If , then must be negative, which means and must have opposite signs. The graph of near looks like a saddle, which means that is a saddle point.   But Richard... What does the control?  Long story short, the mixed partial derivative, , controls the amount of the \"twist\" of the surface near the critical point. That is, rather than focusing solely on the direction along the -axis or the -axis, the mixed partial derivative captures how the function changes when we move in a direction not parallel to either axis (for example, the direction along ).  If the twist is too strong, it can change the shape of the surface near the critical point, which can lead to a saddle point even if the second partial derivatives along the and directions suggest a local extremum.  For example, let's consider the function We obtain which implies that and , and hence is the only critical point.  If we ignore the twisting effect of the mixed partial derivative, we would only look at the second partial derivatives and , which are both positive. This would lead us to conclude that is a local minimum.  However, the mixed partial derivative is large enough to make the determinant which indicates that is actually a saddle point.   The surface        Determine whether the critical points of the function are local maxima, local minima, or saddle points.   Recall we found that the critical points for this function are: , , , , and .  Now try classifying these points following the second partial derivative test.    First, we expand the function and compute the partial derivatives. Taking the second partial derivatives, we find:   Next, we evaluate the determinant and the sign of at each critical point to classify them following the second partial derivative test.     Critical Point    Conclusion                                   Richard also included the graph of the function below, with the critical points labeled. This matches up with our conclusions using the second partial derivative test.   The surface and its critical points          Global Extrema  Now rather than looking at the local extrema, which only focuses on the behavior of the function near a critical point, we want to find the global extrema, which are the largest and smallest values of the function on the domain or a region.  Back in MTH 251Z (or MTH 251), we know that the global extrema exist for a continuous function on a closed interval. This is the famous extreme value theorem This theorem is also true in MTH 254. But instead of having a closed interval, we need to have a closed and bounded region. What it means is that the region must be fenced (bounded) and the fence must be included in the region (closed).    Closed and Bounded Region.   If the function is continuous on a closed and bounded region, then the global extrema must be attained. Furthermore, we know that the global extrema must occur at either a local extremum or a point on the boundary of the region.   Existence and Location of Global Extrema   Let be a continuous function on a closed and bounded region in . Then    takes on both a minimum and a maximum value on .    The extreme values occur either at critical points in the interior of or at points on the boundary of .        Find the absolute maximum and minimum values of the function on the rectangular region .   Richard coded the graph of the function as well as the region below. Your job is to find the highest and lowest points on the graph of that are also in the region .   The surface over the triangular region         Step 1: Examine the critical points   First, we find the partial derivatives of : Setting both partial derivatives to zero yields the following system of equations: Substituting into the second equation gives , which means . The only critical point is . We confirm that lies within the interior of the region since and .   Step 2: Check the boundary   The boundary of the triangular region consists of three line segments. We check for critical points on each segment, and we will also include the corner points of the triangle: , , and .     Bottom edge ( ): The function becomes Since , the function is decreasing on , which means that the maximum value on this edge occurs at and the minimum value occurs at .     Left edge ( ): The function becomes Taking the derivative gives . Setting this to zero yields . This gives us a boundary candidate point at .     Hypotenuse ( ): Substituting into , we get: Taking the derivative gives . Setting this to zero yields . The corresponding -value is . This gives us another boundary candidate point at .     Step 3: Compare   We organize the interior critical point, the boundary critical points, and the corners of the region into a table to compare the values of :     Point  Value                             Comparing the values in the table, the absolute maximum value is , which occurs at , and the absolute minimum value is , which occurs at .      Assigned Problems for Section 14.7   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Find the critical points of Use the contour map below to determine their nature (local minimum, local maximum, or saddle point).        In the following exercises, find the critical points of the function. Then use the Second Derivative Test to determine whether they are local minima, local maxima, or saddle points (or state that the test fails).                    Determine the global extreme values of the function on the set where and without using calculus.    A linear function has no critical points. Therefore, the global minimum and maximum values of on a closed and bounded domain must occur on the boundary of the domain. Furthermore, it is not difficult to see that if the domain is a polygon, then the global minimum and maximum values of must occur at a vertex of the polygon.  Find the global minimum and maximum values of on the following polygon, and indicate where on the polygon they occur.        In the following exercises, determine the global extreme values of the function on the given domain.               Find the volume of the largest box of the type shown in the figure below, with one corner at the origin and the opposite corner at a point on the paraboloid        Find the maximum volume of a cylindrical can such that the sum of its height and its circumference is 120 cm.    "
+},
+{
+  "id": "sec147-Optimization-2-3",
+  "level": "2",
+  "url": "sec147-Optimization.html#sec147-Optimization-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     locate critical points of a two-variable function .    classify critical points as local maxima, local minima, or saddle points using the Second Partial Derivative Test.    determine the global extreme values of a continuous function over a closed and bounded region.    "
+},
+{
+  "id": "def-CriticalPoints_TwoVariableFunction",
+  "level": "2",
+  "url": "sec147-Optimization.html#def-CriticalPoints_TwoVariableFunction",
+  "type": "Definition",
+  "number": "14.7.1",
+  "title": "Critical Point.",
+  "body": " Critical Point   A point in the domain of is called a critical point if    or does not exist, and     or does not exist.      "
+},
+{
+  "id": "subsec-CriticalPoint_TwoVariableFunction-4",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction-4",
+  "type": "Example",
+  "number": "14.7.2",
+  "title": "",
+  "body": " Find the critical points of .   Recall that the critical points are the points where both partial derivatives are zero or undefined. So let's start by finding the partial derivatives of first! How many variables do we have in the partial derivatives? Do we have enough equations to solve for the variables?    Since is a polynomial, it is differentiable everywhere in . Therefore, the only critical points will occur where both partial derivatives are equal to zero.  First, we compute the partial derivatives of with respect to and :   Next, we set both partial derivatives equal to zero to create a system of linear equations:   From the second equation, we can isolate to get . Substituting this into the first equation yields:   Now, we plug back into the equation to find the corresponding -coordinate:   Thus, the system has exactly one solution, and the only critical point of the function is .   "
+},
+{
+  "id": "subsec-CriticalPoint_TwoVariableFunction-6",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction-6",
+  "type": "Example",
+  "number": "14.7.3",
+  "title": "",
+  "body": " Find the critical points of .   This function is a polynomial and therefore differentiable at all points in . Thus, the critical points occur only at points where and .  To make differentiation easier, we can slightly group and expand the function as . Now we compute the partial derivatives:   Setting gives us . This equation is satisfied if , , or . We can substitute each of these cases into our second equation, , to find the corresponding coordinate:    If , then , which yields . This gives the critical point .    If , then , which yields or . This gives the critical points and .    If , then , which again yields or . This gives the critical points and .    Therefore, the function has a total of five critical points: , , , , and .   "
+},
+{
+  "id": "def-LocalExtremaValues",
+  "level": "2",
+  "url": "sec147-Optimization.html#def-LocalExtremaValues",
+  "type": "Definition",
+  "number": "14.7.4",
+  "title": "Local Extreme Values.",
+  "body": " Local Extreme Values   A function has a local extremum at if there exists an open disk such that    Local maximum : for all      Local minimum : for all       "
+},
+{
+  "id": "subsec-CriticalPoint_TwoVariableFunction-10",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Fermat's Theorem "
+},
+{
+  "id": "subsec-CriticalPoint_TwoVariableFunction-11",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction-11",
+  "type": "Figure",
+  "number": "14.7.5",
+  "title": "",
+  "body": "  At the peak, the tangent line\/plane is horizontal.  "
+},
+{
+  "id": "thm-FermatTheorem_TwoVariableFunctions",
+  "level": "2",
+  "url": "sec147-Optimization.html#thm-FermatTheorem_TwoVariableFunctions",
+  "type": "Theorem",
+  "number": "14.7.6",
+  "title": "Fermat’s Theorem.",
+  "body": " Fermat's Theorem   If has a local minimum or maximum at , then is a critical point of .   "
+},
+{
+  "id": "subsec-CriticalPoint_TwoVariableFunction-13",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction-13",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "saddle points "
+},
+{
+  "id": "subsec-CriticalPoint_TwoVariableFunction-14",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction-14",
+  "type": "Figure",
+  "number": "14.7.7",
+  "title": "",
+  "body": "  Local Maximum, Local Minimum, and Saddle Point  "
+},
+{
+  "id": "subsec-CriticalPoint_TwoVariableFunction-15",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction-15",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "second partial derivative test "
+},
+{
+  "id": "thm-SecondPartialDerivativeTest",
+  "level": "2",
+  "url": "sec147-Optimization.html#thm-SecondPartialDerivativeTest",
+  "type": "Theorem",
+  "number": "14.7.8",
+  "title": "Second Partial Derivative Test.",
+  "body": " Second Partial Derivative Test   Let be a critical point of . Assume that , , and are continuous near . Then   If then is a local minimum.    If then is a local maximum.    If then is a saddle point.    If then the test is inconclusive.      "
+},
+{
+  "id": "subsec-CriticalPoint_TwoVariableFunction-17",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction-17",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "determinant "
+},
+{
+  "id": "subsec-CriticalPoint_TwoVariableFunction-19",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction-19",
+  "type": "Note",
+  "number": "14.7.9",
+  "title": "But Richard... What does the <span class=\"process-math\">\\(f_{xy}^2(a,b)\\)<\/span> control?",
+  "body": " But Richard... What does the control?  Long story short, the mixed partial derivative, , controls the amount of the \"twist\" of the surface near the critical point. That is, rather than focusing solely on the direction along the -axis or the -axis, the mixed partial derivative captures how the function changes when we move in a direction not parallel to either axis (for example, the direction along ).  If the twist is too strong, it can change the shape of the surface near the critical point, which can lead to a saddle point even if the second partial derivatives along the and directions suggest a local extremum.  For example, let's consider the function We obtain which implies that and , and hence is the only critical point.  If we ignore the twisting effect of the mixed partial derivative, we would only look at the second partial derivatives and , which are both positive. This would lead us to conclude that is a local minimum.  However, the mixed partial derivative is large enough to make the determinant which indicates that is actually a saddle point.   The surface      "
+},
+{
+  "id": "subsec-CriticalPoint_TwoVariableFunction-20",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction-20",
+  "type": "Example",
+  "number": "14.7.11",
+  "title": "",
+  "body": " Determine whether the critical points of the function are local maxima, local minima, or saddle points.   Recall we found that the critical points for this function are: , , , , and .  Now try classifying these points following the second partial derivative test.    First, we expand the function and compute the partial derivatives. Taking the second partial derivatives, we find:   Next, we evaluate the determinant and the sign of at each critical point to classify them following the second partial derivative test.     Critical Point    Conclusion                                   Richard also included the graph of the function below, with the critical points labeled. This matches up with our conclusions using the second partial derivative test.   The surface and its critical points       "
+},
+{
+  "id": "subsec-GlobalExtrema_TwoVariableFunctions-3",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-GlobalExtrema_TwoVariableFunctions-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "extreme value theorem closed bounded "
+},
+{
+  "id": "subsec-GlobalExtrema_TwoVariableFunctions-4",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-GlobalExtrema_TwoVariableFunctions-4",
+  "type": "Figure",
+  "number": "14.7.13",
+  "title": "",
+  "body": "  Closed and Bounded Region.  "
+},
+{
+  "id": "thm-ExtremeValueTheorem",
+  "level": "2",
+  "url": "sec147-Optimization.html#thm-ExtremeValueTheorem",
+  "type": "Theorem",
+  "number": "14.7.14",
+  "title": "Existence and Location of Global Extrema.",
+  "body": " Existence and Location of Global Extrema   Let be a continuous function on a closed and bounded region in . Then    takes on both a minimum and a maximum value on .    The extreme values occur either at critical points in the interior of or at points on the boundary of .      "
+},
+{
+  "id": "subsec-GlobalExtrema_TwoVariableFunctions-7",
+  "level": "2",
+  "url": "sec147-Optimization.html#subsec-GlobalExtrema_TwoVariableFunctions-7",
+  "type": "Example",
+  "number": "14.7.15",
+  "title": "",
+  "body": " Find the absolute maximum and minimum values of the function on the rectangular region .   Richard coded the graph of the function as well as the region below. Your job is to find the highest and lowest points on the graph of that are also in the region .   The surface over the triangular region         Step 1: Examine the critical points   First, we find the partial derivatives of : Setting both partial derivatives to zero yields the following system of equations: Substituting into the second equation gives , which means . The only critical point is . We confirm that lies within the interior of the region since and .   Step 2: Check the boundary   The boundary of the triangular region consists of three line segments. We check for critical points on each segment, and we will also include the corner points of the triangle: , , and .     Bottom edge ( ): The function becomes Since , the function is decreasing on , which means that the maximum value on this edge occurs at and the minimum value occurs at .     Left edge ( ): The function becomes Taking the derivative gives . Setting this to zero yields . This gives us a boundary candidate point at .     Hypotenuse ( ): Substituting into , we get: Taking the derivative gives . Setting this to zero yields . The corresponding -value is . This gives us another boundary candidate point at .     Step 3: Compare   We organize the interior critical point, the boundary critical points, and the corners of the region into a table to compare the values of :     Point  Value                             Comparing the values in the table, the absolute maximum value is , which occurs at , and the absolute minimum value is , which occurs at .   "
+},
+{
+  "id": "ws-sec147-3",
+  "level": "2",
+  "url": "sec147-Optimization.html#ws-sec147-3",
+  "type": "Worksheet Exercise",
+  "number": "14.7.3",
+  "title": "",
+  "body": " Find the critical points of Use the contour map below to determine their nature (local minimum, local maximum, or saddle point).     "
+},
+{
+  "id": "ws-sec147-4-2",
+  "level": "2",
+  "url": "sec147-Optimization.html#ws-sec147-4-2",
+  "type": "Worksheet Exercise",
+  "number": "14.7.9",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec147-4-3",
+  "level": "2",
+  "url": "sec147-Optimization.html#ws-sec147-4-3",
+  "type": "Worksheet Exercise",
+  "number": "14.7.15",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec147-4-4",
+  "level": "2",
+  "url": "sec147-Optimization.html#ws-sec147-4-4",
+  "type": "Worksheet Exercise",
+  "number": "14.7.21",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec147-5",
+  "level": "2",
+  "url": "sec147-Optimization.html#ws-sec147-5",
+  "type": "Worksheet Exercise",
+  "number": "14.7.31",
+  "title": "",
+  "body": " Determine the global extreme values of the function on the set where and without using calculus.  "
+},
+{
+  "id": "ws-sec147-6",
+  "level": "2",
+  "url": "sec147-Optimization.html#ws-sec147-6",
+  "type": "Worksheet Exercise",
+  "number": "14.7.35",
+  "title": "",
+  "body": " A linear function has no critical points. Therefore, the global minimum and maximum values of on a closed and bounded domain must occur on the boundary of the domain. Furthermore, it is not difficult to see that if the domain is a polygon, then the global minimum and maximum values of must occur at a vertex of the polygon.  Find the global minimum and maximum values of on the following polygon, and indicate where on the polygon they occur.     "
+},
+{
+  "id": "ws-sec147-7-2",
+  "level": "2",
+  "url": "sec147-Optimization.html#ws-sec147-7-2",
+  "type": "Worksheet Exercise",
+  "number": "14.7.45",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec147-7-3",
+  "level": "2",
+  "url": "sec147-Optimization.html#ws-sec147-7-3",
+  "type": "Worksheet Exercise",
+  "number": "14.7.49",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec147-8",
+  "level": "2",
+  "url": "sec147-Optimization.html#ws-sec147-8",
+  "type": "Worksheet Exercise",
+  "number": "14.7.51",
+  "title": "",
+  "body": " Find the volume of the largest box of the type shown in the figure below, with one corner at the origin and the opposite corner at a point on the paraboloid      "
+},
+{
+  "id": "ws-sec147-9",
+  "level": "2",
+  "url": "sec147-Optimization.html#ws-sec147-9",
+  "type": "Worksheet Exercise",
+  "number": "14.7.59",
+  "title": "",
+  "body": " Find the maximum volume of a cylindrical can such that the sum of its height and its circumference is 120 cm.  "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
