@@ -5,7 +5,14 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In single-variable calculus (MTH 251Z or MTH 251), we learned how to find the highest peaks and lowest valleys on a 2D curve. 
+      We accomplished this by using the first derivative to find critical points and the second derivative to classify them. 
+    </p>
+    
+    <p>
+      In MTH 254, we are taking these exact same concepts and elevating them to 3D surfaces. 
+      Instead of walking along a single path, imagine hiking across a mountainous landscape. We want to find the mountain summits (local maxima), the bottom of the basins (local minima), and the mountain passes (saddle points). 
+      We will also learn how to find the absolute highest and lowest elevation points within a specifically fenced-off area (global extrema on a closed and bounded region). 
     </p>
 
     <objectives>
@@ -17,12 +24,865 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            locate critical points of a two-variable function <m>f(x,y)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            classify critical points as local maxima, local minima, or saddle points using the Second Partial Derivative Test. 
+          </p>
+        </li>
+        <li>
+          <p>
+            determine the global extreme values of a continuous function over a closed and bounded region.
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <p>
+    Recall back in MTH 251Z (or MTH 251) that we do optimization problems by (1) determine the critical points, (2) use the Second Derivative Test to determine whether they are local minima, local maxima, or saddle points, and (3) determine the global extreme values by comparing the local extreme values and the values of the function on the boundary of the domain.
+    In this section, we will apply the same process to functions of two variables.
+  </p>
+
+  <subsection xml:id="subsec-CriticalPoint_TwoVariableFunction">
+    <title>Critical Points and Local Extrema</title>
+
+    <p>
+      Let's start by finding the critical points of a two-variable function. 
+      Recall back in MTH 251Z (or MTH 251), we defined the critical points as the points where the derivative of a function is zero or undefined. 
+      This idea carries over to MTH 254. 
+      Yet we can only take the partial derivatives of a two-variable function, so we need to find the points where both partial derivatives are zero or undefined. 
+    </p>
+
+    <definition xml:id="def-CriticalPoints_TwoVariableFunction">
+    <title>Critical Point</title>
+      <statement>
+        <p>
+          A point <m>P = (a,b)</m> in the domain of <m>f(x,y)</m> is called a <term>critical point</term> if
+          <ul>
+            <li>
+              <p>
+                <m>f_x(a,b) = 0</m> or <m>f_x(a,b)</m> does not exist, and
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f_y(a,b) = 0</m> or <m>f_y(a,b)</m> does not exist. 
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <p>
+        Find the critical points of <m>f(x,y) = x^2 + y^2 - xy + x</m>.
+      </p>
+
+      <hint>
+        <p>
+          Recall that the critical points are the points where both partial derivatives are zero or undefined.
+          So let's start by finding the partial derivatives of <m>f(x,y)</m> first! 
+          How many variables do we have in the partial derivatives? 
+          Do we have enough equations to solve for the variables? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          Since <m>f(x,y)</m> is a polynomial, it is differentiable everywhere in <m>\R^2</m>. 
+          Therefore, the only critical points will occur where both partial derivatives are equal to zero.
+        </p>
+        
+        <p>
+          First, we compute the partial derivatives of <m>f</m> with respect to <m>x</m> and <m>y</m>:
+          <md>
+            <mrow> f_x(x,y) \amp = 2x - y + 1 </mrow>
+            <mrow> f_y(x,y) \amp = 2y - x </mrow>
+          </md>
+        </p>
+
+        <p>
+          Next, we set both partial derivatives equal to zero to create a system of linear equations:
+          <md>
+            <mrow> 2x - y + 1 \amp = 0 </mrow>
+            <mrow> -x + 2y \amp = 0 </mrow>
+          </md>
+        </p>
+
+        <p>
+          From the second equation, we can isolate <m>x</m> to get <m>x = 2y</m>. Substituting this into the first equation yields:
+          <md>
+            <mrow> 2(2y) - y + 1 \amp = 0 </mrow>
+            <mrow> 4y - y + 1 \amp = 0 </mrow>
+            <mrow> 3y \amp = -1 </mrow>
+            <mrow> y \amp = -\frac{1}{3} </mrow>
+          </md>
+        </p>
+
+        <p>
+          Now, we plug <m>y = -\frac{1}{3}</m> back into the equation <m>x = 2y</m> to find the corresponding <m>x</m>-coordinate:
+          <me> x = 2\left(-\frac{1}{3}\right) = -\frac{2}{3} </me>
+        </p>
+
+        <p>
+          Thus, the system has exactly one solution, and the only critical point of the function is <m>\left(-\frac{2}{3}, -\frac{1}{3}\right)</m>.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Sometimes we may need some tricks (and even calculators) to find the critical points, especially when the first-order partial derivatives are not nice functions. 
+    </p>
+
+    <example>
+      <p>
+        Find the critical points of <m>f(x,y) = xy(x - 2)(y + 3)</m>.
+      </p>
+
+      <solution>
+        <p>
+          This function is a polynomial and therefore differentiable at all points in <m>\R^2</m>. Thus, the critical points occur only at points where <m>f_x(x,y) = 0</m> and <m>f_y(x,y) = 0</m>. 
+        </p>
+        
+        <p>
+          To make differentiation easier, we can slightly group and expand the function as <m>f(x,y) = (x^2 - 2x)(y^2 + 3y)</m>. Now we compute the partial derivatives:
+          <md>
+            <mrow> f_x(x,y) \amp = (2x - 2)(y^2 + 3y) = 2(x - 1)y(y + 3) </mrow>
+            <mrow> f_y(x,y) \amp = (x^2 - 2x)(2y + 3) = x(x - 2)(2y + 3) </mrow>
+          </md>
+        </p>
+
+        <p>
+          Setting <m>f_x(x,y) = 0</m> gives us <m>2(x - 1)y(y + 3) = 0</m>. This equation is satisfied if <m>x = 1</m>, <m>y = 0</m>, or <m>y = -3</m>. We can substitute each of these cases into our second equation, <m>f_y(x,y) = 0</m>, to find the corresponding coordinate:
+        </p>
+
+        <ul>
+          <li>
+            <p>
+              If <m>x = 1</m>, then <m>f_y(1,y) = (1)(-1)(2y + 3) = -(2y + 3) = 0</m>, which yields <m>y = -\frac{3}{2}</m>. This gives the critical point <m>(1, -\frac{3}{2})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>y = 0</m>, then <m>f_y(x,0) = x(x - 2)(3) = 3x(x - 2) = 0</m>, which yields <m>x = 0</m> or <m>x = 2</m>. This gives the critical points <m>(0, 0)</m> and <m>(2, 0)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>y = -3</m>, then <m>f_y(x,-3) = x(x - 2)(-3) = -3x(x - 2) = 0</m>, which again yields <m>x = 0</m> or <m>x = 2</m>. This gives the critical points <m>(0, -3)</m> and <m>(2, -3)</m>.
+            </p>
+          </li>
+        </ul>
+
+        <p>
+          Therefore, the function has a total of five critical points: <m>(0,0)</m>, <m>(2,0)</m>, <m>(0,-3)</m>, <m>(2,-3)</m>, and <m>(1, -\frac{3}{2})</m>.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      One of the reasons why we care about the critical points in general is because local maxima (peaks) and local minima (valleys) occur at critical points. 
+      Richard will include the technical definition of local maxima and local minima below. 
+      But he likes to call them peaks and valleys, as they look like peaks and valleys on the graphs.
+    </p>
+
+    <definition xml:id="def-LocalExtremaValues">
+    <title>Local Extreme Values</title>
+      <statement>
+        <p>
+          A function <m>f(x,y)</m> has a <term>local extremum</term> at <m>P = (a,b)</m> if there exists an open disk <m>D(P,r)</m> such that
+          <ul>
+            <li>
+              <p>
+                <term>Local maximum</term>: <m>f(x,y) \leq f(a,b)</m> for all <m>(x,y) \in D(P,r)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <term>Local minimum</term>: <m>f(x,y) \geq f(a,b)</m> for all <m>(x,y) \in D(P,r)</m>
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      In other words, a local maximum is a point where the function value is greater than or equal to the function values at all nearby points, which appears as a peak on the graph, and a local minimum is a point where the function value is less than or equal to the function values at all nearby points, which appears as a valley on the graph.
+    </p>
+
+    <p>
+      Imagine if you are at a peak or valley, you will need to turn around on the graph, which means the tangent plane at that point will be horizontal. 
+      Therefore, the partial derivatives at that point will be zero, which means that the point must be a critical point. 
+      This is the <term>Fermat's Theorem</term>! 
+    </p>
+
+    <figure>
+      <image source="sec147_FermatTheorem_Visual.png" width="70%"></image>
+      <caption>At the peak, the tangent line/plane is horizontal. </caption>
+    </figure>
+
+    <theorem xml:id="thm-FermatTheorem_TwoVariableFunctions">
+      <title>Fermat's Theorem</title>
+      <statement>
+        <p>
+          If <m>f(x,y)</m> has a local minimum or maximum at <m>P = (a,b)</m>, then <m>(a,b)</m> is a critical point of <m>f(x,y)</m>. 
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+      Back in MTH 251Z (or MTH 251), we know that not all critical points are peak or valley points. 
+      It can also be an inflection point. 
+      Similarly, in MTH 254, not all critical points are peak or valley points. 
+      Some of them are <term>saddle points</term>, as shown in the figure below. 
+    </p>
+
+    <figure>
+      <image source="sec147_LocalExtrema_Saddle_diagram.png" width="90%"></image>
+      <caption>Local Maximum, Local Minimum, and Saddle Point</caption>
+    </figure>
+
+    <p>
+      But how do we determine whether a critical point is a peak point, valley point, or saddle point?
+      The <term>second partial derivative test</term> will tell us the answer! 
+    </p>
+
+    <theorem xml:id="thm-SecondPartialDerivativeTest">
+      <title>Second Partial Derivative Test</title>
+      <statement>
+        <p>
+          Let <m>P = (a,b)</m> be a critical point of <m>f(x,y)</m>. 
+          Assume that <m>f_{xx}</m>, <m>f_{yy}</m>, and <m>f_{xy}</m> are continuous near <m>P</m>. 
+          Then
+          <ol marker="i.">
+            <li>
+              <p>
+                If 
+                <md>
+                  f_{xx}(a,b)f_{yy}(a,b) - f_{xy}^2(a,b) \gt 0 \qquad \text{ and } \qquad f_{xx}(a,b) \gt 0
+                </md>
+                then <m>f(a,b)</m> is a local minimum. 
+              </p>
+            </li>
+            <li>
+              <p>
+                If 
+                <md>
+                  f_{xx}(a,b)f_{yy}(a,b) - f_{xy}^2(a,b) \gt 0 \qquad \text{ and } \qquad f_{xx}(a,b) \lt 0
+                </md>
+                then <m>f(a,b)</m> is a local maximum.
+              </p>
+            </li>
+            <li>
+              <p>
+                If 
+                <md>
+                  f_{xx}(a,b)f_{yy}(a,b) - f_{xy}^2(a,b) \lt 0
+                </md>
+                then <m>f(a,b)</m> is a saddle point.
+              </p>
+            </li>
+            <li>
+              <p>
+                If 
+                <md>
+                  f_{xx}(a,b)f_{yy}(a,b) - f_{xy}^2(a,b) = 0
+                </md>
+                then the test is inconclusive. 
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+      The magical quantity <m>f_{xx}f_{yy} - f_{xy}^2</m> is also called the <term>determinant</term> of the Hessian matrix, <m>D</m>. 
+      That is, 
+      <md>
+        D = \begin{vmatrix} f_{xx}(a,b) \amp f_{xy}(a,b) \\ f_{xy}(a,b) \amp f_{yy}(a,b) \end{vmatrix} = f_{xx}(a,b) f_{yy} (a,b) - f_{xy}(a,b)^2
+      </md>
+      If <m>D \gt 0</m>, then <m>f_{xx}(a,b)f_{yy}(a,b)</m> must be positive, which means <m>f_{xx}(a,b)</m> and <m>f_{yy}(a,b)</m> must have the same sign. 
+      <ol>
+        <li>
+          <p>
+            If <m>f_{xx}(a,b) \gt 0</m>, then <m>f_{yy}(a,b) \gt 0</m>, and the graph of <m>f(x,y)</m> near <m>(a,b)</m> looks like a bowl, which means that <m>f(a,b)</m> is a local minimum (valley point).
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>f_{xx}(a,b) \lt 0</m>, then <m>f_{yy}(a,b) \lt 0</m>, and the graph of <m>f(x,y)</m> near <m>(a,b)</m> looks like an upside-down bowl, which means that <m>f(a,b)</m> is a local maximum (peak point). 
+          </p>
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      If <m>D \lt 0</m>, then <m>f_{xx}(a,b)f_{yy}(a,b)</m> must be negative, which means <m>f_{xx}(a,b)</m> and <m>f_{yy}(a,b)</m> must have opposite signs. 
+      The graph of <m>f(x,y)</m> near <m>(a,b)</m> looks like a saddle, which means that <m>f(a,b)</m> is a saddle point. 
+    </p>
+
+    <note>
+      <title>But Richard... What does the <m>f_{xy}^2(a,b)</m> control? </title>
+
+      <p>
+        Long story short, the mixed partial derivative, <m>f_{xy}(a,b)</m>, controls the amount of the "twist" of the surface near the critical point. 
+        That is, rather than focusing solely on the direction along the <m>x</m>-axis or the <m>y</m>-axis, the mixed partial derivative captures how the function changes when we move in a direction not parallel to either axis (for example, the direction along <m>y = x</m>). 
+      </p>
+
+      <p>
+        If the twist is too strong, it can change the shape of the surface near the critical point, which can lead to a saddle point even if the second partial derivatives along the <m>x</m> and <m>y</m> directions suggest a local extremum.
+      </p>
+
+      <p>
+        For example, let's consider the function 
+        <md>
+          f(x,y) = x^2 + 4xy + y^2
+        </md>
+        We obtain
+        <md>
+          f_{x}(x,y) = 2x + 4y \qquad \text{ and } \qquad f_{y}(x,y) = 4x + 2y
+        </md>
+        which implies that <m>x = 0</m> and <m>y = 0</m>, and hence <m>(0,0)</m> is the only critical point. 
+      </p>
+
+      <p>
+        If we ignore the twisting effect of the mixed partial derivative, we would only look at the second partial derivatives <m>f_{xx}(0,0)</m> and <m>f_{yy}(0,0)</m>, which are both positive. 
+        This would lead us to conclude that <m>(0,0)</m> is a local minimum. 
+      </p>
+
+      <p>
+        However, the mixed partial derivative <m>f_{xy}(0,0) = 4</m> is large enough to make the determinant 
+        <md>
+          D = f_{xx}(0,0)f_{yy}(0,0) - f_{xy}^2(0,0) = 2 \cdot 2 - 4^2 = -12 \lt 0
+        </md> 
+        which indicates that <m>(0,0)</m> is actually a saddle point. 
+      </p>
+
+      <figure xml:id="fig-surface-saddle-origin-teal">
+        <caption>The surface <m>f(x,y) = x^2 + 4xy + y^2</m></caption>
+        <sidebyside width="80%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('x, y')
+
+              # --- 1. Parameters and Function ---
+              f(x, y) = x^2 + 4*x*y + y^2
+
+              x_min, x_max = -3, 3
+              y_min, y_max = -3, 3
+              z_min, z_max = -20, 60
+
+              # --- 2. Primary Object (Surface) ---
+              # Teal Rule: color='teal', opacity=0.3, mesh=True
+              surf = plot3d(f(x, y), (x, x_min, x_max), (y, y_min, y_max), 
+                            color='teal', opacity=0.3, mesh=True, plot_points=[40, 40])
+
+              # --- 3. The Origin ---
+              # Teal Rule: points in teal
+              origin_pt = point3d((0, 0, 0), color='teal', size=20)
+
+              # --- 4. Axes and Labels ---
+              # Manual Construction (Black, width=1)
+              ax_x = arrow3d((x_min, 0, 0), (x_max + 1, 0, 0), color='black', width=1)
+              ax_y = arrow3d((0, y_min, 0), (0, y_max + 1, 0), color='black', width=1)
+              ax_z = arrow3d((0, 0, z_min), (0, 0, z_max + 10), color='black', width=1)
+
+              lbl_x = text3d("x", (x_max + 1.5, 0, 0), color='black')
+              lbl_y = text3d("y", (0, y_max + 1.5, 0), color='black')
+              lbl_z = text3d("z", (0, 0, z_max + 15), color='black')
+
+              # --- 5. Show ---
+              show(surf + origin_pt + ax_x + ax_y + ax_z + lbl_x + lbl_y + lbl_z, 
+                  frame=False, aspect_ratio=[1, 1, 0.1])
+            </slate>
+          </interactive>
+        </sidebyside>
+      </figure>
+    </note>
+
+    <example>
+      <p>
+        Determine whether the critical points of the function <m>f(x,y) = xy(x - 2)(y + 3)</m> are local maxima, local minima, or saddle points. 
+      </p>
+
+      <hint>
+        <p>
+          Recall we found that the critical points for this function are: <m>(0,0)</m>, <m>(2,0)</m>, <m>\lp 1, -\frac{3}{2} \rp</m>, <m>(0,-3)</m>, and <m>(2,-3)</m>. 
+        </p>
+
+        <p>
+          Now try classifying these points following the second partial derivative test. 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          First, we expand the function and compute the partial derivatives.
+          <md>
+            <mrow>f(x,y) \amp = x^2 y^2 + 3 x^2 y - 2 x y^2 - 6 x y</mrow>
+            <mrow>f_x(x,y) \amp = 2xy^2 + 6xy - 2y^2 - 6y</mrow>
+            <mrow>f_y(x,y) \amp = 2x^2y + 3x^2 - 4xy - 6x</mrow>
+          </md>
+          Taking the second partial derivatives, we find:
+          <md>
+            <mrow>f_{xx}(x,y) \amp = 2y^2 + 6y</mrow>
+            <mrow>f_{yy}(x,y) \amp = 2x^2 - 4x</mrow>
+            <mrow>f_{xy}(x,y) \amp = 4xy + 6x - 4y - 6</mrow>
+          </md>
+        </p>
+        <p>
+          Next, we evaluate the determinant <m>D = f_{xx}f_{yy} - (f_{xy})^2</m> and the sign of <m>f_{xx}</m> at each critical point to classify them following the second partial derivative test.
+        </p>
+
+        <sidebyside>
+          <tabular top="medium" bottom="medium" left="medium" right="medium" halign="center">
+            <row bottom="medium">
+              <cell>Critical Point</cell>
+              <cell><m>D = f_{xx}f_{yy} - (f_{xy})^2</m></cell>
+              <cell><m>f_{xx}</m></cell>
+              <cell>Conclusion</cell>
+            </row>
+            <row>
+              <cell><m>(0,0)</m></cell>
+              <cell><m>0(0) - (-6)^2 = -36 \lt 0</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>\text{Saddle Point}</m></cell>
+            </row>
+            <row>
+              <cell><m>(2,0)</m></cell>
+              <cell><m>0(0) - (6)^2 = -36 \lt 0</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>\text{Saddle Point}</m></cell>
+            </row>
+            <row>
+              <cell><m>\lp 1, -\frac{3}{2} \rp</m></cell>
+              <cell><m>\lp-\frac{9}{2}\rp(-2) - (0)^2 = 9 \gt 0</m></cell>
+              <cell><m>-\frac{9}{2} \lt 0</m></cell>
+              <cell><m>\text{Local Maximum}</m></cell>
+            </row>
+            <row>
+              <cell><m>(0,-3)</m></cell>
+              <cell><m>0(0) - (6)^2 = -36 \lt 0</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>\text{Saddle Point}</m></cell>
+            </row>
+            <row>
+              <cell><m>(2,-3)</m></cell>
+              <cell><m>0(0) - (-6)^2 = -36 \lt 0</m></cell>
+              <cell><m>0</m></cell>
+              <cell><m>\text{Saddle Point}</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+
+        <p>
+          Richard also included the graph of the function below, with the critical points labeled. 
+          This matches up with our conclusions using the second partial derivative test. 
+        </p>
+
+        <figure xml:id="fig-surface-critical-points-only-teal">
+          <caption>The surface <m>f(x,y) = xy(x - 2)(y + 3)</m> and its critical points</caption>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('x, y')
+
+                # --- 1. Parameters and Function ---
+                f(x, y) = x*y*(x - 2)*(y + 3)
+
+                # Expand plot window slightly beyond the outermost critical points
+                x_min, x_max = -1.5, 3.5
+                y_min, y_max = -4.5, 1.5
+                z_min, z_max = -5, 10
+
+                # List of critical points to plot
+                pts = [(1, -1.5, 2.25), (0, 0, 0), (2, 0, 0), (0, -3, 0), (2, -3, 0)]
+
+                # --- 2. Primary Object (Surface) ---
+                # Teal Rule: color='teal', opacity=0.3, mesh=True
+                surf = plot3d(f(x, y), (x, x_min, x_max), (y, y_min, y_max), 
+                              color='teal', opacity=0.3, mesh=True, plot_points=[40, 40])
+
+                # --- 3. Critical Points ---
+                # Teal Rule: points in teal
+                for p in pts:
+                    surf += point3d(p, color='teal', size=20)
+
+                # --- 4. Axes and Labels ---
+                # Manual Construction (Black, width=1)
+                ax_x = arrow3d((x_min, 0, 0), (x_max + 1, 0, 0), color='black', width=1)
+                ax_y = arrow3d((0, y_min, 0), (0, y_max + 1, 0), color='black', width=1)
+                ax_z = arrow3d((0, 0, z_min), (0, 0, z_max + 3), color='black', width=1)
+
+                lbl_x = text3d("x", (x_max + 1.2, 0, 0), color='black')
+                lbl_y = text3d("y", (0, y_max + 1.2, 0), color='black')
+                lbl_z = text3d("z", (0, 0, z_max + 4), color='black')
+
+                # --- 5. Show ---
+                show(surf + ax_x + ax_y + ax_z + lbl_x + lbl_y + lbl_z, 
+                    frame=False, aspect_ratio=[1, 1, 0.2])
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-GlobalExtrema_TwoVariableFunctions">
+    <title>Global Extrema</title>
+
+    <p>
+      Now rather than looking at the local extrema, which only focuses on the behavior of the function near a critical point, we want to find the global extrema, which are the largest and smallest values of the function on the domain or a region. 
+    </p>
+
+    <p>
+      Back in MTH 251Z (or MTH 251), we know that the global extrema exist for a continuous function on a closed interval. 
+      This is the famous <term>extreme value theorem</term>
+      This theorem is also true in MTH 254. 
+      But instead of having a closed interval, we need to have a <term>closed</term> and <term>bounded</term> region. 
+      What it means is that the region must be fenced (bounded) and the fence must be included in the region (closed). 
+    </p>
+
+    <figure>
+      <image source="sec147_BoundedClosedRegion_Diagram.png" width="80%"></image>
+      <caption>Closed and Bounded Region. </caption>
+    </figure>
+
+    <p>
+      If the function is continuous on a closed and bounded region, then the global extrema must be attained. 
+      Furthermore, we know that the global extrema must occur at either a local extremum or a point on the boundary of the region. 
+    </p>
+
+    <theorem xml:id="thm-ExtremeValueTheorem">
+      <title>Existence and Location of Global Extrema</title>
+      <statement>
+        <p>
+          Let <m>f(x,y)</m> be a continuous function on a closed and bounded region <m>\c{R}</m> in <m>\R^2</m>. 
+          Then
+          <ul>
+            <li>
+              <p>
+                <m>f(x,y)</m> takes on both a minimum and a maximum value on <m>\c{R}</m>. 
+              </p>
+            </li>
+            <li>
+              <p>
+                The extreme values occur either at critical points in the interior of <m>\c{R}</m> or at points on the boundary of <m>\c{R}</m>. 
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <p>
+        Find the absolute maximum and minimum values of the function
+        <md>
+          f(x,y) = xy - 8x - y^2 + 12y + 160
+        </md>
+        on the rectangular region <m>\c{R} = \left\{(x,y) \in \R^2 : 0 \leq x \leq 15, 0 \leq y \leq 15 - x\right\}</m>. 
+      </p>
+
+      <hint>
+        <p>
+          Richard coded the graph of the function as well as the region <m>\c{R}</m> below. 
+          Your job is to find the highest and lowest points on the graph of <m>f(x,y)</m> that are also in the region <m>\c{R}</m>. 
+        </p>
+
+        <figure xml:id="fig-surface-triangular-domain-teal">
+          <caption>The surface <m>f(x,y) = xy - 8x - y^2 + 12y + 160</m> over the triangular region <m>0 \leq x \leq 15, 0 \leq y \leq 15-x</m></caption>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('u, v')
+
+                # --- 1. Parameters and Function ---
+                # Parametrize the triangular region 0 \leq x \leq 15, 0 \leq y \leq 15-x
+                # Let x = u, y = v*(15 - u) where u in [0, 15] and v in [0, 1]
+                x_expr = u
+                y_expr = v*(15 - u)
+                z_expr = x_expr*y_expr - 8*x_expr - y_expr^2 + 12*y_expr + 160
+
+                # --- 2. Primary Object (Surface) ---
+                # Teal Rule: color='teal', opacity=0.3, mesh=True
+                surf = parametric_plot3d([x_expr, y_expr, z_expr], (u, 0, 15), (v, 0, 1), 
+                                        color='teal', opacity=0.3, mesh=True, plot_points=[40, 40])
+
+                # --- 3. The Region in the xy-plane (Shadow) ---
+                region = parametric_plot3d([x_expr, y_expr, 0], (u, 0, 15), (v, 0, 1), color='gray', opacity=0.4)
+
+                # Outline the boundary of the triangular domain in the xy-plane
+                b1 = parametric_plot3d([u, 0, 0], (u, 0, 15), color='black', thickness=2)
+                b2 = parametric_plot3d([u, 15-u, 0], (u, 0, 15), color='black', thickness=2)
+                b3 = parametric_plot3d([0, u, 0], (u, 0, 15), color='black', thickness=2)
+
+                # --- 4. Axes and Labels ---
+                # Manual Construction (Black, width=1)
+                ax_x = arrow3d((0, 0, 0), (16, 0, 0), color='black', width=1)
+                ax_y = arrow3d((0, 0, 0), (0, 16, 0), color='black', width=1)
+                ax_z = arrow3d((0, 0, 0), (0, 0, 220), color='black', width=1)
+
+                lbl_x = text3d("x", (16.5, 0, 0), color='black')
+                lbl_y = text3d("y", (0, 16.5, 0), color='black')
+                lbl_z = text3d("z", (0, 0, 230), color='black')
+
+                # --- 5. Show ---
+                # Scaled Z-axis to prevent the surface from appearing as a thin tower
+                show(surf + region + b1 + b2 + b3 + ax_x + ax_y + ax_z + lbl_x + lbl_y + lbl_z, 
+                    frame=False, aspect_ratio=[1, 1, 0.05])
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </hint>
+
+      <solution>
+        <p>
+          <alert>Step 1: Examine the critical points</alert>
+        </p>
+        <p>
+          First, we find the partial derivatives of <m>f(x,y)</m>:
+          <md>
+            <mrow>f_x(x,y) \amp = y - 8</mrow>
+            <mrow>f_y(x,y) \amp = x - 2y + 12</mrow>
+          </md>
+          Setting both partial derivatives to zero yields the following system of equations:
+          <md>
+            <mrow>y - 8 \amp = 0 \qquad \implies \qquad y = 8</mrow>
+            <mrow>x - 2y + 12 \amp = 0</mrow>
+          </md>
+          Substituting <m>y = 8</m> into the second equation gives <m>x - 16 + 12 = 0</m>, which means <m>x = 4</m>. 
+          The only critical point is <m>(4, 8)</m>. We confirm that <m>(4, 8)</m> lies within the interior of the region <m>\c{R}</m> since <m>0 \leq 4 \leq 15</m> and <m>0 \leq 8 \leq 15 - 4 = 11</m>.
+        </p>
+
+        <p>
+          <alert>Step 2: Check the boundary</alert>
+        </p>
+        <p>
+          The boundary of the triangular region <m>\c{R}</m> consists of three line segments. 
+          We check for critical points on each segment, and we will also include the corner points of the triangle: <m>(0,0)</m>, <m>(15,0)</m>, and <m>(0,15)</m>.
+        </p>
+        <ul>
+          <li>
+            <p>
+              <em>Bottom edge (<m>y = 0, 0 \leq x \leq 15</m>):</em> 
+              The function becomes 
+              <md>
+                g_1(x) = f(x,0) = -8x + 160
+              </md>
+              Since <m>g_1'(x) = -8 \lt 0</m>, the function is decreasing on <m>0 \leq x \leq 15</m>, which means that the maximum value on this edge occurs at <m>(0, 0)</m> and the minimum value occurs at <m>(15, 0)</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Left edge (<m>x = 0, 0 \leq y \leq 15</m>):</em> 
+              The function becomes 
+              <md>
+                g_2(y) = f(0,y) = -y^2 + 12y + 160
+              </md>
+              Taking the derivative gives <m>g_2'(y) = -2y + 12</m>. 
+              Setting this to zero yields <m>y = 6</m>. 
+              This gives us a boundary candidate point at <m>(0, 6)</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Hypotenuse (<m>y = 15 - x, 0 \leq x \leq 15</m>):</em> 
+              Substituting <m>y = 15 - x</m> into <m>f(x,y)</m>, we get:
+              <md>
+                <mrow>g_3(x) \amp = x(15-x) - 8x - (15-x)^2 + 12(15-x) + 160</mrow>
+                <mrow>\amp = 15x - x^2 - 8x - (225 - 30x + x^2) + 180 - 12x + 160</mrow>
+                <mrow>\amp = -2x^2 + 25x + 115</mrow>
+              </md>
+              Taking the derivative gives <m>g_3'(x) = -4x + 25</m>. Setting this to zero yields <m>x = \frac{25}{4}</m>. 
+              The corresponding <m>y</m>-value is <m>y = 15 - \frac{25}{4} = \frac{35}{4}</m>. 
+              This gives us another boundary candidate point at <m>\left(\frac{25}{4}, \frac{35}{4}\right)</m>.
+            </p>
+          </li>
+        </ul>
+
+        <p>
+          <alert>Step 3: Compare</alert>
+        </p>
+        <p>
+          We organize the interior critical point, the boundary critical points, and the corners of the region into a table to compare the values of <m>f(x,y)</m>:
+        </p>
+        <sidebyside>
+          <tabular top="medium" bottom="medium" left="medium" right="medium" halign="center">
+            <row bottom="medium">
+              <cell>Point <m>(x, y)</m></cell>
+              <cell>Value <m>f(x,y)</m></cell>
+            </row>
+            <row>
+              <cell><m>(4, 8)</m></cell>
+              <cell><m>192</m></cell>
+            </row>
+            <row>
+              <cell><m>(0, 0)</m></cell>
+              <cell><m>160</m></cell>
+            </row>
+            <row>
+              <cell><m>(15, 0)</m></cell>
+              <cell><m>40</m></cell>
+            </row>
+            <row>
+              <cell><m>(0, 15)</m></cell>
+              <cell><m>115</m></cell>
+            </row>
+            <row>
+              <cell><m>(0, 6)</m></cell>
+              <cell><m>196</m></cell>
+            </row>
+            <row>
+              <cell><m>\left(\frac{25}{4}, \frac{35}{4}\right)</m></cell>
+              <cell><m>\frac{1545}{8} = 193.125</m></cell>
+            </row>
+          </tabular>
+        </sidebyside>
+        <p>
+          Comparing the values in the table, the absolute maximum value is <m>196</m>, which occurs at <m>(0, 6)</m>, and the absolute minimum value is <m>40</m>, which occurs at <m>(15, 0)</m>.
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <worksheet xml:id="ws-sec147">
+    <title>Assigned Problems for Section 14.7</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="14.7.3">
+      <p>
+        Find the critical points of 
+        <md>
+          f(x,y) = 8y^4 + x^2 + xy - 3y^2 - y^3
+        </md>
+        Use the contour map below to determine their nature (local minimum, local maximum, or saddle point).
+      </p>
+
+      <figure>
+        <image source="sec147_HW3_Diagram.png" width="50%"></image>
+      </figure>
+    </exercise>
+    
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, find the critical points of the function. 
+          Then use the Second Derivative Test to determine whether they are local minima, local maxima, or saddle points (or state that the test fails). 
+        </p>
+      </introduction>
+    
+      <exercise number="14.7.9">
+        <p>
+          <m>f(x,y) = x^3 + 2xy - 2y^2 - 10x</m>
+        </p>
+      </exercise>
+
+      <exercise number="14.7.15">
+        <p>
+          <m>f(x,y) = xye^{-x^2-y^2}</m>
+        </p>
+      </exercise>
+
+      <exercise number="14.7.21">
+        <p>
+          <m>f(x,y) = x - y^2 - \ln \lp x + y \rp</m>
+        </p>
+      </exercise>
+    
+    </exercisegroup>
+
+    <exercise number="14.7.31">
+      <p>
+        Determine the global extreme values of the function 
+        <md>
+          f(x,y) = \lp x^2 + y^2 + 1 \rp^{-1}
+        </md>
+        on the set where <m>0 \leq x \leq 3</m> and <m>0 \leq y \leq 5</m> without using calculus. 
+      </p>
+    </exercise>
+
+    <exercise number="14.7.35">
+      <p>
+        A linear function <m>f(x,y) = ax + by + c</m> has no critical points. 
+        Therefore, the global minimum and maximum values of <m>f(x,y)</m> on a closed and bounded domain must occur on the boundary of the domain. 
+        Furthermore, it is not difficult to see that if the domain is a polygon, then the global minimum and maximum values of <m>f</m> must occur at a vertex of the polygon. 
+      </p>
+
+      <p>
+        Find the global minimum and maximum values of <m>f(x,y) = 12 + 5y - 20x</m> on the following polygon, and indicate where on the polygon they occur. 
+      </p>
+
+      <figure>
+        <image source="sec147_HW35_Diagram.png" width="30%"></image>
+      </figure>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, determine the global extreme values of the function on the given domain. 
+        </p>
+      </introduction>
+    
+      <exercise number="14.7.45">
+        <p>
+          <m>f(x,y) = x^2 + xy^2 + y^2\, , \quad x,y \geq 0\, , \quad x  y \leq 1</m>
+        </p>
+      </exercise>
+
+      <exercise number="14.7.49">
+        <p>
+          <m>f(x,y) = x^2 + 2xy^2\, , \quad x^2 + y^2 \leq 1</m>
+        </p>
+      </exercise>
+    
+    </exercisegroup>
+
+    <exercise number="14.7.51">
+      <p>
+        Find the volume of the largest box of the type shown in the figure below, with one corner at the origin and the opposite corner at a point <m>P = (x,y,z)</m> on the paraboloid
+        <md>
+          z = 1 - \frac{x^2}{4} - \frac{y^2}{9} \qquad \text{ with } x,y,z \geq 0
+        </md>
+      </p>
+
+      <figure>
+        <image source="sec147_HW51_Diagram.png" width="50%"></image>
+      </figure>
+    </exercise>
+
+    <exercise number="14.7.59">
+      <p>
+        Find the maximum volume of a cylindrical can such that the sum of its height and its circumference is 120 cm. 
+      </p>
+    </exercise>
+  </worksheet>
 
 </section>
