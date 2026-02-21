@@ -419,6 +419,22 @@
       <p>
         Determine how fast the distance between the two players is changing at a moment when the hitter is 8 ft from first base and the first baseman is 6 ft from first base.  
       </p>
+
+      <hint>
+        <p>
+          To find the rate of change of <m>d</m> with respect to <m>t</m>, we need a function first. 
+          Based on the diagram, observe that <m>d</m>, <m>x</m>, and <m>y</m> form a right triangle, which implies that
+          <md>
+            d = f(x,y) = \sqrt{x^2 + y^2}
+          </md>
+          In addition, both <m>x</m> and <m>y</m> are functions of time <m>t</m>, so we can let <m>x = g(t)</m> and <m>y = h(t)</m>. 
+        </p>
+
+        <p>
+          Then how do we determine <m>\dfrac{df}{dt}</m>... 
+          The answer is to use the Chain Rule! 
+        </p> 
+      </hint>
     </exercise>
 
     <exercise number="14.6.21">
