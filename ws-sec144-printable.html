@@ -396,7 +396,48 @@ z \amp = 4r - 5s + 2
 </div></details><div class="autopermalink" data-description="Worksheet Exercise 14.4.7"><a href="#ws-sec144-3" title="Copy heading and permalink for Worksheet Exercise 14.4.7" aria-label="Copy heading and permalink for Worksheet Exercise 14.4.7">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec144-4"><h4 class="heading"><span class="codenumber">14.4.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec144-4-1">Find the points on the graph of <span class="process-math">\(z = 3x^2 - 4y^2\)</span> at which the vector <span class="process-math">\(\v{n} = \la 3,2,2 \ra\)</span> is normal to the tangent plane.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec144-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.4.11"><a href="#ws-sec144-4" title="Copy heading and permalink for Worksheet Exercise 14.4.11" aria-label="Copy heading and permalink for Worksheet Exercise 14.4.11">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec144-5"><h4 class="heading"><span class="codenumber">14.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec144-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec144-4-2-1">
+<div class="para">Let <span class="process-math">\(f(x,y) = 3x^2 - 4y^2\text{.}\)</span> We know that the tangent plane is determined by the vectors <span class="process-math">\(\v{v} = \la 1, 0, f_x \ra\)</span> and <span class="process-math">\(\v{w} = \la 0, 1, f_y \ra\text{.}\)</span> The normal vector to the tangent plane is given by their cross product:</div>
+<div class="displaymath process-math" id="ws-sec144-4-2-1-4">
+\begin{align*}
+\v{n}\amp = \v{w} \times \v{v} = \la f_x, f_y, -1 \ra 
+\end{align*}
+</div>
+<div class="para">First, we compute the partial derivatives:</div>
+<div class="displaymath process-math" id="ws-sec144-4-2-1-5">
+\begin{align*}
+f_x(x,y) \amp = 6x \\
+f_y(x,y) \amp = -8y 
+\end{align*}
+</div>
+<div class="para">So, the normal vector to the tangent plane at any point <span class="process-math">\((x,y)\)</span> is <span class="process-math">\(\la 6x, -8y, -1 \ra\text{.}\)</span> We are given that <span class="process-math">\(\v{n} = \la 3,2,2 \ra\)</span> is normal to the tangent plane, so our computed vector must be parallel to <span class="process-math">\(\v{n}\text{.}\)</span> This means there exists a constant <span class="process-math">\(k\)</span> such that:</div>
+<div class="displaymath process-math" id="ws-sec144-4-2-1-11">
+\begin{align*}
+\la 6x, -8y, -1 \ra \amp = k \la 3,2,2 \ra 
+\end{align*}
+</div>
+<div class="para">Equating the components:</div>
+<div class="displaymath process-math" id="ws-sec144-4-2-1-12">
+\begin{align*}
+-1 \amp = 2k \implies k = -\frac{1}{2} \\
+6x \amp = 3k = 3\lp -\frac{1}{2} \rp = -\frac{3}{2} \implies x = -\frac{1}{4} \\
+-8y \amp = 2k = 2\lp -\frac{1}{2} \rp = -1 \implies y = \frac{1}{8} 
+\end{align*}
+</div>
+<div class="para">Finally, we find the <span class="process-math">\(z\)</span>-coordinate:</div>
+<div class="displaymath process-math" id="ws-sec144-4-2-1-14">
+\begin{align*}
+z \amp = 3\lp -\frac{1}{4} \rp^2 - 4\lp \frac{1}{8} \rp^2 \\
+\amp = \frac{3}{16} - \frac{4}{64} = \frac{12}{64} - \frac{4}{64} = \frac{8}{64} = \frac{1}{8} 
+\end{align*}
+</div>
+<div class="para">The point is <span class="process-math">\(\lp -\frac{1}{4}, \frac{1}{8}, \frac{1}{8} \rp\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec144-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.4.11.1"><a href="#ws-sec144-4-2" title="Copy heading and permalink for Solution 14.4.11.1" aria-label="Copy heading and permalink for Solution 14.4.11.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.4.11"><a href="#ws-sec144-4" title="Copy heading and permalink for Worksheet Exercise 14.4.11" aria-label="Copy heading and permalink for Worksheet Exercise 14.4.11">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec144-5"><h4 class="heading"><span class="codenumber">14.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec144-5-1">Find the points on the graph of <span class="process-math">\(f(x,y) = 3x^2 - xy - y^2\)</span> at which the tangent plane is horizontal.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec144-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="ws-sec144-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">

@@ -357,7 +357,35 @@ eBookConfig.enable_chatcodes =  false;
 </div></section><article class="exercise exercise-like" id="ws-sec145-3"><h4 class="heading"><span class="codenumber">14.5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec145-3-1">Calculate the gradient of <span class="process-math">\(f(x,y) = \cos\lp x^2 + y \rp\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.5.5"><a href="#ws-sec145-3" title="Copy heading and permalink for Worksheet Exercise 14.5.5" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.5">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-4"><h4 class="heading"><span class="codenumber">14.5.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec145-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec145-3-2-1">To find the gradient <span class="process-math">\(\nabla f(x,y)\text{,}\)</span> we compute the partial derivatives with respect to <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> using the Chain Rule.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-3-2-2">
+<div class="para"><dfn class="terminology">Partial derivative with respect to <span class="process-math">\(x\text{:}\)</span></dfn></div>
+<div class="displaymath process-math" id="ws-sec145-3-2-2-2">
+\begin{equation*}
+f_x(x,y) = \frac{\partial}{\partial x} \cos(x^2 + y) = -\sin(x^2 + y) \cdot \frac{\partial}{\partial x}(x^2 + y) = -2x\sin(x^2 + y)
+\end{equation*}
+</div>
+<div class="para"><dfn class="terminology">Partial derivative with respect to <span class="process-math">\(y\text{:}\)</span></dfn></div>
+<div class="displaymath process-math" id="ws-sec145-3-2-2-4">
+\begin{equation*}
+f_y(x,y) = \frac{\partial}{\partial y} \cos(x^2 + y) = -\sin(x^2 + y) \cdot \frac{\partial}{\partial y}(x^2 + y) = -\sin(x^2 + y)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-3-2-3">
+<div class="para">Thus, the gradient vector is:</div>
+<div class="displaymath process-math" id="ws-sec145-3-2-3-1">
+\begin{equation*}
+\nabla f(x,y) = \la -2x\sin(x^2 + y), -\sin(x^2 + y) \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.5.1"><a href="#ws-sec145-3-2" title="Copy heading and permalink for Solution 14.5.5.1" aria-label="Copy heading and permalink for Solution 14.5.5.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.5.5"><a href="#ws-sec145-3" title="Copy heading and permalink for Worksheet Exercise 14.5.5" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.5">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-4"><h4 class="heading"><span class="codenumber">14.5.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec145-4-1">
 <div class="para">Use the Chain Rule to calculate <span class="process-math">\(\dfrac{d}{dt} f(\v{r}(t))\text{,}\)</span> where</div>
 <div class="displaymath process-math" id="ws-sec145-4-1-2">
@@ -369,19 +397,230 @@ f(x,y) = \ln(x) + \ln(y) \qquad \text{ and } \qquad \v{r}(t) = \la \cos(t), t^2 
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.5.17"><a href="#ws-sec145-4" title="Copy heading and permalink for Worksheet Exercise 14.5.17" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.17">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-5"><h4 class="heading"><span class="codenumber">14.5.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec145-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec145-4-2-1">According to the Chain Rule for paths, <span class="process-math">\(\frac{d}{dt} f(\v{r}(t)) = \nabla f(\v{r}(t)) \cdot \v{r}'(t)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-4-2-2">
+<div class="para">First, let’s find the gradient of <span class="process-math">\(f\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-4-2-2-2">
+\begin{equation*}
+\nabla f(x,y) = \la \frac{\partial}{\partial x}(\ln x + \ln y), \frac{\partial}{\partial y}(\ln x + \ln y) \ra = \la \frac{1}{x}, \frac{1}{y} \ra
+\end{equation*}
+</div>
+<div class="para">Next, let’s find the derivative of the path <span class="process-math">\(\v{r}(t)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-4-2-2-4">
+\begin{equation*}
+\v{r}'(t) = \la \frac{d}{dt}\cos(t), \frac{d}{dt}t^2 \ra = \la -\sin(t), 2t \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-4-2-3">
+<div class="para">Now we evaluate both at <span class="process-math">\(t = \frac{\pi}{4}\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-4-2-3-2">
+\begin{equation*}
+\v{r}\lp \frac{\pi}{4} \rp = \la \cos\lp \frac{\pi}{4} \rp, \lp \frac{\pi}{4} \rp^2 \ra = \la \frac{\sqrt{2}}{2}, \frac{\pi^2}{16} \ra
+\end{equation*}
+</div>
+<div class="para">So at this point, <span class="process-math">\(x = \frac{\sqrt{2}}{2}\)</span> and <span class="process-math">\(y = \frac{\pi^2}{16}\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-4-2-3-5">
+\begin{equation*}
+\nabla f\lp \v{r}\lp \frac{\pi}{4} \rp \rp = \la \frac{1}{\sqrt{2}/2}, \frac{1}{\pi^2/16} \ra = \la \sqrt{2}, \frac{16}{\pi^2} \ra
+\end{equation*}
+</div>
+<div class="para">And the velocity vector is:</div>
+<div class="displaymath process-math" id="ws-sec145-4-2-3-6">
+\begin{equation*}
+\v{r}'\lp \frac{\pi}{4} \rp = \la -\sin\lp \frac{\pi}{4} \rp, 2\lp \frac{\pi}{4} \rp \ra = \la -\frac{\sqrt{2}}{2}, \frac{\pi}{2} \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-4-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-4-2-4">
+<div class="para">Finally, compute the dot product:</div>
+<div class="displaymath process-math" id="ws-sec145-4-2-4-1">
+\begin{align*}
+\frac{d}{dt} f\lp \v{r}\lp \frac{\pi}{4} \rp \rp \amp= \la \sqrt{2}, \frac{16}{\pi^2} \ra \cdot \la -\frac{\sqrt{2}}{2}, \frac{\pi}{2} \ra \\
+\amp= (\sqrt{2})\lp -\frac{\sqrt{2}}{2} \rp + \lp \frac{16}{\pi^2} \rp \lp \frac{\pi}{2} \rp \\
+\amp= -1 + \frac{8}{\pi} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-4-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.17.1"><a href="#ws-sec145-4-2" title="Copy heading and permalink for Solution 14.5.17.1" aria-label="Copy heading and permalink for Solution 14.5.17.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.5.17"><a href="#ws-sec145-4" title="Copy heading and permalink for Worksheet Exercise 14.5.17" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.17">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-5"><h4 class="heading"><span class="codenumber">14.5.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec145-5-1">Calculate the directional derivative of <span class="process-math">\(f(x,y) = \tan^{-1}(xy)\)</span> in the direction of <span class="process-math">\(\v{v} = \la 1,1 \ra\)</span> at the point <span class="process-math">\(P = (3,4)\text{.}\)</span> Remember to use a unit vector in your directional derivative computation.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.5.25"><a href="#ws-sec145-5" title="Copy heading and permalink for Worksheet Exercise 14.5.25" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.25">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-6"><h4 class="heading"><span class="codenumber">14.5.35<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec145-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec145-5-2-1">
+<div class="para">First, find the gradient <span class="process-math">\(\nabla f(x,y)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-5-2-1-2">
+\begin{align*}
+f_x(x,y) \amp= \frac{1}{1+(xy)^2} \cdot y = \frac{y}{1+x^2y^2} \\
+f_y(x,y) \amp= \frac{1}{1+(xy)^2} \cdot x = \frac{x}{1+x^2y^2} 
+\end{align*}
+</div>
+<div class="para">Evaluate the gradient at <span class="process-math">\(P(3,4)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-5-2-1-4">
+\begin{align*}
+f_x(3,4) \amp= \frac{4}{1+(3^2)(4^2)} = \frac{4}{1+144} = \frac{4}{145} \\
+f_y(3,4) \amp= \frac{3}{1+(3^2)(4^2)} = \frac{3}{1+144} = \frac{3}{145} \\
+\nabla f(3,4) \amp= \la \frac{4}{145}, \frac{3}{145} \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-5-2-2">
+<div class="para">Next, find the unit vector <span class="process-math">\(\v{u}\)</span> in the direction of <span class="process-math">\(\v{v} = \la 1,1 \ra\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-5-2-2-3">
+\begin{align*}
+\|\v{v}\| \amp= \sqrt{1^2 + 1^2} = \sqrt{2} \\
+\v{u} \amp= \frac{\v{v}}{\|\v{v}\|} = \la \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} \ra 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-5-2-3">
+<div class="para">Finally, calculate the directional derivative using the dot product:</div>
+<div class="displaymath process-math" id="ws-sec145-5-2-3-1">
+\begin{align*}
+D_\v{u}f(3,4) \amp= \nabla f(3,4) \cdot \v{u} \\
+\amp= \la \frac{4}{145}, \frac{3}{145} \ra \cdot \la \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} \ra \\
+\amp= \frac{4}{145\sqrt{2}} + \frac{3}{145\sqrt{2}} \\
+\amp= \frac{7}{145\sqrt{2}} = \frac{7\sqrt{2}}{290} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.25.1"><a href="#ws-sec145-5-2" title="Copy heading and permalink for Solution 14.5.25.1" aria-label="Copy heading and permalink for Solution 14.5.25.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.5.25"><a href="#ws-sec145-5" title="Copy heading and permalink for Worksheet Exercise 14.5.25" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.25">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-6"><h4 class="heading"><span class="codenumber">14.5.35<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec145-6-1">Determine the direction in which <span class="process-math">\(f(x,y,z) = \dfrac{xy}{z}\)</span> has maximum rate of increase from <span class="process-math">\(P = (1,-1,3)\text{,}\)</span> and give the rate of change in that direction.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.5.35"><a href="#ws-sec145-6" title="Copy heading and permalink for Worksheet Exercise 14.5.35" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.35">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-7"><h4 class="heading"><span class="codenumber">14.5.37<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec145-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec145-6-2-1">The direction of maximum increase is given by the gradient <span class="process-math">\(\nabla f(P)\text{,}\)</span> and the rate is the magnitude <span class="process-math">\(\|\nabla f(P)\|\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-6-2-2">
+<div class="para">First, calculate the partial derivatives:</div>
+<div class="displaymath process-math" id="ws-sec145-6-2-2-1">
+\begin{align*}
+f_x \amp= \frac{y}{z} \\
+f_y \amp= \frac{x}{z} \\
+f_z \amp= -\frac{xy}{z^2} 
+\end{align*}
+</div>
+<div class="para">Evaluate at <span class="process-math">\(P(1,-1,3)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-6-2-2-3">
+\begin{align*}
+f_x(1,-1,3) \amp= \frac{-1}{3} = -\frac{1}{3} \\
+f_y(1,-1,3) \amp= \frac{1}{3} \\
+f_z(1,-1,3) \amp= -\frac{(1)(-1)}{3^2} = \frac{1}{9} 
+\end{align*}
+</div>
+<div class="para">So the direction of maximum increase is:</div>
+<div class="displaymath process-math" id="ws-sec145-6-2-2-4">
+\begin{equation*}
+\nabla f(1,-1,3) = \la -\frac{1}{3}, \frac{1}{3}, \frac{1}{9} \ra
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-6-2-3">
+<div class="para">The maximum rate of change is the magnitude:</div>
+<div class="displaymath process-math" id="ws-sec145-6-2-3-1">
+\begin{align*}
+\|\nabla f\| \amp= \sqrt{\lp -\frac{1}{3} \rp^2 + \lp \frac{1}{3} \rp^2 + \lp \frac{1}{9} \rp^2} \\
+\amp= \sqrt{\frac{1}{9} + \frac{1}{9} + \frac{1}{81}} \\
+\amp= \sqrt{\frac{9}{81} + \frac{9}{81} + \frac{1}{81}} \\
+\amp= \sqrt{\frac{19}{81}} = \frac{\sqrt{19}}{9} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-6-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.35.1"><a href="#ws-sec145-6-2" title="Copy heading and permalink for Solution 14.5.35.1" aria-label="Copy heading and permalink for Solution 14.5.35.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.5.35"><a href="#ws-sec145-6" title="Copy heading and permalink for Worksheet Exercise 14.5.35" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.35">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-7"><h4 class="heading"><span class="codenumber">14.5.37<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec145-7-1">Suppose that <span class="process-math">\(\nabla f_P = \la 2,-4,4 \ra\text{.}\)</span> Is <span class="process-math">\(f\)</span> increasing or decreasing at <span class="process-math">\(P\)</span> in the direction of <span class="process-math">\(\v{v} = \la 2,1,3 \ra\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.5.37"><a href="#ws-sec145-7" title="Copy heading and permalink for Worksheet Exercise 14.5.37" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.37">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-8"><h4 class="heading"><span class="codenumber">14.5.39<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec145-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec145-7-2-1">To determine if <span class="process-math">\(f\)</span> is increasing or decreasing, we check the sign of the directional derivative <span class="process-math">\(D_\v{u}f(P)\text{.}\)</span> The sign of <span class="process-math">\(D_\v{u}f\)</span> is the same as the sign of the dot product <span class="process-math">\(\nabla f_P \cdot \v{v}\)</span> (since dividing by <span class="process-math">\(\|\v{v}\|\)</span> to get <span class="process-math">\(\v{u}\)</span> is always positive).<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-7-2-2">
+<div class="para">Calculate the dot product:</div>
+<div class="displaymath process-math" id="ws-sec145-7-2-2-1">
+\begin{align*}
+\nabla f_P \cdot \v{v} \amp= \la 2, -4, 4 \ra \cdot \la 2, 1, 3 \ra \\
+\amp= (2)(2) + (-4)(1) + (4)(3) \\
+\amp= 4 - 4 + 12 = 12 
+\end{align*}
+</div>
+<div class="para">Since the dot product is positive (<span class="process-math">\(12 &gt; 0\)</span>), the directional derivative is positive. Therefore, <span class="process-math">\(f\)</span> is <em class="alert">increasing</em> in the direction of <span class="process-math">\(\v{v}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-7-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.37.1"><a href="#ws-sec145-7-2" title="Copy heading and permalink for Solution 14.5.37.1" aria-label="Copy heading and permalink for Solution 14.5.37.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.5.37"><a href="#ws-sec145-7" title="Copy heading and permalink for Worksheet Exercise 14.5.37" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.37">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-8"><h4 class="heading"><span class="codenumber">14.5.39<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec145-8-1">Let <span class="process-math">\(f(x,y,z) = \sin(xy + z)\)</span> and <span class="process-math">\(P = (0,-1, \pi)\text{.}\)</span> Calculate <span class="process-math">\(D_\v{u} f(P)\text{,}\)</span> where <span class="process-math">\(\v{u}\)</span> is a unit vector making an angle <span class="process-math">\(\theta = 30^\circ\)</span> with <span class="process-math">\(\nabla f_P\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.5.39"><a href="#ws-sec145-8" title="Copy heading and permalink for Worksheet Exercise 14.5.39" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.39">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-9"><h4 class="heading"><span class="codenumber">14.5.43<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec145-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec145-8-2-1">We use the formula <span class="process-math">\(D_\v{u} f(P) = \|\nabla f_P\| \cos(\theta)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-8-2-2">
+<div class="para">First, compute the gradient <span class="process-math">\(\nabla f\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-8-2-2-2">
+\begin{align*}
+f_x \amp= y\cos(xy+z) \\
+f_y \amp= x\cos(xy+z) \\
+f_z \amp= \cos(xy+z) 
+\end{align*}
+</div>
+<div class="para">Evaluate at <span class="process-math">\(P(0,-1,\pi)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-8-2-2-4">
+\begin{equation*}
+\text{Argument } = (0)(-1) + \pi = \pi
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="ws-sec145-8-2-2-5">
+\begin{align*}
+f_x(0,-1,\pi) \amp= -1\cos(\pi) = (-1)(-1) = 1 \\
+f_y(0,-1,\pi) \amp= 0\cos(\pi) = 0 \\
+f_z(0,-1,\pi) \amp= \cos(\pi) = -1 
+\end{align*}
+</div>
+<div class="para">So <span class="process-math">\(\nabla f_P = \la 1, 0, -1 \ra\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-8-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-8-2-3">
+<div class="para">Next, find the magnitude of the gradient:</div>
+<div class="displaymath process-math" id="ws-sec145-8-2-3-1">
+\begin{equation*}
+\|\nabla f_P\| = \sqrt{1^2 + 0^2 + (-1)^2} = \sqrt{2}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-8-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-8-2-4">
+<div class="para">Finally, calculate the directional derivative using <span class="process-math">\(\theta = 30^\circ\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-8-2-4-2">
+\begin{align*}
+D_\v{u} f(P) \amp= \|\nabla f_P\| \cos(30^\circ) \\
+\amp= \sqrt{2} \cdot \frac{\sqrt{3}}{2} = \frac{\sqrt{6}}{2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-8-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.39.1"><a href="#ws-sec145-8-2" title="Copy heading and permalink for Solution 14.5.39.1" aria-label="Copy heading and permalink for Solution 14.5.39.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.5.39"><a href="#ws-sec145-8" title="Copy heading and permalink for Worksheet Exercise 14.5.39" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.39">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-9"><h4 class="heading"><span class="codenumber">14.5.43<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec145-9-1">
 <div class="para">Find the two points on the ellipsoid</div>
 <div class="displaymath process-math" id="ws-sec145-9-1-1">
@@ -405,10 +644,89 @@ xz + 2x^2y + y^2z^3 = 11
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.5.47"><a href="#ws-sec145-10" title="Copy heading and permalink for Worksheet Exercise 14.5.47" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.47">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-11"><h4 class="heading"><span class="codenumber">14.5.53<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec145-10-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec145-10-2-1">
+<div class="para">Let <span class="process-math">\(F(x,y,z) = xz + 2x^2y + y^2z^3\text{.}\)</span> The surface is the level set <span class="process-math">\(F=11\text{.}\)</span> First, find the gradient <span class="process-math">\(\nabla F\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-10-2-1-4">
+\begin{align*}
+F_x \amp= z + 4xy \\
+F_y \amp= 2x^2 + 2yz^3 \\
+F_z \amp= x + 3y^2z^2 
+\end{align*}
+</div>
+<div class="para">Evaluate at <span class="process-math">\(P(2,1,1)\)</span> to find the normal vector:</div>
+<div class="displaymath process-math" id="ws-sec145-10-2-1-6">
+\begin{align*}
+F_x(2,1,1) \amp= 1 + 4(2)(1) = 9 \\
+F_y(2,1,1) \amp= 2(2)^2 + 2(1)(1)^3 = 8 + 2 = 10 \\
+F_z(2,1,1) \amp= 2 + 3(1)^2(1)^2 = 2 + 3 = 5 
+\end{align*}
+</div>
+<div class="para">The normal vector is <span class="process-math">\(\v{n} = \la 9, 10, 5 \ra\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-10-2-2">
+<div class="para">The equation of the tangent plane is:</div>
+<div class="displaymath process-math" id="ws-sec145-10-2-2-1">
+\begin{align*}
+9(x - 2) + 10(y - 1) + 5(z - 1) \amp= 0 \\
+9x - 18 + 10y - 10 + 5z - 5 \amp= 0 \\
+9x + 10y + 5z \amp= 33 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-10-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.47.1"><a href="#ws-sec145-10-2" title="Copy heading and permalink for Solution 14.5.47.1" aria-label="Copy heading and permalink for Solution 14.5.47.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.5.47"><a href="#ws-sec145-10" title="Copy heading and permalink for Worksheet Exercise 14.5.47" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.47">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-11"><h4 class="heading"><span class="codenumber">14.5.53<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec145-11-1">Find a function <span class="process-math">\(f(x,y,z)\)</span> such that <span class="process-math">\(\nabla f = \la 2x,1,2 \ra\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.5.53"><a href="#ws-sec145-11" title="Copy heading and permalink for Worksheet Exercise 14.5.53" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.53">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-12"><h4 class="heading"><span class="codenumber">14.5.65<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec145-11-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec145-11-2-1">We are given <span class="process-math">\(f_x = 2x\text{,}\)</span> <span class="process-math">\(f_y = 1\text{,}\)</span> and <span class="process-math">\(f_z = 2\text{.}\)</span> We integrate each partial derivative to reconstruct <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-11-2-2">
+<div class="para">Integrate <span class="process-math">\(f_x\)</span> with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-11-2-2-3">
+\begin{equation*}
+f(x,y,z) = \int 2x \, dx = x^2 + C_1(y,z)
+\end{equation*}
+</div>
+<div class="para">Differentiate this result with respect to <span class="process-math">\(y\)</span> and compare to the given <span class="process-math">\(f_y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-11-2-2-6">
+\begin{equation*}
+\frac{\partial}{\partial y}(x^2 + C_1(y,z)) = \frac{\partial C_1}{\partial y} = 1
+\end{equation*}
+</div>
+<div class="para">Integrating <span class="process-math">\(1\)</span> with respect to <span class="process-math">\(y\)</span> gives <span class="process-math">\(C_1(y,z) = y + C_2(z)\text{.}\)</span> So far, <span class="process-math">\(f(x,y,z) = x^2 + y + C_2(z)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-11-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-11-2-3">
+<div class="para">Differentiate this with respect to <span class="process-math">\(z\)</span> and compare to the given <span class="process-math">\(f_z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec145-11-2-3-3">
+\begin{equation*}
+\frac{\partial}{\partial z}(x^2 + y + C_2(z)) = C_2'(z) = 2
+\end{equation*}
+</div>
+<div class="para">Integrating <span class="process-math">\(2\)</span> with respect to <span class="process-math">\(z\)</span> gives <span class="process-math">\(C_2(z) = 2z + K\)</span> (where <span class="process-math">\(K\)</span> is a constant).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-11-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec145-11-2-4">
+<div class="para">Thus, a possible function is:</div>
+<div class="displaymath process-math" id="ws-sec145-11-2-4-1">
+\begin{equation*}
+f(x,y,z) = x^2 + y + 2z
+\end{equation*}
+</div>
+<div class="para">(Any constant <span class="process-math">\(K\)</span> can be added, but usually <span class="process-math">\(K=0\)</span> is sufficient for "Find a function" problems).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec145-11-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.5.53.1"><a href="#ws-sec145-11-2" title="Copy heading and permalink for Solution 14.5.53.1" aria-label="Copy heading and permalink for Solution 14.5.53.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.5.53"><a href="#ws-sec145-11" title="Copy heading and permalink for Worksheet Exercise 14.5.53" aria-label="Copy heading and permalink for Worksheet Exercise 14.5.53">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec145-12"><h4 class="heading"><span class="codenumber">14.5.65<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec145-12-1">
 <div class="para">Let <span class="process-math">\(\c{C}\)</span> be the curve of intersection of the spheres</div>
 <div class="displaymath process-math" id="ws-sec145-12-1-2">
