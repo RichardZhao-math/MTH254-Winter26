@@ -1108,24 +1108,112 @@
       <p>
         Calculate <m>\v{r}'(t)</m> and <m>\v{T}(t)</m> for <m>\v{r}(t) = \la 3+4t, 3-5t, 9t \ra</m>, and evaluate <m>\v{T}(1)</m>. 
       </p>
+
+      <solution>
+        <p>
+          First, we compute the derivative <m>\v{r}'(t)</m>:
+          <md>
+            \v{r}'(t) = \la 4, -5, 9 \ra
+          </md>
+          Next, we find the magnitude of the velocity vector:
+          <md>
+            \|\v{r}'(t)\| = \sqrt{4^2 + (-5)^2 + 9^2} = \sqrt{16 + 25 + 81} = \sqrt{122}
+          </md>
+          The unit tangent vector is the velocity vector divided by its speed:
+          <md>
+            \v{T}(t) = \frac{\v{r}'(t)}{\|\v{r}'(t)\|} = \frac{1}{\sqrt{122}} \la 4, -5, 9 \ra
+          </md>
+          Since <m>\v{T}(t)</m> is constant, evaluating it at <m>t=1</m> yields the exact same vector:
+          <md>
+            \v{T}(1) = \la \frac{4}{\sqrt{122}}, -\frac{5}{\sqrt{122}}, \frac{9}{\sqrt{122}} \ra
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.9">
       <p>
         Calculate the curvature function <m>\kappa(t)</m> of <m>\v{r}(t) = \la 4t+1, 4t-3, 2t \ra</m> using <xref ref="thm-CrossProductFormula-Curvature"/>.
       </p>
+
+      <solution>
+        <p>
+          First, we find the first and second derivatives of <m>\v{r}(t)</m>:
+          <md>
+            <mrow> \v{r}'(t) \amp= \la 4, 4, 2 \ra </mrow>
+            <mrow> \v{r}''(t) \amp= \la 0, 0, 0 \ra </mrow>
+          </md>
+          Using <xref ref="thm-CrossProductFormula-Curvature"/>, the curvature is:
+          <md>
+            \kappa(t) = \frac{\|\v{r}'(t) \times \v{r}''(t)\|}{\|\v{r}'(t)\|^3}
+          </md>
+          Since <m>\v{r}''(t) = \v{0}</m>, the cross product <m>\v{r}'(t) \times \v{r}''(t)</m> is the zero vector <m>\v{0}</m>. Its magnitude is <m>0</m>. 
+          Thus, the curvature is:
+          <md>
+            \kappa(t) = \frac{0}{\|\v{r}'(t)\|^3} = 0
+          </md>
+          (This makes geometric sense, as the parametrization describes a straight line, which has zero curvature everywhere).
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.13">
       <p>
         Evaluate the curvature of the curve <m>\v{r}(t) = \la \cos(t), \sin(t), t^2 \ra</m> at the point where <m>t=\frac{\pi}{2}</m> using <xref ref="thm-CrossProductFormula-Curvature"/>.
       </p>
+
+      <solution>
+        <p>
+          We first compute the velocity and acceleration vectors:
+          <md>
+            <mrow> \v{r}'(t) \amp= \la -\sin(t), \cos(t), 2t \ra </mrow>
+            <mrow> \v{r}''(t) \amp= \la -\cos(t), -\sin(t), 2 \ra </mrow>
+          </md>
+          Evaluating these at <m>t = \frac{\pi}{2}</m>:
+          <md>
+            <mrow> \v{r}'\lp \frac{\pi}{2} \rp \amp= \la -1, 0, \pi \ra </mrow>
+            <mrow> \v{r}''\lp \frac{\pi}{2} \rp \amp= \la 0, -1, 2 \ra </mrow>
+          </md>
+          Next, compute the cross product:
+          <md>
+            <mrow> \v{r}'\lp \frac{\pi}{2} \rp \times \v{r}''\lp \frac{\pi}{2} \rp \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ -1 \amp 0 \amp \pi \\ 0 \amp -1 \amp 2 \end{vmatrix} </mrow>
+            <mrow> \amp= \la 0 - (-\pi), 0 - (-2), 1 - 0 \ra = \la \pi, 2, 1 \ra </mrow>
+          </md>
+          Now, find the magnitudes:
+          <md>
+            <mrow> \left\|\v{r}'\lp \frac{\pi}{2} \rp \times \v{r}''\lp \frac{\pi}{2} \rp\right\| \amp= \sqrt{\pi^2 + 2^2 + 1^2} = \sqrt{\pi^2 + 5} </mrow>
+            <mrow> \left\|\v{r}'\lp \frac{\pi}{2} \rp\right\| \amp= \sqrt{(-1)^2 + 0^2 + \pi^2} = \sqrt{1 + \pi^2} </mrow>
+          </md>
+          Using <xref ref="thm-CrossProductFormula-Curvature"/>, the curvature is:
+          <md>
+            \kappa\lp \frac{\pi}{2} \rp = \frac{\sqrt{\pi^2 + 5}}{\lp \sqrt{1 + \pi^2} \rp^3} = \frac{\sqrt{\pi^2 + 5}}{\lp 1 + \pi^2 \rp^{3/2}}
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.17">
       <p>
         Find the curvature of the plane curve <m>y = t^4</m> at the point where <m>t=2</m>.
       </p>
+
+      <solution>
+        <p>
+          We can treat this as a function <m>f(t) = t^4</m> and use the curvature formula for a graph from <xref ref="thm-Curvature-Graph"/>:
+          <md>
+            \kappa(t) = \frac{|f''(t)|}{\lp 1 + \lp f'(t) \rp^2 \rp^\frac{3}{2}}
+          </md>
+          Compute the derivatives:
+          <md>
+            <mrow> f'(t) \amp= 4t^3 \implies f'(2) = 4(8) = 32 </mrow>
+            <mrow> f''(t) \amp= 12t^2 \implies f''(2) = 12(4) = 48 </mrow>
+          </md>
+          Substitute these values into the formula:
+          <md>
+            \kappa(2) = \frac{|48|}{\lp 1 + (32)^2 \rp^\frac{3}{2}} = \frac{48}{\lp 1 + 1024 \rp^\frac{3}{2}} = \frac{48}{1025^\frac{3}{2}}
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.25">
@@ -1135,24 +1223,138 @@
           \kappa(t) = \frac{ab}{\lp b^2\cos^2(t) + a^2\sin^2(t)\rp^\frac{3}{2}}
         </md>
       </p>
+
+      <solution>
+        <p>
+          We use the curvature formula for a plane curve <m>\v{r}(t) = \la x(t), y(t) \ra</m>:
+          <md>
+            \kappa(t) = \frac{|x'(t)y''(t) - y'(t)x''(t)|}{\lp \lp x'(t)\rp^2 + \lp y'(t)\rp^2 \rp^\frac{3}{2}}
+          </md>
+          Compute the first and second derivatives of the components:
+          <md>
+            <mrow> x(t) \amp= a\cos(t) \amp y(t) \amp= b\sin(t) </mrow>
+            <mrow> x'(t) \amp= -a\sin(t) \amp y'(t) \amp= b\cos(t) </mrow>
+            <mrow> x''(t) \amp= -a\cos(t) \amp y''(t) \amp= -b\sin(t) </mrow>
+          </md>
+          Now, evaluate the numerator:
+          <md>
+            <mrow> x'(t)y''(t) - y'(t)x''(t) \amp= (-a\sin(t))(-b\sin(t)) - (b\cos(t))(-a\cos(t)) </mrow>
+            <mrow> \amp= ab\sin^2(t) + ab\cos^2(t) </mrow>
+            <mrow> \amp= ab\lp \sin^2(t) + \cos^2(t) \rp = ab </mrow>
+          </md>
+          Evaluate the term inside the denominator:
+          <md>
+            \lp x'(t)\rp^2 + \lp y'(t)\rp^2 = (-a\sin(t))^2 + (b\cos(t))^2 = a^2\sin^2(t) + b^2\cos^2(t)
+          </md>
+          Substitute these into the curvature formula (and note that <m>a,b \gt 0</m> typically for an ellipse, so <m>|ab| = ab</m>):
+          <md>
+            \kappa(t) = \frac{ab}{\lp a^2\sin^2(t) + b^2\cos^2(t) \rp^\frac{3}{2}}
+          </md>
+          Since addition is commutative, we have verified the given formula.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.31">
       <p>
-        Compute the curvature of <m>\la t\cos(t), \sin(t) \ra</m> at the point where <m>t=\pi</m> using <xref ref="thm-Curvature-PlaneCurve"/>. 
+        Compute the curvature of <m>\la t\cos(t), \sin(t) \ra</m> at the point where <m>t=\pi</m> using [insert formula]. 
       </p>
+
+      <solution>
+        <p>
+          We use the curvature formula for a plane curve. First, find the derivatives:
+          <md>
+            <mrow> x(t) \amp= t\cos(t) \implies x'(t) = \cos(t) - t\sin(t) </mrow>
+            <mrow> x''(t) \amp= -\sin(t) - \lp \sin(t) + t\cos(t) \rp = -2\sin(t) - t\cos(t) </mrow>
+            <mrow> y(t) \amp= \sin(t) \implies y'(t) = \cos(t) \implies y''(t) = -\sin(t) </mrow>
+          </md>
+          Evaluate these derivatives at <m>t = \pi</m>:
+          <md>
+            <mrow> x'(\pi) \amp= \cos(\pi) - \pi\sin(\pi) = -1 - 0 = -1 </mrow>
+            <mrow> x''(\pi) \amp= -2\sin(\pi) - \pi\cos(\pi) = 0 - \pi(-1) = \pi </mrow>
+            <mrow> y'(\pi) \amp= \cos(\pi) = -1 </mrow>
+            <mrow> y''(\pi) \amp= -\sin(\pi) = 0 </mrow>
+          </md>
+          Substitute these into the curvature formula:
+          <md>
+            <mrow> \kappa(\pi) \amp= \frac{|x'(\pi)y''(\pi) - y'(\pi)x''(\pi)|}{\lp \lp x'(\pi)\rp^2 + \lp y'(\pi)\rp^2 \rp^\frac{3}{2}} </mrow>
+            <mrow> \amp= \frac{|(-1)(0) - (-1)(\pi)|}{\lp (-1)^2 + (-1)^2 \rp^\frac{3}{2}} </mrow>
+            <mrow> \amp= \frac{|\pi|}{\lp 2 \rp^\frac{3}{2}} = \frac{\pi}{2\sqrt{2}} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.37">
       <p>
         Find the normal vector <m>\v{N}(t)</m> to <m>\v{r} = \la 4, \sin(2t), \cos(2t) \ra</m>. 
       </p>
+
+      <solution>
+        <p>
+          First, find the velocity vector and its magnitude:
+          <md>
+            <mrow> \v{r}'(t) \amp= \la 0, 2\cos(2t), -2\sin(2t) \ra </mrow>
+            <mrow> \|\v{r}'(t)\| \amp= \sqrt{0^2 + 4\cos^2(2t) + 4\sin^2(2t)} = \sqrt{4\lp \cos^2(2t) + \sin^2(2t) \rp} = \sqrt{4} = 2 </mrow>
+          </md>
+          Next, find the unit tangent vector <m>\v{T}(t)</m>:
+          <md>
+            \v{T}(t) = \frac{\v{r}'(t)}{\|\v{r}'(t)\|} = \frac{1}{2} \la 0, 2\cos(2t), -2\sin(2t) \ra = \la 0, \cos(2t), -\sin(2t) \ra
+          </md>
+          To find the normal vector <m>\v{N}(t)</m>, compute <m>\v{T}'(t)</m> and its magnitude:
+          <md>
+            <mrow> \v{T}'(t) \amp= \la 0, -2\sin(2t), -2\cos(2t) \ra </mrow>
+            <mrow> \|\v{T}'(t)\| \amp= \sqrt{0^2 + 4\sin^2(2t) + 4\cos^2(2t)} = \sqrt{4} = 2 </mrow>
+          </md>
+          Finally, the normal vector is:
+          <md>
+            \v{N}(t) = \frac{\v{T}'(t)}{\|\v{T}'(t)\|} = \frac{1}{2} \la 0, -2\sin(2t), -2\cos(2t) \ra = \la 0, -\sin(2t), -\cos(2t) \ra
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.39">
       <p>
         Find the normal vectors to <m>\v{r}(t) = \la t, \cos(t) \ra</m> at <m>t = \dfrac{\pi}{4}</m> and <m>t = \dfrac{3\pi}{4}</m>. 
       </p>
+
+      <solution>
+        <p>
+          The normal vector to <m>\v{r}(t) = \la t, \cos(t) \ra</m> is <m>\v{T}'(t)</m>, where <m>\v{T}(t) = \frac{\v{r}'(t)}{\|\v{r}'(t)\|}</m> is the unit tangent vector. 
+          We have
+          <md>
+            <mrow> \v{r}'(t) \amp= \la 1, -\sin(t) \ra </mrow>
+            <mrow> \|\v{r}'(t)\| \amp= \sqrt{1 + \sin^2(t)} </mrow>
+          </md>
+          Hence, 
+          <md>
+            \v{T}(t) = \frac{1}{\sqrt{1 + \sin^2(t)}}\la 1, -\sin(t) \ra
+          </md>
+        </p>
+
+        <p>
+          We compute the derivative of <m>\v{T}(t)</m> to find the normal vector. 
+          We use the Product Rule and the Chain Rule to obtain
+          <md>
+            <mrow> \v{T}'(t) \amp= \frac{1}{\sqrt{1 + \sin^2(t)}} \frac{d}{dt} \la 1, -\sin(t) \ra + \lp \frac{1}{\sqrt{1 + \sin^2(t)}} \rp' \la 1, -\sin(t) \ra </mrow>
+            <mrow> \amp= \frac{1}{\sqrt{1 + \sin^2(t)}} \la 0, -\cos(t) \ra - \frac{1}{1 + \sin^2(t)} \cdot \frac{2\sin(t)\cos(t)}{2\sqrt{1 + \sin^2(t)}} \la 1, -\sin(t) \ra </mrow>
+            <mrow> \amp= \frac{1}{\sqrt{1 + \sin^2(t)}} \la 0,-\cos(t) \ra - \frac{\sin(2t)}{2\lp 1 + \sin^2(t) \rp^{3/2}} \la 1, -\sin(t) \ra </mrow>
+          </md>
+          At <m>t = \dfrac{\pi}{4}</m>, we obtain the normal vector
+          <md>
+            <mrow> \v{T}'\lp \frac{\pi}{4} \rp \amp= \frac{1}{\sqrt{1 + \frac{1}{2}}} \la 0, -\frac{1}{\sqrt{2}} \ra - \frac{1}{2 \lp 1 + \frac{1}{2} \rp^{3/2}} \la 1, -\frac{1}{\sqrt{2}} \ra </mrow>
+            <mrow> \amp= \la 0, -\frac{1}{\sqrt{3}} \ra - \la \frac{\sqrt{2}}{3\sqrt{3}}, \frac{-1}{3\sqrt{3}} \ra </mrow>
+            <mrow> \amp= \la \frac{-\sqrt{2}}{3\sqrt{3}}, \frac{-2}{3\sqrt{3}} \ra </mrow>
+          </md>
+          At <m>t = \dfrac{3\pi}{4}</m>, we obtain
+          <md>
+            <mrow> \v{T}'\lp \frac{3\pi}{4} \rp \amp= \frac{1}{\sqrt{1 + \frac{1}{2}}} \la 0, \frac{1}{\sqrt{2}} \ra - \frac{-1}{2 \lp 1 + \frac{1}{2} \rp^{3/2}} \la 1, -\frac{1}{\sqrt{2}} \ra </mrow>
+            <mrow> \amp= \la 0, \frac{1}{\sqrt{3}} \ra + \la \frac{\sqrt{2}}{3\sqrt{3}}, \frac{-1}{3\sqrt{3}} \ra </mrow>
+            <mrow> \amp= \la \frac{\sqrt{2}}{3\sqrt{3}}, \frac{2}{3\sqrt{3}} \ra </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.43">
@@ -1165,6 +1367,43 @@
           After finding <m>\v{T}'</m>, plug in the specific value for <m>t</m> before computing <m>\v{N}</m> and <m>\v{B}</m>. 
         </p>
       </hint>
+
+      <solution>  
+        <p>
+          The point <m>\lp 1, 1, \frac{2}{3} \rp</m> corresponds to <m>t=1</m>. Let's find the derivatives and speed.
+          <md>
+            <mrow> \v{r}'(t) \amp= \la 1, 2t, 2t^2 \ra </mrow>
+            <mrow> v(t) \amp= \sqrt{1 + 4t^2 + 4t^4} = \sqrt{(1+2t^2)^2} = 1+2t^2 </mrow>
+          </md>
+          <term>Unit Tangent Vector <m>\v{T}</m>:</term>
+          <md>
+            <mrow> \v{T}(t) \amp= \frac{\v{r}'(t)}{v(t)} = \la \frac{1}{1+2t^2}, \frac{2t}{1+2t^2}, \frac{2t^2}{1+2t^2} \ra </mrow>
+            <mrow> \v{T}(1) \amp= \la \frac{1}{3}, \frac{2}{3}, \frac{2}{3} \ra </mrow>
+          </md>
+          <term>Normal Vector <m>\v{N}</m>:</term><br/>
+          We differentiate each component of <m>\v{T}(t)</m> using the Quotient Rule:
+          <md>
+            <mrow> x_{\v{T}}'(t) \amp= \frac{0 - 1(4t)}{(1+2t^2)^2} = \frac{-4t}{(1+2t^2)^2} </mrow>
+            <mrow> y_{\v{T}}'(t) \amp= \frac{2(1+2t^2) - 2t(4t)}{(1+2t^2)^2} = \frac{2 - 4t^2}{(1+2t^2)^2} </mrow>
+            <mrow> z_{\v{T}}'(t) \amp= \frac{4t(1+2t^2) - 2t^2(4t)}{(1+2t^2)^2} = \frac{4t}{(1+2t^2)^2} </mrow>
+          </md>
+          Evaluate at <m>t=1</m>:
+          <md>
+            <mrow> \v{T}'(1) \amp= \la \frac{-4}{9}, \frac{-2}{9}, \frac{4}{9} \ra </mrow>
+            <mrow> \|\v{T}'(1)\| \amp= \sqrt{\frac{16}{81} + \frac{4}{81} + \frac{16}{81}} = \sqrt{\frac{36}{81}} = \frac{6}{9} = \frac{2}{3} </mrow>
+          </md>
+          Normalize to find <m>\v{N}(1)</m>:
+          <md>
+            \v{N}(1) = \frac{3}{2} \la -\frac{4}{9}, -\frac{2}{9}, \frac{4}{9} \ra = \la -\frac{2}{3}, -\frac{1}{3}, \frac{2}{3} \ra
+          </md>
+          <term>Binormal Vector <m>\v{B}</m>:</term>
+          <md>
+            <mrow> \v{B}(1) \amp= \v{T}(1) \times \v{N}(1) = \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1/3 \amp 2/3 \amp 2/3 \\ -2/3 \amp -1/3 \amp 2/3 \end{vmatrix} </mrow>
+            <mrow> \amp= \frac{1}{9} \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1 \amp 2 \amp 2 \\ -2 \amp -1 \amp 2 \end{vmatrix} = \frac{1}{9} \la 4 - (-2), -(2 - (-4)), -1 - (-4) \ra </mrow>
+            <mrow> \amp= \frac{1}{9} \la 6, -6, 3 \ra = \la \frac{2}{3}, -\frac{2}{3}, \frac{1}{3} \ra </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.49">
@@ -1175,6 +1414,28 @@
         </md>
         where <m>v(t) = \|\v{r}'(t) \|</m>. 
       </p>
+
+      <solution>
+        <p>
+          First compute the velocity and acceleration vectors, and the speed:
+          <md>
+            <mrow> \v{r}'(t) \amp= \la t, t^2, 1 \ra \implies \v{r}'(1) = \la 1, 1, 1 \ra </mrow>
+            <mrow> \v{r}''(t) \amp= \la 1, 2t, 0 \ra \implies \v{r}''(1) = \la 1, 2, 0 \ra </mrow>
+            <mrow> v(t) \amp= \|\v{r}'(t)\| = \sqrt{t^2 + t^4 + 1} \implies v(1) = \sqrt{3} </mrow>
+            <mrow> v'(t) \amp= \frac{2t + 4t^3}{2\sqrt{t^2+t^4+1}} = \frac{t + 2t^3}{\sqrt{t^2+t^4+1}} \implies v'(1) = \frac{3}{\sqrt{3}} = \sqrt{3} </mrow>
+          </md>
+          Now compute the unnormalized vector <m>\v{u} = v(1)\v{r}''(1) - v'(1)\v{r}'(1)</m>:
+          <md>
+            <mrow> \v{u} \amp= \sqrt{3} \la 1, 2, 0 \ra - \sqrt{3} \la 1, 1, 1 \ra </mrow>
+            <mrow> \amp= \la \sqrt{3} - \sqrt{3}, 2\sqrt{3} - \sqrt{3}, 0 - \sqrt{3} \ra = \la 0, \sqrt{3}, -\sqrt{3} \ra = \sqrt{3}\la 0, 1, -1 \ra </mrow>
+          </md>
+          Find the magnitude and normalize to get <m>\v{N}</m>:
+          <md>
+            <mrow> \|\v{u}\| \amp= \sqrt{3}\sqrt{0^2 + 1^2 + (-1)^2} = \sqrt{3}\sqrt{2} = \sqrt{6} </mrow>
+            <mrow> \v{N}(1) \amp= \frac{\sqrt{3}\la 0, 1, -1 \ra}{\sqrt{6}} = \frac{1}{\sqrt{2}} \la 0, 1, -1 \ra = \la 0, \frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}} \ra </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.55">
@@ -1198,12 +1459,105 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Differentiating gives <m>\v{r}'(t) = \la 1, -1, 2t \ra</m>, so that
+                <md>
+                  <mrow> \v{T}(t) \amp= \frac{\v{r}'(t)}{\|\v{r}'(t)\|} </mrow>
+                  <mrow> \amp= \frac{1}{\sqrt{1^2 + (-1)^2 + (2t)^2}} \la 1, -1, 2t \ra </mrow>
+                  <mrow> \amp= \left\langle \frac{1}{\sqrt{4t^2+2}}, -\frac{1}{\sqrt{4t^2+2}}, \frac{2t}{\sqrt{4t^2+2}} \right\rangle </mrow>
+                </md>
+                The derivatives of the components of <m>\v{T}(t)</m> are
+                <md>
+                  <mrow> \frac{d}{dt} \lp \frac{1}{\sqrt{4t^2+2}} \rp \amp= -\frac{4t}{(4t^2+2)^{3/2}} </mrow>
+                  <mrow> \frac{d}{dt} \lp -\frac{1}{\sqrt{4t^2+2}} \rp \amp= \frac{4t}{(4t^2+2)^{3/2}} </mrow>
+                  <mrow> \frac{d}{dt} \lp \frac{2t}{\sqrt{4t^2+2}} \rp \amp= \frac{(4t^2+2)^{1/2}(2) - 2t \cdot \frac{1}{2}(4t^2+2)^{-1/2} \cdot 8t}{4t^2+2} </mrow>
+                  <mrow> \amp= \frac{2(4t^2+2) - 8t^2}{(4t^2+2)^{3/2}} = \frac{4}{(4t^2+2)^{3/2}} </mrow>
+                </md>
+                Thus,
+                <md>
+                  <mrow> \v{T}'(t) \amp= \left\langle -\frac{4t}{(4t^2+2)^{3/2}}, \frac{4t}{(4t^2+2)^{3/2}}, \frac{4}{(4t^2+2)^{3/2}} \right\rangle </mrow>
+                  <mrow> \amp= \frac{1}{(4t^2+2)^{3/2}} \la -4t, 4t, 4 \ra </mrow>
+                </md>
+                To find <m>\v{N}(t)</m> we must find <m>\|\v{T}'(t)\|</m>:
+                <md>
+                  <mrow> \|\v{T}'(t)\| \amp= \frac{1}{(4t^2+2)^{3/2}} \sqrt{(-4t)^2 + (4t)^2 + 4^2} </mrow>
+                  <mrow> \amp= \frac{1}{(4t^2+2)^{3/2}} \sqrt{32t^2+16} </mrow>
+                  <mrow> \amp= \frac{\sqrt{8}\sqrt{4t^2+2}}{(4t^2+2)^{3/2}} = \frac{\sqrt{8}}{4t^2+2} </mrow>
+                </md>
+                So
+                <md>
+                  <mrow> \v{N}(t) \amp= \frac{\v{T}'(t)}{\|\v{T}'(t)\|} = \frac{\frac{1}{(4t^2+2)^{3/2}} \la -4t, 4t, 4 \ra}{\frac{\sqrt{8}}{4t^2+2}} </mrow>
+                  <mrow> \amp= \frac{4t^2+2}{(4t^2+2)^{3/2}\sqrt{8}} \la -4t, 4t, 4 \ra </mrow>
+                  <mrow> \amp= \frac{1}{\sqrt{4t^2+2}\sqrt{8}} \la -4t, 4t, 4 \ra </mrow>
+                  <mrow> \amp= \frac{1}{\sqrt{32t^2+16}} \la -4t, 4t, 4 \ra </mrow>
+                  <mrow> \amp= \frac{1}{\sqrt{16(2t^2+1)}} 4 \la -t, t, 1 \ra </mrow>
+                  <mrow> \amp= \frac{1}{4\sqrt{2t^2+1}} 4 \la -t, t, 1 \ra = \frac{1}{\sqrt{2t^2+1}} \la -t, t, 1 \ra </mrow>
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                Using the cross product formula <m>\v{B}(t) = \v{T}(t) \times \v{N}(t)</m>:
+                <md>
+                  <mrow> \v{B}(t) \amp= \lp \frac{1}{\sqrt{4t^2+2}} \rp \lp \frac{1}{\sqrt{2t^2+1}} \rp \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 1 \amp -1 \amp 2t \\ -t \amp t \amp 1 \end{vmatrix} </mrow>
+                  <mrow> \amp= \frac{1}{\sqrt{2}\sqrt{2t^2+1}\sqrt{2t^2+1}} \la -1-2t^2, -(1-(-2t^2)), t-t \ra </mrow>
+                  <mrow> \amp= \frac{1}{\sqrt{2}(2t^2+1)} \la -(1+2t^2), -(1+2t^2), 0 \ra </mrow>
+                  <mrow> \amp= \frac{-(1+2t^2)}{\sqrt{2}(1+2t^2)} \la 1, 1, 0 \ra </mrow>
+                  <mrow> \amp= \left\langle -\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}}, 0 \right\rangle </mrow>
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                Since the binormal vector <m>\v{B}(t) = \la -\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}}, 0 \ra</m> is constant, the normal vector to the osculating plane never changes. 
+                Therefore, the osculating plane is the same for all <m>t</m>. 
+                All osculating planes are the fixed plane <m>x + y = 1</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.4.67">
       <p>
         Find an equation of the osculating circle to the curve <m>\v{r}(t) = \la 1-\sin(t), 1-2\cos(t) \ra</m> at the point where <m>t=\pi</m> or indicate that none exists. 
       </p>
+
+      <solution>    
+        <p>
+          <term>Step 1: Compute derivatives at <m>t=\pi</m></term>
+          <md>
+            <mrow> \v{r}(\pi) \amp= \la 1-\sin(\pi), 1-2\cos(\pi) \ra = \la 1, 3 \ra </mrow>
+            <mrow> \v{r}'(t) \amp= \la -\cos(t), 2\sin(t) \ra \implies \v{r}'(\pi) = \la 1, 0 \ra </mrow>
+            <mrow> \v{r}''(t) \amp= \la \sin(t), 2\cos(t) \ra \implies \v{r}''((\pi) = \la 0, -2 \ra </mrow>
+          </md>
+          <term>Step 2: Find the radius of curvature</term>
+          <md>
+            <mrow> \kappa(\pi) \amp= \frac{|x'y'' - y'x''|}{\lp (x')^2 + (y')^2 \rp^{3/2}} = \frac{|(1)(-2) - (0)(0)|}{\lp 1^2 + 0^2 \rp^{3/2}} = 2 </mrow>
+            <mrow> R \amp= \frac{1}{\kappa(\pi)} = \frac{1}{2} </mrow>
+          </md>
+          <term>Step 3: Find the Normal Vector</term><br/>
+          Since the velocity vector is <m>\v{r}'(\pi) = \la 1, 0 \ra</m>, the unit tangent vector is <m>\v{T}(\pi) = \la 1, 0 \ra</m>. In 2D, the principal normal vector <m>\v{N}</m> is orthogonal to <m>\v{T}</m> and points in the direction the curve is bending (concave side). Since the acceleration is <m>\v{r}''(\pi) = \la 0, -2 \ra</m>, the curve is bending downwards. Thus:
+          <md>
+            \v{N}(\pi) = \la 0, -1 \ra
+          </md>
+          <term>Step 4: Find the Center and Equation</term><br/>
+          The center <m>Q</m> is found by translating from the point <m>P(1,3)</m> along the normal vector by the distance <m>R</m>:
+          <md>
+            \overrightarrow{OQ} = \v{r}(\pi) + R\v{N}(\pi) = \la 1, 3 \ra + \frac{1}{2}\la 0, -1 \ra = \la 1, \frac{5}{2} \ra
+          </md>
+          With center <m>\lp 1, \frac{5}{2} \rp</m> and radius <m>R = \frac{1}{2}</m>, the equation of the osculating circle is:
+          <md>
+            (x - 1)^2 + \lp y - \frac{5}{2} \rp^2 = \frac{1}{4}
+          </md>
+        </p>
+      </solution>
     </exercise>
 
   </worksheet>

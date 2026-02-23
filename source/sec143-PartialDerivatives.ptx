@@ -723,6 +723,17 @@
         <p>
           <m>f(u,v) = \cos\lp u + v^2 \rp \, , \quad f_{uuv}</m>
         </p>
+
+        <solution>
+          <p>
+            <md>
+              <mrow> f_u \amp = -\sin\lp u + v^2 \rp </mrow>
+              <mrow> f_{uu} \amp = -\cos\lp u + v^2 \rp </mrow>
+              <mrow> f_{uuv} \amp = \frac{\partial}{\partial v}\lp -\cos\lp u + v^2 \rp \rp = -\lp -\sin\lp u + v^2 \rp \rp \cdot 2v </mrow>
+              <mrow> \amp = 2v\sin\lp u + v^2 \rp </mrow>
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.3.67">

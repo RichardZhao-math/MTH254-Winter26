@@ -372,6 +372,46 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <p>
+          <ol marker="(a)">
+            <li>
+              <p>
+                <md>
+                  <mrow> \frac{\partial f}{\partial x} \amp= 2xy^3 </mrow>
+                  <mrow> \frac{\partial f}{\partial y} \amp= 3x^2y^2 </mrow>
+                  <mrow> \frac{\partial f}{\partial z} \amp= 4z^3 </mrow>
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                <md>
+                  <mrow> \frac{\partial x}{\partial s} \amp= 2s </mrow>
+                  <mrow> \frac{\partial y}{\partial s} \amp= t^2 </mrow>
+                  <mrow> \frac{\partial z}{\partial s} \amp= 2st </mrow>
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                Using the Chain Rule formula:
+                <md>
+                  <mrow> \frac{\partial f}{\partial s} \amp= (2xy^3)(2s) + (3x^2y^2)(t^2) + (4z^3)(2st) </mrow>
+                </md>
+                Now we substitute <m>x = s^2</m>, <m>y = st^2</m>, and <m>z = s^2t</m> back into the equation:
+                <md>
+                  <mrow> \frac{\partial f}{\partial s} \amp= 2(s^2)(st^2)^3(2s) + 3(s^2)^2(st^2)^2(t^2) + 4(s^2t)^3(2st) </mrow>
+                  <mrow> \amp= 2(s^2)(s^3t^6)(2s) + 3(s^4)(s^2t^4)(t^2) + 4(s^6t^3)(2st) </mrow>
+                  <mrow> \amp= 4s^6t^6 + 3s^6t^6 + 8s^7t^4 </mrow>
+                  <mrow> \amp= 7s^6t^6 + 8s^7t^4 </mrow>
+                </md>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -387,12 +427,61 @@
         <p>
           <m>\dfrac{\partial F}{\partial y}</m>; <m>F(u,v) = e^{u + v}</m>, <m>u = x^2</m>, <m>v = xy</m>.
         </p>
+
+        <solution>
+          <p>
+            Using the Chain Rule:
+            <md>
+              \frac{\partial F}{\partial y} = \frac{\partial F}{\partial u} \frac{\partial u}{\partial y} + \frac{\partial F}{\partial v} \frac{\partial v}{\partial y}
+            </md>
+            First, calculate the partial derivatives:
+            <md>
+              <mrow> \frac{\partial F}{\partial u} \amp= e^{u+v} \amp \frac{\partial u}{\partial y} \amp= 0 </mrow>
+              <mrow> \frac{\partial F}{\partial v} \amp= e^{u+v} \amp \frac{\partial v}{\partial y} \amp= x </mrow>
+            </md>
+            Substitute these into the Chain Rule:
+            <md>
+              <mrow> \frac{\partial F}{\partial y} \amp= (e^{u+v})(0) + (e^{u+v})(x) </mrow>
+              <mrow> \amp= x e^{u+v} </mrow>
+            </md>
+            Finally, substitute <m>u = x^2</m> and <m>v = xy</m> back into the equation:
+            <md>
+              \frac{\partial F}{\partial y} = x e^{x^2 + xy}
+            </md>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.6.9">
         <p>
           <m>\dfrac{\partial h}{\partial t_2}</m>; <m>f(x,y) = \dfrac{x}{y}</m>, <m>x = t_1t_2</m>, <m>y = t_1^2t_2</m>. 
         </p>
+
+        <solution>
+          <p>
+            Note that <m>h</m> represents the composite function <m>h(t_1, t_2) = f(x(t_1, t_2), y(t_1, t_2))</m>. Using the Chain Rule:
+            <md>
+              \frac{\partial h}{\partial t_2} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial t_2} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial t_2}
+            </md>
+            Calculate the necessary partial derivatives:
+            <md>
+              <mrow> \frac{\partial f}{\partial x} \amp= \frac{1}{y} \amp \frac{\partial x}{\partial t_2} \amp= t_1 </mrow>
+              <mrow> \frac{\partial f}{\partial y} \amp= -\frac{x}{y^2} \amp \frac{\partial y}{\partial t_2} \amp= t_1^2 </mrow>
+            </md>
+            Substitute these into the Chain Rule:
+            <md>
+              <mrow> \frac{\partial h}{\partial t_2} \amp= \left(\frac{1}{y}\right)(t_1) + \left(-\frac{x}{y^2}\right)(t_1^2) </mrow>
+              <mrow> \amp= \frac{t_1}{y} - \frac{xt_1^2}{y^2} </mrow>
+            </md>
+            Finally, substitute <m>x = t_1t_2</m> and <m>y = t_1^2t_2</m>:
+            <md>
+              <mrow> \frac{\partial h}{\partial t_2} \amp= \frac{t_1}{t_1^2t_2} - \frac{(t_1t_2)t_1^2}{(t_1^2t_2)^2} </mrow>
+              <mrow> \amp= \frac{1}{t_1t_2} - \frac{t_1^3t_2}{t_1^4t_2^2} </mrow>
+              <mrow> \amp= \frac{1}{t_1t_2} - \frac{1}{t_1t_2} = 0 </mrow>
+            </md>
+            (Alternatively, substituting <m>x</m> and <m>y</m> into <m>f</m> first gives <m>f(x,y) = \frac{t_1t_2}{t_1^2t_2} = \frac{1}{t_1}</m>. Since this expression only depends on <m>t_1</m>, its derivative with respect to <m>t_2</m> is trivially <m>0</m>!)
+          </p>
+        </solution>
       </exercise>
     
     </exercisegroup>
@@ -404,6 +493,45 @@
           g(x,y) = \frac{1}{x + y^2}\, , \qquad x = r\cos(\theta) \quad \text{ and } \quad y = r\sin(\theta)
         </md>
       </p>
+
+      <solution>
+        <p>
+          First, let's find the values of <m>x</m> and <m>y</m> at the given point:
+          <md>
+            <mrow> x \amp= 2\sqrt{2}\cos\lp\frac{\pi}{4}\rp = 2\sqrt{2} \lp\frac{\sqrt{2}}{2}\rp = 2 </mrow>
+            <mrow> y \amp= 2\sqrt{2}\sin\lp\frac{\pi}{4}\rp = 2\sqrt{2} \lp\frac{\sqrt{2}}{2}\rp = 2 </mrow>
+          </md>
+        </p>
+        <p>
+          The Chain Rule states:
+          <md>
+            \frac{\partial g}{\partial \theta} = \frac{\partial g}{\partial x} \frac{\partial x}{\partial \theta} + \frac{\partial g}{\partial y} \frac{\partial y}{\partial \theta}
+          </md>
+          Let's calculate each of these partial derivatives:
+          <md>
+            <mrow> \frac{\partial g}{\partial x} \amp= -(x+y^2)^{-2} = -\frac{1}{(x+y^2)^2} </mrow>
+            <mrow> \frac{\partial g}{\partial y} \amp= -2y(x+y^2)^{-2} = -\frac{2y}{(x+y^2)^2} </mrow>
+            <mrow> \frac{\partial x}{\partial \theta} \amp= -r\sin(\theta) </mrow>
+            <mrow> \frac{\partial y}{\partial \theta} \amp= r\cos(\theta) </mrow>
+          </md>
+        </p>
+        <p>
+          Now, evaluate these derivatives at our specific point (<m>x=2, y=2, r=2\sqrt{2}, \theta=\frac{\pi}{4}</m>):
+          <md>
+            <mrow> \frac{\partial g}{\partial x} \amp= -\frac{1}{(2 + 2^2)^2} = -\frac{1}{36} </mrow>
+            <mrow> \frac{\partial g}{\partial y} \amp= -\frac{2(2)}{(2 + 2^2)^2} = -\frac{4}{36} = -\frac{1}{9} </mrow>
+            <mrow> \frac{\partial x}{\partial \theta} \amp= -2\sqrt{2}\sin\lp\frac{\pi}{4}\rp = -2 </mrow>
+            <mrow> \frac{\partial y}{\partial \theta} \amp= 2\sqrt{2}\cos\lp\frac{\pi}{4}\rp = 2 </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute these values back into the Chain Rule:
+          <md>
+            <mrow> \frac{\partial g}{\partial \theta} \amp= \lp-\frac{1}{36}\rp(-2) + \lp-\frac{1}{9}\rp(2) </mrow>
+            <mrow> \amp= \frac{2}{36} - \frac{2}{9} = \frac{1}{18} - \frac{4}{18} = -\frac{3}{18} = -\frac{1}{6} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.6.19">
@@ -419,22 +547,6 @@
       <p>
         Determine how fast the distance between the two players is changing at a moment when the hitter is 8 ft from first base and the first baseman is 6 ft from first base.  
       </p>
-
-      <hint>
-        <p>
-          To find the rate of change of <m>d</m> with respect to <m>t</m>, we need a function first. 
-          Based on the diagram, observe that <m>d</m>, <m>x</m>, and <m>y</m> form a right triangle, which implies that
-          <md>
-            d = f(x,y) = \sqrt{x^2 + y^2}
-          </md>
-          In addition, both <m>x</m> and <m>y</m> are functions of time <m>t</m>, so we can let <m>x = g(t)</m> and <m>y = h(t)</m>. 
-        </p>
-
-        <p>
-          Then how do we determine <m>\dfrac{df}{dt}</m>... 
-          The answer is to use the Chain Rule! 
-        </p> 
-      </hint>
     </exercise>
 
     <exercise number="14.6.21">
@@ -442,6 +554,64 @@
         Two spacecraft are following paths in space given by <m>\v{r}_1 = \la \sin(t), t, t^2 \ra</m> and <m>\v{r}_2(t) = \la \cos(t), 1-t, t^3 \ra</m>. 
         If the temperature for points in space is given by <m>T(x,y,z) = x^2y(1-z)</m>, use the Chain Rule to determine the rate of change of the difference <m>D</m> in the temperatures the two spacecraft experience at time <m>t = \pi</m>. 
       </p>
+
+      <solution>
+        <p>
+          The difference in temperatures is <m>D(t) = T(\v{r}_1(t)) - T(\v{r}_2(t))</m>. 
+          The rate of change is <m>D'(t) = \frac{d}{dt}T(\v{r}_1(t)) - \frac{d}{dt}T(\v{r}_2(t))</m>.
+          By the Chain Rule, <m>\frac{d}{dt}T(\v{r}(t)) = \nabla T(\v{r}(t)) \cdot \v{r}'(t)</m>.
+        </p>
+        <p>
+          First, calculate the gradient of <m>T</m>:
+          <md>
+            \nabla T = \la 2xy(1-z), x^2(1-z), -x^2y \ra
+          </md>
+        </p>
+        <p>
+          <term>Spacecraft 1:</term><br/>
+          Evaluate path and velocity at <m>t = \pi</m>:
+          <md>
+            <mrow> \v{r}_1(\pi) \amp= \la \sin(\pi), \pi, \pi^2 \ra = \la 0, \pi, \pi^2 \ra </mrow>
+            <mrow> \v{r}_1'(t) \amp= \la \cos(t), 1, 2t \ra \implies \v{r}_1'(\pi) = \la -1, 1, 2\pi \ra </mrow>
+          </md>
+          Evaluate gradient at <m>\v{r}_1(\pi)</m>:
+          <md>
+            \nabla T(0, \pi, \pi^2) = \la 2(0)(\pi)(1-\pi^2), (0)^2(1-\pi^2), -(0)^2(\pi) \ra = \la 0, 0, 0 \ra
+          </md>
+          Rate of change for spacecraft 1:
+          <md>
+            \frac{d}{dt}T(\v{r}_1(\pi)) = \la 0, 0, 0 \ra \cdot \la -1, 1, 2\pi \ra = 0
+          </md>
+        </p>
+        <p>
+          <term>Spacecraft 2:</term><br/>
+          Evaluate path and velocity at <m>t = \pi</m>:
+          <md>
+            <mrow> \v{r}_2(\pi) \amp= \la \cos(\pi), 1-\pi, \pi^3 \ra = \la -1, 1-\pi, \pi^3 \ra </mrow>
+            <mrow> \v{r}_2'(t) \amp= \la -\sin(t), -1, 3t^2 \ra \implies \v{r}_2'(\pi) = \la 0, -1, 3\pi^2 \ra </mrow>
+          </md>
+          Evaluate gradient at <m>\v{r}_2(\pi)</m>:
+          <md>
+            <mrow> \nabla T(-1, 1-\pi, \pi^3) \amp= \la 2(-1)(1-\pi)(1-\pi^3), (-1)^2(1-\pi^3), -(-1)^2(1-\pi) \ra </mrow>
+            <mrow> \amp= \la -2(1-\pi)(1-\pi^3), 1-\pi^3, -(1-\pi) \ra </mrow>
+            <mrow> \amp= \la 2(\pi-1)(1-\pi^3), 1-\pi^3, \pi-1 \ra </mrow>
+          </md>
+          Rate of change for spacecraft 2:
+          <md>
+            <mrow> \frac{d}{dt}T(\v{r}_2(\pi)) \amp= \la 2(\pi-1)(1-\pi^3), 1-\pi^3, \pi-1 \ra \cdot \la 0, -1, 3\pi^2 \ra </mrow>
+            <mrow> \amp= 0 - (1-\pi^3) + 3\pi^2(\pi-1) </mrow>
+            <mrow> \amp= \pi^3 - 1 + 3\pi^3 - 3\pi^2 = 4\pi^3 - 3\pi^2 - 1 </mrow>
+          </md>
+        </p>
+        <p>
+          Finally, calculate the rate of change of the difference:
+          <md>
+            <mrow> D'(\pi) \amp= \frac{d}{dt}T(\v{r}_1(\pi)) - \frac{d}{dt}T(\v{r}_2(\pi)) </mrow>
+            <mrow> \amp= 0 - (4\pi^3 - 3\pi^2 - 1) </mrow>
+            <mrow> \amp= -4\pi^3 + 3\pi^2 + 1 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.6.27">
@@ -460,12 +630,56 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <p>
+          <ol marker="(a)">
+            <li>
+              <p>
+                <md>
+                  <mrow> F_x \amp= z^2 + y </mrow>
+                  <mrow> F_y \amp= 2yz + x </mrow>
+                  <mrow> F_z \amp= 2xz + y^2 </mrow>
+                </md>
+              </p>
+            </li>
+            <li>
+              <p>
+                Using the implicit differentiation formulas:
+                <md>
+                  <mrow> \frac{\partial z}{\partial x} \amp= -\frac{F_x}{F_z} = -\frac{z^2 + y}{2xz + y^2} </mrow>
+                  <mrow> \frac{\partial z}{\partial y} \amp= -\frac{F_y}{F_z} = -\frac{2yz + x}{2xz + y^2} </mrow>
+                </md>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.6.31">
       <p>
         Calculate the partial derivative <m>\dfrac{\partial z}{\partial y}</m> of the equation <m>e^{xy} + \sin(xz) + y = 0</m> using implicit differentiation. 
       </p>
+
+      <solution>
+        <p>
+          Let <m>F(x,y,z) = e^{xy} + \sin(xz) + y</m>. By the implicit differentiation formula, <m>\frac{\partial z}{\partial y} = -\frac{F_y}{F_z}</m>.
+        </p>
+        <p>
+          First, calculate the necessary partial derivatives:
+          <md>
+            <mrow> F_y \amp= \frac{\partial}{\partial y}(e^{xy} + \sin(xz) + y) = xe^{xy} + 0 + 1 = xe^{xy} + 1 </mrow>
+            <mrow> F_z \amp= \frac{\partial}{\partial z}(e^{xy} + \sin(xz) + y) = 0 + \cos(xz) \cdot x + 0 = x\cos(xz) </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute into the formula:
+          <md>
+            \frac{\partial z}{\partial y} = -\frac{xe^{xy} + 1}{x\cos(xz)}
+          </md>
+        </p>
+      </solution>
     </exercise>
 
   </worksheet>

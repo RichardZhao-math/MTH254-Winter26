@@ -475,6 +475,40 @@
       <p>
         Find the points on the graph of <m>z = 3x^2 - 4y^2</m> at which the vector <m>\v{n} = \la 3,2,2 \ra</m> is normal to the tangent plane. 
       </p>
+
+      <solution>
+        <p>
+          Let <m>f(x,y) = 3x^2 - 4y^2</m>. 
+          We know that the tangent plane is determined by the vectors <m>\v{v} = \la 1, 0, f_x \ra</m> and <m>\v{w} = \la 0, 1, f_y \ra</m>. 
+          The normal vector to the tangent plane is given by their cross product:
+          <md>
+            <mrow> \v{n}\amp = \v{w} \times \v{v} = \la f_x, f_y, -1 \ra </mrow>
+          </md>
+          First, we compute the partial derivatives:
+          <md>
+            <mrow> f_x(x,y) \amp = 6x </mrow>
+            <mrow> f_y(x,y) \amp = -8y </mrow>
+          </md>
+          So, the normal vector to the tangent plane at any point <m>(x,y)</m> is <m>\la 6x, -8y, -1 \ra</m>.
+          We are given that <m>\v{n} = \la 3,2,2 \ra</m> is normal to the tangent plane, so our computed vector must be parallel to <m>\v{n}</m>. 
+          This means there exists a constant <m>k</m> such that:
+          <md>
+            <mrow> \la 6x, -8y, -1 \ra \amp = k \la 3,2,2 \ra </mrow>
+          </md>
+          Equating the components:
+          <md>
+            <mrow> -1 \amp = 2k \implies k = -\frac{1}{2} </mrow>
+            <mrow> 6x \amp = 3k = 3\lp -\frac{1}{2} \rp = -\frac{3}{2} \implies x = -\frac{1}{4} </mrow>
+            <mrow> -8y \amp = 2k = 2\lp -\frac{1}{2} \rp = -1 \implies y = \frac{1}{8} </mrow>
+          </md>
+          Finally, we find the <m>z</m>-coordinate:
+          <md>
+            <mrow> z \amp = 3\lp -\frac{1}{4} \rp^2 - 4\lp \frac{1}{8} \rp^2 </mrow>
+            <mrow> \amp = \frac{3}{16} - \frac{4}{64} = \frac{12}{64} - \frac{4}{64} = \frac{8}{64} = \frac{1}{8} </mrow>
+          </md>
+          The point is <m>\lp -\frac{1}{4}, \frac{1}{8}, \frac{1}{8} \rp</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.4.13">

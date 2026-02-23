@@ -842,6 +842,37 @@
           \lim_{(x,y) \to (4,0)} \lp x^2 - 16 \rp \cos\lp \frac{1}{(x - 4)^2 + y^2} \rp
         </md>
       </p>
+
+      <solution>
+        <p>
+          Consider the following inequalities:
+          <md>
+           -1 \leq \cos\lp \frac{1}{(x - 4)^2 + y^2} \rp \leq 1
+          </md>
+          Then for <m>x</m> such that <m>x \geq 4</m> then <m>x^2 - 16 \geq 0</m>, so we have
+          <md>
+            <mrow> -\lp x^2 - 16 \rp \leq \lp x^2 - 16 \rp \cos\lp \frac{1}{(x - 4)^2 + y^2} \rp \leq \lp x^2 - 16 \rp </mrow>
+            <mrow> \lim_{(x,y) \to (4,0)}  -\lp x^2 - 16 \rp \leq \lim_{(x,y) \to (4,0)} \lp x^2 - 16 \rp \cos\lp \frac{1}{(x - 4)^2 + y^2} \rp \leq \lim_{(x,y) \to (4,0)} \lp x^2 - 16 \rp </mrow>
+          </md>
+          Then the two limits at the ends of the inequality are clearly equal to <m>0</m>, by the Squeeze Theorem. 
+        </p>
+
+        <p>
+          Now, if <m>x \lt 4</m>, then <m>x^2 - 16 \lt 0</m>, so we have
+          <md>
+            <mrow> \lp x^2 - 16 \rp \leq \lp x^2 - 16 \rp \cos\lp \frac{1}{(x - 4)^2 + y^2} \rp \leq -\lp x^2 - 16 \rp </mrow>
+            <mrow> \lim_{(x,y) \to (4,0)}  \lp x^2 - 16 \rp \leq \lim_{(x,y) \to (4,0)} \lp x^2 - 16 \rp \cos\lp \frac{1}{(x - 4)^2 + y^2} \rp \leq \lim_{(x,y) \to (4,0)} -\lp x^2 - 16 \rp </mrow>
+          </md>
+          Then the two limits at the ends of the inequality are clearly equal to <m>0</m>, by the Squeeze Theorem.
+        </p>
+
+        <p>
+          Thus, we can conclude
+          <md>
+            \lim_{(x,y) \to (4,0)} \lp x^2 - 16 \rp \cos\lp \frac{1}{(x - 4)^2 + y^2} \rp = 0
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercisegroup>

@@ -911,6 +911,24 @@
       <p>
         Find a parametrization of the tangent line of <m>\v{r}(t) = \la 1-t^2, 5t, 2t^3 \ra</m> at the point <m>t = 2</m>. 
       </p>
+
+      <solution>
+        <p>
+          The tangent line is parametrized by
+          <md>
+            \ell(t) = \v{r}(2) + t\v{r}'(2)
+          </md>
+          We compute the vectors in the above parametrization
+          <md>
+            <mrow> \v{r}(2) \amp= \la 1-2^2, 5\cdot 2, 2\cdot 2^3 \ra = \la -3, 10, 16 \ra </mrow>
+            <mrow> \v{r}'(t)\amp= \frac{d}{dt} \la 1-t^2, 5t, 2t^3 \ra = \la -2t, 5, 6t^2 \ra \quad \implies \quad \v{r}'(2) = \la -4, 5, 24 \ra </mrow>
+          </md>
+          Substituting them back into the parametrization, we have
+          <md>
+            \ell(t) = \la -3,10,16 \ra + t \la -4,5,24 \ra = \la -3-4t, 10+5t, 16+24t \ra
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="13.2.45">

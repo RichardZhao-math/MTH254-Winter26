@@ -791,6 +791,28 @@
       <p>
         Calculate the gradient of <m>f(x,y) = \cos\lp x^2 + y \rp</m>. 
       </p>
+
+      <solution>
+        <p>
+          To find the gradient <m>\nabla f(x,y)</m>, we compute the partial derivatives with respect to <m>x</m> and <m>y</m> using the Chain Rule.
+        </p>
+        <p>
+          <term>Partial derivative with respect to <m>x</m>:</term>
+          <md>
+            f_x(x,y) = \frac{\partial}{\partial x} \cos(x^2 + y) = -\sin(x^2 + y) \cdot \frac{\partial}{\partial x}(x^2 + y) = -2x\sin(x^2 + y)
+          </md>
+          <term>Partial derivative with respect to <m>y</m>:</term>
+          <md>
+            f_y(x,y) = \frac{\partial}{\partial y} \cos(x^2 + y) = -\sin(x^2 + y) \cdot \frac{\partial}{\partial y}(x^2 + y) = -\sin(x^2 + y)
+          </md>
+        </p>
+        <p>
+          Thus, the gradient vector is:
+          <md>
+            \nabla f(x,y) = \la -2x\sin(x^2 + y), -\sin(x^2 + y) \ra
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.5.17">
@@ -801,6 +823,44 @@
         </md>
         at the point where <m>t = \dfrac{\pi}{4}</m>.
       </p>
+
+      <solution>
+        <p>
+          According to the Chain Rule for paths, <m>\frac{d}{dt} f(\v{r}(t)) = \nabla f(\v{r}(t)) \cdot \v{r}'(t)</m>.
+        </p>
+        <p>
+          First, let's find the gradient of <m>f</m>:
+          <md>
+            \nabla f(x,y) = \la \frac{\partial}{\partial x}(\ln x + \ln y), \frac{\partial}{\partial y}(\ln x + \ln y) \ra = \la \frac{1}{x}, \frac{1}{y} \ra
+          </md>
+          Next, let's find the derivative of the path <m>\v{r}(t)</m>:
+          <md>
+            \v{r}'(t) = \la \frac{d}{dt}\cos(t), \frac{d}{dt}t^2 \ra = \la -\sin(t), 2t \ra
+          </md>
+        </p>
+        <p>
+          Now we evaluate both at <m>t = \frac{\pi}{4}</m>.
+          <md>
+            \v{r}\lp \frac{\pi}{4} \rp = \la \cos\lp \frac{\pi}{4} \rp, \lp \frac{\pi}{4} \rp^2 \ra = \la \frac{\sqrt{2}}{2}, \frac{\pi^2}{16} \ra
+          </md>
+          So at this point, <m>x = \frac{\sqrt{2}}{2}</m> and <m>y = \frac{\pi^2}{16}</m>.
+          <md>
+            \nabla f\lp \v{r}\lp \frac{\pi}{4} \rp \rp = \la \frac{1}{\sqrt{2}/2}, \frac{1}{\pi^2/16} \ra = \la \sqrt{2}, \frac{16}{\pi^2} \ra
+          </md>
+          And the velocity vector is:
+          <md>
+            \v{r}'\lp \frac{\pi}{4} \rp = \la -\sin\lp \frac{\pi}{4} \rp, 2\lp \frac{\pi}{4} \rp \ra = \la -\frac{\sqrt{2}}{2}, \frac{\pi}{2} \ra
+          </md>
+        </p>
+        <p>
+          Finally, compute the dot product:
+          <md>
+            <mrow> \frac{d}{dt} f\lp \v{r}\lp \frac{\pi}{4} \rp \rp \amp= \la \sqrt{2}, \frac{16}{\pi^2} \ra \cdot \la -\frac{\sqrt{2}}{2}, \frac{\pi}{2} \ra </mrow>
+            <mrow> \amp= (\sqrt{2})\lp -\frac{\sqrt{2}}{2} \rp + \lp \frac{16}{\pi^2} \rp \lp \frac{\pi}{2} \rp </mrow>
+            <mrow> \amp= -1 + \frac{8}{\pi} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.5.25">
@@ -808,12 +868,77 @@
         Calculate the directional derivative of <m>f(x,y) = \tan^{-1}(xy)</m> in the direction of <m>\v{v} = \la 1,1 \ra</m> at the point <m>P = (3,4)</m>. 
         Remember to use a unit vector in your directional derivative computation.
       </p>
+
+      <solution>
+        <p>
+          First, find the gradient <m>\nabla f(x,y)</m>:
+          <md>
+            <mrow> f_x(x,y) \amp= \frac{1}{1+(xy)^2} \cdot y = \frac{y}{1+x^2y^2} </mrow>
+            <mrow> f_y(x,y) \amp= \frac{1}{1+(xy)^2} \cdot x = \frac{x}{1+x^2y^2} </mrow>
+          </md>
+          Evaluate the gradient at <m>P(3,4)</m>:
+          <md>
+            <mrow> f_x(3,4) \amp= \frac{4}{1+(3^2)(4^2)} = \frac{4}{1+144} = \frac{4}{145} </mrow>
+            <mrow> f_y(3,4) \amp= \frac{3}{1+(3^2)(4^2)} = \frac{3}{1+144} = \frac{3}{145} </mrow>
+            <mrow> \nabla f(3,4) \amp= \la \frac{4}{145}, \frac{3}{145} \ra </mrow>
+          </md>
+        </p>
+        <p>
+          Next, find the unit vector <m>\v{u}</m> in the direction of <m>\v{v} = \la 1,1 \ra</m>:
+          <md>
+            <mrow> \|\v{v}\| \amp= \sqrt{1^2 + 1^2} = \sqrt{2} </mrow>
+            <mrow> \v{u} \amp= \frac{\v{v}}{\|\v{v}\|} = \la \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} \ra </mrow>
+          </md>
+        </p>
+        <p>
+          Finally, calculate the directional derivative using the dot product:
+          <md>
+            <mrow> D_\v{u}f(3,4) \amp= \nabla f(3,4) \cdot \v{u} </mrow>
+            <mrow> \amp= \la \frac{4}{145}, \frac{3}{145} \ra \cdot \la \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} \ra </mrow>
+            <mrow> \amp= \frac{4}{145\sqrt{2}} + \frac{3}{145\sqrt{2}} </mrow>
+            <mrow> \amp= \frac{7}{145\sqrt{2}} = \frac{7\sqrt{2}}{290} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.5.35">
       <p>
         Determine the direction in which <m>f(x,y,z) = \dfrac{xy}{z}</m> has maximum rate of increase from <m>P = (1,-1,3)</m>, and give the rate of change in that direction. 
       </p>
+
+      <solution>
+        <p>
+          The direction of maximum increase is given by the gradient <m>\nabla f(P)</m>, and the rate is the magnitude <m>\|\nabla f(P)\|</m>.
+        </p>
+        <p>
+          First, calculate the partial derivatives:
+          <md>
+            <mrow> f_x \amp= \frac{y}{z} </mrow>
+            <mrow> f_y \amp= \frac{x}{z} </mrow>
+            <mrow> f_z \amp= -\frac{xy}{z^2} </mrow>
+          </md>
+          Evaluate at <m>P(1,-1,3)</m>:
+          <md>
+            <mrow> f_x(1,-1,3) \amp= \frac{-1}{3} = -\frac{1}{3} </mrow>
+            <mrow> f_y(1,-1,3) \amp= \frac{1}{3} </mrow>
+            <mrow> f_z(1,-1,3) \amp= -\frac{(1)(-1)}{3^2} = \frac{1}{9} </mrow>
+          </md>
+          So the direction of maximum increase is:
+          <md>
+            \nabla f(1,-1,3) = \la -\frac{1}{3}, \frac{1}{3}, \frac{1}{9} \ra
+          </md>
+        </p>
+        <p>
+          The maximum rate of change is the magnitude:
+          <md>
+            <mrow> \|\nabla f\| \amp= \sqrt{\lp -\frac{1}{3} \rp^2 + \lp \frac{1}{3} \rp^2 + \lp \frac{1}{9} \rp^2} </mrow>
+            <mrow> \amp= \sqrt{\frac{1}{9} + \frac{1}{9} + \frac{1}{81}} </mrow>
+            <mrow> \amp= \sqrt{\frac{9}{81} + \frac{9}{81} + \frac{1}{81}} </mrow>
+            <mrow> \amp= \sqrt{\frac{19}{81}} = \frac{\sqrt{19}}{9} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.5.37">
@@ -821,6 +946,21 @@
         Suppose that <m>\nabla f_P = \la 2,-4,4 \ra</m>. 
         Is <m>f</m> increasing or decreasing at <m>P</m> in the direction of <m>\v{v} = \la 2,1,3 \ra</m>?
       </p>
+
+      <solution>
+        <p>
+          To determine if <m>f</m> is increasing or decreasing, we check the sign of the directional derivative <m>D_\v{u}f(P)</m>. The sign of <m>D_\v{u}f</m> is the same as the sign of the dot product <m>\nabla f_P \cdot \v{v}</m> (since dividing by <m>\|\v{v}\|</m> to get <m>\v{u}</m> is always positive).
+        </p>
+        <p>
+          Calculate the dot product:
+          <md>
+            <mrow> \nabla f_P \cdot \v{v} \amp= \la 2, -4, 4 \ra \cdot \la 2, 1, 3 \ra </mrow>
+            <mrow> \amp= (2)(2) + (-4)(1) + (4)(3) </mrow>
+            <mrow> \amp= 4 - 4 + 12 = 12 </mrow>
+          </md>
+          Since the dot product is positive (<m>12 > 0</m>), the directional derivative is positive. Therefore, <m>f</m> is <alert>increasing</alert> in the direction of <m>\v{v}</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.5.39">
@@ -828,6 +968,43 @@
         Let <m>f(x,y,z) = \sin(xy + z)</m> and <m>P = (0,-1, \pi)</m>. 
         Calculate <m>D_\v{u} f(P)</m>, where <m>\v{u}</m> is a unit vector making an angle <m>\theta = 30^\circ</m> with <m>\nabla f_P</m>. 
       </p>
+
+      <solution>
+        <p>
+          We use the formula <m>D_\v{u} f(P) = \|\nabla f_P\| \cos(\theta)</m>.
+        </p>
+        <p>
+          First, compute the gradient <m>\nabla f</m>:
+          <md>
+            <mrow> f_x \amp= y\cos(xy+z) </mrow>
+            <mrow> f_y \amp= x\cos(xy+z) </mrow>
+            <mrow> f_z \amp= \cos(xy+z) </mrow>
+          </md>
+          Evaluate at <m>P(0,-1,\pi)</m>:
+          <md>
+            \text{Argument } = (0)(-1) + \pi = \pi
+          </md>
+          <md>
+            <mrow> f_x(0,-1,\pi) \amp= -1\cos(\pi) = (-1)(-1) = 1 </mrow>
+            <mrow> f_y(0,-1,\pi) \amp= 0\cos(\pi) = 0 </mrow>
+            <mrow> f_z(0,-1,\pi) \amp= \cos(\pi) = -1 </mrow>
+          </md>
+          So <m>\nabla f_P = \la 1, 0, -1 \ra</m>.
+        </p>
+        <p>
+          Next, find the magnitude of the gradient:
+          <md>
+            \|\nabla f_P\| = \sqrt{1^2 + 0^2 + (-1)^2} = \sqrt{2}
+          </md>
+        </p>
+        <p>
+          Finally, calculate the directional derivative using <m>\theta = 30^\circ</m>:
+          <md>
+            <mrow> D_\v{u} f(P) \amp= \|\nabla f_P\| \cos(30^\circ) </mrow>
+            <mrow> \amp= \sqrt{2} \cdot \frac{\sqrt{3}}{2} = \frac{\sqrt{6}}{2} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.5.43">
@@ -848,12 +1025,71 @@
         </md>
         at the point <m>P = (2,1,1)</m>. 
       </p>
+
+      <solution>
+        <p>
+          Let <m>F(x,y,z) = xz + 2x^2y + y^2z^3</m>. The surface is the level set <m>F=11</m>.
+          First, find the gradient <m>\nabla F</m>:
+          <md>
+            <mrow> F_x \amp= z + 4xy </mrow>
+            <mrow> F_y \amp= 2x^2 + 2yz^3 </mrow>
+            <mrow> F_z \amp= x + 3y^2z^2 </mrow>
+          </md>
+          Evaluate at <m>P(2,1,1)</m> to find the normal vector:
+          <md>
+            <mrow> F_x(2,1,1) \amp= 1 + 4(2)(1) = 9 </mrow>
+            <mrow> F_y(2,1,1) \amp= 2(2)^2 + 2(1)(1)^3 = 8 + 2 = 10 </mrow>
+            <mrow> F_z(2,1,1) \amp= 2 + 3(1)^2(1)^2 = 2 + 3 = 5 </mrow>
+          </md>
+          The normal vector is <m>\v{n} = \la 9, 10, 5 \ra</m>.
+        </p>
+        <p>
+          The equation of the tangent plane is:
+          <md>
+            <mrow> 9(x - 2) + 10(y - 1) + 5(z - 1) \amp= 0 </mrow>
+            <mrow> 9x - 18 + 10y - 10 + 5z - 5 \amp= 0 </mrow>
+            <mrow> 9x + 10y + 5z \amp= 33 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.5.53">
       <p>
         Find a function <m>f(x,y,z)</m> such that <m>\nabla f = \la 2x,1,2 \ra</m>. 
       </p>
+
+      <solution>
+        <p>
+          We are given <m>f_x = 2x</m>, <m>f_y = 1</m>, and <m>f_z = 2</m>. We integrate each partial derivative to reconstruct <m>f</m>.
+        </p>
+        <p>
+          Integrate <m>f_x</m> with respect to <m>x</m>:
+          <md>
+            f(x,y,z) = \int 2x \, dx = x^2 + C_1(y,z)
+          </md>
+          Differentiate this result with respect to <m>y</m> and compare to the given <m>f_y</m>:
+          <md>
+            \frac{\partial}{\partial y}(x^2 + C_1(y,z)) = \frac{\partial C_1}{\partial y} = 1
+          </md>
+          Integrating <m>1</m> with respect to <m>y</m> gives <m>C_1(y,z) = y + C_2(z)</m>. 
+          So far, <m>f(x,y,z) = x^2 + y + C_2(z)</m>.
+        </p>
+        <p>
+          Differentiate this with respect to <m>z</m> and compare to the given <m>f_z</m>:
+          <md>
+            \frac{\partial}{\partial z}(x^2 + y + C_2(z)) = C_2'(z) = 2
+          </md>
+          Integrating <m>2</m> with respect to <m>z</m> gives <m>C_2(z) = 2z + K</m> (where <m>K</m> is a constant).
+        </p>
+        <p>
+          Thus, a possible function is:
+          <md>
+            f(x,y,z) = x^2 + y + 2z
+          </md>
+          (Any constant <m>K</m> can be added, but usually <m>K=0</m> is sufficient for "Find a function" problems).
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.5.65">

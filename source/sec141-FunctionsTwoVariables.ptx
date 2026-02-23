@@ -495,6 +495,67 @@
       <figure>
         <image source="sec141-HW21-Figure.png" width="70%"></image>>
       </figure>
+
+      <solution>
+        <p>
+          <ol marker="(a)">
+            <li>
+              <p>
+                <m>f(x,y) = |x| + |y|</m>. 
+                The level curves are <m>|x| + |y| = c</m>, <m>y = c - |x|</m>, or <m>y = -c + |x|</m>. 
+                The graph (D) corresponds to the function with these level curves. 
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x,y) = \cos(x - y)</m>. The vertical trace in the plane <m>x = c</m> is the curve <m>z = \cos(c - y)</m> in the plane <m>x = c</m>. 
+                These traces correspond to the graph (C). 
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x,y) = \dfrac{-1}{1 + 9x^2 + y^2}</m>. 
+                The level curves of this function is
+                <md>
+                  \frac{-1}{1 + 9x^2 + y^2} = c \qquad \implies \qquad 9x^2 + y^2 = -1 - \frac{1}{c}
+                </md>
+                For suitable values of <m>c</m>, the level curves of the function are ellipses. 
+                The graph (E) corresponds to the function with these level curves.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x,y) = \cos\lp y^2 \rp e^{-0.1\lp x^2 + y^2 \rp}</m>. 
+                The value of <m>|z|</m> is decreasing to <m>0</m> as <m>x</m> or <m>y</m> are decreasing, hence the possible graphs are (B) and (F). 
+                Function (f) matches with graph (F), so function (d) must match with graph (B).
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x,y) = \dfrac{-1}{1 + 9x^2 + 9y^2}</m>. 
+                The level curves of this function is
+                <md>
+                  \frac{-1}{1 + 9x^2 + 9y^2} = c \qquad \implies \qquad x^2 + y^2 = - \frac{1 + c}{9c}
+                </md>
+                For suitable values of <m>c</m>, the level curves of the function are circles. 
+                The graph (A) corresponds to the function with these level curves.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>f(x,y) = \cos\lp x^2 + y^2 \rp e^{-0.1\lp x^2 + y^2 \rp}</m>. 
+                The value of <m>|z|</m> is decreasing to <m>0</m> as <m>x</m> or <m>y</m> are decreasing, hence the possible graphs are (B) and (F). 
+              </p>
+
+              <p>
+                Furthermore, <m>z</m> is a constant whenever <m>x^2 + y^2</m> is a constant. 
+                That is, <m>z</m> is constant whenever <m>(x,y)</m> varies on a circle. 
+                Hence, graph (F) corresponds to this function. 
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.1.25">
