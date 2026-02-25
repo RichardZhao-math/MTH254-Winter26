@@ -1015,6 +1015,48 @@
         </md>
         where the tangent plane is normal to <m>\v{v} = \la 1,1,-2 \ra</m>. 
       </p>
+
+      <solution>
+        <p>
+          Let <m>F(x,y,z) = \frac{x^2}{4} + \frac{y^2}{9} + z^2</m>. The normal vector to the tangent plane is given by the gradient <m>\nabla F</m>.
+          <md>
+            \nabla F = \la \frac{x}{2}, \frac{2y}{9}, 2z \ra
+          </md>
+          We want the tangent plane to be normal to <m>\v{v} = \la 1,1,-2 \ra</m>, which means the gradient must be parallel to <m>\v{v}</m>. 
+          So, <m>\nabla F = k \v{v}</m> for some scalar constant <m>k</m>.
+          <md>
+            \la \frac{x}{2}, \frac{2y}{9}, 2z \ra = k \la 1, 1, -2 \ra = \la k, k, -2k \ra
+          </md>
+          Equating components gives us expressions for <m>x, y, z</m> in terms of <m>k</m>:
+          <md>
+            <mrow> \frac{x}{2} = k \implies x = 2k </mrow>
+            <mrow> \frac{2y}{9} = k \implies y = \frac{9k}{2} </mrow>
+            <mrow> 2z = -2k \implies z = -k </mrow>
+          </md>
+        </p>
+        <p>
+          Since the points must lie on the ellipsoid, substitute these into the ellipsoid equation:
+          <md>
+            <mrow> \frac{(2k)^2}{4} + \frac{(9k/2)^2}{9} + (-k)^2 \amp= 1 </mrow>
+            <mrow> \frac{4k^2}{4} + \frac{81k^2/4}{9} + k^2 \amp= 1 </mrow>
+            <mrow> k^2 + \frac{9k^2}{4} + k^2 \amp= 1 </mrow>
+            <mrow> 2k^2 + \frac{9k^2}{4} \amp= 1 </mrow>
+            <mrow> \frac{8k^2 + 9k^2}{4} \amp= 1 </mrow>
+            <mrow> \frac{17k^2}{4} \amp= 1 \implies k^2 = \frac{4}{17} \implies k = \pm \frac{2}{\sqrt{17}} </mrow>
+          </md>
+        </p>
+        <p>
+          Now find the two points by plugging <m>k</m> back into our expressions for <m>x,y,z</m>:
+          <term>Case 1: <m>k = \frac{2}{\sqrt{17}}</m></term>
+          <md>
+            P_1 = \lp 2\lp\frac{2}{\sqrt{17}}\rp, \frac{9}{2}\lp\frac{2}{\sqrt{17}}\rp, -\frac{2}{\sqrt{17}} \rp = \lp \frac{4}{\sqrt{17}}, \frac{9}{\sqrt{17}}, -\frac{2}{\sqrt{17}} \rp
+          </md>
+          <term>Case 2: <m>k = -\frac{2}{\sqrt{17}}</m></term>
+          <md>
+            P_2 = \lp -\frac{4}{\sqrt{17}}, -\frac{9}{\sqrt{17}}, \frac{2}{\sqrt{17}} \rp
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.5.47">
@@ -1100,6 +1142,52 @@
         </md>
         Find the parametric equations of the tangent line to <m>\c{C}</m> at <m>P = (1,2,1)</m>. 
       </p>
+
+      <solution>
+        <p>
+          The curve <m>\c{C}</m> is the intersection of two surfaces. The tangent line to <m>\c{C}</m> must be tangent to both surfaces. This means the direction vector of the tangent line, <m>\v{v}</m>, must be perpendicular to the normal vectors of both surfaces.
+        </p>
+        <p>
+          Let <m>F(x,y,z) = x^3 + 2xy + yz</m> and <m>G(x,y,z) = 3x^2 - yz</m>.
+          First, find the gradients (normal vectors) at <m>P(1,2,1)</m>.
+        </p>
+        <p>
+          <term>Gradient of <m>F</m>:</term>
+          <md>
+            \nabla F = \la 3x^2 + 2y, 2x + z, y \ra
+          </md>
+          At <m>P(1,2,1)</m>:
+          <md>
+            \nabla F(1,2,1) = \la 3(1)^2 + 2(2), 2(1) + 1, 2 \ra = \la 7, 3, 2 \ra
+          </md>
+          <term>Gradient of <m>G</m>:</term>
+          <md>
+            \nabla G = \la 6x, -z, -y \ra
+          </md>
+          At <m>P(1,2,1)</m>:
+          <md>
+            \nabla G(1,2,1) = \la 6(1), -1, -2 \ra = \la 6, -1, -2 \ra
+          </md>
+        </p>
+        <p>
+          The direction vector <m>\v{v}</m> is the cross product of these two gradients:
+          <md>
+            <mrow> \v{v} \amp= \nabla F \times \nabla G </mrow>
+            <mrow> \amp= \begin{vmatrix} \v{i} \amp \v{j} \amp \v{k} \\ 7 \amp 3 \amp 2 \\ 6 \amp -1 \amp -2 \end{vmatrix} </mrow>
+            <mrow> \amp= \la (3)(-2) - (2)(-1), -((7)(-2) - (2)(6)), (7)(-1) - (3)(6) \ra </mrow>
+            <mrow> \amp= \la -6 + 2, -(-14 - 12), -7 - 18 \ra </mrow>
+            <mrow> \amp= \la -4, 26, -25 \ra </mrow>
+          </md>
+        </p>
+        <p>
+          The tangent line passes through <m>P(1,2,1)</m> with direction <m>\la -4, 26, -25 \ra</m>. The parametric equations are:
+          <md>
+            <mrow> x(t) \amp= 1 - 4t </mrow>
+            <mrow> y(t) \amp= 2 + 26t </mrow>
+            <mrow> z(t) \amp= 1 - 25t </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
   </worksheet>

@@ -547,6 +547,42 @@
       <p>
         Determine how fast the distance between the two players is changing at a moment when the hitter is 8 ft from first base and the first baseman is 6 ft from first base.  
       </p>
+
+      <solution>
+        <p>
+          As in the figure, let <m>x(t)</m> be the distance of the runner from first base at time <m>t</m>, and <m>y(t)</m> the distance of the fielder from first base at time <m>t</m>. 
+          With first base at the origin, fix signs so that both speeds are positive and the distances from the base are negative. 
+          Then the distance between the two players is <m>D(t) = \sqrt{x(t)^2 + y(t)^2}</m>. 
+          Using the Chain Rule, the rate of change of distance with respect to time is
+        </p>
+        <md>
+          \frac{dD}{dt} = \frac{dD}{dx} \cdot \frac{dx}{dt} + \frac{dD}{dy} \cdot \frac{dy}{dt}.
+        </md>
+        <p>
+          We are given that <m>\frac{dx}{dt} = 20</m> and <m>\frac{dy}{dt} = 18</m>. 
+          Further,
+        </p>
+        <md>
+          <mrow> \frac{dD}{dx} \amp= \frac{1}{2}(x^2 + y^2)^{-1/2} \cdot 2x = \frac{x}{\sqrt{x^2 + y^2}}, </mrow>
+          <mrow> \frac{dD}{dy} \amp= \frac{1}{2}(x^2 + y^2)^{-1/2} \cdot 2y = \frac{y}{\sqrt{x^2 + y^2}} </mrow>
+        </md>
+        <p>
+          so that for the given values of <m>x</m> and <m>y</m>
+        </p>
+        <md>
+          <mrow> \left. \frac{dD}{dx} \right|_{(x,y)=(-8,-6)} \amp= -\frac{8}{\sqrt{8^2 + 6^2}} = -\frac{4}{5} </mrow>
+          <mrow> \left. \frac{dD}{dy} \right|_{(x,y)=(-8,-6)} \amp= -\frac{6}{\sqrt{8^2 + 6^2}} = -\frac{3}{5}. </mrow>
+        </md>
+        <p>
+          Thus
+        </p>
+        <md>
+          \frac{dD}{dt} = -\frac{4}{5} \cdot 20 - \frac{3}{5} \cdot 18 = -\frac{134}{5} = -26.8 \text{ ft/sec}.
+        </md>
+        <p>
+          The distance between the players is decreasing at a rate of <m>26.8 \text{ ft/sec}</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.6.21">
