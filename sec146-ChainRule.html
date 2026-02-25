@@ -856,7 +856,41 @@ y \amp= 2\sqrt{2}\sin\lp\frac{\pi}{4}\rp = 2\sqrt{2} \lp\frac{\sqrt{2}}{2}\rp = 
 <figure class="figure figure-like" id="ws-sec146-6-2"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/sec146_HW19_Figure.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14.6.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 14.6.10"><a href="#ws-sec146-6-2" title="Copy heading and permalink for Figure 14.6.10" aria-label="Copy heading and permalink for Figure 14.6.10">🔗</a></div></figcaption></figure><div class="para" id="ws-sec146-6-3">Determine how fast the distance between the two players is changing at a moment when the hitter is 8 ft from first base and the first baseman is 6 ft from first base.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec146-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.6.19"><a href="#ws-sec146-6" title="Copy heading and permalink for Worksheet Exercise 14.6.19" aria-label="Copy heading and permalink for Worksheet Exercise 14.6.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec146-7"><h4 class="heading"><span class="codenumber">14.6.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec146-6-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec146-6-4-1">As in the figure, let <span class="process-math">\(x(t)\)</span> be the distance of the runner from first base at time <span class="process-math">\(t\text{,}\)</span> and <span class="process-math">\(y(t)\)</span> the distance of the fielder from first base at time <span class="process-math">\(t\text{.}\)</span> With first base at the origin, fix signs so that both speeds are positive and the distances from the base are negative. Then the distance between the two players is <span class="process-math">\(D(t) = \sqrt{x(t)^2 + y(t)^2}\text{.}\)</span> Using the Chain Rule, the rate of change of distance with respect to time is<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec146-6-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ws-sec146-6-4-2">
+\begin{equation*}
+\frac{dD}{dt} = \frac{dD}{dx} \cdot \frac{dx}{dt} + \frac{dD}{dy} \cdot \frac{dy}{dt}.
+\end{equation*}
+</div>
+<div class="para" id="ws-sec146-6-4-3">We are given that <span class="process-math">\(\frac{dx}{dt} = 20\)</span> and <span class="process-math">\(\frac{dy}{dt} = 18\text{.}\)</span> Further,<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec146-6-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ws-sec146-6-4-4">
+\begin{align*}
+\frac{dD}{dx} \amp= \frac{1}{2}(x^2 + y^2)^{-1/2} \cdot 2x = \frac{x}{\sqrt{x^2 + y^2}}, \\
+\frac{dD}{dy} \amp= \frac{1}{2}(x^2 + y^2)^{-1/2} \cdot 2y = \frac{y}{\sqrt{x^2 + y^2}} 
+\end{align*}
+</div>
+<div class="para" id="ws-sec146-6-4-5">so that for the given values of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec146-6-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ws-sec146-6-4-6">
+\begin{align*}
+\left. \frac{dD}{dx} \right|_{(x,y)=(-8,-6)} \amp= -\frac{8}{\sqrt{8^2 + 6^2}} = -\frac{4}{5} \\
+\left. \frac{dD}{dy} \right|_{(x,y)=(-8,-6)} \amp= -\frac{6}{\sqrt{8^2 + 6^2}} = -\frac{3}{5}. 
+\end{align*}
+</div>
+<div class="para" id="ws-sec146-6-4-7">Thus<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec146-6-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="ws-sec146-6-4-8">
+\begin{equation*}
+\frac{dD}{dt} = -\frac{4}{5} \cdot 20 - \frac{3}{5} \cdot 18 = -\frac{134}{5} = -26.8 \text{ ft/sec}.
+\end{equation*}
+</div>
+<div class="para" id="ws-sec146-6-4-9">The distance between the players is decreasing at a rate of <span class="process-math">\(26.8 \text{ ft/sec}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec146-6-4-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.6.19.1"><a href="#ws-sec146-6-4" title="Copy heading and permalink for Solution 14.6.19.1" aria-label="Copy heading and permalink for Solution 14.6.19.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.6.19"><a href="#ws-sec146-6" title="Copy heading and permalink for Worksheet Exercise 14.6.19" aria-label="Copy heading and permalink for Worksheet Exercise 14.6.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec146-7"><h4 class="heading"><span class="codenumber">14.6.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec146-7-1">Two spacecraft are following paths in space given by <span class="process-math">\(\v{r}_1 = \la \sin(t), t, t^2 \ra\)</span> and <span class="process-math">\(\v{r}_2(t) = \la \cos(t), 1-t, t^3 \ra\text{.}\)</span> If the temperature for points in space is given by <span class="process-math">\(T(x,y,z) = x^2y(1-z)\text{,}\)</span> use the Chain Rule to determine the rate of change of the difference <span class="process-math">\(D\)</span> in the temperatures the two spacecraft experience at time <span class="process-math">\(t = \pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec146-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="ws-sec146-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
