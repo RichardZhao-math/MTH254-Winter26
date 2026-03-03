@@ -5,7 +5,13 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In previous sections, we learned how to find the local and absolute extrema of a function over its domain or on a closed region. 
+      However, in many real-world applications, we are often restricted by specific conditions. 
+    </p>
+
+    <p>
+      This section introduces the method of <term>Lagrange multipliers</term>, a powerful geometric strategy for finding the extrema of a function <m>f</m> subject to one or more constraint equations <m>g = 0</m>. 
+      Instead of substituting the constraint into the objective function (which can be algebraically messy), we look for points where the gradients of these functions align.
     </p>
 
     <objectives>
@@ -17,7 +23,22 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            explain the geometric relationship between the gradient of an objective function and the gradient of a constraint function at a constrained extremum.
+          </p>
+        </li>
+        <li>
+          <p>
+            set up and solve a system of equations using the Lagrange multiplier <m>\lambda</m> for functions of two and three variables.
+          </p>
+        </li>
+        <li>
+          <p>
+            identify absolute maximum and minimum values of a function by evaluating the objective function at all critical points found via the Lagrange method.
+          </p>
+        </li>
+        <li>
+          <p>
+            extend the method of Lagrange multipliers to solve optimization problems involving multiple constraints using additional multipliers (e.g., <m>\mu</m>).
           </p>
         </li>
       </ul>

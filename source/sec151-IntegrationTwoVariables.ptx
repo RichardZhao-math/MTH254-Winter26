@@ -5,7 +5,19 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In single-variable calculus, we discovered that the definite integral of a function <m>f(x)</m> over an interval <m>[a,b]</m> represents the "net area" between the curve and the <m>x</m>-axis. 
+      By partitioning the interval into smaller sub-intervals, we summed up the areas of infinitely many rectangles to arrive at a precise value.
+    </p>
+
+    <p>
+      In this section, we extend this idea to functions of two variables, <m>z = f(x,y)</m>. 
+      Instead of finding the area under a curve, we are now interested in finding the <em>volume</em> of a solid under a surface. 
+      We will begin by defining the <term>double integral</term> over a rectangular region as a limit of Riemann sums, conceptually similar to the "french fries" model, where we sum up the volumes of skinny rectangular boxes.
+    </p>
+
+    <p>
+      We will also explore <term>Fubini's Theorem</term>, which provides a practical way to evaluate these volumes by "slicing" the solid and integrating one variable at a time. 
+      This transformation into <term>iterated integrals</term> allows us to use all the integration techniques we mastered in previous terms to solve complex 3D problems.
     </p>
 
     <objectives>
@@ -17,7 +29,22 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            approximate the volume of a solid under a surface using a double Riemann sum with various sample point rules (e.g., upper-right vertices).
+          </p>
+        </li>
+        <li>
+          <p>
+            define the double integral over a rectangular region as the limit of a Riemann sum as the number of sub-rectangles approaches infinity.
+          </p>
+        </li>
+        <li>
+          <p>
+            evaluate double integrals of simple geometric surfaces by using known volume formulas from geometry.
+          </p>
+        </li>
+        <li>
+          <p>
+            apply Fubini's Theorem to evaluate double integrals as iterated integrals, choosing the order of integration (<m>dx\,dy</m> or <m>dy\,dx</m>) that simplifies the calculation.
           </p>
         </li>
       </ul>
@@ -709,6 +736,8 @@
         The following table gives the approximate height at quarter-meter intervals of a mound of gravel. 
         Estimate the volume of the mound by computing the average of the two Riemann sums <m>S_{4,3}</m> with lower-left and upper-right vertices of the sub-rectangles as sample points. 
       </p>
+
+      <image source="sec151_HW11_Diagram.png" width="50%"></image>
     </exercise>
 
     <exercise number="15.1.17">

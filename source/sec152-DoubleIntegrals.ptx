@@ -5,7 +5,15 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In this section, we expand our toolkit to handle these <term>general regions</term>. 
+      The key shift is that at least one set of our integration limits will now be <em>functions</em> rather than numbers. 
+      We will learn to classify regions as either <term>vertically simple</term> or <term>horizontally simple</term>. 
+    </p>
+
+    <p>
+      Mastering this section requires a bit of "geometric detective work." 
+      You will need to sketch the region, find intersection points, and decide which variable should be integrated first to make the calculus as smooth as possible. 
+      We will also see how double integrals can be used to calculate the area of a 2D shape and the average value of a 3D surface.
     </p>
 
     <objectives>
@@ -17,7 +25,27 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            classify a region in the <m>xy</m>-plane as vertically simple, horizontally simple, or both.
+          </p>
+        </li>
+        <li>
+          <p>
+            set up an iterated integral for a general region by identifying the "inner" functional boundaries and the "outer" constant boundaries.
+          </p>
+        </li>
+        <li>
+          <p>
+            sketch a region of integration based on a given iterated integral and reverse the order of integration (e.g., from <m>dy\,dx</m> to <m>dx\,dy</m>).
+          </p>
+        </li>
+        <li>
+          <p>
+            evaluate the area of a plane region and the average value of a function over that region using double integrals.
+          </p>
+        </li>
+        <li>
+          <p>
+            apply the property of additivity to evaluate integrals over complex regions by splitting them into smaller, simpler sub-regions.
           </p>
         </li>
       </ul>
@@ -553,6 +581,10 @@
       <p>
         Express the domain <m>\c{D}</m> in the following figure as both a vertically simple region and a horizontally simple region, and evaluate the integral of <m>f(x,y) = xy</m> over <m>\c{D}</m> as an iterated integral in two ways. 
       </p>
+
+      <figure>
+        <image source="sec152_HW3_Diagram.png" width="35%"></image>
+      </figure>
     </exercise>
 
     <exercise number="15.2.9">
@@ -621,6 +653,10 @@
       <p>
         Calculate the double integral of <m>f(x,y) = \dfrac{x}{y^2}</m> over the triangle indicated in the following figure. 
       </p>
+
+      <figure>
+        <image source="sec152_HW41_Diagram.png" width="35%"></image>
+      </figure>
     </exercise>
 
     <exercise number="15.2.47">
@@ -639,6 +675,10 @@
       <p>
         Find the average height of the "ceiling" in the figure below defined by <m>z = y^2\sin(x)</m> for <m>0 \leq x \leq \pi</m> and <m>0 \leq y \leq 1</m>. 
       </p>
+
+      <figure>
+        <image source="sec152_HW55_Diagram.png" width="55%"></image>
+      </figure>
     </exercise>
   </worksheet>
 
