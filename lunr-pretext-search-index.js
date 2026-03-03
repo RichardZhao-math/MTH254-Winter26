@@ -5536,6 +5536,834 @@ var ptx_lunr_docs = [
   "body": " Find the maximum volume of a cylindrical can such that the sum of its height and its circumference is 120 cm.  "
 },
 {
+  "id": "sec148-LagrangeMultipliers",
+  "level": "1",
+  "url": "sec148-LagrangeMultipliers.html",
+  "type": "Section",
+  "number": "14.8",
+  "title": "Lagrange Multipliers: Optimizing with a Constraint",
+  "body": " Lagrange Multipliers: Optimizing with a Constraint   Just the introduction texts...    After this section, students will be able to:     blahblahblah      In life, we usually don't just optimize a function within its domain. It always comes with some constraints. To maximize and\/or minimize a function subject to some constraints, we can use the method of Lagrange multipliers .  Let's start with a simple example. Imagine we have a surface . Instead of looking at the entire surface, we only want to look at the points where satisfies some constraint, say . The diagram below demonstrate this situation.    Objective Function with Constraint   The question here is: What are the maximum and minimum values of subject to the constraint ?   As the above diagram shows, we can find a level curve of that is tangent to the constraint curve. At the point of tangency, the level curve and the constraint curve will have the same tangent line, and thus the same normal vector. Since the gradient is normal to the curve, the gradient of the level curve and the gradient of the constraint curve will be parallel at the point of tangency. That is, there exists a scalar such that where is the point of tangency, and is the constraint function. It is clearer to see this relationship in the diagram below    and are parallel at the point of tangency .   This is essentially the idea of Lagrange multipliers (the is called the Lagrange Multiplier ). If we can find the point(s) such that for some scalar , then we can find the maximum and minimum values of subject to the constraint .   Lagrange Multipliers   Assume that and are differentiable functions. If has a local minimum or a local maximum on the constraint curve at , and if , then there is a scalar , called the Lagrange Multiplier , such that      But Richard... How do we guarantee that the point(s) we find using Lagrange multipliers are actually the maximum and minimum values?  Imagine we want to maximize or minimize the function value of the objective function on the constraint curve . If the level curve is still intersecting the constraint curve at two (or more) points, then we can keep moving towards the direction of the gradient (or the opposite direction) since the gradient always points to the maximum rate of increase. To some point, you can find the level curve that is tangent to the constraint curve.  At this point, we can no longer move in the direction of the gradient, since it will take us out of the constraint curve, which means the function value at this point will either maximize or minimize the function value on the constraint curve, depending on which direction we were moving towards.  The diagram below demonstrates this idea.     Observing the diagram, we can see that the two gradients are parallel at the point of tangency, which is the point we find using Lagrange multipliers.    Find the maximum and minimum values of the objective function where and lie on the ellipse given by .   Richard coded the graph of the surface and the constraint curve for you to visualize the whole situation.   Graph of the surface with the constraint curve      Basically, rather than looking at the entire surface, we are only looking at the points on the surface that are also on the constraint curve (the one colored blue on the figure above).  To even help you visualize it better, Richard included a diagram with the level curves of the surface and the constraint curve on the -plane below.     Basically our task is to find the point(s) of tangency between the level curves and the constraint curve, and then evaluate the objective function at those point(s) to find the maximum and minimum values.    We begin by finding the gradients of both our objective function and our constraint function :   By the method of Lagrange multipliers, we set , which gives us a system of equations. Don't forget to include the constraint itself as the final equation!   Let's solve this system. From the first equation, This gives us two cases: either or .   Case 1: If , we plug this into the constraint equation This yields two points: and .   Case 2: If , we plug this into the second equation Now we plug into the constraint equation This yields two more points: and .  Finally, we evaluate the objective function at these four points to determine the absolute maximum and minimum values.   The maximum value is 10 (occurring at ), and the minimum value is 3 (occurring at ).    The idea of the Lagrange multiplier can be extended to functions of more than two variables. The only adjustment we need to make is to replace the constraint curve with a constraint surface and the gradients will have three components instead of two.   Find the least distance between the point and the surface of the cone .      Richard will help out with the setup here! Since we want to minimize the distance between and a point on the cone, then we can define our objective function as Or even better, we can minimize the square of the distance to avoid the square root, as follows   The constraint here is that the point must be lying on the cone, so the constraint is   Now have fun with the rest of the process!    Using the setup from the hint, we find the gradients for our squared distance objective function and the cone constraint function   Setting , we build our system of equations   Observing the third equation This implies either or .  If we let , our constraint equation becomes . The only way this is true is if and . However, plugging into our first equation yields , which is a contradiction. So, .  Therefore, it must be true that . We plug into our first two equations   Now we plug and into the constraint to solve for (note that we only need to plug back into our objective function)   We have found the point that minimizes the squared distance. Plugging these into our objective function    Since is the squared distance, the actual minimum distance is .    In addition, the Lagrange multiplier method can also be extended to optimize a function subject to multiple constraints. We will just need to make sure to add up the contributions from all the constraints. For example, if we want to optimize subject to two constraints and , then we need to find the points such that where and are the Lagrange multipliers for the two constraints, respectively.   Find the maximum value of the function on the curve of intersection of the plane and the cylinder .   We have one objective function and two constraints. Let and . We need to find the gradients for all three:   Setting up the Lagrange multiplier equation with two constraints, , we get:   From the third equation, we immediately get .  We can plug into the first two equations to solve for and in terms of    Now, substitute these expressions for and into the second constraint equation ( )   Since we are looking for the maximum value, let's explore both cases for .   Case 1:  Substituting this back into our equations for and  Using the first constraint to find  Evaluating the objective function at this point    Case 2:  Similarly, we find and . The value is . Evaluating the objective function at this point   Comparing the two results, the maximum value is .     Assigned Problems for Section 14.8   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Find the extreme values of the function subject to the constraint following the following steps:   Show that the Lagrange equation gives and .    Show that these equations imply and .    Use the constraint equation to determine the possible critical points .    Evaluate at the critical points and determine the minimum and maximum values.        In the following exercises, find the minimum and maximum values of the function subject to the given constraints.               The surface area of a right-circular cone of radius and height is and its volume is    Determine the ratio for the cone with given surface area and maximum volume .    What is the ratio for a cone with given volume and minimum surface area ?    Does a cone with given volume and maximum surface area exist?       Find the point on the line that is closest to the origin.    Show that the minimum distance from the origin to a point on the plane is     Find the minimum of subject to the two constraints and .    The cylinder intersects the plane in an ellipse. Find the point on such an ellipse that is farthest from the origin.    "
+},
+{
+  "id": "sec148-LagrangeMultipliers-2-2",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     blahblahblah    "
+},
+{
+  "id": "sec148-LagrangeMultipliers-3",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Lagrange multipliers "
+},
+{
+  "id": "sec148-LagrangeMultipliers-5",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-5",
+  "type": "Figure",
+  "number": "14.8.1",
+  "title": "",
+  "body": "  Objective Function with Constraint  "
+},
+{
+  "id": "sec148-LagrangeMultipliers-7",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "tangent parallel "
+},
+{
+  "id": "sec148-LagrangeMultipliers-8",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-8",
+  "type": "Figure",
+  "number": "14.8.2",
+  "title": "",
+  "body": "  and are parallel at the point of tangency .  "
+},
+{
+  "id": "sec148-LagrangeMultipliers-9",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Lagrange Multiplier "
+},
+{
+  "id": "thm-LagrangeMultiplier",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#thm-LagrangeMultiplier",
+  "type": "Theorem",
+  "number": "14.8.3",
+  "title": "Lagrange Multipliers.",
+  "body": " Lagrange Multipliers   Assume that and are differentiable functions. If has a local minimum or a local maximum on the constraint curve at , and if , then there is a scalar , called the Lagrange Multiplier , such that    "
+},
+{
+  "id": "sec148-LagrangeMultipliers-11",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-11",
+  "type": "Note",
+  "number": "14.8.4",
+  "title": "But Richard... How do we guarantee that the point(s) we find using Lagrange multipliers are actually the maximum and minimum values?",
+  "body": " But Richard... How do we guarantee that the point(s) we find using Lagrange multipliers are actually the maximum and minimum values?  Imagine we want to maximize or minimize the function value of the objective function on the constraint curve . If the level curve is still intersecting the constraint curve at two (or more) points, then we can keep moving towards the direction of the gradient (or the opposite direction) since the gradient always points to the maximum rate of increase. To some point, you can find the level curve that is tangent to the constraint curve.  At this point, we can no longer move in the direction of the gradient, since it will take us out of the constraint curve, which means the function value at this point will either maximize or minimize the function value on the constraint curve, depending on which direction we were moving towards.  The diagram below demonstrates this idea.     Observing the diagram, we can see that the two gradients are parallel at the point of tangency, which is the point we find using Lagrange multipliers.  "
+},
+{
+  "id": "sec148-LagrangeMultipliers-12",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-12",
+  "type": "Example",
+  "number": "14.8.6",
+  "title": "",
+  "body": " Find the maximum and minimum values of the objective function where and lie on the ellipse given by .   Richard coded the graph of the surface and the constraint curve for you to visualize the whole situation.   Graph of the surface with the constraint curve      Basically, rather than looking at the entire surface, we are only looking at the points on the surface that are also on the constraint curve (the one colored blue on the figure above).  To even help you visualize it better, Richard included a diagram with the level curves of the surface and the constraint curve on the -plane below.     Basically our task is to find the point(s) of tangency between the level curves and the constraint curve, and then evaluate the objective function at those point(s) to find the maximum and minimum values.    We begin by finding the gradients of both our objective function and our constraint function :   By the method of Lagrange multipliers, we set , which gives us a system of equations. Don't forget to include the constraint itself as the final equation!   Let's solve this system. From the first equation, This gives us two cases: either or .   Case 1: If , we plug this into the constraint equation This yields two points: and .   Case 2: If , we plug this into the second equation Now we plug into the constraint equation This yields two more points: and .  Finally, we evaluate the objective function at these four points to determine the absolute maximum and minimum values.   The maximum value is 10 (occurring at ), and the minimum value is 3 (occurring at ).   "
+},
+{
+  "id": "sec148-LagrangeMultipliers-14",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-14",
+  "type": "Example",
+  "number": "14.8.9",
+  "title": "",
+  "body": " Find the least distance between the point and the surface of the cone .      Richard will help out with the setup here! Since we want to minimize the distance between and a point on the cone, then we can define our objective function as Or even better, we can minimize the square of the distance to avoid the square root, as follows   The constraint here is that the point must be lying on the cone, so the constraint is   Now have fun with the rest of the process!    Using the setup from the hint, we find the gradients for our squared distance objective function and the cone constraint function   Setting , we build our system of equations   Observing the third equation This implies either or .  If we let , our constraint equation becomes . The only way this is true is if and . However, plugging into our first equation yields , which is a contradiction. So, .  Therefore, it must be true that . We plug into our first two equations   Now we plug and into the constraint to solve for (note that we only need to plug back into our objective function)   We have found the point that minimizes the squared distance. Plugging these into our objective function    Since is the squared distance, the actual minimum distance is .   "
+},
+{
+  "id": "sec148-LagrangeMultipliers-16",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#sec148-LagrangeMultipliers-16",
+  "type": "Example",
+  "number": "14.8.11",
+  "title": "",
+  "body": " Find the maximum value of the function on the curve of intersection of the plane and the cylinder .   We have one objective function and two constraints. Let and . We need to find the gradients for all three:   Setting up the Lagrange multiplier equation with two constraints, , we get:   From the third equation, we immediately get .  We can plug into the first two equations to solve for and in terms of    Now, substitute these expressions for and into the second constraint equation ( )   Since we are looking for the maximum value, let's explore both cases for .   Case 1:  Substituting this back into our equations for and  Using the first constraint to find  Evaluating the objective function at this point    Case 2:  Similarly, we find and . The value is . Evaluating the objective function at this point   Comparing the two results, the maximum value is .   "
+},
+{
+  "id": "ws-sec148-3",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#ws-sec148-3",
+  "type": "Worksheet Exercise",
+  "number": "14.8.14.8.1",
+  "title": "",
+  "body": " Find the extreme values of the function subject to the constraint following the following steps:   Show that the Lagrange equation gives and .    Show that these equations imply and .    Use the constraint equation to determine the possible critical points .    Evaluate at the critical points and determine the minimum and maximum values.     "
+},
+{
+  "id": "ws-sec148-4-2",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#ws-sec148-4-2",
+  "type": "Worksheet Exercise",
+  "number": "14.8.14.8.7",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec148-4-3",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#ws-sec148-4-3",
+  "type": "Worksheet Exercise",
+  "number": "14.8.14.8.13",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec148-5",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#ws-sec148-5",
+  "type": "Worksheet Exercise",
+  "number": "14.8.14.8.19",
+  "title": "",
+  "body": " The surface area of a right-circular cone of radius and height is and its volume is    Determine the ratio for the cone with given surface area and maximum volume .    What is the ratio for a cone with given volume and minimum surface area ?    Does a cone with given volume and maximum surface area exist?     "
+},
+{
+  "id": "ws-sec148-6",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#ws-sec148-6",
+  "type": "Worksheet Exercise",
+  "number": "14.8.14.8.23",
+  "title": "",
+  "body": " Find the point on the line that is closest to the origin.  "
+},
+{
+  "id": "ws-sec148-7",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#ws-sec148-7",
+  "type": "Worksheet Exercise",
+  "number": "14.8.14.8.29",
+  "title": "",
+  "body": " Show that the minimum distance from the origin to a point on the plane is   "
+},
+{
+  "id": "ws-sec148-8",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#ws-sec148-8",
+  "type": "Worksheet Exercise",
+  "number": "14.8.14.8.41",
+  "title": "",
+  "body": " Find the minimum of subject to the two constraints and .  "
+},
+{
+  "id": "ws-sec148-9",
+  "level": "2",
+  "url": "sec148-LagrangeMultipliers.html#ws-sec148-9",
+  "type": "Worksheet Exercise",
+  "number": "14.8.14.8.45",
+  "title": "",
+  "body": " The cylinder intersects the plane in an ellipse. Find the point on such an ellipse that is farthest from the origin.  "
+},
+{
+  "id": "sec151-IntegrationTwoVariables",
+  "level": "1",
+  "url": "sec151-IntegrationTwoVariables.html",
+  "type": "Section",
+  "number": "15.1",
+  "title": "Integration in Two Variables",
+  "body": " Integration in Two Variables   Just the introduction texts...    After this section, students will be able to:     blahblahblah      Recall back in MTH 252Z (or MTH 252), we can find the area of a region under a curve in by integrating the single-variable function. Similarly, if we boost everything up a dimension, then we should be able to find the volume of a solid in by integrating the function of two variables.  If we remember how we defined the integral of a single-variable function back in MTH 252Z (or MTH 252), then we can use the same idea to define the integral of a function of two variables.   Review: Integration and Riemann Sum in  Recall back in MTH 252Z (or MTH 252), we defined the integral of a function as the limit of Riemann sums. More specifically, we can partition the region of interest under the curve into a bunch of skinny rectangles, and we can estimate the area of the region by summing up the areas of the rectangles. This process is called a Riemann Sum .    Riemann Sum in   Mathematically speaking, if we have a function defined on the interval . Then we can partition the interval into sub-intervals The difference between two consecutive points in the partition, , is the width of the rectangles.  In each sub-interval , we can choose a sample point within the sub-interval to determine the height of the rectangle The function value at the sample point, , is the height of the rectangle.  Putting these two pieces together, we can estimate the area of the region under the curve by summing up the areas of the rectangles as follows:   Recall that the area of all rectangles summing up together will be closer and closer to the actual area of the region as we make the partition finer and finer, using more and more rectangles. That is, our Riemann sum estimate will get better and better as we increase the number of rectangles. Using calculus language, the limit of the Riemann sum as the number of rectangles goes to infinity is the actual area of the region under the curve. Symbolically, we can write this as This is how we defined the definite integral of a single-variable function back in MTH 252Z (or MTH 252). If we break down each component of the definite integral and match up the notation, we know that   the definite sign, , means summation (a cursive S).     is the function value at some random point , which works like the height of the representative rectangle. This is also called the integrand .     is the width of the representative rectangle ( means when the change is really really really small). This is also called the differential .    the and the tells us about the interval. They are called the limits of integration . is the lower limit and is the upper limit .     Now that we have reviewed what integration means (summing up a bunch of stuff), we can now extend this idea to functions of two variables!   P.S.: if you need a more detailed review, here is Richard's MTH 252Z note on Approximating Area Using Riemann Sums , Definite Integrals , and Definite Integrals as Summing Up Pieces last term (Fall 2025).    Volume of a Solid  Now let's boost everything up a dimension! In a nutshell, we can find the volume of a solid by doing something like the image below:    Riemann Sum in using french fries   Now let's get into the details! Rather than working with a single-variable function, we will now work with a function of two variables. Let's call this function . The graph of is a surface in , and the \"region\" under the surface is now a solid!    \"Region\" under the surface on is a solid.   Observe from the diagram above that we can determine the solid by looking at the surface over a region on the -plane. Usually, we can describe the region of interest on the -plane by The region in the diagram is a rectangle .  If we want to apply the Riemann sum idea to partitioning and finding sample points here, we will need to do it in two dimensions: along the -axis and along the -axis. This will give us a bunch of tiny sub-rectangles within the region, and we can pick a point within each sub-rectangle to be the sample point.    Partitioning the region into sub-rectangles.   Now let's think about how to find the volume of the solid! For each of the sub-rectangle, we can construct a skinny rectangular box that has the same base as the sub-rectangle and the height equal to the function value at the sample point. Then the volume of the skinny rectangular box is (base times height), where is the area of the sub-rectangle and is the sample point in the sub-rectangle. To find the total volume of the solid, we will just need to sum up the volumes of all the skinny rectangular boxes. Symbolically, we can write this as where and are the number of partitions along the -axis and the -axis, respectively, and is the Riemann sum estimate of the volume of the solid using and partitions.    Partitioning the solid into skinny rectangular boxes.   As you can imagine, the more and more skinny rectangular boxes we have, the better and better our estimate of the volume will be. Using calculus language, the limit of the Riemann sum as the number of boxes goes to infinity is the actual volume of the solid. Symbolically, we can write this as Observe that there are two summation notations in the expression above, then we will need two integration signs to capture the idea of summing up in two dimensions. This is how we define the double integral of a function of two variables over a rectangular region to find the volume of the solid under the surface.   Double Integral over a Rectangular Region   The double integral of over a rectangular region is defined as the limit If the limit exists, we say that is integrable over .     But Richard... Do all the sub-rectangles have to be the same size?  The short answer is no. The only thing we want to make sure is to let the area of each sub-rectangle go to zero.  But there is a false equivalence of \"having infinite number of sub-rectangles\" and \"having all the sub-rectangles to have the area approaching zero\". It is totally possible to have infinitely many sub-rectangles but the area of some of the sub-rectangles does not approach zero. An easiest example is to split the rectangular region in half, and only partition one half into infinitely many sub-rectangles while leaving the other half as one big rectangle.  If we demand all the sub-rectangles to have the same area, then we can guarantee that the area of each sub-rectangle approaches zero as the number of sub-rectangles goes to infinity. Also, it is easier to find the area of each sub-rectangle if they are all the same size. Because of this convenience, we call this type of partition a regular partition .  If you relax this condition a bit and don't require all the sub-rectangles to have the same area, then you can still do the Riemann sum by requiring the largest sub-rectangle to have the area approaching zero. This is how your textbook defines the Riemann sum.    Estimate the volume of the solid under the elliptic paraboloid over the region using four sub-rectangles and the upper-right vertices of the sub-rectangles as sample points.   The goal here is to estimate the volume of the solid under the surface using four rectangular boxes, as demonstrated in the figure below.   Graph of the surface with four rectangular boxes estimating the volume using upper right vertices.      Graphically speaking, we can determine the coordinates of the upper-right vertices of the sub-rectangles, as demonstrated in the figure below.     So how do we find the volume of each rectangular box?    First, we need to set up the partition. The region is a square on the -plane. Dividing it into four equal sub-rectangles gives a grid.  The width and length of each sub-rectangle are and . The area of each base is .  Next, we identify the sample points. We are using the upper-right vertices for our . For the four sub-rectangles, these points are:  Top-right of is  Top-right of is  Top-right of is  Top-right of is    Now we calculate the heights by evaluating at each sample point:        Finally, we sum the volumes of the four rectangular boxes:     Just like when you first learned about integrals back in MTH 252Z (or MTH 252), we can sometimes find the value of the double integral using geometry if the solid has a nice shape that we know the volume formula for.   Evaluate the double integral , where .   Instead of finding an antiderivative, let's look at the surface . Squaring both sides gives , or . In , this represents a cylinder of radius 1 centered along the -axis. Since , we are only looking at the top half of this cylinder.  Richard coded the surface and the region of interest below for you to visualize what the solid looks like.       The region tells us that goes from to (which exactly matches the diameter of our cylinder) and goes from to .  Therefore, the solid is a half-cylinder with a length of (since ) and a semi-circular cross-section of radius 1. We can calculate the volume using basic geometry: So, .      Iterated Integrals  In practice, we usually don't have a nice shape that we can find the volume using geometry, so we will need to evaluate the double integral using calculus. One way to do so is to think about the double integral as an iterated integral , which takes in the following form Well this form makes sense. If the rectangular region is , then we can first fix the -value and integrate with respect to from to . This gives us the area of the cross-section of the solid at that particular -value. Then we can integrate with respect to from to to sum up all the cross-sectional areas to get the total volume of the solid (this is a similar idea to the Disk Method you learned back in MTH 252Z (or MTH 252)). The term \"iterated integral\" just means that we are integrating in succession.    The inner integral finds the cross-sectional area and the outer integral sums all cross-sectional areas to get the total volume.   There are two steps to evaluate a double integral using iterated integrals: evaluate the inner integral with respect to one variable first, treating the other variable as a constant, and then evaluate the outer integral with respect to the other variable. Now that we only deal with one variable for each integral, we can now use all the fun integral techniques you learned back in MTH 252Z (or MTH 252) to evaluate the inner and outer integrals!   Evaluate the double integral    We start by evaluating the inner integral with respect to , treating as a constant:   Next, we substitute this result into the outer integral and integrate with respect to :      Evaluate the double integral    We start by evaluating the inner integral with respect to , treating as a constant.   Now, we substitute this result back into the outer integral to integrate with respect to .   We can evaluate this by integrating each term directly using the power rule.   Next, we evaluate these terms at the boundaries and .   Finally, we simplify the expression. Recognizing that , we get our final exact answer.      Evaluate the double integral , where .   There are two options here... We can integrate with respect to first, then , or we can integrate with respect to first, then . But which one will work out?  Let's try them both out and see what happens!    If we integrate with respect to first, then  Let's choose to integrate with respect to first, then .  Evaluating the inner integral with respect to :   Now, evaluating the outer integral with respect to :     If we integrate with respect to first, then  Evaluating the inner integral with respect to (treating as a constant):   Now, evaluating the outer integral with respect to :     In the last example, we see that the answer of the double integral is the same regardless of the order in which the integration is performed (integrating with respect to first or integrating with respect to first). This is a special property of double integrals called Fubini's Theorem . It is also the Fubini's Theorem that allows us to evaluate the double integral as an iterated integral.   Fubini's Theorem   The double integral of a continuous function over a rectangular region is equal to the iterated integral (in either order):     The proof of the Fubini's Theorem is a bit technical. Intuitively, the volume of the solid should stay the same regardless of how we slice it up and sum up the pieces, as indicated in the following diagram.     By the Fubini's Theorem, we can choose the order of integration that makes the work easier.   Evaluate the double integral , where .   We must choose the order of integration: or .  If we integrate with respect to first, we have to evaluate , which requires Integration by Parts. However, if we integrate with respect to first, is treated as a constant, and , which is much simpler. Therefore, we will use the order .  Setting up the iterated integral and evaluating the inner integral with respect to :   Now, evaluate the outer integral with respect to :     But be careful! When interchanging the order of integration, you will also need to change the limits of integration accordingly! In this section, we can just simply swap the limits of integration because the region is a rectangle (so the values of and are independent of each other). However, in the next section, we will investigate the double integrals over a more general region, which may require more work to change and adjust (and maybe even finding) the limits of integration when changing the order of integration.    Assigned Problems for Section 15.1   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Compute the Riemann sum to estimate the double integral of over . Use the regular partition and upper-right vertices of the sub-rectangles as sample points.    Evaluate , where , and sketch the corresponding solid region.    The following table gives the approximate height at quarter-meter intervals of a mound of gravel. Estimate the volume of the mound by computing the average of the two Riemann sums with lower-left and upper-right vertices of the sub-rectangles as sample points.    Use symmetry to evaluate the double integral      In the following exercises, evaluate the iterated integrals.                In the following exercises, evaluate the integral.                  Which is easier, antidifferentiating with respect to or with respect to ? Explain.    Evaluate , where .       "
+},
+{
+  "id": "sec151-IntegrationTwoVariables-2-2",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#sec151-IntegrationTwoVariables-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     blahblahblah    "
+},
+{
+  "id": "subsec-ReviewAreaRegion-2",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-ReviewAreaRegion-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Riemann Sum "
+},
+{
+  "id": "subsec-ReviewAreaRegion-3",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-ReviewAreaRegion-3",
+  "type": "Figure",
+  "number": "15.1.1",
+  "title": "",
+  "body": "  Riemann Sum in  "
+},
+{
+  "id": "subsec-ReviewAreaRegion-4",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-ReviewAreaRegion-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "partition "
+},
+{
+  "id": "subsec-ReviewAreaRegion-5",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-ReviewAreaRegion-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "sample point "
+},
+{
+  "id": "subsec-ReviewAreaRegion-7",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-ReviewAreaRegion-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "integrand differential limits of integration lower limit upper limit "
+},
+{
+  "id": "subsec-ReviewAreaRegion-9",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-ReviewAreaRegion-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "P.S.: "
+},
+{
+  "id": "subsec-VolumeSolid-3",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-3",
+  "type": "Figure",
+  "number": "15.1.2",
+  "title": "",
+  "body": "  Riemann Sum in using french fries  "
+},
+{
+  "id": "subsec-VolumeSolid-5",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-5",
+  "type": "Figure",
+  "number": "15.1.3",
+  "title": "",
+  "body": "  \"Region\" under the surface on is a solid.  "
+},
+{
+  "id": "subsec-VolumeSolid-6",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "region rectangle "
+},
+{
+  "id": "subsec-VolumeSolid-7",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Riemann sum "
+},
+{
+  "id": "subsec-VolumeSolid-8",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-8",
+  "type": "Figure",
+  "number": "15.1.4",
+  "title": "",
+  "body": "  Partitioning the region into sub-rectangles.  "
+},
+{
+  "id": "subsec-VolumeSolid-10",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-10",
+  "type": "Figure",
+  "number": "15.1.5",
+  "title": "",
+  "body": "  Partitioning the solid into skinny rectangular boxes.  "
+},
+{
+  "id": "subsec-VolumeSolid-11",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "double integral "
+},
+{
+  "id": "def-DoubleIntegral_RectangularRegion",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#def-DoubleIntegral_RectangularRegion",
+  "type": "Definition",
+  "number": "15.1.6",
+  "title": "Double Integral over a Rectangular Region.",
+  "body": " Double Integral over a Rectangular Region   The double integral of over a rectangular region is defined as the limit If the limit exists, we say that is integrable over .   "
+},
+{
+  "id": "subsec-VolumeSolid-13",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-13",
+  "type": "Note",
+  "number": "15.1.7",
+  "title": "But Richard... Do all the sub-rectangles have to be the same size?",
+  "body": " But Richard... Do all the sub-rectangles have to be the same size?  The short answer is no. The only thing we want to make sure is to let the area of each sub-rectangle go to zero.  But there is a false equivalence of \"having infinite number of sub-rectangles\" and \"having all the sub-rectangles to have the area approaching zero\". It is totally possible to have infinitely many sub-rectangles but the area of some of the sub-rectangles does not approach zero. An easiest example is to split the rectangular region in half, and only partition one half into infinitely many sub-rectangles while leaving the other half as one big rectangle.  If we demand all the sub-rectangles to have the same area, then we can guarantee that the area of each sub-rectangle approaches zero as the number of sub-rectangles goes to infinity. Also, it is easier to find the area of each sub-rectangle if they are all the same size. Because of this convenience, we call this type of partition a regular partition .  If you relax this condition a bit and don't require all the sub-rectangles to have the same area, then you can still do the Riemann sum by requiring the largest sub-rectangle to have the area approaching zero. This is how your textbook defines the Riemann sum.  "
+},
+{
+  "id": "subsec-VolumeSolid-14",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-14",
+  "type": "Example",
+  "number": "15.1.8",
+  "title": "",
+  "body": " Estimate the volume of the solid under the elliptic paraboloid over the region using four sub-rectangles and the upper-right vertices of the sub-rectangles as sample points.   The goal here is to estimate the volume of the solid under the surface using four rectangular boxes, as demonstrated in the figure below.   Graph of the surface with four rectangular boxes estimating the volume using upper right vertices.      Graphically speaking, we can determine the coordinates of the upper-right vertices of the sub-rectangles, as demonstrated in the figure below.     So how do we find the volume of each rectangular box?    First, we need to set up the partition. The region is a square on the -plane. Dividing it into four equal sub-rectangles gives a grid.  The width and length of each sub-rectangle are and . The area of each base is .  Next, we identify the sample points. We are using the upper-right vertices for our . For the four sub-rectangles, these points are:  Top-right of is  Top-right of is  Top-right of is  Top-right of is    Now we calculate the heights by evaluating at each sample point:        Finally, we sum the volumes of the four rectangular boxes:    "
+},
+{
+  "id": "subsec-VolumeSolid-15",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-15",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "geometry "
+},
+{
+  "id": "subsec-VolumeSolid-16",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-VolumeSolid-16",
+  "type": "Example",
+  "number": "15.1.11",
+  "title": "",
+  "body": " Evaluate the double integral , where .   Instead of finding an antiderivative, let's look at the surface . Squaring both sides gives , or . In , this represents a cylinder of radius 1 centered along the -axis. Since , we are only looking at the top half of this cylinder.  Richard coded the surface and the region of interest below for you to visualize what the solid looks like.       The region tells us that goes from to (which exactly matches the diameter of our cylinder) and goes from to .  Therefore, the solid is a half-cylinder with a length of (since ) and a semi-circular cross-section of radius 1. We can calculate the volume using basic geometry: So, .   "
+},
+{
+  "id": "subsec-IteratedIntegrals-2",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-IteratedIntegrals-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "iterated integral "
+},
+{
+  "id": "subsec-IteratedIntegrals-3",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-IteratedIntegrals-3",
+  "type": "Figure",
+  "number": "15.1.13",
+  "title": "",
+  "body": "  The inner integral finds the cross-sectional area and the outer integral sums all cross-sectional areas to get the total volume.  "
+},
+{
+  "id": "subsec-IteratedIntegrals-5",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-IteratedIntegrals-5",
+  "type": "Example",
+  "number": "15.1.14",
+  "title": "",
+  "body": " Evaluate the double integral    We start by evaluating the inner integral with respect to , treating as a constant:   Next, we substitute this result into the outer integral and integrate with respect to :    "
+},
+{
+  "id": "subsec-IteratedIntegrals-6",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-IteratedIntegrals-6",
+  "type": "Example",
+  "number": "15.1.15",
+  "title": "",
+  "body": " Evaluate the double integral    We start by evaluating the inner integral with respect to , treating as a constant.   Now, we substitute this result back into the outer integral to integrate with respect to .   We can evaluate this by integrating each term directly using the power rule.   Next, we evaluate these terms at the boundaries and .   Finally, we simplify the expression. Recognizing that , we get our final exact answer.    "
+},
+{
+  "id": "subsec-IteratedIntegrals-7",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-IteratedIntegrals-7",
+  "type": "Example",
+  "number": "15.1.16",
+  "title": "",
+  "body": " Evaluate the double integral , where .   There are two options here... We can integrate with respect to first, then , or we can integrate with respect to first, then . But which one will work out?  Let's try them both out and see what happens!    If we integrate with respect to first, then  Let's choose to integrate with respect to first, then .  Evaluating the inner integral with respect to :   Now, evaluating the outer integral with respect to :     If we integrate with respect to first, then  Evaluating the inner integral with respect to (treating as a constant):   Now, evaluating the outer integral with respect to :    "
+},
+{
+  "id": "subsec-IteratedIntegrals-8",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-IteratedIntegrals-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Fubini's Theorem "
+},
+{
+  "id": "thm-FubiniTheorem",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#thm-FubiniTheorem",
+  "type": "Theorem",
+  "number": "15.1.17",
+  "title": "Fubini’s Theorem.",
+  "body": " Fubini's Theorem   The double integral of a continuous function over a rectangular region is equal to the iterated integral (in either order):    "
+},
+{
+  "id": "subsec-IteratedIntegrals-11",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-IteratedIntegrals-11",
+  "type": "Figure",
+  "number": "15.1.18",
+  "title": "",
+  "body": "  "
+},
+{
+  "id": "subsec-IteratedIntegrals-13",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#subsec-IteratedIntegrals-13",
+  "type": "Example",
+  "number": "15.1.19",
+  "title": "",
+  "body": " Evaluate the double integral , where .   We must choose the order of integration: or .  If we integrate with respect to first, we have to evaluate , which requires Integration by Parts. However, if we integrate with respect to first, is treated as a constant, and , which is much simpler. Therefore, we will use the order .  Setting up the iterated integral and evaluating the inner integral with respect to :   Now, evaluate the outer integral with respect to :    "
+},
+{
+  "id": "ws-sec151-3",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#ws-sec151-3",
+  "type": "Worksheet Exercise",
+  "number": "15.1.1",
+  "title": "",
+  "body": " Compute the Riemann sum to estimate the double integral of over . Use the regular partition and upper-right vertices of the sub-rectangles as sample points.  "
+},
+{
+  "id": "ws-sec151-4",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#ws-sec151-4",
+  "type": "Worksheet Exercise",
+  "number": "15.1.9",
+  "title": "",
+  "body": " Evaluate , where , and sketch the corresponding solid region.  "
+},
+{
+  "id": "ws-sec151-5",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#ws-sec151-5",
+  "type": "Worksheet Exercise",
+  "number": "15.1.11",
+  "title": "",
+  "body": " The following table gives the approximate height at quarter-meter intervals of a mound of gravel. Estimate the volume of the mound by computing the average of the two Riemann sums with lower-left and upper-right vertices of the sub-rectangles as sample points.  "
+},
+{
+  "id": "ws-sec151-6",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#ws-sec151-6",
+  "type": "Worksheet Exercise",
+  "number": "15.1.17",
+  "title": "",
+  "body": " Use symmetry to evaluate the double integral   "
+},
+{
+  "id": "ws-sec151-7-2",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#ws-sec151-7-2",
+  "type": "Worksheet Exercise",
+  "number": "15.1.23",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec151-7-3",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#ws-sec151-7-3",
+  "type": "Worksheet Exercise",
+  "number": "15.1.33",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec151-8-2",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#ws-sec151-8-2",
+  "type": "Worksheet Exercise",
+  "number": "15.1.39",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec151-8-3",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#ws-sec151-8-3",
+  "type": "Worksheet Exercise",
+  "number": "15.1.43",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec151-9",
+  "level": "2",
+  "url": "sec151-IntegrationTwoVariables.html#ws-sec151-9",
+  "type": "Worksheet Exercise",
+  "number": "15.1.49",
+  "title": "",
+  "body": "    Which is easier, antidifferentiating with respect to or with respect to ? Explain.    Evaluate , where .     "
+},
+{
+  "id": "sec152-DoubleIntegrals",
+  "level": "1",
+  "url": "sec152-DoubleIntegrals.html",
+  "type": "Section",
+  "number": "15.2",
+  "title": "Double Integrals over More General Regions",
+  "body": " Double Integrals over More General Regions   Just the introduction texts...    After this section, students will be able to:     blahblahblah      Let's assume that we can extend the idea of double integrals in to a general region on the -plane. Then the only thing that needs to be adjusted is the domain of integration . So the question now is: how do we describe a general region on the -plane?    Integrating over a general region  The easiest region on the -plane is a rectangle, as the and values are independent of each other. That is, we will just need to specify the bounds for and as . That is, the limits of integration for and are constants. You learned all about it back in   If the and values are no longer independent of each other, then the region will become more complicated. Then we have two different cases to capture the dependence between and : depends on , or depends on . These are called vertically simple regions and horizontally simple regions , respectively.  Let's say the values depend on the values. Then can be determined freely, meaning we can determine the bounds for as constants. However, the bounds for will depend on the values, meaning the values will be bounded by two functions of . This is what we call a vertically simple region , as demonstrated in the following figure.    Some Examples of Vertically Simple Regions   This is essentially the \" \" idea to determine an arbitrary region back in MTH 252Z (or MTH 252). The vertically simple region can be represented by where and are continuous functions on .  Similarly, if the values depend on the values, then we can determine the bounds for as constants, but the bounds for will depend on the values. This is what we call a horizontally simple region , as demonstrated in the following figure.    Some Examples of Horizontally Simple Regions   This is essentially the \" \" idea to determine an arbitrary region back in MTH 252Z (or MTH 252). The horizontally simple region can be represented by where and are continuous functions on .   P.S.: If you need a quick refresher on how \" \" and \" \" work, here is Richard's MTH 252Z note on Area Between Two Curves last term (Fall 2025).  As you can imagine, the double integral works the same way as before, except that the limits of integration will be different.    If is vertically simple with description then   If is horizontally simple with description then      But Richard... Why can we assume the double integral idea will work the same...  Great question! Richard guesses your question may be something like: \"Why can we still rewrite as or if the region is no longer a rectangle?\"  The answer is... (and drumroll...) ... piecewise function!   Let's say we want to find the volume under the surface over a non-rectangular region . Then we can pick a larger rectangular region that contains , and define a piecewise function as follows: What this function does is to \"zero out\" the function values outside of the region , as demonstrated in the following figure.     We can for sure evaluate using skinny rectangular boxes. But this is exactly the same as , since the function values outside of are zeroed out. Therefore, we can evaluate using skinny rectangular boxes as well, which means or still holds.    Evaluate the double integral , where is the region bounded by and , as shown in the figure below.    Region Between and on the -plane.    First, we need to find the intersection points of the two curves to determine our limits of integration for . Setting the equations equal to each other: So, ranges from to . On this interval, the curve is above . Because is bounded by two functions of , this is a vertically simple region.  We set up the iterated integral integrating with respect to first:   Evaluating the inner integral with respect to .   Now, we evaluate the outer integral with respect to :      Evaluate the double integral , where is the region bounded by and .   Try sketching the region first. Below is the sketch of the region.    Region bounded by and .   Notice that if you treat this as a vertically simple region, the bottom boundary changes formula partway through, requiring you to split the integral into two! (so this is NOT a vertically simple region!).  However, if you treat it as a horizontally simple region by expressing in terms of , you can do it with just a single iterated integral.    Following the hint, let's express both boundary equations as functions of   The line:  The parabola:    Next, we find the intersection points by setting the -values equal to each other: So, ranges from to . On this interval, the line is the right boundary, and the parabola is the left boundary.  Setting up our horizontally simple iterated integral (integrating with respect to first):   Evaluating the inner integral with respect to :   Now, evaluating the outer integral with respect to : Evaluating at the upper limit : Evaluating at the lower limit : Subtracting the two gives the final answer: .    Recall we can change the order of integration for double integrals over rectangular regions. The same idea applies to double integrals over general regions as well. However, we need to be careful about the bounds of integration when changing the order since we also change the way we describe the region.   Evaluate the double integral .   If we try to evaluate this directly, we hit a wall immediately: does not have an elementary antiderivative. This is a classic signal that we need to change the order of integration!  Let's look at the current bounds to sketch the region : This describes a triangular region bounded by the lines , , and the -axis ( ).  To change the order of integration to , we need to view this as a horizontally simple region. For a fixed between and , the -values go from the -axis to the line . The new bounds are:   Now we can rewrite and evaluate the integral:   This single-variable integral can now be easily solved using -substitution. Let , then , or . The new bounds are from to :      Evaluate the double integral .   Similar to the previous example, integrating directly is too difficult. We need to swap the order of integration.  The given bounds tell us the region is horizontally simple: The region is bounded by (which is the right half of the parabola ), , and the -axis ( ).  To change this to a vertically simple region ( ), we observe that ranges from to . For a fixed , the -values go from the -axis up to the parabola . Our new bounds are:   Setting up and evaluating the new iterated integral:   We can solve this using -substitution. Let , then , which means . The new bounds for are from to :       Properties of Double Integrals  Recall you have learned a lot of properties of definite integrals in MTH 252Z (or MTH 252), such as linearity, additivity, etc. The same properties apply to double integrals as well (since we are just doing the same thing twice...). Richard will include some of the properties here for your reference, but you can also refer to your MTH 252Z (or MTH 252) notes for more properties.   Linearity of Double Integrals   Assume that and are integrable over the region , and is a constant. Then we have                 Additivity of Double Integrals   If is the union of two non-overlapping regions and , then .    The next property is a bit more interesting that Richard wants to elaborate on. Let's say we have a region and the function . Of course will give us the volume under the surface over the region , as indicated in the following figure.    Cylinder with base and height 1.   Okay... But why is this interesting? Recall the volume of a right cylinder is the (area of the) base times the height. If the height is 1, then the volume of the cylinder is just the area of the base, in this case, the area of the region . That is, the double integral of over the region gives us the area of . Symbolically, we have    P.S.: Sometimes Richard may be lazy and just write to represent the area of the region , since is the multiplicative identity...   Find the area of the region bounded by , , and using double integrals.   First, let's find where these curves intersect to map out the region .  The two lines intersect where (at the point ).  The steep line and the parabola intersect where . They intersect at and .  The other line and the parabola intersect where . They intersect at and .    Graphing these shows that the region bounded by all three curves lies between and . The parabola forms the entire bottom boundary. However, the top boundary changes at the -axis ( ). For , the top boundary is . For , the top boundary is .  Because the top boundary changes, we must use the Additivity Property to split the region into two vertically simple regions, and . The area is .  Setting up the integrals:   Evaluating the inner integrals simply yields the \"top minus bottom\" curves:   Now evaluate the outer integrals:    Finally, we sum the two areas:       Average Value  Recall that you have learned the concept of average value for single-variable functions in MTH 252Z (or MTH 252). If you took MTH 252Z (or MTH 252) with Richard, you may remember that he literally derived the formula of average value in class (if not, you are not missing out, as here is Richard's note from MTH 252Z about Average Value last term).  To sum up, the average value of the function over the interval is given by Observe that we can rewrite the as . This is also called the length of the interval.  Now we will extend this idea to functions of two variables by boosting up the dimension. Then the average value of a function over a region is given by We can also rewrite the formula as follows: This resembles the \"fair share\" idea of the average value, that multiplying the average value by the area of the region will give us the total \"amount\" of the function values over the region.    Assigned Problems for Section 15.2   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Express the domain in the following figure as both a vertically simple region and a horizontally simple region, and evaluate the integral of over as an iterated integral in two ways.    Integrate over the region bounded by and .    Calculate the double integral of over the domain .     In the following exercises, compute the double integral of over the domain indicated.          .     Consider the double integral . Sketch the domain of integration and express as an iterated integral in the opposite order.    Compute the integral of over the domain bounded by and .   Choose the order of integration that enables you to evaluate the integral.     Consider the double integral . Sketch the domain of integration. Then change the order of integration and evaluate. Explain the simplification achieved by changing the order.    Calculate the double integral of over the triangle indicated in the following figure.    Find the volume of the region bounded by , , , and .    Calculate the average value of on the square domain .    Find the average height of the \"ceiling\" in the figure below defined by for and .    "
+},
+{
+  "id": "sec152-DoubleIntegrals-2-2",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#sec152-DoubleIntegrals-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     blahblahblah    "
+},
+{
+  "id": "sec152-DoubleIntegrals-3",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#sec152-DoubleIntegrals-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "general region domain of integration "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-3",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vertically simple regions horizontally simple regions "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-4",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "vertically simple region "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-5",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-5",
+  "type": "Figure",
+  "number": "15.2.1",
+  "title": "",
+  "body": "  Some Examples of Vertically Simple Regions  "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-7",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-7",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "horizontally simple region "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-8",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-8",
+  "type": "Figure",
+  "number": "15.2.2",
+  "title": "",
+  "body": "  Some Examples of Horizontally Simple Regions  "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-10",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-10",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "P.S.: "
+},
+{
+  "id": "thm-DoubleIntegralGeneralRegion",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#thm-DoubleIntegralGeneralRegion",
+  "type": "Theorem",
+  "number": "15.2.3",
+  "title": "",
+  "body": "  If is vertically simple with description then   If is horizontally simple with description then    "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-13",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-13",
+  "type": "Note",
+  "number": "15.2.4",
+  "title": "But Richard... Why can we assume the double integral idea will work the same....",
+  "body": " But Richard... Why can we assume the double integral idea will work the same...  Great question! Richard guesses your question may be something like: \"Why can we still rewrite as or if the region is no longer a rectangle?\"  The answer is... (and drumroll...) ... piecewise function!   Let's say we want to find the volume under the surface over a non-rectangular region . Then we can pick a larger rectangular region that contains , and define a piecewise function as follows: What this function does is to \"zero out\" the function values outside of the region , as demonstrated in the following figure.     We can for sure evaluate using skinny rectangular boxes. But this is exactly the same as , since the function values outside of are zeroed out. Therefore, we can evaluate using skinny rectangular boxes as well, which means or still holds.  "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-14",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-14",
+  "type": "Example",
+  "number": "15.2.6",
+  "title": "",
+  "body": " Evaluate the double integral , where is the region bounded by and , as shown in the figure below.    Region Between and on the -plane.    First, we need to find the intersection points of the two curves to determine our limits of integration for . Setting the equations equal to each other: So, ranges from to . On this interval, the curve is above . Because is bounded by two functions of , this is a vertically simple region.  We set up the iterated integral integrating with respect to first:   Evaluating the inner integral with respect to .   Now, we evaluate the outer integral with respect to :    "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-15",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-15",
+  "type": "Example",
+  "number": "15.2.8",
+  "title": "",
+  "body": " Evaluate the double integral , where is the region bounded by and .   Try sketching the region first. Below is the sketch of the region.    Region bounded by and .   Notice that if you treat this as a vertically simple region, the bottom boundary changes formula partway through, requiring you to split the integral into two! (so this is NOT a vertically simple region!).  However, if you treat it as a horizontally simple region by expressing in terms of , you can do it with just a single iterated integral.    Following the hint, let's express both boundary equations as functions of   The line:  The parabola:    Next, we find the intersection points by setting the -values equal to each other: So, ranges from to . On this interval, the line is the right boundary, and the parabola is the left boundary.  Setting up our horizontally simple iterated integral (integrating with respect to first):   Evaluating the inner integral with respect to :   Now, evaluating the outer integral with respect to : Evaluating at the upper limit : Evaluating at the lower limit : Subtracting the two gives the final answer: .   "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-17",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-17",
+  "type": "Example",
+  "number": "15.2.10",
+  "title": "",
+  "body": " Evaluate the double integral .   If we try to evaluate this directly, we hit a wall immediately: does not have an elementary antiderivative. This is a classic signal that we need to change the order of integration!  Let's look at the current bounds to sketch the region : This describes a triangular region bounded by the lines , , and the -axis ( ).  To change the order of integration to , we need to view this as a horizontally simple region. For a fixed between and , the -values go from the -axis to the line . The new bounds are:   Now we can rewrite and evaluate the integral:   This single-variable integral can now be easily solved using -substitution. Let , then , or . The new bounds are from to :    "
+},
+{
+  "id": "subsec-IntegratingOverGeneralRegion-18",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion-18",
+  "type": "Example",
+  "number": "15.2.11",
+  "title": "",
+  "body": " Evaluate the double integral .   Similar to the previous example, integrating directly is too difficult. We need to swap the order of integration.  The given bounds tell us the region is horizontally simple: The region is bounded by (which is the right half of the parabola ), , and the -axis ( ).  To change this to a vertically simple region ( ), we observe that ranges from to . For a fixed , the -values go from the -axis up to the parabola . Our new bounds are:   Setting up and evaluating the new iterated integral:   We can solve this using -substitution. Let , then , which means . The new bounds for are from to :    "
+},
+{
+  "id": "thm-LinearityDoubleIntegrals",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#thm-LinearityDoubleIntegrals",
+  "type": "Theorem",
+  "number": "15.2.12",
+  "title": "Linearity of Double Integrals.",
+  "body": " Linearity of Double Integrals   Assume that and are integrable over the region , and is a constant. Then we have               "
+},
+{
+  "id": "thm-AditivityDoubleIntegrals",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#thm-AditivityDoubleIntegrals",
+  "type": "Theorem",
+  "number": "15.2.13",
+  "title": "Additivity of Double Integrals.",
+  "body": " Additivity of Double Integrals   If is the union of two non-overlapping regions and , then .   "
+},
+{
+  "id": "subsec-PropertiesDoubleIntegrals-6",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-PropertiesDoubleIntegrals-6",
+  "type": "Figure",
+  "number": "15.2.14",
+  "title": "",
+  "body": "  Cylinder with base and height 1.  "
+},
+{
+  "id": "subsec-PropertiesDoubleIntegrals-8",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-PropertiesDoubleIntegrals-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "P.S.: "
+},
+{
+  "id": "subsec-PropertiesDoubleIntegrals-9",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-PropertiesDoubleIntegrals-9",
+  "type": "Example",
+  "number": "15.2.15",
+  "title": "",
+  "body": " Find the area of the region bounded by , , and using double integrals.   First, let's find where these curves intersect to map out the region .  The two lines intersect where (at the point ).  The steep line and the parabola intersect where . They intersect at and .  The other line and the parabola intersect where . They intersect at and .    Graphing these shows that the region bounded by all three curves lies between and . The parabola forms the entire bottom boundary. However, the top boundary changes at the -axis ( ). For , the top boundary is . For , the top boundary is .  Because the top boundary changes, we must use the Additivity Property to split the region into two vertically simple regions, and . The area is .  Setting up the integrals:   Evaluating the inner integrals simply yields the \"top minus bottom\" curves:   Now evaluate the outer integrals:    Finally, we sum the two areas:    "
+},
+{
+  "id": "subsec-AverageValueDoubleIntegrals-3",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-AverageValueDoubleIntegrals-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "length "
+},
+{
+  "id": "subsec-AverageValueDoubleIntegrals-4",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#subsec-AverageValueDoubleIntegrals-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "average value "
+},
+{
+  "id": "ws-sec152-3",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-3",
+  "type": "Worksheet Exercise",
+  "number": "15.2.3",
+  "title": "",
+  "body": " Express the domain in the following figure as both a vertically simple region and a horizontally simple region, and evaluate the integral of over as an iterated integral in two ways.  "
+},
+{
+  "id": "ws-sec152-4",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-4",
+  "type": "Worksheet Exercise",
+  "number": "15.2.9",
+  "title": "",
+  "body": " Integrate over the region bounded by and .  "
+},
+{
+  "id": "ws-sec152-5",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-5",
+  "type": "Worksheet Exercise",
+  "number": "15.2.13",
+  "title": "",
+  "body": " Calculate the double integral of over the domain .  "
+},
+{
+  "id": "ws-sec152-6-2",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-6-2",
+  "type": "Worksheet Exercise",
+  "number": "15.2.19",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec152-6-3",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-6-3",
+  "type": "Worksheet Exercise",
+  "number": "15.2.23",
+  "title": "",
+  "body": "  .  "
+},
+{
+  "id": "ws-sec152-7",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-7",
+  "type": "Worksheet Exercise",
+  "number": "15.2.27",
+  "title": "",
+  "body": " Consider the double integral . Sketch the domain of integration and express as an iterated integral in the opposite order.  "
+},
+{
+  "id": "ws-sec152-8",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-8",
+  "type": "Worksheet Exercise",
+  "number": "15.2.31",
+  "title": "",
+  "body": " Compute the integral of over the domain bounded by and .   Choose the order of integration that enables you to evaluate the integral.   "
+},
+{
+  "id": "ws-sec152-9",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-9",
+  "type": "Worksheet Exercise",
+  "number": "15.2.35",
+  "title": "",
+  "body": " Consider the double integral . Sketch the domain of integration. Then change the order of integration and evaluate. Explain the simplification achieved by changing the order.  "
+},
+{
+  "id": "ws-sec152-10",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-10",
+  "type": "Worksheet Exercise",
+  "number": "15.2.41",
+  "title": "",
+  "body": " Calculate the double integral of over the triangle indicated in the following figure.  "
+},
+{
+  "id": "ws-sec152-11",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-11",
+  "type": "Worksheet Exercise",
+  "number": "15.2.47",
+  "title": "",
+  "body": " Find the volume of the region bounded by , , , and .  "
+},
+{
+  "id": "ws-sec152-12",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-12",
+  "type": "Worksheet Exercise",
+  "number": "15.2.53",
+  "title": "",
+  "body": " Calculate the average value of on the square domain .  "
+},
+{
+  "id": "ws-sec152-13",
+  "level": "2",
+  "url": "sec152-DoubleIntegrals.html#ws-sec152-13",
+  "type": "Worksheet Exercise",
+  "number": "15.2.55",
+  "title": "",
+  "body": " Find the average height of the \"ceiling\" in the figure below defined by for and .  "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
