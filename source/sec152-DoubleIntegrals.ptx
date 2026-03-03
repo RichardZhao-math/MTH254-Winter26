@@ -25,4 +25,621 @@
     
   </introduction>
 
+  <p>
+    Let's assume that we can extend the idea of double integrals in <xref ref="sec151-IntegrationTwoVariables"/> to a <term>general region</term> on the <m>xy</m>-plane. 
+    Then the only thing that needs to be adjusted is the <term>domain of integration</term>. 
+    So the question now is: <em>how do we describe a general region on the <m>xy</m>-plane?</em>
+  </p>
+
+  <subsection xml:id="subsec-IntegratingOverGeneralRegion">
+    <title>Integrating over a general region</title>
+
+    <p>
+      The easiest region on the <m>xy</m>-plane is a rectangle, as the <m>x</m> and <m>y</m> values are independent of each other. 
+      That is, we will just need to specify the bounds for <m>x</m> and <m>y</m> as <m>[a,b] \times [c,d]</m>. 
+      That is, the limits of integration for <m>x</m> and <m>y</m> are constants. 
+      You learned all about it back in <xref ref="sec151-IntegrationTwoVariables"/>
+    </p>
+
+    <p>
+      If the <m>x</m> and <m>y</m> values are no longer independent of each other, then the region will become more complicated. 
+      Then we have two different cases to capture the dependence between <m>x</m> and <m>y</m>: <m>y</m> depends on <m>x</m>, or <m>x</m> depends on <m>y</m>. 
+      These are called <term>vertically simple regions</term> and <term>horizontally simple regions</term>, respectively.
+    </p>
+
+    <p>
+      Let's say the <m>y</m> values depend on the <m>x</m> values. 
+      Then <m>x</m> can be determined freely, meaning we can determine the bounds for <m>x</m> as constants. 
+      However, the bounds for <m>y</m> will depend on the <m>x</m> values, meaning the <m>y</m> values will be bounded by two functions of <m>x</m>. 
+      This is what we call a <term>vertically simple region</term>, as demonstrated in the following figure.
+    </p>
+
+    <figure>
+      <image source="sec152_VerticleSimpleRegion_Diagram.png" width="100%"></image>
+      <caption>Some Examples of Vertically Simple Regions</caption>
+    </figure>
+
+    <p>
+      This is essentially the "<m>y_{\text{top}} - y_{\text{bottom}}</m>" idea to determine an arbitrary region back in MTH 252Z (or MTH 252). 
+      The vertically simple region can be represented by
+      <md>
+        D = \left\{(x,y)\in \R^2 \mid a \leq x \leq b\, , \, \, g_1(x) \leq y \leq g_2(x) \right\}
+      </md>
+      where <m>g_1</m> and <m>g_2</m> are continuous functions on <m>[a,b]</m>. 
+    </p>
+
+    <p>
+      Similarly, if the <m>x</m> values depend on the <m>y</m> values, then we can determine the bounds for <m>y</m> as constants, but the bounds for <m>x</m> will depend on the <m>y</m> values. 
+      This is what we call a <term>horizontally simple region</term>, as demonstrated in the following figure.
+    </p>
+
+    <figure>
+      <image source="sec152_HorizontalSimpleRegion_Diagram.png" width="100%"></image>
+      <caption>Some Examples of Horizontally Simple Regions</caption>
+    </figure>
+
+    <p>
+      This is essentially the "<m>x_{\text{right}} - x_{\text{left}}</m>" idea to determine an arbitrary region back in MTH 252Z (or MTH 252). 
+      The horizontally simple region can be represented by
+      <md>
+        D = \left\{(x,y)\in \R^2 \mid c \leq y \leq d\, , \, \, h_1(y) \leq x \leq h_2(y) \right\}
+      </md>
+      where <m>h_1</m> and <m>h_2</m> are continuous functions on <m>[c,d]</m>. 
+    </p>
+
+    <p>
+      <term>P.S.: </term> If you need a quick refresher on how "<m>y_{\text{top}} - y_{\text{bottom}}</m>" and "<m>x_{\text{right}} - x_{\text{left}}</m>" work, here is Richard's MTH 252Z note on 
+      <url href="https://richardzhao-math.github.io/MTH252Z-Fall25/sec61-AreaBetweenCurves.html">Area Between Two Curves</url>
+      last term (Fall 2025). 
+    </p>
+
+    <p>
+      As you can imagine, the double integral works the same way as before, except that the limits of integration will be different. 
+    </p>
+
+    <theorem xml:id="thm-DoubleIntegralGeneralRegion">
+      <statement>
+        <p>
+          If <m>\c{D}</m> is vertically simple with description 
+          <md>
+            a \leq x \leq b\, , \qquad g_1(x) \leq y \leq g_2(x)
+          </md>
+          then
+          <md>
+            \iint_\c{D} f(x,y) \, dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y)\, dy\, dx
+          </md>
+        </p>
+
+        <p>
+          If <m>\c{D}</m> is horizontally simple with description 
+          <md>
+            c \leq y \leq d\, , \qquad h_1(y) \leq x \leq h_2(y)
+          </md>
+          then
+          <md>
+            \iint_\c{D} f(x,y) \, dA = \int_c^d \int_{h_1(y)}^{h_2(y)} f(x,y)\, dx\, dy
+          </md>
+        </p>
+      </statement>
+    </theorem>
+    
+    <note>
+      <title>But Richard... Why can we assume the double integral idea will work the same...</title>
+
+      <p>
+        Great question! 
+        Richard guesses your question may be something like: "Why can we still rewrite <m>dA</m> as <m>dy\, dx</m> or <m>dx\, dy</m> if the region is no longer a rectangle?"
+      </p>
+
+      <p>
+        The answer is... (and drumroll...) ... <term>piecewise function!</term>
+      </p>
+
+      <p>
+        Let's say we want to find the volume under the surface <m>f(x,y)</m> over a non-rectangular region <m>\c{D}</m>. 
+        Then we can pick a <em>larger</em> rectangular region <m>\c{R}</m> that contains <m>\c{D}</m>, and define a piecewise function <m>\tilde{f}(x,y)</m> as follows:
+        <md>
+          \tilde{f}(x,y) = 
+          \begin{cases}
+            f(x,y) \amp \text{if } (x,y) \in \c{D} \\
+            0 \amp \text{if } (x,y) \notin \c{D}
+          \end{cases}
+        </md>
+        What this function does is to "zero out" the function values outside of the region <m>\c{D}</m>, as demonstrated in the following figure. 
+      </p>
+
+      <figure>
+        <image source="sec152_DoubleIntegral_GeneralRegion_Diagram.png" width="50%"></image>
+      </figure>
+
+      <p>
+        We can for sure evaluate <m>\iint_\c{R} \tilde{f}(x,y) \, dA</m> using skinny rectangular boxes. 
+        But this is exactly the same as <m>\iint_\c{D} f(x,y) \, dA</m>, since the function values outside of <m>\c{D}</m> are zeroed out. 
+        Therefore, we can evaluate <m>\iint_\c{D} f(x,y) \, dA</m> using skinny rectangular boxes as well, which means <m>dA = dy\, dx</m> or <m>dA = dx\, dy</m> still holds.
+      </p>
+    </note>
+    
+    <example>
+      <p>
+        Evaluate the double integral <m>\ds \iint_\c{D} \lp x + 2y \rp \, dA</m>, where <m>\c{D}</m> is the region bounded by <m>y = 2x^2</m> and <m>y = 1 + x^2</m>, as shown in the figure below. 
+      </p>
+
+      <figure>
+        <image source="sec152_VerticalSimpleRegion_DoubleIntegral_Example.png" width="50%"></image>
+        <caption>Region Between <m>y = 2x^2</m> and <m>y = 1 + x^2</m> on the <m>xy</m>-plane. </caption>
+      </figure>
+
+      <solution>
+        <p>
+          First, we need to find the intersection points of the two curves to determine our limits of integration for <m>x</m>. Setting the equations equal to each other:
+          <md>
+            <mrow> 2x^2 \amp = 1 + x^2 </mrow>
+            <mrow> x^2 \amp = 1 </mrow> 
+            <mrow> x \amp = \pm 1 </mrow>
+          </md>
+          So, <m>x</m> ranges from <m>-1</m> to <m>1</m>. 
+          On this interval, the curve <m>y = 1 + x^2</m> is above <m>y = 2x^2</m>. 
+          Because <m>y</m> is bounded by two functions of <m>x</m>, this is a vertically simple region. 
+        </p>
+        <p>
+          We set up the iterated integral integrating with respect to <m>y</m> first:
+          <md>
+            <mrow> \iint_\c{D} (x + 2y) \, dA \amp = \int_{-1}^1 \int_{2x^2}^{1 + x^2} (x + 2y) \, dy \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluating the inner integral with respect to <m>y</m>. 
+          <md>
+            <mrow> \int_{2x^2}^{1 + x^2} (x + 2y) \, dy \amp = \left[ xy + y^2 \right]_{y=2x^2}^{y=1+x^2} </mrow>
+            <mrow> \amp = \left( x(1 + x^2) + (1 + x^2)^2 \right) - \left( x(2x^2) + (2x^2)^2 \right) </mrow>
+            <mrow> \amp = \left( x + x^3 + 1 + 2x^2 + x^4 \right) - \left( 2x^3 + 4x^4 \right) </mrow>
+            <mrow> \amp = -3x^4 - x^3 + 2x^2 + x + 1 </mrow>
+          </md>
+        </p>
+        <p>
+          Now, we evaluate the outer integral with respect to <m>x</m>:
+          <md>
+            <mrow> \amp \quad \quad \int_{-1}^1 (-3x^4 - x^3 + 2x^2 + x + 1) \, dx </mrow>
+            <mrow> \amp = \left[ -\frac{3}{5}x^5 - \frac{1}{4}x^4 + \frac{2}{3}x^3 + \frac{1}{2}x^2 + x \right]_{-1}^1 </mrow>
+            <mrow> \amp = \left( -\frac{3}{5} - \frac{1}{4} + \frac{2}{3} + \frac{1}{2} + 1 \right) - \left( \frac{3}{5} - \frac{1}{4} - \frac{2}{3} + \frac{1}{2} - 1 \right) </mrow>
+            <mrow> \amp = -\frac{6}{5} + \frac{4}{3} + 2 </mrow>
+            <mrow> \amp = \frac{-18 + 20 + 30}{15} </mrow>
+            <mrow> \amp = \frac{32}{15} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <example>
+      <p>
+        Evaluate the double integral <m>\ds \iint_\c{D} xy \, dA</m>, where <m>\c{D}</m> is the region bounded by <m>y = x - 1</m> and <m>y^2 = 2x + 6</m>. 
+      </p>
+
+      <hint>
+        <p>
+          Try sketching the region first. 
+          Below is the sketch of the region. 
+        </p>
+
+        <figure>
+          <image source="sec152_DoubleIntegrals_Region_Example.png" width="70%"></image>
+          <caption>Region bounded by <m>y = x - 1</m> and <m>y^2 = 2x + 6</m>.</caption>
+        </figure>
+
+        <p>
+          Notice that if you treat this as a vertically simple region, the bottom boundary changes formula partway through, requiring you to split the integral into two! 
+          (so this is NOT a vertically simple region!). 
+        </p>
+
+        <p>
+          However, if you treat it as a <term>horizontally simple region</term> by expressing <m>x</m> in terms of <m>y</m>, you can do it with just a single iterated integral.
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          Following the hint, let's express both boundary equations as functions of <m>y</m>
+          <ul>
+            <li><p>The line: <m>x = y + 1</m></p></li>
+            <li><p>The parabola: <m>x = \frac{1}{2}y^2 - 3</m></p></li>
+          </ul>
+        </p>
+
+        <p>
+          Next, we find the intersection points by setting the <m>x</m>-values equal to each other:
+          <md>
+            <mrow> y + 1 \amp = \frac{1}{2}y^2 - 3 </mrow>
+            <mrow> 0 \amp = \frac{1}{2}y^2 - y - 4 </mrow>
+            <mrow> 0 \amp = y^2 - 2y - 8 = (y - 4)(y + 2) \implies y = 4, \text{ or } y = -2 </mrow>
+          </md>
+          So, <m>y</m> ranges from <m>-2</m> to <m>4</m>. On this interval, the line <m>x = y + 1</m> is the right boundary, and the parabola <m>x = \frac{1}{2}y^2 - 3</m> is the left boundary.
+        </p>
+        <p>
+          Setting up our horizontally simple iterated integral (integrating with respect to <m>x</m> first):
+          <md>
+            <mrow> \int_{-2}^4 \int_{\frac{1}{2}y^2 - 3}^{y + 1} xy \, dx \, dy </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluating the inner integral with respect to <m>x</m>:
+          <md>
+            <mrow> \int_{\frac{1}{2}y^2 - 3}^{y + 1} xy \, dx \amp = \left[ \frac{1}{2}x^2y \right]_{x=\frac{1}{2}y^2 - 3}^{x=y+1} </mrow>
+            <mrow> \amp = \frac{1}{2}y \left( (y + 1)^2 - \left(\frac{1}{2}y^2 - 3\right)^2 \right) </mrow>
+            <mrow> \amp = \frac{1}{2}y \left( (y^2 + 2y + 1) - \left(\frac{1}{4}y^4 - 3y^2 + 9\right) \right) </mrow>
+            <mrow> \amp = \frac{1}{2}y \left( -\frac{1}{4}y^4 + 4y^2 + 2y - 8 \right) </mrow>
+            <mrow> \amp = -\frac{1}{8}y^5 + 2y^3 + y^2 - 4y </mrow>
+          </md>
+        </p>
+        <p>
+          Now, evaluating the outer integral with respect to <m>y</m>:
+          <md>
+            <mrow> \int_{-2}^4 \left( -\frac{1}{8}y^5 + 2y^3 + y^2 - 4y \right) \, dy \amp = \left[ -\frac{1}{48}y^6 + \frac{1}{2}y^4 + \frac{1}{3}y^3 - 2y^2 \right]_{-2}^4 </mrow>
+          </md>
+          Evaluating at the upper limit <m>y=4</m>:
+          <md>
+            <mrow> -\frac{4096}{48} + \frac{256}{2} + \frac{64}{3} - 32 = -\frac{256}{3} + 128 + \frac{64}{3} - 32 = 32 </mrow>
+          </md>
+          Evaluating at the lower limit <m>y=-2</m>:
+          <md>
+            <mrow> -\frac{64}{48} + \frac{16}{2} - \frac{8}{3} - 8 = -\frac{4}{3} + 8 - \frac{8}{3} - 8 = -4 </mrow>
+          </md>
+          Subtracting the two gives the final answer: <m>32 - (-4) = 36</m>.
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Recall we can change the order of integration for double integrals over rectangular regions. 
+      The same idea applies to double integrals over general regions as well. 
+      However, we need to be careful about the bounds of integration when changing the order since we also change the way we describe the region. 
+    </p>
+
+    <example>
+      <p>
+        Evaluate the double integral <m>\ds \int_0^\pi \int_x^\pi \sin\lp y^2 \rp\, dy\, dx</m>. 
+      </p>
+
+      <solution>    
+        <p>
+          If we try to evaluate this directly, we hit a wall immediately: <m>\sin(y^2)</m> does not have an elementary antiderivative. This is a classic signal that we need to change the order of integration! 
+        </p>
+        <p>
+          Let's look at the current bounds to sketch the region <m>\c{D}</m>:
+          <md>
+            <mrow> 0 \amp \leq x \leq \pi </mrow>
+            <mrow> x \amp \leq y \leq \pi </mrow>
+          </md>
+          This describes a triangular region bounded by the lines <m>y = x</m>, <m>y = \pi</m>, and the <m>y</m>-axis (<m>x = 0</m>). 
+        </p>
+        <p>
+          To change the order of integration to <m>dx\, dy</m>, we need to view this as a horizontally simple region. For a fixed <m>y</m> between <m>0</m> and <m>\pi</m>, the <m>x</m>-values go from the <m>y</m>-axis to the line <m>x = y</m>. The new bounds are:
+          <md>
+            <mrow> 0 \amp \leq y \leq \pi </mrow>
+            <mrow> 0 \amp \leq x \leq y </mrow>
+          </md>
+        </p>
+        <p>
+          Now we can rewrite and evaluate the integral:
+          <md>
+            <mrow> \int_0^\pi \int_0^y \sin(y^2) \, dx \, dy \amp = \int_0^\pi \Big[ x\sin(y^2) \Big]_{x=0}^{x=y} \, dy </mrow>
+            <mrow> \amp = \int_0^\pi y\sin(y^2) \, dy </mrow>
+          </md>
+        </p>
+        <p>
+          This single-variable integral can now be easily solved using <m>u</m>-substitution. Let <m>u = y^2</m>, then <m>du = 2y\, dy</m>, or <m>\frac{1}{2}du = y\, dy</m>. The new bounds are from <m>0</m> to <m>\pi^2</m>:
+          <md>
+            <mrow> \frac{1}{2} \int_0^{\pi^2} \sin(u) \, du \amp = \frac{1}{2} \Big[ -\cos(u) \Big]_0^{\pi^2} </mrow>
+            <mrow> \amp = \frac{1}{2} \left( -\cos(\pi^2) - (-\cos(0)) \right) </mrow>
+            <mrow> \amp = \frac{1 - \cos(\pi^2)}{2} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <example>
+      <p>
+        Evaluate the double integral <m>\ds \int_0^4 \int_{\sqrt{y}}^2 \sqrt{x^3 + 1} \, dx \, dy</m>. 
+      </p>
+
+      <solution>  
+        <p>
+          Similar to the previous example, integrating <m>\sqrt{x^3 + 1}</m> directly is too difficult. We need to swap the order of integration. 
+        </p>
+        <p>
+          The given bounds tell us the region <m>\c{D}</m> is horizontally simple:
+          <md>
+            <mrow> 0 \amp \leq y \leq 4 </mrow>
+            <mrow> \sqrt{y} \amp \leq x \leq 2 </mrow>
+          </md>
+          The region is bounded by <m>x = \sqrt{y}</m> (which is the right half of the parabola <m>y = x^2</m>), <m>x = 2</m>, and the <m>x</m>-axis (<m>y = 0</m>).
+        </p>
+        <p>
+          To change this to a vertically simple region (<m>dy\, dx</m>), we observe that <m>x</m> ranges from <m>0</m> to <m>2</m>. For a fixed <m>x</m>, the <m>y</m>-values go from the <m>x</m>-axis up to the parabola <m>y = x^2</m>. Our new bounds are:
+          <md>
+            <mrow> 0 \amp \leq x \leq 2 </mrow>
+            <mrow> 0 \amp \leq y \leq x^2 </mrow>
+          </md>
+        </p>
+        <p>
+          Setting up and evaluating the new iterated integral:
+          <md>
+            <mrow> \int_0^2 \int_0^{x^2} \sqrt{x^3 + 1} \, dy \, dx \amp = \int_0^2 \Big[ y\sqrt{x^3 + 1} \Big]_{y=0}^{y=x^2} \, dx </mrow>
+            <mrow> \amp = \int_0^2 x^2\sqrt{x^3 + 1} \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          We can solve this using <m>u</m>-substitution. Let <m>u = x^3 + 1</m>, then <m>du = 3x^2 \, dx</m>, which means <m>\frac{1}{3}du = x^2 \, dx</m>. The new bounds for <m>u</m> are from <m>1</m> to <m>2^3 + 1 = 9</m>:
+          <md>
+            <mrow> \frac{1}{3} \int_1^9 u^{1/2} \, du \amp = \frac{1}{3} \left[ \frac{2}{3}u^{3/2} \right]_1^9 </mrow>
+            <mrow> \amp = \frac{2}{9} \left( 9^{3/2} - 1^{3/2} \right) </mrow>
+            <mrow> \amp = \frac{2}{9} (27 - 1) = \frac{52}{9} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-PropertiesDoubleIntegrals">
+    <title>Properties of Double Integrals</title>
+
+    <p>
+      Recall you have learned a lot of properties of definite integrals in MTH 252Z (or MTH 252), such as linearity, additivity, etc. 
+      The same properties apply to double integrals as well (since we are just doing the same thing twice...). 
+      Richard will include some of the properties here for your reference, but you can also refer to your MTH 252Z (or MTH 252) notes for more properties.
+    </p>
+
+    <theorem xml:id="thm-LinearityDoubleIntegrals">
+      <title>Linearity of Double Integrals</title>
+      <statement>
+        <p>
+          Assume that <m>f(x,y)</m> and <m>g(x,y)</m> are integrable over the region <m>\c{D}</m>, and <m>c</m> is a constant. 
+          Then we have
+          <ol marker="(i.)">
+            <li>
+              <p>
+                <m>\ds \iint_\c{D} \lp f(x,y) + g(x,y) \rp \, dA = \iint_\c{D} f(x,y) \, dA + \iint_\c{D} g(x,y) \, dA</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\ds \iint_\c{D} c f(x,y) \, dA = c \iint_\c{D} f(x,y) \, dA</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+    
+    <theorem xml:id="thm-AditivityDoubleIntegrals">
+      <title>Additivity of Double Integrals</title>
+      <statement>
+        <p>
+          If <m>\c{D}</m> is the union of two non-overlapping regions <m>\c{D}_1</m> and <m>\c{D}_2</m>, then
+          <m>\ds \iint_\c{D} f(x,y) \, dA = \iint_{\c{D}_1} f(x,y) \, dA + \iint_{\c{D}_2} f(x,y) \, dA</m>.
+        </p>
+      </statement>
+    </theorem>
+    
+    <p>
+      The next property is a bit more interesting that Richard wants to elaborate on. 
+      Let's say we have a region <m>\c{D}</m> and the function <m>f(x,y) = 1</m>. 
+      Of course <m>\iint_\c{D} f(x,y)\, dA</m> will give us the volume under the surface <m>z = 1</m> over the region <m>\c{D}</m>, as indicated in the following figure. 
+    </p>
+
+    <figure>
+      <image source="sec152_CylinderHeightOne_Diagram.png" width="40%"></image>
+      <caption>Cylinder with base <m>\c{D}</m> and height 1. </caption>
+    </figure>
+
+    <p>
+      Okay... But why is this interesting? 
+      Recall the volume of a right cylinder is the (area of the) base times the height. 
+      If the height is 1, then the volume of the cylinder is just the area of the base, in this case, the area of the region <m>\c{D}</m>.
+      That is, the double integral of <m>1</m> over the region <m>\c{D}</m> gives us the area of <m>\c{D}</m>. 
+      Symbolically, we have
+      <md>
+        \text{Area of } \c{D} = \iint_\c{D} 1 \, dA
+      </md>
+    </p>
+
+    <p>
+      <term>P.S.: </term> Sometimes Richard may be lazy and just write <m>\iint_\c{D} dA</m> to represent the area of the region <m>\c{D}</m>, since <m>1</m> is the multiplicative identity...
+    </p>
+
+    <example>
+      <p>
+        Find the area of the region <m>\c{R}</m> bounded by <m>y = x^2</m>, <m>y = -x + 12</m>, and <m>y = 4x + 12</m> using double integrals. 
+      </p>
+
+      <solution>
+        
+        <p>
+          First, let's find where these curves intersect to map out the region <m>\c{R}</m>. 
+          <ul>
+            <li>The two lines intersect where <m>-x + 12 = 4x + 12 \implies x = 0</m> (at the point <m>(0,12)</m>).</li>
+            <li>The steep line and the parabola intersect where <m>x^2 = 4x + 12 \implies x^2 - 4x - 12 = 0 \implies (x - 6)(x + 2) = 0</m>. They intersect at <m>x = -2</m> and <m>x = 6</m>. </li>
+            <li>The other line and the parabola intersect where <m>x^2 = -x + 12 \implies x^2 + x - 12 = 0 \implies (x + 4)(x - 3) = 0</m>. They intersect at <m>x = -4</m> and <m>x = 3</m>.</li>
+          </ul>
+        </p>
+        <p>
+          Graphing these shows that the region bounded by all three curves lies between <m>x = -2</m> and <m>x = 3</m>. The parabola <m>y = x^2</m> forms the entire bottom boundary. However, the top boundary changes at the <m>y</m>-axis (<m>x = 0</m>). For <m>x \in [-2,0]</m>, the top boundary is <m>y = 4x + 12</m>. For <m>x \in [0,3]</m>, the top boundary is <m>y = -x + 12</m>. 
+        </p>
+        <p>
+          Because the top boundary changes, we must use the Additivity Property to split the region into two vertically simple regions, <m>\c{R}_1</m> and <m>\c{R}_2</m>. The area is <m>\iint_\c{R} 1 \, dA = \iint_{\c{R}_1} 1 \, dA + \iint_{\c{R}_2} 1 \, dA</m>.
+        </p>
+        <p>
+          Setting up the integrals:
+          <md>
+            <mrow> \text{Area} \amp = \int_{-2}^0 \int_{x^2}^{4x + 12} 1 \, dy \, dx + \int_0^3 \int_{x^2}^{-x + 12} 1 \, dy \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluating the inner integrals simply yields the "top minus bottom" curves:
+          <md>
+            <mrow> \amp = \int_{-2}^0 (4x + 12 - x^2) \, dx + \int_0^3 (-x + 12 - x^2) \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          Now evaluate the outer integrals:
+          <md>
+            <mrow> \int_{-2}^0 (4x + 12 - x^2) \, dx \amp = \left[ 2x^2 + 12x - \frac{1}{3}x^3 \right]_{-2}^0 </mrow>
+            <mrow> \amp = 0 - \left( 8 - 24 + \frac{8}{3} \right) = 16 - \frac{8}{3} = \frac{40}{3} </mrow>
+          </md>
+          <md>
+            <mrow> \int_0^3 (-x + 12 - x^2) \, dx \amp = \left[ -\frac{1}{2}x^2 + 12x - \frac{1}{3}x^3 \right]_0^3 </mrow>
+            <mrow> \amp = \left( -\frac{9}{2} + 36 - 9 \right) - 0 = 27 - \frac{9}{2} = \frac{45}{2} </mrow>
+          </md>
+        </p>
+        <p>
+          Finally, we sum the two areas:
+          <md>
+            <mrow> \text{Total Area} = \frac{40}{3} + \frac{45}{2} = \frac{80}{6} + \frac{135}{6} = \frac{215}{6} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-AverageValueDoubleIntegrals">
+    <title>Average Value</title>
+    
+    <p>
+      Recall that you have learned the concept of average value for single-variable functions in MTH 252Z (or MTH 252). 
+      If you took MTH 252Z (or MTH 252) with Richard, you may remember that he literally derived the formula of average value in class 
+      (if not, you are not missing out, as here is Richard's note from MTH 252Z about <url href="https://richardzhao-math.github.io/MTH252Z-Fall25/sec62-VolumeAverageValue.html">Average Value</url> last term). 
+    </p>
+
+    <p>
+      To sum up, the average value of the function <m>y = f(x)</m> over the interval <m>[a,b]</m> is given by
+      <md>
+        \text{average value} = \frac{1}{b - a} \int_a^b f(x)\, dx
+      </md>
+      Observe that we can rewrite the <m>b - a</m> as <m>\ds \int_a^b 1\, dx</m>. 
+      This is also called the <term>length</term> of the interval. 
+    </p>
+
+    <p>
+      Now we will extend this idea to functions of two variables by boosting up the dimension. 
+      Then the <term>average value</term> of a function <m>z = f(x,y)</m> over a region <m>\c{D}</m> is given by
+      <md>
+        \text{average value} = \frac{1}{\text{Area of }\c{D}} \iint_\c{D} f(x,y)\, dA = \frac{\iint_\c{D} f(x,y)\, dA}{\iint_\c{D} 1\, dA}
+      </md>
+      We can also rewrite the formula as follows: 
+      <md>
+        \iint_\c{D} f(x,y)\, dA = \text{average value} \times \text{Area of } \c{D}
+      </md>
+      This resembles the "fair share" idea of the average value, that multiplying the average value by the area of the region will give us the total "amount" of the function values over the region. 
+    </p>
+  </subsection>
+
+  <worksheet xml:id="ws-sec152">
+    <title>Assigned Problems for Section 15.2</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="15.2.3">
+      <p>
+        Express the domain <m>\c{D}</m> in the following figure as both a vertically simple region and a horizontally simple region, and evaluate the integral of <m>f(x,y) = xy</m> over <m>\c{D}</m> as an iterated integral in two ways. 
+      </p>
+    </exercise>
+
+    <exercise number="15.2.9">
+      <p>
+        Integrate <m>f(x,y) = x</m> over the region bounded by <m>y = x^2</m> and <m>y = x + 2</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="15.2.13">
+      <p>
+        Calculate the double integral of <m>f(x,y) = x + y</m> over the domain <m>\c{D} = \left\{(x,y) \mid x^2 + y^2 \leq 4, \, y \geq 0 \right\}</m>. 
+      </p>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, compute the double integral of <m>f(x,y)</m> over the domain <m>\c{D}</m> indicated. 
+        </p>
+      </introduction>
+    
+      <exercise number="15.2.19">
+        <p>
+          <m>f(x,y) = x\, ; \qquad 0 \leq x \leq 1, \, 1 \leq y \leq e^{x^2}</m>
+        </p>
+      </exercise>
+
+      <exercise number="15.2.23">
+        <p>
+          <m>f(x,y) = e^{x + y} \, \qquad \text{bounded by } y = x - 1, \, y = 12 - x, \, \text{for } 2 \leq y \leq 4</m>. 
+        </p>
+      </exercise>
+    
+    </exercisegroup>
+
+    <exercise number="15.2.27">
+      <p>
+        Consider the double integral <m>\ds \int_4^9 \int_2^{\sqrt{y}} f(x,y) \, dx \, dy</m>. 
+        Sketch the domain of integration and express as an iterated integral in the opposite order. 
+      </p>
+    </exercise>
+
+    <exercise number="15.2.31">
+      <p>
+        Compute the integral of <m>f(x,y) = \lp \ln(y) \rp^{-1}</m> over the domain <m>\c{D}</m> bounded by <m>y = e^x</m> and <m>y = e^{\sqrt{x}}</m>. 
+      </p>
+
+      <hint>
+        <p>
+          Choose the order of integration that enables you to evaluate the integral. 
+        </p>
+      </hint>
+    </exercise>
+
+    <exercise number="15.2.35">
+      <p>
+        Consider the double integral <m>\ds \int_0^1 \int_{y = x}^1 xe^{y^3} \, dy \, dx</m>. 
+        Sketch the domain of integration. 
+        Then change the order of integration and evaluate. 
+        Explain the simplification achieved by changing the order. 
+      </p>
+    </exercise>
+
+    <exercise number="15.2.41">
+      <p>
+        Calculate the double integral of <m>f(x,y) = \dfrac{x}{y^2}</m> over the triangle indicated in the following figure. 
+      </p>
+    </exercise>
+
+    <exercise number="15.2.47">
+      <p>
+        Find the volume of the region bounded by <m>z = 16 - y</m>, <m>z = y</m>, <m>y = x^2</m>, and <m>y = 8 - x^2</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="15.2.53">
+      <p>
+        Calculate the average value of <m>f(x,y) = e^{x + y}</m> on the square domain <m>[0,1] \times [0,1]</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="15.2.55">
+      <p>
+        Find the average height of the "ceiling" in the figure below defined by <m>z = y^2\sin(x)</m> for <m>0 \leq x \leq \pi</m> and <m>0 \leq y \leq 1</m>. 
+      </p>
+    </exercise>
+  </worksheet>
+
 </section>

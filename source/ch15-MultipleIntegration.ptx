@@ -6,8 +6,11 @@
   <!-- include sections -->
   <xi:include href="sec151-IntegrationTwoVariables.ptx" />
   <xi:include href="sec152-DoubleIntegrals.ptx" />
+
+<!--
   <xi:include href="sec153-TripleIntegrals.ptx" />
   <xi:include href="sec154-IntegrationPolarCylindricalSphericalCoordinates.ptx" />
   <xi:include href="sec156-ChangeofVariables.ptx" />
+-->
 
 </chapter>

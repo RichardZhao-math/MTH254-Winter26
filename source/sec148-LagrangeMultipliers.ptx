@@ -25,4 +25,546 @@
     
   </introduction>
 
+  <p>
+    In life, we usually don't just optimize a function within its domain. 
+    It always comes with some constraints. 
+    To maximize and/or minimize a function subject to some constraints, we can use the method of <term>Lagrange multipliers</term>.
+  </p>
+
+  <p>
+    Let's start with a simple example. 
+    Imagine we have a surface <m>f(x,y) = x^2 + y^2 - 2x + 2y + 5</m>. 
+    Instead of looking at the entire surface, we only want to look at the points <m>(x,y,f(x,y))</m> where <m>(x,y)</m> satisfies some constraint, say <m>x^2 + y^2 = 4</m>.
+    The diagram below demonstrate this situation. 
+  </p>
+
+  <figure>
+    <image source="sec148_Objective_Constraint_Diagram.png" width="70%"></image>
+    <caption>Objective Function <m>f(x,y) = x^2 + y^2 - 2x + 2y + 5</m> with Constraint <m>x^2 + y^2 = 4</m></caption>
+  </figure>
+
+  <p>
+    The question here is: <em>What are the maximum and minimum values of <m>f(x,y)</m> subject to the constraint <m>x^2 + y^2 = 4</m>?</em>
+  </p>
+    
+  <p>
+    As the above diagram shows, we can find a level curve of <m>f</m> that is <term>tangent</term> to the constraint curve. 
+    At the point of tangency, the level curve and the constraint curve will have the same tangent line, and thus the same normal vector. 
+    Since the gradient is normal to the curve, the gradient of the level curve and the gradient of the constraint curve will be <term>parallel</term> at the point of tangency.
+    That is, there exists a scalar <m>\lambda</m> such that
+    <md>
+      \nabla f_P = \lambda \nabla g_P
+    </md>
+    where <m>P</m> is the point of tangency, and <m>g(x,y) = x^2 + 4y^2 - 4 = 0</m> is the constraint function. 
+    It is clearer to see this relationship in the diagram below 
+  </p>
+
+  <figure>
+    <image source="sec148_LagrangeMultiplier_Diagram.png" width="50%"></image>
+    <caption><m>\nabla f_P</m> and <m>\nabla g_P</m> are parallel at the point of tangency <m>P</m>. </caption>
+  </figure>
+
+  <p>
+    This is essentially the idea of Lagrange multipliers (the <m>\lambda</m> is called the <term>Lagrange Multiplier</term>). 
+    If we can find the point(s) <m>P</m> such that <m>\nabla f_P = \lambda \nabla g_P</m> for some scalar <m>\lambda</m>, then we can find the maximum and minimum values of <m>f</m> subject to the constraint <m>g(x,y) = 0</m>. 
+  </p>
+
+  <theorem xml:id="thm-LagrangeMultiplier">
+    <title>Lagrange Multipliers</title>
+    <statement>
+      <p>
+        Assume that <m>f(x,y)</m> and <m>g(x,y)</m> are differentiable functions. 
+        If <m>f(x,y)</m> has a local minimum or a local maximum on the constraint curve <m>g(x,y) = 0</m> at <m>P = (a,b)</m>, and if <m>\nabla g_P \neq \v{0}</m>, then there is a scalar <m>\lambda</m>, called the <term>Lagrange Multiplier</term>, such that
+        <md>
+          \nabla f_P = \lambda \nabla g_P
+        </md>
+      </p>
+    </statement>
+  </theorem>
+
+  <note>
+    <title>But Richard... How do we guarantee that the point(s) we find using Lagrange multipliers are actually the maximum and minimum values?</title>
+
+    <p>
+      Imagine we want to maximize or minimize the function value of the objective function <m>f</m> on the constraint curve <m>g(x,y) = 0</m>. 
+      If the level curve is still intersecting the constraint curve at two (or more) points, then we can keep moving towards the direction of the gradient (or the opposite direction) since the gradient always points to the maximum rate of increase. 
+      To some point, you can find the level curve that is tangent to the constraint curve. 
+    </p>
+
+    <p>
+      At this point, we can no longer move in the direction of the gradient, since it will take us out of the constraint curve, which means the function value at this point will either maximize or minimize the function value on the constraint curve, depending on which direction we were moving towards. 
+    </p>
+
+    <p>
+      The diagram below demonstrates this idea. 
+    </p>
+
+    <figure>
+      <image source="sec148_LagrangeMultiplier_Secant_Tangent_Diagram.png" width="90%"></image>
+    </figure>
+
+    <p>
+      Observing the diagram, we can see that the two gradients are parallel at the point of tangency, which is the point we find using Lagrange multipliers. 
+    </p>
+  </note>
+
+  <example>
+    <p>
+      Find the maximum and minimum values of the objective function <md>f(x,y) = 2x^2 + y^2 + 2</md> where <m>x</m> and <m>y</m> lie on the ellipse given by <md>g(x,y) = x^2 + 4y^2 - 4 = 0</md>. 
+    </p>
+
+    <hint>
+      <p>
+        Richard coded the graph of the surface and the constraint curve for you to visualize the whole situation. 
+      </p>
+
+      <figure xml:id="fig-paraboloid-constraint">
+        <caption>Graph of the surface <m>f(x,y) = 2x^2 + y^2 + 2</m> with the constraint curve <m>x^2 + 4y^2 = 4</m></caption>
+        <sidebyside width="80%">
+          <interactive platform="sage" width="100%" aspect="1:1">
+            <slate surface="sage">
+              var('x, y, t, u')
+
+              # --- 1. Parameters ---
+              # The constraint curve x^2 + 4y^2 = 4 can be parameterized as:
+              # x(t) = 2*cos(t), y(t) = sin(t) for t in [0, 2*pi]
+
+              # --- 2. Primary Object (Surface/Curve) ---
+              # Main Surface
+              surface_plot = plot3d(2*x^2 + y^2 + 2, (x, -2.5, 2.5), (y, -1.5, 1.5), 
+                                    color='teal', opacity=0.3, mesh=True, plot_points=[40, 40])
+
+              # Constraint curve on the xy-plane (z = 0)
+              curve_xy = parametric_plot3d((2*cos(t), sin(t), 0), (t, 0, 2*pi), 
+                                          color='teal', thickness=4, linestyle='dashed')
+
+              # Constraint curve on the surface z = f(x(t), y(t))
+              z_curve = 2*(2*cos(t))^2 + (sin(t))^2 + 2
+              curve_surf = parametric_plot3d((2*cos(t), sin(t), z_curve), (t, 0, 2*pi), 
+                                            color='blue', thickness=4)
+
+              # Vertical dashed lines to form the "solid" cylindrical boundary 
+              projection_lines = Graphics()
+              for i in range(24):
+                  val = i * 2*pi / 24
+                  z_val = 2*(2*cos(val))^2 + (sin(val))^2 + 2
+                  projection_lines += parametric_plot3d((2*cos(val), sin(val), u*z_val), (u, 0, 1), 
+                                                        color='teal', thickness=2, linestyle='dashed')
+
+              # --- 4. Axes and Labels ---
+              # Manual axes construction
+              axes = arrow3d((-3, 0, 0), (3, 0, 0), color='black', width=1) + \
+                    text3d("x", (3.2, 0, 0), color='black') + \
+                    arrow3d((0, -2, 0), (0, 2, 0), color='black', width=1) + \
+                    text3d("y", (0, 2.2, 0), color='black') + \
+                    arrow3d((0, 0, -1), (0, 0, 12), color='black', width=1) + \
+                    text3d("z", (0, 0, 12.5), color='black')
+
+              # --- 5. Show ---
+              # aspect_ratio adjusted slightly to prevent severe z-axis stretching
+              show(surface_plot + curve_xy + curve_surf + projection_lines + axes, 
+                  frame=False, aspect_ratio=[1, 1, 0.25])
+            </slate>
+          </interactive>
+        </sidebyside>
+      </figure>
+
+      <p>
+        Basically, rather than looking at the entire surface, we are only looking at the points on the surface that are also on the constraint curve (the one colored blue on the figure above).
+      </p>
+
+      <p>
+        To even help you visualize it better, Richard included a diagram with the level curves of the surface and the constraint curve on the <m>xy</m>-plane below. 
+      </p>
+
+      <figure>
+        <image source="sec148_LagrangeMultiplier_Example_SingleConstraint.png" width="50%"></image>
+      </figure>
+
+      <p>
+        Basically our task is to find the point(s) of tangency between the level curves and the constraint curve, and then evaluate the objective function at those point(s) to find the maximum and minimum values.
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        We begin by finding the gradients of both our objective function <m>f</m> and our constraint function <m>g</m>:
+        <md>
+          <mrow> \nabla f(x,y) \amp = \langle 4x, 2y \rangle </mrow>
+          <mrow> \nabla g(x,y) \amp = \langle 2x, 8y \rangle </mrow>
+        </md>
+      </p>
+      <p>
+        By the method of Lagrange multipliers, we set <m>\nabla f = \lambda \nabla g</m>, which gives us a system of equations. 
+        Don't forget to include the constraint itself as the final equation!
+        <md>
+          <mrow> 4x \amp = \lambda (2x) </mrow>
+          <mrow> 2y \amp = \lambda (8y) </mrow>
+          <mrow> x^2 + 4y^2 \amp = 4 </mrow>
+        </md>
+      </p>
+      <p>
+        Let's solve this system. From the first equation, 
+        <md>
+          4x - 2\lambda x = 0 \qquad \implies \qquad 2x(2 - \lambda) = 0
+        </md>
+        This gives us two cases: either <m>x = 0</m> or <m>\lambda = 2</m>.
+      </p>
+
+      <p>
+        <term>Case 1: </term> If <m>x = 0</m>, we plug this into the constraint equation
+        <md>
+          <mrow> 0^2 + 4y^2 \amp = 4 </mrow>
+          <mrow> y^2 \amp = 1 </mrow>
+          <mrow> y \amp= \pm 1 </mrow>
+        </md>
+        This yields two points: <m>(0,1)</m> and <m>(0,-1)</m>.
+      </p>
+
+      <p>
+        <term>Case 2: </term> If <m>\lambda = 2</m>, we plug this into the second equation
+        <md>
+          <mrow> 2y \amp = 2(8y) </mrow>
+          <mrow> 2y \amp = 16y </mrow>
+          <mrow> 14y \amp= 0 </mrow>
+          <mrow> y \amp= 0 </mrow>
+        </md>
+        Now we plug <m>y = 0</m> into the constraint equation
+        <md>
+          <mrow> x^2 + 4(0)^2 \amp = 4 </mrow>
+          <mrow> x^2 \amp = 4 </mrow> 
+          <mrow> x \amp= \pm 2 </mrow>
+        </md>
+        This yields two more points: <m>(2,0)</m> and <m>(-2,0)</m>.
+      </p>
+
+      <p>
+        Finally, we evaluate the objective function <m>f(x,y)</m> at these four points to determine the absolute maximum and minimum values. 
+        <md>
+          <mrow> f(0,1) \amp = 2(0)^2 + (1)^2 + 2 = 3 </mrow>
+          <mrow> f(0,-1) \amp = 2(0)^2 + (-1)^2 + 2 = 3 </mrow>
+          <mrow> f(2,0) \amp = 2(2)^2 + (0)^2 + 2 = 10 </mrow>
+          <mrow> f(-2,0) \amp = 2(-2)^2 + (0)^2 + 2 = 10 </mrow>
+        </md>
+      </p>
+      <p>
+        The maximum value is 10 (occurring at <m>(\pm 2,0)</m>), and the minimum value is 3 (occurring at <m>(0,\pm 1)</m>). 
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    The idea of the Lagrange multiplier can be extended to functions of more than two variables. 
+    The only adjustment we need to make is to replace the constraint curve with a constraint surface and the gradients will have three components instead of two. 
+  </p>
+
+  <example>
+    <p>
+      Find the least distance between the point <m>P(3,4,0)</m> and the surface of the cone <m>z^2 = x^2 + y^2</m>. 
+    </p>
+
+    <figure>
+      <image source="sec148_LagrangeMultiplier_Example_ThreeVariables.png" width="40%"></image>
+    </figure>
+
+    <hint>
+      <p>
+        Richard will help out with the setup here! 
+        Since we want to minimize the distance between <m>P</m> and a point on the cone, then we can define our objective function as
+        <md>
+          d(x,y,z) = \sqrt{(x - 3)^2 + (y - 4)^2 + z^2}
+        </md>
+        Or even better, we can minimize the square of the distance to avoid the square root, as follows
+        <md>
+          f(x,y,z) = (x - 3)^2 + (y - 4)^2 + z^2
+        </md>
+      </p>
+
+      <p>
+        The constraint here is that the point must be lying on the cone, so the constraint is 
+        <md>
+          g(x,y,z) = z^2 - x^2 - y^2 = 0
+        </md>
+      </p>
+
+      <p>
+        Now have fun with the rest of the process!
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        Using the setup from the hint, we find the gradients for our squared distance objective function and the cone constraint function
+        <md>
+          <mrow> \nabla f \amp = \langle 2(x - 3), 2(y - 4), 2z \rangle </mrow>
+          <mrow> \nabla g \amp = \langle -2x, -2y, 2z \rangle </mrow>
+        </md>
+      </p>
+
+      <p>
+        Setting <m>\nabla f = \lambda \nabla g</m>, we build our system of equations
+        <md>
+          <mrow> 2(x - 3) \amp = -2\lambda x </mrow>
+          <mrow> 2(y - 4) \amp = -2\lambda y </mrow>
+          <mrow> 2z \amp = 2\lambda z </mrow>
+          <mrow> z^2 - x^2 - y^2 \amp = 0 </mrow>
+        </md>
+      </p>
+
+      <p>
+        Observing the third equation 
+        <md>
+          2z - 2\lambda z = 0 \qquad \implies \qquad 2z(1 - \lambda) = 0
+        </md>
+        This implies either <m>z = 0</m> or <m>\lambda = 1</m>. 
+      </p>
+
+      <p>
+        If we let <m>z = 0</m>, our constraint equation becomes <m>0^2 - x^2 - y^2 = 0 \implies x^2 + y^2 = 0</m>. 
+        The only way this is true is if <m>x = 0</m> and <m>y = 0</m>. 
+        However, plugging <m>x = 0</m> into our first equation yields <m>2(0 - 3) = 0 \implies -6 = 0</m>, which is a contradiction. 
+        So, <m>z \neq 0</m>. 
+      </p>
+
+      <p>
+        Therefore, it must be true that <m>\lambda = 1</m>. We plug <m>\lambda = 1</m> into our first two equations
+        <md>
+          <mrow> 2(x - 3) \amp = -2(1)x \implies 2x - 6 = -2x \implies 4x = 6 \implies x = \frac{3}{2} </mrow>
+          <mrow> 2(y - 4) \amp = -2(1)y \implies 2y - 8 = -2y \implies 4y = 8 \implies y = 2 </mrow>
+        </md>
+      </p>
+      <p>
+        Now we plug <m>x</m> and <m>y</m> into the constraint to solve for <m>z^2</m> (note that we only need <m>z^2</m> to plug back into our objective function)
+        <md>
+          <mrow> z^2 = x^2 + y^2 = \left(\frac{3}{2}\right)^2 + (2)^2 = \frac{9}{4} + 4 = \frac{25}{4} </mrow>
+        </md>
+      </p>
+      <p>
+        We have found the point that minimizes the squared distance. Plugging these into our objective function <m>f</m>
+        <md>
+          <mrow> f\left(\frac{3}{2}, 2, z\right) \amp = \left(\frac{3}{2} - 3\right)^2 + (2 - 4)^2 + \frac{25}{4} </mrow>
+          <mrow> \amp = \left(-\frac{3}{2}\right)^2 + (-2)^2 + \frac{25}{4} </mrow>
+          <mrow> \amp = \frac{9}{4} + 4 + \frac{25}{4} = \frac{34}{4} + \frac{16}{4} = \frac{50}{4} = \frac{25}{2} </mrow>
+        </md>
+      </p>
+      <p>
+        Since <m>f</m> is the <em>squared</em> distance, the actual minimum distance is <m>\ds d = \sqrt{\frac{25}{2}} = \frac{5}{\sqrt{2}} = \frac{5\sqrt{2}}{2}</m>.
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    In addition, the Lagrange multiplier method can also be extended to optimize a function subject to multiple constraints. 
+    We will just need to make sure to add up the contributions from all the constraints. 
+    For example, if we want to optimize <m>f(x,y,z)</m> subject to two constraints <m>g(x,y,z) = 0</m> and <m>h(x,y,z) = 0</m>, then we need to find the points <m>P</m> such that
+    <md>
+      \nabla f_P = \lambda \nabla g_P + \mu \nabla h_P
+    </md>
+    where <m>\lambda</m> and <m>\mu</m> are the Lagrange multipliers for the two constraints, respectively. 
+  </p>
+
+  <example>
+    <p>
+      Find the maximum value of the function <m>f(x,y,z) = x + 2y + 3z</m> on the curve of intersection of the plane <m>x - y + z = 1</m> and the cylinder <m>x^2 + y^2 = 1</m>. 
+    </p>
+
+    <solution>
+      <p>
+        We have one objective function and two constraints. Let <m>g(x,y,z) = x - y + z - 1 = 0</m> and <m>h(x,y,z) = x^2 + y^2 - 1 = 0</m>. We need to find the gradients for all three:
+        <md>
+          <mrow> \nabla f \amp = \langle 1, 2, 3 \rangle </mrow>
+          <mrow> \nabla g \amp = \langle 1, -1, 1 \rangle </mrow>
+          <mrow> \nabla h \amp = \langle 2x, 2y, 0 \rangle </mrow>
+        </md>
+      </p>
+      <p>
+        Setting up the Lagrange multiplier equation with two constraints, <m>\nabla f = \lambda \nabla g + \mu \nabla h</m>, we get:
+        <md>
+          <mrow> 1 \amp = \lambda(1) + \mu(2x) </mrow>
+          <mrow> 2 \amp = \lambda(-1) + \mu(2y) </mrow>
+          <mrow> 3 \amp = \lambda(1) + \mu(0) </mrow>
+          <mrow> x - y + z \amp = 1 </mrow>
+          <mrow> x^2 + y^2 \amp = 1 </mrow>
+        </md>
+      </p>
+      <p>
+        From the third equation, we immediately get <m>\lambda = 3</m>. 
+      </p>
+      <p>
+        We can plug <m>\lambda = 3</m> into the first two equations to solve for <m>x</m> and <m>y</m> in terms of <m>\mu</m>
+        <md>
+          <mrow> 1 = 3 + 2\mu x \implies -2 = 2\mu x \implies x = -\frac{1}{\mu} </mrow>
+          <mrow> 2 = -3 + 2\mu y \implies 5 = 2\mu y \implies y = \frac{5}{2\mu} </mrow>
+        </md>
+      </p>
+      <p>
+        Now, substitute these expressions for <m>x</m> and <m>y</m> into the second constraint equation (<m>x^2 + y^2 = 1</m>)
+        <md>
+          <mrow> \left(-\frac{1}{\mu}\right)^2 + \left(\frac{5}{2\mu}\right)^2 \amp = 1 </mrow>
+          <mrow> \frac{1}{\mu^2} + \frac{25}{4\mu^2} \amp = 1 </mrow>
+          <mrow> \frac{4}{4\mu^2} + \frac{25}{4\mu^2} \amp = 1 \implies \frac{29}{4\mu^2} = 1 \implies 4\mu^2 = 29 \implies \mu = \pm\frac{\sqrt{29}}{2} </mrow>
+        </md>
+      </p>
+      <p>
+        Since we are looking for the maximum value, let's explore both cases for <m>\mu</m>. 
+      </p>
+      <p>
+        <term>Case 1: </term> <m>\mu = \frac{\sqrt{29}}{2}</m>
+        Substituting this back into our equations for <m>x</m> and <m>y</m>
+        <md>
+          <mrow> x \amp = \frac{-1}{\frac{\sqrt{29}}{2}} = -\frac{2}{\sqrt{29}} </mrow>
+          <mrow> y \amp = \frac{5}{2\left(\frac{\sqrt{29}}{2}\right)} = \frac{5}{\sqrt{29}} </mrow>
+        </md>
+        Using the first constraint <m>x - y + z = 1</m> to find <m>z</m>
+        <md>
+          <mrow> z = 1 - x + y = 1 - \left(-\frac{2}{\sqrt{29}}\right) + \frac{5}{\sqrt{29}} = 1 + \frac{7}{\sqrt{29}} </mrow>
+        </md>
+        Evaluating the objective function <m>f = x + 2y + 3z</m> at this point
+        <md>
+          <mrow> f \amp = -\frac{2}{\sqrt{29}} + 2\left(\frac{5}{\sqrt{29}}\right) + 3\left(1 + \frac{7}{\sqrt{29}}\right) </mrow>
+          <mrow> \amp = -\frac{2}{\sqrt{29}} + \frac{10}{\sqrt{29}} + 3 + \frac{21}{\sqrt{29}} = 3 + \frac{29}{\sqrt{29}} = 3 + \sqrt{29} </mrow>
+        </md>
+      </p>
+      <p>
+        <term>Case 2: </term> <m>\mu = -\frac{\sqrt{29}}{2}</m>
+        Similarly, we find <m>x = \frac{2}{\sqrt{29}}</m> and <m>y = -\frac{5}{\sqrt{29}}</m>. 
+        The <m>z</m> value is <m>z = 1 - \frac{2}{\sqrt{29}} - \frac{5}{\sqrt{29}} = 1 - \frac{7}{\sqrt{29}}</m>.
+        Evaluating the objective function <m>f</m> at this point
+        <md>
+          <mrow> f \amp = \frac{2}{\sqrt{29}} + 2\left(-\frac{5}{\sqrt{29}}\right) + 3\left(1 - \frac{7}{\sqrt{29}}\right) </mrow>
+          <mrow> \amp = \frac{2}{\sqrt{29}} - \frac{10}{\sqrt{29}} + 3 - \frac{21}{\sqrt{29}} = 3 - \frac{29}{\sqrt{29}} = 3 - \sqrt{29} </mrow>
+        </md>
+      </p>
+      <p>
+        Comparing the two results, the maximum value is <m>3 + \sqrt{29}</m>.
+      </p>
+    </solution>
+  </example>
+
+  <worksheet xml:id="ws-sec148">
+    <title>Assigned Problems for Section 14.8</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="14.8.1">
+      <p>
+        Find the extreme values of the function <m>f(x,y) = 2x + 4y</m> subject to the constraint <m>g(x,y) = x^2 + y^2 - 5 = 0</m> following the following steps: 
+        <ol marker="(a)">
+          <li>
+            <p>
+              Show that the Lagrange equation <m>\nabla f = \lambda \nabla g</m> gives <m>\lambda x = 1</m> and <m>\lambda y = 2</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that these equations imply <m>\lambda \neq 0</m> and <m>y = 2x</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the constraint equation to determine the possible critical points <m>(x,y)</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>f(x,y)</m> at the critical points and determine the minimum and maximum values. 
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, find the minimum and maximum values of the function subject to the given constraints. 
+        </p>
+      </introduction>
+    
+      <exercise number="14.8.7">
+        <p>
+          <m>f(x,y) = xy \, , \qquad 4x^2 + 9y^2 = 32</m>
+        </p>
+      </exercise>
+
+      <exercise number="14.8.13">
+        <p>
+          <m>f(x,y,z) = xy + 2z\, , \qquad x^2 + y^2 + z^2 = 36</m>
+        </p>
+      </exercise>
+    
+    </exercisegroup>
+
+    <exercise number="14.8.19">
+      <p>
+        The surface area of a right-circular cone of radius <m>r</m> and height <m>h</m> is
+        <md>
+          S = \pi r\sqrt{r^2 + h^2}
+        </md>
+        and its volume is
+        <md>
+          V = \frac{1}{3}\pi r^2h
+        </md>
+        <ol marker="(a)">
+          <li>
+            <p>
+              Determine the ratio <m>h/r</m> for the cone with given surface area <m>S</m> and maximum volume <m>V</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              What is the ratio <m>h/r</m> for a cone with given volume <m>V</m> and minimum surface area <m>S</m>? 
+            </p>
+          </li>
+          <li>
+            <p>
+              Does a cone with given volume <m>V</m> and maximum surface area <m>S</m> exist?
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+
+    <exercise number="14.8.23">
+      <p>
+        Find the point <m>(x_0, y_0)</m> on the line <m>4x + 9y = 12</m> that is closest to the origin. 
+      </p>
+    </exercise>
+
+    <exercise number="14.8.29">
+      <p>
+        Show that the minimum distance from the origin to a point on the plane <m>ax + by + cz = d</m> is 
+        <md>
+          \frac{|d|}{\sqrt{a^2 + b^2 + c^2}}
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="14.8.41">
+      <p>
+        Find the minimum of <m>f(x,y,z) = x^2 + y^2 + z^2</m> subject to the two constraints <m>x + y + z = 1</m> and <m>x + 2y + 3z = 6</m>.
+      </p>
+    </exercise>
+
+    <exercise number="14.8.45">
+      <p>
+        The cylinder <m>x^2 + y^2 = 1</m> intersects the plane <m>x + z = 1</m> in an ellipse. 
+        Find the point on such an ellipse that is farthest from the origin.
+      </p>
+    </exercise>
+  </worksheet>
+
 </section>

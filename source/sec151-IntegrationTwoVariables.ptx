@@ -25,4 +25,762 @@
     
   </introduction>
 
+  <p>
+    Recall back in MTH 252Z (or MTH 252), we can find the area of a region under a curve in <m>\R^2</m> by integrating the single-variable function. 
+    Similarly, if we boost everything up a dimension, then we should be able to find the <alert>volume</alert> of a solid in <m>\R^3</m> by integrating the function of two variables. 
+  </p>
+
+  <p>
+    If we remember how we defined the integral of a single-variable function back in MTH 252Z (or MTH 252), then we can use the same idea to define the integral of a function of two variables. 
+  </p>
+
+  <subsection xml:id="subsec-ReviewAreaRegion">
+    <title>Review: Integration and Riemann Sum in <m>\R^2</m></title>
+
+    <p>
+      Recall back in MTH 252Z (or MTH 252), we defined the integral of a function as the limit of Riemann sums. 
+      More specifically, we can <em>partition</em> the region of interest under the curve into a bunch of skinny rectangles, and we can estimate the area of the region by <alert>summing up</alert> the areas of the rectangles. 
+      This process is called a <term>Riemann Sum</term>. 
+    </p>
+
+    <figure>
+      <image source="sec151_RiemannSum_R2.png" width="70%"></image>
+      <caption>Riemann Sum in <m>\R^2</m></caption>
+    </figure>
+
+    <p>
+      Mathematically speaking, if we have a function <m>y = f(x)</m> defined on the interval <m>[a,b]</m>. 
+      Then we can <term>partition</term> the interval <m>[a,b]</m> into <m>N</m> sub-intervals
+      <md>
+        P: \, a = x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_N = b
+      </md>
+      The difference between two consecutive points in the partition, <m>\Delta x</m>, is the width of the rectangles. 
+    </p>
+
+    <p>
+      In each sub-interval <m>[x_i, x_{i + 1}]</m>, we can choose a <term>sample point</term> within the sub-interval to determine the height of the rectangle
+      <md>
+        C = \left\{c_1, c_2, \ldots, c_N\right\} \, , \qquad c_i \in [x_i, x_{i + 1}]
+      </md>
+      The function value at the sample point, <m>f(c_i)</m>, is the height of the rectangle.
+    </p>
+
+    <p>
+      Putting these two pieces together, we can estimate the area of the region under the curve by <em>summing up</em> the areas of the rectangles as follows: 
+      <md>
+        A \approx \sum_{i = 1}^N f(c_i) \Delta x
+      </md>
+    </p>
+
+    <p>
+      Recall that the area of all rectangles summing up together will be closer and closer to the actual area of the region as we make the partition finer and finer, using more and more rectangles. 
+      That is, our Riemann sum estimate will get better and better as we increase the number of rectangles. 
+      Using calculus language, the limit of the Riemann sum as the number of rectangles goes to infinity is the actual area of the region under the curve. 
+      Symbolically, we can write this as
+      <md>
+        A = \lim_{N \to \infty} \sum_{i = 1}^N f(c_i) \Delta x
+      </md>
+      This is how we defined the definite integral of a single-variable function back in MTH 252Z (or MTH 252).
+      <md>
+        \int _a^b f(x)\, dx := \lim_{N \to \infty} \sum_{i = 1}^N f(c_i) \Delta x
+      </md>
+      If we break down each component of the definite integral and match up the notation, we know that
+      <ul>
+        <li>
+          <p>
+            the definite sign, <m>\int</m>, means summation (a cursive S). 
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>f(x)</m> is the function value at some random point <m>x</m>, which works like the height of the representative rectangle.
+            This is also called the <term>integrand</term>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>dx</m> is the width of the representative rectangle (<m>dx</m> means <m>\Delta x</m> when the change is really really really small). 
+            This is also called the <term>differential</term>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            the <m>a</m> and the <m>b</m> tells us about the interval. 
+            They are called the <term>limits of integration</term>. 
+            <m>a</m> is the <term>lower limit</term> and <m>b</m> is the <term>upper limit</term>.
+          </p>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Now that we have reviewed what integration means (summing up a bunch of stuff), we can now extend this idea to functions of two variables! 
+    </p>
+
+    <p>
+      <term>P.S.: </term> if you need a more detailed review, here is Richard's MTH 252Z note on 
+      <url href="https://richardzhao-math.github.io/MTH252Z-Fall25/sec51-ApproximatingArea.html">Approximating Area Using Riemann Sums</url>, 
+      <url href="https://richardzhao-math.github.io/MTH252Z-Fall25/sec52-DefiniteIntegral.html">Definite Integrals</url>, 
+      and <url href="https://richardzhao-math.github.io/MTH252Z-Fall25/sec56-NetChange.html">Definite Integrals as Summing Up Pieces</url>
+      last term (Fall 2025).
+    </p>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-VolumeSolid">
+    <title>Volume of a Solid</title>
+    
+    <p>
+      Now let's boost everything up a dimension! 
+      In a nutshell, we can find the volume of a solid by doing something like the image below: 
+    </p>
+
+    <figure>
+      <image source="sec151_DoubleIntegral_FriesEdition.jpg" width="40%"></image>
+      <caption>Riemann Sum in <m>\R^3</m> using french fries </caption>
+    </figure>
+
+    <p>
+      Now let's get into the details!
+      Rather than working with a single-variable function, we will now work with a function of two variables. 
+      Let's call this function <m>z = f(x,y)</m>. 
+      The graph of <m>f</m> is a surface in <m>\R^3</m>, and the "region" under the surface is now a solid! 
+    </p>
+
+    <figure>
+      <image source="sec151_RegionUnderSurface_Diagram.png" width="40%"></image>
+      <caption>"Region" under the surface <m>z = f(x,y)</m> on <m>[a,b] \times [c,d]</m> is a solid. </caption>
+    </figure>
+
+    <p>
+      Observe from the diagram above that we can determine the solid by looking at the surface over a <term>region</term> on the <m>xy</m>-plane. 
+      Usually, we can describe the region of interest on the <m>xy</m>-plane by 
+      <md>
+        \c{R} = [a,b] \times [c,d] = \left\{(x,y)\in  \R^2 \mid a \leq x \leq b\, , \quad c \leq y \leq d\right\}
+      </md>
+      The region <m>\c{R}</m> in the diagram is a <term>rectangle</term>. 
+    </p>
+
+    <p>
+      If we want to apply the <term>Riemann sum</term> idea to partitioning and finding sample points here, we will need to do it in two dimensions: along the <m>x</m>-axis and along the <m>y</m>-axis. 
+      This will give us a bunch of tiny sub-rectangles within the region, and we can pick a point within each sub-rectangle to be the sample point. 
+    </p>
+
+    <figure>
+      <image source="sec151_PartitionRegion_Diagram.png" width="70%"></image>
+      <caption>Partitioning the region <m>\c{R}</m> into sub-rectangles. </caption>
+    </figure>
+
+    <p>
+      Now let's think about how to find the volume of the solid! 
+      For each of the sub-rectangle, we can construct a skinny rectangular box that has the same base as the sub-rectangle and the height equal to the function value at the sample point. 
+      Then the volume of the skinny rectangular box is <m>f\lp x_{ij}^*, y_{ij}^* \rp\, \Delta A</m> (base times height), where <m>\Delta A</m> is the area of the sub-rectangle and <m>(x_{ij}^*, y_{ij}^*)</m> is the sample point in the sub-rectangle. 
+      To find the total volume of the solid, we will just need to <em>sum up</em> the volumes of all the skinny rectangular boxes. 
+      Symbolically, we can write this as
+      <md>
+        V \approx S_{N, M} = \sum_{i = 1}^N \sum_{j = 1}^M f\lp x_{ij}^*, y_{ij}^* \rp\, \Delta A
+      </md>
+      where <m>N</m> and <m>M</m> are the number of partitions along the <m>x</m>-axis and the <m>y</m>-axis, respectively, and <m>S_{N,M}</m> is the Riemann sum estimate of the volume of the solid using <m>N</m> and <m>M</m> partitions. 
+    </p>
+
+    <figure>
+      <image source="sec151_RiemannSum_Volume_Diagram.png" width="100%"></image>
+      <caption>Partitioning the solid into skinny rectangular boxes. </caption>
+    </figure>
+
+    <p>
+      As you can imagine, the more and more skinny rectangular boxes we have, the better and better our estimate of the volume will be. 
+      Using calculus language, the limit of the Riemann sum as the number of boxes goes to infinity is the actual volume of the solid. 
+      Symbolically, we can write this as
+      <md>
+        V = \lim_{N,M \to \infty} \sum_{i = 1}^N \sum_{j = 1}^M f\lp x_{ij}^*, y_{ij}^* \rp\, \Delta A
+      </md>
+      Observe that there are two summation notations in the expression above, then we will need two integration signs to capture the idea of summing up in two dimensions. 
+      This is how we define the <term>double integral</term> of a function of two variables over a rectangular region to find the volume of the solid under the surface. 
+    </p>
+
+    <definition xml:id="def-DoubleIntegral_RectangularRegion">
+      <title>Double Integral over a Rectangular Region</title>
+      <statement>
+        <p>
+          The <term>double integral</term> of <m>f(x,y)</m> over a rectangular region <m>\c{R}</m> is defined as the limit
+          <md>
+            \iint_\c{R} f(x,y)\, dA = \lim_{N,M \to \infty} \sum_{i = 1}^N \sum_{j = 1}^M f\lp x_{ij}^*, y_{ij}^* \rp\, \Delta A
+          </md>
+          If the limit exists, we say that <m>f(x,y)</m> is <term>integrable</term> over <m>\c{R}</m>.
+        </p>
+      </statement>
+    </definition>
+
+    <note>
+      <title>But Richard... Do all the sub-rectangles have to be the same size?</title>
+      <p>
+        The short answer is no. 
+        The only thing we want to make sure is to let the area of <term>each</term> sub-rectangle go to zero. 
+      </p>
+
+      <p>
+        But there is a false equivalence of "having infinite number of sub-rectangles" and "having all the sub-rectangles to have the area approaching zero". 
+        It is totally possible to have infinitely many sub-rectangles but the area of some of the sub-rectangles does not approach zero. 
+        An easiest example is to split the rectangular region in half, and only partition one half into infinitely many sub-rectangles while leaving the other half as one big rectangle. 
+      </p>
+
+      <p>
+        If we demand all the sub-rectangles to have the same area, then we can guarantee that the area of each sub-rectangle approaches zero as the number of sub-rectangles goes to infinity. 
+        Also, it is easier to find the area of each sub-rectangle if they are all the same size.
+        Because of this convenience, we call this type of partition a <term>regular partition</term>.
+      </p>
+
+      <p>
+        If you relax this condition a bit and don't require all the sub-rectangles to have the same area, then you can still do the Riemann sum by requiring the <term>largest</term> sub-rectangle to have the area approaching zero. 
+        This is how your textbook defines the Riemann sum. 
+      </p>
+    </note>
+
+    <example>
+      <p>
+        Estimate the volume of the solid under the elliptic paraboloid <m>z = 16 - x^2 - 2y^2</m> over the region <m>[0,2] \times [0,2]</m> using four sub-rectangles and the upper-right vertices of the sub-rectangles as sample points. 
+      </p>
+
+      <hint>
+        <p>
+          The goal here is to estimate the volume of the solid under the surface using four rectangular boxes, as demonstrated in the figure below. 
+        </p>
+
+        <figure xml:id="fig-volume-estimation-boxes">
+          <caption>Graph of the surface <m>f(x,y) = 16 - x^2 - 2y^2</m> with four rectangular boxes estimating the volume using upper right vertices.</caption>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('x, y')
+
+                # --- 1. Parameters ---
+                f(x,y) = 16 - x^2 - 2*y^2
+                # The region is [0, 2] x [0, 2] with 4 total boxes, meaning a 2x2 grid.
+                # The subintervals have width dx = 1 and length dy = 1.
+
+                # --- 2. Primary Object (Surface) ---
+                surface_plot = plot3d(f(x,y), (x, 0, 2.5), (y, 0, 2.5), 
+                                      color='teal', opacity=0.3, mesh=True, plot_points=[30, 30])
+
+                # --- 3. Rectangular Boxes (Riemann Sum) ---
+                boxes = Graphics()
+                for i in range(1, 3):
+                    for j in range(1, 3):
+                        # Upper right vertex determines the height
+                        x_star = i
+                        y_star = j
+                        z_val = f(x_star, y_star)
+                        
+                        # Box bounds
+                        x0, x1 = i-1, i
+                        y0, y1 = j-1, j
+                        z0, z1 = 0, z_val
+                        
+                        # Draw solid faces for each box
+                        # Top and Bottom
+                        boxes += polygon3d([(x0,y0,z1), (x1,y0,z1), (x1,y1,z1), (x0,y1,z1)], color='orange', opacity=0.7)
+                        boxes += polygon3d([(x0,y0,z0), (x1,y0,z0), (x1,y1,z0), (x0,y1,z0)], color='orange', opacity=0.7)
+                        # Sides
+                        boxes += polygon3d([(x0,y0,z0), (x1,y0,z0), (x1,y0,z1), (x0,y0,z1)], color='orange', opacity=0.7)
+                        boxes += polygon3d([(x1,y0,z0), (x1,y1,z0), (x1,y1,z1), (x1,y0,z1)], color='orange', opacity=0.7)
+                        boxes += polygon3d([(x1,y1,z0), (x0,y1,z0), (x0,y1,z1), (x1,y1,z1)], color='orange', opacity=0.7)
+                        boxes += polygon3d([(x0,y1,z0), (x0,y0,z0), (x0,y0,z1), (x0,y1,z1)], color='orange', opacity=0.7)
+                        
+                        # Add black borders for structural clarity
+                        boxes += line3d([(x0,y0,z1), (x1,y0,z1), (x1,y1,z1), (x0,y1,z1), (x0,y0,z1)], color='black', thickness=2)
+                        boxes += line3d([(x0,y0,z0), (x0,y0,z1)], color='black', thickness=2)
+                        boxes += line3d([(x1,y0,z0), (x1,y0,z1)], color='black', thickness=2)
+                        boxes += line3d([(x1,y1,z0), (x1,y1,z1)], color='black', thickness=2)
+                        boxes += line3d([(x0,y1,z0), (x0,y1,z1)], color='black', thickness=2)
+
+                # --- 4. Axes and Labels ---
+                # Manual axes construction
+                axes = arrow3d((0, 0, 0), (3, 0, 0), color='black', width=1) + \
+                      text3d("x", (3.2, 0, 0), color='black') + \
+                      arrow3d((0, 0, 0), (0, 3, 0), color='black', width=1) + \
+                      text3d("y", (0, 3.2, 0), color='black') + \
+                      arrow3d((0, 0, 0), (0, 0, 18), color='black', width=1) + \
+                      text3d("z", (0, 0, 18.5), color='black')
+
+                # --- 5. Show ---
+                # Squishing the aspect ratio slightly on the z-axis so it doesn't tower vertically
+                show(surface_plot + boxes + axes, frame=False, aspect_ratio=[1, 1, 0.15])
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+        <p>
+          Graphically speaking, we can determine the coordinates of the upper-right vertices of the sub-rectangles, as demonstrated in the figure below. 
+        </p>
+
+        <figure>
+          <image source="sec151_RiemannSum_Example.png" width="50%"></image>
+        </figure>
+
+        <p>
+          So how do we find the volume of each rectangular box? 
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          First, we need to set up the partition. The region <m>\c{R}</m> is a <m>[0,2] \times [0,2]</m> square on the <m>xy</m>-plane. Dividing it into four equal sub-rectangles gives a <m>2 \times 2</m> grid. 
+        </p>
+        <p>
+          The width and length of each sub-rectangle are <m>\Delta x = \frac{2-0}{2} = 1</m> and <m>\Delta y = \frac{2-0}{2} = 1</m>. The area of each base is <m>\Delta A = 1 \cdot 1 = 1</m>.
+        </p>
+        <p>
+          Next, we identify the sample points. We are using the upper-right vertices for our <m>(x_{ij}^*, y_{ij}^*)</m>. For the four sub-rectangles, these points are:
+          <ul>
+            <li><p>Top-right of <m>[0,1] \times [0,1]</m> is <m>(1,1)</m></p></li>
+            <li><p>Top-right of <m>[1,2] \times [0,1]</m> is <m>(2,1)</m></p></li>
+            <li><p>Top-right of <m>[0,1] \times [1,2]</m> is <m>(1,2)</m></p></li>
+            <li><p>Top-right of <m>[1,2] \times [1,2]</m> is <m>(2,2)</m></p></li>
+          </ul>
+        </p>
+        <p>
+          Now we calculate the heights by evaluating <m>f(x,y) = 16 - x^2 - 2y^2</m> at each sample point:
+          <ul>
+            <li><p><m>f(1,1) = 16 - (1)^2 - 2(1)^2 = 13</m></p></li>
+            <li><p><m>f(2,1) = 16 - (2)^2 - 2(1)^2 = 10</m></p></li>
+            <li><p><m>f(1,2) = 16 - (1)^2 - 2(2)^2 = 7</m></p></li>
+            <li><p><m>f(2,2) = 16 - (2)^2 - 2(2)^2 = 4</m></p></li>
+          </ul>
+        </p>
+        <p>
+          Finally, we sum the volumes of the four rectangular boxes:
+          <md>
+            <mrow> V \amp \approx \sum_{i=1}^2 \sum_{j=1}^2 f(x_{ij}^*, y_{ij}^*)\Delta A </mrow>
+            <mrow> \amp = (13 + 10 + 7 + 4)(1) </mrow>
+            <mrow> \amp = 34 </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      Just like when you first learned about integrals back in MTH 252Z (or MTH 252), we can sometimes find the value of the double integral using <term>geometry</term> if the solid has a nice shape that we know the volume formula for. 
+    </p>
+
+    <example>
+      <p>
+        Evaluate the double integral <m>\ds \iint_\c{R} \sqrt{1 - x^2}\, dA</m>, where <m>\c{R} = [-1,1] \times [-2,2]</m>.
+      </p>
+
+      <solution>
+        <p>
+          Instead of finding an antiderivative, let's look at the surface <m>z = \sqrt{1 - x^2}</m>. 
+          Squaring both sides gives <m>z^2 = 1 - x^2</m>, or <m>x^2 + z^2 = 1</m>. 
+          In <m>\R^3</m>, this represents a cylinder of radius 1 centered along the <m>y</m>-axis. Since <m>z \geq 0</m>, we are only looking at the top half of this cylinder.
+        </p>
+
+        <p>
+          Richard coded the surface and the region of interest below for you to visualize what the solid looks like. 
+        </p>
+
+        <figure xml:id="fig-closed-half-cylinder">
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('x, y, r, t')
+
+                # --- 1. Parameters ---
+                x_min, x_max = -1, 1
+                y_min, y_max = -2, 2
+
+                # --- 2. Primary Object (Surface) ---
+                surface_plot = plot3d(sqrt(1 - x^2), (x, x_min, x_max), (y, y_min, y_max), 
+                                      color='teal', opacity=0.3, mesh=True, plot_points=[40, 40])
+
+                # --- 3. Closing objects to construct the solid ---
+                # A. Base on the xy-plane
+                base_xy = polygon3d([(x_min, y_min, 0), (x_max, y_min, 0), 
+                                    (x_max, y_max, 0), (x_min, y_max, 0)], 
+                                    color='teal', opacity=0.3)
+
+                # B. Semicircle endcaps (planes y=-2 and y=2)
+                # Using parametric plots with two parameters to create solid disks
+                endcap_1 = parametric_plot3d((r*cos(t), y_min, r*sin(t)), (t, 0, pi), (r, 0, 1), 
+                                            color='teal', opacity=0.3, plot_points=[30, 20])
+                endcap_2 = parametric_plot3d((r*cos(t), y_max, r*sin(t)), (t, 0, pi), (r, 0, 1), 
+                                            color='teal', opacity=0.3, plot_points=[30, 20])
+
+                # C. Outlines for clarity (Teal Rule)
+                # Initialize directly with the base outline to avoid the graphics_array error
+                outlines = line3d([(x_min, y_min, 0), (x_max, y_min, 0), (x_max, y_max, 0), 
+                                  (x_min, y_max, 0), (x_min, y_min, 0)], color='teal', thickness=1)
+
+                # Add curves on the surface at the ends
+                outlines += parametric_plot3d((cos(t), y_min, sin(t)), (t, 0, pi), color='teal', thickness=1)
+                outlines += parametric_plot3d((cos(t), y_max, sin(t)), (t, 0, pi), color='teal', thickness=1)
+
+                solid = surface_plot + base_xy + endcap_1 + endcap_2 + outlines
+
+                # --- 4. Axes and Labels ---
+                axes = arrow3d((-1.5, 0, 0), (1.5, 0, 0), color='black', width=1) + \
+                      text3d("x", (1.7, 0, 0), color='black') + \
+                      arrow3d((0, -2.5, 0), (0, 2.5, 0), color='black', width=1) + \
+                      text3d("y", (0, 2.7, 0), color='black') + \
+                      arrow3d((0, 0, 0), (0, 0, 1.5), color='black', width=1) + \
+                      text3d("z", (0, 0, 1.7), color='black')
+
+                # --- 5. Show ---
+                show(solid + axes, frame=False, aspect_ratio=[1, 1, 1])
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+
+        <p>
+          The region <m>\c{R} = [-1,1] \times [-2,2]</m> tells us that <m>x</m> goes from <m>-1</m> to <m>1</m> (which exactly matches the diameter of our cylinder) and <m>y</m> goes from <m>-2</m> to <m>2</m>. 
+        </p>
+        <p>
+          Therefore, the solid is a half-cylinder with a length of <m>4</m> (since <m>2 - (-2) = 4</m>) and a semi-circular cross-section of radius 1. We can calculate the volume using basic geometry:
+          <md>
+            <mrow> \text{Area of base} \amp = \frac{1}{2}\pi r^2 = \frac{1}{2}\pi (1)^2 = \frac{\pi}{2} </mrow>
+            <mrow> \text{Volume} \amp = \text{Area} \cdot \text{length} = \frac{\pi}{2} \cdot 4 = 2\pi </mrow>
+          </md>
+          So, <m>\ds \iint_\c{R} \sqrt{1 - x^2}\, dA = 2\pi</m>.
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-IteratedIntegrals">
+    <title>Iterated Integrals</title>
+
+    <p>
+      In practice, we usually don't have a nice shape that we can find the volume using geometry, so we will need to evaluate the double integral using calculus. 
+      One way to do so is to think about the double integral as an <term>iterated integral</term>, which takes in the following form
+      <md>
+        \iint_R f(x,y)\, dA = \int_a^b \int_c^d f(x,y)\, dy\, dx = \int_a^b \lp \int_c^d f(x,y)\, dy \rp \, dx
+      </md>
+      Well this form makes sense. 
+      If the rectangular region <m>\c{R}</m> is <m>[a,b] \times [c,d]</m>, then we can first fix the <m>x</m>-value and integrate with respect to <m>y</m> from <m>c</m> to <m>d</m>. 
+      This gives us the area of the cross-section of the solid at that particular <m>x</m>-value. 
+      Then we can integrate with respect to <m>x</m> from <m>a</m> to <m>b</m> to sum up all the cross-sectional areas to get the total volume of the solid (this is a similar idea to the Disk Method you learned back in MTH 252Z (or MTH 252)).
+      The term "iterated integral" just means that we are integrating in succession. 
+    </p>
+
+    <figure>
+      <image source="sec151_IteratedIntegral_Diagram.gif" width="40%"></image>
+      <caption>The inner integral finds the cross-sectional area and the outer integral sums all cross-sectional areas to get the total volume.</caption>
+    </figure>
+
+    <p>
+      There are two steps to evaluate a double integral using iterated integrals: evaluate the inner integral with respect to one variable first, treating the other variable as a constant, and then evaluate the outer integral with respect to the other variable. 
+      Now that we only deal with one variable for each integral, we can now use all the fun integral techniques you learned back in MTH 252Z (or MTH 252) to evaluate the inner and outer integrals! 
+    </p>
+
+    <example>
+      <p>
+        Evaluate the double integral <m>\ds \int_1^3 \int_0^\frac{\pi}{2} x\sin(y)\, dy\, dx</m>
+      </p>
+
+      <solution>
+        <p>
+          We start by evaluating the inner integral with respect to <m>y</m>, treating <m>x</m> as a constant:
+          <md>
+            <mrow> \int_0^{\frac{\pi}{2}} x\sin(y)\, dy \amp = x \Big[ -\cos(y) \Big]_0^{\frac{\pi}{2}} </mrow>
+            <mrow> \amp = x \left( -\cos\left(\frac{\pi}{2}\right) - (-\cos(0)) \right) </mrow>
+            <mrow> \amp = x(0 + 1) = x </mrow>
+          </md>
+        </p>
+        <p>
+          Next, we substitute this result into the outer integral and integrate with respect to <m>x</m>:
+          <md>
+            <mrow> \int_1^3 x\, dx \amp = \left[ \frac{1}{2}x^2 \right]_1^3 </mrow>
+            <mrow> \amp = \frac{9}{2} - \frac{1}{2} = 4 </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    
+    <example>
+      <p>
+        Evaluate the double integral <m>\ds \int_0^1 \int_0^1 \sqrt{x + y}\, dx\, dy</m>
+      </p>
+
+      <solution>
+        <p>
+          We start by evaluating the inner integral with respect to <m>x</m>, treating <m>y</m> as a constant. 
+          <md>
+            <mrow> \int_0^1 (x + y)^{1/2}\, dx \amp = \left[ \frac{2}{3}(x + y)^{3/2} \right]_{x=0}^{x=1} </mrow>
+            <mrow> \amp = \frac{2}{3} \big( (1 + y)^{3/2} - (0 + y)^{3/2} \big) </mrow>
+            <mrow> \amp = \frac{2}{3} \big( (y + 1)^{3/2} - y^{3/2} \big) </mrow>
+          </md>
+        </p>
+        <p>
+          Now, we substitute this result back into the outer integral to integrate with respect to <m>y</m>.
+          <md>
+            <mrow> \int_0^1 \frac{2}{3} \big( (y + 1)^{3/2} - y^{3/2} \big)\, dy </mrow>
+          </md>
+        </p>
+        <p>
+          We can evaluate this by integrating each term directly using the power rule.
+          <md>
+            <mrow> \amp \frac{2}{3} \left[ \frac{2}{5}(y + 1)^{5/2} - \frac{2}{5}y^{5/2} \right]_{y=0}^{y=1} </mrow>
+            <mrow> \amp = \frac{4}{15} \Big[ (y + 1)^{5/2} - y^{5/2} \Big]_0^1 </mrow>
+          </md>
+        </p>
+        <p>
+          Next, we evaluate these terms at the boundaries <m>y = 1</m> and <m>y = 0</m>.
+          <md>
+            <mrow> \amp \frac{4}{15} \Big( \big( (1 + 1)^{5/2} - 1^{5/2} \big) - \big( (0 + 1)^{5/2} - 0^{5/2} \big) \Big) </mrow>
+            <mrow> \amp = \frac{4}{15} \Big( (2^{5/2} - 1) - (1 - 0) \Big) </mrow>
+          </md>
+        </p>
+        <p>
+          Finally, we simplify the expression. Recognizing that <m>2^{5/2} = (\sqrt{2})^5 = 4\sqrt{2}</m>, we get our final exact answer.
+          <md>
+            <mrow> \frac{4}{15} \big( 4\sqrt{2} - 1 - 1 \big) \amp = \frac{4}{15} \big( 4\sqrt{2} - 2 \big) </mrow>
+            <mrow> \amp = \frac{16\sqrt{2} - 8}{15} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <example>
+      <p>
+        Evaluate the double integral <m>\ds \iint_\c{R} \lp 6 - 2x - y \rp\, dA</m>, where <m>\c{R} = [0,1] \times [0,2]</m>.
+      </p>
+
+      <hint>
+        <p>
+          There are two options here... 
+          We can integrate with respect to <m>y</m> first, then <m>x</m>, or we can integrate with respect to <m>x</m> first, then <m>y</m>.
+          But which one will work out? 
+        </p>
+
+        <p>
+          Let's try them both out and see what happens!
+        </p>
+      </hint>
+
+      <solution>
+        <title>If we integrate with respect to <m>y</m> first, then <m>x</m></title>
+        <p>
+          Let's choose to integrate with respect to <m>y</m> first, then <m>x</m>.
+        </p>
+        <p>
+          Evaluating the inner integral with respect to <m>y</m>:
+          <md>
+            <mrow> \int_0^2 (6 - 2x - y)\, dy \amp = \left[ 6y - 2xy - \frac{1}{2}y^2 \right]_0^2 </mrow>
+            <mrow> \amp = \left( 12 - 4x - 2 \right) - (0) </mrow>
+            <mrow> \amp = 10 - 4x </mrow>
+          </md>
+        </p>
+        <p>
+          Now, evaluating the outer integral with respect to <m>x</m>:
+          <md>
+            <mrow> \int_0^1 (10 - 4x)\, dx \amp = \left[ 10x - 2x^2 \right]_0^1 </mrow>
+            <mrow> \amp = 10 - 2 = 8 </mrow>
+          </md>
+        </p>
+      </solution>
+
+      <solution>
+        <title>If we integrate with respect to <m>x</m> first, then <m>y</m></title>
+        <p>
+          Evaluating the inner integral with respect to <m>x</m> (treating <m>y</m> as a constant):
+          <md>
+            <mrow> \int_0^1 (6 - 2x - y)\, dx \amp = \left[ 6x - x^2 - xy \right]_{x=0}^{x=1} </mrow>
+            <mrow> \amp = \left( 6(1) - (1)^2 - (1)y \right) - (0) </mrow>
+            <mrow> \amp = 6 - 1 - y </mrow>
+            <mrow> \amp = 5 - y </mrow>
+          </md>
+        </p>
+        <p>
+          Now, evaluating the outer integral with respect to <m>y</m>:
+          <md>
+            <mrow> \int_0^2 (5 - y)\, dy \amp = \left[ 5y - \frac{1}{2}y^2 \right]_{y=0}^{y=2} </mrow>
+            <mrow> \amp = \left( 5(2) - \frac{1}{2}(2)^2 \right) - (0) </mrow>
+            <mrow> \amp = 10 - 2 = 8 </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      In the last example, we see that the answer of the double integral is the same regardless of the order in which the integration is performed (integrating with respect to <m>y</m> first or integrating with respect to <m>x</m> first). 
+      This is a special property of double integrals called <term>Fubini's Theorem</term>. 
+      It is also the Fubini's Theorem that allows us to evaluate the double integral as an iterated integral.
+    </p>
+
+    <theorem xml:id="thm-FubiniTheorem">
+      <title>Fubini's Theorem</title>
+      <statement>
+        <p>
+          The double integral of a continuous function <m>f(x,y)</m> over a rectangular region <m>\c{R} = [a,b] \times [c,d]</m> is equal to the iterated integral (in either order): 
+          <md>
+            \iint_\c{R} f(x,y)\, dA = \int_{x = a}^b \int_{y = c}^d f(x,y)\, dy\, dx = \int_{y = c}^d \int_{x = a}^b f(x,y)\, dx\, dy
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      The proof of the Fubini's Theorem is a bit technical. 
+      Intuitively, the volume of the solid should stay the same regardless of how we slice it up and sum up the pieces, as indicated in the following diagram. 
+    </p>
+
+    <figure>
+      <image source="sec151_FubiniTheorem_Diagram.png" width="70%"></image>
+    </figure>
+    
+    <p>
+      By the Fubini's Theorem, we can choose the order of integration that makes the work easier. 
+    </p>
+
+    <example>
+      <p>
+        Evaluate the double integral <m>\ds \iint_\c{R} ye^{xy}\, dA</m>, where <m>\c{R} = [0,1] \times [0,\ln(2)]</m>. 
+      </p>
+
+      <solution>
+        <p>
+          We must choose the order of integration: <m>dx\,dy</m> or <m>dy\,dx</m>. 
+        </p>
+        <p>
+          If we integrate with respect to <m>y</m> first, we have to evaluate <m>\int ye^{xy}\, dy</m>, which requires Integration by Parts. However, if we integrate with respect to <m>x</m> first, <m>y</m> is treated as a constant, and <m>\int ye^{xy}\, dx = e^{xy}</m>, which is much simpler. Therefore, we will use the order <m>dx\,dy</m>.
+        </p>
+        <p>
+          Setting up the iterated integral and evaluating the inner integral with respect to <m>x</m>:
+          <md>
+            <mrow> \int_0^{\ln(2)} \int_0^1 ye^{xy}\, dx\, dy \amp = \int_0^{\ln(2)} \Big[ e^{xy} \Big]_{x=0}^{x=1}\, dy </mrow>
+            <mrow> \amp = \int_0^{\ln(2)} (e^y - e^0)\, dy </mrow>
+            <mrow> \amp = \int_0^{\ln(2)} (e^y - 1)\, dy </mrow>
+          </md>
+        </p>
+        <p>
+          Now, evaluate the outer integral with respect to <m>y</m>:
+          <md>
+            <mrow> \int_0^{\ln(2)} (e^y - 1)\, dy \amp = \Big[ e^y - y \Big]_0^{\ln(2)} </mrow>
+            <mrow> \amp = (e^{\ln(2)} - \ln(2)) - (e^0 - 0) </mrow>
+            <mrow> \amp = 2 - \ln(2) - 1 </mrow>
+            <mrow> \amp = 1 - \ln(2) </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      But be careful! 
+      When interchanging the order of integration, you will also need to change the limits of integration accordingly! 
+      In this section, we can just simply swap the limits of integration because the region is a rectangle (so the values of <m>x</m> and <m>y</m> are independent of each other). 
+      However, in the next section, we will investigate the double integrals over a more general region, which may require more work to change and adjust (and maybe even finding) the limits of integration when changing the order of integration. 
+    </p>
+    
+  </subsection>
+
+  <worksheet xml:id="ws-sec151">
+    <title>Assigned Problems for Section 15.1</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="15.1.1">
+      <p>
+        Compute the Riemann sum <m>S_{4,3}</m> to estimate the double integral of <m>f(x,y) = xy</m> over <m>\c{R} = [1,3] \times [1,2.5]</m>. 
+        Use the regular partition and upper-right vertices of the sub-rectangles as sample points. 
+      </p>
+    </exercise>
+
+    <exercise number="15.1.9">
+      <p>
+        Evaluate <m>\ds \iint_\c{R} (15 - 3x)\, dA</m>, where <m>\c{R} = [0,5] \times [0,3]</m>, and sketch the corresponding solid region. 
+      </p>
+    </exercise>
+
+    <exercise number="15.1.11">
+      <p>
+        The following table gives the approximate height at quarter-meter intervals of a mound of gravel. 
+        Estimate the volume of the mound by computing the average of the two Riemann sums <m>S_{4,3}</m> with lower-left and upper-right vertices of the sub-rectangles as sample points. 
+      </p>
+    </exercise>
+
+    <exercise number="15.1.17">
+      <p>
+        Use symmetry to evaluate the double integral 
+        <md>
+          \iint_\c{R} \sin(x)\, dA\, , \qquad \c{R} = [0,2\pi] \times [0,2\pi]
+        </md>
+        
+      </p>
+    </exercise>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, evaluate the iterated integrals. 
+        </p>
+      </introduction>
+    
+      <exercise number="15.1.23">
+        <p>
+          <m>\ds \int_{-1}^1 \int_0^\pi x^2\sin(y)\, dy \, dx</m>
+        </p>
+      </exercise>
+
+      <exercise number="15.1.33">
+        <p>
+          <m>\ds \int_0^4 \int_0^5 \frac{dy \, dx}{\sqrt{x + y}}</m>
+        </p>
+      </exercise>
+    </exercisegroup>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, evaluate the integral. 
+        </p>
+      </introduction>
+    
+      <exercise number="15.1.39">
+        <p>
+          <m>\ds \iint_\c{R} \cos(x)\sin(2y)\, dA \,  , \qquad \c{R} = \left[0,\frac{\pi}{2}\right] \times \left[0,\frac{\pi}{2}\right]</m>
+        </p>
+      </exercise>
+
+      <exercise number="15.1.43">
+        <p>
+          <m>\ds \iint_\c{R} x\ln(y)\, dA\, , \qquad \c{R} = [0,3] \times [1,e]</m>
+        </p>
+      </exercise>
+    
+    </exercisegroup>
+
+    <exercise number="15.1.49">
+      <p>
+        <ol marker="(a)">
+          <li>
+            <p>
+              Which is easier, antidifferentiating <m>\dfrac{y}{1 + xy}</m> with respect to <m>x</m> or with respect to <m>y</m>? 
+              Explain. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Evaluate <m>\ds \iint_\c{R} \dfrac{y}{1 + xy}\, dA</m>, where <m>\c{R} = [0,1] \times [0,1]</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </exercise>
+  </worksheet>
+
 </section>

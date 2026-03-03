@@ -11,8 +11,6 @@
   <xi:include href="sec145-GradientDirectionalDerivatives.ptx" />
   <xi:include href="sec146-ChainRule.ptx" />
   <xi:include href="sec147-Optimization.ptx" />
-<!--
   <xi:include href="sec148-LagrangeMultipliers.ptx" />
--->
 
 </chapter>
