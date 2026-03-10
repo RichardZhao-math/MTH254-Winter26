@@ -5,7 +5,15 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      Have you ever tried to evaluate an integral over a circular region using rectangular coordinates? 
+      While it is mathematically possible, the resulting limits of integration inevitably involve square roots that can make the anti-derivatives tedious, if not impossible, to compute by hand.
+      In previous sections, we evaluated double and triple integrals over regions perfectly suited for rectangular grids. 
+      However, the physical world is full of objects like cones, cylinders, and spheres that exhibit natural rotational symmetries. 
+    </p>
+    <p>
+      Rather than forcing these curved boundaries into rigid rectangular boxes, we can make our lives significantly easier by adapting our coordinate system to fit the geometry of the region. 
+      In this section, we will explore how to translate integrals into polar, cylindrical, and spherical coordinates. 
+      By rethinking how we partition space, we will be able to transform overly complicated rectangular integrals into highly manageable iterated integrals.
     </p>
 
     <objectives>
@@ -17,12 +25,628 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            identify geometric regions and symmetries in two and three dimensions that are best modeled by polar, cylindrical, or spherical coordinates.
+          </p>
+        </li>
+        <li>
+          <p>
+            convert equations, functions, and limits of integration from rectangular coordinates into their polar, cylindrical, and spherical counterparts.
+          </p>
+        </li>
+        <li>
+          <p>
+            derive and apply the appropriate geometric area and volume differentials (<m>dA</m> and <m>dV</m>) for each coordinate system.
+          </p>
+        </li>
+        <li>
+          <p>
+            set up and evaluate double and triple integrals in non-rectangular coordinate systems to solve multi-variable integration problems.
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <p>
+    Recall back in single-variable calculus, we split up an interval (a rectangle in <m>\R^1</m>) into a bunch of smaller segments. 
+    In multi-variable calculus (more specifically, in double and triple integrals), we will split up a region in <m>\R^2</m> or <m>\R^3</m> into a bunch of smaller rectangular regions (or boxes). 
+    But what if we change the way we view the region. 
+  </p>
+
+  <subsection xml:id="subsec-Integration_PolarCoordinates">
+    <title>Integration in Polar Coordinates</title>
+    
+    <p>
+      Recall the two variables in polar coordinates are <m>r</m> and <m>\theta</m>, where <m>r</m> is the distance from the origin and <m>\theta</m> is the angle between the positive x-axis and the ray from the origin to the point. 
+      If we let <m>r</m> and <m>\theta</m> to vary independently, we obtain a "polar rectangular region". 
+      But what does this region look like? 
+    </p>
+
+    <figure>
+      <image source="sec154_PolarRectangle_Diagram.png" width="45%"></image>
+      <caption>Polar Rectangular Region <m>\c{R}</m> where <m>a\leq r \leq b</m> and <m>\alpha \leq \theta \leq \beta</m></caption>
+    </figure>
+
+    <p>
+      To integrate a function <m>f</m> over this polar rectangular region <m>\c{R}</m>, as you can imagine, we will split up this region into a bunch of smaller polar rectangular regions. 
+      Then we will find a sample point in each of these smaller regions and evaluate the function value at the sample point. 
+      Finally, we will <em>multiply</em> the function value by the <em>area</em> of the smaller polar rectangular region and <em>add</em> up all of these products together. 
+    </p>
+
+    <figure>
+      <image source="sec154_Partition_PolarRectangle_Diagram.png" width="45%"></image>
+      <caption>Partitioning <m>\c{R}</m> into smaller polar rectangular regions</caption>
+    </figure>
+
+    <p>
+      That is, the volume of the solid under the surface defined by <m>f(r,\theta)</m> over the polar rectangular region <m>\c{R}</m> can be approximated by 
+      <md>
+        V \approx \sum_{k = 1}^N f\lp r_k^*, \theta_k^* \rp \Delta A_k
+      </md>
+       where <m>\Delta A_k</m> is the area of the <m>k</m>-th smaller polar rectangular region and <m>(r_k^*, \theta_k^*)</m> is a sample point in the <m>k</m>-th smaller polar rectangular region.
+       As you can imagine, we can define the <term>double integral</term> over the polar rectangular region as
+       <md>
+        \iint_\c{R} f(r,\theta) \, dA = \lim_{N\to \infty} \sum_{k = 1}^N f\lp r_k^*, \theta_k^* \rp \Delta A_k
+       </md>
+    </p>
+
+    <p>
+      But how do we find the area of a polar rectangular region, <m>\Delta A_k</m>? 
+      Well we can think of the polar rectangular region as the difference between two <em>sectors</em> of a circle. 
+    </p>
+
+    <figure>
+      <image source="sec154_AreaSector_Diagram.png" width="30%"></image>
+      <caption>Area of a sector of a circle is <m>\dfrac{1}{2} r^2 \theta</m></caption>
+    </figure>
+
+    <p>
+      Before we derive an expression for <m>\Delta A_k</m>, we will pick the sample point to be in the exact <term>middle</term> of the smaller polar rectangular region, as shown in the figure below. 
+    </p>
+
+    <figure>
+      <image source="sec154_SamplePoint_Polar_Diagram.png" width="50%"></image>
+      <caption>Sample point in the exact middle of the smaller polar rectangular region</caption>
+    </figure>
+
+    <p>
+      Now we will derive an expression for <m>\Delta A_k</m>! 
+      Let's say the inner radius of the <m>k</m>-th smaller polar rectangular region is <m>r_1</m> and the outer radius is <m>r_2</m>. 
+      Then we have
+      <md>
+        <mrow> \Delta A_k \amp= \frac{1}{2} r_2^2 \Delta \theta - \frac{1}{2} r_1^2 \Delta \theta </mrow>
+        <mrow> \amp= \frac{1}{2} \lp r_2^2 - r_1^2 \rp \Delta \theta </mrow>
+        <mrow> \amp= \frac{1}{2} \lp r_1 + r_2 \rp \lp r_2 - r_1 \rp \Delta \theta </mrow>
+        <mrow> \amp= \frac{1}{2} \lp r_1 + r_2 \rp \Delta r \Delta \theta </mrow>
+      </md>
+      Okay cool... but this expression is still a bit complicated. 
+      What is <m>\frac{1}{2} \lp r_1 + r_2 \rp</m>? 
+    </p>
+
+    <p>
+      That is why we chose the sample point to be in the exact middle of the smaller polar rectangular region! 
+      By doing so, <m>r_k^*</m> will be the <term>midpoint</term> between <m>r_1</m> and <m>r_2</m>, which means that
+      <md>
+        r_k^* = \frac{r_1 + r_2}{2}
+      </md>
+      Therefore, we can simplify the expression for <m>\Delta A_k</m> to
+      <md>
+        \Delta A_k = r_k^* \Delta r \Delta \theta
+      </md>
+      This implies that the area of the smaller polar rectangular region is <term>radius times change in radius times change in angle</term>. 
+      Hence, we can now express this double integral as an iterated integral, guaranteed by the Fubini's theorem. 
+    </p>
+
+    <theorem xml:id="thm-DoubleIntegral_Polar">
+      <title>Double Integrals over Polar Rectangular Regions</title>
+      <statement>
+        <p>
+          Let <m>f</m> be continuous on the polar rectangular region 
+          <md>
+            \c{R} = \left\{ (r,\theta) \mid 0 \leq a \leq r \leq b \text{ and } \alpha \leq \theta \leq \beta \right\}
+          </md>
+          Then
+          <md>
+            \iint_\c{R} f(r,\theta) \, dA = \int_\alpha^\beta \int_a^b f(r,\theta)\, r\, dr\, d\theta
+          </md>
+        </p>
+      </statement>
+    </theorem>
+    
+    <example>
+      <p>
+        Find the volume of the solid bounded by the paraboloid <m>z = 9 - x^2 - y^2</m> and the <m>xy</m>-plane.
+      </p>
+
+      <hint>
+        <p>
+          You are more than welcome to use rectangular coordinates to solve this problem, but it is much easier to use polar coordinates. 
+        </p>
+
+        <p>
+          Also, it doesn't matter which coordinates you use, the first step is to sketch the region of integration to determine the limits of integration. 
+        </p>
+
+        <p>
+          Also, to help you visualize, Richard coded the paraboloid for you. 
+        </p>
+
+        <figure xml:id="fig-paraboloid-xy-trace-teal">
+  <caption>The paraboloid <m>z = 9 - x^2 - y^2</m></caption>
+  <sidebyside width="80%">
+    <interactive platform="sage" width="100%" aspect="1:1">
+      <slate surface="sage">
+var('r, theta, t')
+
+# --- 1. Parameters ---
+# For z = 9 - x^2 - y^2 above the xy-plane, cylindrical coordinates are ideal.
+# The boundary at z=0 is r^2 = 9, so r goes from 0 to 3.
+
+# --- 2. Primary Object (Surface) ---
+paraboloid = parametric_plot3d([r*cos(theta), r*sin(theta), 9 - r^2], (r, 0, 3), (theta, 0, 2*pi), color='teal', opacity=0.3, mesh=True, plot_points=[20, 20])
+
+# --- 3. Traces ---
+# xy-trace (z=0): A circle of radius 3
+xy_trace = parametric_plot3d([3*cos(t), 3*sin(t), 0], (t, 0, 2*pi), color='red', thickness=4)
+
+# --- 4. Axes and Labels ---
+# Creating custom axes to accommodate the radius of 3 and height of 9
+ax_x = arrow3d((0,0,0), (5,0,0), color='black', width=1)
+ax_y = arrow3d((0,0,0), (0,5,0), color='black', width=1)
+ax_z = arrow3d((0,0,0), (0,0,11), color='black', width=1)
+
+lbl_x = text3d("x", (5.3, 0, 0), color='black')
+lbl_y = text3d("y", (0, 5.3, 0), color='black')
+lbl_z = text3d("z", (0, 0, 11.5), color='black')
+
+axes = ax_x + ax_y + ax_z + lbl_x + lbl_y + lbl_z
+
+# --- 5. Show ---
+show(paraboloid + xy_trace + xy_label + axes, frame=False, aspect_ratio=1)
+      </slate>
+    </interactive>
+  </sidebyside>
+</figure>
+      </hint>
+
+      <solution>
+        <p>
+          First, we determine the region of integration, <m>\c{D}</m>, in the <m>xy</m>-plane. The solid is bounded below by the <m>xy</m>-plane, where <m>z = 0</m>. Setting <m>z = 0</m> in the equation of the paraboloid gives:
+          <md>
+            0 = 9 - x^2 - y^2 \implies x^2 + y^2 = 9
+          </md>
+          This means our region <m>\c{D}</m> is a disk of radius 3 centered at the origin. In polar coordinates, this region is described by <m>0 \leq r \leq 3</m> and <m>0 \leq \theta \leq 2\pi</m>.
+        </p>
+
+        <p>
+          The height of the solid is given by the paraboloid <m>f(x,y) = 9 - x^2 - y^2</m>. Converting this to polar coordinates, we get <m>f(r,\theta) = 9 - r^2</m>. Now, we can set up and evaluate the double integral:
+          <md>
+            <mrow> V \amp= \iint_\c{D} \lp 9 - x^2 - y^2 \rp \, dA </mrow>
+            <mrow> \amp= \int_0^{2\pi} \int_0^3 \lp 9 - r^2 \rp r \, dr \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \int_0^3 \lp 9r - r^3 \rp \, dr \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \left[ \frac{9}{2}r^2 - \frac{1}{4}r^4 \right]_0^3 \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \lp \frac{81}{2} - \frac{81}{4} \rp \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \frac{81}{4} \, d\theta </mrow>
+            <mrow> \amp= \frac{81}{4} \lp 2\pi \rp = \frac{81\pi}{2} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <p>
+      But why bother spending all the effort to find a second formula that pretty much finds the same thing? 
+      As you observed in the example above, sometimes it is much easier to use polar coordinates to evaluate a double integral than to use rectangular coordinates. 
+      That is, we will need a formula to convert a double integral in rectangular coordinates to a double integral in polar coordinates. 
+      Recall the conversion formulas from a rectangular coordinate <m>(x,y)</m> to a polar coordinate <m>(r,\theta)</m> are
+      <md>
+        x = r\cos(\theta) \qquad \text{ and } \qquad y = r\sin(\theta)
+      </md>
+      In addition to the fact that <m>dA = r\, dr\, d\theta</m> in polar coordinates, we have the following conversion formula
+      <md>
+        \iint_\c{D} f(x,y) \, dA = \int_\alpha^\beta \int_{r = r_1(\theta)}^{r_2(\theta)} f(r\cos(\theta), r\sin(\theta)) \, r\, dr\, d\theta
+      </md>
+      Observe that this formula applies to a more general region <m>\c{D}</m> that is not necessarily a polar rectangular region. 
+      That is, <m>r</m> can be a function of <m>\theta</m>. 
+    </p>
+
+    <example>
+      <p>
+        Evaluate the integral <m>\ds \iint_\c{D} \frac{dA}{\sqrt{16 - x^2 - y^2}}</m> where 
+        <md>
+          \c{D} = \left\{(x,y)\in \R^2 \mid x^2 + y^2 \leq 4, \, x \geq 0, \, \text{ and } y \geq 0\right\}
+        </md>
+      </p>
+
+      <solution>
+        <p>
+          The region <m>\c{D}</m> is bounded by <m>x^2 + y^2 \leq 4</m>, which is a circle of radius 2. The conditions <m>x \geq 0</m> and <m>y \geq 0</m> restrict this region to the first quadrant. Therefore, in polar coordinates, <m>\c{D}</m> is described by <m>0 \leq r \leq 2</m> and <m>0 \leq \theta \leq \pi/2</m>.
+        </p>
+        <p>
+          Converting the integrand to polar coordinates, we note that <m>x^2 + y^2 = r^2</m> and <m>dA = r\, dr\, d\theta</m>. Setting up the integral yields:
+          <md>
+            <mrow> \iint_\c{D} \frac{dA}{\sqrt{16 - x^2 - y^2}} \amp= \int_0^{\pi/2} \int_0^2 \frac{1}{\sqrt{16 - r^2}} r \, dr \, d\theta </mrow>
+          </md>
+          We can evaluate the inner integral using a <m>u</m>-substitution. Let <m>u = 16 - r^2</m>, then <m>du = -2r \, dr</m>, which means <m>r \, dr = -\frac{1}{2} du</m>. 
+          <md>
+            <mrow> \int \frac{r}{\sqrt{16 - r^2}} \, dr \amp= \int -\frac{1}{2\sqrt{u}} \, du = -\sqrt{u} = -\sqrt{16 - r^2} </mrow>
+          </md>
+          Applying the limits of integration from <m>r = 0</m> to <m>r = 2</m>:
+          <md>
+            <mrow> \left[ -\sqrt{16 - r^2} \right]_0^2 \amp= -\sqrt{16 - 4} - \lp -\sqrt{16 - 0} \rp </mrow>
+            <mrow> \amp= -\sqrt{12} + 4 = 4 - 2\sqrt{3} </mrow>
+          </md>
+          Finally, we evaluate the outer integral:
+          <md>
+            <mrow> \int_0^{\pi/2} \lp 4 - 2\sqrt{3} \rp \, d\theta \amp= \lp 4 - 2\sqrt{3} \rp \left[ \theta \right]_0^{\pi/2} = \frac{\pi}{2} \lp 4 - 2\sqrt{3} \rp = \pi \lp 2 - \sqrt{3} \rp </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsec-Integration_CylindricalCoordinates">
+    <title>Integration in Cylindrical Coordinates</title>
+    
+    <p>
+      Let's say you want to convert a triple integral in rectangular coordinates to some other coordinates. 
+      Then the polar coordinates won't work because of the lack of a third variable. 
+    </p>
+
+    <p>
+      We did learn about extending polar coordinates to include a third variable, called <term>cylindrical coordinates</term>, in <xref ref="sec127-CylindricalSphericalCoordinates"/>. 
+      Briefly, the third variable in cylindrical coordinates is just the <m>z</m>-coordinate in rectangular coordinates. 
+    </p>
+
+    <figure>
+      <image source="sec154_CylindricalCoordinate_Differential_Diagram.png" width="50%"></image>
+      <caption>A cylindrical sub-box in cylindrical coordinates</caption>
+    </figure>
+
+    <p>
+      For the volume of a cylindrical sub-box, we can think of it as the area of the base times the height. 
+      We spent all the effort earlier to find the area of the base in polar coordinates, which is <m>r_k^*\Delta r \Delta \theta</m>. 
+      The height of the cylindrical sub-box is just <m>\Delta z</m>. 
+      Therefore, the volume of a cylindrical sub-box is 
+      <md>
+        r_k^* \Delta r \Delta \theta \Delta z
+      </md>
+      This gives us a way to express a triple integral in cylindrical coordinates as an iterated integral, guaranteed, again, by the Fubini's theorem.
+    </p>
+
+    <theorem xml:id="thm-TripleIntegral_Cylindrical">
+      <title>Triple Integrals in Cylindrical Coordinates</title>
+      <statement>
+        <p>
+          Let <m>f</m> be continuous over the region 
+          <md>
+            \c{W} = \left\{(r,\theta,z) \mid 0 \leq r_1(\theta) \leq r \leq r_2(\theta), \, \alpha \leq \theta \leq \beta, \text{ and } z_1(r,\theta) \leq z \leq z_2(r, \theta) \right\}
+          </md>
+          Then 
+          <md>
+            \iiint_\c{W} f(r,\theta,z) \, dV = \int_\alpha^\beta \int_{r = r_1(\theta)}^{r_2(\theta)} \int_{z = z_1(r,\theta)}^{z_2(r,\theta)} f(r,\theta,z) \, r\, dz\, dr\, d\theta
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      Then we can convert a triple integral in rectangular coordinates to cylindrical coordinates by using the conversion formulas from a rectangular coordinate <m>(x,y,z)</m> to a cylindrical coordinate <m>(r,\theta,z)</m> covered in <xref ref="sec127-CylindricalSphericalCoordinates"/>. 
+      Briefly, the conversion formulas are 
+      <md>
+        x = r \cos \theta\, , \qquad y = r \sin \theta\, , \qquad z = z
+      </md>
+      In addition to the fact that <m>dV = r\, dz\, dr\, d\theta</m> in cylindrical coordinates, we have the following conversion formula
+      <md>
+        \iiint_\c{W} f(x,y,z) \, dV = \int_\alpha^\beta \int_{r = r_1(\theta)}^{r_2(\theta)} \int_{z = z_1(r,\theta)}^{z_2(r,\theta)} f(r\cos \theta, r\sin \theta, z) \, r\, dz\, dr\, d\theta
+      </md>
+    </p>
+
+    <example>
+      <p>
+        Evaluate the integral <m>\ds \int_{-2}^2 \int_{-\sqrt{4 - y^2}}^\sqrt{4 - y^2} \int_\sqrt{x^2 + y^2}^2 xz \, dz\, dx\, dy</m> by changing to cylindrical coordinates. 
+      </p>
+
+      <hint>
+        <title>More like visualization...</title>
+        <p>
+          Richard coded the region to help you see what the region looks like.
+        </p>
+
+        <figure xml:id="fig-cylindrical-cone-region-teal">
+  <caption>Region of integration bounded below by <m>z = \sqrt{x^2 + y^2}</m> and above by <m>z = 2</m></caption>
+  <sidebyside width="80%">
+    <interactive platform="sage" width="100%" aspect="1:1">
+      <slate surface="sage">
+var('r, theta')
+
+# --- 1. Parameters ---
+# The solid region is bounded below by the cone z = r and above by the plane z = 2.
+# The bounds on theta are 0 to 2*pi, and r goes from 0 to 2.
+
+# --- 2. Primary Object (Solid Region) ---
+# Top face (the plane z = 2)
+top = parametric_plot3d([r*cos(theta), r*sin(theta), 2], (r, 0, 2), (theta, 0, 2*pi), color='teal', opacity=0.3, mesh=True, plot_points=[20, 20])
+
+# Bottom face (the cone z = r)
+cone = parametric_plot3d([r*cos(theta), r*sin(theta), r], (r, 0, 2), (theta, 0, 2*pi), color='teal', opacity=0.3, mesh=True, plot_points=[20, 20])
+
+region = top + cone
+
+# --- 3. Traces ---
+# Not applicable for a composite solid region.
+
+# --- 4. Axes and Labels ---
+# Sized appropriately to fit the radius of 2 and height of 2
+ax_x = arrow3d((0,0,0), (3,0,0), color='black', width=1)
+ax_y = arrow3d((0,0,0), (0,3,0), color='black', width=1)
+ax_z = arrow3d((0,0,0), (0,0,3), color='black', width=1)
+
+lbl_x = text3d("x", (3.2, 0, 0), color='black')
+lbl_y = text3d("y", (0, 3.2, 0), color='black')
+lbl_z = text3d("z", (0, 0, 3.2), color='black')
+
+axes = ax_x + ax_y + ax_z + lbl_x + lbl_y + lbl_z
+
+# --- 5. Show ---
+show(region + axes, frame=False, aspect_ratio=1)
+      </slate>
+    </interactive>
+  </sidebyside>
+</figure>
+      </hint>
+
+      <solution>
+        <p>
+          First, we determine the region of integration, <m>\c{W}</m>, from the given limits of integration in rectangular coordinates. 
+          The bounds are:
+          <md>
+            <mrow> -\sqrt{4 - y^2} \amp \leq x \leq \sqrt{4 - y^2} </mrow>
+            <mrow> -2 \amp \leq y \leq 2 </mrow>
+            <mrow> \sqrt{x^2 + y^2} \amp \leq z \leq 2 </mrow>
+          </md>
+        </p>
+        
+        <p>
+          The inequalities for <m>x</m> and <m>y</m> describe a disk of radius 2 centered at the origin in the <m>xy</m>-plane, which is <m>x^2 + y^2 \leq 4</m>. 
+          In cylindrical coordinates, this region translates to <m>0 \leq r \leq 2</m> and <m>0 \leq \theta \leq 2\pi</m>. 
+        </p>
+
+        <p>
+          For the <m>z</m> bounds, we know that <m>\sqrt{x^2 + y^2} = r</m>. So, the solid is bounded below by the cone <m>z = r</m> and above by the plane <m>z = 2</m>. 
+          Thus, our bounds for <m>z</m> are <m>r \leq z \leq 2</m>.
+        </p>
+
+        <p>
+          Next, we convert the integrand <m>f(x,y,z) = xz</m> and the differential <m>dz\, dx\, dy</m> into cylindrical coordinates:
+          <md>
+            <mrow> xz \amp= \lp r\cos\theta \rp z = rz\cos\theta </mrow>
+            <mrow> dz\, dx\, dy \amp= r\, dz\, dr\, d\theta </mrow>
+          </md>
+        </p>
+
+        <p>
+          Now we can set up and evaluate the triple integral:
+          <md>
+            <mrow> \int_{-2}^2 \int_{-\sqrt{4 - y^2}}^\sqrt{4 - y^2} \int_\sqrt{x^2 + y^2}^2 xz \, dz\, dx\, dy \amp= \int_0^{2\pi} \int_0^2 \int_r^2 \lp rz\cos\theta \rp r \, dz\, dr\, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \int_0^2 \int_r^2 r^2 z \cos\theta \, dz\, dr\, d\theta </mrow>
+          </md>
+          Evaluating the innermost integral with respect to <m>z</m>:
+          <md>
+            <mrow> \amp= \int_0^{2\pi} \int_0^2 \left[ \frac{1}{2} r^2 z^2 \cos\theta \right]_{z=r}^{z=2} \, dr\, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \int_0^2 \lp \frac{1}{2} r^2 (2)^2 \cos\theta - \frac{1}{2} r^2 (r)^2 \cos\theta \rp \, dr\, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \int_0^2 \lp 2r^2 - \frac{1}{2}r^4 \rp \cos\theta \, dr\, d\theta </mrow>
+          </md>
+          Next, evaluating with respect to <m>r</m>:
+          <md>
+            <mrow> \amp= \int_0^{2\pi} \left[ \lp \frac{2}{3}r^3 - \frac{1}{10}r^5 \rp \cos\theta \right]_{r=0}^{r=2} \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \lp \frac{16}{3} - \frac{32}{10} \rp \cos\theta \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \frac{32}{15} \cos\theta \, d\theta </mrow>
+          </md>
+          Finally, evaluating the outermost integral with respect to <m>\theta</m>:
+          <md>
+            <mrow> \amp= \left[ \frac{32}{15} \sin\theta \right]_0^{2\pi} </mrow>
+            <mrow> \amp= \frac{32}{15} \lp 0 - 0 \rp = 0 </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <subsection xml:id="subsec-Integration_SphericalCoordinates">
+    <title>Integration in Spherical Coordinates</title>
+    
+    <p>
+      Recall back in <xref ref="sec127-CylindricalSphericalCoordinates"/>, there is another 3D coordinates system, called <term>spherical coordinates</term>. 
+      Then we can also express a triple integral in spherical coordinates as an iterated integral, guaranteed by the Fubini's theorem. 
+    </p>
+
+    <p>
+      To do so, we will need to find the volume of a spherical sub-box in spherical coordinates. 
+      But what does a spherical sub-box look like?
+    </p>
+
+    <figure>
+      <image source="sec154_SphericalCoordinate_Differential_Diagram.png" width="80%"></image>
+      <caption>A spherical sub-box in spherical coordinates</caption>
+    </figure>
+
+    <p>
+      Imagine the spherical sub-box is getting smaller and smaller, then the spherical sub-box will look more and more like a rectangular box. 
+      Then we can find its volume by multiplying the length, width, and height. 
+      These three dimensions are <m>\Delta \rho</m>, <m>\rho \Delta \phi</m>, and <m>\rho \sin \lp \phi \rp \Delta \theta</m>, respectively. 
+      The diagram above should help you understand why these are the dimensions of the spherical sub-box. 
+    </p>
+
+    <p>
+      Therefore, the volume of a spherical sub-box is
+      <md>
+        \Delta V = \Delta \rho \times \rho \Delta \phi \times \rho \sin \lp \phi \rp \Delta \theta = \rho^2\sin \lp \phi \rp \Delta \rho \Delta \phi \Delta \theta
+      </md>
+      Now we can express a triple integral in spherical coordinates as an iterated integral, guaranteed, again, by the Fubini's theorem.
+    </p>
+
+    <theorem xml:id="thm-TripleIntegral_Spherical">
+      <title>Triple Integrals in Spherical Coordinates</title>
+      <statement>
+        <p>
+          Let <m>f</m> be continuous over the region
+          <md>
+            \c{W} = \left\{ (\rho, \phi, \theta) \mid \theta_1 \leq \theta \leq \theta_2, \, \phi_1 \leq \phi \leq \phi_2, \, \rho_1(\phi, \theta) \leq \rho \leq \rho_2(\phi, \theta) \right\}
+          </md>
+          Then
+          <md>
+            \iiint_\c{W} f(\rho, \phi, \theta) \, dV = \int_{\theta_1}^{\theta_2} \int_{\phi_1}^{\phi_2} \int_{\rho_1(\phi, \theta)}^{\rho_2(\phi, \theta)} f(\rho, \phi, \theta) \, \rho^2 \sin \lp \phi \rp \, d\rho\, d\phi\, d\theta
+          </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      Then we can convert a triple integral in rectangular coordinates to spherical coordinates by using the conversion formulas from a rectangular coordinate <m>(x,y,z)</m> to a spherical coordinate <m>(\rho, \phi, \theta)</m> covered in <xref ref="sec127-CylindricalSphericalCoordinates"/>. 
+      Briefly, the conversion formulas are
+      <md>
+        x = \rho \sin \lp \phi \rp \cos \theta\, , \qquad y = \rho \sin \lp \phi \rp \sin \theta\, , \qquad z = \rho \cos \lp \phi \rp
+      </md>
+      In addition to the fact that <m>dV = \rho^2\sin(\phi) \, d\rho \, d\phi \, d\theta</m> in spherical coordinates, we have the following conversion formula
+      <md>
+        \iiint_\c{W} f(x,y,z) dV = \int_{\theta_1}^{\theta_2} \int_{\phi_1}^{\phi_2} \int_{\rho_1(\phi, \theta)}^{\rho_2(\phi, \theta)} f(\rho\sin(\phi)\cos(\theta), \rho\sin(\phi)\sin(\theta), \rho\cos(\phi))\,  d\rho\, d\phi\, d\theta
+      </md>
+    </p>
+
+    <example>
+      <p>
+        Evaluate the integral <m>\ds \iiint_\c{W} e^{-\lp x^2 + y^2 + z^2 \rp^{3/2}}\, dV</m>, where <m>\c{W}</m> is a unit ball. 
+      </p>
+
+      <solution>
+        <p>
+          The region <m>\c{W}</m> is a unit ball, which means it consists of all points with a distance of 1 or less from the origin. In spherical coordinates, this is described by the bounds: <m>0 \leq \rho \leq 1</m>, <m>0 \leq \phi \leq \pi</m>, and <m>0 \leq \theta \leq 2\pi</m>. 
+        </p>
+        <p>
+          We know that <m>x^2 + y^2 + z^2 = \rho^2</m>. Therefore, the exponent becomes <m>-\lp \rho^2 \rp^{3/2} = -\rho^3</m>. The volume differential is <m>dV = \rho^2 \sin\lp\phi\rp \, d\rho \, d\phi \, d\theta</m>.
+        </p>
+        <p>
+          Setting up the triple integral as an iterated integral, we evaluate from the inside out:
+          <md>
+            <mrow> \iiint_\c{W} e^{-\lp x^2 + y^2 + z^2 \rp^{3/2}}\, dV \amp= \int_0^{2\pi} \int_0^\pi \int_0^1 e^{-\rho^3} \rho^2 \sin\lp\phi\rp \, d\rho \, d\phi \, d\theta </mrow>
+          </md>
+          First, we evaluate the innermost integral with respect to <m>\rho</m>. We can use <m>u</m>-substitution by letting <m>u = -\rho^3</m>, which means <m>du = -3\rho^2 \, d\rho</m>, or <m>\rho^2 \, d\rho = -\frac{1}{3}du</m>:
+          <md>
+            <mrow> \amp= \int_0^{2\pi} \int_0^\pi \left[ -\frac{1}{3} e^{-\rho^3} \sin\lp\phi\rp \right]_{\rho=0}^{\rho=1} \, d\phi \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \int_0^\pi \lp -\frac{1}{3} e^{-1} \sin\lp\phi\rp - \lp -\frac{1}{3} e^{0} \sin\lp\phi\rp \rp \rp \, d\phi \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \int_0^\pi \frac{1 - e^{-1}}{3} \sin\lp\phi\rp \, d\phi \, d\theta </mrow>
+          </md>
+          Next, we evaluate the middle integral with respect to <m>\phi</m>:
+          <md>
+            <mrow> \amp= \int_0^{2\pi} \left[ -\frac{1 - e^{-1}}{3} \cos\lp\phi\rp \right]_{\phi=0}^{\phi=\pi} \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \lp -\frac{1 - e^{-1}}{3} \cos(\pi) - \lp -\frac{1 - e^{-1}}{3} \cos(0) \rp \rp \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \lp \frac{1 - e^{-1}}{3} + \frac{1 - e^{-1}}{3} \rp \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \frac{2\lp 1 - e^{-1} \rp}{3} \, d\theta </mrow>
+          </md>
+          Finally, we evaluate the outermost integral with respect to <m>\theta</m>:
+          <md>
+            <mrow> \amp= \left[ \frac{2\lp 1 - e^{-1} \rp}{3} \theta \right]_0^{2\pi} </mrow>
+            <mrow> \amp= \frac{2\lp 1 - e^{-1} \rp}{3} (2\pi) </mrow>
+            <mrow> \amp= \frac{4\pi \lp 1 - e^{-1} \rp}{3} </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+    
+  </subsection>
+
+  <worksheet xml:id="ws-sec154">
+    <title>Assigned Problems for Section 15.4</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercise number="15.4.3">
+      <p>
+        Sketch the region <m>\c{D} = \left\{ (x,y) \in \R^2 \mid x \geq 0, \, y \geq 0 \, \text{and } x^2 + y^2 \leq 4 \right\}</m> and integrate <m>f(x,y) = xy</m> over <m>\c{D}</m> using polar coordinates.
+      </p>
+    </exercise>
+
+    <exercise number="15.4.13">
+      <p>
+        For the following integral, sketch the region of integration and evaluate by changing to polar coordinates. 
+        <md>
+          \int_{-1}^2 \int_0^\sqrt{4 - x^2} \lp x^2 + y^2 \rp \, dy \, dx
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="15.4.19">
+      <p>
+        Calculate the integral of <m>f(x,y) = x - y</m> over the region <m>\c{D} = \left\{ (x,y) \in \R^2 \mid x^2 + y^2 \leq 1 \text{ and } x + y \geq1\right\}</m> by changing to polar coordinates. 
+      </p>
+    </exercise>
+
+    <exercise number="15.4.23">
+      <p>
+        Evaluate <m>\ds \iint_\c{D} \sqrt{x^2 + y^2} \, dA</m>, where <m>\c{D}</m> is the domain in the following figure. 
+      </p>
+
+      <hint>
+        <p>
+          Find the equation of the inner circle in polar coordinates and treat the right and left parts of the region separately.
+        </p>
+      </hint>
+    </exercise>
+
+    <exercise number="15.4.29">
+      <p>
+        Use cylindrical coordinates to evaluate <m>\ds \iiint_\c{W} x \, dV</m> where <m>\c{W} = \left\{ (x,y,z) \in \R^3 \mid x^2 + y^2 \leq 16 , \, x \geq 0, \, y \geq 0, \, -3 \leq z \leq 3 \right\}</m>
+      </p>
+    </exercise>
+
+    <exercise number="15.4.35">
+      <p>
+        Express the triple integral in cylindrical coordinates. 
+        <md>
+          \int_{x = -1}^1 \int_{y = 0}^\sqrt{1 - x^2} \int_{z = 0}^{x^2 + y^2} f(x,y,z) \, dz \, dy \, dx
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="15.4.39">
+      <p>
+        Find the volume of the region appearing between the two surfaces in the following figure. 
+      </p>
+    </exercise>
+
+    <exercise number="15.4.49">
+      <p>
+        Use spherical coordinates to calculate
+        <md>
+          \iiint_\c{W} \sqrt{x^2 + y^2 + z^2}\, dV
+        </md>
+        where <m>\c{W} = \left\{ (x,y,z) \in \R^3 \mid x^2 + y^2 + z^2 \leq 2z \right\}</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="15.4.53">
+      <p>
+        Calculate the integral of 
+        <md>
+          f(x,y,z) = z\lp x^2 + y^2 + z^2 \rp^{-\frac{3}{2}}
+        </md>
+        over the part of the ball <m>x^2 + y^2 + z^2 \leq 16</m> defined by <m>z \geq 2</m>. 
+      </p>
+    </exercise>
+  </worksheet>
 
 </section>

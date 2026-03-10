@@ -5,7 +5,9 @@
 
   <introduction>
     <p>
-      Just the introduction texts... 
+      In our previous work, we expanded the idea of integration from intervals on a line to regions in a plane using double integrals. 
+      Now, we take this concept one step further into the third dimension. 
+      In this section, we introduce the triple integral, which allows us to integrate functions of three variables over solid regions in space.
     </p>
 
     <objectives>
@@ -17,12 +19,359 @@
       <ul>
         <li>
           <p>
-            blahblahblah
+            understand the formal definition of a triple integral using Riemann sums over a three-dimensional solid.
+          </p>
+        </li>
+        <li>
+          <p>
+            apply Fubini's Theorem to evaluate triple integrals over rectangular boxes using iterated integrals.
+          </p>
+        </li>
+        <li>
+          <p>
+            identify and set up the limits of integration for triple integrals over general <m>z</m>-simple regions.
           </p>
         </li>
       </ul>
     </objectives>
     
   </introduction>
+
+  <p>
+    Recall we defined the single integral back in MTH 252Z (or MTH 252) by partitioning the interval (in <m>\R^1</m>) into sub-intervals. 
+    We then defined the double integral in <xref ref="sec151-IntegrationTwoVariables"/> by partitioning a region (in <m>\R^2</m>) into sub-rectangulars.
+  </p>
+
+  <p>
+    As the pattern continues, we will define the <term>triple integrals</term> by partitioning a solid (in <m>\R^3</m>) into sub-boxes. 
+    By summing up all the <em>products</em> of the <em>function value</em> at a sample point in each sub-box and the <em>volume</em> of each sub-box, we can define the triple integral as the limit of these sums as the maximum volume of the sub-boxes approaches zero.
+  </p>
+
+  <figure>
+    <image source="sec153_SubBoxes_SamplePoints_Diagram.png" width="70%"></image>
+    <caption>A Solid in <m>\R^3</m> Partitioned into Sub-Boxes with Sample Points</caption>
+  </figure>
+
+  <p>
+    Let's follow the same process as before to define the triple integral! 
+    Say we have a three-variable function <m>w = f(x,y,z)</m>. 
+    The graph of this function really lives in <m>\R^4</m> that we cannot visualize... 
+  </p>
+
+  <p>
+    However, we can visualize the <em>domain</em> of this function in <m>\R^3</m>. 
+    Let's say we want to integrate this function over a rectangular box <m>\c{B}</m>: 
+    <md>
+      <mrow> \c{B} \amp= \left\{ (x,y,z) \mid a \leq x \leq b\, , \quad c \leq y \leq d\, , \quad p \leq z \leq q \right\} </mrow>
+      <mrow> \amp= [a,b] \times [c,d] \times [p,q] </mrow>
+    </md>
+     We can partition this solid into a bunch of <alert>sub-boxes</alert>. 
+  </p>
+
+  <figure>
+    <image source="sec153_Partition_SubBoxes_Diagram.png" width="50%"></image>
+    <caption>The box <m>\c{B} = [a,b] \times [c,d] \times [p,q]</m> partitioned into sub-boxes</caption>
+  </figure>
+
+  <p>
+    For an sub-box, its volume is given by 
+    <md>
+      \Delta V_{ijk} = \Delta x_i \times \Delta y_j \times \Delta z_k
+    </md>
+  </p>
+
+  <p>
+    In addition, we can pick a sample point <m>(x_{ijk}^*, y_{ijk}^*, z_{ijk}^*)</m> in each sub-box and evaluate the function at that point to get 
+    <md>
+      f(x_{ijk}^*, y_{ijk}^*, z_{ijk}^*)
+    </md>
+  </p>
+
+  <p>
+    Then we can obtain the Riemann sum by summing up the products of the function values at the sample points and the volumes of the sub-boxes:
+    <md>
+      S_{N,M,L} = \sum_{i=1}^N \sum_{j=1}^M \sum_{k=1}^L f(x_{ijk}^*, y_{ijk}^*, z_{ijk}^*) \Delta V_{ijk}
+    </md>
+  </p>
+
+  <p>
+    As we use finer and finer partitions (i.e., as the maximum volume of the sub-boxes approaches zero), if the limit of the Riemann sums exists, we define this limit to be the <term>triple integral</term> of <m>f</m> over <m>\c{B}</m>, denoted by
+    <md>
+      \iiint_\c{B} f(x,y,z)\, dV = \lim_{N,M,L \to \infty} \sum_{i=1}^N \sum_{j=1}^M \sum_{k=1}^L f(x_{ijk}^*, y_{ijk}^*, z_{ijk}^*) \Delta V_{ijk}
+    </md>
+  </p>
+
+  <p>
+    All the fun things you learned about the double integrals (e.g., Fubini's Theorem) also hold for triple integrals! 
+    That is, we can evaluate a triple integral as an iterated integral in any order we want (as long as the function is continuous). 
+  </p>
+
+  <theorem xml:id="thm-FubiniTheorem_TripleIntegrals">
+    <title>Fubini's Theorem for Triple Integrals</title>
+    <statement>
+      <p>
+        The triple integral of a continuous function <m>f(x,y,z)</m> over a box <m>\c{B} = [a,b] \times [c,d] \times [p,q]</m> is equal to the iterated integral
+        <md>
+          \iiint_\c{B} f(x,y,z)\, dV = \int_{x = a}^b \int_{y = c}^d \int_{z = p}^q f(x,y,z)\, dz\, dy\, dx
+        </md>
+        Furthermore, the iterated integral may be evaluated in any order. 
+      </p>
+    </statement>
+  </theorem>
+
+  <example>
+    <p>
+      Evaluate the triple integral <m>\ds \iiint_\c{B} xyz^2\, dV</m>, where <m>\c{B}</m> is the rectangular box given by <m>\c{B} = [0,1] \times [-1,2] \times [0,3]</m>. 
+    </p>
+
+    <solution>
+      <p>
+        Using Fubini's Theorem, we can set this up as an iterated integral. Since all limits of integration are constants, the order of integration does not matter. Let's integrate in the order <m>dz\, dy\, dx</m>:
+        <md>
+          <mrow> \iiint_\c{B} xyz^2\, dV \amp= \int_0^1 \int_{-1}^2 \int_0^3 xyz^2 \, dz\, dy\, dx </mrow>
+          <mrow> \amp= \int_0^1 \int_{-1}^2 \left[ xy \left(\frac{1}{3}z^3\right) \right]_{z=0}^{z=3} \, dy\, dx </mrow>
+          <mrow> \amp= \int_0^1 \int_{-1}^2 9xy \, dy\, dx </mrow>
+          <mrow> \amp= \int_0^1 \left[ 9x \left(\frac{1}{2}y^2\right) \right]_{y=-1}^{y=2} \, dx </mrow>
+          <mrow> \amp= \int_0^1 9x \left(2 - \frac{1}{2}\right) \, dx </mrow>
+          <mrow> \amp= \int_0^1 \frac{27}{2}x \, dx </mrow>
+          <mrow> \amp= \left[ \frac{27}{4}x^2 \right]_0^1 = \frac{27}{4} </mrow>
+        </md>
+      </p>
+    </solution>
+  </example>
+  
+  <p>
+    The next step is to extend the definition of triple integrals to a more general region <m>\c{W}</m> in <m>\R^3</m> that is not necessarily a box. 
+    We can use the same trick as we did for double integrals in <xref ref="sec152-DoubleIntegrals"/> to define the triple integral over a general region by using a box that contains the region. 
+    That is, we define the triple integral over a general region <m>\c{W}</m> the same way, and the region is specified by the limits of integration in the iterated integral.
+  </p>
+
+  <p>
+    One way to describe the region <m>\c{W}</m> is through the region between two surfaces <m>z_1(x,y)</m> and <m>z_2(x,y)</m>. 
+    That is, 
+    <md>
+      \c{W} = \left\{(x,y,z) \in \R^3 \mid (x,y) \in \c{D} \quad \text{ and } \quad z_1(x,y) \leq z \leq z_2(x,y)\right\}
+    </md>
+    This is called a <term><m>z-simple</m> region</term>. 
+    Furthermore, the domain <m>\c{D}</m> is the <term>projection</term> of <m>\c{W}</m> onto the <m>xy</m>-plane. 
+  </p>
+
+  <figure>
+    <image source="sec153_zSimpleRegion_Diagram.png" width="45%"></image>
+    <caption>The point <m>P = (x,y,z)</m> in the <m>z</m>-simple region <m>\c{W}</m> if <m>(x,y) \in \c{D}</m> and <m>z_1(x,y) \leq z \leq z_2(x,y)</m></caption>
+  </figure>
+
+  <p>
+    Then we can evaluate a triple integral over <m>\c{W}</m> using an iterated integral using the following theorem
+  </p>
+
+  <theorem>
+    <statement>
+      <p>
+        The triple integral of a continuous function <m>f</m> over the region
+        <md>
+          \c{W} = \left\{(x,y,z) \in \R^3 \mid (x,y) \in \c{D} \quad \text{ and } \quad z_1(x,y) \leq z \leq z_2(x,y)\right\}
+        </md>
+        is equal to the iterated integral
+        <md>
+          \iiint_\c{W} f(x,y,z)\, dV = \iint_\c{D} \left( \int_{z = z_1(x,y)}^{z_2(x,y)} f(x,y,z)\, dz \right)\,  dA
+        </md>
+      </p>
+    </statement>
+  </theorem>
+  
+  <p>
+    The above theorem allows us to turn a triple integral to a double integral over a general region <m>\c{D}</m> after the innermost integral is evaluated. 
+    We learned how to evaluate a double integral over a general region in <xref ref="sec152-DoubleIntegrals"/>! 
+  </p>
+
+  <example>
+    <p>
+      Evaluate the triple integral <m>\ds \int_0^1 \int_0^\sqrt{1 - x^2} \int_0^{2-x} 4yz \, dz\, dy\, dx</m>
+    </p>
+
+    <hint>
+      <title>More like a visualization...</title>
+      <p>
+        The region of integration is 
+        <md>
+          \c{W} = \left\{ (x,y,z)\in \R^3 \mid 0 \leq z \leq 2 - x\, , \quad 0 \leq y \leq \sqrt{1 - x^2}\, , \quad 0\leq x \leq 1 \right\}
+        </md>
+        To help you visualize this region, Richard coded the graph of the region below: 
+        <figure xml:id="fig-integral-region-teal">
+          <caption>The region <m>\c{W}</m></caption>
+          <sidebyside width="80%">
+            <interactive platform="sage" width="100%" aspect="1:1">
+              <slate surface="sage">
+                var('r, t, u, v, x, y, z')
+
+                # --- 1. Parameters ---
+                # The region is in the first octant, bounded by the cylinder r=1 and the plane z=2-x.
+
+                # --- 2. Primary Object (Solid Region) ---
+                # We build the solid by parameterizing its 5 bounding surfaces.
+                # Base: z = 0
+                base = parametric_plot3d([r*cos(t), r*sin(t), 0], (r, 0, 1), (t, 0, pi/2), color='teal', opacity=0.3, mesh=True, plot_points=[20, 20])
+
+                # Top: z = 2 - x
+                top = parametric_plot3d([r*cos(t), r*sin(t), 2 - r*cos(t)], (r, 0, 1), (t, 0, pi/2), color='teal', opacity=0.3, mesh=True, plot_points=[20, 20])
+
+                # Cylindrical Side: r = 1
+                side = parametric_plot3d([cos(t), sin(t), v*(2-cos(t))], (t, 0, pi/2), (v, 0, 1), color='teal', opacity=0.3, mesh=True, plot_points=[20, 20])
+
+                # Back face: y = 0
+                back = parametric_plot3d([u, 0, v*(2-u)], (u, 0, 1), (v, 0, 1), color='teal', opacity=0.3, mesh=True, plot_points=[20, 20])
+
+                # Left face: x = 0
+                left = parametric_plot3d([0, u, v*2], (u, 0, 1), (v, 0, 1), color='teal', opacity=0.3, mesh=True, plot_points=[20, 20])
+
+                region = base + top + side + back + left
+
+                # --- 3. Traces ---
+                # Not applicable for a composite solid region.
+
+                # --- 4. Axes and Labels ---
+                ax_x = arrow3d((0,0,0), (1.5,0,0), color='black', width=1)
+                ax_y = arrow3d((0,0,0), (0,1.5,0), color='black', width=1)
+                ax_z = arrow3d((0,0,0), (0,0,2.5), color='black', width=1)
+
+                lbl_x = text3d("x", (1.6, 0, 0), color='black')
+                lbl_y = text3d("y", (0, 1.6, 0), color='black')
+                lbl_z = text3d("z", (0, 0, 2.6), color='black')
+
+                axes = ax_x + ax_y + ax_z + lbl_x + lbl_y + lbl_z
+
+                # --- 5. Show ---
+                show(region + axes, frame=False, aspect_ratio=1)
+              </slate>
+            </interactive>
+          </sidebyside>
+        </figure>
+      </p>
+    </hint>
+
+    <solution>
+      <p>
+        We evaluate the iterated integral by working from the inside out, starting with the innermost integral with respect to <m>z</m>:
+        <md>
+          <mrow> \int_0^1 \int_0^\sqrt{1 - x^2} \int_0^{2-x} 4yz \, dz\, dy\, dx \amp= \int_0^1 \int_0^\sqrt{1 - x^2} \left[ 2yz^2 \right]_{z=0}^{z=2-x} \, dy\, dx </mrow>
+          <mrow> \amp= \int_0^1 \int_0^\sqrt{1 - x^2} 2y(2-x)^2 \, dy\, dx </mrow>
+        </md>
+        Next, we evaluate the middle integral with respect to <m>y</m>:
+        <md>
+          <mrow> \amp= \int_0^1 \left[ y^2(2-x)^2 \right]_{y=0}^{y=\sqrt{1-x^2}} \, dx </mrow>
+          <mrow> \amp= \int_0^1 (\sqrt{1-x^2})^2 (2-x)^2 \, dx </mrow>
+          <mrow> \amp= \int_0^1 (1-x^2)(4 - 4x + x^2) \, dx </mrow>
+        </md>
+        Expanding the polynomial, we get:
+        <md>
+          <mrow> \amp= \int_0^1 (4 - 4x + x^2 - 4x^2 + 4x^3 - x^4) \, dx </mrow>
+          <mrow> \amp= \int_0^1 (-x^4 + 4x^3 - 3x^2 - 4x + 4) \, dx </mrow>
+        </md>
+        Finally, we evaluate the outermost integral with respect to <m>x</m>:
+        <md>
+          <mrow> \amp= \left[ -\frac{1}{5}x^5 + x^4 - x^3 - 2x^2 + 4x \right]_0^1 </mrow>
+          <mrow> \amp= \left(-\frac{1}{5} + 1 - 1 - 2 + 4\right) - 0 </mrow>
+          <mrow> \amp= \frac{9}{5} </mrow>
+        </md>
+      </p>
+    </solution>
+  </example>
+
+  <worksheet xml:id="ws-sec153">
+    <title>Assigned Problems for Section 15.3</title>
+    
+    <introduction>
+      <p>
+        The problems listed below are assigned to be included in your problem set portfolio. 
+        Note that a specific selection of these problems will also form the written homework assignments. 
+        I recommend working through all of them to ensure a solid grasp of the material. 
+        Reach out to Richard for help if you get stuck or have any questions.
+      </p>
+
+      <p>
+        The solutions will be posted after the written homework due dates. 
+        If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.
+      </p>
+    </introduction>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, evaluate <m>\ds \iiint_\c{B} f(x,y,z)\, dV</m> for the specified function <m>f</m> and box <m>\c{B}</m>. 
+        </p>
+      </introduction>
+    
+      <exercise number="15.3.3">
+        <p>
+          <m>f(x,y,z) = xe^{y - 2z}\, ; \qquad 0 \leq x \leq 2\, , \quad 0 \leq y \leq 1\, , \quad 0 \leq z \leq 1</m>
+        </p>
+      </exercise>
+
+      <exercise number="15.3.7">
+        <p>
+          <m>f(x,y,z) = (x + z)^3\, ; \qquad [0,a] \times [0,b] \times [0,c]</m>
+        </p>
+      </exercise>
+    </exercisegroup>
+
+    <exercisegroup>
+    
+      <introduction>
+        <p>
+          In the following exercises, evaluate <m>\ds \iiint_\c{W} f(x,y,z)\, dV</m> for the function <m>f</m> and region <m>\c{W}</m> specified. 
+        </p>
+      </introduction>
+    
+      <exercise number="15.3.9">
+        <p>
+          <m>f(x,y,z) = x + y\, ; \qquad \c{W}: \, y \leq z \leq x\, , \quad 0 \leq y \leq x\, , \quad 0 \leq x \leq 1</m>
+        </p>
+      </exercise>
+
+      <exercise number="15.3.13">
+        <p>
+          <m>f(x,y,z) = e^z\, ; \qquad \c{W}: \, x \leq 0\, , \quad y \leq 0\, , \quad z \geq 0</m>
+        </p>
+      </exercise>
+    
+    </exercisegroup>
+
+    <exercise number="15.3.17">
+      <p>
+        Integrate <m>f(x,y,z) = x</m> over the region in the first octant bounded above by <m>z = 8 - 2x^2 - y^2</m> and below by <m>z = y^2</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="15.3.21">
+      <p>
+        Find the volume of the solid in the first octant bounded between the planes <m>x + y + z = 1</m> and <m>x + y + 2z = 1</m>. 
+      </p>
+    </exercise>
+
+    <exercise number="15.3.25">
+      <p>
+        Describe the domain of integration of the following integral
+        <md>
+          \int_{-2}^2 \int_{-\sqrt{4 - z^2}}^{\sqrt{4 - z^2}} \int_1^{\sqrt{5 - x^2 - z^2}} f(x,y,z)\, dy \, dx \, dz
+        </md>
+      </p>
+    </exercise>
+
+    <exercise number="15.3.31">
+      <p>
+        Let <m>\ds \c{W} = \left\{(x,y,z) \mid \sqrt{x^2 + y^2} \leq z \leq 1 \right\}</m> (see the figure below). 
+        Express <m>\ds \iiint_\c{W} f(x,y,z)\, dV</m> as an iterated integral in the order <m>dz\, dy\, dx</m> (for an arbitrary function <m>f</m>). 
+      </p>
+    </exercise>
+
+    <exercise number="15.3.37">
+      <p>
+        Draw the region <m>\c{W}</m> bounded by the surfaces given by <m>z = y^2</m>, <m>y = z^2</m>, and the planes given by <m>x = 0</m>, <m>x + y + z = 4</m>. 
+        Then set up (but do not compute) a single triple integral that yields the volume of <m>\c{W}</m>.  
+      </p>
+    </exercise>
+  </worksheet>
 
 </section>
