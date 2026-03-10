@@ -102,15 +102,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.5';
+eBookConfig.runestone_version = '7.11.18';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
+<script src="_static/prefix-runtime.1d92cd109bc12c4d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.98ef3b0c170cd180.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.74f6fa0c85f09c79.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -130,18 +130,24 @@ eBookConfig.enable_chatcodes =  false;
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec153-tripleIntegrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch15-MultipleIntegration.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec156-ChangeofVariables.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec153-tripleIntegrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch15-MultipleIntegration.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} 
 \newcommand{\Z}{\mathbb Z} 
 \newcommand{\Q}{\mathbb Q} 
 \newcommand{\R}{\mathbb R} 
 
+\newcommand{\ds}{\displaystyle}
+
 \newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
 
 \newcommand{\lp}{\left(}
 \newcommand{\rp}{\right)}
 \newcommand{\la}{\left\langle}
 \newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -164,53 +170,205 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsubsec-LinearCombinations" class="internal"><span class="title">Linear Combinations of Vectors</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsec-VectorApplication" class="internal"><span class="title">Applications of Vectors</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Homework problems for this section</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Assigned Problems for Section 12.1</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec122-3DSpaces.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Three-Dimensional Spaces: Surfaces, Vectors, and Curves</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Practice problems for this section</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Surfaces" class="internal"><span class="title">Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Vectors" class="internal"><span class="title">Vectors in 3-Space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-ParametricLines" class="internal"><span class="title">Curves and Lines</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Assigned Problems for Section 12.2</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec123-DotProduct.html#ws-sec123" class="internal"><span class="title">Assigned Problems for Section 12.3</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec124-CrossProduct.html" class="internal"><span class="codenumber">12.4</span> <span class="title">The Cross Product</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossProduct" class="internal"><span class="title">The Cross Product</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossPropertiesBasis" class="internal"><span class="title">Properties of the Cross Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-AreaGeometry" class="internal"><span class="title">Geometry: Area of a Parallelogram</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-Volume" class="internal"><span class="title">Geometry: Volume of a Parallelepiped</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-ApplicationTorque" class="internal"><span class="title">Application: Torque</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec124-CrossProduct.html#ws-sec124" class="internal"><span class="title">Assigned Problems for Section 12.4</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-DefiningPlanes" class="internal"><span class="title">Defining a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec125-Planesin3D.html#ws-sec125" class="internal"><span class="title">Assigned Problems for Section 12.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-ConicSections-Review" class="internal"><span class="title">Review: Conic Sections</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces" class="internal"><span class="title">Standard Quadric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-QuadraticCylinders" class="internal"><span class="title">Quadratic Cylinders</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#ws-sec126" class="internal"><span class="title">Assigned Problems for Section 12.6</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-PolarCoordinates-Review" class="internal"><span class="title">Review: Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates" class="internal"><span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates" class="internal"><span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#ws-sec127" class="internal"><span class="title">Assigned Problems for Section 12.7</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch13-CalcVectorFunctions.html" class="internal"><span class="codenumber">13</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions" class="internal"><span class="title">Domain, Path, and Curve</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Projection_VectorValuedFunctions" class="internal"><span class="title">Projections of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Parametrization_VectorValuedFunctions" class="internal"><span class="title">Parametrization of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#ws-sec131" class="internal"><span class="title">Assigned Problems for Section 13.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Limit-VectorValuedFunctions" class="internal"><span class="title">Limit of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions" class="internal"><span class="title">Derivative of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-TangentVector-VectorValuedFunctions" class="internal"><span class="title">Derivative as a Tangent Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Integration-VectorValuedFunctions" class="internal"><span class="title">Vector-valued Integration</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#ws-sec132" class="internal"><span class="title">Assigned Problems for Section 13.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-ArcLength" class="internal"><span class="title">Arc Length</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-Speed" class="internal"><span class="title">Speed</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-ArcLengthParametrization" class="internal"><span class="title">Arc Length Parametrization</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec133-ArcLength.html#ws-sec133" class="internal"><span class="title">Assigned Problems for Section 13.3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-Curvature-Definition" class="internal"><span class="title">Mathematical Definition of Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-Curvature-AlternativeFormula" class="internal"><span class="title">Alternative Formulas for Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-NormalVector" class="internal"><span class="title">The Normal Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-FrenetFrame" class="internal"><span class="title">The Frenet Frame</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-OsculatingCircle" class="internal"><span class="title">The Osculating Circle</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec134-Curvature.html#ws-sec134" class="internal"><span class="title">Assigned Problems for Section 13.4</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch14-DifferentiationMultiVariables.html" class="internal"><span class="codenumber">14</span> <span class="title">Differentiation in Several Variables</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-FunctionsTwoVariables" class="internal"><span class="title">Functions of Two Variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-FunctionsTwoVariables-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-LevelCurvesContourMaps" class="internal"><span class="title">Level Curves and Contour Maps</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-FunctionsThreeVariables" class="internal"><span class="title">Functions of Three (or More) Variables</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#ws-sec141" class="internal"><span class="title">Assigned Problems for Section 14.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html#ws-sec142" class="internal"><span class="codenumber">14.2</span> <span class="title">Assigned Problems for Section 14.2</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html#ws-sec143" class="internal"><span class="codenumber">14.3</span> <span class="title">Assigned Problems for Section 14.3</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#subsec-TangentPlane" class="internal"><span class="title">Tangent Planes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#subsec-Differentiability_TwoVariableFunctions" class="internal"><span class="title">Differentiability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#subsec-Linearization_FunctionTwoVariables" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#ws-sec144" class="internal"><span class="title">Assigned Problems for Section 14.4</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html#subsec-DirectionalDerivatives" class="internal"><span class="title">Directional Derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html#subsec-Gradient" class="internal"><span class="title">The Gradient</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html#ws-sec145" class="internal"><span class="title">Assigned Problems for Section 14.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec146-ChainRule.html#subsec-ChainRule_MultiCalc" class="internal"><span class="title">The (Fancy) Chain Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec146-ChainRule.html#subsec-ImplicitDifferentiation_MultiCalc" class="internal"><span class="title">(Fancy) Implicit Differentiation</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec146-ChainRule.html#ws-sec146" class="internal"><span class="title">Assigned Problems for Section 14.6</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction" class="internal"><span class="title">Critical Points and Local Extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec147-Optimization.html#subsec-GlobalExtrema_TwoVariableFunctions" class="internal"><span class="title">Global Extrema</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec147-Optimization.html#ws-sec147" class="internal"><span class="title">Assigned Problems for Section 14.7</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html#ws-sec148" class="internal"><span class="codenumber">14.8</span> <span class="title">Assigned Problems for Section 14.8</span></a></div></li></ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch15-MultipleIntegration.html" class="internal"><span class="codenumber">15</span> <span class="title">Multiple Integration</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Integration in Two Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Double Integrals over More General Regions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec153-tripleIntegrals.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Triple Integrals</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec156-ChangeofVariables.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Change of Variables</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Integration in Two Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html#subsec-ReviewAreaRegion" class="internal"><span class="title">Review: Integration and Riemann Sum in <span class="process-math">\(\R^2\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html#subsec-VolumeSolid" class="internal"><span class="title">Volume of a Solid</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html#subsec-IteratedIntegrals" class="internal"><span class="title">Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html#ws-sec151" class="internal"><span class="title">Assigned Problems for Section 15.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec152-DoubleIntegrals.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Double Integrals over More General Regions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion" class="internal"><span class="title">Integrating over a general region</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html#subsec-PropertiesDoubleIntegrals" class="internal"><span class="title">Properties of Double Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html#subsec-AverageValueDoubleIntegrals" class="internal"><span class="title">Average Value</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html#ws-sec152" class="internal"><span class="title">Assigned Problems for Section 15.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec153-tripleIntegrals.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Triple Integrals</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec153-tripleIntegrals.html#ws-sec153" class="internal"><span class="codenumber">15.3</span> <span class="title">Assigned Problems for Section 15.3</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates" class="internal"><span class="title">Integration in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_CylindricalCoordinates" class="internal"><span class="title">Integration in Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_SphericalCoordinates" class="internal"><span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154" class="internal"><span class="title">Assigned Problems for Section 15.4</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -218,19 +376,517 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec154-IntegrationPolarCylindricalSphericalCoordinates"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span>
 </h2>
-<section class="introduction" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2"><div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-1">Just the introduction texts...<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2"><div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-1">Have you ever tried to evaluate an integral over a circular region using rectangular coordinates? While it is mathematically possible, the resulting limits of integration inevitably involve square roots that can make the anti-derivatives tedious, if not impossible, to compute by hand. In previous sections, we evaluated double and triple integrals over regions perfectly suited for rectangular grids. However, the physical world is full of objects like cones, cylinders, and spheres that exhibit natural rotational symmetries.<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="objectives goal-like" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
-<div class="introduction" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2-1"><div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2">Rather than forcing these curved boundaries into rigid rectangular boxes, we can make our lives significantly easier by adapting our coordinate system to fit the geometry of the region. In this section, we will explore how to translate integrals into polar, cylindrical, and spherical coordinates. By rethinking how we partition space, we will be able to transform overly complicated rectangular integrals into highly manageable iterated integrals.<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="objectives goal-like" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3"><h3 class="heading"><span class="type">Objectives</span></h3>
+<div class="introduction" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-1"><div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<ul class="disc" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2-2"><li id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2-2-1">
-<div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2-2-1-1">blahblahblah<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2">
+<li id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-1">
+<div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-1-1">identify geometric regions and symmetries in two and three dimensions that are best modeled by polar, cylindrical, or spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Objective"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li></ul>
-<div class="autopermalink" data-description="Objectives"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="autopermalink" data-description="Section 15.4: Integration in Polar, Cylindrical, and Spherical Coordinates"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates" title="Copy heading and permalink for Section 15.4: Integration in Polar, Cylindrical, and Spherical Coordinates" aria-label="Copy heading and permalink for Section 15.4: Integration in Polar, Cylindrical, and Spherical Coordinates">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Objective"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-2">
+<div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-2-1">convert equations, functions, and limits of integration from rectangular coordinates into their polar, cylindrical, and spherical counterparts.<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-3">
+<div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-3-1">derive and apply the appropriate geometric area and volume differentials (<span class="process-math">\(dA\)</span> and <span class="process-math">\(dV\)</span>) for each coordinate system.<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-4">
+<div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-4-1">set up and evaluate double and triple integrals in non-rectangular coordinate systems to solve multi-variable integration problems.<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3-2-4" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="para" id="sec154-IntegrationPolarCylindricalSphericalCoordinates-3">Recall back in single-variable calculus, we split up an interval (a rectangle in <span class="process-math">\(\R^1\)</span>) into a bunch of smaller segments. In multi-variable calculus (more specifically, in double and triple integrals), we will split up a region in <span class="process-math">\(\R^2\)</span> or <span class="process-math">\(\R^3\)</span> into a bunch of smaller rectangular regions (or boxes). But what if we change the way we view the region.<div class="autopermalink" data-description="Paragraph"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="subsec-Integration_PolarCoordinates"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integration in Polar Coordinates</span>
+</h3>
+<div class="para" id="subsec-Integration_PolarCoordinates-2">Recall the two variables in polar coordinates are <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\text{,}\)</span> where <span class="process-math">\(r\)</span> is the distance from the origin and <span class="process-math">\(\theta\)</span> is the angle between the positive x-axis and the ray from the origin to the point. If we let <span class="process-math">\(r\)</span> and <span class="process-math">\(\theta\)</span> to vary independently, we obtain a "polar rectangular region". But what does this region look like?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Integration_PolarCoordinates-3"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;"><img src="external/sec154_PolarRectangle_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Polar Rectangular Region <span class="process-math">\(\c{R}\)</span> where <span class="process-math">\(a\leq r \leq b\)</span> and <span class="process-math">\(\alpha \leq \theta \leq \beta\)</span><div class="autopermalink" data-description="Figure 15.4.1"><a href="#subsec-Integration_PolarCoordinates-3" title="Copy heading and permalink for Figure 15.4.1" aria-label="Copy heading and permalink for Figure 15.4.1">🔗</a></div></figcaption></figure><div class="para" id="subsec-Integration_PolarCoordinates-4">To integrate a function <span class="process-math">\(f\)</span> over this polar rectangular region <span class="process-math">\(\c{R}\text{,}\)</span> as you can imagine, we will split up this region into a bunch of smaller polar rectangular regions. Then we will find a sample point in each of these smaller regions and evaluate the function value at the sample point. Finally, we will <em class="emphasis">multiply</em> the function value by the <em class="emphasis">area</em> of the smaller polar rectangular region and <em class="emphasis">add</em> up all of these products together.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Integration_PolarCoordinates-5"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;"><img src="external/sec154_Partition_PolarRectangle_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Partitioning <span class="process-math">\(\c{R}\)</span> into smaller polar rectangular regions<div class="autopermalink" data-description="Figure 15.4.2"><a href="#subsec-Integration_PolarCoordinates-5" title="Copy heading and permalink for Figure 15.4.2" aria-label="Copy heading and permalink for Figure 15.4.2">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-Integration_PolarCoordinates-6">
+<div class="para">That is, the volume of the solid under the surface defined by <span class="process-math">\(f(r,\theta)\)</span> over the polar rectangular region <span class="process-math">\(\c{R}\)</span> can be approximated by</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-6-3">
+\begin{equation*}
+V \approx \sum_{k = 1}^N f\lp r_k^*, \theta_k^* \rp \Delta A_k
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\Delta A_k\)</span> is the area of the <span class="process-math">\(k\)</span>-th smaller polar rectangular region and <span class="process-math">\((r_k^*, \theta_k^*)\)</span> is a sample point in the <span class="process-math">\(k\)</span>-th smaller polar rectangular region. As you can imagine, we can define the <dfn class="terminology">double integral</dfn> over the polar rectangular region as</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-6-9">
+\begin{equation*}
+\iint_\c{R} f(r,\theta) \, dA = \lim_{N\to \infty} \sum_{k = 1}^N f\lp r_k^*, \theta_k^* \rp \Delta A_k
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration_PolarCoordinates-7">But how do we find the area of a polar rectangular region, <span class="process-math">\(\Delta A_k\text{?}\)</span> Well we can think of the polar rectangular region as the difference between two <em class="emphasis">sectors</em> of a circle.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Integration_PolarCoordinates-8"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/sec154_AreaSector_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Area of a sector of a circle is <span class="process-math">\(\dfrac{1}{2} r^2 \theta\)</span><div class="autopermalink" data-description="Figure 15.4.3"><a href="#subsec-Integration_PolarCoordinates-8" title="Copy heading and permalink for Figure 15.4.3" aria-label="Copy heading and permalink for Figure 15.4.3">🔗</a></div></figcaption></figure><div class="para" id="subsec-Integration_PolarCoordinates-9">Before we derive an expression for <span class="process-math">\(\Delta A_k\text{,}\)</span> we will pick the sample point to be in the exact <dfn class="terminology">middle</dfn> of the smaller polar rectangular region, as shown in the figure below.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Integration_PolarCoordinates-10"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec154_SamplePoint_Polar_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Sample point in the exact middle of the smaller polar rectangular region<div class="autopermalink" data-description="Figure 15.4.4"><a href="#subsec-Integration_PolarCoordinates-10" title="Copy heading and permalink for Figure 15.4.4" aria-label="Copy heading and permalink for Figure 15.4.4">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-Integration_PolarCoordinates-11">
+<div class="para">Now we will derive an expression for <span class="process-math">\(\Delta A_k\text{!}\)</span> Let’s say the inner radius of the <span class="process-math">\(k\)</span>-th smaller polar rectangular region is <span class="process-math">\(r_1\)</span> and the outer radius is <span class="process-math">\(r_2\text{.}\)</span> Then we have</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-11-5">
+\begin{align*}
+\Delta A_k \amp= \frac{1}{2} r_2^2 \Delta \theta - \frac{1}{2} r_1^2 \Delta \theta \\
+\amp= \frac{1}{2} \lp r_2^2 - r_1^2 \rp \Delta \theta \\
+\amp= \frac{1}{2} \lp r_1 + r_2 \rp \lp r_2 - r_1 \rp \Delta \theta \\
+\amp= \frac{1}{2} \lp r_1 + r_2 \rp \Delta r \Delta \theta 
+\end{align*}
+</div>
+<div class="para">Okay cool... but this expression is still a bit complicated. What is <span class="process-math">\(\frac{1}{2} \lp r_1 + r_2 \rp\text{?}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Integration_PolarCoordinates-12">
+<div class="para">That is why we chose the sample point to be in the exact middle of the smaller polar rectangular region! By doing so, <span class="process-math">\(r_k^*\)</span> will be the <dfn class="terminology">midpoint</dfn> between <span class="process-math">\(r_1\)</span> and <span class="process-math">\(r_2\text{,}\)</span> which means that</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-12-5">
+\begin{equation*}
+r_k^* = \frac{r_1 + r_2}{2}
+\end{equation*}
+</div>
+<div class="para">Therefore, we can simplify the expression for <span class="process-math">\(\Delta A_k\)</span> to</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-12-7">
+\begin{equation*}
+\Delta A_k = r_k^* \Delta r \Delta \theta
+\end{equation*}
+</div>
+<div class="para">This implies that the area of the smaller polar rectangular region is <dfn class="terminology">radius times change in radius times change in angle</dfn>. Hence, we can now express this double integral as an iterated integral, guaranteed by the Fubini’s theorem.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-DoubleIntegral_Polar"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Double Integrals over Polar Rectangular Regions.</span>
+</h4>
+<div class="para logical" id="thm-DoubleIntegral_Polar-2-1">
+<div class="para">Let <span class="process-math">\(f\)</span> be continuous on the polar rectangular region</div>
+<div class="displaymath process-math" id="thm-DoubleIntegral_Polar-2-1-2">
+\begin{equation*}
+\c{R} = \left\{ (r,\theta) \mid 0 \leq a \leq r \leq b \text{ and } \alpha \leq \theta \leq \beta \right\}
+\end{equation*}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math" id="thm-DoubleIntegral_Polar-2-1-3">
+\begin{equation*}
+\iint_\c{R} f(r,\theta) \, dA = \int_\alpha^\beta \int_a^b f(r,\theta)\, r\, dr\, d\theta
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-DoubleIntegral_Polar-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 15.4.5: Double Integrals over Polar Rectangular Regions"><a href="#thm-DoubleIntegral_Polar" title="Copy heading and permalink for Theorem 15.4.5: Double Integrals over Polar Rectangular Regions" aria-label="Copy heading and permalink for Theorem 15.4.5: Double Integrals over Polar Rectangular Regions">🔗</a></div></article><article class="example example-like" id="subsec-Integration_PolarCoordinates-14"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Integration_PolarCoordinates-14-1">Find the volume of the solid bounded by the paraboloid <span class="process-math">\(z = 9 - x^2 - y^2\)</span> and the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-14-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Integration_PolarCoordinates-14-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-Integration_PolarCoordinates-14-2-1">You are more than welcome to use rectangular coordinates to solve this problem, but it is much easier to use polar coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-14-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration_PolarCoordinates-14-2-2">Also, it doesn’t matter which coordinates you use, the first step is to sketch the region of integration to determine the limits of integration.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-14-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration_PolarCoordinates-14-2-3">Also, to help you visualize, Richard coded the paraboloid for you.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-14-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-paraboloid-xy-trace-teal"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="fig-paraboloid-xy-trace-teal-2-1" width="480" height="480" src="fig-paraboloid-xy-trace-teal-2-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The paraboloid <span class="process-math">\(z = 9 - x^2 - y^2\)</span><div class="autopermalink" data-description="Figure 15.4.7"><a href="#fig-paraboloid-xy-trace-teal" title="Copy heading and permalink for Figure 15.4.7" aria-label="Copy heading and permalink for Figure 15.4.7">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Hint 15.4.6.1"><a href="#subsec-Integration_PolarCoordinates-14-2" title="Copy heading and permalink for Hint 15.4.6.1" aria-label="Copy heading and permalink for Hint 15.4.6.1">🔗</a></div>
+</div></details><details id="subsec-Integration_PolarCoordinates-14-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Integration_PolarCoordinates-14-3-1">
+<div class="para">First, we determine the region of integration, <span class="process-math">\(\c{D}\text{,}\)</span> in the <span class="process-math">\(xy\)</span>-plane. The solid is bounded below by the <span class="process-math">\(xy\)</span>-plane, where <span class="process-math">\(z = 0\text{.}\)</span> Setting <span class="process-math">\(z = 0\)</span> in the equation of the paraboloid gives:</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-14-3-1-6">
+\begin{equation*}
+0 = 9 - x^2 - y^2 \implies x^2 + y^2 = 9
+\end{equation*}
+</div>
+<div class="para">This means our region <span class="process-math">\(\c{D}\)</span> is a disk of radius 3 centered at the origin. In polar coordinates, this region is described by <span class="process-math">\(0 \leq r \leq 3\)</span> and <span class="process-math">\(0 \leq \theta \leq 2\pi\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-14-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Integration_PolarCoordinates-14-3-2">
+<div class="para">The height of the solid is given by the paraboloid <span class="process-math">\(f(x,y) = 9 - x^2 - y^2\text{.}\)</span> Converting this to polar coordinates, we get <span class="process-math">\(f(r,\theta) = 9 - r^2\text{.}\)</span> Now, we can set up and evaluate the double integral:</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-14-3-2-3">
+\begin{align*}
+V \amp= \iint_\c{D} \lp 9 - x^2 - y^2 \rp \, dA \\
+\amp= \int_0^{2\pi} \int_0^3 \lp 9 - r^2 \rp r \, dr \, d\theta \\
+\amp= \int_0^{2\pi} \int_0^3 \lp 9r - r^3 \rp \, dr \, d\theta \\
+\amp= \int_0^{2\pi} \left[ \frac{9}{2}r^2 - \frac{1}{4}r^4 \right]_0^3 \, d\theta \\
+\amp= \int_0^{2\pi} \lp \frac{81}{2} - \frac{81}{4} \rp \, d\theta \\
+\amp= \int_0^{2\pi} \frac{81}{4} \, d\theta \\
+\amp= \frac{81}{4} \lp 2\pi \rp = \frac{81\pi}{2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-14-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.6.1"><a href="#subsec-Integration_PolarCoordinates-14-3" title="Copy heading and permalink for Solution 15.4.6.1" aria-label="Copy heading and permalink for Solution 15.4.6.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 15.4.6"><a href="#subsec-Integration_PolarCoordinates-14" title="Copy heading and permalink for Example 15.4.6" aria-label="Copy heading and permalink for Example 15.4.6">🔗</a></div></article><div class="para logical" id="subsec-Integration_PolarCoordinates-15">
+<div class="para">But why bother spending all the effort to find a second formula that pretty much finds the same thing? As you observed in the example above, sometimes it is much easier to use polar coordinates to evaluate a double integral than to use rectangular coordinates. That is, we will need a formula to convert a double integral in rectangular coordinates to a double integral in polar coordinates. Recall the conversion formulas from a rectangular coordinate <span class="process-math">\((x,y)\)</span> to a polar coordinate <span class="process-math">\((r,\theta)\)</span> are</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-15-3">
+\begin{equation*}
+x = r\cos(\theta) \qquad \text{ and } \qquad y = r\sin(\theta)
+\end{equation*}
+</div>
+<div class="para">In addition to the fact that <span class="process-math">\(dA = r\, dr\, d\theta\)</span> in polar coordinates, we have the following conversion formula</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-15-5">
+\begin{equation*}
+\iint_\c{D} f(x,y) \, dA = \int_\alpha^\beta \int_{r = r_1(\theta)}^{r_2(\theta)} f(r\cos(\theta), r\sin(\theta)) \, r\, dr\, d\theta
+\end{equation*}
+</div>
+<div class="para">Observe that this formula applies to a more general region <span class="process-math">\(\c{D}\)</span> that is not necessarily a polar rectangular region. That is, <span class="process-math">\(r\)</span> can be a function of <span class="process-math">\(\theta\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Integration_PolarCoordinates-16"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para logical" id="subsec-Integration_PolarCoordinates-16-1">
+<div class="para">Evaluate the integral <span class="process-math">\(\ds \iint_\c{D} \frac{dA}{\sqrt{16 - x^2 - y^2}}\)</span> where</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-16-1-2">
+\begin{equation*}
+\c{D} = \left\{(x,y)\in \R^2 \mid x^2 + y^2 \leq 4, \, x \geq 0, \, \text{ and } y \geq 0\right\}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-16-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Integration_PolarCoordinates-16-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-Integration_PolarCoordinates-16-2-1">The region <span class="process-math">\(\c{D}\)</span> is bounded by <span class="process-math">\(x^2 + y^2 \leq 4\text{,}\)</span> which is a circle of radius 2. The conditions <span class="process-math">\(x \geq 0\)</span> and <span class="process-math">\(y \geq 0\)</span> restrict this region to the first quadrant. Therefore, in polar coordinates, <span class="process-math">\(\c{D}\)</span> is described by <span class="process-math">\(0 \leq r \leq 2\)</span> and <span class="process-math">\(0 \leq \theta \leq \pi/2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-16-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Integration_PolarCoordinates-16-2-2">
+<div class="para">Converting the integrand to polar coordinates, we note that <span class="process-math">\(x^2 + y^2 = r^2\)</span> and <span class="process-math">\(dA = r\, dr\, d\theta\text{.}\)</span> Setting up the integral yields:</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-16-2-2-3">
+\begin{align*}
+\iint_\c{D} \frac{dA}{\sqrt{16 - x^2 - y^2}} \amp= \int_0^{\pi/2} \int_0^2 \frac{1}{\sqrt{16 - r^2}} r \, dr \, d\theta 
+\end{align*}
+</div>
+<div class="para">We can evaluate the inner integral using a <span class="process-math">\(u\)</span>-substitution. Let <span class="process-math">\(u = 16 - r^2\text{,}\)</span> then <span class="process-math">\(du = -2r \, dr\text{,}\)</span> which means <span class="process-math">\(r \, dr = -\frac{1}{2} du\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-16-2-2-8">
+\begin{align*}
+\int \frac{r}{\sqrt{16 - r^2}} \, dr \amp= \int -\frac{1}{2\sqrt{u}} \, du = -\sqrt{u} = -\sqrt{16 - r^2} 
+\end{align*}
+</div>
+<div class="para">Applying the limits of integration from <span class="process-math">\(r = 0\)</span> to <span class="process-math">\(r = 2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-16-2-2-11">
+\begin{align*}
+\left[ -\sqrt{16 - r^2} \right]_0^2 \amp= -\sqrt{16 - 4} - \lp -\sqrt{16 - 0} \rp \\
+\amp= -\sqrt{12} + 4 = 4 - 2\sqrt{3} 
+\end{align*}
+</div>
+<div class="para">Finally, we evaluate the outer integral:</div>
+<div class="displaymath process-math" id="subsec-Integration_PolarCoordinates-16-2-2-12">
+\begin{align*}
+\int_0^{\pi/2} \lp 4 - 2\sqrt{3} \rp \, d\theta \amp= \lp 4 - 2\sqrt{3} \rp \left[ \theta \right]_0^{\pi/2} = \frac{\pi}{2} \lp 4 - 2\sqrt{3} \rp = \pi \lp 2 - \sqrt{3} \rp 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_PolarCoordinates-16-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.8.1"><a href="#subsec-Integration_PolarCoordinates-16-2" title="Copy heading and permalink for Solution 15.4.8.1" aria-label="Copy heading and permalink for Solution 15.4.8.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 15.4.8"><a href="#subsec-Integration_PolarCoordinates-16" title="Copy heading and permalink for Example 15.4.8" aria-label="Copy heading and permalink for Example 15.4.8">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Integration in Polar Coordinates"><a href="#subsec-Integration_PolarCoordinates" title="Copy heading and permalink for Subsection: Integration in Polar Coordinates" aria-label="Copy heading and permalink for Subsection: Integration in Polar Coordinates">🔗</a></div></section><section class="subsection" id="subsec-Integration_CylindricalCoordinates"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integration in Cylindrical Coordinates</span>
+</h3>
+<div class="para" id="subsec-Integration_CylindricalCoordinates-2">Let’s say you want to convert a triple integral in rectangular coordinates to some other coordinates. Then the polar coordinates won’t work because of the lack of a third variable.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration_CylindricalCoordinates-3">We did learn about extending polar coordinates to include a third variable, called <dfn class="terminology">cylindrical coordinates</dfn>, in <a href="sec127-CylindricalSphericalCoordinates.html" class="internal" title="Section 12.7: Cylindrical and Spherical Coordinates">Section 12.7</a>. Briefly, the third variable in cylindrical coordinates is just the <span class="process-math">\(z\)</span>-coordinate in rectangular coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Integration_CylindricalCoordinates-4"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec154_CylindricalCoordinate_Differential_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A cylindrical sub-box in cylindrical coordinates<div class="autopermalink" data-description="Figure 15.4.9"><a href="#subsec-Integration_CylindricalCoordinates-4" title="Copy heading and permalink for Figure 15.4.9" aria-label="Copy heading and permalink for Figure 15.4.9">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-Integration_CylindricalCoordinates-5">
+<div class="para">For the volume of a cylindrical sub-box, we can think of it as the area of the base times the height. We spent all the effort earlier to find the area of the base in polar coordinates, which is <span class="process-math">\(r_k^*\Delta r \Delta \theta\text{.}\)</span> The height of the cylindrical sub-box is just <span class="process-math">\(\Delta z\text{.}\)</span> Therefore, the volume of a cylindrical sub-box is</div>
+<div class="displaymath process-math" id="subsec-Integration_CylindricalCoordinates-5-3">
+\begin{equation*}
+r_k^* \Delta r \Delta \theta \Delta z
+\end{equation*}
+</div>
+<div class="para">This gives us a way to express a triple integral in cylindrical coordinates as an iterated integral, guaranteed, again, by the Fubini’s theorem.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-TripleIntegral_Cylindrical"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Triple Integrals in Cylindrical Coordinates.</span>
+</h4>
+<div class="para logical" id="thm-TripleIntegral_Cylindrical-2-1">
+<div class="para">Let <span class="process-math">\(f\)</span> be continuous over the region</div>
+<div class="displaymath process-math" id="thm-TripleIntegral_Cylindrical-2-1-2">
+\begin{equation*}
+\c{W} = \left\{(r,\theta,z) \mid 0 \leq r_1(\theta) \leq r \leq r_2(\theta), \, \alpha \leq \theta \leq \beta, \text{ and } z_1(r,\theta) \leq z \leq z_2(r, \theta) \right\}
+\end{equation*}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math" id="thm-TripleIntegral_Cylindrical-2-1-3">
+\begin{equation*}
+\iiint_\c{W} f(r,\theta,z) \, dV = \int_\alpha^\beta \int_{r = r_1(\theta)}^{r_2(\theta)} \int_{z = z_1(r,\theta)}^{z_2(r,\theta)} f(r,\theta,z) \, r\, dz\, dr\, d\theta
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-TripleIntegral_Cylindrical-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 15.4.10: Triple Integrals in Cylindrical Coordinates"><a href="#thm-TripleIntegral_Cylindrical" title="Copy heading and permalink for Theorem 15.4.10: Triple Integrals in Cylindrical Coordinates" aria-label="Copy heading and permalink for Theorem 15.4.10: Triple Integrals in Cylindrical Coordinates">🔗</a></div></article><div class="para logical" id="subsec-Integration_CylindricalCoordinates-7">
+<div class="para">Then we can convert a triple integral in rectangular coordinates to cylindrical coordinates by using the conversion formulas from a rectangular coordinate <span class="process-math">\((x,y,z)\)</span> to a cylindrical coordinate <span class="process-math">\((r,\theta,z)\)</span> covered in <a href="sec127-CylindricalSphericalCoordinates.html" class="internal" title="Section 12.7: Cylindrical and Spherical Coordinates">Section 12.7</a>. Briefly, the conversion formulas are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec127-CylindricalSphericalCoordinates.html" id="subsec-Integration_CylindricalCoordinates-7-4">
+\begin{equation*}
+x = r \cos \theta\, , \qquad y = r \sin \theta\, , \qquad z = z
+\end{equation*}
+</div>
+<div class="para">In addition to the fact that <span class="process-math">\(dV = r\, dz\, dr\, d\theta\)</span> in cylindrical coordinates, we have the following conversion formula</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec127-CylindricalSphericalCoordinates.html" id="subsec-Integration_CylindricalCoordinates-7-6">
+\begin{equation*}
+\iiint_\c{W} f(x,y,z) \, dV = \int_\alpha^\beta \int_{r = r_1(\theta)}^{r_2(\theta)} \int_{z = z_1(r,\theta)}^{z_2(r,\theta)} f(r\cos \theta, r\sin \theta, z) \, r\, dz\, dr\, d\theta
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Integration_CylindricalCoordinates-8"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Integration_CylindricalCoordinates-8-1">Evaluate the integral <span class="process-math">\(\ds \int_{-2}^2 \int_{-\sqrt{4 - y^2}}^\sqrt{4 - y^2} \int_\sqrt{x^2 + y^2}^2 xz \, dz\, dx\, dy\)</span> by changing to cylindrical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Integration_CylindricalCoordinates-8-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More like visualization...</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="subsec-Integration_CylindricalCoordinates-8-2-2">Richard coded the region to help you see what the region looks like.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-8-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cylindrical-cone-region-teal"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="fig-cylindrical-cone-region-teal-2-1" width="480" height="480" src="fig-cylindrical-cone-region-teal-2-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Region of integration bounded below by <span class="process-math">\(z = \sqrt{x^2 + y^2}\)</span> and above by <span class="process-math">\(z = 2\)</span><div class="autopermalink" data-description="Figure 15.4.12"><a href="#fig-cylindrical-cone-region-teal" title="Copy heading and permalink for Figure 15.4.12" aria-label="Copy heading and permalink for Figure 15.4.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Hint 15.4.11.1: More like visualization..."><a href="#subsec-Integration_CylindricalCoordinates-8-2" title="Copy heading and permalink for Hint 15.4.11.1: More like visualization..." aria-label="Copy heading and permalink for Hint 15.4.11.1: More like visualization...">🔗</a></div>
+</div></details><details id="subsec-Integration_CylindricalCoordinates-8-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="subsec-Integration_CylindricalCoordinates-8-3-1">
+<div class="para">First, we determine the region of integration, <span class="process-math">\(\c{W}\text{,}\)</span> from the given limits of integration in rectangular coordinates. The bounds are:</div>
+<div class="displaymath process-math" id="subsec-Integration_CylindricalCoordinates-8-3-1-2">
+\begin{align*}
+-\sqrt{4 - y^2} \amp \leq x \leq \sqrt{4 - y^2} \\
+-2 \amp \leq y \leq 2 \\
+\sqrt{x^2 + y^2} \amp \leq z \leq 2 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration_CylindricalCoordinates-8-3-2">The inequalities for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> describe a disk of radius 2 centered at the origin in the <span class="process-math">\(xy\)</span>-plane, which is <span class="process-math">\(x^2 + y^2 \leq 4\text{.}\)</span> In cylindrical coordinates, this region translates to <span class="process-math">\(0 \leq r \leq 2\)</span> and <span class="process-math">\(0 \leq \theta \leq 2\pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-8-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration_CylindricalCoordinates-8-3-3">For the <span class="process-math">\(z\)</span> bounds, we know that <span class="process-math">\(\sqrt{x^2 + y^2} = r\text{.}\)</span> So, the solid is bounded below by the cone <span class="process-math">\(z = r\)</span> and above by the plane <span class="process-math">\(z = 2\text{.}\)</span> Thus, our bounds for <span class="process-math">\(z\)</span> are <span class="process-math">\(r \leq z \leq 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-8-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Integration_CylindricalCoordinates-8-3-4">
+<div class="para">Next, we convert the integrand <span class="process-math">\(f(x,y,z) = xz\)</span> and the differential <span class="process-math">\(dz\, dx\, dy\)</span> into cylindrical coordinates:</div>
+<div class="displaymath process-math" id="subsec-Integration_CylindricalCoordinates-8-3-4-3">
+\begin{align*}
+xz \amp= \lp r\cos\theta \rp z = rz\cos\theta \\
+dz\, dx\, dy \amp= r\, dz\, dr\, d\theta 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-8-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Integration_CylindricalCoordinates-8-3-5">
+<div class="para">Now we can set up and evaluate the triple integral:</div>
+<div class="displaymath process-math" id="subsec-Integration_CylindricalCoordinates-8-3-5-1">
+\begin{align*}
+\int_{-2}^2 \int_{-\sqrt{4 - y^2}}^\sqrt{4 - y^2} \int_\sqrt{x^2 + y^2}^2 xz \, dz\, dx\, dy \amp= \int_0^{2\pi} \int_0^2 \int_r^2 \lp rz\cos\theta \rp r \, dz\, dr\, d\theta \\
+\amp= \int_0^{2\pi} \int_0^2 \int_r^2 r^2 z \cos\theta \, dz\, dr\, d\theta 
+\end{align*}
+</div>
+<div class="para">Evaluating the innermost integral with respect to <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Integration_CylindricalCoordinates-8-3-5-3">
+\begin{align*}
+\amp= \int_0^{2\pi} \int_0^2 \left[ \frac{1}{2} r^2 z^2 \cos\theta \right]_{z=r}^{z=2} \, dr\, d\theta \\
+\amp= \int_0^{2\pi} \int_0^2 \lp \frac{1}{2} r^2 (2)^2 \cos\theta - \frac{1}{2} r^2 (r)^2 \cos\theta \rp \, dr\, d\theta \\
+\amp= \int_0^{2\pi} \int_0^2 \lp 2r^2 - \frac{1}{2}r^4 \rp \cos\theta \, dr\, d\theta 
+\end{align*}
+</div>
+<div class="para">Next, evaluating with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Integration_CylindricalCoordinates-8-3-5-5">
+\begin{align*}
+\amp= \int_0^{2\pi} \left[ \lp \frac{2}{3}r^3 - \frac{1}{10}r^5 \rp \cos\theta \right]_{r=0}^{r=2} \, d\theta \\
+\amp= \int_0^{2\pi} \lp \frac{16}{3} - \frac{32}{10} \rp \cos\theta \, d\theta \\
+\amp= \int_0^{2\pi} \frac{32}{15} \cos\theta \, d\theta 
+\end{align*}
+</div>
+<div class="para">Finally, evaluating the outermost integral with respect to <span class="process-math">\(\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Integration_CylindricalCoordinates-8-3-5-7">
+\begin{align*}
+\amp= \left[ \frac{32}{15} \sin\theta \right]_0^{2\pi} \\
+\amp= \frac{32}{15} \lp 0 - 0 \rp = 0 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_CylindricalCoordinates-8-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.11.1"><a href="#subsec-Integration_CylindricalCoordinates-8-3" title="Copy heading and permalink for Solution 15.4.11.1" aria-label="Copy heading and permalink for Solution 15.4.11.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 15.4.11"><a href="#subsec-Integration_CylindricalCoordinates-8" title="Copy heading and permalink for Example 15.4.11" aria-label="Copy heading and permalink for Example 15.4.11">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Integration in Cylindrical Coordinates"><a href="#subsec-Integration_CylindricalCoordinates" title="Copy heading and permalink for Subsection: Integration in Cylindrical Coordinates" aria-label="Copy heading and permalink for Subsection: Integration in Cylindrical Coordinates">🔗</a></div></section><section class="subsection" id="subsec-Integration_SphericalCoordinates"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integration in Spherical Coordinates</span>
+</h3>
+<div class="para" id="subsec-Integration_SphericalCoordinates-2">Recall back in <a href="sec127-CylindricalSphericalCoordinates.html" class="internal" title="Section 12.7: Cylindrical and Spherical Coordinates">Section 12.7</a>, there is another 3D coordinates system, called <dfn class="terminology">spherical coordinates</dfn>. Then we can also express a triple integral in spherical coordinates as an iterated integral, guaranteed by the Fubini’s theorem.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_SphericalCoordinates-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration_SphericalCoordinates-3">To do so, we will need to find the volume of a spherical sub-box in spherical coordinates. But what does a spherical sub-box look like?<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_SphericalCoordinates-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="subsec-Integration_SphericalCoordinates-4"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/sec154_SphericalCoordinate_Differential_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A spherical sub-box in spherical coordinates<div class="autopermalink" data-description="Figure 15.4.13"><a href="#subsec-Integration_SphericalCoordinates-4" title="Copy heading and permalink for Figure 15.4.13" aria-label="Copy heading and permalink for Figure 15.4.13">🔗</a></div></figcaption></figure><div class="para" id="subsec-Integration_SphericalCoordinates-5">Imagine the spherical sub-box is getting smaller and smaller, then the spherical sub-box will look more and more like a rectangular box. Then we can find its volume by multiplying the length, width, and height. These three dimensions are <span class="process-math">\(\Delta \rho\text{,}\)</span> <span class="process-math">\(\rho \Delta \phi\text{,}\)</span> and <span class="process-math">\(\rho \sin \lp \phi \rp \Delta \theta\text{,}\)</span> respectively. The diagram above should help you understand why these are the dimensions of the spherical sub-box.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_SphericalCoordinates-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Integration_SphericalCoordinates-6">
+<div class="para">Therefore, the volume of a spherical sub-box is</div>
+<div class="displaymath process-math" id="subsec-Integration_SphericalCoordinates-6-1">
+\begin{equation*}
+\Delta V = \Delta \rho \times \rho \Delta \phi \times \rho \sin \lp \phi \rp \Delta \theta = \rho^2\sin \lp \phi \rp \Delta \rho \Delta \phi \Delta \theta
+\end{equation*}
+</div>
+<div class="para">Now we can express a triple integral in spherical coordinates as an iterated integral, guaranteed, again, by the Fubini’s theorem.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_SphericalCoordinates-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-TripleIntegral_Spherical"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Triple Integrals in Spherical Coordinates.</span>
+</h4>
+<div class="para logical" id="thm-TripleIntegral_Spherical-2-1">
+<div class="para">Let <span class="process-math">\(f\)</span> be continuous over the region</div>
+<div class="displaymath process-math" id="thm-TripleIntegral_Spherical-2-1-2">
+\begin{equation*}
+\c{W} = \left\{ (\rho, \phi, \theta) \mid \theta_1 \leq \theta \leq \theta_2, \, \phi_1 \leq \phi \leq \phi_2, \, \rho_1(\phi, \theta) \leq \rho \leq \rho_2(\phi, \theta) \right\}
+\end{equation*}
+</div>
+<div class="para">Then</div>
+<div class="displaymath process-math" id="thm-TripleIntegral_Spherical-2-1-3">
+\begin{equation*}
+\iiint_\c{W} f(\rho, \phi, \theta) \, dV = \int_{\theta_1}^{\theta_2} \int_{\phi_1}^{\phi_2} \int_{\rho_1(\phi, \theta)}^{\rho_2(\phi, \theta)} f(\rho, \phi, \theta) \, \rho^2 \sin \lp \phi \rp \, d\rho\, d\phi\, d\theta
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-TripleIntegral_Spherical-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 15.4.14: Triple Integrals in Spherical Coordinates"><a href="#thm-TripleIntegral_Spherical" title="Copy heading and permalink for Theorem 15.4.14: Triple Integrals in Spherical Coordinates" aria-label="Copy heading and permalink for Theorem 15.4.14: Triple Integrals in Spherical Coordinates">🔗</a></div></article><div class="para logical" id="subsec-Integration_SphericalCoordinates-8">
+<div class="para">Then we can convert a triple integral in rectangular coordinates to spherical coordinates by using the conversion formulas from a rectangular coordinate <span class="process-math">\((x,y,z)\)</span> to a spherical coordinate <span class="process-math">\((\rho, \phi, \theta)\)</span> covered in <a href="sec127-CylindricalSphericalCoordinates.html" class="internal" title="Section 12.7: Cylindrical and Spherical Coordinates">Section 12.7</a>. Briefly, the conversion formulas are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec127-CylindricalSphericalCoordinates.html" id="subsec-Integration_SphericalCoordinates-8-4">
+\begin{equation*}
+x = \rho \sin \lp \phi \rp \cos \theta\, , \qquad y = \rho \sin \lp \phi \rp \sin \theta\, , \qquad z = \rho \cos \lp \phi \rp
+\end{equation*}
+</div>
+<div class="para">In addition to the fact that <span class="process-math">\(dV = \rho^2\sin(\phi) \, d\rho \, d\phi \, d\theta\)</span> in spherical coordinates, we have the following conversion formula</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec127-CylindricalSphericalCoordinates.html" id="subsec-Integration_SphericalCoordinates-8-6">
+\begin{equation*}
+\iiint_\c{W} f(x,y,z) dV = \int_{\theta_1}^{\theta_2} \int_{\phi_1}^{\phi_2} \int_{\rho_1(\phi, \theta)}^{\rho_2(\phi, \theta)} f(\rho\sin(\phi)\cos(\theta), \rho\sin(\phi)\sin(\theta), \rho\cos(\phi))\,  d\rho\, d\phi\, d\theta
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_SphericalCoordinates-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="subsec-Integration_SphericalCoordinates-9"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.4.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="subsec-Integration_SphericalCoordinates-9-1">Evaluate the integral <span class="process-math">\(\ds \iiint_\c{W} e^{-\lp x^2 + y^2 + z^2 \rp^{3/2}}\, dV\text{,}\)</span> where <span class="process-math">\(\c{W}\)</span> is a unit ball.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_SphericalCoordinates-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="subsec-Integration_SphericalCoordinates-9-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="subsec-Integration_SphericalCoordinates-9-2-1">The region <span class="process-math">\(\c{W}\)</span> is a unit ball, which means it consists of all points with a distance of 1 or less from the origin. In spherical coordinates, this is described by the bounds: <span class="process-math">\(0 \leq \rho \leq 1\text{,}\)</span> <span class="process-math">\(0 \leq \phi \leq \pi\text{,}\)</span> and <span class="process-math">\(0 \leq \theta \leq 2\pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_SphericalCoordinates-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-Integration_SphericalCoordinates-9-2-2">We know that <span class="process-math">\(x^2 + y^2 + z^2 = \rho^2\text{.}\)</span> Therefore, the exponent becomes <span class="process-math">\(-\lp \rho^2 \rp^{3/2} = -\rho^3\text{.}\)</span> The volume differential is <span class="process-math">\(dV = \rho^2 \sin\lp\phi\rp \, d\rho \, d\phi \, d\theta\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_SphericalCoordinates-9-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-Integration_SphericalCoordinates-9-2-3">
+<div class="para">Setting up the triple integral as an iterated integral, we evaluate from the inside out:</div>
+<div class="displaymath process-math" id="subsec-Integration_SphericalCoordinates-9-2-3-1">
+\begin{align*}
+\iiint_\c{W} e^{-\lp x^2 + y^2 + z^2 \rp^{3/2}}\, dV \amp= \int_0^{2\pi} \int_0^\pi \int_0^1 e^{-\rho^3} \rho^2 \sin\lp\phi\rp \, d\rho \, d\phi \, d\theta 
+\end{align*}
+</div>
+<div class="para">First, we evaluate the innermost integral with respect to <span class="process-math">\(\rho\text{.}\)</span> We can use <span class="process-math">\(u\)</span>-substitution by letting <span class="process-math">\(u = -\rho^3\text{,}\)</span> which means <span class="process-math">\(du = -3\rho^2 \, d\rho\text{,}\)</span> or <span class="process-math">\(\rho^2 \, d\rho = -\frac{1}{3}du\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Integration_SphericalCoordinates-9-2-3-7">
+\begin{align*}
+\amp= \int_0^{2\pi} \int_0^\pi \left[ -\frac{1}{3} e^{-\rho^3} \sin\lp\phi\rp \right]_{\rho=0}^{\rho=1} \, d\phi \, d\theta \\
+\amp= \int_0^{2\pi} \int_0^\pi \lp -\frac{1}{3} e^{-1} \sin\lp\phi\rp - \lp -\frac{1}{3} e^{0} \sin\lp\phi\rp \rp \rp \, d\phi \, d\theta \\
+\amp= \int_0^{2\pi} \int_0^\pi \frac{1 - e^{-1}}{3} \sin\lp\phi\rp \, d\phi \, d\theta 
+\end{align*}
+</div>
+<div class="para">Next, we evaluate the middle integral with respect to <span class="process-math">\(\phi\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Integration_SphericalCoordinates-9-2-3-9">
+\begin{align*}
+\amp= \int_0^{2\pi} \left[ -\frac{1 - e^{-1}}{3} \cos\lp\phi\rp \right]_{\phi=0}^{\phi=\pi} \, d\theta \\
+\amp= \int_0^{2\pi} \lp -\frac{1 - e^{-1}}{3} \cos(\pi) - \lp -\frac{1 - e^{-1}}{3} \cos(0) \rp \rp \, d\theta \\
+\amp= \int_0^{2\pi} \lp \frac{1 - e^{-1}}{3} + \frac{1 - e^{-1}}{3} \rp \, d\theta \\
+\amp= \int_0^{2\pi} \frac{2\lp 1 - e^{-1} \rp}{3} \, d\theta 
+\end{align*}
+</div>
+<div class="para">Finally, we evaluate the outermost integral with respect to <span class="process-math">\(\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-Integration_SphericalCoordinates-9-2-3-11">
+\begin{align*}
+\amp= \left[ \frac{2\lp 1 - e^{-1} \rp}{3} \theta \right]_0^{2\pi} \\
+\amp= \frac{2\lp 1 - e^{-1} \rp}{3} (2\pi) \\
+\amp= \frac{4\pi \lp 1 - e^{-1} \rp}{3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-Integration_SphericalCoordinates-9-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.15.1"><a href="#subsec-Integration_SphericalCoordinates-9-2" title="Copy heading and permalink for Solution 15.4.15.1" aria-label="Copy heading and permalink for Solution 15.4.15.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 15.4.15"><a href="#subsec-Integration_SphericalCoordinates-9" title="Copy heading and permalink for Example 15.4.15" aria-label="Copy heading and permalink for Example 15.4.15">🔗</a></div></article><div class="autopermalink" data-description="Subsection: Integration in Spherical Coordinates"><a href="#subsec-Integration_SphericalCoordinates" title="Copy heading and permalink for Subsection: Integration in Spherical Coordinates" aria-label="Copy heading and permalink for Subsection: Integration in Spherical Coordinates">🔗</a></div></section><section class="worksheet" id="ws-sec154" data-margins="0.75in 0.75in 0.75in 0.75in"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Assigned Problems for Section 15.4</span><div class="print-links"><a href="ws-sec154-printable.html" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<section class="introduction" id="ws-sec154-2"><div class="para" id="ws-sec154-2-1">The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec154-2-2">The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><article class="exercise exercise-like" id="ws-sec154-3"><h4 class="heading"><span class="codenumber">15.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec154-3-1">Sketch the region <span class="process-math">\(\c{D} = \left\{ (x,y) \in \R^2 \mid x \geq 0, \, y \geq 0 \, \text{and } x^2 + y^2 \leq 4 \right\}\)</span> and integrate <span class="process-math">\(f(x,y) = xy\)</span> over <span class="process-math">\(\c{D}\)</span> using polar coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.4.3"><a href="#ws-sec154-3" title="Copy heading and permalink for Worksheet Exercise 15.4.3" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-4"><h4 class="heading"><span class="codenumber">15.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec154-4-1">
+<div class="para">For the following integral, sketch the region of integration and evaluate by changing to polar coordinates.</div>
+<div class="displaymath process-math" id="ws-sec154-4-1-1">
+\begin{equation*}
+\int_{-1}^2 \int_0^\sqrt{4 - x^2} \lp x^2 + y^2 \rp \, dy \, dx
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.4.13"><a href="#ws-sec154-4" title="Copy heading and permalink for Worksheet Exercise 15.4.13" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.13">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-5"><h4 class="heading"><span class="codenumber">15.4.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec154-5-1">Calculate the integral of <span class="process-math">\(f(x,y) = x - y\)</span> over the region <span class="process-math">\(\c{D} = \left\{ (x,y) \in \R^2 \mid x^2 + y^2 \leq 1 \text{ and } x + y \geq1\right\}\)</span> by changing to polar coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.4.19"><a href="#ws-sec154-5" title="Copy heading and permalink for Worksheet Exercise 15.4.19" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-6"><h4 class="heading"><span class="codenumber">15.4.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec154-6-1">Evaluate <span class="process-math">\(\ds \iint_\c{D} \sqrt{x^2 + y^2} \, dA\text{,}\)</span> where <span class="process-math">\(\c{D}\)</span> is the domain in the following figure.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ws-sec154-6-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="ws-sec154-6-2-1">Find the equation of the inner circle in polar coordinates and treat the right and left parts of the region separately.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 15.4.23.1"><a href="#ws-sec154-6-2" title="Copy heading and permalink for Hint 15.4.23.1" aria-label="Copy heading and permalink for Hint 15.4.23.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.4.23"><a href="#ws-sec154-6" title="Copy heading and permalink for Worksheet Exercise 15.4.23" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.23">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-7"><h4 class="heading"><span class="codenumber">15.4.29<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec154-7-1">Use cylindrical coordinates to evaluate <span class="process-math">\(\ds \iiint_\c{W} x \, dV\)</span> where <span class="process-math">\(\c{W} = \left\{ (x,y,z) \in \R^3 \mid x^2 + y^2 \leq 16 , \, x \geq 0, \, y \geq 0, \, -3 \leq z \leq 3 \right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.4.29"><a href="#ws-sec154-7" title="Copy heading and permalink for Worksheet Exercise 15.4.29" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.29">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-8"><h4 class="heading"><span class="codenumber">15.4.35<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec154-8-1">
+<div class="para">Express the triple integral in cylindrical coordinates.</div>
+<div class="displaymath process-math" id="ws-sec154-8-1-1">
+\begin{equation*}
+\int_{x = -1}^1 \int_{y = 0}^\sqrt{1 - x^2} \int_{z = 0}^{x^2 + y^2} f(x,y,z) \, dz \, dy \, dx
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.4.35"><a href="#ws-sec154-8" title="Copy heading and permalink for Worksheet Exercise 15.4.35" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.35">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-9"><h4 class="heading"><span class="codenumber">15.4.39<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec154-9-1">Find the volume of the region appearing between the two surfaces in the following figure.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.4.39"><a href="#ws-sec154-9" title="Copy heading and permalink for Worksheet Exercise 15.4.39" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.39">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-10"><h4 class="heading"><span class="codenumber">15.4.49<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec154-10-1">
+<div class="para">Use spherical coordinates to calculate</div>
+<div class="displaymath process-math" id="ws-sec154-10-1-1">
+\begin{equation*}
+\iiint_\c{W} \sqrt{x^2 + y^2 + z^2}\, dV
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(\c{W} = \left\{ (x,y,z) \in \R^3 \mid x^2 + y^2 + z^2 \leq 2z \right\}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.4.49"><a href="#ws-sec154-10" title="Copy heading and permalink for Worksheet Exercise 15.4.49" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.49">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-11"><h4 class="heading"><span class="codenumber">15.4.53<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec154-11-1">
+<div class="para">Calculate the integral of</div>
+<div class="displaymath process-math" id="ws-sec154-11-1-1">
+\begin{equation*}
+f(x,y,z) = z\lp x^2 + y^2 + z^2 \rp^{-\frac{3}{2}}
+\end{equation*}
+</div>
+<div class="para">over the part of the ball <span class="process-math">\(x^2 + y^2 + z^2 \leq 16\)</span> defined by <span class="process-math">\(z \geq 2\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.4.53"><a href="#ws-sec154-11" title="Copy heading and permalink for Worksheet Exercise 15.4.53" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.53">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 15.4"><a href="#ws-sec154" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 15.4" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 15.4">🔗</a></div></section><div class="autopermalink" data-description="Section 15.4: Integration in Polar, Cylindrical, and Spherical Coordinates"><a href="#sec154-IntegrationPolarCylindricalSphericalCoordinates" title="Copy heading and permalink for Section 15.4: Integration in Polar, Cylindrical, and Spherical Coordinates" aria-label="Copy heading and permalink for Section 15.4: Integration in Polar, Cylindrical, and Spherical Coordinates">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="sec153-tripleIntegrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec156-ChangeofVariables.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec153-tripleIntegrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

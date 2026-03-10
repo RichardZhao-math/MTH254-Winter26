@@ -102,15 +102,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.11.5';
+eBookConfig.runestone_version = '7.11.18';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.42217a82c75796c8.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.7e141ad8414abf4a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.f4ab138da65f4203.css">
+<script src="_static/prefix-runtime.1d92cd109bc12c4d.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.98ef3b0c170cd180.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.74f6fa0c85f09c79.css">
 <script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -136,12 +136,18 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\Q}{\mathbb Q} 
 \newcommand{\R}{\mathbb R} 
 
+\newcommand{\ds}{\displaystyle}
+
 \newcommand{\v}[1]{\mathbf{#1}}
+\newcommand{\c}[1]{\mathcal{#1}}
 
 \newcommand{\lp}{\left(}
 \newcommand{\rp}{\right)}
 \newcommand{\la}{\left\langle}
 \newcommand{\ra}{\right\rangle}
+
+\newcommand{\proj}{\text{proj}}
+\newcommand{\comp}{\text{comp}}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -164,53 +170,205 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsubsec-LinearCombinations" class="internal"><span class="title">Linear Combinations of Vectors</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#subsec-VectorApplication" class="internal"><span class="title">Applications of Vectors</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Homework problems for this section</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec121-VectorsPlane.html#ws-sec121" class="internal"><span class="title">Assigned Problems for Section 12.1</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec122-3DSpaces.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Three-Dimensional Spaces: Surfaces, Vectors, and Curves</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Practice problems for this section</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Surfaces" class="internal"><span class="title">Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-3Space-Vectors" class="internal"><span class="title">Vectors in 3-Space</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec122-3DSpaces.html#subsec-ParametricLines" class="internal"><span class="title">Curves and Lines</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec122-3DSpaces.html#ws-sec122" class="internal"><span class="title">Assigned Problems for Section 12.2</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec123-DotProduct.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Dot Product and the Angle Between Two Vectors</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct" class="internal"><span class="title">Dot Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-DotProduct-Angles" class="internal"><span class="title">Angle between Two Vectors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec123-DotProduct.html#subsec-OrthogonalProjection" class="internal"><span class="title">Orthogonal Projection</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec123-DotProduct.html#ws-sec123" class="internal"><span class="title">Assigned Problems for Section 12.3</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec124-CrossProduct.html" class="internal"><span class="codenumber">12.4</span> <span class="title">The Cross Product</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossProduct" class="internal"><span class="title">The Cross Product</span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-CrossPropertiesBasis" class="internal"><span class="title">Properties of the Cross Product</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-AreaGeometry" class="internal"><span class="title">Geometry: Area of a Parallelogram</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-Volume" class="internal"><span class="title">Geometry: Volume of a Parallelepiped</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec124-CrossProduct.html#subsec-ApplicationTorque" class="internal"><span class="title">Application: Torque</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec124-CrossProduct.html#ws-sec124" class="internal"><span class="title">Assigned Problems for Section 12.4</span></a></div></li>
+</ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec125-Planesin3D.html" class="internal"><span class="codenumber">12.5</span> <span class="title">Planes in 3-Spaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-DefiningPlanes" class="internal"><span class="title">Defining a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-IntersectionLinePlane" class="internal"><span class="title">Intersection of a Line and a Plane</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec125-Planesin3D.html#subsec-ParallelIntersecting" class="internal"><span class="title">Parallel and Intersecting Planes</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec125-Planesin3D.html#ws-sec125" class="internal"><span class="title">Assigned Problems for Section 12.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec126-QuadricSurfaces.html" class="internal"><span class="codenumber">12.6</span> <span class="title">A Survey to Quadric Surfaces</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-ConicSections-Review" class="internal"><span class="title">Review: Conic Sections</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-StandardQuadricSurfaces" class="internal"><span class="title">Standard Quadric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#subsec-QuadraticCylinders" class="internal"><span class="title">Quadratic Cylinders</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec126-QuadricSurfaces.html#ws-sec126" class="internal"><span class="title">Assigned Problems for Section 12.6</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">12.7</span> <span class="title">Cylindrical and Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-PolarCoordinates-Review" class="internal"><span class="title">Review: Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-CylindricalCoordinates" class="internal"><span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#subsec-SphericalCoordinates" class="internal"><span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec127-CylindricalSphericalCoordinates.html#ws-sec127" class="internal"><span class="title">Assigned Problems for Section 12.7</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch13-CalcVectorFunctions.html" class="internal"><span class="codenumber">13</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec131-VectorFunctions.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Vector-Valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-BasicVectorValuedFunctions" class="internal"><span class="title">Domain, Path, and Curve</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Projection_VectorValuedFunctions" class="internal"><span class="title">Projections of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#subsec-Parametrization_VectorValuedFunctions" class="internal"><span class="title">Parametrization of Vector-Valued Functions</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec131-VectorFunctions.html#ws-sec131" class="internal"><span class="title">Assigned Problems for Section 13.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Calculus of Vector-Valued Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Limit-VectorValuedFunctions" class="internal"><span class="title">Limit of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Derivative-VectorValuedFunctions" class="internal"><span class="title">Derivative of a Vector-Valued Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-TangentVector-VectorValuedFunctions" class="internal"><span class="title">Derivative as a Tangent Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#subsec-Integration-VectorValuedFunctions" class="internal"><span class="title">Vector-valued Integration</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec132-CalcVectorFunctions.html#ws-sec132" class="internal"><span class="title">Assigned Problems for Section 13.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec133-ArcLength.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Arc Length and Speed</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-ArcLength" class="internal"><span class="title">Arc Length</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-Speed" class="internal"><span class="title">Speed</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec133-ArcLength.html#subsec-ArcLengthParametrization" class="internal"><span class="title">Arc Length Parametrization</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec133-ArcLength.html#ws-sec133" class="internal"><span class="title">Assigned Problems for Section 13.3</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec134-Curvature.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Curvature</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-Curvature-Definition" class="internal"><span class="title">Mathematical Definition of Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-Curvature-AlternativeFormula" class="internal"><span class="title">Alternative Formulas for Curvature</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-NormalVector" class="internal"><span class="title">The Normal Vector</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-FrenetFrame" class="internal"><span class="title">The Frenet Frame</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec134-Curvature.html#subsec-OsculatingCircle" class="internal"><span class="title">The Osculating Circle</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec134-Curvature.html#ws-sec134" class="internal"><span class="title">Assigned Problems for Section 13.4</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch14-DifferentiationMultiVariables.html" class="internal"><span class="codenumber">14</span> <span class="title">Differentiation in Several Variables</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Functions of Two or More Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-FunctionsTwoVariables" class="internal"><span class="title">Functions of Two Variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-FunctionsTwoVariables-Traces" class="internal"><span class="title">Traces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-LevelCurvesContourMaps" class="internal"><span class="title">Level Curves and Contour Maps</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#subsec-FunctionsThreeVariables" class="internal"><span class="title">Functions of Three (or More) Variables</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec141-FunctionsTwoVariables.html#ws-sec141" class="internal"><span class="title">Assigned Problems for Section 14.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec142-LimitsContinuity.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Limits and Continuity in Several Variables</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec142-LimitsContinuity.html#ws-sec142" class="internal"><span class="codenumber">14.2</span> <span class="title">Assigned Problems for Section 14.2</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec143-PartialDerivatives.html" class="internal"><span class="codenumber">14.3</span> <span class="title">Partial Derivatives</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec143-PartialDerivatives.html#ws-sec143" class="internal"><span class="codenumber">14.3</span> <span class="title">Assigned Problems for Section 14.3</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html" class="internal"><span class="codenumber">14.4</span> <span class="title">Differentiability, Tangent Planes, and Linear Approximation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#subsec-TangentPlane" class="internal"><span class="title">Tangent Planes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#subsec-Differentiability_TwoVariableFunctions" class="internal"><span class="title">Differentiability</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#subsec-Linearization_FunctionTwoVariables" class="internal"><span class="title">Linearization</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec144-DifferentiabilityTangentPlane.html#ws-sec144" class="internal"><span class="title">Assigned Problems for Section 14.4</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html" class="internal"><span class="codenumber">14.5</span> <span class="title">The Gradient and Directional Derivatives</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html#subsec-DirectionalDerivatives" class="internal"><span class="title">Directional Derivatives</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html#subsec-Gradient" class="internal"><span class="title">The Gradient</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec145-GradientDirectionalDerivatives.html#ws-sec145" class="internal"><span class="title">Assigned Problems for Section 14.5</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec146-ChainRule.html" class="internal"><span class="codenumber">14.6</span> <span class="title">Multivariable Calculus Chain Rules</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec146-ChainRule.html#subsec-ChainRule_MultiCalc" class="internal"><span class="title">The (Fancy) Chain Rule</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec146-ChainRule.html#subsec-ImplicitDifferentiation_MultiCalc" class="internal"><span class="title">(Fancy) Implicit Differentiation</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec146-ChainRule.html#ws-sec146" class="internal"><span class="title">Assigned Problems for Section 14.6</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec147-Optimization.html" class="internal"><span class="codenumber">14.7</span> <span class="title">Optimization in Several Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec147-Optimization.html#subsec-CriticalPoint_TwoVariableFunction" class="internal"><span class="title">Critical Points and Local Extrema</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec147-Optimization.html#subsec-GlobalExtrema_TwoVariableFunctions" class="internal"><span class="title">Global Extrema</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec147-Optimization.html#ws-sec147" class="internal"><span class="title">Assigned Problems for Section 14.7</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html" class="internal"><span class="codenumber">14.8</span> <span class="title">Lagrange Multipliers: Optimizing with a Constraint</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec148-LagrangeMultipliers.html#ws-sec148" class="internal"><span class="codenumber">14.8</span> <span class="title">Assigned Problems for Section 14.8</span></a></div></li></ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch15-MultipleIntegration.html" class="internal"><span class="codenumber">15</span> <span class="title">Multiple Integration</span></a></div>
 <ul class="structural toc-item-list contains-active">
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Integration in Two Variables</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Double Integrals over More General Regions</span></a></div></li>
-<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec153-tripleIntegrals.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Triple Integrals</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec156-ChangeofVariables.html" class="internal"><span class="codenumber">15.5</span> <span class="title">Change of Variables</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Integration in Two Variables</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html#subsec-ReviewAreaRegion" class="internal"><span class="title">Review: Integration and Riemann Sum in <span class="process-math">\(\R^2\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html#subsec-VolumeSolid" class="internal"><span class="title">Volume of a Solid</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html#subsec-IteratedIntegrals" class="internal"><span class="title">Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec151-IntegrationTwoVariables.html#ws-sec151" class="internal"><span class="title">Assigned Problems for Section 15.1</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec152-DoubleIntegrals.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Double Integrals over More General Regions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html#subsec-IntegratingOverGeneralRegion" class="internal"><span class="title">Integrating over a general region</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html#subsec-PropertiesDoubleIntegrals" class="internal"><span class="title">Properties of Double Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html#subsec-AverageValueDoubleIntegrals" class="internal"><span class="title">Average Value</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec152-DoubleIntegrals.html#ws-sec152" class="internal"><span class="title">Assigned Problems for Section 15.2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec153-tripleIntegrals.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Triple Integrals</span></a></div>
+<ul class="structural toc-item-list active"><li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec153-tripleIntegrals.html#ws-sec153" class="internal"><span class="codenumber">15.3</span> <span class="title">Assigned Problems for Section 15.3</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" class="internal"><span class="codenumber">15.4</span> <span class="title">Integration in Polar, Cylindrical, and Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates" class="internal"><span class="title">Integration in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_CylindricalCoordinates" class="internal"><span class="title">Integration in Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_SphericalCoordinates" class="internal"><span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154" class="internal"><span class="title">Assigned Problems for Section 15.4</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -218,17 +376,277 @@ eBookConfig.enable_chatcodes =  false;
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec153-tripleIntegrals"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Triple Integrals</span>
 </h2>
-<section class="introduction" id="sec153-tripleIntegrals-2"><div class="para" id="sec153-tripleIntegrals-2-1">Just the introduction texts...<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<section class="introduction" id="sec153-tripleIntegrals-2"><div class="para" id="sec153-tripleIntegrals-2-1">In our previous work, we expanded the idea of integration from intervals on a line to regions in a plane using double integrals. Now, we take this concept one step further into the third dimension. In this section, we introduce the triple integral, which allows us to integrate functions of three variables over solid regions in space.<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="objectives goal-like" id="sec153-tripleIntegrals-2-2"><h3 class="heading"><span class="type">Objectives</span></h3>
 <div class="introduction" id="sec153-tripleIntegrals-2-2-1"><div class="para" id="sec153-tripleIntegrals-2-2-1-1">After this section, students will be able to:<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<ul class="disc" id="sec153-tripleIntegrals-2-2-2"><li id="sec153-tripleIntegrals-2-2-2-1">
-<div class="para" id="sec153-tripleIntegrals-2-2-2-1-1">blahblahblah<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<ul class="disc" id="sec153-tripleIntegrals-2-2-2">
+<li id="sec153-tripleIntegrals-2-2-2-1">
+<div class="para" id="sec153-tripleIntegrals-2-2-2-1-1">understand the formal definition of a triple integral using Riemann sums over a three-dimensional solid.<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Objective"><a href="#sec153-tripleIntegrals-2-2-2-1" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
-</li></ul>
-<div class="autopermalink" data-description="Objectives"><a href="#sec153-tripleIntegrals-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="autopermalink" data-description="Section 15.3: Triple Integrals"><a href="#sec153-tripleIntegrals" title="Copy heading and permalink for Section 15.3: Triple Integrals" aria-label="Copy heading and permalink for Section 15.3: Triple Integrals">🔗</a></div></section></div>
+</li>
+<li id="sec153-tripleIntegrals-2-2-2-2">
+<div class="para" id="sec153-tripleIntegrals-2-2-2-2-1">apply Fubini’s Theorem to evaluate triple integrals over rectangular boxes using iterated integrals.<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec153-tripleIntegrals-2-2-2-2" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+<li id="sec153-tripleIntegrals-2-2-2-3">
+<div class="para" id="sec153-tripleIntegrals-2-2-2-3-1">identify and set up the limits of integration for triple integrals over general <span class="process-math">\(z\)</span>-simple regions.<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-2-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Objective"><a href="#sec153-tripleIntegrals-2-2-2-3" title="Copy heading and permalink for Objective" aria-label="Copy heading and permalink for Objective">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Objectives"><a href="#sec153-tripleIntegrals-2-2" title="Copy heading and permalink for Objectives" aria-label="Copy heading and permalink for Objectives">🔗</a></div></article></section><div class="para" id="sec153-tripleIntegrals-3">Recall we defined the single integral back in MTH 252Z (or MTH 252) by partitioning the interval (in <span class="process-math">\(\R^1\)</span>) into sub-intervals. We then defined the double integral in <a href="sec151-IntegrationTwoVariables.html" class="internal" title="Section 15.1: Integration in Two Variables">Section 15.1</a> by partitioning a region (in <span class="process-math">\(\R^2\)</span>) into sub-rectangulars.<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec153-tripleIntegrals-4">As the pattern continues, we will define the <dfn class="terminology">triple integrals</dfn> by partitioning a solid (in <span class="process-math">\(\R^3\)</span>) into sub-boxes. By summing up all the <em class="emphasis">products</em> of the <em class="emphasis">function value</em> at a sample point in each sub-box and the <em class="emphasis">volume</em> of each sub-box, we can define the triple integral as the limit of these sums as the maximum volume of the sub-boxes approaches zero.<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="sec153-tripleIntegrals-5"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/sec153_SubBoxes_SamplePoints_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A Solid in <span class="process-math">\(\R^3\)</span> Partitioned into Sub-Boxes with Sample Points<div class="autopermalink" data-description="Figure 15.3.1"><a href="#sec153-tripleIntegrals-5" title="Copy heading and permalink for Figure 15.3.1" aria-label="Copy heading and permalink for Figure 15.3.1">🔗</a></div></figcaption></figure><div class="para" id="sec153-tripleIntegrals-6">Let’s follow the same process as before to define the triple integral! Say we have a three-variable function <span class="process-math">\(w = f(x,y,z)\text{.}\)</span> The graph of this function really lives in <span class="process-math">\(\R^4\)</span> that we cannot visualize...<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec153-tripleIntegrals-7">
+<div class="para">However, we can visualize the <em class="emphasis">domain</em> of this function in <span class="process-math">\(\R^3\text{.}\)</span> Let’s say we want to integrate this function over a rectangular box <span class="process-math">\(\c{B}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-7-4">
+\begin{align*}
+\c{B} \amp= \left\{ (x,y,z) \mid a \leq x \leq b\, , \quad c \leq y \leq d\, , \quad p \leq z \leq q \right\} \\
+\amp= [a,b] \times [c,d] \times [p,q] 
+\end{align*}
+</div>
+<div class="para">We can partition this solid into a bunch of <em class="alert">sub-boxes</em>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="sec153-tripleIntegrals-8"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec153_Partition_SubBoxes_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The box <span class="process-math">\(\c{B} = [a,b] \times [c,d] \times [p,q]\)</span> partitioned into sub-boxes<div class="autopermalink" data-description="Figure 15.3.2"><a href="#sec153-tripleIntegrals-8" title="Copy heading and permalink for Figure 15.3.2" aria-label="Copy heading and permalink for Figure 15.3.2">🔗</a></div></figcaption></figure><div class="para logical" id="sec153-tripleIntegrals-9">
+<div class="para">For an sub-box, its volume is given by</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-9-1">
+\begin{equation*}
+\Delta V_{ijk} = \Delta x_i \times \Delta y_j \times \Delta z_k
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec153-tripleIntegrals-10">
+<div class="para">In addition, we can pick a sample point <span class="process-math">\((x_{ijk}^*, y_{ijk}^*, z_{ijk}^*)\)</span> in each sub-box and evaluate the function at that point to get</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-10-2">
+\begin{equation*}
+f(x_{ijk}^*, y_{ijk}^*, z_{ijk}^*)
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec153-tripleIntegrals-11">
+<div class="para">Then we can obtain the Riemann sum by summing up the products of the function values at the sample points and the volumes of the sub-boxes:</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-11-1">
+\begin{equation*}
+S_{N,M,L} = \sum_{i=1}^N \sum_{j=1}^M \sum_{k=1}^L f(x_{ijk}^*, y_{ijk}^*, z_{ijk}^*) \Delta V_{ijk}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec153-tripleIntegrals-12">
+<div class="para">As we use finer and finer partitions (i.e., as the maximum volume of the sub-boxes approaches zero), if the limit of the Riemann sums exists, we define this limit to be the <dfn class="terminology">triple integral</dfn> of <span class="process-math">\(f\)</span> over <span class="process-math">\(\c{B}\text{,}\)</span> denoted by</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-12-4">
+\begin{equation*}
+\iiint_\c{B} f(x,y,z)\, dV = \lim_{N,M,L \to \infty} \sum_{i=1}^N \sum_{j=1}^M \sum_{k=1}^L f(x_{ijk}^*, y_{ijk}^*, z_{ijk}^*) \Delta V_{ijk}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec153-tripleIntegrals-13">All the fun things you learned about the double integrals (e.g., Fubini’s Theorem) also hold for triple integrals! That is, we can evaluate a triple integral as an iterated integral in any order we want (as long as the function is continuous).<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-FubiniTheorem_TripleIntegrals"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fubini’s Theorem for Triple Integrals.</span>
+</h3>
+<div class="para logical" id="thm-FubiniTheorem_TripleIntegrals-2-1">
+<div class="para">The triple integral of a continuous function <span class="process-math">\(f(x,y,z)\)</span> over a box <span class="process-math">\(\c{B} = [a,b] \times [c,d] \times [p,q]\)</span> is equal to the iterated integral</div>
+<div class="displaymath process-math" id="thm-FubiniTheorem_TripleIntegrals-2-1-3">
+\begin{equation*}
+\iiint_\c{B} f(x,y,z)\, dV = \int_{x = a}^b \int_{y = c}^d \int_{z = p}^q f(x,y,z)\, dz\, dy\, dx
+\end{equation*}
+</div>
+<div class="para">Furthermore, the iterated integral may be evaluated in any order.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-FubiniTheorem_TripleIntegrals-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 15.3.3: Fubini’s Theorem for Triple Integrals"><a href="#thm-FubiniTheorem_TripleIntegrals" title="Copy heading and permalink for Theorem 15.3.3: Fubini’s Theorem for Triple Integrals" aria-label="Copy heading and permalink for Theorem 15.3.3: Fubini’s Theorem for Triple Integrals">🔗</a></div></article><article class="example example-like" id="sec153-tripleIntegrals-15"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="sec153-tripleIntegrals-15-1">Evaluate the triple integral <span class="process-math">\(\ds \iiint_\c{B} xyz^2\, dV\text{,}\)</span> where <span class="process-math">\(\c{B}\)</span> is the rectangular box given by <span class="process-math">\(\c{B} = [0,1] \times [-1,2] \times [0,3]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-15-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec153-tripleIntegrals-15-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="sec153-tripleIntegrals-15-2-1">
+<div class="para">Using Fubini’s Theorem, we can set this up as an iterated integral. Since all limits of integration are constants, the order of integration does not matter. Let’s integrate in the order <span class="process-math">\(dz\, dy\, dx\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-15-2-1-2">
+\begin{align*}
+\iiint_\c{B} xyz^2\, dV \amp= \int_0^1 \int_{-1}^2 \int_0^3 xyz^2 \, dz\, dy\, dx \\
+\amp= \int_0^1 \int_{-1}^2 \left[ xy \left(\frac{1}{3}z^3\right) \right]_{z=0}^{z=3} \, dy\, dx \\
+\amp= \int_0^1 \int_{-1}^2 9xy \, dy\, dx \\
+\amp= \int_0^1 \left[ 9x \left(\frac{1}{2}y^2\right) \right]_{y=-1}^{y=2} \, dx \\
+\amp= \int_0^1 9x \left(2 - \frac{1}{2}\right) \, dx \\
+\amp= \int_0^1 \frac{27}{2}x \, dx \\
+\amp= \left[ \frac{27}{4}x^2 \right]_0^1 = \frac{27}{4} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-15-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.3.4.1"><a href="#sec153-tripleIntegrals-15-2" title="Copy heading and permalink for Solution 15.3.4.1" aria-label="Copy heading and permalink for Solution 15.3.4.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 15.3.4"><a href="#sec153-tripleIntegrals-15" title="Copy heading and permalink for Example 15.3.4" aria-label="Copy heading and permalink for Example 15.3.4">🔗</a></div></article><div class="para" id="sec153-tripleIntegrals-16">The next step is to extend the definition of triple integrals to a more general region <span class="process-math">\(\c{W}\)</span> in <span class="process-math">\(\R^3\)</span> that is not necessarily a box. We can use the same trick as we did for double integrals in <a href="sec152-DoubleIntegrals.html" class="internal" title="Section 15.2: Double Integrals over More General Regions">Section 15.2</a> to define the triple integral over a general region by using a box that contains the region. That is, we define the triple integral over a general region <span class="process-math">\(\c{W}\)</span> the same way, and the region is specified by the limits of integration in the iterated integral.<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec153-tripleIntegrals-17">
+<div class="para">One way to describe the region <span class="process-math">\(\c{W}\)</span> is through the region between two surfaces <span class="process-math">\(z_1(x,y)\)</span> and <span class="process-math">\(z_2(x,y)\text{.}\)</span> That is,</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-17-4">
+\begin{equation*}
+\c{W} = \left\{(x,y,z) \in \R^3 \mid (x,y) \in \c{D} \quad \text{ and } \quad z_1(x,y) \leq z \leq z_2(x,y)\right\}
+\end{equation*}
+</div>
+<div class="para">This is called a <dfn class="terminology"><span class="process-math">\(z-simple\)</span> region</dfn>. Furthermore, the domain <span class="process-math">\(\c{D}\)</span> is the <dfn class="terminology">projection</dfn> of <span class="process-math">\(\c{W}\)</span> onto the <span class="process-math">\(xy\)</span>-plane.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="sec153-tripleIntegrals-18"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;"><img src="external/sec153_zSimpleRegion_Diagram.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.3.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The point <span class="process-math">\(P = (x,y,z)\)</span> in the <span class="process-math">\(z\)</span>-simple region <span class="process-math">\(\c{W}\)</span> if <span class="process-math">\((x,y) \in \c{D}\)</span> and <span class="process-math">\(z_1(x,y) \leq z \leq z_2(x,y)\)</span><div class="autopermalink" data-description="Figure 15.3.5"><a href="#sec153-tripleIntegrals-18" title="Copy heading and permalink for Figure 15.3.5" aria-label="Copy heading and permalink for Figure 15.3.5">🔗</a></div></figcaption></figure><div class="para" id="sec153-tripleIntegrals-19">Then we can evaluate a triple integral over <span class="process-math">\(\c{W}\)</span> using an iterated integral using the following theorem<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="sec153-tripleIntegrals-20"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para logical" id="sec153-tripleIntegrals-20-1-1">
+<div class="para">The triple integral of a continuous function <span class="process-math">\(f\)</span> over the region</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-20-1-1-2">
+\begin{equation*}
+\c{W} = \left\{(x,y,z) \in \R^3 \mid (x,y) \in \c{D} \quad \text{ and } \quad z_1(x,y) \leq z \leq z_2(x,y)\right\}
+\end{equation*}
+</div>
+<div class="para">is equal to the iterated integral</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-20-1-1-3">
+\begin{equation*}
+\iiint_\c{W} f(x,y,z)\, dV = \iint_\c{D} \left( \int_{z = z_1(x,y)}^{z_2(x,y)} f(x,y,z)\, dz \right)\,  dA
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-20-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 15.3.6"><a href="#sec153-tripleIntegrals-20" title="Copy heading and permalink for Theorem 15.3.6" aria-label="Copy heading and permalink for Theorem 15.3.6">🔗</a></div></article><div class="para" id="sec153-tripleIntegrals-21">The above theorem allows us to turn a triple integral to a double integral over a general region <span class="process-math">\(\c{D}\)</span> after the innermost integral is evaluated. We learned how to evaluate a double integral over a general region in <a href="sec152-DoubleIntegrals.html" class="internal" title="Section 15.2: Double Integrals over More General Regions">Section 15.2</a>!<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="sec153-tripleIntegrals-22"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="sec153-tripleIntegrals-22-1">Evaluate the triple integral <span class="process-math">\(\ds \int_0^1 \int_0^\sqrt{1 - x^2} \int_0^{2-x} 4yz \, dz\, dy\, dx\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-22-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="sec153-tripleIntegrals-22-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More like a visualization...</span></summary><div class="hint solution-like knowl__content">
+<div class="para logical" id="sec153-tripleIntegrals-22-2-2">
+<div class="para">The region of integration is</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-22-2-2-1">
+\begin{equation*}
+\c{W} = \left\{ (x,y,z)\in \R^3 \mid 0 \leq z \leq 2 - x\, , \quad 0 \leq y \leq \sqrt{1 - x^2}\, , \quad 0\leq x \leq 1 \right\}
+\end{equation*}
+</div>
+<div class="para">To help you visualize this region, Richard coded the graph of the region below: <figure class="figure figure-like" id="fig-integral-region-teal"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><iframe id="fig-integral-region-teal-2-1" width="480" height="480" src="fig-integral-region-teal-2-1-if.html"></iframe></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.3.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The region <span class="process-math">\(\c{W}\)</span><div class="autopermalink" data-description="Figure 15.3.8"><a href="#fig-integral-region-teal" title="Copy heading and permalink for Figure 15.3.8" aria-label="Copy heading and permalink for Figure 15.3.8">🔗</a></div></figcaption></figure>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-22-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 15.3.7.1: More like a visualization..."><a href="#sec153-tripleIntegrals-22-2" title="Copy heading and permalink for Hint 15.3.7.1: More like a visualization..." aria-label="Copy heading and permalink for Hint 15.3.7.1: More like a visualization...">🔗</a></div>
+</div></details><details id="sec153-tripleIntegrals-22-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="sec153-tripleIntegrals-22-3-1">
+<div class="para">We evaluate the iterated integral by working from the inside out, starting with the innermost integral with respect to <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-22-3-1-2">
+\begin{align*}
+\int_0^1 \int_0^\sqrt{1 - x^2} \int_0^{2-x} 4yz \, dz\, dy\, dx \amp= \int_0^1 \int_0^\sqrt{1 - x^2} \left[ 2yz^2 \right]_{z=0}^{z=2-x} \, dy\, dx \\
+\amp= \int_0^1 \int_0^\sqrt{1 - x^2} 2y(2-x)^2 \, dy\, dx 
+\end{align*}
+</div>
+<div class="para">Next, we evaluate the middle integral with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-22-3-1-4">
+\begin{align*}
+\amp= \int_0^1 \left[ y^2(2-x)^2 \right]_{y=0}^{y=\sqrt{1-x^2}} \, dx \\
+\amp= \int_0^1 (\sqrt{1-x^2})^2 (2-x)^2 \, dx \\
+\amp= \int_0^1 (1-x^2)(4 - 4x + x^2) \, dx 
+\end{align*}
+</div>
+<div class="para">Expanding the polynomial, we get:</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-22-3-1-5">
+\begin{align*}
+\amp= \int_0^1 (4 - 4x + x^2 - 4x^2 + 4x^3 - x^4) \, dx \\
+\amp= \int_0^1 (-x^4 + 4x^3 - 3x^2 - 4x + 4) \, dx 
+\end{align*}
+</div>
+<div class="para">Finally, we evaluate the outermost integral with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="sec153-tripleIntegrals-22-3-1-7">
+\begin{align*}
+\amp= \left[ -\frac{1}{5}x^5 + x^4 - x^3 - 2x^2 + 4x \right]_0^1 \\
+\amp= \left(-\frac{1}{5} + 1 - 1 - 2 + 4\right) - 0 \\
+\amp= \frac{9}{5} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec153-tripleIntegrals-22-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.3.7.1"><a href="#sec153-tripleIntegrals-22-3" title="Copy heading and permalink for Solution 15.3.7.1" aria-label="Copy heading and permalink for Solution 15.3.7.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Example 15.3.7"><a href="#sec153-tripleIntegrals-22" title="Copy heading and permalink for Example 15.3.7" aria-label="Copy heading and permalink for Example 15.3.7">🔗</a></div></article><section class="worksheet" id="ws-sec153" data-margins="0.75in 0.75in 0.75in 0.75in"><h3 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Assigned Problems for Section 15.3</span><div class="print-links"><a href="ws-sec153-printable.html" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<section class="introduction" id="ws-sec153-2"><div class="para" id="ws-sec153-2-1">The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec153-2-2">The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><div class="exercisegroup" id="ws-sec153-3">
+<h4 class="heading"><span class="title">Exercise Group.</span></h4>
+<div class="introduction" id="ws-sec153-3-1"><div class="para" id="ws-sec153-3-1-1">In the following exercises, evaluate <span class="process-math">\(\ds \iiint_\c{B} f(x,y,z)\, dV\)</span> for the specified function <span class="process-math">\(f\)</span> and box <span class="process-math">\(\c{B}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="ws-sec153-3-2"><h5 class="heading"><span class="codenumber">15.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="para" id="ws-sec153-3-2-1">
+<span class="process-math">\(f(x,y,z) = xe^{y - 2z}\, ; \qquad 0 \leq x \leq 2\, , \quad 0 \leq y \leq 1\, , \quad 0 \leq z \leq 1\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.3.15.3.3"><a href="#ws-sec153-3-2" title="Copy heading and permalink for Worksheet Exercise 15.3.15.3.3" aria-label="Copy heading and permalink for Worksheet Exercise 15.3.15.3.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec153-3-3"><h5 class="heading"><span class="codenumber">15.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="para" id="ws-sec153-3-3-1">
+<span class="process-math">\(f(x,y,z) = (x + z)^3\, ; \qquad [0,a] \times [0,b] \times [0,c]\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.3.15.3.7"><a href="#ws-sec153-3-3" title="Copy heading and permalink for Worksheet Exercise 15.3.15.3.7" aria-label="Copy heading and permalink for Worksheet Exercise 15.3.15.3.7">🔗</a></div></article>
+</div>
+<div class="autopermalink" data-description="Exercise Group 15.3.15.3.3–15.3.7"><a href="#ws-sec153-3" title="Copy heading and permalink for Exercise Group 15.3.15.3.3–15.3.7" aria-label="Copy heading and permalink for Exercise Group 15.3.15.3.3–15.3.7">🔗</a></div>
+</div>
+<div class="exercisegroup" id="ws-sec153-4">
+<h4 class="heading"><span class="title">Exercise Group.</span></h4>
+<div class="introduction" id="ws-sec153-4-1"><div class="para" id="ws-sec153-4-1-1">In the following exercises, evaluate <span class="process-math">\(\ds \iiint_\c{W} f(x,y,z)\, dV\)</span> for the function <span class="process-math">\(f\)</span> and region <span class="process-math">\(\c{W}\)</span> specified.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="ws-sec153-4-2"><h5 class="heading"><span class="codenumber">15.3.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="para" id="ws-sec153-4-2-1">
+<span class="process-math">\(f(x,y,z) = x + y\, ; \qquad \c{W}: \, y \leq z \leq x\, , \quad 0 \leq y \leq x\, , \quad 0 \leq x \leq 1\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.3.15.3.9"><a href="#ws-sec153-4-2" title="Copy heading and permalink for Worksheet Exercise 15.3.15.3.9" aria-label="Copy heading and permalink for Worksheet Exercise 15.3.15.3.9">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec153-4-3"><h5 class="heading"><span class="codenumber">15.3.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<div class="para" id="ws-sec153-4-3-1">
+<span class="process-math">\(f(x,y,z) = e^z\, ; \qquad \c{W}: \, x \leq 0\, , \quad y \leq 0\, , \quad z \geq 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.3.15.3.13"><a href="#ws-sec153-4-3" title="Copy heading and permalink for Worksheet Exercise 15.3.15.3.13" aria-label="Copy heading and permalink for Worksheet Exercise 15.3.15.3.13">🔗</a></div></article>
+</div>
+<div class="autopermalink" data-description="Exercise Group 15.3.15.3.9–15.3.13"><a href="#ws-sec153-4" title="Copy heading and permalink for Exercise Group 15.3.15.3.9–15.3.13" aria-label="Copy heading and permalink for Exercise Group 15.3.15.3.9–15.3.13">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="ws-sec153-5"><h4 class="heading"><span class="codenumber">15.3.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec153-5-1">Integrate <span class="process-math">\(f(x,y,z) = x\)</span> over the region in the first octant bounded above by <span class="process-math">\(z = 8 - 2x^2 - y^2\)</span> and below by <span class="process-math">\(z = y^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.3.15.3.17"><a href="#ws-sec153-5" title="Copy heading and permalink for Worksheet Exercise 15.3.15.3.17" aria-label="Copy heading and permalink for Worksheet Exercise 15.3.15.3.17">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec153-6"><h4 class="heading"><span class="codenumber">15.3.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec153-6-1">Find the volume of the solid in the first octant bounded between the planes <span class="process-math">\(x + y + z = 1\)</span> and <span class="process-math">\(x + y + 2z = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.3.15.3.21"><a href="#ws-sec153-6" title="Copy heading and permalink for Worksheet Exercise 15.3.15.3.21" aria-label="Copy heading and permalink for Worksheet Exercise 15.3.15.3.21">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec153-7"><h4 class="heading"><span class="codenumber">15.3.25<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para logical" id="ws-sec153-7-1">
+<div class="para">Describe the domain of integration of the following integral</div>
+<div class="displaymath process-math" id="ws-sec153-7-1-1">
+\begin{equation*}
+\int_{-2}^2 \int_{-\sqrt{4 - z^2}}^{\sqrt{4 - z^2}} \int_1^{\sqrt{5 - x^2 - z^2}} f(x,y,z)\, dy \, dx \, dz
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.3.15.3.25"><a href="#ws-sec153-7" title="Copy heading and permalink for Worksheet Exercise 15.3.15.3.25" aria-label="Copy heading and permalink for Worksheet Exercise 15.3.15.3.25">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec153-8"><h4 class="heading"><span class="codenumber">15.3.31<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec153-8-1">Let <span class="process-math">\(\ds \c{W} = \left\{(x,y,z) \mid \sqrt{x^2 + y^2} \leq z \leq 1 \right\}\)</span> (see the figure below). Express <span class="process-math">\(\ds \iiint_\c{W} f(x,y,z)\, dV\)</span> as an iterated integral in the order <span class="process-math">\(dz\, dy\, dx\)</span> (for an arbitrary function <span class="process-math">\(f\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.3.15.3.31"><a href="#ws-sec153-8" title="Copy heading and permalink for Worksheet Exercise 15.3.15.3.31" aria-label="Copy heading and permalink for Worksheet Exercise 15.3.15.3.31">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec153-9"><h4 class="heading"><span class="codenumber">15.3.37<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ws-sec153-9-1">Draw the region <span class="process-math">\(\c{W}\)</span> bounded by the surfaces given by <span class="process-math">\(z = y^2\text{,}\)</span> <span class="process-math">\(y = z^2\text{,}\)</span> and the planes given by <span class="process-math">\(x = 0\text{,}\)</span> <span class="process-math">\(x + y + z = 4\text{.}\)</span> Then set up (but do not compute) a single triple integral that yields the volume of <span class="process-math">\(\c{W}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec153-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Worksheet Exercise 15.3.15.3.37"><a href="#ws-sec153-9" title="Copy heading and permalink for Worksheet Exercise 15.3.15.3.37" aria-label="Copy heading and permalink for Worksheet Exercise 15.3.15.3.37">🔗</a></div></article><div class="autopermalink" data-description="Worksheet 15.3: Assigned Problems for Section 15.3"><a href="#ws-sec153" title="Copy heading and permalink for Worksheet 15.3: Assigned Problems for Section 15.3" aria-label="Copy heading and permalink for Worksheet 15.3: Assigned Problems for Section 15.3">🔗</a></div></section><div class="autopermalink" data-description="Section 15.3: Triple Integrals"><a href="#sec153-tripleIntegrals" title="Copy heading and permalink for Section 15.3: Triple Integrals" aria-label="Copy heading and permalink for Section 15.3: Triple Integrals">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec152-DoubleIntegrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

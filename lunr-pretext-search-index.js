@@ -6400,6 +6400,456 @@ var ptx_lunr_docs = [
   "body": " Find the average height of the \"ceiling\" in the figure below defined by for and .     "
 },
 {
+  "id": "sec153-tripleIntegrals",
+  "level": "1",
+  "url": "sec153-tripleIntegrals.html",
+  "type": "Section",
+  "number": "15.3",
+  "title": "Triple Integrals",
+  "body": " Triple Integrals   In our previous work, we expanded the idea of integration from intervals on a line to regions in a plane using double integrals. Now, we take this concept one step further into the third dimension. In this section, we introduce the triple integral, which allows us to integrate functions of three variables over solid regions in space.    After this section, students will be able to:     understand the formal definition of a triple integral using Riemann sums over a three-dimensional solid.    apply Fubini's Theorem to evaluate triple integrals over rectangular boxes using iterated integrals.    identify and set up the limits of integration for triple integrals over general -simple regions.      Recall we defined the single integral back in MTH 252Z (or MTH 252) by partitioning the interval (in ) into sub-intervals. We then defined the double integral in by partitioning a region (in ) into sub-rectangulars.  As the pattern continues, we will define the triple integrals by partitioning a solid (in ) into sub-boxes. By summing up all the products of the function value at a sample point in each sub-box and the volume of each sub-box, we can define the triple integral as the limit of these sums as the maximum volume of the sub-boxes approaches zero.    A Solid in Partitioned into Sub-Boxes with Sample Points   Let's follow the same process as before to define the triple integral! Say we have a three-variable function . The graph of this function really lives in that we cannot visualize...  However, we can visualize the domain of this function in . Let's say we want to integrate this function over a rectangular box : We can partition this solid into a bunch of sub-boxes .    The box partitioned into sub-boxes   For an sub-box, its volume is given by   In addition, we can pick a sample point in each sub-box and evaluate the function at that point to get   Then we can obtain the Riemann sum by summing up the products of the function values at the sample points and the volumes of the sub-boxes:   As we use finer and finer partitions (i.e., as the maximum volume of the sub-boxes approaches zero), if the limit of the Riemann sums exists, we define this limit to be the triple integral of over , denoted by   All the fun things you learned about the double integrals (e.g., Fubini's Theorem) also hold for triple integrals! That is, we can evaluate a triple integral as an iterated integral in any order we want (as long as the function is continuous).   Fubini's Theorem for Triple Integrals   The triple integral of a continuous function over a box is equal to the iterated integral Furthermore, the iterated integral may be evaluated in any order.     Evaluate the triple integral , where is the rectangular box given by .   Using Fubini's Theorem, we can set this up as an iterated integral. Since all limits of integration are constants, the order of integration does not matter. Let's integrate in the order :     The next step is to extend the definition of triple integrals to a more general region in that is not necessarily a box. We can use the same trick as we did for double integrals in to define the triple integral over a general region by using a box that contains the region. That is, we define the triple integral over a general region the same way, and the region is specified by the limits of integration in the iterated integral.  One way to describe the region is through the region between two surfaces and . That is, This is called a region . Furthermore, the domain is the projection of onto the -plane.    The point in the -simple region if and   Then we can evaluate a triple integral over using an iterated integral using the following theorem    The triple integral of a continuous function over the region is equal to the iterated integral     The above theorem allows us to turn a triple integral to a double integral over a general region after the innermost integral is evaluated. We learned how to evaluate a double integral over a general region in !   Evaluate the triple integral    More like a visualization...  The region of integration is To help you visualize this region, Richard coded the graph of the region below:  The region         We evaluate the iterated integral by working from the inside out, starting with the innermost integral with respect to : Next, we evaluate the middle integral with respect to : Expanding the polynomial, we get: Finally, we evaluate the outermost integral with respect to :      Assigned Problems for Section 15.3   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.     In the following exercises, evaluate for the specified function and box .                In the following exercises, evaluate for the function and region specified.               Integrate over the region in the first octant bounded above by and below by .    Find the volume of the solid in the first octant bounded between the planes and .    Describe the domain of integration of the following integral     Let (see the figure below). Express as an iterated integral in the order (for an arbitrary function ).    Draw the region bounded by the surfaces given by , , and the planes given by , . Then set up (but do not compute) a single triple integral that yields the volume of .    "
+},
+{
+  "id": "sec153-tripleIntegrals-2-2",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-2-2",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     understand the formal definition of a triple integral using Riemann sums over a three-dimensional solid.    apply Fubini's Theorem to evaluate triple integrals over rectangular boxes using iterated integrals.    identify and set up the limits of integration for triple integrals over general -simple regions.    "
+},
+{
+  "id": "sec153-tripleIntegrals-4",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "triple integrals "
+},
+{
+  "id": "sec153-tripleIntegrals-5",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-5",
+  "type": "Figure",
+  "number": "15.3.1",
+  "title": "",
+  "body": "  A Solid in Partitioned into Sub-Boxes with Sample Points  "
+},
+{
+  "id": "sec153-tripleIntegrals-8",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-8",
+  "type": "Figure",
+  "number": "15.3.2",
+  "title": "",
+  "body": "  The box partitioned into sub-boxes  "
+},
+{
+  "id": "sec153-tripleIntegrals-12",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-12",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "triple integral "
+},
+{
+  "id": "thm-FubiniTheorem_TripleIntegrals",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#thm-FubiniTheorem_TripleIntegrals",
+  "type": "Theorem",
+  "number": "15.3.3",
+  "title": "Fubini’s Theorem for Triple Integrals.",
+  "body": " Fubini's Theorem for Triple Integrals   The triple integral of a continuous function over a box is equal to the iterated integral Furthermore, the iterated integral may be evaluated in any order.   "
+},
+{
+  "id": "sec153-tripleIntegrals-15",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-15",
+  "type": "Example",
+  "number": "15.3.4",
+  "title": "",
+  "body": " Evaluate the triple integral , where is the rectangular box given by .   Using Fubini's Theorem, we can set this up as an iterated integral. Since all limits of integration are constants, the order of integration does not matter. Let's integrate in the order :    "
+},
+{
+  "id": "sec153-tripleIntegrals-17",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-17",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "region projection "
+},
+{
+  "id": "sec153-tripleIntegrals-18",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-18",
+  "type": "Figure",
+  "number": "15.3.5",
+  "title": "",
+  "body": "  The point in the -simple region if and  "
+},
+{
+  "id": "sec153-tripleIntegrals-20",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-20",
+  "type": "Theorem",
+  "number": "15.3.6",
+  "title": "",
+  "body": "  The triple integral of a continuous function over the region is equal to the iterated integral    "
+},
+{
+  "id": "sec153-tripleIntegrals-22",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#sec153-tripleIntegrals-22",
+  "type": "Example",
+  "number": "15.3.7",
+  "title": "",
+  "body": " Evaluate the triple integral    More like a visualization...  The region of integration is To help you visualize this region, Richard coded the graph of the region below:  The region         We evaluate the iterated integral by working from the inside out, starting with the innermost integral with respect to : Next, we evaluate the middle integral with respect to : Expanding the polynomial, we get: Finally, we evaluate the outermost integral with respect to :    "
+},
+{
+  "id": "ws-sec153-3-2",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#ws-sec153-3-2",
+  "type": "Worksheet Exercise",
+  "number": "15.3.15.3.3",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec153-3-3",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#ws-sec153-3-3",
+  "type": "Worksheet Exercise",
+  "number": "15.3.15.3.7",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec153-4-2",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#ws-sec153-4-2",
+  "type": "Worksheet Exercise",
+  "number": "15.3.15.3.9",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec153-4-3",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#ws-sec153-4-3",
+  "type": "Worksheet Exercise",
+  "number": "15.3.15.3.13",
+  "title": "",
+  "body": "    "
+},
+{
+  "id": "ws-sec153-5",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#ws-sec153-5",
+  "type": "Worksheet Exercise",
+  "number": "15.3.15.3.17",
+  "title": "",
+  "body": " Integrate over the region in the first octant bounded above by and below by .  "
+},
+{
+  "id": "ws-sec153-6",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#ws-sec153-6",
+  "type": "Worksheet Exercise",
+  "number": "15.3.15.3.21",
+  "title": "",
+  "body": " Find the volume of the solid in the first octant bounded between the planes and .  "
+},
+{
+  "id": "ws-sec153-7",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#ws-sec153-7",
+  "type": "Worksheet Exercise",
+  "number": "15.3.15.3.25",
+  "title": "",
+  "body": " Describe the domain of integration of the following integral   "
+},
+{
+  "id": "ws-sec153-8",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#ws-sec153-8",
+  "type": "Worksheet Exercise",
+  "number": "15.3.15.3.31",
+  "title": "",
+  "body": " Let (see the figure below). Express as an iterated integral in the order (for an arbitrary function ).  "
+},
+{
+  "id": "ws-sec153-9",
+  "level": "2",
+  "url": "sec153-tripleIntegrals.html#ws-sec153-9",
+  "type": "Worksheet Exercise",
+  "number": "15.3.15.3.37",
+  "title": "",
+  "body": " Draw the region bounded by the surfaces given by , , and the planes given by , . Then set up (but do not compute) a single triple integral that yields the volume of .  "
+},
+{
+  "id": "sec154-IntegrationPolarCylindricalSphericalCoordinates",
+  "level": "1",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html",
+  "type": "Section",
+  "number": "15.4",
+  "title": "Integration in Polar, Cylindrical, and Spherical Coordinates",
+  "body": " Integration in Polar, Cylindrical, and Spherical Coordinates   Have you ever tried to evaluate an integral over a circular region using rectangular coordinates? While it is mathematically possible, the resulting limits of integration inevitably involve square roots that can make the anti-derivatives tedious, if not impossible, to compute by hand. In previous sections, we evaluated double and triple integrals over regions perfectly suited for rectangular grids. However, the physical world is full of objects like cones, cylinders, and spheres that exhibit natural rotational symmetries.  Rather than forcing these curved boundaries into rigid rectangular boxes, we can make our lives significantly easier by adapting our coordinate system to fit the geometry of the region. In this section, we will explore how to translate integrals into polar, cylindrical, and spherical coordinates. By rethinking how we partition space, we will be able to transform overly complicated rectangular integrals into highly manageable iterated integrals.    After this section, students will be able to:     identify geometric regions and symmetries in two and three dimensions that are best modeled by polar, cylindrical, or spherical coordinates.    convert equations, functions, and limits of integration from rectangular coordinates into their polar, cylindrical, and spherical counterparts.    derive and apply the appropriate geometric area and volume differentials ( and ) for each coordinate system.    set up and evaluate double and triple integrals in non-rectangular coordinate systems to solve multi-variable integration problems.      Recall back in single-variable calculus, we split up an interval (a rectangle in ) into a bunch of smaller segments. In multi-variable calculus (more specifically, in double and triple integrals), we will split up a region in or into a bunch of smaller rectangular regions (or boxes). But what if we change the way we view the region.   Integration in Polar Coordinates  Recall the two variables in polar coordinates are and , where is the distance from the origin and is the angle between the positive x-axis and the ray from the origin to the point. If we let and to vary independently, we obtain a \"polar rectangular region\". But what does this region look like?    Polar Rectangular Region where and   To integrate a function over this polar rectangular region , as you can imagine, we will split up this region into a bunch of smaller polar rectangular regions. Then we will find a sample point in each of these smaller regions and evaluate the function value at the sample point. Finally, we will multiply the function value by the area of the smaller polar rectangular region and add up all of these products together.    Partitioning into smaller polar rectangular regions   That is, the volume of the solid under the surface defined by over the polar rectangular region can be approximated by where is the area of the -th smaller polar rectangular region and is a sample point in the -th smaller polar rectangular region. As you can imagine, we can define the double integral over the polar rectangular region as   But how do we find the area of a polar rectangular region, ? Well we can think of the polar rectangular region as the difference between two sectors of a circle.    Area of a sector of a circle is   Before we derive an expression for , we will pick the sample point to be in the exact middle of the smaller polar rectangular region, as shown in the figure below.    Sample point in the exact middle of the smaller polar rectangular region   Now we will derive an expression for ! Let's say the inner radius of the -th smaller polar rectangular region is and the outer radius is . Then we have Okay cool... but this expression is still a bit complicated. What is ?  That is why we chose the sample point to be in the exact middle of the smaller polar rectangular region! By doing so, will be the midpoint between and , which means that Therefore, we can simplify the expression for to This implies that the area of the smaller polar rectangular region is radius times change in radius times change in angle . Hence, we can now express this double integral as an iterated integral, guaranteed by the Fubini's theorem.   Double Integrals over Polar Rectangular Regions   Let be continuous on the polar rectangular region Then      Find the volume of the solid bounded by the paraboloid and the -plane.   You are more than welcome to use rectangular coordinates to solve this problem, but it is much easier to use polar coordinates.  Also, it doesn't matter which coordinates you use, the first step is to sketch the region of integration to determine the limits of integration.  Also, to help you visualize, Richard coded the paraboloid for you.   The paraboloid        First, we determine the region of integration, , in the -plane. The solid is bounded below by the -plane, where . Setting in the equation of the paraboloid gives: This means our region is a disk of radius 3 centered at the origin. In polar coordinates, this region is described by and .  The height of the solid is given by the paraboloid . Converting this to polar coordinates, we get . Now, we can set up and evaluate the double integral:     But why bother spending all the effort to find a second formula that pretty much finds the same thing? As you observed in the example above, sometimes it is much easier to use polar coordinates to evaluate a double integral than to use rectangular coordinates. That is, we will need a formula to convert a double integral in rectangular coordinates to a double integral in polar coordinates. Recall the conversion formulas from a rectangular coordinate to a polar coordinate are In addition to the fact that in polar coordinates, we have the following conversion formula Observe that this formula applies to a more general region that is not necessarily a polar rectangular region. That is, can be a function of .   Evaluate the integral where    The region is bounded by , which is a circle of radius 2. The conditions and restrict this region to the first quadrant. Therefore, in polar coordinates, is described by and .  Converting the integrand to polar coordinates, we note that and . Setting up the integral yields: We can evaluate the inner integral using a -substitution. Let , then , which means . Applying the limits of integration from to : Finally, we evaluate the outer integral:       Integration in Cylindrical Coordinates  Let's say you want to convert a triple integral in rectangular coordinates to some other coordinates. Then the polar coordinates won't work because of the lack of a third variable.  We did learn about extending polar coordinates to include a third variable, called cylindrical coordinates , in . Briefly, the third variable in cylindrical coordinates is just the -coordinate in rectangular coordinates.    A cylindrical sub-box in cylindrical coordinates   For the volume of a cylindrical sub-box, we can think of it as the area of the base times the height. We spent all the effort earlier to find the area of the base in polar coordinates, which is . The height of the cylindrical sub-box is just . Therefore, the volume of a cylindrical sub-box is This gives us a way to express a triple integral in cylindrical coordinates as an iterated integral, guaranteed, again, by the Fubini's theorem.   Triple Integrals in Cylindrical Coordinates   Let be continuous over the region Then     Then we can convert a triple integral in rectangular coordinates to cylindrical coordinates by using the conversion formulas from a rectangular coordinate to a cylindrical coordinate covered in . Briefly, the conversion formulas are In addition to the fact that in cylindrical coordinates, we have the following conversion formula    Evaluate the integral by changing to cylindrical coordinates.   More like visualization...  Richard coded the region to help you see what the region looks like.   Region of integration bounded below by and above by        First, we determine the region of integration, , from the given limits of integration in rectangular coordinates. The bounds are:   The inequalities for and describe a disk of radius 2 centered at the origin in the -plane, which is . In cylindrical coordinates, this region translates to and .  For the bounds, we know that . So, the solid is bounded below by the cone and above by the plane . Thus, our bounds for are .  Next, we convert the integrand and the differential into cylindrical coordinates:   Now we can set up and evaluate the triple integral: Evaluating the innermost integral with respect to : Next, evaluating with respect to : Finally, evaluating the outermost integral with respect to :       Integration in Spherical Coordinates  Recall back in , there is another 3D coordinates system, called spherical coordinates . Then we can also express a triple integral in spherical coordinates as an iterated integral, guaranteed by the Fubini's theorem.  To do so, we will need to find the volume of a spherical sub-box in spherical coordinates. But what does a spherical sub-box look like?    A spherical sub-box in spherical coordinates   Imagine the spherical sub-box is getting smaller and smaller, then the spherical sub-box will look more and more like a rectangular box. Then we can find its volume by multiplying the length, width, and height. These three dimensions are , , and , respectively. The diagram above should help you understand why these are the dimensions of the spherical sub-box.  Therefore, the volume of a spherical sub-box is Now we can express a triple integral in spherical coordinates as an iterated integral, guaranteed, again, by the Fubini's theorem.   Triple Integrals in Spherical Coordinates   Let be continuous over the region Then     Then we can convert a triple integral in rectangular coordinates to spherical coordinates by using the conversion formulas from a rectangular coordinate to a spherical coordinate covered in . Briefly, the conversion formulas are In addition to the fact that in spherical coordinates, we have the following conversion formula    Evaluate the integral , where is a unit ball.   The region is a unit ball, which means it consists of all points with a distance of 1 or less from the origin. In spherical coordinates, this is described by the bounds: , , and .  We know that . Therefore, the exponent becomes . The volume differential is .  Setting up the triple integral as an iterated integral, we evaluate from the inside out: First, we evaluate the innermost integral with respect to . We can use -substitution by letting , which means , or : Next, we evaluate the middle integral with respect to : Finally, we evaluate the outermost integral with respect to :       Assigned Problems for Section 15.4   The problems listed below are assigned to be included in your problem set portfolio. Note that a specific selection of these problems will also form the written homework assignments. I recommend working through all of them to ensure a solid grasp of the material. Reach out to Richard for help if you get stuck or have any questions.  The solutions will be posted after the written homework due dates. If you have any questions about your work, talk to Richard and he is happy to discuss the process with you.    Sketch the region and integrate over using polar coordinates.    For the following integral, sketch the region of integration and evaluate by changing to polar coordinates.     Calculate the integral of over the region by changing to polar coordinates.    Evaluate , where is the domain in the following figure.   Find the equation of the inner circle in polar coordinates and treat the right and left parts of the region separately.     Use cylindrical coordinates to evaluate where     Express the triple integral in cylindrical coordinates.     Find the volume of the region appearing between the two surfaces in the following figure.    Use spherical coordinates to calculate where .    Calculate the integral of over the part of the ball defined by .    "
+},
+{
+  "id": "sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#sec154-IntegrationPolarCylindricalSphericalCoordinates-2-3",
+  "type": "Objectives",
+  "number": "",
+  "title": "",
+  "body": "  After this section, students will be able to:     identify geometric regions and symmetries in two and three dimensions that are best modeled by polar, cylindrical, or spherical coordinates.    convert equations, functions, and limits of integration from rectangular coordinates into their polar, cylindrical, and spherical counterparts.    derive and apply the appropriate geometric area and volume differentials ( and ) for each coordinate system.    set up and evaluate double and triple integrals in non-rectangular coordinate systems to solve multi-variable integration problems.    "
+},
+{
+  "id": "subsec-Integration_PolarCoordinates-3",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates-3",
+  "type": "Figure",
+  "number": "15.4.1",
+  "title": "",
+  "body": "  Polar Rectangular Region where and  "
+},
+{
+  "id": "subsec-Integration_PolarCoordinates-5",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates-5",
+  "type": "Figure",
+  "number": "15.4.2",
+  "title": "",
+  "body": "  Partitioning into smaller polar rectangular regions  "
+},
+{
+  "id": "subsec-Integration_PolarCoordinates-6",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "double integral "
+},
+{
+  "id": "subsec-Integration_PolarCoordinates-8",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates-8",
+  "type": "Figure",
+  "number": "15.4.3",
+  "title": "",
+  "body": "  Area of a sector of a circle is  "
+},
+{
+  "id": "subsec-Integration_PolarCoordinates-9",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates-9",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "middle "
+},
+{
+  "id": "subsec-Integration_PolarCoordinates-10",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates-10",
+  "type": "Figure",
+  "number": "15.4.4",
+  "title": "",
+  "body": "  Sample point in the exact middle of the smaller polar rectangular region  "
+},
+{
+  "id": "subsec-Integration_PolarCoordinates-12",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates-12",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "midpoint radius times change in radius times change in angle "
+},
+{
+  "id": "thm-DoubleIntegral_Polar",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#thm-DoubleIntegral_Polar",
+  "type": "Theorem",
+  "number": "15.4.5",
+  "title": "Double Integrals over Polar Rectangular Regions.",
+  "body": " Double Integrals over Polar Rectangular Regions   Let be continuous on the polar rectangular region Then    "
+},
+{
+  "id": "subsec-Integration_PolarCoordinates-14",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates-14",
+  "type": "Example",
+  "number": "15.4.6",
+  "title": "",
+  "body": " Find the volume of the solid bounded by the paraboloid and the -plane.   You are more than welcome to use rectangular coordinates to solve this problem, but it is much easier to use polar coordinates.  Also, it doesn't matter which coordinates you use, the first step is to sketch the region of integration to determine the limits of integration.  Also, to help you visualize, Richard coded the paraboloid for you.   The paraboloid        First, we determine the region of integration, , in the -plane. The solid is bounded below by the -plane, where . Setting in the equation of the paraboloid gives: This means our region is a disk of radius 3 centered at the origin. In polar coordinates, this region is described by and .  The height of the solid is given by the paraboloid . Converting this to polar coordinates, we get . Now, we can set up and evaluate the double integral:    "
+},
+{
+  "id": "subsec-Integration_PolarCoordinates-16",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_PolarCoordinates-16",
+  "type": "Example",
+  "number": "15.4.8",
+  "title": "",
+  "body": " Evaluate the integral where    The region is bounded by , which is a circle of radius 2. The conditions and restrict this region to the first quadrant. Therefore, in polar coordinates, is described by and .  Converting the integrand to polar coordinates, we note that and . Setting up the integral yields: We can evaluate the inner integral using a -substitution. Let , then , which means . Applying the limits of integration from to : Finally, we evaluate the outer integral:    "
+},
+{
+  "id": "subsec-Integration_CylindricalCoordinates-3",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_CylindricalCoordinates-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "cylindrical coordinates "
+},
+{
+  "id": "subsec-Integration_CylindricalCoordinates-4",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_CylindricalCoordinates-4",
+  "type": "Figure",
+  "number": "15.4.9",
+  "title": "",
+  "body": "  A cylindrical sub-box in cylindrical coordinates  "
+},
+{
+  "id": "thm-TripleIntegral_Cylindrical",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#thm-TripleIntegral_Cylindrical",
+  "type": "Theorem",
+  "number": "15.4.10",
+  "title": "Triple Integrals in Cylindrical Coordinates.",
+  "body": " Triple Integrals in Cylindrical Coordinates   Let be continuous over the region Then    "
+},
+{
+  "id": "subsec-Integration_CylindricalCoordinates-8",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_CylindricalCoordinates-8",
+  "type": "Example",
+  "number": "15.4.11",
+  "title": "",
+  "body": " Evaluate the integral by changing to cylindrical coordinates.   More like visualization...  Richard coded the region to help you see what the region looks like.   Region of integration bounded below by and above by        First, we determine the region of integration, , from the given limits of integration in rectangular coordinates. The bounds are:   The inequalities for and describe a disk of radius 2 centered at the origin in the -plane, which is . In cylindrical coordinates, this region translates to and .  For the bounds, we know that . So, the solid is bounded below by the cone and above by the plane . Thus, our bounds for are .  Next, we convert the integrand and the differential into cylindrical coordinates:   Now we can set up and evaluate the triple integral: Evaluating the innermost integral with respect to : Next, evaluating with respect to : Finally, evaluating the outermost integral with respect to :    "
+},
+{
+  "id": "subsec-Integration_SphericalCoordinates-2",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_SphericalCoordinates-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "spherical coordinates "
+},
+{
+  "id": "subsec-Integration_SphericalCoordinates-4",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_SphericalCoordinates-4",
+  "type": "Figure",
+  "number": "15.4.13",
+  "title": "",
+  "body": "  A spherical sub-box in spherical coordinates  "
+},
+{
+  "id": "thm-TripleIntegral_Spherical",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#thm-TripleIntegral_Spherical",
+  "type": "Theorem",
+  "number": "15.4.14",
+  "title": "Triple Integrals in Spherical Coordinates.",
+  "body": " Triple Integrals in Spherical Coordinates   Let be continuous over the region Then    "
+},
+{
+  "id": "subsec-Integration_SphericalCoordinates-9",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_SphericalCoordinates-9",
+  "type": "Example",
+  "number": "15.4.15",
+  "title": "",
+  "body": " Evaluate the integral , where is a unit ball.   The region is a unit ball, which means it consists of all points with a distance of 1 or less from the origin. In spherical coordinates, this is described by the bounds: , , and .  We know that . Therefore, the exponent becomes . The volume differential is .  Setting up the triple integral as an iterated integral, we evaluate from the inside out: First, we evaluate the innermost integral with respect to . We can use -substitution by letting , which means , or : Next, we evaluate the middle integral with respect to : Finally, we evaluate the outermost integral with respect to :    "
+},
+{
+  "id": "ws-sec154-3",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154-3",
+  "type": "Worksheet Exercise",
+  "number": "15.4.3",
+  "title": "",
+  "body": " Sketch the region and integrate over using polar coordinates.  "
+},
+{
+  "id": "ws-sec154-4",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154-4",
+  "type": "Worksheet Exercise",
+  "number": "15.4.13",
+  "title": "",
+  "body": " For the following integral, sketch the region of integration and evaluate by changing to polar coordinates.   "
+},
+{
+  "id": "ws-sec154-5",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154-5",
+  "type": "Worksheet Exercise",
+  "number": "15.4.19",
+  "title": "",
+  "body": " Calculate the integral of over the region by changing to polar coordinates.  "
+},
+{
+  "id": "ws-sec154-6",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154-6",
+  "type": "Worksheet Exercise",
+  "number": "15.4.23",
+  "title": "",
+  "body": " Evaluate , where is the domain in the following figure.   Find the equation of the inner circle in polar coordinates and treat the right and left parts of the region separately.   "
+},
+{
+  "id": "ws-sec154-7",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154-7",
+  "type": "Worksheet Exercise",
+  "number": "15.4.29",
+  "title": "",
+  "body": " Use cylindrical coordinates to evaluate where   "
+},
+{
+  "id": "ws-sec154-8",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154-8",
+  "type": "Worksheet Exercise",
+  "number": "15.4.35",
+  "title": "",
+  "body": " Express the triple integral in cylindrical coordinates.   "
+},
+{
+  "id": "ws-sec154-9",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154-9",
+  "type": "Worksheet Exercise",
+  "number": "15.4.39",
+  "title": "",
+  "body": " Find the volume of the region appearing between the two surfaces in the following figure.  "
+},
+{
+  "id": "ws-sec154-10",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154-10",
+  "type": "Worksheet Exercise",
+  "number": "15.4.49",
+  "title": "",
+  "body": " Use spherical coordinates to calculate where .  "
+},
+{
+  "id": "ws-sec154-11",
+  "level": "2",
+  "url": "sec154-IntegrationPolarCylindricalSphericalCoordinates.html#ws-sec154-11",
+  "type": "Worksheet Exercise",
+  "number": "15.4.53",
+  "title": "",
+  "body": " Calculate the integral of over the part of the ball defined by .  "
+},
+{
   "id": "backmatter-2",
   "level": "1",
   "url": "backmatter-2.html",
