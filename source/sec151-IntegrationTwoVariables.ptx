@@ -723,12 +723,83 @@
         Compute the Riemann sum <m>S_{4,3}</m> to estimate the double integral of <m>f(x,y) = xy</m> over <m>\c{R} = [1,3] \times [1,2.5]</m>. 
         Use the regular partition and upper-right vertices of the sub-rectangles as sample points. 
       </p>
+
+      <solution>
+        <p>
+          We are asked to compute <m>S_{4,3}</m> for <m>f(x,y) = xy</m> on the region <m>\c{R} = [1,3] \times [1,2.5]</m>. This means we partition the <m>x</m>-interval <m>[1,3]</m> into <m>N=4</m> subintervals and the <m>y</m>-interval <m>[1,2.5]</m> into <m>M=3</m> subintervals.
+        </p>
+        <p>
+          First, let's find the dimensions of our sub-rectangles:
+          <md>
+            <mrow> \Delta x \amp = \frac{3 - 1}{4} = \frac{2}{4} = 0.5 </mrow>
+            <mrow> \Delta y \amp = \frac{2.5 - 1}{3} = \frac{1.5}{3} = 0.5 </mrow>
+            <mrow> \Delta A \amp = \Delta x \Delta y = (0.5)(0.5) = 0.25 </mrow>
+          </md>
+        </p>
+        <p>
+          The <m>x</m>-grid points are: <m>1, 1.5, 2, 2.5, 3</m>. <br/>
+          The <m>y</m>-grid points are: <m>1, 1.5, 2, 2.5</m>.
+        </p>
+        <p>
+          We are using the upper-right vertices as our sample points <m>(x_i^*, y_j^*)</m>. This means for each sub-rectangle, we take the largest <m>x</m> and the largest <m>y</m> value.
+          The sample points will be combinations of <m>x \in \{1.5, 2, 2.5, 3\}</m> and <m>y \in \{1.5, 2, 2.5\}</m>.
+        </p>
+        <p>
+          Since <m>f(x,y) = xy</m>, the Riemann sum is:
+          <md>
+            <mrow> S_{4,3} \amp = \sum_{i=1}^4 \sum_{j=1}^3 f(x_i^*, y_j^*) \Delta A </mrow>
+            <mrow> \amp = 0.25 \sum_{i=1}^4 \sum_{j=1}^3 (x_i^*)(y_j^*) </mrow>
+          </md>
+        </p>
+        <p>
+          Because the function factors nicely into <m>f(x)g(y)</m>, we can actually factor the summation:
+          <md>
+            <mrow> S_{4,3} \amp = 0.25 \left( \sum_{i=1}^4 x_i^* \right) \left( \sum_{j=1}^3 y_j^* \right) </mrow>
+            <mrow> \amp = 0.25 \big(1.5 + 2 + 2.5 + 3\big) \big(1.5 + 2 + 2.5\big) </mrow>
+            <mrow> \amp = 0.25 (9)(6) </mrow>
+            <mrow> \amp = 0.25 (54) = 13.5 </mrow>
+          </md>
+        </p>
+        <p>
+          The estimated double integral is <m>13.5</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.1.9">
       <p>
         Evaluate <m>\ds \iint_\c{R} (15 - 3x)\, dA</m>, where <m>\c{R} = [0,5] \times [0,3]</m>, and sketch the corresponding solid region. 
       </p>
+
+      <solution>
+        <p>
+          The surface is a plane <m>z = 15 - 3x</m>. Let's look at the region <m>\c{R} = [0,5] \times [0,3]</m>.
+        </p>
+        <p>
+          When <m>x = 0</m>, the height is <m>z = 15 - 3(0) = 15</m>.
+          When <m>x = 5</m>, the height is <m>z = 15 - 3(5) = 0</m>.
+          Notice that the height does not depend on <m>y</m>.
+        </p>
+        <p>
+          Because <m>z</m> goes from <m>15</m> linearly down to <m>0</m> as <m>x</m> goes from <m>0</m> to <m>5</m>, the solid region under this surface is a triangular prism (or a wedge). 
+        </p>
+        <p>
+          We can calculate the volume using geometry. The base of the triangular face (in the <m>xz</m>-plane) has length 5 (from <m>x=0</m> to <m>5</m>), and the height is 15. The "length" of the prism stretches along the <m>y</m>-axis from <m>y=0</m> to <m>3</m>.
+          <md>
+            <mrow> \text{Area of triangular face} \amp = \frac{1}{2}bh = \frac{1}{2}(5)(15) = \frac{75}{2} = 37.5 </mrow>
+            <mrow> \text{Volume} \amp = \text{Area} \times \text{length} = 37.5 \times 3 = 112.5 </mrow>
+          </md>
+        </p>
+        <p>
+          Alternatively, we can evaluate it using an iterated integral:
+          <md>
+            <mrow> \int_0^3 \int_0^5 (15 - 3x)\, dx\, dy \amp = \int_0^3 \left[ 15x - \frac{3}{2}x^2 \right]_0^5\, dy </mrow>
+            <mrow> \amp = \int_0^3 \left( 15(5) - \frac{3}{2}(25) \right)\, dy </mrow>
+            <mrow> \amp = \int_0^3 \left( 75 - 37.5 \right)\, dy </mrow>
+            <mrow> \amp = \int_0^3 37.5\, dy = [37.5y]_0^3 = 112.5 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.1.11">
@@ -738,6 +809,58 @@
       </p>
 
       <image source="sec151_HW11_Diagram.png" width="50%"></image>
+
+      <solution>
+        <p>
+          Each subrectangle is a square of side <m>0.25</m>, hence the area of each subrectangle is <m>\Delta A = 0.25^2 = 0.0625</m>. By the given data, the lower-left vertex sample points are:
+        </p>
+        
+        <md>
+          <mrow> f(P_{11}) \amp= f(0, 0) \amp f(P_{12}) \amp= f(0, 0.25) \amp f(P_{13}) \amp= f(0, 0.50) </mrow>
+          <mrow> f(P_{21}) \amp= f(0.25, 0) \amp f(P_{22}) \amp= f(0.25, 0.25) \amp f(P_{23}) \amp= f(0.25, 0.50) </mrow>
+          <mrow> f(P_{31}) \amp= f(0.50, 0) \amp f(P_{32}) \amp= f(0.50, 0.25) \amp f(P_{33}) \amp= f(0.50, 0.50) </mrow>
+          <mrow> f(P_{41}) \amp= f(0.75, 0) \amp f(P_{42}) \amp= f(0.75, 0.25) \amp f(P_{43}) \amp= f(0.75, 0.50) </mrow>
+        </md>
+
+        <p>
+          The Riemann sum <m>S_{4,3}</m> that corresponds to these lower-left vertex sample points is the following sum:
+        </p>
+
+        <md>
+          <mrow> S_{4,3} \amp= \sum_{i=1}^4 \sum_{j=1}^3 f(P_{ij}) \Delta A </mrow>
+          <mrow> \amp= 0.0625(0.1 + 0.15 + 0.2 + 0.15 + 0.2 + 0.3 + 0.2 + 0.4 + 0.5 + 0.15 + 0.3 + 0.4) </mrow>
+          <mrow> \amp\approx 0.190625 </mrow>
+        </md>
+
+        <p>
+          Now by the given data, the upper-right vertex sample points are:
+        </p>
+
+        <md>
+          <mrow> f(P_{11}) \amp= f(0.25, 0.25) \amp f(P_{12}) \amp= f(0.25, 0.50) \amp f(P_{13}) \amp= f(0.25, 0.75) </mrow>
+          <mrow> f(P_{21}) \amp= f(0.50, 0.25) \amp f(P_{22}) \amp= f(0.50, 0.50) \amp f(P_{23}) \amp= f(0.50, 0.75) </mrow>
+          <mrow> f(P_{31}) \amp= f(0.75, 0.25) \amp f(P_{32}) \amp= f(0.75, 0.50) \amp f(P_{33}) \amp= f(0.75, 0.75) </mrow>
+          <mrow> f(P_{41}) \amp= f(1, 0.25) \amp f(P_{42}) \amp= f(1, 0.50) \amp f(P_{43}) \amp= f(1, 0.75) </mrow>
+        </md>
+
+        <p>
+          The Riemann sum <m>S'_{4,3}</m> that corresponds to these upper-right vertex sample points is the following sum:
+        </p>
+
+        <md>
+          <mrow> S'_{4,3} \amp= \sum_{i=1}^4 \sum_{j=1}^3 f(P_{ij}) \Delta A </mrow>
+          <mrow> \amp= 0.0625(0.2 + 0.3 + 0.2 + 0.4 + 0.5 + 0.2 + 0.3 + 0.4 + 0.15 + 0.2 + 0.2 + 0.1) </mrow>
+          <mrow> \amp\approx 0.196875 </mrow>
+        </md>
+
+        <p>
+          Taking the average of the two Riemann sums we have:
+        </p>
+
+        <md>
+          <mrow> \text{volume} \amp\approx \frac{S_{4,3} + S'_{4,3}}{2} = \frac{0.190625 + 0.196875}{2} = 0.19375 </mrow>
+        </md>
+      </solution>
     </exercise>
 
     <exercise number="15.1.17">
@@ -746,8 +869,25 @@
         <md>
           \iint_\c{R} \sin(x)\, dA\, , \qquad \c{R} = [0,2\pi] \times [0,2\pi]
         </md>
-        
       </p>
+
+      <solution>
+        <p>
+          We are asked to evaluate <m>\ds \iint_\c{R} \sin(x)\, dA</m> over the region <m>[0,2\pi] \times [0,2\pi]</m> using symmetry.
+        </p>
+        <p>
+          Notice that the integrand <m>f(x,y) = \sin(x)</m> is completely independent of <m>y</m>. This means the solid is just the sine wave extended along the <m>y</m>-axis from <m>y=0</m> to <m>y=2\pi</m> (like a corrugated metal roof).
+        </p>
+        <p>
+          Let's look at the cross-section of the surface along the <m>x</m>-axis. The function <m>\sin(x)</m> on the interval <m>[0, 2\pi]</m> is perfectly symmetric about the <m>x</m>-axis. The "positive" volume above the <m>xy</m>-plane from <m>x=0</m> to <m>\pi</m> is exactly equal in magnitude to the "negative" volume below the <m>xy</m>-plane from <m>x=\pi</m> to <m>2\pi</m>.
+        </p>
+        <p>
+          Because these two identical volumes have opposite signs, they cancel each other out completely. Therefore:
+          <md>
+            \iint_\c{R} \sin(x)\, dA = 0
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -762,12 +902,59 @@
         <p>
           <m>\ds \int_{-1}^1 \int_0^\pi x^2\sin(y)\, dy \, dx</m>
         </p>
+
+        <solution>
+        <p>
+          We evaluate the inner integral first with respect to <m>y</m>, treating <m>x</m> as a constant:
+          <md>
+            <mrow> \int_0^\pi x^2\sin(y)\, dy \amp = x^2 \Big[ -\cos(y) \Big]_0^\pi </mrow>
+            <mrow> \amp = x^2 \big( -\cos(\pi) - (-\cos(0)) \big) </mrow>
+            <mrow> \amp = x^2 \big( -(-1) + 1 \big) = 2x^2 </mrow>
+          </md>
+        </p>
+        <p>
+          Now, we substitute this back into the outer integral and integrate with respect to <m>x</m>:
+          <md>
+            <mrow> \int_{-1}^1 2x^2\, dx \amp = \left[ \frac{2}{3}x^3 \right]_{-1}^1 </mrow>
+            <mrow> \amp = \frac{2}{3}(1)^3 - \frac{2}{3}(-1)^3 </mrow>
+            <mrow> \amp = \frac{2}{3} + \frac{2}{3} = \frac{4}{3} </mrow>
+          </md>
+        </p>
+      </solution>
       </exercise>
 
       <exercise number="15.1.33">
         <p>
           <m>\ds \int_0^4 \int_0^5 \frac{dy \, dx}{\sqrt{x + y}}</m>
         </p>
+
+        <solution>
+        <p>
+          We rewrite the integrand using a fractional exponent: <m>\frac{1}{\sqrt{x+y}} = (x+y)^{-1/2}</m>.
+          Evaluating the inner integral with respect to <m>y</m> (treating <m>x</m> as a constant):
+          <md>
+            <mrow> \int_0^5 (x + y)^{-1/2}\, dy \amp = \left[ 2(x + y)^{1/2} \right]_{y=0}^{y=5} </mrow>
+            <mrow> \amp = 2(x + 5)^{1/2} - 2(x + 0)^{1/2} </mrow>
+            <mrow> \amp = 2\sqrt{x + 5} - 2\sqrt{x} </mrow>
+          </md>
+        </p>
+        <p>
+          Now substitute this into the outer integral and integrate with respect to <m>x</m>:
+          <md>
+            <mrow> \int_0^4 \left( 2(x + 5)^{1/2} - 2x^{1/2} \right)\, dx \amp = \left[ 2\left(\frac{2}{3}\right)(x + 5)^{3/2} - 2\left(\frac{2}{3}\right)x^{3/2} \right]_0^4 </mrow>
+            <mrow> \amp = \frac{4}{3} \left[ (x + 5)^{3/2} - x^{3/2} \right]_0^4 </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate at the boundaries:
+          <md>
+            <mrow> \amp \frac{4}{3} \Big( \big( (4+5)^{3/2} - 4^{3/2} \big) - \big( (0+5)^{3/2} - 0^{3/2} \big) \Big) </mrow>
+            <mrow> \amp = \frac{4}{3} \Big( (9^{3/2} - 4^{3/2}) - (5^{3/2} - 0) \Big) </mrow>
+            <mrow> \amp = \frac{4}{3} \Big( (27 - 8) - 5\sqrt{5} \Big) </mrow>
+            <mrow> \amp = \frac{4}{3} (19 - 5\sqrt{5}) </mrow>
+          </md>
+        </p>
+      </solution>
       </exercise>
     </exercisegroup>
 
@@ -783,12 +970,53 @@
         <p>
           <m>\ds \iint_\c{R} \cos(x)\sin(2y)\, dA \,  , \qquad \c{R} = \left[0,\frac{\pi}{2}\right] \times \left[0,\frac{\pi}{2}\right]</m>
         </p>
+
+        <solution>
+        <p>
+          We will evaluate this as an iterated integral. Let's choose to integrate with respect to <m>x</m> first, treating <m>y</m> as a constant:
+          <md>
+            <mrow> \int_0^{\pi/2} \cos(x)\sin(2y)\, dx \amp = \sin(2y) \Big[ \sin(x) \Big]_{x=0}^{x=\pi/2} </mrow>
+            <mrow> \amp = \sin(2y) \left( \sin\left(\frac{\pi}{2}\right) - \sin(0) \right) </mrow>
+            <mrow> \amp = \sin(2y) (1 - 0) = \sin(2y) </mrow>
+          </md>
+        </p>
+        <p>
+          Next, we substitute this result into the outer integral and integrate with respect to <m>y</m>. We'll use a small u-substitution (<m>u = 2y, du = 2dy</m>):
+          <md>
+            <mrow> \int_0^{\pi/2} \sin(2y)\, dy \amp = \left[ -\frac{1}{2}\cos(2y) \right]_0^{\pi/2} </mrow>
+            <mrow> \amp = -\frac{1}{2}\cos\left(2\cdot\frac{\pi}{2}\right) - \left(-\frac{1}{2}\cos(0)\right) </mrow>
+            <mrow> \amp = -\frac{1}{2}\cos(\pi) + \frac{1}{2}\cos(0) </mrow>
+            <mrow> \amp = -\frac{1}{2}(-1) + \frac{1}{2}(1) = \frac{1}{2} + \frac{1}{2} = 1 </mrow>
+          </md>
+        </p>
+      </solution>
       </exercise>
 
       <exercise number="15.1.43">
         <p>
           <m>\ds \iint_\c{R} x\ln(y)\, dA\, , \qquad \c{R} = [0,3] \times [1,e]</m>
         </p>
+
+        <solution>
+        <p>
+          We will set this up as an iterated integral. Let's integrate with respect to <m>x</m> first, keeping <m>y</m> constant:
+          <md>
+            <mrow> \int_0^3 x\ln(y)\, dx \amp = \ln(y) \left[ \frac{1}{2}x^2 \right]_{x=0}^{x=3} </mrow>
+            <mrow> \amp = \ln(y) \left( \frac{1}{2}(3)^2 - \frac{1}{2}(0)^2 \right) </mrow>
+            <mrow> \amp = \frac{9}{2}\ln(y) </mrow>
+          </md>
+        </p>
+        <p>
+          Now, we substitute this back into the outer integral and integrate with respect to <m>y</m>. 
+          Recall from MTH 252Z that integrating <m>\ln(y)</m> requires Integration by Parts (<m>u = \ln(y), dv = dy</m>, so <m>du = \frac{1}{y}dy, v = y</m>):
+          <md>
+            <mrow> \int_1^e \frac{9}{2}\ln(y)\, dy \amp = \frac{9}{2} \Big[ y\ln(y) - y \Big]_1^e </mrow>
+            <mrow> \amp = \frac{9}{2} \Big( \big( e\ln(e) - e \big) - \big( 1\ln(1) - 1 \big) \Big) </mrow>
+            <mrow> \amp = \frac{9}{2} \Big( (e(1) - e) - (0 - 1) \Big) </mrow>
+            <mrow> \amp = \frac{9}{2} \Big( 0 - (-1) \Big) = \frac{9}{2} </mrow>
+          </md>
+        </p>
+      </solution>
       </exercise>
     
     </exercisegroup>
@@ -809,6 +1037,48 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <ol marker="(a)">
+          <li>
+            <p>
+              It is easier to antidifferentiate with respect to <m>x</m>. If we integrate with respect to <m>x</m>, the <m>y</m> in the numerator acts as a constant multiplier, and the expression looks like <m>\int \frac{C}{1+Cx}\, dx</m>, which yields a natural log function via a simple u-substitution. 
+            </p>
+            <p>
+              If we try to integrate with respect to <m>y</m> first, we have to deal with a <m>y</m> in both the numerator and denominator, which would require polynomial long division (or adding/subtracting a term) to simplify before integrating. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Using Fubini's Theorem, we will choose the easier path and integrate with respect to <m>x</m> first: <m>dx\,dy</m>.
+              <md>
+                \int_0^1 \int_0^1 \frac{y}{1 + xy}\, dx\, dy
+              </md>
+            </p>
+            <p>
+              Inner integral with respect to <m>x</m>: let <m>u = 1 + xy</m>, then <m>du = y\, dx</m>.
+              <md>
+                <mrow> \int_0^1 \frac{y}{1 + xy}\, dx \amp = \Big[ \ln|1 + xy| \Big]_{x=0}^{x=1} </mrow>
+                <mrow> \amp = \ln|1 + y| - \ln|1 + 0| = \ln(1 + y) </mrow>
+              </md>
+            </p>
+            <p>
+              Outer integral with respect to <m>y</m>: 
+              <md>
+                \int_0^1 \ln(1 + y)\, dy
+              </md>
+              We use Integration by Parts. Let <m>u = \ln(1+y)</m> and <m>dv = dy</m>. Then <m>du = \frac{1}{1+y}dy</m> and <m>v = y</m>. 
+              Alternatively, let <m>w = 1+y</m>, so <m>dw = dy</m>, and the bounds change from <m>[0,1]</m> to <m>[1,2]</m>. The integral becomes <m>\int_1^2 \ln(w)\, dw</m>. We know <m>\int \ln(w)\, dw = w\ln(w) - w</m>.
+              <md>
+                <mrow> \int_1^2 \ln(w)\, dw \amp = \Big[ w\ln(w) - w \Big]_1^2 </mrow>
+                <mrow> \amp = (2\ln(2) - 2) - (1\ln(1) - 1) </mrow>
+                <mrow> \amp = 2\ln(2) - 2 - (0 - 1) </mrow>
+                <mrow> \amp = 2\ln(2) - 1 </mrow>
+              </md>
+            </p>
+          </li>
+        </ol>
+      </solution>
     </exercise>
   </worksheet>
 

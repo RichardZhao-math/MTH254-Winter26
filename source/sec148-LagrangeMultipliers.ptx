@@ -505,6 +505,59 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <ol marker="(a)">
+          <li>
+            <p>
+              We are given the objective function <m>f(x,y) = 2x + 4y</m> and the constraint <m>g(x,y) = x^2 + y^2 - 5 = 0</m>.
+              Taking the gradients, we get:
+              <md>
+                <mrow> \nabla f \amp = \langle 2, 4 \rangle </mrow>
+                <mrow> \nabla g \amp = \langle 2x, 2y \rangle </mrow>
+              </md>
+              Setting <m>\nabla f = \lambda \nabla g</m> gives us the system:
+              <md>
+                <mrow> 2 \amp = \lambda (2x) \implies 1 = \lambda x </mrow>
+                <mrow> 4 \amp = \lambda (2y) \implies 2 = \lambda y </mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>\lambda = 0</m>, the first equation becomes <m>1 = 0</m>, which is a contradiction. Therefore, <m>\lambda \neq 0</m>. 
+              Since <m>\lambda \neq 0</m>, we can solve for <m>x</m> and <m>y</m> in terms of <m>\lambda</m>:
+              <md>
+                <mrow> x \amp = \frac{1}{\lambda} </mrow>
+                <mrow> y \amp = \frac{2}{\lambda} </mrow>
+              </md>
+              Notice that <m>y = \frac{2}{\lambda} = 2\left(\frac{1}{\lambda}\right) = 2x</m>. Thus, <m>y = 2x</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Substitute <m>y = 2x</m> into the constraint equation <m>x^2 + y^2 = 5</m>:
+              <md>
+                <mrow> x^2 + (2x)^2 \amp = 5 </mrow>
+                <mrow> x^2 + 4x^2 \amp = 5 </mrow>
+                <mrow> 5x^2 \amp = 5 \implies x^2 = 1 \implies x = \pm 1 </mrow>
+              </md>
+              When <m>x = 1</m>, <m>y = 2(1) = 2</m>. When <m>x = -1</m>, <m>y = 2(-1) = -2</m>. 
+              Our critical points are <m>(1,2)</m> and <m>(-1,-2)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Finally, evaluate <m>f(x,y) = 2x + 4y</m> at the critical points:
+              <md>
+                <mrow> f(1,2) \amp = 2(1) + 4(2) = 10 </mrow>
+                <mrow> f(-1,-2) \amp = 2(-1) + 4(-2) = -10 </mrow>
+              </md>
+              The maximum value is <m>10</m> at <m>(1,2)</m>, and the minimum value is <m>-10</m> at <m>(-1,-2)</m>.
+            </p>
+          </li>
+        </ol>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -519,12 +572,114 @@
         <p>
           <m>f(x,y) = xy \, , \qquad 4x^2 + 9y^2 = 32</m>
         </p>
+
+        <solution>
+        <p>
+          Let <m>f(x,y) = xy</m> and the constraint <m>g(x,y) = 4x^2 + 9y^2 - 32 = 0</m>.
+          Using Lagrange multipliers, <m>\nabla f = \lambda \nabla g</m>:
+          <md>
+            <mrow> y \amp = \lambda(8x) </mrow>
+            <mrow> x \amp = \lambda(18y) </mrow>
+            <mrow> 4x^2 + 9y^2 \amp = 32 </mrow>
+          </md>
+        </p>
+        <p>
+          Multiply the first equation by <m>y</m> and the second by <m>x</m>:
+          <md>
+            <mrow> y^2 \amp = 8\lambda xy </mrow>
+            <mrow> x^2 \amp = 18\lambda xy </mrow>
+          </md>
+          If <m>\lambda = 0</m>, then <m>x = 0</m> and <m>y = 0</m>, which does not satisfy the constraint <m>4(0)^2 + 9(0)^2 = 32</m>. 
+          Thus, <m>\lambda \neq 0</m> and <m>xy \neq 0</m>. We can divide the modified equations to get:
+          <md>
+            <mrow> 8\lambda xy \cdot x^2 \amp = 18\lambda xy \cdot y^2 \implies 8x^2 = 18y^2 \implies 4x^2 = 9y^2 </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute <m>4x^2 = 9y^2</m> into the constraint equation:
+          <md>
+            <mrow> 9y^2 + 9y^2 \amp = 32 </mrow>
+            <mrow> 18y^2 \amp = 32 \implies y^2 = \frac{16}{9} \implies y = \pm \frac{4}{3} </mrow>
+          </md>
+        </p>
+        <p>
+          Now solve for <m>x</m>:
+          <md>
+            <mrow> 4x^2 = 9\left(\frac{16}{9}\right) = 16 \implies x^2 = 4 \implies x = \pm 2 </mrow>
+          </md>
+        </p>
+        <p>
+          We have four critical points to check: <m>\left(2, \frac{4}{3}\right)</m>, <m>\left(2, -\frac{4}{3}\right)</m>, <m>\left(-2, \frac{4}{3}\right)</m>, and <m>\left(-2, -\frac{4}{3}\right)</m>.
+          Evaluating <m>f(x,y) = xy</m>:
+          <md>
+            <mrow> f\left(2, \frac{4}{3}\right) \amp = \frac{8}{3} \amp f\left(-2, -\frac{4}{3}\right) \amp = \frac{8}{3} </mrow>
+            <mrow> f\left(2, -\frac{4}{3}\right) \amp = -\frac{8}{3} \amp f\left(-2, \frac{4}{3}\right) \amp = -\frac{8}{3} </mrow>
+          </md>
+          The maximum value is <m>\frac{8}{3}</m> and the minimum value is <m>-\frac{8}{3}</m>.
+        </p>
+      </solution>
       </exercise>
 
       <exercise number="14.8.13">
         <p>
           <m>f(x,y,z) = xy + 2z\, , \qquad x^2 + y^2 + z^2 = 36</m>
         </p>
+
+        <solution>
+        <p>
+          Let <m>g(x,y,z) = x^2 + y^2 + z^2 - 36 = 0</m>. The Lagrange equations <m>\nabla f = \lambda \nabla g</m> yield:
+          <md>
+            <mrow> y \amp = 2\lambda x </mrow>
+            <mrow> x \amp = 2\lambda y </mrow>
+            <mrow> 2 \amp = 2\lambda z \implies 1 = \lambda z </mrow>
+            <mrow> x^2 + y^2 + z^2 \amp = 36 </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute the second equation into the first:
+          <md>
+            <mrow> y = 2\lambda(2\lambda y) \implies y = 4\lambda^2 y \implies y(1 - 4\lambda^2) = 0 </mrow>
+          </md>
+          This gives us two cases: either <m>y = 0</m> or <m>4\lambda^2 = 1</m>.
+        </p>
+        <p>
+          <term>Case 1:</term> <m>y = 0</m>. 
+          If <m>y = 0</m>, then <m>x = 2\lambda(0) = 0</m>. Substituting <m>x=0</m> and <m>y=0</m> into the constraint gives:
+          <md>
+            <mrow> 0^2 + 0^2 + z^2 \amp = 36 \implies z = \pm 6 </mrow>
+          </md>
+          This gives the points <m>(0,0,6)</m> and <m>(0,0,-6)</m>.
+        </p>
+        <p>
+          <term>Case 2:</term> <m>4\lambda^2 = 1 \implies \lambda = \pm \frac{1}{2}</m>. 
+          If <m>\lambda = \frac{1}{2}</m>, then <m>y = x</m> and from the third equation, <m>z = \frac{1}{1/2} = 2</m>.
+          Substituting these into the constraint:
+          <md>
+            <mrow> x^2 + x^2 + 2^2 \amp = 36 \implies 2x^2 = 32 \implies x^2 = 16 \implies x = \pm 4 </mrow>
+          </md>
+          This gives the points <m>(4,4,2)</m> and <m>(-4,-4,2)</m>. 
+        </p>
+        <p>
+          If <m>\lambda = -\frac{1}{2}</m>, then <m>y = -x</m> and <m>z = \frac{1}{-1/2} = -2</m>.
+          Substituting into the constraint:
+          <md>
+            <mrow> x^2 + (-x)^2 + (-2)^2 \amp = 36 \implies 2x^2 = 32 \implies x = \pm 4 </mrow>
+          </md>
+          This gives the points <m>(4,-4,-2)</m> and <m>(-4,4,-2)</m>.
+        </p>
+        <p>
+          Now evaluate <m>f(x,y,z) = xy + 2z</m> at all these points:
+          <md>
+            <mrow> f(0,0,6) \amp = 0 + 12 = 12 </mrow>
+            <mrow> f(0,0,-6) \amp = 0 - 12 = -12 </mrow>
+            <mrow> f(4,4,2) \amp = 16 + 4 = 20 </mrow>
+            <mrow> f(-4,-4,2) \amp = 16 + 4 = 20 </mrow>
+            <mrow> f(4,-4,-2) \amp = -16 - 4 = -20 </mrow>
+            <mrow> f(-4,4,-2) \amp = -16 - 4 = -20 </mrow>
+          </md>
+          The absolute maximum is <m>20</m> and the absolute minimum is <m>-20</m>.
+        </p>
+      </solution>
       </exercise>
     
     </exercisegroup>
@@ -557,12 +712,91 @@
           </li>
         </ol>
       </p>
+
+      <solution>
+        <p>
+          Before we begin, note that we can use Lagrange multipliers by finding the gradients of <m>V</m> and <m>S</m> with respect to <m>r</m> and <m>h</m>:
+          <md>
+            <mrow> \nabla V \amp = \left\langle \frac{2}{3}\pi rh, \frac{1}{3}\pi r^2 \right\rangle </mrow>
+            <mrow> \nabla S \amp = \left\langle \pi\sqrt{r^2+h^2} + \frac{\pi r^2}{\sqrt{r^2+h^2}}, \frac{\pi rh}{\sqrt{r^2+h^2}} \right\rangle = \left\langle \pi\frac{2r^2+h^2}{\sqrt{r^2+h^2}}, \frac{\pi rh}{\sqrt{r^2+h^2}} \right\rangle </mrow>
+          </md>
+        </p>
+        <ol marker="(a)">
+          <li>
+            <p>
+              To maximize <m>V</m> given <m>S</m>, we set <m>\nabla V = \lambda \nabla S</m>:
+              <md>
+                <mrow> \frac{2}{3}\pi rh \amp = \lambda \pi\frac{2r^2+h^2}{\sqrt{r^2+h^2}} </mrow>
+                <mrow> \frac{1}{3}\pi r^2 \amp = \lambda \frac{\pi rh}{\sqrt{r^2+h^2}} </mrow>
+              </md>
+              Assuming <m>r, h \neq 0</m>, we can isolate <m>\lambda</m> in both equations and set them equal, or simply divide the first equation by the second:
+              <md>
+                <mrow> \frac{\frac{2}{3}\pi rh}{\frac{1}{3}\pi r^2} \amp = \frac{\lambda \pi\frac{2r^2+h^2}{\sqrt{r^2+h^2}}}{\lambda \frac{\pi rh}{\sqrt{r^2+h^2}}} </mrow>
+                <mrow> \frac{2h}{r} \amp = \frac{2r^2+h^2}{rh} </mrow>
+              </md>
+              Cross-multiply to get:
+              <md>
+                <mrow> 2h^2r \amp = r(2r^2+h^2) </mrow>
+                <mrow> 2h^2 \amp = 2r^2+h^2 \implies h^2 = 2r^2 \implies \frac{h^2}{r^2} = 2 \implies \frac{h}{r} = \sqrt{2} </mrow>
+              </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              To minimize <m>S</m> given <m>V</m>, the Lagrange condition is <m>\nabla S = \mu \nabla V</m>. 
+              Because the vectors must still be parallel, the proportion between the components must be exactly the same as in part (a). 
+              Therefore, the algebra will lead to the exact same geometric ratio: <m>\frac{h}{r} = \sqrt{2}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              No, such a cone does not exist. If <m>V</m> is constant, <m>h = \frac{3V}{\pi r^2}</m>. 
+              Substitute this into the surface area formula:
+              <md>
+                <mrow> S \amp = \pi r \sqrt{r^2 + \left(\frac{3V}{\pi r^2}\right)^2} = \sqrt{\pi^2 r^4 + \frac{9V^2}{r^2}} </mrow>
+              </md>
+              If we stretch the cone to be infinitely wide and flat (<m>r \to \infty</m>), the surface area <m>S \to \infty</m>. 
+              Thus, there is no maximum surface area for a given volume.
+            </p>
+          </li>
+        </ol>
+      </solution>
     </exercise>
 
     <exercise number="14.8.23">
       <p>
         Find the point <m>(x_0, y_0)</m> on the line <m>4x + 9y = 12</m> that is closest to the origin. 
       </p>
+
+      <solution>
+        <p>
+          We want to minimize the distance to the origin, which is <m>d = \sqrt{x^2+y^2}</m>. 
+          To make the calculus easier, we will instead minimize the <em>square</em> of the distance, <m>f(x,y) = x^2+y^2</m>, subject to the constraint <m>g(x,y) = 4x + 9y - 12 = 0</m>.
+        </p>
+        <p>
+          Using Lagrange multipliers, <m>\nabla f = \lambda \nabla g</m>:
+          <md>
+            <mrow> 2x \amp = \lambda(4) \implies x = 2\lambda </mrow>
+            <mrow> 2y \amp = \lambda(9) \implies y = \frac{9}{2}\lambda = 4.5\lambda </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute these into the constraint equation:
+          <md>
+            <mrow> 4(2\lambda) + 9(4.5\lambda) \amp = 12 </mrow>
+            <mrow> 8\lambda + 40.5\lambda \amp = 12 </mrow>
+            <mrow> 48.5\lambda \amp = 12 \implies \lambda = \frac{12}{48.5} = \frac{24}{97} </mrow>
+          </md>
+        </p>
+        <p>
+          Now plug <m>\lambda</m> back in to find <m>x_0</m> and <m>y_0</m>:
+          <md>
+            <mrow> x_0 \amp = 2\left(\frac{24}{97}\right) = \frac{48}{97} </mrow>
+            <mrow> y_0 \amp = \frac{9}{2}\left(\frac{24}{97}\right) = \frac{108}{97} </mrow>
+          </md>
+          The closest point is <m>\left(\frac{48}{97}, \frac{108}{97}\right)</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.8.29">
@@ -572,12 +806,110 @@
           \frac{|d|}{\sqrt{a^2 + b^2 + c^2}}
         </md>
       </p>
+
+      <solution>
+        <p>
+          Similar to the previous problem, we minimize the square of the distance, <m>f(x,y,z) = x^2+y^2+z^2</m>, subject to the plane constraint <m>g(x,y,z) = ax + by + cz - d = 0</m>.
+        </p>
+        <p>
+          Set up the Lagrange equations <m>\nabla f = \lambda \nabla g</m>:
+          <md>
+            <mrow> 2x \amp = a\lambda \implies x = \frac{a\lambda}{2} </mrow>
+            <mrow> 2y \amp = b\lambda \implies y = \frac{b\lambda}{2} </mrow>
+            <mrow> 2z \amp = c\lambda \implies z = \frac{c\lambda}{2} </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute these into the constraint equation:
+          <md>
+            <mrow> a\left(\frac{a\lambda}{2}\right) + b\left(\frac{b\lambda}{2}\right) + c\left(\frac{c\lambda}{2}\right) \amp = d </mrow>
+            <mrow> \frac{\lambda}{2}(a^2 + b^2 + c^2) \amp = d \implies \lambda = \frac{2d}{a^2+b^2+c^2} </mrow>
+          </md>
+        </p>
+        <p>
+          Now substitute <m>\lambda</m> back to find the coordinates:
+          <md>
+            <mrow> x \amp = \frac{a}{2}\left(\frac{2d}{a^2+b^2+c^2}\right) = \frac{ad}{a^2+b^2+c^2} </mrow>
+            <mrow> y \amp = \frac{b}{2}\left(\frac{2d}{a^2+b^2+c^2}\right) = \frac{bd}{a^2+b^2+c^2} </mrow>
+            <mrow> z \amp = \frac{c}{2}\left(\frac{2d}{a^2+b^2+c^2}\right) = \frac{cd}{a^2+b^2+c^2} </mrow>
+          </md>
+        </p>
+        <p>
+          Finally, calculate the minimum distance <m>D = \sqrt{x^2+y^2+z^2}</m>:
+          <md>
+            <mrow> D \amp = \sqrt{\left(\frac{ad}{a^2+b^2+c^2}\right)^2 + \left(\frac{bd}{a^2+b^2+c^2}\right)^2 + \left(\frac{cd}{a^2+b^2+c^2}\right)^2} </mrow>
+            <mrow> \amp = \sqrt{\frac{a^2d^2 + b^2d^2 + c^2d^2}{(a^2+b^2+c^2)^2}} = \sqrt{\frac{d^2(a^2+b^2+c^2)}{(a^2+b^2+c^2)^2}} </mrow>
+            <mrow> \amp = \sqrt{\frac{d^2}{a^2+b^2+c^2}} = \frac{|d|}{\sqrt{a^2+b^2+c^2}} </mrow>
+          </md>
+          This confirms the distance formula. 
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.8.41">
       <p>
         Find the minimum of <m>f(x,y,z) = x^2 + y^2 + z^2</m> subject to the two constraints <m>x + y + z = 1</m> and <m>x + 2y + 3z = 6</m>.
       </p>
+
+      <solution>
+        <p>
+          Here we have two constraints. Let <m>g(x,y,z) = x + y + z - 1 = 0</m> and <m>h(x,y,z) = x + 2y + 3z - 6 = 0</m>.
+          Using <m>\nabla f = \lambda \nabla g + \mu \nabla h</m>:
+          <md>
+            <mrow> 2x \amp = \lambda(1) + \mu(1) </mrow>
+            <mrow> 2y \amp = \lambda(1) + \mu(2) </mrow>
+            <mrow> 2z \amp = \lambda(1) + \mu(3) </mrow>
+          </md>
+        </p>
+        <p>
+          We can solve this by substituting these expressions into the two constraint equations. 
+          First, let's look at the <m>g</m> constraint: <m>x + y + z = 1 \implies 2x + 2y + 2z = 2</m>.
+          Substitute our gradient equations into this:
+          <md>
+            <mrow> (\lambda + \mu) + (\lambda + 2\mu) + (\lambda + 3\mu) \amp = 2 </mrow>
+            <mrow> 3\lambda + 6\mu \amp = 2 \qquad \text{(Equation A)} </mrow>
+          </md>
+        </p>
+        <p>
+          Now for the <m>h</m> constraint: <m>x + 2y + 3z = 6 \implies 2x + 4y + 6z = 12</m>.
+          Substitute our gradient equations:
+          <md>
+            <mrow> (\lambda + \mu) + 2(\lambda + 2\mu) + 3(\lambda + 3\mu) \amp = 12 </mrow>
+            <mrow> \lambda + \mu + 2\lambda + 4\mu + 3\lambda + 9\mu \amp = 12 </mrow>
+            <mrow> 6\lambda + 14\mu \amp = 12 \qquad \text{(Equation B)} </mrow>
+          </md>
+        </p>
+        <p>
+          We now have a system of two variables. Multiply Equation A by 2:
+          <md>
+            <mrow> 6\lambda + 12\mu \amp = 4 </mrow>
+          </md>
+          Subtract this from Equation B:
+          <md>
+            <mrow> (6\lambda + 14\mu) - (6\lambda + 12\mu) \amp = 12 - 4 </mrow>
+            <mrow> 2\mu \amp = 8 \implies \mu = 4 </mrow>
+          </md>
+          Substitute <m>\mu = 4</m> back into Equation A to find <m>\lambda</m>:
+          <md>
+            <mrow> 3\lambda + 6(4) \amp = 2 \implies 3\lambda = -22 \implies \lambda = -\frac{22}{3} </mrow>
+          </md>
+        </p>
+        <p>
+          Now we can find our coordinates:
+          <md>
+            <mrow> 2x = -\frac{22}{3} + 4 = -\frac{10}{3} \implies x = -\frac{5}{3} </mrow>
+            <mrow> 2y = -\frac{22}{3} + 8 = \frac{2}{3} \implies y = \frac{1}{3} </mrow>
+            <mrow> 2z = -\frac{22}{3} + 12 = \frac{14}{3} \implies z = \frac{7}{3} </mrow>
+          </md>
+        </p>
+        <p>
+          Finally, plug this point into <m>f(x,y,z)</m> to find the minimum value:
+          <md>
+            <mrow> f\left(-\frac{5}{3}, \frac{1}{3}, \frac{7}{3}\right) \amp = \left(-\frac{5}{3}\right)^2 + \left(\frac{1}{3}\right)^2 + \left(\frac{7}{3}\right)^2 </mrow>
+            <mrow> \amp = \frac{25}{9} + \frac{1}{9} + \frac{49}{9} = \frac{75}{9} = \frac{25}{3} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.8.45">
@@ -585,6 +917,45 @@
         The cylinder <m>x^2 + y^2 = 1</m> intersects the plane <m>x + z = 1</m> in an ellipse. 
         Find the point on such an ellipse that is farthest from the origin.
       </p>
+
+      <solution>
+        <p>
+          We want to maximize the distance to the origin, which means maximizing <m>f(x,y,z) = x^2+y^2+z^2</m>. 
+          The constraints are <m>g(x,y,z) = x^2+y^2 - 1 = 0</m> and <m>h(x,y,z) = x+z - 1 = 0</m>.
+        </p>
+
+        <p>
+          Set up <m>\nabla f = \lambda \nabla g + \mu \nabla h</m>:
+          <md>
+            <mrow> 2x \amp = 2\lambda x + \mu </mrow>
+            <mrow> 2y \amp = 2\lambda y </mrow>
+            <mrow> 2z \amp = \mu </mrow>
+          </md>
+          From the second equation, <m>2y(1 - \lambda) = 0</m>, so either <m>y = 0</m> or <m>\lambda = 1</m>.
+        </p>
+        <p>
+          <term>Case 1: </term> <m>y = 0</m>. 
+          Substitute this into the first constraint: <m>x^2 + 0^2 = 1 \implies x = \pm 1</m>. 
+          If <m>x = 1</m>, the second constraint gives <m>1 + z = 1 \implies z = 0</m>. This is point <m>(1, 0, 0)</m>. 
+          If <m>x = -1</m>, the second constraint gives <m>-1 + z = 1 \implies z = 2</m>. This is point <m>(-1, 0, 2)</m>. 
+        </p>
+        <p>
+          <term>Case 2: </term> <m>\lambda = 1</m>. 
+          Substitute into the first equation: <m>2x = 2(1)x + \mu \implies \mu = 0</m>.
+          If <m>\mu = 0</m>, the third equation gives <m>2z = 0 \implies z = 0</m>.
+          Using the second constraint, <m>x + 0 = 1 \implies x = 1</m>. 
+          Using the first constraint, <m>1^2 + y^2 = 1 \implies y = 0</m>. 
+          We arrive at the point <m>(1,0,0)</m> again. 
+        </p>
+        <p>
+          Evaluating the distance squared for our two candidates:
+          <md>
+            <mrow> f(1,0,0) \amp = 1^2 + 0^2 + 0^2 = 1 </mrow>
+            <mrow> f(-1,0,2) \amp = (-1)^2 + 0^2 + 2^2 = 5 </mrow>
+          </md>
+          The maximum distance squared is 5, so the farthest point from the origin is <m>(-1, 0, 2)</m>.
+        </p>
+      </solution>
     </exercise>
   </worksheet>
 

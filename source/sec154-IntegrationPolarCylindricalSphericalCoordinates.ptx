@@ -511,7 +511,7 @@ show(region + axes, frame=False, aspect_ratio=1)
       </md>
       In addition to the fact that <m>dV = \rho^2\sin(\phi) \, d\rho \, d\phi \, d\theta</m> in spherical coordinates, we have the following conversion formula
       <md>
-        \iiint_\c{W} f(x,y,z) dV = \int_{\theta_1}^{\theta_2} \int_{\phi_1}^{\phi_2} \int_{\rho_1(\phi, \theta)}^{\rho_2(\phi, \theta)} f(\rho\sin(\phi)\cos(\theta), \rho\sin(\phi)\sin(\theta), \rho\cos(\phi)) \, \rho^2 \sin \lp \phi \rp \, d\rho\, d\phi\, d\theta
+        \iiint_\c{W} f(x,y,z) dV = \int_{\theta_1}^{\theta_2} \int_{\phi_1}^{\phi_2} \int_{\rho_1(\phi, \theta)}^{\rho_2(\phi, \theta)} f(\rho\sin(\phi)\cos(\theta), \rho\sin(\phi)\sin(\theta), \rho\cos(\phi))\,  \rho^2\sin(\phi) \, d\rho \, d\phi \, d\theta
       </md>
     </p>
 
@@ -578,6 +578,45 @@ show(region + axes, frame=False, aspect_ratio=1)
       <p>
         Sketch the region <m>\c{D} = \left\{ (x,y) \in \R^2 \mid x \geq 0, \, y \geq 0 \, \text{and } x^2 + y^2 \leq 4 \right\}</m> and integrate <m>f(x,y) = xy</m> over <m>\c{D}</m> using polar coordinates.
       </p>
+
+      <solution>
+        <p>
+          The region <m>\c{D}</m> is bounded by <m>x \geq 0</m> (the right half-plane), <m>y \geq 0</m> (the upper half-plane), and <m>x^2 + y^2 \leq 4</m> (a disk of radius 2). 
+          This describes exactly the quarter-circle of radius 2 in the first quadrant. 
+        </p>
+        <p>
+          In polar coordinates, this region is defined by the limits:
+          <md>
+            <mrow> 0 \amp \leq r \leq 2 </mrow>
+            <mrow> 0 \amp \leq \theta \leq \frac{\pi}{2} </mrow>
+          </md>
+        </p>
+        <p>
+          We convert the integrand <m>f(x,y) = xy</m> using <m>x = r\cos\theta</m> and <m>y = r\sin\theta</m>. 
+          This gives <m>f(r,\theta) = (r\cos\theta)(r\sin\theta) = r^2\cos\theta\sin\theta</m>. 
+          Remembering to include the extra <m>r</m> from the differential <m>dA = r\,dr\,d\theta</m>, we set up the iterated integral:
+          <md>
+            <mrow> \iint_\c{D} xy \, dA \amp= \int_0^{\pi/2} \int_0^2 (r^2\cos\theta\sin\theta) r \, dr \, d\theta </mrow>
+            <mrow> \amp= \int_0^{\pi/2} \int_0^2 r^3\cos\theta\sin\theta \, dr \, d\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>r</m>:
+          <md>
+            <mrow> \int_0^2 r^3\cos\theta\sin\theta \, dr \amp= \left[ \frac{1}{4}r^4\cos\theta\sin\theta \right]_{r=0}^{r=2} </mrow>
+            <mrow> \amp= \frac{1}{4}(16)\cos\theta\sin\theta - 0 = 4\cos\theta\sin\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute this into the outer integral and evaluate with respect to <m>\theta</m>. 
+          We can use the double angle identity <m>2\sin\theta\cos\theta = \sin(2\theta)</m> to rewrite <m>4\cos\theta\sin\theta</m> as <m>2\sin(2\theta)</m>:
+          <md>
+            <mrow> \int_0^{\pi/2} 2\sin(2\theta) \, d\theta \amp= \left[ -\cos(2\theta) \right]_0^{\pi/2} </mrow>
+            <mrow> \amp= -\cos\left(2\cdot\frac{\pi}{2}\right) - (-\cos(0)) </mrow>
+            <mrow> \amp= -\cos(\pi) + \cos(0) = -(-1) + 1 = 2 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.4.13">
@@ -587,12 +626,98 @@ show(region + axes, frame=False, aspect_ratio=1)
           \int_{-1}^2 \int_0^\sqrt{4 - x^2} \lp x^2 + y^2 \rp \, dy \, dx
         </md>
       </p>
+
+      <solution>
+        <p>
+          Let's analyze the given limits of integration:
+          <md>
+            <mrow> -1 \amp \leq x \leq 2 </mrow>
+            <mrow> 0 \amp \leq y \leq \sqrt{4 - x^2} </mrow>
+          </md>
+          The <m>y</m>-bounds tell us the region lies in the upper half-plane (<m>y \geq 0</m>) and is bounded above by the semicircle <m>y = \sqrt{4 - x^2}</m>, which corresponds to a circle of radius 2.
+          However, <m>x</m> only goes from <m>-1</m> to <m>2</m>, meaning we do not have the full upper half-circle (which would go from <m>x = -2</m> to <m>x = 2</m>).
+        </p>
+        <p>
+          In polar coordinates, the radius clearly goes from <m>r = 0</m> to <m>r = 2</m>. 
+          The angle <m>\theta</m> starts at the positive <m>x</m>-axis where <m>x = 2</m> (so <m>\theta = 0</m>). 
+          It sweeps counterclockwise until it hits the point on the circle where <m>x = -1</m>. 
+          Using <m>x = r\cos\theta</m>, we have <m>-1 = 2\cos\theta \implies \cos\theta = -\frac{1}{2}</m>. 
+          In the upper half-plane, this corresponds to the angle <m>\theta = \frac{2\pi}{3}</m>. 
+          Thus, our bounds are <m>0 \leq r \leq 2</m> and <m>0 \leq \theta \leq \frac{2\pi}{3}</m>.
+        </p>
+        <p>
+          Converting the integrand, we know <m>x^2 + y^2 = r^2</m>. 
+          Including the polar differential <m>dA = r\,dr\,d\theta</m>, the integral becomes:
+          <md>
+            <mrow> \int_0^{2\pi/3} \int_0^2 (r^2) r \, dr \, d\theta = \int_0^{2\pi/3} \int_0^2 r^3 \, dr \, d\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>r</m>:
+          <md>
+            <mrow> \int_0^2 r^3 \, dr \amp= \left[ \frac{1}{4}r^4 \right]_0^2 = \frac{1}{4}(16) - 0 = 4 </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute this into the outer integral and evaluate with respect to <m>\theta</m>:
+          <md>
+            <mrow> \int_0^{2\pi/3} 4 \, d\theta \amp= \Big[ 4\theta \Big]_0^{2\pi/3} = 4\left(\frac{2\pi}{3}\right) - 0 = \frac{8\pi}{3} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.4.19">
       <p>
         Calculate the integral of <m>f(x,y) = x - y</m> over the region <m>\c{D} = \left\{ (x,y) \in \R^2 \mid x^2 + y^2 \leq 1 \text{ and } x + y \geq1\right\}</m> by changing to polar coordinates. 
       </p>
+
+      <solution>
+        <p>
+          The region <m>\c{D}</m> is bounded by the circle <m>x^2 + y^2 = 1</m> and the line <m>x + y = 1</m>. 
+          These two curves intersect at <m>(1,0)</m> and <m>(0,1)</m>, so the region lies entirely in the first quadrant, making our angular bounds <m>0 \leq \theta \leq \frac{\pi}{2}</m>. 
+        </p>
+        <p>
+          For a fixed angle <m>\theta</m>, a ray from the origin enters the region at the line and exits at the circle. 
+          <ul>
+            <li>Outer bound (circle): <m>x^2 + y^2 = 1 \implies r = 1</m></li>
+            <li>Inner bound (line): <m>x + y = 1 \implies r\cos\theta + r\sin\theta = 1 \implies r(\cos\theta + \sin\theta) = 1 \implies r = \frac{1}{\cos\theta + \sin\theta}</m></li>
+          </ul>
+        </p>
+        <p>
+          The integrand converts to <m>x - y = r\cos\theta - r\sin\theta = r(\cos\theta - \sin\theta)</m>. 
+          With <m>dA = r\,dr\,d\theta</m>, the integral is:
+          <md>
+            <mrow> \int_0^{\pi/2} \int_{\frac{1}{\cos\theta + \sin\theta}}^1 \big(r(\cos\theta - \sin\theta)\big) r \, dr \, d\theta = \int_0^{\pi/2} \int_{\frac{1}{\cos\theta + \sin\theta}}^1 r^2(\cos\theta - \sin\theta) \, dr \, d\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>r</m>:
+          <md>
+            <mrow> \int_{\frac{1}{\cos\theta + \sin\theta}}^1 r^2(\cos\theta - \sin\theta) \, dr \amp= \left[ \frac{1}{3}r^3(\cos\theta - \sin\theta) \right]_{r=\frac{1}{\cos\theta + \sin\theta}}^{r=1} </mrow>
+            <mrow> \amp= \frac{1}{3}(1)^3(\cos\theta - \sin\theta) - \frac{1}{3}\left(\frac{1}{\cos\theta + \sin\theta}\right)^3(\cos\theta - \sin\theta) </mrow>
+            <mrow> \amp= \frac{1}{3}(\cos\theta - \sin\theta) - \frac{1}{3}\frac{\cos\theta - \sin\theta}{(\cos\theta + \sin\theta)^3} </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute this into the outer integral:
+          <md>
+            <mrow> \int_0^{\pi/2} \left( \frac{1}{3}(\cos\theta - \sin\theta) - \frac{1}{3}\frac{\cos\theta - \sin\theta}{(\cos\theta + \sin\theta)^3} \right) \, d\theta </mrow>
+          </md>
+          We can split this into two integrals and evaluate. For the first part:
+          <md>
+            <mrow> \int_0^{\pi/2} \frac{1}{3}(\cos\theta - \sin\theta) \, d\theta \amp= \frac{1}{3} \Big[ \sin\theta + \cos\theta \Big]_0^{\pi/2} </mrow>
+            <mrow> \amp= \frac{1}{3}\big(\sin(\pi/2) + \cos(\pi/2)\big) - \frac{1}{3}\big(\sin(0) + \cos(0)\big) </mrow>
+            <mrow> \amp= \frac{1}{3}(1 + 0) - \frac{1}{3}(0 + 1) = 0 </mrow>
+          </md>
+          For the second part, let <m>u = \cos\theta + \sin\theta</m>. Then <m>du = (-\sin\theta + \cos\theta)\,d\theta = (\cos\theta - \sin\theta)\,d\theta</m>. 
+          Let's look at the bounds: when <m>\theta = 0</m>, <m>u = 1+0=1</m>. When <m>\theta = \pi/2</m>, <m>u = 0+1=1</m>. 
+          Since the upper and lower limits of integration are the same (<m>u</m> goes from 1 to 1), the definite integral evaluates exactly to 0!
+        </p>
+        <p>
+          Therefore, the total integral is <m>0 - 0 = 0</m>. (This makes perfect sense geometrically, as the region is symmetric across the line <m>y = x</m>, but the function <m>x - y</m> has perfectly opposite values across that same line, causing everything to cancel out!).
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.4.23">
@@ -600,17 +725,122 @@ show(region + axes, frame=False, aspect_ratio=1)
         Evaluate <m>\ds \iint_\c{D} \sqrt{x^2 + y^2} \, dA</m>, where <m>\c{D}</m> is the domain in the following figure. 
       </p>
 
+      <image source="sec154_HW23_Diagram.png" width="40%"></image>
+
       <hint>
         <p>
           Find the equation of the inner circle in polar coordinates and treat the right and left parts of the region separately.
         </p>
       </hint>
+
+      <solution>
+        <p>
+          Looking at the figure, the domain <m>\c{D}</m> is bounded by the outer circle <m>x^2 + y^2 = 4</m> (which has a radius of 2), and it contains an empty "hole." The hole is a circle centered at <m>(1, 0)</m> with a radius of 1. 
+        </p>
+        <p>
+          Let's find the polar equation for the inner boundary. The Cartesian equation is <m>(x - 1)^2 + y^2 = 1</m>. Expanding this yields:
+          <md>
+            <mrow> x^2 - 2x + 1 + y^2 \amp= 1 </mrow>
+            <mrow> x^2 + y^2 \amp= 2x </mrow>
+          </md>
+          Substituting our polar conversions (<m>x^2 + y^2 = r^2</m> and <m>x = r\cos\theta</m>):
+          <md>
+            <mrow> r^2 \amp= 2r\cos\theta \implies r = 2\cos\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Notice that the inner circle <m>r = 2\cos\theta</m> only exists in the right half-plane (where <m>-\pi/2 \leq \theta \leq \pi/2</m>). In the left half-plane (where <m>\pi/2 \leq \theta \leq 3\pi/2</m>), there is no hole, so the region goes all the way from the origin <m>r = 0</m> to the outer edge <m>r = 2</m>. 
+          Therefore, we must split our region into two parts: a left half and a right half.
+        </p>
+        <p>
+          The integrand is <m>\sqrt{x^2+y^2} = r</m>. With the polar differential <m>dA = r\,dr\,d\theta</m>, the function we are integrating becomes <m>r \cdot r = r^2</m>.
+          <md>
+            <mrow> \iint_\c{D} \sqrt{x^2+y^2} \, dA = \int_{\pi/2}^{3\pi/2} \int_0^2 r^2 \, dr \, d\theta + \int_{-\pi/2}^{\pi/2} \int_{2\cos\theta}^2 r^2 \, dr \, d\theta </mrow>
+          </md>
+        </p>
+        <p>
+          <term>Part 1: The Left Half</term>
+          <md>
+            <mrow> \int_{\pi/2}^{3\pi/2} \int_0^2 r^2 \, dr \, d\theta \amp= \int_{\pi/2}^{3\pi/2} \left[ \frac{1}{3}r^3 \right]_0^2 \, d\theta </mrow>
+            <mrow> \amp= \int_{\pi/2}^{3\pi/2} \frac{8}{3} \, d\theta </mrow>
+            <mrow> \amp= \left[ \frac{8}{3}\theta \right]_{\pi/2}^{3\pi/2} = \frac{8}{3}\left(\frac{3\pi}{2}\right) - \frac{8}{3}\left(\frac{\pi}{2}\right) = \frac{8\pi}{3} </mrow>
+          </md>
+        </p>
+        <p>
+          <term>Part 2: The Right Half</term>
+          <md>
+            <mrow> \int_{-\pi/2}^{\pi/2} \int_{2\cos\theta}^2 r^2 \, dr \, d\theta \amp= \int_{-\pi/2}^{\pi/2} \left[ \frac{1}{3}r^3 \right]_{2\cos\theta}^2 \, d\theta </mrow>
+            <mrow> \amp= \int_{-\pi/2}^{\pi/2} \left( \frac{8}{3} - \frac{8}{3}\cos^3\theta \right) \, d\theta </mrow>
+          </md>
+          We separate this into two integrals:
+          <md>
+            <mrow> \int_{-\pi/2}^{\pi/2} \frac{8}{3} \, d\theta - \frac{8}{3} \int_{-\pi/2}^{\pi/2} \cos^3\theta \, d\theta </mrow>
+          </md>
+          The first integral is simply <m>\frac{8}{3}(\pi) = \frac{8\pi}{3}</m>. For the second integral, we use the Pythagorean identity <m>\cos^2\theta = 1 - \sin^2\theta</m> to set up a <m>u</m>-substitution where <m>u = \sin\theta</m> and <m>du = \cos\theta \, d\theta</m>. When <m>\theta = -\pi/2</m>, <m>u = -1</m>. When <m>\theta = \pi/2</m>, <m>u = 1</m>.
+          <md>
+            <mrow> \int_{-\pi/2}^{\pi/2} \cos^2\theta \cos\theta \, d\theta \amp= \int_{-1}^1 (1 - u^2) \, du </mrow>
+            <mrow> \amp= \left[ u - \frac{1}{3}u^3 \right]_{-1}^1 </mrow>
+            <mrow> \amp= \left( 1 - \frac{1}{3} \right) - \left( -1 - \left(-\frac{1}{3}\right) \right) = \frac{2}{3} - \left(-\frac{2}{3}\right) = \frac{4}{3} </mrow>
+          </md>
+          So the right half evaluates to <m>\frac{8\pi}{3} - \frac{8}{3}\left(\frac{4}{3}\right) = \frac{8\pi}{3} - \frac{32}{9}</m>.
+        </p>
+        <p>
+          <term>Total Area</term><br/>
+          Summing the left half and the right half:
+          <md>
+            <mrow> \iint_\c{D} \sqrt{x^2+y^2} \, dA \amp= \frac{8\pi}{3} + \left( \frac{8\pi}{3} - \frac{32}{9} \right) </mrow>
+            <mrow> \amp= \frac{16\pi}{3} - \frac{32}{9} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.4.29">
       <p>
         Use cylindrical coordinates to evaluate <m>\ds \iiint_\c{W} x \, dV</m> where <m>\c{W} = \left\{ (x,y,z) \in \R^3 \mid x^2 + y^2 \leq 16 , \, x \geq 0, \, y \geq 0, \, -3 \leq z \leq 3 \right\}</m>
       </p>
+
+      <solution>
+        <p>
+          The region <m>\c{W}</m> is bounded by the cylinder <m>x^2 + y^2 = 16</m> (radius 4) in the first quadrant (<m>x \geq 0</m>, <m>y \geq 0</m>), between the planes <m>z = -3</m> and <m>z = 3</m>. 
+        </p>
+        <p>
+          In cylindrical coordinates, this region translates beautifully to constant bounds:
+          <md>
+            <mrow> 0 \amp \leq r \leq 4 </mrow>
+            <mrow> 0 \amp \leq \theta \leq \frac{\pi}{2} </mrow>
+            <mrow> -3 \amp \leq z \leq 3 </mrow>
+          </md>
+        </p>
+        <p>
+          The integrand is <m>x = r\cos\theta</m>. With <m>dV = r\,dz\,dr\,d\theta</m>, the integral is:
+          <md>
+            <mrow> \iiint_\c{W} x \, dV \amp= \int_0^{\pi/2} \int_0^4 \int_{-3}^3 (r\cos\theta) r \, dz \, dr \, d\theta </mrow>
+            <mrow> \amp= \int_0^{\pi/2} \int_0^4 \int_{-3}^3 r^2\cos\theta \, dz \, dr \, d\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>z</m>:
+          <md>
+            <mrow> \int_{-3}^3 r^2\cos\theta \, dz \amp= \Big[ r^2z\cos\theta \Big]_{z=-3}^{z=3} </mrow>
+            <mrow> \amp= r^2(3)\cos\theta - r^2(-3)\cos\theta = 6r^2\cos\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the middle integral with respect to <m>r</m>:
+          <md>
+            <mrow> \int_0^4 6r^2\cos\theta \, dr \amp= \left[ 2r^3\cos\theta \right]_0^4 </mrow>
+            <mrow> \amp= 2(64)\cos\theta - 0 = 128\cos\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the outer integral with respect to <m>\theta</m>:
+          <md>
+            <mrow> \int_0^{\pi/2} 128\cos\theta \, d\theta \amp= \Big[ 128\sin\theta \Big]_0^{\pi/2} </mrow>
+            <mrow> \amp= 128\sin(\pi/2) - 128\sin(0) = 128(1) - 0 = 128 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.4.35">
@@ -620,12 +850,87 @@ show(region + axes, frame=False, aspect_ratio=1)
           \int_{x = -1}^1 \int_{y = 0}^\sqrt{1 - x^2} \int_{z = 0}^{x^2 + y^2} f(x,y,z) \, dz \, dy \, dx
         </md>
       </p>
+
+      <solution>
+        <p>
+          We need to translate the rectangular bounds into cylindrical bounds. The given limits are:
+          <md>
+            <mrow> -1 \amp \leq x \leq 1 </mrow>
+            <mrow> 0 \amp \leq y \leq \sqrt{1 - x^2} </mrow>
+            <mrow> 0 \amp \leq z \leq x^2 + y^2 </mrow>
+          </md>
+        </p>
+        <p>
+          The <m>z</m>-bounds are <m>0 \leq z \leq x^2 + y^2</m>. In cylindrical coordinates, <m>x^2 + y^2 = r^2</m>, so our new <m>z</m>-bounds are <m>0 \leq z \leq r^2</m>.
+        </p>
+        <p>
+          The <m>x</m> and <m>y</m> bounds describe the projection of the solid on the <m>xy</m>-plane. 
+          <m>y</m> ranges from <m>0</m> to the upper semicircle <m>y = \sqrt{1 - x^2}</m> (which is <m>x^2 + y^2 = 1</m>). 
+          <m>x</m> sweeps completely from <m>-1</m> to <m>1</m>. This outlines the top half of the unit disk.
+          In cylindrical (polar) coordinates, this is <m>0 \leq r \leq 1</m> and <m>0 \leq \theta \leq \pi</m>.
+        </p>
+        <p>
+          Substituting <m>x = r\cos\theta</m> and <m>y = r\sin\theta</m> into the function, and adding the <m>r</m> for the volume differential <m>dV = r\,dz\,dr\,d\theta</m>, the integral becomes:
+          <md>
+            <mrow> \int_0^\pi \int_0^1 \int_0^{r^2} f(r\cos\theta, r\sin\theta, z) r \, dz \, dr \, d\theta </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.4.39">
       <p>
         Find the volume of the region appearing between the two surfaces in the following figure. 
       </p>
+
+      <image source="sec154_HW39_Diagram.png" width="50%"></image>
+
+      <solution>
+        <p>
+          Looking at the figure, the green solid is bounded between two paraboloids. The top surface (which opens downward from <m>z=8</m>) is <m>z = 8 - x^2 - y^2</m>. The bottom surface (which opens upward from the origin) is <m>z = x^2 + y^2</m>. Because of the rotational symmetry, cylindrical coordinates are perfect here.
+        </p>
+        <p>
+          In cylindrical coordinates, the top surface is <m>z = 8 - r^2</m> and the bottom surface is <m>z = r^2</m>. To find the projection of the solid onto the <m>xy</m>-plane, we set the two <m>z</m>-equations equal to find their intersection curve:
+          <md>
+            <mrow> 8 - r^2 \amp= r^2 </mrow>
+            <mrow> 8 \amp= 2r^2 \implies r^2 = 4 \implies r = 2 </mrow>
+          </md>
+          So the projection is a disk of radius 2. Our bounds are:
+          <md>
+            <mrow> 0 \amp\leq \theta \leq 2\pi </mrow>
+            <mrow> 0 \amp\leq r \leq 2 </mrow>
+            <mrow> r^2 \amp\leq z \leq 8 - r^2 </mrow>
+          </md>
+        </p>
+        <p>
+          We set up the iterated integral. Since we are finding volume, the function is <m>1</m>. With <m>dV = r \, dz \, dr \, d\theta</m>, the integral is:
+          <md>
+            <mrow> V = \int_0^{2\pi} \int_0^2 \int_{r^2}^{8-r^2} r \, dz \, dr \, d\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>z</m>:
+          <md>
+            <mrow> \int_{r^2}^{8-r^2} r \, dz \amp= \Big[ rz \Big]_{z=r^2}^{z=8-r^2} </mrow>
+            <mrow> \amp= r(8 - r^2) - r(r^2) </mrow>
+            <mrow> \amp= 8r - 2r^3 </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the middle integral with respect to <m>r</m>:
+          <md>
+            <mrow> \int_0^2 (8r - 2r^3) \, dr \amp= \left[ 4r^2 - \frac{1}{2}r^4 \right]_0^2 </mrow>
+            <mrow> \amp= \left( 4(4) - \frac{1}{2}(16) \right) - 0 </mrow>
+            <mrow> \amp= 16 - 8 = 8 </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the outer integral with respect to <m>\theta</m>:
+          <md>
+            <mrow> \int_0^{2\pi} 8 \, d\theta \amp= \Big[ 8\theta \Big]_0^{2\pi} = 16\pi </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.4.49">
@@ -636,6 +941,50 @@ show(region + axes, frame=False, aspect_ratio=1)
         </md>
         where <m>\c{W} = \left\{ (x,y,z) \in \R^3 \mid x^2 + y^2 + z^2 \leq 2z \right\}</m>. 
       </p>
+
+      <solution>
+        <p>
+          The region <m>\c{W}</m> is bounded by <m>x^2 + y^2 + z^2 \leq 2z</m>. Let's convert this inequality into spherical coordinates. 
+          We know <m>x^2 + y^2 + z^2 = \rho^2</m> and <m>z = \rho\cos\phi</m>.
+          <md>
+            <mrow> \rho^2 \amp \leq 2\rho\cos\phi </mrow>
+            <mrow> \rho \amp \leq 2\cos\phi </mrow>
+          </md>
+        </p>
+        <p>
+          Because <m>\rho</m> represents a positive distance, we must have <m>\rho \geq 0</m>, which means <m>2\cos\phi \geq 0</m>. This restricts <m>\phi</m> to the range <m>0 \leq \phi \leq \frac{\pi}{2}</m>. 
+          There are no restrictions on <m>\theta</m>, so it sweeps completely around from <m>0</m> to <m>2\pi</m>. 
+          (Geometrically, this region is a sphere of radius 1 sitting exactly on top of the origin, centered at <m>(0,0,1)</m>).
+        </p>
+        <p>
+          The integrand is <m>\sqrt{x^2 + y^2 + z^2} = \sqrt{\rho^2} = \rho</m>. 
+          Including the spherical volume differential <m>dV = \rho^2\sin\phi \, d\rho \, d\phi \, d\theta</m>, the integral is:
+          <md>
+            <mrow> \iiint_\c{W} \sqrt{x^2 + y^2 + z^2} \, dV \amp= \int_0^{2\pi} \int_0^{\pi/2} \int_0^{2\cos\phi} (\rho) \rho^2\sin\phi \, d\rho \, d\phi \, d\theta </mrow>
+            <mrow> \amp= \int_0^{2\pi} \int_0^{\pi/2} \int_0^{2\cos\phi} \rho^3\sin\phi \, d\rho \, d\phi \, d\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>\rho</m>:
+          <md>
+            <mrow> \int_0^{2\cos\phi} \rho^3\sin\phi \, d\rho \amp= \left[ \frac{1}{4}\rho^4\sin\phi \right]_{\rho=0}^{\rho=2\cos\phi} </mrow>
+            <mrow> \amp= \frac{1}{4}(2\cos\phi)^4\sin\phi - 0 = 4\cos^4\phi\sin\phi </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the middle integral with respect to <m>\phi</m>. Let <m>u = \cos\phi</m>, then <m>du = -\sin\phi \, d\phi</m>. The bounds change from <m>\cos(0)=1</m> to <m>\cos(\pi/2)=0</m>.
+          <md>
+            <mrow> \int_0^{\pi/2} 4\cos^4\phi\sin\phi \, d\phi \amp= -4 \int_1^0 u^4 \, du = 4 \int_0^1 u^4 \, du </mrow>
+            <mrow> \amp= 4 \left[ \frac{1}{5}u^5 \right]_0^1 = \frac{4}{5} </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the outer integral with respect to <m>\theta</m>:
+          <md>
+            <mrow> \int_0^{2\pi} \frac{4}{5} \, d\theta \amp= \left[ \frac{4}{5}\theta \right]_0^{2\pi} = \frac{8\pi}{5} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.4.53">
@@ -646,6 +995,61 @@ show(region + axes, frame=False, aspect_ratio=1)
         </md>
         over the part of the ball <m>x^2 + y^2 + z^2 \leq 16</m> defined by <m>z \geq 2</m>. 
       </p>
+
+      <solution>
+        <p>
+          The region is the part of the ball <m>x^2 + y^2 + z^2 \leq 16</m> that lies above the plane <m>z = 2</m>. 
+          In spherical coordinates, the ball translates to <m>\rho \leq 4</m>. 
+          The plane translates to <m>\rho\cos\phi = 2 \implies \rho = \frac{2}{\cos\phi} = 2\sec\phi</m>.
+        </p>
+        <p>
+          To find the angle <m>\phi</m> where these two bounding surfaces intersect, we set them equal:
+          <md>
+            <mrow> 4 \amp= \frac{2}{\cos\phi} \implies \cos\phi = \frac{1}{2} \implies \phi = \frac{\pi}{3} </mrow>
+          </md>
+          So, the angle <m>\phi</m> drops from the <m>z</m>-axis (<m>\phi = 0</m>) out to the intersection edge (<m>\phi = \pi/3</m>). 
+          For any fixed angle <m>\phi</m> in this range, a ray from the origin pierces into the solid through the flat plane (<m>\rho = 2\sec\phi</m>) and exits through the spherical dome (<m>\rho = 4</m>). 
+          <m>\theta</m> sweeps the full circle from <m>0</m> to <m>2\pi</m>.
+        </p>
+        <p>
+          The integrand is <m>z(x^2 + y^2 + z^2)^{-3/2}</m>. 
+          Substituting <m>z = \rho\cos\phi</m> and <m>x^2 + y^2 + z^2 = \rho^2</m>, the function becomes:
+          <md>
+            <mrow> (\rho\cos\phi)(\rho^2)^{-3/2} = (\rho\cos\phi)(\rho^{-3}) = \rho^{-2}\cos\phi </mrow>
+          </md>
+        </p>
+        <p>
+          Including <m>dV = \rho^2\sin\phi \, d\rho \, d\phi \, d\theta</m>, the integral is:
+          <md>
+            <mrow> \int_0^{2\pi} \int_0^{\pi/3} \int_{2\sec\phi}^4 \big(\rho^{-2}\cos\phi\big) \big(\rho^2\sin\phi\big) \, d\rho \, d\phi \, d\theta \amp= \int_0^{2\pi} \int_0^{\pi/3} \int_{2\sec\phi}^4 \cos\phi\sin\phi \, d\rho \, d\phi \, d\theta </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>\rho</m>:
+          <md>
+            <mrow> \int_{2\sec\phi}^4 \cos\phi\sin\phi \, d\rho \amp= \Big[ \rho\cos\phi\sin\phi \Big]_{\rho=2\sec\phi}^{\rho=4} </mrow>
+            <mrow> \amp= 4\cos\phi\sin\phi - (2\sec\phi)\cos\phi\sin\phi </mrow>
+            <mrow> \amp= 4\cos\phi\sin\phi - 2\left(\frac{1}{\cos\phi}\right)\cos\phi\sin\phi </mrow>
+            <mrow> \amp= 4\cos\phi\sin\phi - 2\sin\phi </mrow>
+          </md>
+          We can rewrite <m>4\cos\phi\sin\phi</m> as <m>2\sin(2\phi)</m> using the double angle identity. This gives <m>2\sin(2\phi) - 2\sin\phi</m>.
+        </p>
+        <p>
+          Evaluate the middle integral with respect to <m>\phi</m>:
+          <md>
+            <mrow> \int_0^{\pi/3} \big(2\sin(2\phi) - 2\sin\phi\big) \, d\phi \amp= \Big[ -\cos(2\phi) + 2\cos\phi \Big]_0^{\pi/3} </mrow>
+            <mrow> \amp= \left( -\cos(2\pi/3) + 2\cos(\pi/3) \right) - \left( -\cos(0) + 2\cos(0) \right) </mrow>
+            <mrow> \amp= \left( -\left(-\frac{1}{2}\right) + 2\left(\frac{1}{2}\right) \right) - \left( -1 + 2(1) \right) </mrow>
+            <mrow> \amp= \left( \frac{1}{2} + 1 \right) - (1) = \frac{1}{2} </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the outer integral with respect to <m>\theta</m>:
+          <md>
+            <mrow> \int_0^{2\pi} \frac{1}{2} \, d\theta \amp= \left[ \frac{1}{2}\theta \right]_0^{2\pi} = \pi </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
   </worksheet>
 

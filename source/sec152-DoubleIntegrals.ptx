@@ -585,18 +585,129 @@
       <figure>
         <image source="sec152_HW3_Diagram.png" width="35%"></image>
       </figure>
+
+      <solution>
+        <p>
+          <term>Vertically Simple:</term><br/>
+          To express the domain as a vertically simple region, we bound <m>x</m> between two constants, and <m>y</m> between two functions of <m>x</m>. 
+          Looking at the figure, <m>x</m> ranges from <m>0</m> to <m>1</m>. For a given <m>x</m> in this interval, <m>y</m> goes from the <m>x</m>-axis (<m>y = 0</m>) up to the curve <m>y = 1 - x^2</m>.
+          <md>
+            <mrow> \iint_\c{D} xy \, dA \amp = \int_0^1 \int_0^{1-x^2} xy \, dy \, dx </mrow>
+          </md>
+          Evaluating the inner integral with respect to <m>y</m>:
+          <md>
+            <mrow> \int_0^{1-x^2} xy \, dy \amp = \left[ \frac{1}{2}xy^2 \right]_{y=0}^{y=1-x^2} </mrow>
+            <mrow> \amp = \frac{1}{2}x(1 - x^2)^2 = \frac{1}{2}x(1 - 2x^2 + x^4) = \frac{1}{2}x - x^3 + \frac{1}{2}x^5 </mrow>
+          </md>
+          Evaluating the outer integral with respect to <m>x</m>:
+          <md>
+            <mrow> \int_0^1 \left( \frac{1}{2}x - x^3 + \frac{1}{2}x^5 \right) \, dx \amp = \left[ \frac{1}{4}x^2 - \frac{1}{4}x^4 + \frac{1}{12}x^6 \right]_0^1 </mrow>
+            <mrow> \amp = \frac{1}{4} - \frac{1}{4} + \frac{1}{12} = \frac{1}{12} </mrow>
+          </md>
+        </p>
+        <p>
+          <term>Horizontally Simple:</term><br/>
+          To express it as a horizontally simple region, we bound <m>y</m> between two constants, and <m>x</m> between two functions of <m>y</m>.
+          First, we solve the curve equation for <m>x</m>: <m>y = 1 - x^2 \implies x^2 = 1 - y</m>. Since we are in the first quadrant, <m>x = \sqrt{1 - y}</m>.
+          <m>y</m> ranges from <m>0</m> to <m>1</m>. For a given <m>y</m>, <m>x</m> goes from the <m>y</m>-axis (<m>x = 0</m>) out to the curve <m>x = \sqrt{1 - y}</m>.
+          <md>
+            <mrow> \iint_\c{D} xy \, dA \amp = \int_0^1 \int_0^{\sqrt{1-y}} xy \, dx \, dy </mrow>
+          </md>
+          Evaluating the inner integral with respect to <m>x</m>:
+          <md>
+            <mrow> \int_0^{\sqrt{1-y}} xy \, dx \amp = \left[ \frac{1}{2}x^2y \right]_{x=0}^{x=\sqrt{1-y}} </mrow>
+            <mrow> \amp = \frac{1}{2}(\sqrt{1-y})^2 y = \frac{1}{2}(1 - y)y = \frac{1}{2}y - \frac{1}{2}y^2 </mrow>
+          </md>
+          Evaluating the outer integral with respect to <m>y</m>:
+          <md>
+            <mrow> \int_0^1 \left( \frac{1}{2}y - \frac{1}{2}y^2 \right) \, dy \amp = \left[ \frac{1}{4}y^2 - \frac{1}{6}y^3 \right]_0^1 </mrow>
+            <mrow> \amp = \frac{1}{4} - \frac{1}{6} = \frac{3}{12} - \frac{2}{12} = \frac{1}{12} </mrow>
+          </md>
+        </p>
+        <p>
+          As expected by Fubini's Theorem, both orders of integration yield the exact same result: <m>\frac{1}{12}</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.2.9">
       <p>
         Integrate <m>f(x,y) = x</m> over the region bounded by <m>y = x^2</m> and <m>y = x + 2</m>. 
       </p>
+
+      <solution>
+        <p>
+          First, we find the intersection points of the two curves to determine the limits of integration. Setting them equal:
+          <md>
+            <mrow> x^2 \amp = x + 2 </mrow>
+            <mrow> x^2 - x - 2 \amp = 0 </mrow>
+            <mrow> (x - 2)(x + 1) \amp = 0 \implies x = 2, \text{ or } x = -1 </mrow>
+          </md>
+          So, <m>x</m> ranges from <m>-1</m> to <m>2</m>. On this interval, the line <m>y = x + 2</m> is above the parabola <m>y = x^2</m>. This forms a vertically simple region.
+        </p>
+        <p>
+          We set up the iterated integral:
+          <md>
+            <mrow> \iint_\c{D} x \, dA \amp = \int_{-1}^2 \int_{x^2}^{x+2} x \, dy \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>y</m>:
+          <md>
+            <mrow> \int_{x^2}^{x+2} x \, dy \amp = \Big[ xy \Big]_{y=x^2}^{y=x+2} </mrow>
+            <mrow> \amp = x(x + 2) - x(x^2) = x^2 + 2x - x^3 </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the outer integral with respect to <m>x</m>:
+          <md>
+            <mrow> \int_{-1}^2 (x^2 + 2x - x^3) \, dx \amp = \left[ \frac{1}{3}x^3 + x^2 - \frac{1}{4}x^4 \right]_{-1}^2 </mrow>
+            <mrow> \amp = \left( \frac{8}{3} + 4 - \frac{16}{4} \right) - \left( -\frac{1}{3} + 1 - \frac{1}{4} \right) </mrow>
+            <mrow> \amp = \left( \frac{8}{3} + 4 - 4 \right) - \left( \frac{2}{3} - \frac{1}{4} \right) </mrow>
+            <mrow> \amp = \frac{8}{3} - \frac{5}{12} = \frac{32 - 5}{12} = \frac{27}{12} = \frac{9}{4} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.2.13">
       <p>
         Calculate the double integral of <m>f(x,y) = x + y</m> over the domain <m>\c{D} = \left\{(x,y) \mid x^2 + y^2 \leq 4, \, y \geq 0 \right\}</m>. 
       </p>
+
+      <solution>
+        <p>
+          The domain <m>\c{D}</m> is the top half of a circle of radius 2, centered at the origin. 
+          As a vertically simple region, <m>x</m> ranges from <m>-2</m> to <m>2</m>, and <m>y</m> goes from the <m>x</m>-axis (<m>y = 0</m>) up to the upper semicircle (<m>y = \sqrt{4 - x^2}</m>).
+        </p>
+        <p>
+          Setting up the integral:
+          <md>
+            <mrow> \iint_\c{D} (x + y) \, dA \amp = \int_{-2}^2 \int_0^{\sqrt{4-x^2}} (x + y) \, dy \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral:
+          <md>
+            <mrow> \int_0^{\sqrt{4-x^2}} (x + y) \, dy \amp = \left[ xy + \frac{1}{2}y^2 \right]_0^{\sqrt{4-x^2}} </mrow>
+            <mrow> \amp = x\sqrt{4 - x^2} + \frac{1}{2}(4 - x^2) - 0 </mrow>
+          </md>
+        </p>
+        <p>
+          Now evaluate the outer integral:
+          <md>
+            <mrow> \int_{-2}^2 \left( x\sqrt{4 - x^2} + \frac{4 - x^2}{2} \right) \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          Notice that <m>x\sqrt{4 - x^2}</m> is an <em>odd</em> function over a symmetric interval <m>[-2, 2]</m>, so its integral is exactly 0! We only need to integrate the second part, which is an <em>even</em> function:
+          <md>
+            <mrow> \int_{-2}^2 \frac{4 - x^2}{2} \, dx \amp = 2 \int_0^2 \left( 2 - \frac{1}{2}x^2 \right) \, dx </mrow>
+            <mrow> \amp = 2 \left[ 2x - \frac{1}{6}x^3 \right]_0^2 </mrow>
+            <mrow> \amp = 2 \left( 4 - \frac{8}{6} \right) = 2 \left( \frac{24 - 8}{6} \right) = 2 \left( \frac{16}{6} \right) = \frac{16}{3} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -611,12 +722,69 @@
         <p>
           <m>f(x,y) = x\, ; \qquad 0 \leq x \leq 1, \, 1 \leq y \leq e^{x^2}</m>
         </p>
+
+        <solution>
+        <p>
+          The domain is already set up perfectly as a vertically simple region.
+          <md>
+            <mrow> \int_0^1 \int_1^{e^{x^2}} x \, dy \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral:
+          <md>
+            <mrow> \int_1^{e^{x^2}} x \, dy \amp = \Big[ xy \Big]_{y=1}^{y=e^{x^2}} = x\left(e^{x^2} - 1\right) </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the outer integral using <m>u</m>-substitution. Let <m>u = x^2</m>, then <m>du = 2x \, dx</m>, so <m>\frac{1}{2}du = x \, dx</m>. The bounds remain 0 to 1.
+          <md>
+            <mrow> \int_0^1 x\left(e^{x^2} - 1\right) \, dx \amp = \frac{1}{2} \int_0^1 (e^u - 1) \, du </mrow>
+            <mrow> \amp = \frac{1}{2} \Big[ e^u - u \Big]_0^1 </mrow>
+            <mrow> \amp = \frac{1}{2} \big( (e^1 - 1) - (e^0 - 0) \big) </mrow>
+            <mrow> \amp = \frac{1}{2} (e - 1 - 1) = \frac{e - 2}{2} </mrow>
+          </md>
+        </p>
+      </solution>
       </exercise>
 
       <exercise number="15.2.23">
         <p>
           <m>f(x,y) = e^{x + y} \, \qquad \text{bounded by } y = x - 1, \, y = 12 - x, \, \text{for } 2 \leq y \leq 4</m>. 
         </p>
+
+        <solution>
+        <p>
+          The region is bounded by <m>y = x - 1</m> and <m>y = 12 - x</m> between <m>y = 2</m> and <m>y = 4</m>. 
+          Because the <m>y</m>-bounds are constants, this is naturally a horizontally simple region! We should express <m>x</m> in terms of <m>y</m>:
+          <ul>
+            <li><m>y = x - 1 \implies x = y + 1</m> (Left boundary)</li>
+            <li><m>y = 12 - x \implies x = 12 - y</m> (Right boundary)</li>
+          </ul>
+        </p>
+        <p>
+          Setting up the integral:
+          <md>
+            <mrow> \int_2^4 \int_{y+1}^{12-y} e^{x+y} \, dx \, dy </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>x</m>:
+          <md>
+            <mrow> \int_{y+1}^{12-y} e^{x+y} \, dx \amp = \Big[ e^{x+y} \Big]_{x=y+1}^{x=12-y} </mrow>
+            <mrow> \amp = e^{(12-y)+y} - e^{(y+1)+y} </mrow>
+            <mrow> \amp = e^{12} - e^{2y+1} </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the outer integral with respect to <m>y</m>:
+          <md>
+            <mrow> \int_2^4 (e^{12} - e^{2y+1}) \, dy \amp = \left[ ye^{12} - \frac{1}{2}e^{2y+1} \right]_2^4 </mrow>
+            <mrow> \amp = \left( 4e^{12} - \frac{1}{2}e^{9} \right) - \left( 2e^{12} - \frac{1}{2}e^{5} \right) </mrow>
+            <mrow> \amp = 2e^{12} - \frac{1}{2}e^{9} + \frac{1}{2}e^{5} </mrow>
+          </md>
+        </p>
+      </solution>
       </exercise>
     
     </exercisegroup>
@@ -626,6 +794,27 @@
         Consider the double integral <m>\ds \int_4^9 \int_2^{\sqrt{y}} f(x,y) \, dx \, dy</m>. 
         Sketch the domain of integration and express as an iterated integral in the opposite order. 
       </p>
+
+      <solution>
+        <p>
+          The current bounds describe a horizontally simple region:
+          <md>
+            <mrow> 4 \amp \leq y \leq 9 </mrow>
+            <mrow> 2 \amp \leq x \leq \sqrt{y} </mrow>
+          </md>
+          The region is bounded on the right by the parabola <m>x = \sqrt{y}</m> (or <m>y = x^2</m>), on the left by the vertical line <m>x = 2</m>, and on the top and bottom by <m>y = 9</m> and <m>y = 4</m>.
+        </p>
+        <p>
+          If we change this to a vertically simple region (reversing the order of integration to <m>dy\, dx</m>), we need to find the constant bounds for <m>x</m>. 
+          The smallest <m>x</m> is given by the left boundary <m>x = 2</m>. The largest <m>x</m> occurs where <m>y = 9</m> hits <m>x = \sqrt{y}</m>, which is <m>x = \sqrt{9} = 3</m>. So, <m>2 \leq x \leq 3</m>.
+        </p>
+        <p>
+          For a fixed <m>x</m> in this interval, <m>y</m> goes from the parabola <m>y = x^2</m> at the bottom, up to the horizontal line <m>y = 9</m> at the top. The reversed integral is:
+          <md>
+            <mrow> \int_2^3 \int_{x^2}^9 f(x,y) \, dy \, dx </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.2.31">
@@ -638,6 +827,40 @@
           Choose the order of integration that enables you to evaluate the integral. 
         </p>
       </hint>
+
+      <solution>
+        <p>
+          We are given <m>f(x,y) = \frac{1}{\ln(y)}</m> and boundaries <m>y = e^x</m> and <m>y = e^{\sqrt{x}}</m>. Notice that for <m>0 \lt x \lt 1</m>, <m>\sqrt{x} \gt x</m>, so <m>e^{\sqrt{x}}</m> is the top boundary. They intersect at <m>x = 0</m> (where <m>y=1</m>) and <m>x = 1</m> (where <m>y=e</m>). 
+        </p>
+        <p>
+          If we set this up as a vertically simple region (<m>dy \, dx</m>), we would have to integrate <m>\frac{1}{\ln(y)}</m> with respect to <m>y</m>, which does not have an elementary antiderivative. So, we must set it up as a horizontally simple region (<m>dx \, dy</m>)!
+        </p>
+        <p>
+          Solving the boundaries for <m>x</m>:
+          <ul>
+            <li><m>y = e^x \implies x = \ln(y)</m> (This is the right boundary)</li>
+            <li><m>y = e^{\sqrt{x}} \implies \sqrt{x} = \ln(y) \implies x = (\ln(y))^2</m> (This is the left boundary)</li>
+          </ul>
+          Our <m>y</m> bounds are constants from <m>y = 1</m> to <m>y = e</m>.
+        </p>
+        <p>
+          Setting up and evaluating the new integral:
+          <md>
+            <mrow> \int_1^e \int_{(\ln(y))^2}^{\ln(y)} \frac{1}{\ln(y)} \, dx \, dy \amp = \int_1^e \left[ \frac{x}{\ln(y)} \right]_{x=(\ln(y))^2}^{x=\ln(y)} \, dy </mrow>
+            <mrow> \amp = \int_1^e \left( \frac{\ln(y)}{\ln(y)} - \frac{(\ln(y))^2}{\ln(y)} \right) \, dy </mrow>
+            <mrow> \amp = \int_1^e (1 - \ln(y)) \, dy </mrow>
+          </md>
+        </p>
+        <p>
+          Using Integration by Parts for <m>\ln(y)</m> (recall <m>\int \ln(y) dy = y\ln(y) - y</m>):
+          <md>
+            <mrow> \int_1^e (1 - \ln(y)) \, dy \amp = \Big[ y - (y\ln(y) - y) \Big]_1^e </mrow>
+            <mrow> \amp = \Big[ 2y - y\ln(y) \Big]_1^e </mrow>
+            <mrow> \amp = (2e - e\ln(e)) - (2(1) - 1\ln(1)) </mrow>
+            <mrow> \amp = (2e - e) - (2 - 0) = e - 2 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.2.35">
@@ -647,6 +870,40 @@
         Then change the order of integration and evaluate. 
         Explain the simplification achieved by changing the order. 
       </p>
+
+      <solution>
+        <p>
+          The current bounds are:
+          <md>
+            <mrow> 0 \amp \leq x \leq 1 </mrow>
+            <mrow> x \amp \leq y \leq 1 </mrow>
+          </md>
+          This represents a triangle bounded by <m>y = x</m>, <m>y = 1</m>, and the <m>y</m>-axis (<m>x = 0</m>).
+        </p>
+        <p>
+          Integrating <m>xe^{y^3}</m> with respect to <m>y</m> first is impossible because <m>e^{y^3}</m> lacks the <m>y^2</m> term needed for a <m>u</m>-substitution. 
+        </p>
+        <p>
+          Changing the order of integration to <m>dx\, dy</m>, we view it as a horizontally simple region. The <m>y</m>-values range from <m>0</m> to <m>1</m>. For a fixed <m>y</m>, the <m>x</m>-values go from the <m>y</m>-axis (<m>x = 0</m>) to the line <m>x = y</m>.
+          <md>
+            <mrow> \int_0^1 \int_0^y xe^{y^3} \, dx \, dy </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral:
+          <md>
+            <mrow> \int_0^y xe^{y^3} \, dx \amp = \left[ \frac{1}{2}x^2e^{y^3} \right]_{x=0}^{x=y} = \frac{1}{2}y^2e^{y^3} </mrow>
+          </md>
+        </p>
+        <p>
+          Now, the outer integral is perfectly set up for <m>u</m>-substitution! Let <m>u = y^3</m>, then <m>du = 3y^2 \, dy</m>, so <m>\frac{1}{6}du = \frac{1}{2}y^2 \, dy</m>.
+          <md>
+            <mrow> \int_0^1 \frac{1}{2}y^2e^{y^3} \, dy \amp = \frac{1}{6} \int_0^1 e^u \, du </mrow>
+            <mrow> \amp = \frac{1}{6} \Big[ e^u \Big]_0^1 = \frac{e - 1}{6} </mrow>
+          </md>
+          <term>Explanation:</term> By integrating with respect to <m>x</m> first, we naturally generated the <m>y^2</m> term required to successfully perform <m>u</m>-substitution on the <m>e^{y^3}</m> term in the outer integral.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.2.41">
@@ -657,18 +914,141 @@
       <figure>
         <image source="sec152_HW41_Diagram.png" width="35%"></image>
       </figure>
+
+      <solution>
+        <p>
+          To integrate over the given triangle, we first need to determine the equations of the lines forming its boundaries. 
+          Looking at the figure, the vertices of the triangle are <m>(1,2)</m>, <m>(5,2)</m>, and <m>(3,4)</m>.
+        </p>
+        <p>
+          Notice that if we treat this as a vertically simple region, the top boundary changes at <m>x = 3</m>, meaning we would have to split the integral into two pieces. 
+          However, treating it as a horizontally simple region is much easier because the left and right boundaries are consistent from the bottom (<m>y=2</m>) to the top (<m>y=4</m>).
+        </p>
+        <p>
+          Let's find the equations for the left and right boundaries in terms of <m>y</m>:
+          <ul>
+            <li>Left boundary (line through <m>(1,2)</m> and <m>(3,4)</m>): Slope <m>m = \frac{4-2}{3-1} = 1</m>. Point-slope form gives <m>y - 2 = 1(x - 1) \implies y = x + 1</m>. Solving for <m>x</m>, we get <m>x = y - 1</m>.</li>
+            <li>Right boundary (line through <m>(5,2)</m> and <m>(3,4)</m>): Slope <m>m = \frac{4-2}{3-5} = -1</m>. Point-slope form gives <m>y - 2 = -1(x - 5) \implies y = -x + 7</m>. Solving for <m>x</m>, we get <m>x = 7 - y</m>.</li>
+          </ul>
+        </p>
+        <p>
+          Setting this up as a horizontally simple region, <m>y</m> goes from <m>2</m> to <m>4</m>, and <m>x</m> goes from <m>y - 1</m> to <m>7 - y</m>:
+          <md>
+            <mrow> \iint_\c{D} \frac{x}{y^2} \, dA \amp = \int_2^4 \int_{y-1}^{7-y} x y^{-2} \, dx \, dy </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>x</m> (treating <m>y^{-2}</m> as a constant):
+          <md>
+            <mrow> \int_{y-1}^{7-y} x y^{-2} \, dx \amp = y^{-2} \left[ \frac{1}{2}x^2 \right]_{x=y-1}^{x=7-y} </mrow>
+            <mrow> \amp = \frac{1}{2y^2} \Big( (7 - y)^2 - (y - 1)^2 \Big) </mrow>
+            <mrow> \amp = \frac{1}{2y^2} \Big( (49 - 14y + y^2) - (y^2 - 2y + 1) \Big) </mrow>
+            <mrow> \amp = \frac{1}{2y^2} (48 - 12y) = \frac{24}{y^2} - \frac{6}{y} </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the outer integral with respect to <m>y</m>:
+          <md>
+            <mrow> \int_2^4 \left( 24y^{-2} - 6y^{-1} \right) \, dy \amp = \Big[ -24y^{-1} - 6\ln|y| \Big]_2^4 </mrow>
+            <mrow> \amp = \left( -\frac{24}{4} - 6\ln(4) \right) - \left( -\frac{24}{2} - 6\ln(2) \right) </mrow>
+            <mrow> \amp = (-6 - 6\ln(4)) - (-12 - 6\ln(2)) </mrow>
+            <mrow> \amp = 6 - 6\ln(4) + 6\ln(2) </mrow>
+          </md>
+        </p>
+        <p>
+          We can simplify the natural logarithms. Since <m>\ln(4) = \ln(2^2) = 2\ln(2)</m>:
+          <md>
+            <mrow> 6 - 6(2\ln(2)) + 6\ln(2) \amp = 6 - 12\ln(2) + 6\ln(2) </mrow>
+            <mrow> \amp = 6 - 6\ln(2) </mrow>
+          </md>
+          <m>\text{Final Answer: } 6 - 6\ln(2)</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.2.47">
       <p>
         Find the volume of the region bounded by <m>z = 16 - y</m>, <m>z = y</m>, <m>y = x^2</m>, and <m>y = 8 - x^2</m>. 
       </p>
+
+      <solution>
+        <p>
+          The volume is the double integral of the "top surface" minus the "bottom surface" over the region <m>\c{D}</m>. 
+          The top surface is <m>z = 16 - y</m> and the bottom surface is <m>z = y</m>. Thus, the height of our solid is <m>h(x,y) = (16 - y) - y = 16 - 2y</m>.
+        </p>
+        <p>
+          The region <m>\c{D}</m> on the <m>xy</m>-plane is bounded by <m>y = x^2</m> and <m>y = 8 - x^2</m>. We find their intersection to get our <m>x</m>-bounds:
+          <md>
+            <mrow> x^2 \amp = 8 - x^2 </mrow>
+            <mrow> 2x^2 \amp = 8 \implies x^2 = 4 \implies x = \pm 2 </mrow>
+          </md>
+          So, <m>x</m> goes from <m>-2</m> to <m>2</m>. The parabola <m>y = 8 - x^2</m> opens downward and is above <m>y = x^2</m> on this interval.
+        </p>
+        <p>
+          Setting up the integral:
+          <md>
+            <mrow> V \amp = \int_{-2}^2 \int_{x^2}^{8-x^2} (16 - 2y) \, dy \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral:
+          <md>
+            <mrow> \int_{x^2}^{8-x^2} (16 - 2y) \, dy \amp = \Big[ 16y - y^2 \Big]_{y=x^2}^{y=8-x^2} </mrow>
+            <mrow> \amp = \Big( 16(8 - x^2) - (8 - x^2)^2 \Big) - \Big( 16(x^2) - (x^2)^2 \Big) </mrow>
+            <mrow> \amp = \Big( 128 - 16x^2 - (64 - 16x^2 + x^4) \Big) - \Big( 16x^2 - x^4 \Big) </mrow>
+            <mrow> \amp = (64 - x^4) - (16x^2 - x^4) </mrow>
+            <mrow> \amp = 64 - 16x^2 </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the outer integral:
+          <md>
+            <mrow> \int_{-2}^2 (64 - 16x^2) \, dx \amp = \left[ 64x - \frac{16}{3}x^3 \right]_{-2}^2 </mrow>
+            <mrow> \amp = \left( 128 - \frac{128}{3} \right) - \left( -128 + \frac{128}{3} \right) </mrow>
+            <mrow> \amp = 256 - \frac{256}{3} = \frac{768 - 256}{3} = \frac{512}{3} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.2.53">
       <p>
         Calculate the average value of <m>f(x,y) = e^{x + y}</m> on the square domain <m>[0,1] \times [0,1]</m>. 
       </p>
+
+      <solution>
+        <p>
+          The average value of a function over a region is given by <m>\frac{1}{\text{Area of } \c{D}} \iint_\c{D} f(x,y) \, dA</m>.
+          The area of the square domain <m>\c{D} = [0,1] \times [0,1]</m> is simply <m>1 \cdot 1 = 1</m>.
+        </p>
+        <p>
+          Now we evaluate the double integral using an iterated integral. Let's integrate with respect to <m>y</m> first:
+          <md>
+            <mrow> \iint_\c{D} e^{x+y} \, dA \amp = \int_0^1 \int_0^1 e^{x+y} \, dy \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>y</m> (treating <m>x</m> as a constant):
+          <md>
+            <mrow> \int_0^1 e^{x+y} \, dy \amp = \Big[ e^{x+y} \Big]_{y=0}^{y=1} </mrow>
+            <mrow> \amp = e^{x+1} - e^{x+0} </mrow>
+            <mrow> \amp = e^{x+1} - e^x </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute this back into the outer integral and integrate with respect to <m>x</m>:
+          <md>
+            <mrow> \int_0^1 (e^{x+1} - e^x) \, dx \amp = \Big[ e^{x+1} - e^x \Big]_0^1 </mrow>
+            <mrow> \amp = (e^{1+1} - e^1) - (e^{0+1} - e^0) </mrow>
+            <mrow> \amp = (e^2 - e) - (e - 1) </mrow>
+            <mrow> \amp = e^2 - 2e + 1 </mrow>
+          </md>
+        </p>
+        <p>
+          Notice that <m>e^2 - 2e + 1</m> can be factored into a perfect square, <m>(e - 1)^2</m>. 
+          Since the area of the region is 1, the average value is exactly <m>(e - 1)^2</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="15.2.55">
@@ -679,6 +1059,44 @@
       <figure>
         <image source="sec152_HW55_Diagram.png" width="55%"></image>
       </figure>
+
+      <solution>
+        <p>
+          First, we find the area of the rectangular domain <m>\c{D} = [0,\pi] \times [0,1]</m>:
+          <md>
+            <mrow> \text{Area} = (\pi - 0)(1 - 0) = \pi </mrow>
+          </md>
+        </p>
+        <p>
+          Next, we evaluate the double integral of the height function <m>z = y^2\sin(x)</m> over this domain. Let's set it up to integrate with respect to <m>y</m> first:
+          <md>
+            <mrow> \iint_\c{D} y^2\sin(x) \, dA \amp = \int_0^\pi \int_0^1 y^2\sin(x) \, dy \, dx </mrow>
+          </md>
+        </p>
+        <p>
+          Evaluate the inner integral with respect to <m>y</m> (treating <m>x</m> as a constant):
+          <md>
+            <mrow> \int_0^1 y^2\sin(x) \, dy \amp = \left[ \frac{1}{3}y^3\sin(x) \right]_{y=0}^{y=1} </mrow>
+            <mrow> \amp = \frac{1}{3}(1)^3\sin(x) - \frac{1}{3}(0)^3\sin(x) </mrow>
+            <mrow> \amp = \frac{1}{3}\sin(x) </mrow>
+          </md>
+        </p>
+        <p>
+          Substitute this back into the outer integral and integrate with respect to <m>x</m>:
+          <md>
+            <mrow> \int_0^\pi \frac{1}{3}\sin(x) \, dx \amp = \left[ -\frac{1}{3}\cos(x) \right]_0^\pi </mrow>
+            <mrow> \amp = -\frac{1}{3}\cos(\pi) - \left(-\frac{1}{3}\cos(0)\right) </mrow>
+            <mrow> \amp = -\frac{1}{3}(-1) + \frac{1}{3}(1) </mrow>
+            <mrow> \amp = \frac{1}{3} + \frac{1}{3} = \frac{2}{3} </mrow>
+          </md>
+        </p>
+        <p>
+          The total volume under the ceiling is <m>\frac{2}{3}</m>. Finally, divide the volume by the area to find the average height:
+          <md>
+            <mrow> \text{Average height} = \frac{\text{Volume}}{\text{Area}} = \frac{2/3}{\pi} = \frac{2}{3\pi} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
   </worksheet>
 

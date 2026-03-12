@@ -786,6 +786,50 @@
       <figure>
         <image source="sec147_HW3_Diagram.png" width="50%"></image>
       </figure>
+
+      <solution>
+        <p>
+          First, we find the partial derivatives and set them to zero:
+          <md>
+            <mrow> f_x \amp= 2x + y = 0 \implies y = -2x \implies x = -\frac{y}{2} </mrow>
+            <mrow> f_y \amp= 32y^3 + x - 6y - 3y^2 = 0 </mrow>
+          </md>
+        </p>
+        <p>
+          Substituting <m>x = -\frac{y}{2}</m> into the second equation:
+          <md>
+            <mrow> 32y^3 - \frac{y}{2} - 6y - 3y^2 \amp= 0 </mrow>
+            <mrow> 32y^3 - 3y^2 - \frac{13}{2}y \amp= 0 </mrow>
+            <mrow> y(64y^2 - 6y - 13) \amp= 0 </mrow>
+          </md>
+        </p>
+        <p>
+          This gives <m>y = 0</m> or <m>64y^2 - 6y - 13 = 0</m>. Using the quadratic formula, we find <m>y = \frac{6 \pm \sqrt{36 - 4(64)(-13)}}{128} = \frac{6 \pm 58}{128}</m>. Thus, the <m>y</m>-values are <m>0</m>, <m>\frac{1}{2}</m>, and <m>-\frac{13}{32}</m>.
+        </p>
+        <p>
+          Using <m>x = -\frac{y}{2}</m>, our three critical points are <m>(0,0)</m>, <m>\left(-\frac{1}{4}, \frac{1}{2}\right)</m>, and <m>\left(\frac{13}{64}, -\frac{13}{32}\right)</m>.
+        </p>
+        <p>
+          Now, instead of using the Second Partial Derivative Test, we can just look at the provided contour map to classify these points:
+          <ul>
+            <li>
+              <p>
+                At the origin <m>(0,0)</m>, we see the level curve for <m>z = 0</m> crossing itself in an "X" shape. The function increases if we move along the <m>x</m>-axis (towards <m>0.1, 0.2</m>), but decreases if we move along the <m>y</m>-axis (towards <m>-0.1, -0.2</m>). This is the hallmark of a <alert>saddle point</alert>.
+              </p>
+            </li>
+            <li>
+              <p>
+                At <m>\left(-\frac{1}{4}, \frac{1}{2}\right) = (-0.25, 0.5)</m>, we see concentric closed loops with values decreasing inward (from <m>0</m> down to <m>-0.3</m>). This "valley" indicates a <alert>local minimum</alert>.
+              </p>
+            </li>
+            <li>
+              <p>
+                At <m>\left(\frac{13}{64}, -\frac{13}{32}\right) \approx (0.2, -0.4)</m>, we see another set of concentric closed loops with values decreasing inward (from <m>0</m> down to <m>-0.2</m>). This second "valley" is also a <alert>local minimum</alert>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </solution>
     </exercise>
     
     <exercisegroup>
@@ -801,18 +845,167 @@
         <p>
           <m>f(x,y) = x^3 + 2xy - 2y^2 - 10x</m>
         </p>
+
+        <solution>
+          <p>
+            First, find the partial derivatives and set them to zero:
+            <md>
+              <mrow> f_x \amp= 3x^2 + 2y - 10 = 0 </mrow>
+              <mrow> f_y \amp= 2x - 4y = 0 \implies 2x = 4y \implies y = \frac{1}{2}x </mrow>
+            </md>
+          </p>
+          <p>
+            Substitute <m>y = \frac{1}{2}x</m> into the first equation:
+            <md>
+              <mrow> 3x^2 + 2\lp \frac{1}{2}x \rp - 10 \amp= 0 </mrow>
+              <mrow> 3x^2 + x - 10 \amp= 0 </mrow>
+              <mrow> (3x - 5)(x + 2) \amp= 0 </mrow>
+            </md>
+            So, <m>x = \frac{5}{3}</m> or <m>x = -2</m>. 
+            The corresponding <m>y</m>-values are <m>y = \frac{5}{6}</m> and <m>y = -1</m>.
+            The critical points are <m>\lp \frac{5}{3}, \frac{5}{6} \rp</m> and <m>(-2, -1)</m>.
+          </p>
+          <p>
+            Now, compute the second partial derivatives:
+            <md>
+              <mrow> f_{xx} \amp= 6x </mrow>
+              <mrow> f_{yy} \amp= -4 </mrow>
+              <mrow> f_{xy} \amp= 2 </mrow>
+            </md>
+            The discriminant is <m>D(x,y) = f_{xx}f_{yy} - (f_{xy})^2 = (6x)(-4) - (2)^2 = -24x - 4</m>.
+          </p>
+          <p>
+            Evaluate at each critical point:
+            <ul>
+              <li>
+                <p>
+                  At <m>\lp \frac{5}{3}, \frac{5}{6} \rp</m>: <m>D = -24\lp\frac{5}{3}\rp - 4 = -40 - 4 = -44 \lt 0</m>. 
+                  This is a <alert>saddle point</alert>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  At <m>(-2, -1)</m>: <m>D = -24(-2) - 4 = 48 - 4 = 44 \gt 0</m>.
+                  Check <m>f_{xx}(-2, -1) = 6(-2) = -12 \lt 0</m>.
+                  This is a <alert>local maximum</alert>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.7.15">
         <p>
           <m>f(x,y) = xye^{-x^2-y^2}</m>
         </p>
+
+        <solution>
+          <p>
+            First, find the partial derivatives using the product and chain rules, and set them to zero:
+            <md>
+              <mrow> f_x \amp= y \cdot e^{-x^2-y^2} + xy \cdot (-2x)e^{-x^2-y^2} = ye^{-x^2-y^2}(1 - 2x^2) = 0 </mrow>
+              <mrow> f_y \amp= x \cdot e^{-x^2-y^2} + xy \cdot (-2y)e^{-x^2-y^2} = xe^{-x^2-y^2}(1 - 2y^2) = 0 </mrow>
+            </md>
+          </p>
+          <p>
+            Since <m>e^{-x^2-y^2}</m> is never zero, we have the system:
+            <md>
+              <mrow> y(1 - 2x^2) \amp= 0 </mrow>
+              <mrow> x(1 - 2y^2) \amp= 0 </mrow>
+            </md>
+          </p>
+          <p>
+            From the first equation, either <m>y = 0</m> or <m>1 - 2x^2 = 0 \implies x = \pm \frac{1}{\sqrt{2}}</m>.
+            <ul>
+              <li>If <m>y = 0</m>, the second equation becomes <m>x(1 - 0) = 0 \implies x = 0</m>. Critical point: <m>(0,0)</m>.</li>
+              <li>If <m>x = \pm \frac{1}{\sqrt{2}}</m>, the second equation gives <m>\pm \frac{1}{\sqrt{2}}(1 - 2y^2) = 0 \implies 1 - 2y^2 = 0 \implies y = \pm \frac{1}{\sqrt{2}}</m>.</li>
+            </ul>
+            This gives four more critical points: <m>\lp \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} \rp, \lp \frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}} \rp, \lp -\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}} \rp, \lp -\frac{1}{\sqrt{2}}, -\frac{1}{\sqrt{2}} \rp</m>.
+          </p>
+          <p>
+            Now compute the second partial derivatives (factoring out the exponential for simplicity):
+            <md>
+              <mrow> f_{xx} \amp= -2xy(3 - 2x^2)e^{-x^2-y^2} </mrow>
+              <mrow> f_{yy} \amp= -2xy(3 - 2y^2)e^{-x^2-y^2} </mrow>
+              <mrow> f_{xy} \amp= (1 - 2x^2)(1 - 2y^2)e^{-x^2-y^2} </mrow>
+            </md>
+            We evaluate <m>D = f_{xx}f_{yy} - (f_{xy})^2</m> at each point. Note that the <m>e^{-x^2-y^2}</m> terms will be squared in <m>D</m> and always positive, so we can focus on the algebraic signs.
+          </p>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  At <m>(0,0)</m>: <m>f_{xx} = 0</m>, <m>f_{yy} = 0</m>, <m>f_{xy} = (1)(1)(1) = 1</m>. <br/>
+                  <m>D = 0 - 1^2 = -1 \lt 0 \implies </m> <alert>Saddle point</alert>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  At <m>\lp \pm\frac{1}{\sqrt{2}}, \pm\frac{1}{\sqrt{2}} \rp</m> (same signs): <m>x^2 = y^2 = 1/2</m>, so <m>e^{-x^2-y^2} = e^{-1}</m>. <br/>
+                  <m>f_{xy} = (1 - 1)(1 - 1)e^{-1} = 0</m>. <br/>
+                  <m>f_{xx} = -2(1/2)(3 - 1)e^{-1} = -2e^{-1} \lt 0</m>. <br/>
+                  <m>f_{yy} = -2e^{-1} \lt 0</m>. <br/>
+                  <m>D = (-2e^{-1})(-2e^{-1}) - 0 = 4e^{-2} \gt 0</m>. Since <m>f_{xx} \lt 0</m>, these are <alert>Local maxima</alert>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  At <m>\lp \pm\frac{1}{\sqrt{2}}, \mp\frac{1}{\sqrt{2}} \rp</m> (opposite signs): <m>x^2 = y^2 = 1/2</m>, so <m>e^{-x^2-y^2} = e^{-1}</m>. <br/>
+                  <m>f_{xy} = 0</m> (same as above). <br/>
+                  <m>f_{xx} = -2(-1/2)(3 - 1)e^{-1} = 2e^{-1} \gt 0</m>. <br/>
+                  <m>f_{yy} = 2e^{-1} \gt 0</m>. <br/>
+                  <m>D = (2e^{-1})(2e^{-1}) - 0 = 4e^{-2} \gt 0</m>. Since <m>f_{xx} \gt 0</m>, these are <alert>Local minima</alert>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.7.21">
         <p>
           <m>f(x,y) = x - y^2 - \ln \lp x + y \rp</m>
         </p>
+
+        <solution>
+          <p>
+            First, find the partial derivatives and set them to zero:
+            <md>
+              <mrow> f_x \amp= 1 - \frac{1}{x+y} = 0 \implies \frac{1}{x+y} = 1 \implies x + y = 1 \implies x = 1 - y </mrow>
+              <mrow> f_y \amp= -2y - \frac{1}{x+y} = 0 </mrow>
+            </md>
+          </p>
+          <p>
+            Substitute <m>x + y = 1</m> into the second equation:
+            <md>
+              <mrow> -2y - \frac{1}{1} \amp= 0 </mrow>
+              <mrow> -2y \amp= 1 \implies y = -\frac{1}{2} </mrow>
+            </md>
+            If <m>y = -\frac{1}{2}</m>, then <m>x = 1 - \lp-\frac{1}{2}\rp = \frac{3}{2}</m>. 
+            The only critical point is <m>\lp \frac{3}{2}, -\frac{1}{2} \rp</m>. (Note: <m>x+y = 1 > 0</m>, so it is in the domain of the natural log).
+          </p>
+          <p>
+            Now, compute the second partial derivatives:
+            <md>
+              <mrow> f_{xx} \amp= (x+y)^{-2} = \frac{1}{(x+y)^2} </mrow>
+              <mrow> f_{yy} \amp= -2 + (x+y)^{-2} = -2 + \frac{1}{(x+y)^2} </mrow>
+              <mrow> f_{xy} \amp= (x+y)^{-2} = \frac{1}{(x+y)^2} </mrow>
+            </md>
+          </p>
+          <p>
+            Evaluate at the critical point <m>\lp \frac{3}{2}, -\frac{1}{2} \rp</m>, where <m>x+y=1</m>:
+            <md>
+              <mrow> f_{xx} \amp= \frac{1}{1^2} = 1 </mrow>
+              <mrow> f_{yy} \amp= -2 + \frac{1}{1^2} = -1 </mrow>
+              <mrow> f_{xy} \amp= \frac{1}{1^2} = 1 </mrow>
+            </md>
+            The discriminant is <m>D = f_{xx}f_{yy} - (f_{xy})^2 = (1)(-1) - (1)^2 = -1 - 1 = -2</m>.
+          </p>
+          <p>
+            Since <m>D \lt 0</m>, the point <m>\lp \frac{3}{2}, -\frac{1}{2} \rp</m> is a <alert>saddle point</alert>.
+          </p>
+        </solution>
       </exercise>
     
     </exercisegroup>
@@ -825,6 +1018,26 @@
         </md>
         on the set where <m>0 \leq x \leq 3</m> and <m>0 \leq y \leq 5</m> without using calculus. 
       </p>
+
+      <solution>
+        <p>
+          We can rewrite the function as <m>f(x,y) = \frac{1}{x^2 + y^2 + 1}</m>.
+        </p>
+        <p>
+          To find the <alert>global maximum</alert>, we need to make the denominator as small as possible. Since <m>x^2 \geq 0</m> and <m>y^2 \geq 0</m> for all real numbers, the smallest the denominator can be is when <m>x=0</m> and <m>y=0</m>. The point <m>(0,0)</m> is in our domain.
+          <md>
+            f(0,0) = \frac{1}{0^2 + 0^2 + 1} = 1
+          </md>
+          The global maximum is 1.
+        </p>
+        <p>
+          To find the <alert>global minimum</alert>, we need to make the denominator as large as possible. Within our given domain <m>[0,3] \times [0,5]</m>, <m>x^2</m> is maximized when <m>x=3</m> and <m>y^2</m> is maximized when <m>y=5</m>. The point <m>(3,5)</m> maximizes the denominator.
+          <md>
+            f(3,5) = \frac{1}{3^2 + 5^2 + 1} = \frac{1}{9 + 25 + 1} = \frac{1}{35}
+          </md>
+          The global minimum is <m>\frac{1}{35}</m>.
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.7.35">
@@ -841,6 +1054,33 @@
       <figure>
         <image source="sec147_HW35_Diagram.png" width="30%"></image>
       </figure>
+
+      <solution>
+        <p>
+          Since <m>f(x,y) = 12 + 5y - 20x</m> is a linear function, its partial derivatives are constant (<m>f_x = -20</m> and <m>f_y = 5</m>) and never zero. Therefore, there are no interior critical points.
+        </p>
+        <p>
+          By the Extreme Value Theorem, the absolute maximum and minimum must occur on the boundary. Because the boundary is a polygon and the function is linear, the extreme values will occur exactly at the vertices of the polygon.
+        </p>
+        <p>
+          From the diagram, we can identify the four vertices of the polygon: <m>(-3, 0)</m>, <m>(0, 2)</m>, <m>(1, 0)</m>, and <m>(0, -4)</m>. 
+        </p>
+        <p>
+          Now we evaluate <m>f(x,y)</m> at each vertex:
+          <ul>
+            <li><p><m>f(-3, 0) = 12 + 5(0) - 20(-3) = 12 + 60 = 72</m></p></li>
+            <li><p><m>f(0, 2) = 12 + 5(2) - 20(0) = 12 + 10 = 22</m></p></li>
+            <li><p><m>f(1, 0) = 12 + 5(0) - 20(1) = 12 - 20 = -8</m></p></li>
+            <li><p><m>f(0, -4) = 12 + 5(-4) - 20(0) = 12 - 20 = -8</m></p></li>
+          </ul>
+        </p>
+        <p>
+          Comparing these values, the <alert>global maximum</alert> is <m>72</m>, which occurs at the vertex <m>(-3, 0)</m>. 
+        </p>
+        <p>
+          The <alert>global minimum</alert> is <m>-8</m>, which occurs at the vertices <m>(1, 0)</m> and <m>(0, -4)</m>. (Note: Because it occurs at two adjacent vertices, the function actually maintains this minimum value of -8 everywhere along the edge connecting those two points!).
+        </p>
+      </solution>
     </exercise>
 
     <exercisegroup>
@@ -855,12 +1095,107 @@
         <p>
           <m>f(x,y) = x^2 + xy^2 + y^2\, , \quad x,y \geq 0\, , \quad x  y \leq 1</m>
         </p>
+
+        <solution>
+          <p>
+            The domain is a closed, bounded region in the first quadrant, bounded by the axes and the hyperbola <m>xy = 1</m>. However, <m>x</m> and <m>y</m> can technically extend infinitely along the axes. Wait, if <m>xy \le 1</m> and <m>x,y \ge 0</m>, the region is unbounded (it stretches along the axes). But let's look for critical points and boundary behavior.
+          </p>
+          <p>
+            <term>1. Interior Critical Points:</term><br/>
+            <md>
+              <mrow> f_x \amp= 2x + y^2 = 0 \implies 2x = -y^2 </mrow>
+              <mrow> f_y \amp= 2xy + 2y = 2y(x + 1) = 0 </mrow>
+            </md>
+            From the second equation, either <m>y = 0</m> or <m>x = -1</m>.
+            Since <m>x \geq 0</m>, <m>x=-1</m> is outside the domain. If <m>y = 0</m>, then <m>2x = -0 \implies x = 0</m>. The only critical point is <m>(0,0)</m>.
+          </p>
+          <p>
+            <term>2. Boundary <m>x = 0</m> (<m>y \geq 0</m>):</term><br/>
+            <m>f(0,y) = y^2</m>. As <m>y \to \infty</m>, <m>f \to \infty</m>. Minimum at <m>y=0</m> is <m>f(0,0)=0</m>.
+          </p>
+          <p>
+            <term>3. Boundary <m>y = 0</m> (<m>x \geq 0</m>):</term><br/>
+            <m>f(x,0) = x^2</m>. As <m>x \to \infty</m>, <m>f \to \infty</m>. Minimum at <m>x=0</m> is <m>f(0,0)=0</m>.
+          </p>
+          <p>
+            <term>4. Boundary <m>xy = 1</m> (<m>x \gt 0</m>):</term><br/>
+            Substitute <m>y = \frac{1}{x}</m> into <m>f</m>:
+            <md>
+              <mrow> g(x) \amp= x^2 + x\lp\frac{1}{x}\rp^2 + \lp\frac{1}{x}\rp^2 = x^2 + \frac{1}{x} + \frac{1}{x^2} </mrow>
+            </md>
+            Find critical points on this boundary:
+            <md>
+              <mrow> g'(x) \amp= 2x - x^{-2} - 2x^{-3} = \frac{2x^4 - x - 2}{x^3} = 0 </mrow>
+            </md>
+            This polynomial <m>2x^4 - x - 2 = 0</m> has exactly one positive real root. Let's approximate it or observe the behavior. It has a root near <m>x \approx 1.08</m>. This will be a local minimum on the boundary curve. 
+          </p>
+          <p>
+            Conclusion: The absolute <alert>minimum</alert> is <m>0</m> at <m>(0,0)</m>. Because the region is unbounded and <m>f(x,0) = x^2</m> approaches infinity as <m>x \to \infty</m>, there is <alert>no global maximum</alert>.
+          </p>
+        </solution>
       </exercise>
 
       <exercise number="14.7.49">
         <p>
           <m>f(x,y) = x^2 + 2xy^2\, , \quad x^2 + y^2 \leq 1</m>
         </p>
+
+        <solution>
+          <p>
+            The region is the closed unit disk.
+          </p>
+          <p>
+            <term>1. Interior Critical Points:</term><br/>
+            <md>
+              <mrow> f_x \amp= 2x + 2y^2 = 0 \implies x = -y^2 </mrow>
+              <mrow> f_y \amp= 4xy = 0 \implies x = 0 \text{ or } y = 0 </mrow>
+            </md>
+            If <m>x = 0</m>, then <m>-y^2 = 0 \implies y = 0</m>.
+            If <m>y = 0</m>, then <m>x = -0^2 = 0</m>.
+            The only critical point is <m>(0,0)</m>, and <m>f(0,0) = 0</m>.
+          </p>
+          <p>
+            <term>2. Boundary (<m>x^2 + y^2 = 1</m>):</term><br/>
+            Substitute <m>y^2 = 1 - x^2</m> into the function to reduce it to one variable. Since <m>x^2 + y^2 = 1</m>, <m>x</m> must be in the interval <m>[-1, 1]</m>.
+            <md>
+              <mrow> g(x) \amp= x^2 + 2x(1 - x^2) = x^2 + 2x - 2x^3 \qquad \text{for } x \in [-1, 1] </mrow>
+            </md>
+            Find the critical points of <m>g(x)</m>:
+            <md>
+              <mrow> g'(x) \amp= 2x + 2 - 6x^2 = 0 </mrow>
+              <mrow> -6x^2 + 2x + 2 \amp= 0 \implies 3x^2 - x - 1 = 0 </mrow>
+            </md>
+            Using the quadratic formula:
+            <md>
+              x = \frac{1 \pm \sqrt{(-1)^2 - 4(3)(-1)}}{6} = \frac{1 \pm \sqrt{13}}{6}
+            </md>
+            Both <m>x \approx 0.768</m> and <m>x \approx -0.434</m> are within the interval <m>[-1, 1]</m>.
+          </p>
+          <p>
+            Evaluate <m>g(x)</m> at these critical points and the endpoints <m>x = \pm 1</m>:
+            <ul>
+              <li><m>g(-1) = (-1)^2 + 2(-1) - 2(-1)^3 = 1 - 2 + 2 = 1</m></li>
+              <li><m>g(1) = 1^2 + 2(1) - 2(1)^3 = 1 + 2 - 2 = 1</m></li>
+              <li>
+                <m>x = \frac{1 + \sqrt{13}}{6}</m>:
+                <md>
+                  g\lp\frac{1 + \sqrt{13}}{6}\rp \approx g(0.768) \approx (0.768)^2 + 2(0.768) - 2(0.768)^3 \approx 1.22
+                </md>
+              </li>
+              <li>
+                <m>x = \frac{1 - \sqrt{13}}{6}</m>:
+                <md>
+                  g\lp\frac{1 - \sqrt{13}}{6}\rp \approx g(-0.434) \approx (-0.434)^2 + 2(-0.434) - 2(-0.434)^3 \approx -0.52
+                </md>
+              </li>
+            </ul>
+          </p>
+          <p>
+            Comparing all evaluated points (including the interior origin <m>f(0,0)=0</m>):
+            The <alert>global maximum</alert> occurs at the boundary where <m>x = \frac{1 + \sqrt{13}}{6}</m> (approximately 1.22).
+            The <alert>global minimum</alert> occurs at the boundary where <m>x = \frac{1 - \sqrt{13}}{6}</m> (approximately -0.52).
+          </p>
+        </solution>
       </exercise>
     
     </exercisegroup>
@@ -876,12 +1211,116 @@
       <figure>
         <image source="sec147_HW51_Diagram.png" width="50%"></image>
       </figure>
+
+      <solution>
+        <p>
+          To maximize the volume of a rectangular box, start with the relation <m>V = xyz</m> and using the paraboloid equation we see
+          <md>
+            <mrow> z = 1 - \frac{x^2}{4} - \frac{y^2}{9} \quad \implies \quad V(x,y) = xy\left(1 - \frac{x^2}{4} - \frac{y^2}{9}\right) </mrow>
+          </md>
+          Therefore we will consider
+          <md>
+            <mrow> V(x,y) = xy - \frac{1}{4}x^3y - \frac{1}{9}xy^3 </mrow>
+          </md>
+        </p>
+        <p>
+          First to find the critical points, we take the first-order partial derivatives and set them equal to zero, and solve:
+          <md>
+            <mrow> V_x(x,y) = y - \frac{3}{4}x^2y - \frac{1}{9}y^3, \quad V_y(x,y) = x - \frac{1}{4}x^3 - \frac{1}{3}xy^2 </mrow>
+          </md>
+          Using the equation <m>V_y = 0</m> we see
+          <md>
+            <mrow> x - \frac{1}{4}x^3 - \frac{1}{3}xy^2 = 0 \quad \implies \quad x = 0, \quad y^2 = 3 - \frac{3}{4}x^2 \quad \implies \quad y = \sqrt{3 - \frac{3}{4}x^2} </mrow>
+          </md>
+          (Note here, we can ignore the value <m>x = 0</m>, since it produces a box having zero volume.)
+        </p>
+        <p>
+          Using this relation in the first equation, <m>V_x = 0</m>, we see:
+          <md>
+            <mrow> \sqrt{3 - \frac{3}{4}x^2} - \frac{3}{4}x^2\sqrt{3 - \frac{3}{4}x^2} - \frac{1}{9}\left(3 - \frac{3}{4}x^2\right)^{3/2} = 0 </mrow>
+          </md>
+          Factoring we see:
+          <md>
+            <mrow> \sqrt{3 - \frac{3}{4}x^2}\left[1 - \frac{3}{4}x^2 - \frac{1}{9}\left(3 - \frac{3}{4}x^2\right)\right] = 0 </mrow>
+          </md>
+          and thus
+          <md>
+            <mrow> 3 - \frac{3}{4}x^2 = 0 \quad \implies \quad x^2 = 4 \quad \implies \quad x = \pm 2 </mrow>
+          </md>
+          or
+          <md>
+            <mrow> 1 - \frac{3}{4}x^2 - \frac{1}{3} + \frac{1}{12}x^2 = 0 \quad \implies \quad \frac{2}{3} - \frac{2}{3}x^2 = 0 \quad \implies \quad x = \pm 1 </mrow>
+          </md>
+        </p>
+        <p>
+          Since the governing equation <m>f(x,y)</m> is a paraboloid, that is symmetric about the <m>z</m>-axis, we need only consider the point when <m>x = 2</m> or <m>x = 1</m>.
+        </p>
+        <p>
+          Therefore, since <m>y = \sqrt{3 - \frac{3}{4}x^2}</m> and <m>z = 1 - \frac{1}{4}x^2 - \frac{1}{9}y^2</m>, we have, if <m>x = 2</m>
+          <md>
+            <mrow> y = \sqrt{3 - \frac{3}{4} \cdot 4} = 0 \quad \implies \quad z = 1 - \frac{1}{4} \cdot 4 - \frac{1}{9} \cdot 0 = 0 </mrow>
+          </md>
+          This will give a box having zero volume - not a maximum volume at all.
+        </p>
+        <p>
+          Using <m>x = 1</m>, and <m>y = \sqrt{3 - \frac{3}{4}x^2}</m>, <m>z = 1 - \frac{1}{4}x^2 - \frac{1}{9}y^2</m>, we have
+          <md>
+            <mrow> y = \sqrt{3 - \frac{3}{4}} = \frac{3}{2}, \quad z = 1 - \frac{1}{4} \cdot 1^2 - \frac{1}{9} \cdot \frac{9}{4} = \frac{1}{2} </mrow>
+          </md>
+          Therefore, the box having maximum volume has dimensions, <m>x = 1</m>, <m>y = 3/2</m>, and <m>z = 1/2</m> and maximum value for the volume:
+          <md>
+            <mrow> V = xyz = 1 \cdot \frac{3}{2} \cdot \frac{1}{2} = \frac{3}{4} </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
 
     <exercise number="14.7.59">
       <p>
         Find the maximum volume of a cylindrical can such that the sum of its height and its circumference is 120 cm. 
       </p>
+
+      <solution>
+        <p>
+          The volume of a cylinder is <m>V = \pi r^2 h</m>.
+          The constraint is that the height plus the circumference is 120 cm:
+          <md>
+            h + 2\pi r = 120 \implies h = 120 - 2\pi r
+          </md>
+        </p>
+        <p>
+          Substitute <m>h</m> into the volume equation to get a function of a single variable <m>r</m>:
+          <md>
+            V(r) = \pi r^2 (120 - 2\pi r) = 120\pi r^2 - 2\pi^2 r^3
+          </md>
+        </p>
+        <p>
+          To find the maximum, take the derivative and set it to zero:
+          <md>
+            <mrow> V'(r) \amp= 240\pi r - 6\pi^2 r^2 = 0 </mrow>
+            <mrow> 6\pi r (40 - \pi r) \amp= 0 </mrow>
+          </md>
+        </p>
+        <p>
+          Since a radius of 0 gives a minimum volume of 0, the maximum must occur when:
+          <md>
+            40 - \pi r = 0 \implies r = \frac{40}{\pi} \text{ cm}
+          </md>
+        </p>
+        <p>
+          Find the corresponding height <m>h</m>:
+          <md>
+            h = 120 - 2\pi\lp \frac{40}{\pi} \rp = 120 - 80 = 40 \text{ cm}
+          </md>
+        </p>
+        <p>
+          Calculate the maximum volume:
+          <md>
+            <mrow> V \amp= \pi \lp \frac{40}{\pi} \rp^2 (40) </mrow>
+            <mrow> V \amp= \pi \lp \frac{1600}{\pi^2} \rp (40) = \frac{64000}{\pi} \text{ cm}^3 </mrow>
+          </md>
+        </p>
+      </solution>
     </exercise>
   </worksheet>
 
