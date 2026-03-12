@@ -421,7 +421,79 @@ eBookConfig.enable_chatcodes =  false;
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.1"><a href="#ws-sec148-3" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.1" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.1">🔗</a></div></article><div class="exercisegroup" id="ws-sec148-4">
+<details id="ws-sec148-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<ol class="lower-alpha ol-marker-1" id="ws-sec148-3-2-1">
+<li id="ws-sec148-3-2-1-1">
+<div class="para logical" id="ws-sec148-3-2-1-1-1">
+<div class="para">We are given the objective function <span class="process-math">\(f(x,y) = 2x + 4y\)</span> and the constraint <span class="process-math">\(g(x,y) = x^2 + y^2 - 5 = 0\text{.}\)</span> Taking the gradients, we get:</div>
+<div class="displaymath process-math" id="ws-sec148-3-2-1-1-1-3">
+\begin{align*}
+\nabla f \amp = \langle 2, 4 \rangle \\
+\nabla g \amp = \langle 2x, 2y \rangle 
+\end{align*}
+</div>
+<div class="para">Setting <span class="process-math">\(\nabla f = \lambda \nabla g\)</span> gives us the system:</div>
+<div class="displaymath process-math" id="ws-sec148-3-2-1-1-1-5">
+\begin{align*}
+2 \amp = \lambda (2x) \implies 1 = \lambda x \\
+4 \amp = \lambda (2y) \implies 2 = \lambda y 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-3-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.8.14.8.1.a"><a href="#ws-sec148-3-2-1-1" title="Copy heading and permalink for Item 14.8.14.8.1.a" aria-label="Copy heading and permalink for Item 14.8.14.8.1.a">🔗</a></div>
+</li>
+<li id="ws-sec148-3-2-1-2">
+<div class="para logical" id="ws-sec148-3-2-1-2-1">
+<div class="para">If <span class="process-math">\(\lambda = 0\text{,}\)</span> the first equation becomes <span class="process-math">\(1 = 0\text{,}\)</span> which is a contradiction. Therefore, <span class="process-math">\(\lambda \neq 0\text{.}\)</span> Since <span class="process-math">\(\lambda \neq 0\text{,}\)</span> we can solve for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> in terms of <span class="process-math">\(\lambda\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-3-2-1-2-1-8">
+\begin{align*}
+x \amp = \frac{1}{\lambda} \\
+y \amp = \frac{2}{\lambda} 
+\end{align*}
+</div>
+<div class="para">Notice that <span class="process-math">\(y = \frac{2}{\lambda} = 2\left(\frac{1}{\lambda}\right) = 2x\text{.}\)</span> Thus, <span class="process-math">\(y = 2x\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-3-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.8.14.8.1.b"><a href="#ws-sec148-3-2-1-2" title="Copy heading and permalink for Item 14.8.14.8.1.b" aria-label="Copy heading and permalink for Item 14.8.14.8.1.b">🔗</a></div>
+</li>
+<li id="ws-sec148-3-2-1-3">
+<div class="para logical" id="ws-sec148-3-2-1-3-1">
+<div class="para">Substitute <span class="process-math">\(y = 2x\)</span> into the constraint equation <span class="process-math">\(x^2 + y^2 = 5\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-3-2-1-3-1-3">
+\begin{align*}
+x^2 + (2x)^2 \amp = 5 \\
+x^2 + 4x^2 \amp = 5 \\
+5x^2 \amp = 5 \implies x^2 = 1 \implies x = \pm 1 
+\end{align*}
+</div>
+<div class="para">When <span class="process-math">\(x = 1\text{,}\)</span> <span class="process-math">\(y = 2(1) = 2\text{.}\)</span> When <span class="process-math">\(x = -1\text{,}\)</span> <span class="process-math">\(y = 2(-1) = -2\text{.}\)</span> Our critical points are <span class="process-math">\((1,2)\)</span> and <span class="process-math">\((-1,-2)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-3-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.8.14.8.1.c"><a href="#ws-sec148-3-2-1-3" title="Copy heading and permalink for Item 14.8.14.8.1.c" aria-label="Copy heading and permalink for Item 14.8.14.8.1.c">🔗</a></div>
+</li>
+<li id="ws-sec148-3-2-1-4">
+<div class="para logical" id="ws-sec148-3-2-1-4-1">
+<div class="para">Finally, evaluate <span class="process-math">\(f(x,y) = 2x + 4y\)</span> at the critical points:</div>
+<div class="displaymath process-math" id="ws-sec148-3-2-1-4-1-2">
+\begin{align*}
+f(1,2) \amp = 2(1) + 4(2) = 10 \\
+f(-1,-2) \amp = 2(-1) + 4(-2) = -10 
+\end{align*}
+</div>
+<div class="para">The maximum value is <span class="process-math">\(10\)</span> at <span class="process-math">\((1,2)\text{,}\)</span> and the minimum value is <span class="process-math">\(-10\)</span> at <span class="process-math">\((-1,-2)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-3-2-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.8.14.8.1.d"><a href="#ws-sec148-3-2-1-4" title="Copy heading and permalink for Item 14.8.14.8.1.d" aria-label="Copy heading and permalink for Item 14.8.14.8.1.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 14.8.14.8.1.1"><a href="#ws-sec148-3-2" title="Copy heading and permalink for Solution 14.8.14.8.1.1" aria-label="Copy heading and permalink for Solution 14.8.14.8.1.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.1"><a href="#ws-sec148-3" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.1" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.1">🔗</a></div></article><div class="exercisegroup" id="ws-sec148-4">
 <h4 class="heading"><span class="title">Exercise Group.</span></h4>
 <div class="introduction" id="ws-sec148-4-1"><div class="para" id="ws-sec148-4-1-1">In the following exercises, find the minimum and maximum values of the function subject to the given constraints.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
@@ -430,11 +502,151 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="ws-sec148-4-2-1">
 <span class="process-math">\(f(x,y) = xy \, , \qquad 4x^2 + 9y^2 = 32\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.7"><a href="#ws-sec148-4-2" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.7" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.7">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec148-4-3"><h5 class="heading"><span class="codenumber">14.8.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<details id="ws-sec148-4-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec148-4-2-2-1">
+<div class="para">Let <span class="process-math">\(f(x,y) = xy\)</span> and the constraint <span class="process-math">\(g(x,y) = 4x^2 + 9y^2 - 32 = 0\text{.}\)</span> Using Lagrange multipliers, <span class="process-math">\(\nabla f = \lambda \nabla g\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-4-2-2-1-4">
+\begin{align*}
+y \amp = \lambda(8x) \\
+x \amp = \lambda(18y) \\
+4x^2 + 9y^2 \amp = 32 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-4-2-2-2">
+<div class="para">Multiply the first equation by <span class="process-math">\(y\)</span> and the second by <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-4-2-2-2-3">
+\begin{align*}
+y^2 \amp = 8\lambda xy \\
+x^2 \amp = 18\lambda xy 
+\end{align*}
+</div>
+<div class="para">If <span class="process-math">\(\lambda = 0\text{,}\)</span> then <span class="process-math">\(x = 0\)</span> and <span class="process-math">\(y = 0\text{,}\)</span> which does not satisfy the constraint <span class="process-math">\(4(0)^2 + 9(0)^2 = 32\text{.}\)</span> Thus, <span class="process-math">\(\lambda \neq 0\)</span> and <span class="process-math">\(xy \neq 0\text{.}\)</span> We can divide the modified equations to get:</div>
+<div class="displaymath process-math" id="ws-sec148-4-2-2-2-10">
+\begin{align*}
+8\lambda xy \cdot x^2 \amp = 18\lambda xy \cdot y^2 \implies 8x^2 = 18y^2 \implies 4x^2 = 9y^2 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-4-2-2-3">
+<div class="para">Substitute <span class="process-math">\(4x^2 = 9y^2\)</span> into the constraint equation:</div>
+<div class="displaymath process-math" id="ws-sec148-4-2-2-3-2">
+\begin{align*}
+9y^2 + 9y^2 \amp = 32 \\
+18y^2 \amp = 32 \implies y^2 = \frac{16}{9} \implies y = \pm \frac{4}{3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-4-2-2-4">
+<div class="para">Now solve for <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-4-2-2-4-2">
+\begin{gather*}
+4x^2 = 9\left(\frac{16}{9}\right) = 16 \implies x^2 = 4 \implies x = \pm 2 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-2-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-4-2-2-5">
+<div class="para">We have four critical points to check: <span class="process-math">\(\left(2, \frac{4}{3}\right)\text{,}\)</span> <span class="process-math">\(\left(2, -\frac{4}{3}\right)\text{,}\)</span> <span class="process-math">\(\left(-2, \frac{4}{3}\right)\text{,}\)</span> and <span class="process-math">\(\left(-2, -\frac{4}{3}\right)\text{.}\)</span> Evaluating <span class="process-math">\(f(x,y) = xy\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-4-2-2-5-6">
+\begin{align*}
+f\left(2, \frac{4}{3}\right) \amp = \frac{8}{3} \amp f\left(-2, -\frac{4}{3}\right) \amp = \frac{8}{3} \\
+f\left(2, -\frac{4}{3}\right) \amp = -\frac{8}{3} \amp f\left(-2, \frac{4}{3}\right) \amp = -\frac{8}{3} 
+\end{align*}
+</div>
+<div class="para">The maximum value is <span class="process-math">\(\frac{8}{3}\)</span> and the minimum value is <span class="process-math">\(-\frac{8}{3}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-2-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.8.14.8.7.1"><a href="#ws-sec148-4-2-2" title="Copy heading and permalink for Solution 14.8.14.8.7.1" aria-label="Copy heading and permalink for Solution 14.8.14.8.7.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.7"><a href="#ws-sec148-4-2" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.7" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.7">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec148-4-3"><h5 class="heading"><span class="codenumber">14.8.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="para" id="ws-sec148-4-3-1">
 <span class="process-math">\(f(x,y,z) = xy + 2z\, , \qquad x^2 + y^2 + z^2 = 36\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.13"><a href="#ws-sec148-4-3" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.13" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.13">🔗</a></div></article>
+<details id="ws-sec148-4-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec148-4-3-2-1">
+<div class="para">Let <span class="process-math">\(g(x,y,z) = x^2 + y^2 + z^2 - 36 = 0\text{.}\)</span> The Lagrange equations <span class="process-math">\(\nabla f = \lambda \nabla g\)</span> yield:</div>
+<div class="displaymath process-math" id="ws-sec148-4-3-2-1-3">
+\begin{align*}
+y \amp = 2\lambda x \\
+x \amp = 2\lambda y \\
+2 \amp = 2\lambda z \implies 1 = \lambda z \\
+x^2 + y^2 + z^2 \amp = 36 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-4-3-2-2">
+<div class="para">Substitute the second equation into the first:</div>
+<div class="displaymath process-math" id="ws-sec148-4-3-2-2-1">
+\begin{gather*}
+y = 2\lambda(2\lambda y) \implies y = 4\lambda^2 y \implies y(1 - 4\lambda^2) = 0 
+\end{gather*}
+</div>
+<div class="para">This gives us two cases: either <span class="process-math">\(y = 0\)</span> or <span class="process-math">\(4\lambda^2 = 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-4-3-2-3">
+<div class="para">
+<dfn class="terminology">Case 1:</dfn> <span class="process-math">\(y = 0\text{.}\)</span> If <span class="process-math">\(y = 0\text{,}\)</span> then <span class="process-math">\(x = 2\lambda(0) = 0\text{.}\)</span> Substituting <span class="process-math">\(x=0\)</span> and <span class="process-math">\(y=0\)</span> into the constraint gives:</div>
+<div class="displaymath process-math" id="ws-sec148-4-3-2-3-7">
+\begin{align*}
+0^2 + 0^2 + z^2 \amp = 36 \implies z = \pm 6 
+\end{align*}
+</div>
+<div class="para">This gives the points <span class="process-math">\((0,0,6)\)</span> and <span class="process-math">\((0,0,-6)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-4-3-2-4">
+<div class="para">
+<dfn class="terminology">Case 2:</dfn> <span class="process-math">\(4\lambda^2 = 1 \implies \lambda = \pm \frac{1}{2}\text{.}\)</span> If <span class="process-math">\(\lambda = \frac{1}{2}\text{,}\)</span> then <span class="process-math">\(y = x\)</span> and from the third equation, <span class="process-math">\(z = \frac{1}{1/2} = 2\text{.}\)</span> Substituting these into the constraint:</div>
+<div class="displaymath process-math" id="ws-sec148-4-3-2-4-6">
+\begin{align*}
+x^2 + x^2 + 2^2 \amp = 36 \implies 2x^2 = 32 \implies x^2 = 16 \implies x = \pm 4 
+\end{align*}
+</div>
+<div class="para">This gives the points <span class="process-math">\((4,4,2)\)</span> and <span class="process-math">\((-4,-4,2)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-3-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-4-3-2-5">
+<div class="para">If <span class="process-math">\(\lambda = -\frac{1}{2}\text{,}\)</span> then <span class="process-math">\(y = -x\)</span> and <span class="process-math">\(z = \frac{1}{-1/2} = -2\text{.}\)</span> Substituting into the constraint:</div>
+<div class="displaymath process-math" id="ws-sec148-4-3-2-5-4">
+\begin{align*}
+x^2 + (-x)^2 + (-2)^2 \amp = 36 \implies 2x^2 = 32 \implies x = \pm 4 
+\end{align*}
+</div>
+<div class="para">This gives the points <span class="process-math">\((4,-4,-2)\)</span> and <span class="process-math">\((-4,4,-2)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-3-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-4-3-2-6">
+<div class="para">Now evaluate <span class="process-math">\(f(x,y,z) = xy + 2z\)</span> at all these points:</div>
+<div class="displaymath process-math" id="ws-sec148-4-3-2-6-2">
+\begin{align*}
+f(0,0,6) \amp = 0 + 12 = 12 \\
+f(0,0,-6) \amp = 0 - 12 = -12 \\
+f(4,4,2) \amp = 16 + 4 = 20 \\
+f(-4,-4,2) \amp = 16 + 4 = 20 \\
+f(4,-4,-2) \amp = -16 - 4 = -20 \\
+f(-4,4,-2) \amp = -16 - 4 = -20 
+\end{align*}
+</div>
+<div class="para">The absolute maximum is <span class="process-math">\(20\)</span> and the absolute minimum is <span class="process-math">\(-20\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-4-3-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.8.14.8.13.1"><a href="#ws-sec148-4-3-2" title="Copy heading and permalink for Solution 14.8.14.8.13.1" aria-label="Copy heading and permalink for Solution 14.8.14.8.13.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.13"><a href="#ws-sec148-4-3" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.13" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.13">🔗</a></div></article>
 </div>
 <div class="autopermalink" data-description="Exercise Group 14.8.14.8.7–14.8.13"><a href="#ws-sec148-4" title="Copy heading and permalink for Exercise Group 14.8.14.8.7–14.8.13" aria-label="Copy heading and permalink for Exercise Group 14.8.14.8.7–14.8.13">🔗</a></div>
 </div>
@@ -471,10 +683,110 @@ V = \frac{1}{3}\pi r^2h
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.19"><a href="#ws-sec148-5" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.19" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec148-6"><h4 class="heading"><span class="codenumber">14.8.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec148-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec148-5-2-1">
+<div class="para">Before we begin, note that we can use Lagrange multipliers by finding the gradients of <span class="process-math">\(V\)</span> and <span class="process-math">\(S\)</span> with respect to <span class="process-math">\(r\)</span> and <span class="process-math">\(h\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-5-2-1-5">
+\begin{align*}
+\nabla V \amp = \left\langle \frac{2}{3}\pi rh, \frac{1}{3}\pi r^2 \right\rangle \\
+\nabla S \amp = \left\langle \pi\sqrt{r^2+h^2} + \frac{\pi r^2}{\sqrt{r^2+h^2}}, \frac{\pi rh}{\sqrt{r^2+h^2}} \right\rangle = \left\langle \pi\frac{2r^2+h^2}{\sqrt{r^2+h^2}}, \frac{\pi rh}{\sqrt{r^2+h^2}} \right\rangle 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha ol-marker-1" id="ws-sec148-5-2-2">
+<li id="ws-sec148-5-2-2-1">
+<div class="para logical" id="ws-sec148-5-2-2-1-1">
+<div class="para">To maximize <span class="process-math">\(V\)</span> given <span class="process-math">\(S\text{,}\)</span> we set <span class="process-math">\(\nabla V = \lambda \nabla S\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-5-2-2-1-1-4">
+\begin{align*}
+\frac{2}{3}\pi rh \amp = \lambda \pi\frac{2r^2+h^2}{\sqrt{r^2+h^2}} \\
+\frac{1}{3}\pi r^2 \amp = \lambda \frac{\pi rh}{\sqrt{r^2+h^2}} 
+\end{align*}
+</div>
+<div class="para">Assuming <span class="process-math">\(r, h \neq 0\text{,}\)</span> we can isolate <span class="process-math">\(\lambda\)</span> in both equations and set them equal, or simply divide the first equation by the second:</div>
+<div class="displaymath process-math" id="ws-sec148-5-2-2-1-1-7">
+\begin{align*}
+\frac{\frac{2}{3}\pi rh}{\frac{1}{3}\pi r^2} \amp = \frac{\lambda \pi\frac{2r^2+h^2}{\sqrt{r^2+h^2}}}{\lambda \frac{\pi rh}{\sqrt{r^2+h^2}}} \\
+\frac{2h}{r} \amp = \frac{2r^2+h^2}{rh} 
+\end{align*}
+</div>
+<div class="para">Cross-multiply to get:</div>
+<div class="displaymath process-math" id="ws-sec148-5-2-2-1-1-8">
+\begin{align*}
+2h^2r \amp = r(2r^2+h^2) \\
+2h^2 \amp = 2r^2+h^2 \implies h^2 = 2r^2 \implies \frac{h^2}{r^2} = 2 \implies \frac{h}{r} = \sqrt{2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-5-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.8.14.8.19.a"><a href="#ws-sec148-5-2-2-1" title="Copy heading and permalink for Item 14.8.14.8.19.a" aria-label="Copy heading and permalink for Item 14.8.14.8.19.a">🔗</a></div>
+</li>
+<li id="ws-sec148-5-2-2-2">
+<div class="para" id="ws-sec148-5-2-2-2-1">To minimize <span class="process-math">\(S\)</span> given <span class="process-math">\(V\text{,}\)</span> the Lagrange condition is <span class="process-math">\(\nabla S = \mu \nabla V\text{.}\)</span> Because the vectors must still be parallel, the proportion between the components must be exactly the same as in part (a). Therefore, the algebra will lead to the exact same geometric ratio: <span class="process-math">\(\frac{h}{r} = \sqrt{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-5-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.8.14.8.19.b"><a href="#ws-sec148-5-2-2-2" title="Copy heading and permalink for Item 14.8.14.8.19.b" aria-label="Copy heading and permalink for Item 14.8.14.8.19.b">🔗</a></div>
+</li>
+<li id="ws-sec148-5-2-2-3">
+<div class="para logical" id="ws-sec148-5-2-2-3-1">
+<div class="para">No, such a cone does not exist. If <span class="process-math">\(V\)</span> is constant, <span class="process-math">\(h = \frac{3V}{\pi r^2}\text{.}\)</span> Substitute this into the surface area formula:</div>
+<div class="displaymath process-math" id="ws-sec148-5-2-2-3-1-3">
+\begin{align*}
+S \amp = \pi r \sqrt{r^2 + \left(\frac{3V}{\pi r^2}\right)^2} = \sqrt{\pi^2 r^4 + \frac{9V^2}{r^2}} 
+\end{align*}
+</div>
+<div class="para">If we stretch the cone to be infinitely wide and flat (<span class="process-math">\(r \to \infty\)</span>), the surface area <span class="process-math">\(S \to \infty\text{.}\)</span> Thus, there is no maximum surface area for a given volume.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-5-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 14.8.14.8.19.c"><a href="#ws-sec148-5-2-2-3" title="Copy heading and permalink for Item 14.8.14.8.19.c" aria-label="Copy heading and permalink for Item 14.8.14.8.19.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 14.8.14.8.19.1"><a href="#ws-sec148-5-2" title="Copy heading and permalink for Solution 14.8.14.8.19.1" aria-label="Copy heading and permalink for Solution 14.8.14.8.19.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.19"><a href="#ws-sec148-5" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.19" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec148-6"><h4 class="heading"><span class="codenumber">14.8.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec148-6-1">Find the point <span class="process-math">\((x_0, y_0)\)</span> on the line <span class="process-math">\(4x + 9y = 12\)</span> that is closest to the origin.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.23"><a href="#ws-sec148-6" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.23" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.23">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec148-7"><h4 class="heading"><span class="codenumber">14.8.29<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec148-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec148-6-2-1">We want to minimize the distance to the origin, which is <span class="process-math">\(d = \sqrt{x^2+y^2}\text{.}\)</span> To make the calculus easier, we will instead minimize the <em class="emphasis">square</em> of the distance, <span class="process-math">\(f(x,y) = x^2+y^2\text{,}\)</span> subject to the constraint <span class="process-math">\(g(x,y) = 4x + 9y - 12 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-6-2-2">
+<div class="para">Using Lagrange multipliers, <span class="process-math">\(\nabla f = \lambda \nabla g\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-6-2-2-2">
+\begin{align*}
+2x \amp = \lambda(4) \implies x = 2\lambda \\
+2y \amp = \lambda(9) \implies y = \frac{9}{2}\lambda = 4.5\lambda 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-6-2-3">
+<div class="para">Substitute these into the constraint equation:</div>
+<div class="displaymath process-math" id="ws-sec148-6-2-3-1">
+\begin{align*}
+4(2\lambda) + 9(4.5\lambda) \amp = 12 \\
+8\lambda + 40.5\lambda \amp = 12 \\
+48.5\lambda \amp = 12 \implies \lambda = \frac{12}{48.5} = \frac{24}{97} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-6-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-6-2-4">
+<div class="para">Now plug <span class="process-math">\(\lambda\)</span> back in to find <span class="process-math">\(x_0\)</span> and <span class="process-math">\(y_0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-6-2-4-4">
+\begin{align*}
+x_0 \amp = 2\left(\frac{24}{97}\right) = \frac{48}{97} \\
+y_0 \amp = \frac{9}{2}\left(\frac{24}{97}\right) = \frac{108}{97} 
+\end{align*}
+</div>
+<div class="para">The closest point is <span class="process-math">\(\left(\frac{48}{97}, \frac{108}{97}\right)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-6-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.8.14.8.23.1"><a href="#ws-sec148-6-2" title="Copy heading and permalink for Solution 14.8.14.8.23.1" aria-label="Copy heading and permalink for Solution 14.8.14.8.23.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.23"><a href="#ws-sec148-6" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.23" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.23">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec148-7"><h4 class="heading"><span class="codenumber">14.8.29<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec148-7-1">
 <div class="para">Show that the minimum distance from the origin to a point on the plane <span class="process-math">\(ax + by + cz = d\)</span> is</div>
 <div class="displaymath process-math" id="ws-sec148-7-1-2">
@@ -484,13 +796,178 @@ V = \frac{1}{3}\pi r^2h
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.29"><a href="#ws-sec148-7" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.29" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.29">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec148-8"><h4 class="heading"><span class="codenumber">14.8.41<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec148-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec148-7-2-1">Similar to the previous problem, we minimize the square of the distance, <span class="process-math">\(f(x,y,z) = x^2+y^2+z^2\text{,}\)</span> subject to the plane constraint <span class="process-math">\(g(x,y,z) = ax + by + cz - d = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-7-2-2">
+<div class="para">Set up the Lagrange equations <span class="process-math">\(\nabla f = \lambda \nabla g\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-7-2-2-2">
+\begin{align*}
+2x \amp = a\lambda \implies x = \frac{a\lambda}{2} \\
+2y \amp = b\lambda \implies y = \frac{b\lambda}{2} \\
+2z \amp = c\lambda \implies z = \frac{c\lambda}{2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-7-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-7-2-3">
+<div class="para">Substitute these into the constraint equation:</div>
+<div class="displaymath process-math" id="ws-sec148-7-2-3-1">
+\begin{align*}
+a\left(\frac{a\lambda}{2}\right) + b\left(\frac{b\lambda}{2}\right) + c\left(\frac{c\lambda}{2}\right) \amp = d \\
+\frac{\lambda}{2}(a^2 + b^2 + c^2) \amp = d \implies \lambda = \frac{2d}{a^2+b^2+c^2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-7-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-7-2-4">
+<div class="para">Now substitute <span class="process-math">\(\lambda\)</span> back to find the coordinates:</div>
+<div class="displaymath process-math" id="ws-sec148-7-2-4-2">
+\begin{align*}
+x \amp = \frac{a}{2}\left(\frac{2d}{a^2+b^2+c^2}\right) = \frac{ad}{a^2+b^2+c^2} \\
+y \amp = \frac{b}{2}\left(\frac{2d}{a^2+b^2+c^2}\right) = \frac{bd}{a^2+b^2+c^2} \\
+z \amp = \frac{c}{2}\left(\frac{2d}{a^2+b^2+c^2}\right) = \frac{cd}{a^2+b^2+c^2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-7-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-7-2-5">
+<div class="para">Finally, calculate the minimum distance <span class="process-math">\(D = \sqrt{x^2+y^2+z^2}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-7-2-5-2">
+\begin{align*}
+D \amp = \sqrt{\left(\frac{ad}{a^2+b^2+c^2}\right)^2 + \left(\frac{bd}{a^2+b^2+c^2}\right)^2 + \left(\frac{cd}{a^2+b^2+c^2}\right)^2} \\
+\amp = \sqrt{\frac{a^2d^2 + b^2d^2 + c^2d^2}{(a^2+b^2+c^2)^2}} = \sqrt{\frac{d^2(a^2+b^2+c^2)}{(a^2+b^2+c^2)^2}} \\
+\amp = \sqrt{\frac{d^2}{a^2+b^2+c^2}} = \frac{|d|}{\sqrt{a^2+b^2+c^2}} 
+\end{align*}
+</div>
+<div class="para">This confirms the distance formula.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-7-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.8.14.8.29.1"><a href="#ws-sec148-7-2" title="Copy heading and permalink for Solution 14.8.14.8.29.1" aria-label="Copy heading and permalink for Solution 14.8.14.8.29.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.29"><a href="#ws-sec148-7" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.29" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.29">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec148-8"><h4 class="heading"><span class="codenumber">14.8.41<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec148-8-1">Find the minimum of <span class="process-math">\(f(x,y,z) = x^2 + y^2 + z^2\)</span> subject to the two constraints <span class="process-math">\(x + y + z = 1\)</span> and <span class="process-math">\(x + 2y + 3z = 6\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.41"><a href="#ws-sec148-8" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.41" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.41">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec148-9"><h4 class="heading"><span class="codenumber">14.8.45<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec148-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec148-8-2-1">
+<div class="para">Here we have two constraints. Let <span class="process-math">\(g(x,y,z) = x + y + z - 1 = 0\)</span> and <span class="process-math">\(h(x,y,z) = x + 2y + 3z - 6 = 0\text{.}\)</span> Using <span class="process-math">\(\nabla f = \lambda \nabla g + \mu \nabla h\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-8-2-1-4">
+\begin{align*}
+2x \amp = \lambda(1) + \mu(1) \\
+2y \amp = \lambda(1) + \mu(2) \\
+2z \amp = \lambda(1) + \mu(3) 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-8-2-2">
+<div class="para">We can solve this by substituting these expressions into the two constraint equations. First, let’s look at the <span class="process-math">\(g\)</span> constraint: <span class="process-math">\(x + y + z = 1 \implies 2x + 2y + 2z = 2\text{.}\)</span> Substitute our gradient equations into this:</div>
+<div class="displaymath process-math" id="ws-sec148-8-2-2-3">
+\begin{align*}
+(\lambda + \mu) + (\lambda + 2\mu) + (\lambda + 3\mu) \amp = 2 \\
+3\lambda + 6\mu \amp = 2 \qquad \text{(Equation A)} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-8-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-8-2-3">
+<div class="para">Now for the <span class="process-math">\(h\)</span> constraint: <span class="process-math">\(x + 2y + 3z = 6 \implies 2x + 4y + 6z = 12\text{.}\)</span> Substitute our gradient equations:</div>
+<div class="displaymath process-math" id="ws-sec148-8-2-3-3">
+\begin{align*}
+(\lambda + \mu) + 2(\lambda + 2\mu) + 3(\lambda + 3\mu) \amp = 12 \\
+\lambda + \mu + 2\lambda + 4\mu + 3\lambda + 9\mu \amp = 12 \\
+6\lambda + 14\mu \amp = 12 \qquad \text{(Equation B)} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-8-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-8-2-4">
+<div class="para">We now have a system of two variables. Multiply Equation A by 2:</div>
+<div class="displaymath process-math" id="ws-sec148-8-2-4-1">
+\begin{align*}
+6\lambda + 12\mu \amp = 4 
+\end{align*}
+</div>
+<div class="para">Subtract this from Equation B:</div>
+<div class="displaymath process-math" id="ws-sec148-8-2-4-2">
+\begin{align*}
+(6\lambda + 14\mu) - (6\lambda + 12\mu) \amp = 12 - 4 \\
+2\mu \amp = 8 \implies \mu = 4 
+\end{align*}
+</div>
+<div class="para">Substitute <span class="process-math">\(\mu = 4\)</span> back into Equation A to find <span class="process-math">\(\lambda\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-8-2-4-5">
+\begin{align*}
+3\lambda + 6(4) \amp = 2 \implies 3\lambda = -22 \implies \lambda = -\frac{22}{3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-8-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-8-2-5">
+<div class="para">Now we can find our coordinates:</div>
+<div class="displaymath process-math" id="ws-sec148-8-2-5-1">
+\begin{gather*}
+2x = -\frac{22}{3} + 4 = -\frac{10}{3} \implies x = -\frac{5}{3} \\
+2y = -\frac{22}{3} + 8 = \frac{2}{3} \implies y = \frac{1}{3} \\
+2z = -\frac{22}{3} + 12 = \frac{14}{3} \implies z = \frac{7}{3} 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-8-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-8-2-6">
+<div class="para">Finally, plug this point into <span class="process-math">\(f(x,y,z)\)</span> to find the minimum value:</div>
+<div class="displaymath process-math" id="ws-sec148-8-2-6-2">
+\begin{align*}
+f\left(-\frac{5}{3}, \frac{1}{3}, \frac{7}{3}\right) \amp = \left(-\frac{5}{3}\right)^2 + \left(\frac{1}{3}\right)^2 + \left(\frac{7}{3}\right)^2 \\
+\amp = \frac{25}{9} + \frac{1}{9} + \frac{49}{9} = \frac{75}{9} = \frac{25}{3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-8-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.8.14.8.41.1"><a href="#ws-sec148-8-2" title="Copy heading and permalink for Solution 14.8.14.8.41.1" aria-label="Copy heading and permalink for Solution 14.8.14.8.41.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.41"><a href="#ws-sec148-8" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.41" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.41">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec148-9"><h4 class="heading"><span class="codenumber">14.8.45<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec148-9-1">The cylinder <span class="process-math">\(x^2 + y^2 = 1\)</span> intersects the plane <span class="process-math">\(x + z = 1\)</span> in an ellipse. Find the point on such an ellipse that is farthest from the origin.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.45"><a href="#ws-sec148-9" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.45" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.45">🔗</a></div></article><div class="autopermalink" data-description="Worksheet 14.8: Assigned Problems for Section 14.8"><a href="#ws-sec148" title="Copy heading and permalink for Worksheet 14.8: Assigned Problems for Section 14.8" aria-label="Copy heading and permalink for Worksheet 14.8: Assigned Problems for Section 14.8">🔗</a></div></section>
+<details id="ws-sec148-9-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec148-9-2-1">We want to maximize the distance to the origin, which means maximizing <span class="process-math">\(f(x,y,z) = x^2+y^2+z^2\text{.}\)</span> The constraints are <span class="process-math">\(g(x,y,z) = x^2+y^2 - 1 = 0\)</span> and <span class="process-math">\(h(x,y,z) = x+z - 1 = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-9-2-2">
+<div class="para">Set up <span class="process-math">\(\nabla f = \lambda \nabla g + \mu \nabla h\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec148-9-2-2-2">
+\begin{align*}
+2x \amp = 2\lambda x + \mu \\
+2y \amp = 2\lambda y \\
+2z \amp = \mu 
+\end{align*}
+</div>
+<div class="para">From the second equation, <span class="process-math">\(2y(1 - \lambda) = 0\text{,}\)</span> so either <span class="process-math">\(y = 0\)</span> or <span class="process-math">\(\lambda = 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-9-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec148-9-2-3">
+<dfn class="terminology">Case 1:</dfn> <span class="process-math">\(y = 0\text{.}\)</span> Substitute this into the first constraint: <span class="process-math">\(x^2 + 0^2 = 1 \implies x = \pm 1\text{.}\)</span> If <span class="process-math">\(x = 1\text{,}\)</span> the second constraint gives <span class="process-math">\(1 + z = 1 \implies z = 0\text{.}\)</span> This is point <span class="process-math">\((1, 0, 0)\text{.}\)</span> If <span class="process-math">\(x = -1\text{,}\)</span> the second constraint gives <span class="process-math">\(-1 + z = 1 \implies z = 2\text{.}\)</span> This is point <span class="process-math">\((-1, 0, 2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-9-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec148-9-2-4">
+<dfn class="terminology">Case 2:</dfn> <span class="process-math">\(\lambda = 1\text{.}\)</span> Substitute into the first equation: <span class="process-math">\(2x = 2(1)x + \mu \implies \mu = 0\text{.}\)</span> If <span class="process-math">\(\mu = 0\text{,}\)</span> the third equation gives <span class="process-math">\(2z = 0 \implies z = 0\text{.}\)</span> Using the second constraint, <span class="process-math">\(x + 0 = 1 \implies x = 1\text{.}\)</span> Using the first constraint, <span class="process-math">\(1^2 + y^2 = 1 \implies y = 0\text{.}\)</span> We arrive at the point <span class="process-math">\((1,0,0)\)</span> again.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-9-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec148-9-2-5">
+<div class="para">Evaluating the distance squared for our two candidates:</div>
+<div class="displaymath process-math" id="ws-sec148-9-2-5-1">
+\begin{align*}
+f(1,0,0) \amp = 1^2 + 0^2 + 0^2 = 1 \\
+f(-1,0,2) \amp = (-1)^2 + 0^2 + 2^2 = 5 
+\end{align*}
+</div>
+<div class="para">The maximum distance squared is 5, so the farthest point from the origin is <span class="process-math">\((-1, 0, 2)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec148-9-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 14.8.14.8.45.1"><a href="#ws-sec148-9-2" title="Copy heading and permalink for Solution 14.8.14.8.45.1" aria-label="Copy heading and permalink for Solution 14.8.14.8.45.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 14.8.14.8.45"><a href="#ws-sec148-9" title="Copy heading and permalink for Worksheet Exercise 14.8.14.8.45" aria-label="Copy heading and permalink for Worksheet Exercise 14.8.14.8.45">🔗</a></div></article><div class="autopermalink" data-description="Worksheet 14.8: Assigned Problems for Section 14.8"><a href="#ws-sec148" title="Copy heading and permalink for Worksheet 14.8: Assigned Problems for Section 14.8" aria-label="Copy heading and permalink for Worksheet 14.8: Assigned Problems for Section 14.8">🔗</a></div></section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec148-LagrangeMultipliers.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch15-MultipleIntegration.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>

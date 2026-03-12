@@ -397,7 +397,54 @@ eBookConfig.enable_chatcodes =  false;
 </div></section><article class="exercise exercise-like" id="ws-sec154-3"><h4 class="heading"><span class="codenumber">15.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec154-3-1">Sketch the region <span class="process-math">\(\c{D} = \left\{ (x,y) \in \R^2 \mid x \geq 0, \, y \geq 0 \, \text{and } x^2 + y^2 \leq 4 \right\}\)</span> and integrate <span class="process-math">\(f(x,y) = xy\)</span> over <span class="process-math">\(\c{D}\)</span> using polar coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.4.3"><a href="#ws-sec154-3" title="Copy heading and permalink for Worksheet Exercise 15.4.3" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-4"><h4 class="heading"><span class="codenumber">15.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec154-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec154-3-2-1">The region <span class="process-math">\(\c{D}\)</span> is bounded by <span class="process-math">\(x \geq 0\)</span> (the right half-plane), <span class="process-math">\(y \geq 0\)</span> (the upper half-plane), and <span class="process-math">\(x^2 + y^2 \leq 4\)</span> (a disk of radius 2). This describes exactly the quarter-circle of radius 2 in the first quadrant.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-3-2-2">
+<div class="para">In polar coordinates, this region is defined by the limits:</div>
+<div class="displaymath process-math" id="ws-sec154-3-2-2-1">
+\begin{align*}
+0 \amp \leq r \leq 2 \\
+0 \amp \leq \theta \leq \frac{\pi}{2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-3-2-3">
+<div class="para">We convert the integrand <span class="process-math">\(f(x,y) = xy\)</span> using <span class="process-math">\(x = r\cos\theta\)</span> and <span class="process-math">\(y = r\sin\theta\text{.}\)</span> This gives <span class="process-math">\(f(r,\theta) = (r\cos\theta)(r\sin\theta) = r^2\cos\theta\sin\theta\text{.}\)</span> Remembering to include the extra <span class="process-math">\(r\)</span> from the differential <span class="process-math">\(dA = r\,dr\,d\theta\text{,}\)</span> we set up the iterated integral:</div>
+<div class="displaymath process-math" id="ws-sec154-3-2-3-7">
+\begin{align*}
+\iint_\c{D} xy \, dA \amp= \int_0^{\pi/2} \int_0^2 (r^2\cos\theta\sin\theta) r \, dr \, d\theta \\
+\amp= \int_0^{\pi/2} \int_0^2 r^3\cos\theta\sin\theta \, dr \, d\theta 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-3-2-4">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-3-2-4-2">
+\begin{align*}
+\int_0^2 r^3\cos\theta\sin\theta \, dr \amp= \left[ \frac{1}{4}r^4\cos\theta\sin\theta \right]_{r=0}^{r=2} \\
+\amp= \frac{1}{4}(16)\cos\theta\sin\theta - 0 = 4\cos\theta\sin\theta 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-3-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-3-2-5">
+<div class="para">Substitute this into the outer integral and evaluate with respect to <span class="process-math">\(\theta\text{.}\)</span> We can use the double angle identity <span class="process-math">\(2\sin\theta\cos\theta = \sin(2\theta)\)</span> to rewrite <span class="process-math">\(4\cos\theta\sin\theta\)</span> as <span class="process-math">\(2\sin(2\theta)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-3-2-5-5">
+\begin{align*}
+\int_0^{\pi/2} 2\sin(2\theta) \, d\theta \amp= \left[ -\cos(2\theta) \right]_0^{\pi/2} \\
+\amp= -\cos\left(2\cdot\frac{\pi}{2}\right) - (-\cos(0)) \\
+\amp= -\cos(\pi) + \cos(0) = -(-1) + 1 = 2 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-3-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.3.1"><a href="#ws-sec154-3-2" title="Copy heading and permalink for Solution 15.4.3.1" aria-label="Copy heading and permalink for Solution 15.4.3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.4.3"><a href="#ws-sec154-3" title="Copy heading and permalink for Worksheet Exercise 15.4.3" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-4"><h4 class="heading"><span class="codenumber">15.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec154-4-1">
 <div class="para">For the following integral, sketch the region of integration and evaluate by changing to polar coordinates.</div>
 <div class="displaymath process-math" id="ws-sec154-4-1-1">
@@ -407,20 +454,265 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.4.13"><a href="#ws-sec154-4" title="Copy heading and permalink for Worksheet Exercise 15.4.13" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.13">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-5"><h4 class="heading"><span class="codenumber">15.4.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec154-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec154-4-2-1">
+<div class="para">Let’s analyze the given limits of integration:</div>
+<div class="displaymath process-math" id="ws-sec154-4-2-1-1">
+\begin{align*}
+-1 \amp \leq x \leq 2 \\
+0 \amp \leq y \leq \sqrt{4 - x^2} 
+\end{align*}
+</div>
+<div class="para">The <span class="process-math">\(y\)</span>-bounds tell us the region lies in the upper half-plane (<span class="process-math">\(y \geq 0\)</span>) and is bounded above by the semicircle <span class="process-math">\(y = \sqrt{4 - x^2}\text{,}\)</span> which corresponds to a circle of radius 2. However, <span class="process-math">\(x\)</span> only goes from <span class="process-math">\(-1\)</span> to <span class="process-math">\(2\text{,}\)</span> meaning we do not have the full upper half-circle (which would go from <span class="process-math">\(x = -2\)</span> to <span class="process-math">\(x = 2\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec154-4-2-2">In polar coordinates, the radius clearly goes from <span class="process-math">\(r = 0\)</span> to <span class="process-math">\(r = 2\text{.}\)</span> The angle <span class="process-math">\(\theta\)</span> starts at the positive <span class="process-math">\(x\)</span>-axis where <span class="process-math">\(x = 2\)</span> (so <span class="process-math">\(\theta = 0\)</span>). It sweeps counterclockwise until it hits the point on the circle where <span class="process-math">\(x = -1\text{.}\)</span> Using <span class="process-math">\(x = r\cos\theta\text{,}\)</span> we have <span class="process-math">\(-1 = 2\cos\theta \implies \cos\theta = -\frac{1}{2}\text{.}\)</span> In the upper half-plane, this corresponds to the angle <span class="process-math">\(\theta = \frac{2\pi}{3}\text{.}\)</span> Thus, our bounds are <span class="process-math">\(0 \leq r \leq 2\)</span> and <span class="process-math">\(0 \leq \theta \leq \frac{2\pi}{3}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-4-2-3">
+<div class="para">Converting the integrand, we know <span class="process-math">\(x^2 + y^2 = r^2\text{.}\)</span> Including the polar differential <span class="process-math">\(dA = r\,dr\,d\theta\text{,}\)</span> the integral becomes:</div>
+<div class="displaymath process-math" id="ws-sec154-4-2-3-3">
+\begin{gather*}
+\int_0^{2\pi/3} \int_0^2 (r^2) r \, dr \, d\theta = \int_0^{2\pi/3} \int_0^2 r^3 \, dr \, d\theta 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-4-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-4-2-4">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-4-2-4-2">
+\begin{align*}
+\int_0^2 r^3 \, dr \amp= \left[ \frac{1}{4}r^4 \right]_0^2 = \frac{1}{4}(16) - 0 = 4 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-4-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-4-2-5">
+<div class="para">Substitute this into the outer integral and evaluate with respect to <span class="process-math">\(\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-4-2-5-2">
+\begin{align*}
+\int_0^{2\pi/3} 4 \, d\theta \amp= \Big[ 4\theta \Big]_0^{2\pi/3} = 4\left(\frac{2\pi}{3}\right) - 0 = \frac{8\pi}{3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-4-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.13.1"><a href="#ws-sec154-4-2" title="Copy heading and permalink for Solution 15.4.13.1" aria-label="Copy heading and permalink for Solution 15.4.13.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.4.13"><a href="#ws-sec154-4" title="Copy heading and permalink for Worksheet Exercise 15.4.13" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.13">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-5"><h4 class="heading"><span class="codenumber">15.4.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec154-5-1">Calculate the integral of <span class="process-math">\(f(x,y) = x - y\)</span> over the region <span class="process-math">\(\c{D} = \left\{ (x,y) \in \R^2 \mid x^2 + y^2 \leq 1 \text{ and } x + y \geq1\right\}\)</span> by changing to polar coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.4.19"><a href="#ws-sec154-5" title="Copy heading and permalink for Worksheet Exercise 15.4.19" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-6"><h4 class="heading"><span class="codenumber">15.4.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec154-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec154-5-2-1">The region <span class="process-math">\(\c{D}\)</span> is bounded by the circle <span class="process-math">\(x^2 + y^2 = 1\)</span> and the line <span class="process-math">\(x + y = 1\text{.}\)</span> These two curves intersect at <span class="process-math">\((1,0)\)</span> and <span class="process-math">\((0,1)\text{,}\)</span> so the region lies entirely in the first quadrant, making our angular bounds <span class="process-math">\(0 \leq \theta \leq \frac{\pi}{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-5-2-2">
+<div class="para">For a fixed angle <span class="process-math">\(\theta\text{,}\)</span> a ray from the origin enters the region at the line and exits at the circle.</div>
+<ul class="disc" id="ws-sec154-5-2-2-2">
+<li id="ws-sec154-5-2-2-2-1">
+<div class="para" id="p-derived-ws-sec154-5-2-2-2-1">Outer bound (circle): <span class="process-math">\(x^2 + y^2 = 1 \implies r = 1\)</span>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ws-sec154-5-2-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ws-sec154-5-2-2-2-2">
+<div class="para" id="p-derived-ws-sec154-5-2-2-2-2">Inner bound (line): <span class="process-math">\(x + y = 1 \implies r\cos\theta + r\sin\theta = 1 \implies r(\cos\theta + \sin\theta) = 1 \implies r = \frac{1}{\cos\theta + \sin\theta}\)</span>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ws-sec154-5-2-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-5-2-3">
+<div class="para">The integrand converts to <span class="process-math">\(x - y = r\cos\theta - r\sin\theta = r(\cos\theta - \sin\theta)\text{.}\)</span> With <span class="process-math">\(dA = r\,dr\,d\theta\text{,}\)</span> the integral is:</div>
+<div class="displaymath process-math" id="ws-sec154-5-2-3-3">
+\begin{gather*}
+\int_0^{\pi/2} \int_{\frac{1}{\cos\theta + \sin\theta}}^1 \big(r(\cos\theta - \sin\theta)\big) r \, dr \, d\theta = \int_0^{\pi/2} \int_{\frac{1}{\cos\theta + \sin\theta}}^1 r^2(\cos\theta - \sin\theta) \, dr \, d\theta 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-5-2-4">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-5-2-4-2">
+\begin{align*}
+\int_{\frac{1}{\cos\theta + \sin\theta}}^1 r^2(\cos\theta - \sin\theta) \, dr \amp= \left[ \frac{1}{3}r^3(\cos\theta - \sin\theta) \right]_{r=\frac{1}{\cos\theta + \sin\theta}}^{r=1} \\
+\amp= \frac{1}{3}(1)^3(\cos\theta - \sin\theta) - \frac{1}{3}\left(\frac{1}{\cos\theta + \sin\theta}\right)^3(\cos\theta - \sin\theta) \\
+\amp= \frac{1}{3}(\cos\theta - \sin\theta) - \frac{1}{3}\frac{\cos\theta - \sin\theta}{(\cos\theta + \sin\theta)^3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-5-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-5-2-5">
+<div class="para">Substitute this into the outer integral:</div>
+<div class="displaymath process-math" id="ws-sec154-5-2-5-1">
+\begin{gather*}
+\int_0^{\pi/2} \left( \frac{1}{3}(\cos\theta - \sin\theta) - \frac{1}{3}\frac{\cos\theta - \sin\theta}{(\cos\theta + \sin\theta)^3} \right) \, d\theta 
+\end{gather*}
+</div>
+<div class="para">We can split this into two integrals and evaluate. For the first part:</div>
+<div class="displaymath process-math" id="ws-sec154-5-2-5-2">
+\begin{align*}
+\int_0^{\pi/2} \frac{1}{3}(\cos\theta - \sin\theta) \, d\theta \amp= \frac{1}{3} \Big[ \sin\theta + \cos\theta \Big]_0^{\pi/2} \\
+\amp= \frac{1}{3}\big(\sin(\pi/2) + \cos(\pi/2)\big) - \frac{1}{3}\big(\sin(0) + \cos(0)\big) \\
+\amp= \frac{1}{3}(1 + 0) - \frac{1}{3}(0 + 1) = 0 
+\end{align*}
+</div>
+<div class="para">For the second part, let <span class="process-math">\(u = \cos\theta + \sin\theta\text{.}\)</span> Then <span class="process-math">\(du = (-\sin\theta + \cos\theta)\,d\theta = (\cos\theta - \sin\theta)\,d\theta\text{.}\)</span> Let’s look at the bounds: when <span class="process-math">\(\theta = 0\text{,}\)</span> <span class="process-math">\(u = 1+0=1\text{.}\)</span> When <span class="process-math">\(\theta = \pi/2\text{,}\)</span> <span class="process-math">\(u = 0+1=1\text{.}\)</span> Since the upper and lower limits of integration are the same (<span class="process-math">\(u\)</span> goes from 1 to 1), the definite integral evaluates exactly to 0!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-5-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec154-5-2-6">Therefore, the total integral is <span class="process-math">\(0 - 0 = 0\text{.}\)</span> (This makes perfect sense geometrically, as the region is symmetric across the line <span class="process-math">\(y = x\text{,}\)</span> but the function <span class="process-math">\(x - y\)</span> has perfectly opposite values across that same line, causing everything to cancel out!).<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-5-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.19.1"><a href="#ws-sec154-5-2" title="Copy heading and permalink for Solution 15.4.19.1" aria-label="Copy heading and permalink for Solution 15.4.19.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.4.19"><a href="#ws-sec154-5" title="Copy heading and permalink for Worksheet Exercise 15.4.19" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-6"><h4 class="heading"><span class="codenumber">15.4.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec154-6-1">Evaluate <span class="process-math">\(\ds \iint_\c{D} \sqrt{x^2 + y^2} \, dA\text{,}\)</span> where <span class="process-math">\(\c{D}\)</span> is the domain in the following figure.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<details id="ws-sec154-6-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
-<div class="para" id="ws-sec154-6-2-1">Find the equation of the inner circle in polar coordinates and treat the right and left parts of the region separately.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/sec154_HW23_Diagram.png" class="contained"></div>
+<details id="ws-sec154-6-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="ws-sec154-6-3-1">Find the equation of the inner circle in polar coordinates and treat the right and left parts of the region separately.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Hint 15.4.23.1"><a href="#ws-sec154-6-2" title="Copy heading and permalink for Hint 15.4.23.1" aria-label="Copy heading and permalink for Hint 15.4.23.1">🔗</a></div>
+<div class="autopermalink" data-description="Hint 15.4.23.1"><a href="#ws-sec154-6-3" title="Copy heading and permalink for Hint 15.4.23.1" aria-label="Copy heading and permalink for Hint 15.4.23.1">🔗</a></div>
+</div></details><details id="ws-sec154-6-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec154-6-4-1">Looking at the figure, the domain <span class="process-math">\(\c{D}\)</span> is bounded by the outer circle <span class="process-math">\(x^2 + y^2 = 4\)</span> (which has a radius of 2), and it contains an empty "hole." The hole is a circle centered at <span class="process-math">\((1, 0)\)</span> with a radius of 1.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-6-4-2">
+<div class="para">Let’s find the polar equation for the inner boundary. The Cartesian equation is <span class="process-math">\((x - 1)^2 + y^2 = 1\text{.}\)</span> Expanding this yields:</div>
+<div class="displaymath process-math" id="ws-sec154-6-4-2-2">
+\begin{align*}
+x^2 - 2x + 1 + y^2 \amp= 1 \\
+x^2 + y^2 \amp= 2x 
+\end{align*}
+</div>
+<div class="para">Substituting our polar conversions (<span class="process-math">\(x^2 + y^2 = r^2\)</span> and <span class="process-math">\(x = r\cos\theta\)</span>):</div>
+<div class="displaymath process-math" id="ws-sec154-6-4-2-5">
+\begin{align*}
+r^2 \amp= 2r\cos\theta \implies r = 2\cos\theta 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec154-6-4-3">Notice that the inner circle <span class="process-math">\(r = 2\cos\theta\)</span> only exists in the right half-plane (where <span class="process-math">\(-\pi/2 \leq \theta \leq \pi/2\)</span>). In the left half-plane (where <span class="process-math">\(\pi/2 \leq \theta \leq 3\pi/2\)</span>), there is no hole, so the region goes all the way from the origin <span class="process-math">\(r = 0\)</span> to the outer edge <span class="process-math">\(r = 2\text{.}\)</span> Therefore, we must split our region into two parts: a left half and a right half.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-6-4-4">
+<div class="para">The integrand is <span class="process-math">\(\sqrt{x^2+y^2} = r\text{.}\)</span> With the polar differential <span class="process-math">\(dA = r\,dr\,d\theta\text{,}\)</span> the function we are integrating becomes <span class="process-math">\(r \cdot r = r^2\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-6-4-4-4">
+\begin{gather*}
+\iint_\c{D} \sqrt{x^2+y^2} \, dA = \int_{\pi/2}^{3\pi/2} \int_0^2 r^2 \, dr \, d\theta + \int_{-\pi/2}^{\pi/2} \int_{2\cos\theta}^2 r^2 \, dr \, d\theta 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-6-4-5">
+<div class="para"><dfn class="terminology">Part 1: The Left Half</dfn></div>
+<div class="displaymath process-math" id="ws-sec154-6-4-5-2">
+\begin{align*}
+\int_{\pi/2}^{3\pi/2} \int_0^2 r^2 \, dr \, d\theta \amp= \int_{\pi/2}^{3\pi/2} \left[ \frac{1}{3}r^3 \right]_0^2 \, d\theta \\
+\amp= \int_{\pi/2}^{3\pi/2} \frac{8}{3} \, d\theta \\
+\amp= \left[ \frac{8}{3}\theta \right]_{\pi/2}^{3\pi/2} = \frac{8}{3}\left(\frac{3\pi}{2}\right) - \frac{8}{3}\left(\frac{\pi}{2}\right) = \frac{8\pi}{3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-6-4-6">
+<div class="para"><dfn class="terminology">Part 2: The Right Half</dfn></div>
+<div class="displaymath process-math" id="ws-sec154-6-4-6-2">
+\begin{align*}
+\int_{-\pi/2}^{\pi/2} \int_{2\cos\theta}^2 r^2 \, dr \, d\theta \amp= \int_{-\pi/2}^{\pi/2} \left[ \frac{1}{3}r^3 \right]_{2\cos\theta}^2 \, d\theta \\
+\amp= \int_{-\pi/2}^{\pi/2} \left( \frac{8}{3} - \frac{8}{3}\cos^3\theta \right) \, d\theta 
+\end{align*}
+</div>
+<div class="para">We separate this into two integrals:</div>
+<div class="displaymath process-math" id="ws-sec154-6-4-6-3">
+\begin{gather*}
+\int_{-\pi/2}^{\pi/2} \frac{8}{3} \, d\theta - \frac{8}{3} \int_{-\pi/2}^{\pi/2} \cos^3\theta \, d\theta 
+\end{gather*}
+</div>
+<div class="para">The first integral is simply <span class="process-math">\(\frac{8}{3}(\pi) = \frac{8\pi}{3}\text{.}\)</span> For the second integral, we use the Pythagorean identity <span class="process-math">\(\cos^2\theta = 1 - \sin^2\theta\)</span> to set up a <span class="process-math">\(u\)</span>-substitution where <span class="process-math">\(u = \sin\theta\)</span> and <span class="process-math">\(du = \cos\theta \, d\theta\text{.}\)</span> When <span class="process-math">\(\theta = -\pi/2\text{,}\)</span> <span class="process-math">\(u = -1\text{.}\)</span> When <span class="process-math">\(\theta = \pi/2\text{,}\)</span> <span class="process-math">\(u = 1\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-6-4-6-13">
+\begin{align*}
+\int_{-\pi/2}^{\pi/2} \cos^2\theta \cos\theta \, d\theta \amp= \int_{-1}^1 (1 - u^2) \, du \\
+\amp= \left[ u - \frac{1}{3}u^3 \right]_{-1}^1 \\
+\amp= \left( 1 - \frac{1}{3} \right) - \left( -1 - \left(-\frac{1}{3}\right) \right) = \frac{2}{3} - \left(-\frac{2}{3}\right) = \frac{4}{3} 
+\end{align*}
+</div>
+<div class="para">So the right half evaluates to <span class="process-math">\(\frac{8\pi}{3} - \frac{8}{3}\left(\frac{4}{3}\right) = \frac{8\pi}{3} - \frac{32}{9}\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-6-4-7">
+<div class="para">
+<dfn class="terminology">Total Area</dfn> Summing the left half and the right half:</div>
+<div class="displaymath process-math" id="ws-sec154-6-4-7-3">
+\begin{align*}
+\iint_\c{D} \sqrt{x^2+y^2} \, dA \amp= \frac{8\pi}{3} + \left( \frac{8\pi}{3} - \frac{32}{9} \right) \\
+\amp= \frac{16\pi}{3} - \frac{32}{9} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-6-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.23.1"><a href="#ws-sec154-6-4" title="Copy heading and permalink for Solution 15.4.23.1" aria-label="Copy heading and permalink for Solution 15.4.23.1">🔗</a></div>
 </div></details><div class="autopermalink" data-description="Worksheet Exercise 15.4.23"><a href="#ws-sec154-6" title="Copy heading and permalink for Worksheet Exercise 15.4.23" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.23">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-7"><h4 class="heading"><span class="codenumber">15.4.29<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec154-7-1">Use cylindrical coordinates to evaluate <span class="process-math">\(\ds \iiint_\c{W} x \, dV\)</span> where <span class="process-math">\(\c{W} = \left\{ (x,y,z) \in \R^3 \mid x^2 + y^2 \leq 16 , \, x \geq 0, \, y \geq 0, \, -3 \leq z \leq 3 \right\}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.4.29"><a href="#ws-sec154-7" title="Copy heading and permalink for Worksheet Exercise 15.4.29" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.29">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-8"><h4 class="heading"><span class="codenumber">15.4.35<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec154-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec154-7-2-1">The region <span class="process-math">\(\c{W}\)</span> is bounded by the cylinder <span class="process-math">\(x^2 + y^2 = 16\)</span> (radius 4) in the first quadrant (<span class="process-math">\(x \geq 0\text{,}\)</span> <span class="process-math">\(y \geq 0\)</span>), between the planes <span class="process-math">\(z = -3\)</span> and <span class="process-math">\(z = 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-7-2-2">
+<div class="para">In cylindrical coordinates, this region translates beautifully to constant bounds:</div>
+<div class="displaymath process-math" id="ws-sec154-7-2-2-1">
+\begin{align*}
+0 \amp \leq r \leq 4 \\
+0 \amp \leq \theta \leq \frac{\pi}{2} \\
+-3 \amp \leq z \leq 3 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-7-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-7-2-3">
+<div class="para">The integrand is <span class="process-math">\(x = r\cos\theta\text{.}\)</span> With <span class="process-math">\(dV = r\,dz\,dr\,d\theta\text{,}\)</span> the integral is:</div>
+<div class="displaymath process-math" id="ws-sec154-7-2-3-3">
+\begin{align*}
+\iiint_\c{W} x \, dV \amp= \int_0^{\pi/2} \int_0^4 \int_{-3}^3 (r\cos\theta) r \, dz \, dr \, d\theta \\
+\amp= \int_0^{\pi/2} \int_0^4 \int_{-3}^3 r^2\cos\theta \, dz \, dr \, d\theta 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-7-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-7-2-4">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-7-2-4-2">
+\begin{align*}
+\int_{-3}^3 r^2\cos\theta \, dz \amp= \Big[ r^2z\cos\theta \Big]_{z=-3}^{z=3} \\
+\amp= r^2(3)\cos\theta - r^2(-3)\cos\theta = 6r^2\cos\theta 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-7-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-7-2-5">
+<div class="para">Evaluate the middle integral with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-7-2-5-2">
+\begin{align*}
+\int_0^4 6r^2\cos\theta \, dr \amp= \left[ 2r^3\cos\theta \right]_0^4 \\
+\amp= 2(64)\cos\theta - 0 = 128\cos\theta 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-7-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-7-2-6">
+<div class="para">Evaluate the outer integral with respect to <span class="process-math">\(\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-7-2-6-2">
+\begin{align*}
+\int_0^{\pi/2} 128\cos\theta \, d\theta \amp= \Big[ 128\sin\theta \Big]_0^{\pi/2} \\
+\amp= 128\sin(\pi/2) - 128\sin(0) = 128(1) - 0 = 128 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-7-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.29.1"><a href="#ws-sec154-7-2" title="Copy heading and permalink for Solution 15.4.29.1" aria-label="Copy heading and permalink for Solution 15.4.29.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.4.29"><a href="#ws-sec154-7" title="Copy heading and permalink for Worksheet Exercise 15.4.29" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.29">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-8"><h4 class="heading"><span class="codenumber">15.4.35<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec154-8-1">
 <div class="para">Express the triple integral in cylindrical coordinates.</div>
 <div class="displaymath process-math" id="ws-sec154-8-1-1">
@@ -430,10 +722,102 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.4.35"><a href="#ws-sec154-8" title="Copy heading and permalink for Worksheet Exercise 15.4.35" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.35">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-9"><h4 class="heading"><span class="codenumber">15.4.39<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec154-8-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec154-8-2-1">
+<div class="para">We need to translate the rectangular bounds into cylindrical bounds. The given limits are:</div>
+<div class="displaymath process-math" id="ws-sec154-8-2-1-1">
+\begin{align*}
+-1 \amp \leq x \leq 1 \\
+0 \amp \leq y \leq \sqrt{1 - x^2} \\
+0 \amp \leq z \leq x^2 + y^2 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec154-8-2-2">The <span class="process-math">\(z\)</span>-bounds are <span class="process-math">\(0 \leq z \leq x^2 + y^2\text{.}\)</span> In cylindrical coordinates, <span class="process-math">\(x^2 + y^2 = r^2\text{,}\)</span> so our new <span class="process-math">\(z\)</span>-bounds are <span class="process-math">\(0 \leq z \leq r^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-8-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec154-8-2-3">The <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> bounds describe the projection of the solid on the <span class="process-math">\(xy\)</span>-plane. <span class="process-math">\(y\)</span> ranges from <span class="process-math">\(0\)</span> to the upper semicircle <span class="process-math">\(y = \sqrt{1 - x^2}\)</span> (which is <span class="process-math">\(x^2 + y^2 = 1\)</span>). <span class="process-math">\(x\)</span> sweeps completely from <span class="process-math">\(-1\)</span> to <span class="process-math">\(1\text{.}\)</span> This outlines the top half of the unit disk. In cylindrical (polar) coordinates, this is <span class="process-math">\(0 \leq r \leq 1\)</span> and <span class="process-math">\(0 \leq \theta \leq \pi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-8-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-8-2-4">
+<div class="para">Substituting <span class="process-math">\(x = r\cos\theta\)</span> and <span class="process-math">\(y = r\sin\theta\)</span> into the function, and adding the <span class="process-math">\(r\)</span> for the volume differential <span class="process-math">\(dV = r\,dz\,dr\,d\theta\text{,}\)</span> the integral becomes:</div>
+<div class="displaymath process-math" id="ws-sec154-8-2-4-5">
+\begin{gather*}
+\int_0^\pi \int_0^1 \int_0^{r^2} f(r\cos\theta, r\sin\theta, z) r \, dz \, dr \, d\theta 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-8-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.35.1"><a href="#ws-sec154-8-2" title="Copy heading and permalink for Solution 15.4.35.1" aria-label="Copy heading and permalink for Solution 15.4.35.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.4.35"><a href="#ws-sec154-8" title="Copy heading and permalink for Worksheet Exercise 15.4.35" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.35">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-9"><h4 class="heading"><span class="codenumber">15.4.39<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec154-9-1">Find the volume of the region appearing between the two surfaces in the following figure.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.4.39"><a href="#ws-sec154-9" title="Copy heading and permalink for Worksheet Exercise 15.4.39" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.39">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-10"><h4 class="heading"><span class="codenumber">15.4.49<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/sec154_HW39_Diagram.png" class="contained"></div>
+<details id="ws-sec154-9-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec154-9-3-1">Looking at the figure, the green solid is bounded between two paraboloids. The top surface (which opens downward from <span class="process-math">\(z=8\)</span>) is <span class="process-math">\(z = 8 - x^2 - y^2\text{.}\)</span> The bottom surface (which opens upward from the origin) is <span class="process-math">\(z = x^2 + y^2\text{.}\)</span> Because of the rotational symmetry, cylindrical coordinates are perfect here.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-9-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-9-3-2">
+<div class="para">In cylindrical coordinates, the top surface is <span class="process-math">\(z = 8 - r^2\)</span> and the bottom surface is <span class="process-math">\(z = r^2\text{.}\)</span> To find the projection of the solid onto the <span class="process-math">\(xy\)</span>-plane, we set the two <span class="process-math">\(z\)</span>-equations equal to find their intersection curve:</div>
+<div class="displaymath process-math" id="ws-sec154-9-3-2-5">
+\begin{align*}
+8 - r^2 \amp= r^2 \\
+8 \amp= 2r^2 \implies r^2 = 4 \implies r = 2 
+\end{align*}
+</div>
+<div class="para">So the projection is a disk of radius 2. Our bounds are:</div>
+<div class="displaymath process-math" id="ws-sec154-9-3-2-6">
+\begin{align*}
+0 \amp\leq \theta \leq 2\pi \\
+0 \amp\leq r \leq 2 \\
+r^2 \amp\leq z \leq 8 - r^2 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-9-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-9-3-3">
+<div class="para">We set up the iterated integral. Since we are finding volume, the function is <span class="process-math">\(1\text{.}\)</span> With <span class="process-math">\(dV = r \, dz \, dr \, d\theta\text{,}\)</span> the integral is:</div>
+<div class="displaymath process-math" id="ws-sec154-9-3-3-3">
+\begin{gather*}
+V = \int_0^{2\pi} \int_0^2 \int_{r^2}^{8-r^2} r \, dz \, dr \, d\theta 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-9-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-9-3-4">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(z\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-9-3-4-2">
+\begin{align*}
+\int_{r^2}^{8-r^2} r \, dz \amp= \Big[ rz \Big]_{z=r^2}^{z=8-r^2} \\
+\amp= r(8 - r^2) - r(r^2) \\
+\amp= 8r - 2r^3 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-9-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-9-3-5">
+<div class="para">Evaluate the middle integral with respect to <span class="process-math">\(r\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-9-3-5-2">
+\begin{align*}
+\int_0^2 (8r - 2r^3) \, dr \amp= \left[ 4r^2 - \frac{1}{2}r^4 \right]_0^2 \\
+\amp= \left( 4(4) - \frac{1}{2}(16) \right) - 0 \\
+\amp= 16 - 8 = 8 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-9-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-9-3-6">
+<div class="para">Evaluate the outer integral with respect to <span class="process-math">\(\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-9-3-6-2">
+\begin{align*}
+\int_0^{2\pi} 8 \, d\theta \amp= \Big[ 8\theta \Big]_0^{2\pi} = 16\pi 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-9-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.39.1"><a href="#ws-sec154-9-3" title="Copy heading and permalink for Solution 15.4.39.1" aria-label="Copy heading and permalink for Solution 15.4.39.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.4.39"><a href="#ws-sec154-9" title="Copy heading and permalink for Worksheet Exercise 15.4.39" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.39">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-10"><h4 class="heading"><span class="codenumber">15.4.49<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec154-10-1">
 <div class="para">Use spherical coordinates to calculate</div>
 <div class="displaymath process-math" id="ws-sec154-10-1-1">
@@ -445,7 +829,64 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.4.49"><a href="#ws-sec154-10" title="Copy heading and permalink for Worksheet Exercise 15.4.49" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.49">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-11"><h4 class="heading"><span class="codenumber">15.4.53<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec154-10-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec154-10-2-1">
+<div class="para">The region <span class="process-math">\(\c{W}\)</span> is bounded by <span class="process-math">\(x^2 + y^2 + z^2 \leq 2z\text{.}\)</span> Let’s convert this inequality into spherical coordinates. We know <span class="process-math">\(x^2 + y^2 + z^2 = \rho^2\)</span> and <span class="process-math">\(z = \rho\cos\phi\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-10-2-1-5">
+\begin{align*}
+\rho^2 \amp \leq 2\rho\cos\phi \\
+\rho \amp \leq 2\cos\phi 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-10-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec154-10-2-2">Because <span class="process-math">\(\rho\)</span> represents a positive distance, we must have <span class="process-math">\(\rho \geq 0\text{,}\)</span> which means <span class="process-math">\(2\cos\phi \geq 0\text{.}\)</span> This restricts <span class="process-math">\(\phi\)</span> to the range <span class="process-math">\(0 \leq \phi \leq \frac{\pi}{2}\text{.}\)</span> There are no restrictions on <span class="process-math">\(\theta\text{,}\)</span> so it sweeps completely around from <span class="process-math">\(0\)</span> to <span class="process-math">\(2\pi\text{.}\)</span> (Geometrically, this region is a sphere of radius 1 sitting exactly on top of the origin, centered at <span class="process-math">\((0,0,1)\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-10-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-10-2-3">
+<div class="para">The integrand is <span class="process-math">\(\sqrt{x^2 + y^2 + z^2} = \sqrt{\rho^2} = \rho\text{.}\)</span> Including the spherical volume differential <span class="process-math">\(dV = \rho^2\sin\phi \, d\rho \, d\phi \, d\theta\text{,}\)</span> the integral is:</div>
+<div class="displaymath process-math" id="ws-sec154-10-2-3-3">
+\begin{align*}
+\iiint_\c{W} \sqrt{x^2 + y^2 + z^2} \, dV \amp= \int_0^{2\pi} \int_0^{\pi/2} \int_0^{2\cos\phi} (\rho) \rho^2\sin\phi \, d\rho \, d\phi \, d\theta \\
+\amp= \int_0^{2\pi} \int_0^{\pi/2} \int_0^{2\cos\phi} \rho^3\sin\phi \, d\rho \, d\phi \, d\theta 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-10-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-10-2-4">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(\rho\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-10-2-4-2">
+\begin{align*}
+\int_0^{2\cos\phi} \rho^3\sin\phi \, d\rho \amp= \left[ \frac{1}{4}\rho^4\sin\phi \right]_{\rho=0}^{\rho=2\cos\phi} \\
+\amp= \frac{1}{4}(2\cos\phi)^4\sin\phi - 0 = 4\cos^4\phi\sin\phi 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-10-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-10-2-5">
+<div class="para">Evaluate the middle integral with respect to <span class="process-math">\(\phi\text{.}\)</span> Let <span class="process-math">\(u = \cos\phi\text{,}\)</span> then <span class="process-math">\(du = -\sin\phi \, d\phi\text{.}\)</span> The bounds change from <span class="process-math">\(\cos(0)=1\)</span> to <span class="process-math">\(\cos(\pi/2)=0\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-10-2-5-6">
+\begin{align*}
+\int_0^{\pi/2} 4\cos^4\phi\sin\phi \, d\phi \amp= -4 \int_1^0 u^4 \, du = 4 \int_0^1 u^4 \, du \\
+\amp= 4 \left[ \frac{1}{5}u^5 \right]_0^1 = \frac{4}{5} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-10-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-10-2-6">
+<div class="para">Evaluate the outer integral with respect to <span class="process-math">\(\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-10-2-6-2">
+\begin{align*}
+\int_0^{2\pi} \frac{4}{5} \, d\theta \amp= \left[ \frac{4}{5}\theta \right]_0^{2\pi} = \frac{8\pi}{5} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-10-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.49.1"><a href="#ws-sec154-10-2" title="Copy heading and permalink for Solution 15.4.49.1" aria-label="Copy heading and permalink for Solution 15.4.49.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.4.49"><a href="#ws-sec154-10" title="Copy heading and permalink for Worksheet Exercise 15.4.49" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.49">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec154-11"><h4 class="heading"><span class="codenumber">15.4.53<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="ws-sec154-11-1">
 <div class="para">Calculate the integral of</div>
 <div class="displaymath process-math" id="ws-sec154-11-1-1">
@@ -457,7 +898,78 @@ f(x,y,z) = z\lp x^2 + y^2 + z^2 \rp^{-\frac{3}{2}}
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.4.53"><a href="#ws-sec154-11" title="Copy heading and permalink for Worksheet Exercise 15.4.53" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.53">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 15.4"><a href="#ws-sec154" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 15.4" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 15.4">🔗</a></div></section>
+<details id="ws-sec154-11-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec154-11-2-1">The region is the part of the ball <span class="process-math">\(x^2 + y^2 + z^2 \leq 16\)</span> that lies above the plane <span class="process-math">\(z = 2\text{.}\)</span> In spherical coordinates, the ball translates to <span class="process-math">\(\rho \leq 4\text{.}\)</span> The plane translates to <span class="process-math">\(\rho\cos\phi = 2 \implies \rho = \frac{2}{\cos\phi} = 2\sec\phi\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-11-2-2">
+<div class="para">To find the angle <span class="process-math">\(\phi\)</span> where these two bounding surfaces intersect, we set them equal:</div>
+<div class="displaymath process-math" id="ws-sec154-11-2-2-2">
+\begin{align*}
+4 \amp= \frac{2}{\cos\phi} \implies \cos\phi = \frac{1}{2} \implies \phi = \frac{\pi}{3} 
+\end{align*}
+</div>
+<div class="para">So, the angle <span class="process-math">\(\phi\)</span> drops from the <span class="process-math">\(z\)</span>-axis (<span class="process-math">\(\phi = 0\)</span>) out to the intersection edge (<span class="process-math">\(\phi = \pi/3\)</span>). For any fixed angle <span class="process-math">\(\phi\)</span> in this range, a ray from the origin pierces into the solid through the flat plane (<span class="process-math">\(\rho = 2\sec\phi\)</span>) and exits through the spherical dome (<span class="process-math">\(\rho = 4\)</span>). <span class="process-math">\(\theta\)</span> sweeps the full circle from <span class="process-math">\(0\)</span> to <span class="process-math">\(2\pi\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-11-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-11-2-3">
+<div class="para">The integrand is <span class="process-math">\(z(x^2 + y^2 + z^2)^{-3/2}\text{.}\)</span> Substituting <span class="process-math">\(z = \rho\cos\phi\)</span> and <span class="process-math">\(x^2 + y^2 + z^2 = \rho^2\text{,}\)</span> the function becomes:</div>
+<div class="displaymath process-math" id="ws-sec154-11-2-3-4">
+\begin{gather*}
+(\rho\cos\phi)(\rho^2)^{-3/2} = (\rho\cos\phi)(\rho^{-3}) = \rho^{-2}\cos\phi 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-11-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-11-2-4">
+<div class="para">Including <span class="process-math">\(dV = \rho^2\sin\phi \, d\rho \, d\phi \, d\theta\text{,}\)</span> the integral is:</div>
+<div class="displaymath process-math" id="ws-sec154-11-2-4-2">
+\begin{align*}
+\int_0^{2\pi} \int_0^{\pi/3} \int_{2\sec\phi}^4 \big(\rho^{-2}\cos\phi\big) \big(\rho^2\sin\phi\big) \, d\rho \, d\phi \, d\theta \amp= \int_0^{2\pi} \int_0^{\pi/3} \int_{2\sec\phi}^4 \cos\phi\sin\phi \, d\rho \, d\phi \, d\theta 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-11-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-11-2-5">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(\rho\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-11-2-5-2">
+\begin{align*}
+\int_{2\sec\phi}^4 \cos\phi\sin\phi \, d\rho \amp= \Big[ \rho\cos\phi\sin\phi \Big]_{\rho=2\sec\phi}^{\rho=4} \\
+\amp= 4\cos\phi\sin\phi - (2\sec\phi)\cos\phi\sin\phi \\
+\amp= 4\cos\phi\sin\phi - 2\left(\frac{1}{\cos\phi}\right)\cos\phi\sin\phi \\
+\amp= 4\cos\phi\sin\phi - 2\sin\phi 
+\end{align*}
+</div>
+<div class="para">We can rewrite <span class="process-math">\(4\cos\phi\sin\phi\)</span> as <span class="process-math">\(2\sin(2\phi)\)</span> using the double angle identity. This gives <span class="process-math">\(2\sin(2\phi) - 2\sin\phi\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-11-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-11-2-6">
+<div class="para">Evaluate the middle integral with respect to <span class="process-math">\(\phi\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-11-2-6-2">
+\begin{align*}
+\int_0^{\pi/3} \big(2\sin(2\phi) - 2\sin\phi\big) \, d\phi \amp= \Big[ -\cos(2\phi) + 2\cos\phi \Big]_0^{\pi/3} \\
+\amp= \left( -\cos(2\pi/3) + 2\cos(\pi/3) \right) - \left( -\cos(0) + 2\cos(0) \right) \\
+\amp= \left( -\left(-\frac{1}{2}\right) + 2\left(\frac{1}{2}\right) \right) - \left( -1 + 2(1) \right) \\
+\amp= \left( \frac{1}{2} + 1 \right) - (1) = \frac{1}{2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-11-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec154-11-2-7">
+<div class="para">Evaluate the outer integral with respect to <span class="process-math">\(\theta\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec154-11-2-7-2">
+\begin{align*}
+\int_0^{2\pi} \frac{1}{2} \, d\theta \amp= \left[ \frac{1}{2}\theta \right]_0^{2\pi} = \pi 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec154-11-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.4.53.1"><a href="#ws-sec154-11-2" title="Copy heading and permalink for Solution 15.4.53.1" aria-label="Copy heading and permalink for Solution 15.4.53.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.4.53"><a href="#ws-sec154-11" title="Copy heading and permalink for Worksheet Exercise 15.4.53" aria-label="Copy heading and permalink for Worksheet Exercise 15.4.53">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 15.4"><a href="#ws-sec154" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 15.4" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 15.4">🔗</a></div></section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec154-IntegrationPolarCylindricalSphericalCoordinates.html#subsec-Integration_SphericalCoordinates" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>

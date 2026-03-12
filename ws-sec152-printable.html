@@ -398,13 +398,161 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="ws-sec152-3-1">Express the domain <span class="process-math">\(\c{D}\)</span> in the following figure as both a vertically simple region and a horizontally simple region, and evaluate the integral of <span class="process-math">\(f(x,y) = xy\)</span> over <span class="process-math">\(\c{D}\)</span> as an iterated integral in two ways.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="ws-sec152-3-2"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/sec152_HW3_Diagram.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.2.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 15.2.16"><a href="#ws-sec152-3-2" title="Copy heading and permalink for Figure 15.2.16" aria-label="Copy heading and permalink for Figure 15.2.16">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Worksheet Exercise 15.2.3"><a href="#ws-sec152-3" title="Copy heading and permalink for Worksheet Exercise 15.2.3" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-4"><h4 class="heading"><span class="codenumber">15.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.2.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 15.2.16"><a href="#ws-sec152-3-2" title="Copy heading and permalink for Figure 15.2.16" aria-label="Copy heading and permalink for Figure 15.2.16">🔗</a></div></figcaption></figure><details id="ws-sec152-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec152-3-3-1">
+<div class="para">
+<dfn class="terminology">Vertically Simple:</dfn> To express the domain as a vertically simple region, we bound <span class="process-math">\(x\)</span> between two constants, and <span class="process-math">\(y\)</span> between two functions of <span class="process-math">\(x\text{.}\)</span> Looking at the figure, <span class="process-math">\(x\)</span> ranges from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{.}\)</span> For a given <span class="process-math">\(x\)</span> in this interval, <span class="process-math">\(y\)</span> goes from the <span class="process-math">\(x\)</span>-axis (<span class="process-math">\(y = 0\)</span>) up to the curve <span class="process-math">\(y = 1 - x^2\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-3-3-1-14">
+\begin{align*}
+\iint_\c{D} xy \, dA \amp = \int_0^1 \int_0^{1-x^2} xy \, dy \, dx 
+\end{align*}
+</div>
+<div class="para">Evaluating the inner integral with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-3-3-1-16">
+\begin{align*}
+\int_0^{1-x^2} xy \, dy \amp = \left[ \frac{1}{2}xy^2 \right]_{y=0}^{y=1-x^2} \\
+\amp = \frac{1}{2}x(1 - x^2)^2 = \frac{1}{2}x(1 - 2x^2 + x^4) = \frac{1}{2}x - x^3 + \frac{1}{2}x^5 
+\end{align*}
+</div>
+<div class="para">Evaluating the outer integral with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-3-3-1-18">
+\begin{align*}
+\int_0^1 \left( \frac{1}{2}x - x^3 + \frac{1}{2}x^5 \right) \, dx \amp = \left[ \frac{1}{4}x^2 - \frac{1}{4}x^4 + \frac{1}{12}x^6 \right]_0^1 \\
+\amp = \frac{1}{4} - \frac{1}{4} + \frac{1}{12} = \frac{1}{12} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-3-3-2">
+<div class="para">
+<dfn class="terminology">Horizontally Simple:</dfn> To express it as a horizontally simple region, we bound <span class="process-math">\(y\)</span> between two constants, and <span class="process-math">\(x\)</span> between two functions of <span class="process-math">\(y\text{.}\)</span> First, we solve the curve equation for <span class="process-math">\(x\text{:}\)</span> <span class="process-math">\(y = 1 - x^2 \implies x^2 = 1 - y\text{.}\)</span> Since we are in the first quadrant, <span class="process-math">\(x = \sqrt{1 - y}\text{.}\)</span> <span class="process-math">\(y\)</span> ranges from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{.}\)</span> For a given <span class="process-math">\(y\text{,}\)</span> <span class="process-math">\(x\)</span> goes from the <span class="process-math">\(y\)</span>-axis (<span class="process-math">\(x = 0\)</span>) out to the curve <span class="process-math">\(x = \sqrt{1 - y}\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-3-3-2-17">
+\begin{align*}
+\iint_\c{D} xy \, dA \amp = \int_0^1 \int_0^{\sqrt{1-y}} xy \, dx \, dy 
+\end{align*}
+</div>
+<div class="para">Evaluating the inner integral with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-3-3-2-19">
+\begin{align*}
+\int_0^{\sqrt{1-y}} xy \, dx \amp = \left[ \frac{1}{2}x^2y \right]_{x=0}^{x=\sqrt{1-y}} \\
+\amp = \frac{1}{2}(\sqrt{1-y})^2 y = \frac{1}{2}(1 - y)y = \frac{1}{2}y - \frac{1}{2}y^2 
+\end{align*}
+</div>
+<div class="para">Evaluating the outer integral with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-3-3-2-21">
+\begin{align*}
+\int_0^1 \left( \frac{1}{2}y - \frac{1}{2}y^2 \right) \, dy \amp = \left[ \frac{1}{4}y^2 - \frac{1}{6}y^3 \right]_0^1 \\
+\amp = \frac{1}{4} - \frac{1}{6} = \frac{3}{12} - \frac{2}{12} = \frac{1}{12} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-3-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec152-3-3-3">As expected by Fubini’s Theorem, both orders of integration yield the exact same result: <span class="process-math">\(\frac{1}{12}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-3-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.3.1"><a href="#ws-sec152-3-3" title="Copy heading and permalink for Solution 15.2.3.1" aria-label="Copy heading and permalink for Solution 15.2.3.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.3"><a href="#ws-sec152-3" title="Copy heading and permalink for Worksheet Exercise 15.2.3" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.3">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-4"><h4 class="heading"><span class="codenumber">15.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec152-4-1">Integrate <span class="process-math">\(f(x,y) = x\)</span> over the region bounded by <span class="process-math">\(y = x^2\)</span> and <span class="process-math">\(y = x + 2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.2.9"><a href="#ws-sec152-4" title="Copy heading and permalink for Worksheet Exercise 15.2.9" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.9">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-5"><h4 class="heading"><span class="codenumber">15.2.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec152-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec152-4-2-1">
+<div class="para">First, we find the intersection points of the two curves to determine the limits of integration. Setting them equal:</div>
+<div class="displaymath process-math" id="ws-sec152-4-2-1-1">
+\begin{align*}
+x^2 \amp = x + 2 \\
+x^2 - x - 2 \amp = 0 \\
+(x - 2)(x + 1) \amp = 0 \implies x = 2, \text{ or } x = -1 
+\end{align*}
+</div>
+<div class="para">So, <span class="process-math">\(x\)</span> ranges from <span class="process-math">\(-1\)</span> to <span class="process-math">\(2\text{.}\)</span> On this interval, the line <span class="process-math">\(y = x + 2\)</span> is above the parabola <span class="process-math">\(y = x^2\text{.}\)</span> This forms a vertically simple region.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-4-2-2">
+<div class="para">We set up the iterated integral:</div>
+<div class="displaymath process-math" id="ws-sec152-4-2-2-1">
+\begin{align*}
+\iint_\c{D} x \, dA \amp = \int_{-1}^2 \int_{x^2}^{x+2} x \, dy \, dx 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-4-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-4-2-3">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-4-2-3-2">
+\begin{align*}
+\int_{x^2}^{x+2} x \, dy \amp = \Big[ xy \Big]_{y=x^2}^{y=x+2} \\
+\amp = x(x + 2) - x(x^2) = x^2 + 2x - x^3 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-4-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-4-2-4">
+<div class="para">Evaluate the outer integral with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-4-2-4-2">
+\begin{align*}
+\int_{-1}^2 (x^2 + 2x - x^3) \, dx \amp = \left[ \frac{1}{3}x^3 + x^2 - \frac{1}{4}x^4 \right]_{-1}^2 \\
+\amp = \left( \frac{8}{3} + 4 - \frac{16}{4} \right) - \left( -\frac{1}{3} + 1 - \frac{1}{4} \right) \\
+\amp = \left( \frac{8}{3} + 4 - 4 \right) - \left( \frac{2}{3} - \frac{1}{4} \right) \\
+\amp = \frac{8}{3} - \frac{5}{12} = \frac{32 - 5}{12} = \frac{27}{12} = \frac{9}{4} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-4-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.9.1"><a href="#ws-sec152-4-2" title="Copy heading and permalink for Solution 15.2.9.1" aria-label="Copy heading and permalink for Solution 15.2.9.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.9"><a href="#ws-sec152-4" title="Copy heading and permalink for Worksheet Exercise 15.2.9" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.9">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-5"><h4 class="heading"><span class="codenumber">15.2.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec152-5-1">Calculate the double integral of <span class="process-math">\(f(x,y) = x + y\)</span> over the domain <span class="process-math">\(\c{D} = \left\{(x,y) \mid x^2 + y^2 \leq 4, \, y \geq 0 \right\}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.2.13"><a href="#ws-sec152-5" title="Copy heading and permalink for Worksheet Exercise 15.2.13" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.13">🔗</a></div></article><div class="exercisegroup" id="ws-sec152-6">
+<details id="ws-sec152-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec152-5-2-1">The domain <span class="process-math">\(\c{D}\)</span> is the top half of a circle of radius 2, centered at the origin. As a vertically simple region, <span class="process-math">\(x\)</span> ranges from <span class="process-math">\(-2\)</span> to <span class="process-math">\(2\text{,}\)</span> and <span class="process-math">\(y\)</span> goes from the <span class="process-math">\(x\)</span>-axis (<span class="process-math">\(y = 0\)</span>) up to the upper semicircle (<span class="process-math">\(y = \sqrt{4 - x^2}\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-5-2-2">
+<div class="para">Setting up the integral:</div>
+<div class="displaymath process-math" id="ws-sec152-5-2-2-1">
+\begin{align*}
+\iint_\c{D} (x + y) \, dA \amp = \int_{-2}^2 \int_0^{\sqrt{4-x^2}} (x + y) \, dy \, dx 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-5-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-5-2-3">
+<div class="para">Evaluate the inner integral:</div>
+<div class="displaymath process-math" id="ws-sec152-5-2-3-1">
+\begin{align*}
+\int_0^{\sqrt{4-x^2}} (x + y) \, dy \amp = \left[ xy + \frac{1}{2}y^2 \right]_0^{\sqrt{4-x^2}} \\
+\amp = x\sqrt{4 - x^2} + \frac{1}{2}(4 - x^2) - 0 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-5-2-4">
+<div class="para">Now evaluate the outer integral:</div>
+<div class="displaymath process-math" id="ws-sec152-5-2-4-1">
+\begin{gather*}
+\int_{-2}^2 \left( x\sqrt{4 - x^2} + \frac{4 - x^2}{2} \right) \, dx 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-5-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-5-2-5">
+<div class="para">Notice that <span class="process-math">\(x\sqrt{4 - x^2}\)</span> is an <em class="emphasis">odd</em> function over a symmetric interval <span class="process-math">\([-2, 2]\text{,}\)</span> so its integral is exactly 0! We only need to integrate the second part, which is an <em class="emphasis">even</em> function:</div>
+<div class="displaymath process-math" id="ws-sec152-5-2-5-5">
+\begin{align*}
+\int_{-2}^2 \frac{4 - x^2}{2} \, dx \amp = 2 \int_0^2 \left( 2 - \frac{1}{2}x^2 \right) \, dx \\
+\amp = 2 \left[ 2x - \frac{1}{6}x^3 \right]_0^2 \\
+\amp = 2 \left( 4 - \frac{8}{6} \right) = 2 \left( \frac{24 - 8}{6} \right) = 2 \left( \frac{16}{6} \right) = \frac{16}{3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-5-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.13.1"><a href="#ws-sec152-5-2" title="Copy heading and permalink for Solution 15.2.13.1" aria-label="Copy heading and permalink for Solution 15.2.13.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.13"><a href="#ws-sec152-5" title="Copy heading and permalink for Worksheet Exercise 15.2.13" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.13">🔗</a></div></article><div class="exercisegroup" id="ws-sec152-6">
 <h4 class="heading"><span class="title">Exercise Group.</span></h4>
 <div class="introduction" id="ws-sec152-6-1"><div class="para" id="ws-sec152-6-1-1">In the following exercises, compute the double integral of <span class="process-math">\(f(x,y)\)</span> over the domain <span class="process-math">\(\c{D}\)</span> indicated.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
@@ -413,42 +561,457 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="ws-sec152-6-2-1">
 <span class="process-math">\(f(x,y) = x\, ; \qquad 0 \leq x \leq 1, \, 1 \leq y \leq e^{x^2}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.2.19"><a href="#ws-sec152-6-2" title="Copy heading and permalink for Worksheet Exercise 15.2.19" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-6-3"><h5 class="heading"><span class="codenumber">15.2.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
+<details id="ws-sec152-6-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec152-6-2-2-1">
+<div class="para">The domain is already set up perfectly as a vertically simple region.</div>
+<div class="displaymath process-math" id="ws-sec152-6-2-2-1-1">
+\begin{gather*}
+\int_0^1 \int_1^{e^{x^2}} x \, dy \, dx 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-6-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-6-2-2-2">
+<div class="para">Evaluate the inner integral:</div>
+<div class="displaymath process-math" id="ws-sec152-6-2-2-2-1">
+\begin{align*}
+\int_1^{e^{x^2}} x \, dy \amp = \Big[ xy \Big]_{y=1}^{y=e^{x^2}} = x\left(e^{x^2} - 1\right) 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-6-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-6-2-2-3">
+<div class="para">Evaluate the outer integral using <span class="process-math">\(u\)</span>-substitution. Let <span class="process-math">\(u = x^2\text{,}\)</span> then <span class="process-math">\(du = 2x \, dx\text{,}\)</span> so <span class="process-math">\(\frac{1}{2}du = x \, dx\text{.}\)</span> The bounds remain 0 to 1.</div>
+<div class="displaymath process-math" id="ws-sec152-6-2-2-3-5">
+\begin{align*}
+\int_0^1 x\left(e^{x^2} - 1\right) \, dx \amp = \frac{1}{2} \int_0^1 (e^u - 1) \, du \\
+\amp = \frac{1}{2} \Big[ e^u - u \Big]_0^1 \\
+\amp = \frac{1}{2} \big( (e^1 - 1) - (e^0 - 0) \big) \\
+\amp = \frac{1}{2} (e - 1 - 1) = \frac{e - 2}{2} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-6-2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.19.1"><a href="#ws-sec152-6-2-2" title="Copy heading and permalink for Solution 15.2.19.1" aria-label="Copy heading and permalink for Solution 15.2.19.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.19"><a href="#ws-sec152-6-2" title="Copy heading and permalink for Worksheet Exercise 15.2.19" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.19">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-6-3"><h5 class="heading"><span class="codenumber">15.2.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h5>
 <div class="para" id="ws-sec152-6-3-1">
 <span class="process-math">\(f(x,y) = e^{x + y} \, \qquad \text{bounded by } y = x - 1, \, y = 12 - x, \, \text{for } 2 \leq y \leq 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.2.23"><a href="#ws-sec152-6-3" title="Copy heading and permalink for Worksheet Exercise 15.2.23" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.23">🔗</a></div></article>
+<details id="ws-sec152-6-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec152-6-3-2-1">
+<div class="para">The region is bounded by <span class="process-math">\(y = x - 1\)</span> and <span class="process-math">\(y = 12 - x\)</span> between <span class="process-math">\(y = 2\)</span> and <span class="process-math">\(y = 4\text{.}\)</span> Because the <span class="process-math">\(y\)</span>-bounds are constants, this is naturally a horizontally simple region! We should express <span class="process-math">\(x\)</span> in terms of <span class="process-math">\(y\text{:}\)</span>
+</div>
+<ul class="disc" id="ws-sec152-6-3-2-1-8">
+<li id="ws-sec152-6-3-2-1-8-1">
+<div class="para" id="p-derived-ws-sec152-6-3-2-1-8-1">
+<span class="process-math">\(y = x - 1 \implies x = y + 1\)</span> (Left boundary)</div>
+<div class="autopermalink" data-description="Item"><a href="#ws-sec152-6-3-2-1-8-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ws-sec152-6-3-2-1-8-2">
+<div class="para" id="p-derived-ws-sec152-6-3-2-1-8-2">
+<span class="process-math">\(y = 12 - x \implies x = 12 - y\)</span> (Right boundary)</div>
+<div class="autopermalink" data-description="Item"><a href="#ws-sec152-6-3-2-1-8-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-6-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-6-3-2-2">
+<div class="para">Setting up the integral:</div>
+<div class="displaymath process-math" id="ws-sec152-6-3-2-2-1">
+\begin{gather*}
+\int_2^4 \int_{y+1}^{12-y} e^{x+y} \, dx \, dy 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-6-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-6-3-2-3">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-6-3-2-3-2">
+\begin{align*}
+\int_{y+1}^{12-y} e^{x+y} \, dx \amp = \Big[ e^{x+y} \Big]_{x=y+1}^{x=12-y} \\
+\amp = e^{(12-y)+y} - e^{(y+1)+y} \\
+\amp = e^{12} - e^{2y+1} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-6-3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-6-3-2-4">
+<div class="para">Evaluate the outer integral with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-6-3-2-4-2">
+\begin{align*}
+\int_2^4 (e^{12} - e^{2y+1}) \, dy \amp = \left[ ye^{12} - \frac{1}{2}e^{2y+1} \right]_2^4 \\
+\amp = \left( 4e^{12} - \frac{1}{2}e^{9} \right) - \left( 2e^{12} - \frac{1}{2}e^{5} \right) \\
+\amp = 2e^{12} - \frac{1}{2}e^{9} + \frac{1}{2}e^{5} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-6-3-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.23.1"><a href="#ws-sec152-6-3-2" title="Copy heading and permalink for Solution 15.2.23.1" aria-label="Copy heading and permalink for Solution 15.2.23.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.23"><a href="#ws-sec152-6-3" title="Copy heading and permalink for Worksheet Exercise 15.2.23" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.23">🔗</a></div></article>
 </div>
 <div class="autopermalink" data-description="Exercise Group 15.2.19–15.2.23"><a href="#ws-sec152-6" title="Copy heading and permalink for Exercise Group 15.2.19–15.2.23" aria-label="Copy heading and permalink for Exercise Group 15.2.19–15.2.23">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="ws-sec152-7"><h4 class="heading"><span class="codenumber">15.2.27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec152-7-1">Consider the double integral <span class="process-math">\(\ds \int_4^9 \int_2^{\sqrt{y}} f(x,y) \, dx \, dy\text{.}\)</span> Sketch the domain of integration and express as an iterated integral in the opposite order.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.2.27"><a href="#ws-sec152-7" title="Copy heading and permalink for Worksheet Exercise 15.2.27" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.27">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-8"><h4 class="heading"><span class="codenumber">15.2.31<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec152-7-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec152-7-2-1">
+<div class="para">The current bounds describe a horizontally simple region:</div>
+<div class="displaymath process-math" id="ws-sec152-7-2-1-1">
+\begin{align*}
+4 \amp \leq y \leq 9 \\
+2 \amp \leq x \leq \sqrt{y} 
+\end{align*}
+</div>
+<div class="para">The region is bounded on the right by the parabola <span class="process-math">\(x = \sqrt{y}\)</span> (or <span class="process-math">\(y = x^2\)</span>), on the left by the vertical line <span class="process-math">\(x = 2\text{,}\)</span> and on the top and bottom by <span class="process-math">\(y = 9\)</span> and <span class="process-math">\(y = 4\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-7-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec152-7-2-2">If we change this to a vertically simple region (reversing the order of integration to <span class="process-math">\(dy\, dx\)</span>), we need to find the constant bounds for <span class="process-math">\(x\text{.}\)</span> The smallest <span class="process-math">\(x\)</span> is given by the left boundary <span class="process-math">\(x = 2\text{.}\)</span> The largest <span class="process-math">\(x\)</span> occurs where <span class="process-math">\(y = 9\)</span> hits <span class="process-math">\(x = \sqrt{y}\text{,}\)</span> which is <span class="process-math">\(x = \sqrt{9} = 3\text{.}\)</span> So, <span class="process-math">\(2 \leq x \leq 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-7-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-7-2-3">
+<div class="para">For a fixed <span class="process-math">\(x\)</span> in this interval, <span class="process-math">\(y\)</span> goes from the parabola <span class="process-math">\(y = x^2\)</span> at the bottom, up to the horizontal line <span class="process-math">\(y = 9\)</span> at the top. The reversed integral is:</div>
+<div class="displaymath process-math" id="ws-sec152-7-2-3-5">
+\begin{gather*}
+\int_2^3 \int_{x^2}^9 f(x,y) \, dy \, dx 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-7-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.27.1"><a href="#ws-sec152-7-2" title="Copy heading and permalink for Solution 15.2.27.1" aria-label="Copy heading and permalink for Solution 15.2.27.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.27"><a href="#ws-sec152-7" title="Copy heading and permalink for Worksheet Exercise 15.2.27" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.27">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-8"><h4 class="heading"><span class="codenumber">15.2.31<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec152-8-1">Compute the integral of <span class="process-math">\(f(x,y) = \lp \ln(y) \rp^{-1}\)</span> over the domain <span class="process-math">\(\c{D}\)</span> bounded by <span class="process-math">\(y = e^x\)</span> and <span class="process-math">\(y = e^{\sqrt{x}}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-8-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <details id="ws-sec152-8-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
 <div class="para" id="ws-sec152-8-2-1">Choose the order of integration that enables you to evaluate the integral.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Hint 15.2.31.1"><a href="#ws-sec152-8-2" title="Copy heading and permalink for Hint 15.2.31.1" aria-label="Copy heading and permalink for Hint 15.2.31.1">🔗</a></div>
+</div></details><details id="ws-sec152-8-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec152-8-3-1">We are given <span class="process-math">\(f(x,y) = \frac{1}{\ln(y)}\)</span> and boundaries <span class="process-math">\(y = e^x\)</span> and <span class="process-math">\(y = e^{\sqrt{x}}\text{.}\)</span> Notice that for <span class="process-math">\(0 \lt x \lt 1\text{,}\)</span> <span class="process-math">\(\sqrt{x} \gt x\text{,}\)</span> so <span class="process-math">\(e^{\sqrt{x}}\)</span> is the top boundary. They intersect at <span class="process-math">\(x = 0\)</span> (where <span class="process-math">\(y=1\)</span>) and <span class="process-math">\(x = 1\)</span> (where <span class="process-math">\(y=e\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec152-8-3-2">If we set this up as a vertically simple region (<span class="process-math">\(dy \, dx\)</span>), we would have to integrate <span class="process-math">\(\frac{1}{\ln(y)}\)</span> with respect to <span class="process-math">\(y\text{,}\)</span> which does not have an elementary antiderivative. So, we must set it up as a horizontally simple region (<span class="process-math">\(dx \, dy\)</span>)!<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-8-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-8-3-3">
+<div class="para">Solving the boundaries for <span class="process-math">\(x\text{:}\)</span>
+</div>
+<ul class="disc" id="ws-sec152-8-3-3-2">
+<li id="ws-sec152-8-3-3-2-1">
+<div class="para" id="p-derived-ws-sec152-8-3-3-2-1">
+<span class="process-math">\(y = e^x \implies x = \ln(y)\)</span> (This is the right boundary)</div>
+<div class="autopermalink" data-description="Item"><a href="#ws-sec152-8-3-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ws-sec152-8-3-3-2-2">
+<div class="para" id="p-derived-ws-sec152-8-3-3-2-2">
+<span class="process-math">\(y = e^{\sqrt{x}} \implies \sqrt{x} = \ln(y) \implies x = (\ln(y))^2\)</span> (This is the left boundary)</div>
+<div class="autopermalink" data-description="Item"><a href="#ws-sec152-8-3-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">Our <span class="process-math">\(y\)</span> bounds are constants from <span class="process-math">\(y = 1\)</span> to <span class="process-math">\(y = e\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-8-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-8-3-4">
+<div class="para">Setting up and evaluating the new integral:</div>
+<div class="displaymath process-math" id="ws-sec152-8-3-4-1">
+\begin{align*}
+\int_1^e \int_{(\ln(y))^2}^{\ln(y)} \frac{1}{\ln(y)} \, dx \, dy \amp = \int_1^e \left[ \frac{x}{\ln(y)} \right]_{x=(\ln(y))^2}^{x=\ln(y)} \, dy \\
+\amp = \int_1^e \left( \frac{\ln(y)}{\ln(y)} - \frac{(\ln(y))^2}{\ln(y)} \right) \, dy \\
+\amp = \int_1^e (1 - \ln(y)) \, dy 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-8-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-8-3-5">
+<div class="para">Using Integration by Parts for <span class="process-math">\(\ln(y)\)</span> (recall <span class="process-math">\(\int \ln(y) dy = y\ln(y) - y\)</span>):</div>
+<div class="displaymath process-math" id="ws-sec152-8-3-5-3">
+\begin{align*}
+\int_1^e (1 - \ln(y)) \, dy \amp = \Big[ y - (y\ln(y) - y) \Big]_1^e \\
+\amp = \Big[ 2y - y\ln(y) \Big]_1^e \\
+\amp = (2e - e\ln(e)) - (2(1) - 1\ln(1)) \\
+\amp = (2e - e) - (2 - 0) = e - 2 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-8-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.31.1"><a href="#ws-sec152-8-3" title="Copy heading and permalink for Solution 15.2.31.1" aria-label="Copy heading and permalink for Solution 15.2.31.1">🔗</a></div>
 </div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.31"><a href="#ws-sec152-8" title="Copy heading and permalink for Worksheet Exercise 15.2.31" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.31">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-9"><h4 class="heading"><span class="codenumber">15.2.35<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec152-9-1">Consider the double integral <span class="process-math">\(\ds \int_0^1 \int_{y = x}^1 xe^{y^3} \, dy \, dx\text{.}\)</span> Sketch the domain of integration. Then change the order of integration and evaluate. Explain the simplification achieved by changing the order.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-9-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.2.35"><a href="#ws-sec152-9" title="Copy heading and permalink for Worksheet Exercise 15.2.35" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.35">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-10"><h4 class="heading"><span class="codenumber">15.2.41<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec152-9-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec152-9-2-1">
+<div class="para">The current bounds are:</div>
+<div class="displaymath process-math" id="ws-sec152-9-2-1-1">
+\begin{align*}
+0 \amp \leq x \leq 1 \\
+x \amp \leq y \leq 1 
+\end{align*}
+</div>
+<div class="para">This represents a triangle bounded by <span class="process-math">\(y = x\text{,}\)</span> <span class="process-math">\(y = 1\text{,}\)</span> and the <span class="process-math">\(y\)</span>-axis (<span class="process-math">\(x = 0\)</span>).</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec152-9-2-2">Integrating <span class="process-math">\(xe^{y^3}\)</span> with respect to <span class="process-math">\(y\)</span> first is impossible because <span class="process-math">\(e^{y^3}\)</span> lacks the <span class="process-math">\(y^2\)</span> term needed for a <span class="process-math">\(u\)</span>-substitution.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-9-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-9-2-3">
+<div class="para">Changing the order of integration to <span class="process-math">\(dx\, dy\text{,}\)</span> we view it as a horizontally simple region. The <span class="process-math">\(y\)</span>-values range from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{.}\)</span> For a fixed <span class="process-math">\(y\text{,}\)</span> the <span class="process-math">\(x\)</span>-values go from the <span class="process-math">\(y\)</span>-axis (<span class="process-math">\(x = 0\)</span>) to the line <span class="process-math">\(x = y\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-9-2-3-10">
+\begin{gather*}
+\int_0^1 \int_0^y xe^{y^3} \, dx \, dy 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-9-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-9-2-4">
+<div class="para">Evaluate the inner integral:</div>
+<div class="displaymath process-math" id="ws-sec152-9-2-4-1">
+\begin{align*}
+\int_0^y xe^{y^3} \, dx \amp = \left[ \frac{1}{2}x^2e^{y^3} \right]_{x=0}^{x=y} = \frac{1}{2}y^2e^{y^3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-9-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-9-2-5">
+<div class="para">Now, the outer integral is perfectly set up for <span class="process-math">\(u\)</span>-substitution! Let <span class="process-math">\(u = y^3\text{,}\)</span> then <span class="process-math">\(du = 3y^2 \, dy\text{,}\)</span> so <span class="process-math">\(\frac{1}{6}du = \frac{1}{2}y^2 \, dy\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-9-2-5-5">
+\begin{align*}
+\int_0^1 \frac{1}{2}y^2e^{y^3} \, dy \amp = \frac{1}{6} \int_0^1 e^u \, du \\
+\amp = \frac{1}{6} \Big[ e^u \Big]_0^1 = \frac{e - 1}{6} 
+\end{align*}
+</div>
+<div class="para">
+<dfn class="terminology">Explanation:</dfn> By integrating with respect to <span class="process-math">\(x\)</span> first, we naturally generated the <span class="process-math">\(y^2\)</span> term required to successfully perform <span class="process-math">\(u\)</span>-substitution on the <span class="process-math">\(e^{y^3}\)</span> term in the outer integral.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-9-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.35.1"><a href="#ws-sec152-9-2" title="Copy heading and permalink for Solution 15.2.35.1" aria-label="Copy heading and permalink for Solution 15.2.35.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.35"><a href="#ws-sec152-9" title="Copy heading and permalink for Worksheet Exercise 15.2.35" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.35">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-10"><h4 class="heading"><span class="codenumber">15.2.41<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec152-10-1">Calculate the double integral of <span class="process-math">\(f(x,y) = \dfrac{x}{y^2}\)</span> over the triangle indicated in the following figure.<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-10-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="ws-sec152-10-2"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="external/sec152_HW41_Diagram.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.2.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 15.2.17"><a href="#ws-sec152-10-2" title="Copy heading and permalink for Figure 15.2.17" aria-label="Copy heading and permalink for Figure 15.2.17">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Worksheet Exercise 15.2.41"><a href="#ws-sec152-10" title="Copy heading and permalink for Worksheet Exercise 15.2.41" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.41">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-11"><h4 class="heading"><span class="codenumber">15.2.47<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.2.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 15.2.17"><a href="#ws-sec152-10-2" title="Copy heading and permalink for Figure 15.2.17" aria-label="Copy heading and permalink for Figure 15.2.17">🔗</a></div></figcaption></figure><details id="ws-sec152-10-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec152-10-3-1">To integrate over the given triangle, we first need to determine the equations of the lines forming its boundaries. Looking at the figure, the vertices of the triangle are <span class="process-math">\((1,2)\text{,}\)</span> <span class="process-math">\((5,2)\text{,}\)</span> and <span class="process-math">\((3,4)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-10-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec152-10-3-2">Notice that if we treat this as a vertically simple region, the top boundary changes at <span class="process-math">\(x = 3\text{,}\)</span> meaning we would have to split the integral into two pieces. However, treating it as a horizontally simple region is much easier because the left and right boundaries are consistent from the bottom (<span class="process-math">\(y=2\)</span>) to the top (<span class="process-math">\(y=4\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-10-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-10-3-3">
+<div class="para">Let’s find the equations for the left and right boundaries in terms of <span class="process-math">\(y\text{:}\)</span>
+</div>
+<ul class="disc" id="ws-sec152-10-3-3-2">
+<li id="ws-sec152-10-3-3-2-1">
+<div class="para" id="p-derived-ws-sec152-10-3-3-2-1">Left boundary (line through <span class="process-math">\((1,2)\)</span> and <span class="process-math">\((3,4)\)</span>): Slope <span class="process-math">\(m = \frac{4-2}{3-1} = 1\text{.}\)</span> Point-slope form gives <span class="process-math">\(y - 2 = 1(x - 1) \implies y = x + 1\text{.}\)</span> Solving for <span class="process-math">\(x\text{,}\)</span> we get <span class="process-math">\(x = y - 1\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ws-sec152-10-3-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ws-sec152-10-3-3-2-2">
+<div class="para" id="p-derived-ws-sec152-10-3-3-2-2">Right boundary (line through <span class="process-math">\((5,2)\)</span> and <span class="process-math">\((3,4)\)</span>): Slope <span class="process-math">\(m = \frac{4-2}{3-5} = -1\text{.}\)</span> Point-slope form gives <span class="process-math">\(y - 2 = -1(x - 5) \implies y = -x + 7\text{.}\)</span> Solving for <span class="process-math">\(x\text{,}\)</span> we get <span class="process-math">\(x = 7 - y\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ws-sec152-10-3-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-10-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-10-3-4">
+<div class="para">Setting this up as a horizontally simple region, <span class="process-math">\(y\)</span> goes from <span class="process-math">\(2\)</span> to <span class="process-math">\(4\text{,}\)</span> and <span class="process-math">\(x\)</span> goes from <span class="process-math">\(y - 1\)</span> to <span class="process-math">\(7 - y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-10-3-4-7">
+\begin{align*}
+\iint_\c{D} \frac{x}{y^2} \, dA \amp = \int_2^4 \int_{y-1}^{7-y} x y^{-2} \, dx \, dy 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-10-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-10-3-5">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(x\)</span> (treating <span class="process-math">\(y^{-2}\)</span> as a constant):</div>
+<div class="displaymath process-math" id="ws-sec152-10-3-5-3">
+\begin{align*}
+\int_{y-1}^{7-y} x y^{-2} \, dx \amp = y^{-2} \left[ \frac{1}{2}x^2 \right]_{x=y-1}^{x=7-y} \\
+\amp = \frac{1}{2y^2} \Big( (7 - y)^2 - (y - 1)^2 \Big) \\
+\amp = \frac{1}{2y^2} \Big( (49 - 14y + y^2) - (y^2 - 2y + 1) \Big) \\
+\amp = \frac{1}{2y^2} (48 - 12y) = \frac{24}{y^2} - \frac{6}{y} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-10-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-10-3-6">
+<div class="para">Evaluate the outer integral with respect to <span class="process-math">\(y\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-10-3-6-2">
+\begin{align*}
+\int_2^4 \left( 24y^{-2} - 6y^{-1} \right) \, dy \amp = \Big[ -24y^{-1} - 6\ln|y| \Big]_2^4 \\
+\amp = \left( -\frac{24}{4} - 6\ln(4) \right) - \left( -\frac{24}{2} - 6\ln(2) \right) \\
+\amp = (-6 - 6\ln(4)) - (-12 - 6\ln(2)) \\
+\amp = 6 - 6\ln(4) + 6\ln(2) 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-10-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-10-3-7">
+<div class="para">We can simplify the natural logarithms. Since <span class="process-math">\(\ln(4) = \ln(2^2) = 2\ln(2)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-10-3-7-2">
+\begin{align*}
+6 - 6(2\ln(2)) + 6\ln(2) \amp = 6 - 12\ln(2) + 6\ln(2) \\
+\amp = 6 - 6\ln(2) 
+\end{align*}
+</div>
+<div class="para"><span class="process-math">\(\text{Final Answer: } 6 - 6\ln(2)\text{.}\)</span></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-10-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.41.1"><a href="#ws-sec152-10-3" title="Copy heading and permalink for Solution 15.2.41.1" aria-label="Copy heading and permalink for Solution 15.2.41.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.41"><a href="#ws-sec152-10" title="Copy heading and permalink for Worksheet Exercise 15.2.41" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.41">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-11"><h4 class="heading"><span class="codenumber">15.2.47<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec152-11-1">Find the volume of the region bounded by <span class="process-math">\(z = 16 - y\text{,}\)</span> <span class="process-math">\(z = y\text{,}\)</span> <span class="process-math">\(y = x^2\text{,}\)</span> and <span class="process-math">\(y = 8 - x^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-11-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.2.47"><a href="#ws-sec152-11" title="Copy heading and permalink for Worksheet Exercise 15.2.47" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.47">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-12"><h4 class="heading"><span class="codenumber">15.2.53<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec152-11-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec152-11-2-1">The volume is the double integral of the "top surface" minus the "bottom surface" over the region <span class="process-math">\(\c{D}\text{.}\)</span> The top surface is <span class="process-math">\(z = 16 - y\)</span> and the bottom surface is <span class="process-math">\(z = y\text{.}\)</span> Thus, the height of our solid is <span class="process-math">\(h(x,y) = (16 - y) - y = 16 - 2y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-11-2-2">
+<div class="para">The region <span class="process-math">\(\c{D}\)</span> on the <span class="process-math">\(xy\)</span>-plane is bounded by <span class="process-math">\(y = x^2\)</span> and <span class="process-math">\(y = 8 - x^2\text{.}\)</span> We find their intersection to get our <span class="process-math">\(x\)</span>-bounds:</div>
+<div class="displaymath process-math" id="ws-sec152-11-2-2-6">
+\begin{align*}
+x^2 \amp = 8 - x^2 \\
+2x^2 \amp = 8 \implies x^2 = 4 \implies x = \pm 2 
+\end{align*}
+</div>
+<div class="para">So, <span class="process-math">\(x\)</span> goes from <span class="process-math">\(-2\)</span> to <span class="process-math">\(2\text{.}\)</span> The parabola <span class="process-math">\(y = 8 - x^2\)</span> opens downward and is above <span class="process-math">\(y = x^2\)</span> on this interval.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-11-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-11-2-3">
+<div class="para">Setting up the integral:</div>
+<div class="displaymath process-math" id="ws-sec152-11-2-3-1">
+\begin{align*}
+V \amp = \int_{-2}^2 \int_{x^2}^{8-x^2} (16 - 2y) \, dy \, dx 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-11-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-11-2-4">
+<div class="para">Evaluate the inner integral:</div>
+<div class="displaymath process-math" id="ws-sec152-11-2-4-1">
+\begin{align*}
+\int_{x^2}^{8-x^2} (16 - 2y) \, dy \amp = \Big[ 16y - y^2 \Big]_{y=x^2}^{y=8-x^2} \\
+\amp = \Big( 16(8 - x^2) - (8 - x^2)^2 \Big) - \Big( 16(x^2) - (x^2)^2 \Big) \\
+\amp = \Big( 128 - 16x^2 - (64 - 16x^2 + x^4) \Big) - \Big( 16x^2 - x^4 \Big) \\
+\amp = (64 - x^4) - (16x^2 - x^4) \\
+\amp = 64 - 16x^2 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-11-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-11-2-5">
+<div class="para">Evaluate the outer integral:</div>
+<div class="displaymath process-math" id="ws-sec152-11-2-5-1">
+\begin{align*}
+\int_{-2}^2 (64 - 16x^2) \, dx \amp = \left[ 64x - \frac{16}{3}x^3 \right]_{-2}^2 \\
+\amp = \left( 128 - \frac{128}{3} \right) - \left( -128 + \frac{128}{3} \right) \\
+\amp = 256 - \frac{256}{3} = \frac{768 - 256}{3} = \frac{512}{3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-11-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.47.1"><a href="#ws-sec152-11-2" title="Copy heading and permalink for Solution 15.2.47.1" aria-label="Copy heading and permalink for Solution 15.2.47.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.47"><a href="#ws-sec152-11" title="Copy heading and permalink for Worksheet Exercise 15.2.47" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.47">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-12"><h4 class="heading"><span class="codenumber">15.2.53<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec152-12-1">Calculate the average value of <span class="process-math">\(f(x,y) = e^{x + y}\)</span> on the square domain <span class="process-math">\([0,1] \times [0,1]\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-12-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Worksheet Exercise 15.2.53"><a href="#ws-sec152-12" title="Copy heading and permalink for Worksheet Exercise 15.2.53" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.53">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-13"><h4 class="heading"><span class="codenumber">15.2.55<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<details id="ws-sec152-12-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ws-sec152-12-2-1">The average value of a function over a region is given by <span class="process-math">\(\frac{1}{\text{Area of } \c{D}} \iint_\c{D} f(x,y) \, dA\text{.}\)</span> The area of the square domain <span class="process-math">\(\c{D} = [0,1] \times [0,1]\)</span> is simply <span class="process-math">\(1 \cdot 1 = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-12-2-2">
+<div class="para">Now we evaluate the double integral using an iterated integral. Let’s integrate with respect to <span class="process-math">\(y\)</span> first:</div>
+<div class="displaymath process-math" id="ws-sec152-12-2-2-2">
+\begin{align*}
+\iint_\c{D} e^{x+y} \, dA \amp = \int_0^1 \int_0^1 e^{x+y} \, dy \, dx 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-12-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-12-2-3">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(y\)</span> (treating <span class="process-math">\(x\)</span> as a constant):</div>
+<div class="displaymath process-math" id="ws-sec152-12-2-3-3">
+\begin{align*}
+\int_0^1 e^{x+y} \, dy \amp = \Big[ e^{x+y} \Big]_{y=0}^{y=1} \\
+\amp = e^{x+1} - e^{x+0} \\
+\amp = e^{x+1} - e^x 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-12-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-12-2-4">
+<div class="para">Substitute this back into the outer integral and integrate with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-12-2-4-2">
+\begin{align*}
+\int_0^1 (e^{x+1} - e^x) \, dx \amp = \Big[ e^{x+1} - e^x \Big]_0^1 \\
+\amp = (e^{1+1} - e^1) - (e^{0+1} - e^0) \\
+\amp = (e^2 - e) - (e - 1) \\
+\amp = e^2 - 2e + 1 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-12-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ws-sec152-12-2-5">Notice that <span class="process-math">\(e^2 - 2e + 1\)</span> can be factored into a perfect square, <span class="process-math">\((e - 1)^2\text{.}\)</span> Since the area of the region is 1, the average value is exactly <span class="process-math">\((e - 1)^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-12-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.53.1"><a href="#ws-sec152-12-2" title="Copy heading and permalink for Solution 15.2.53.1" aria-label="Copy heading and permalink for Solution 15.2.53.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.53"><a href="#ws-sec152-12" title="Copy heading and permalink for Worksheet Exercise 15.2.53" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.53">🔗</a></div></article><article class="exercise exercise-like" id="ws-sec152-13"><h4 class="heading"><span class="codenumber">15.2.55<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="ws-sec152-13-1">Find the average height of the "ceiling" in the figure below defined by <span class="process-math">\(z = y^2\sin(x)\)</span> for <span class="process-math">\(0 \leq x \leq \pi\)</span> and <span class="process-math">\(0 \leq y \leq 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-13-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="ws-sec152-13-2"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="external/sec152_HW55_Diagram.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.2.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 15.2.18"><a href="#ws-sec152-13-2" title="Copy heading and permalink for Figure 15.2.18" aria-label="Copy heading and permalink for Figure 15.2.18">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Worksheet Exercise 15.2.55"><a href="#ws-sec152-13" title="Copy heading and permalink for Worksheet Exercise 15.2.55" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.55">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 15.2"><a href="#ws-sec152" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 15.2" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 15.2">🔗</a></div></section>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">15.2.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 15.2.18"><a href="#ws-sec152-13-2" title="Copy heading and permalink for Figure 15.2.18" aria-label="Copy heading and permalink for Figure 15.2.18">🔗</a></div></figcaption></figure><details id="ws-sec152-13-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ws-sec152-13-3-1">
+<div class="para">First, we find the area of the rectangular domain <span class="process-math">\(\c{D} = [0,\pi] \times [0,1]\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-13-3-1-2">
+\begin{gather*}
+\text{Area} = (\pi - 0)(1 - 0) = \pi 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-13-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-13-3-2">
+<div class="para">Next, we evaluate the double integral of the height function <span class="process-math">\(z = y^2\sin(x)\)</span> over this domain. Let’s set it up to integrate with respect to <span class="process-math">\(y\)</span> first:</div>
+<div class="displaymath process-math" id="ws-sec152-13-3-2-3">
+\begin{align*}
+\iint_\c{D} y^2\sin(x) \, dA \amp = \int_0^\pi \int_0^1 y^2\sin(x) \, dy \, dx 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-13-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-13-3-3">
+<div class="para">Evaluate the inner integral with respect to <span class="process-math">\(y\)</span> (treating <span class="process-math">\(x\)</span> as a constant):</div>
+<div class="displaymath process-math" id="ws-sec152-13-3-3-3">
+\begin{align*}
+\int_0^1 y^2\sin(x) \, dy \amp = \left[ \frac{1}{3}y^3\sin(x) \right]_{y=0}^{y=1} \\
+\amp = \frac{1}{3}(1)^3\sin(x) - \frac{1}{3}(0)^3\sin(x) \\
+\amp = \frac{1}{3}\sin(x) 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-13-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-13-3-4">
+<div class="para">Substitute this back into the outer integral and integrate with respect to <span class="process-math">\(x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ws-sec152-13-3-4-2">
+\begin{align*}
+\int_0^\pi \frac{1}{3}\sin(x) \, dx \amp = \left[ -\frac{1}{3}\cos(x) \right]_0^\pi \\
+\amp = -\frac{1}{3}\cos(\pi) - \left(-\frac{1}{3}\cos(0)\right) \\
+\amp = -\frac{1}{3}(-1) + \frac{1}{3}(1) \\
+\amp = \frac{1}{3} + \frac{1}{3} = \frac{2}{3} 
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-13-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ws-sec152-13-3-5">
+<div class="para">The total volume under the ceiling is <span class="process-math">\(\frac{2}{3}\text{.}\)</span> Finally, divide the volume by the area to find the average height:</div>
+<div class="displaymath process-math" id="ws-sec152-13-3-5-2">
+\begin{gather*}
+\text{Average height} = \frac{\text{Volume}}{\text{Area}} = \frac{2/3}{\pi} = \frac{2}{3\pi} 
+\end{gather*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ws-sec152-13-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 15.2.55.1"><a href="#ws-sec152-13-3" title="Copy heading and permalink for Solution 15.2.55.1" aria-label="Copy heading and permalink for Solution 15.2.55.1">🔗</a></div>
+</div></details><div class="autopermalink" data-description="Worksheet Exercise 15.2.55"><a href="#ws-sec152-13" title="Copy heading and permalink for Worksheet Exercise 15.2.55" aria-label="Copy heading and permalink for Worksheet Exercise 15.2.55">🔗</a></div></article><div class="autopermalink" data-description="Worksheet: Assigned Problems for Section 15.2"><a href="#ws-sec152" title="Copy heading and permalink for Worksheet: Assigned Problems for Section 15.2" aria-label="Copy heading and permalink for Worksheet: Assigned Problems for Section 15.2">🔗</a></div></section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec152-DoubleIntegrals.html#subsec-AverageValueDoubleIntegrals" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec153-tripleIntegrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
